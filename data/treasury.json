@@ -1,0 +1,18 @@
+[
+  {
+    "token": "LUNA",
+    "percentage": 10,
+    "balance": 34,
+    "total_value": 10000
+  }, {
+    "token": "Wrapped BTC",
+    "percentage": 33,
+    "balance": 34,
+    "total_value": 33000
+  }, {
+    "token": "CLIMATE",
+    "percentage": 57,
+    "balance": 5461,
+    "total_value": 57000
+  }
+]

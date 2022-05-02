@@ -1,0 +1,54 @@
+[
+  {
+    "companyName": "Tesla",
+    "createdAt": "2022-04-07T02:12:42.492Z",
+    "deadline": "2022-04-15T03:12:42.492Z",
+    "description": "The new truck coming from tesla aim",
+    "proposalId": "111236209506040138170967222949632535140062565252962516811455964037758680176742",
+    "proposer": "0x592F49F77216f8C2eD42a93d2D493F7d2e656375",
+    "quantity": 11,
+    "symbol": "TSLA",
+    "threadId": 56,
+    "title": "Purchase 11 shares of TSLA",
+    "type": "buy",
+    "votes": {
+      "abstain": 0,
+      "against": 0,
+      "for": 0
+    }
+  }, {
+    "companyName": "Tesla",
+    "createdAt": "2022-04-07T02:12:42.492Z",
+    "deadline": "2022-04-07T03:12:42.492Z",
+    "description": "The new truck coming from tesla aim",
+    "proposalId": "111236209506040138170967222949632535140062565252962516811455964037758680176742",
+    "proposer": "0x592F49F77216f8C2eD42a93d2D493F7d2e656375",
+    "quantity": 11,
+    "symbol": "TSLA",
+    "threadId": 56,
+    "title": "Purchase 11 shares of TSLA",
+    "type": "buy",
+    "votes": {
+      "abstain": 0,
+      "against": 0,
+      "for": 0
+    }
+  }, {
+    "companyName": "Tesla",
+    "createdAt": "2022-04-07T02:12:42.492Z",
+    "deadline": "2022-04-08T03:12:42.492Z",
+    "description": "The new truck coming from tesla aim",
+    "proposalId": "111236209506040138170967222949632535140062565252962516811455964037758680176742",
+    "proposer": "0x592F49F77216f8C2eD42a93d2D493F7d2e656375",
+    "quantity": 11,
+    "symbol": "TSLA",
+    "threadId": 56,
+    "title": "Purchase 11 shares of TSLA",
+    "type": "buy",
+    "votes": {
+      "abstain": 0,
+      "against": 0,
+      "for": 0
+    }
+  }
+]

@@ -1,0 +1,165 @@
+ <Box id="trust" w="100%" mb="128px">
+            <Heading textAlign="center" mb="48px">
+              How We&apos;re Different
+            </Heading>
+            <Flex justifyContent="space-around">
+              <Box>
+                <Flex
+                  bg="white"
+                  borderRadius="8px"
+                  p="32px"
+                  minW="500px"
+                  w="fit-content"
+                  boxShadow="0px 4px 100px 5px rgba(0,0,0,0.1)"
+                  mb="32px"
+                  zIndex={1000}
+                >
+                  <Flex
+                    flexDir="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    fontWeight="bold"
+                    mr="32px"
+                  >
+                    <Text fontSize="32px">AUM</Text>
+                    <Text fontSize="64px" w="175px" textAlign="center">
+                      $1.2 T
+                    </Text>
+                  </Flex>
+                  <Flex flexDirection="column">
+                    <Flex alignItems="center" fontSize="24px">
+                      <Icon
+                        color="seafoam.500"
+                        w="50px"
+                        h="50px"
+                        mr="8px"
+                        as={MdCheck}
+                      />
+                      <Text>Impact-oriented</Text>
+                    </Flex>
+                    <Flex alignItems="center" fontSize="24px">
+                      <Icon
+                        color="seafoam.500"
+                        w="50px"
+                        h="50px"
+                        mr="8px"
+                        as={MdClose}
+                      />
+                      <Text>Impact-oriented</Text>
+                    </Flex>
+                    <Flex alignItems="center" fontSize="24px">
+                      <Icon
+                        color="seafoam.500"
+                        w="50px"
+                        h="50px"
+                        mr="8px"
+                        as={MdClose}
+                      />
+                      <Text>&lt;$100k Buy in</Text>
+                    </Flex>
+                    <Flex alignItems="center" fontSize="24px">
+                      <Icon
+                        color="seafoam.500"
+                        w="50px"
+                        h="50px"
+                        mr="8px"
+                        as={MdClose}
+                      />
+                      <Text>Direct Impact</Text>
+                    </Flex>
+                    <Flex alignItems="center" fontSize="24px">
+                      <Icon
+                        color="seafoam.500"
+                        w="50px"
+                        h="50px"
+                        mr="8px"
+                        as={MdClose}
+                      />
+                      <Text>Participatory</Text>
+                    </Flex>
+                  </Flex>
+                </Flex>
+                <Heading textAlign="center" fontSize="28px">
+                  Existing Sustainable Funds
+                </Heading>
+              </Box>
+              <Box>
+                <Flex
+                  bg="white"
+                  borderRadius="8px"
+                  p="32px"
+                  minW="500px"
+                  w="fit-content"
+                  boxShadow="0px 4px 100px 5px rgba(0,0,0,0.1)"
+                  mb="32px"
+                  zIndex={1000}
+                >
+                  <Flex
+                    flexDir="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    fontWeight="bold"
+                    mr="32px"
+                  >
+                    <Text fontSize="32px">AUM</Text>
+                    <Text fontSize="64px" w="175px" textAlign="center">
+                      ?
+                    </Text>
+                  </Flex>
+                  <Flex flexDirection="column">
+                    <Flex alignItems="center" fontSize="24px">
+                      <Icon
+                        color="seafoam.500"
+                        w="50px"
+                        h="50px"
+                        mr="8px"
+                        as={MdCheck}
+                      />
+                      <Text>Impact-oriented</Text>
+                    </Flex>
+                    <Flex alignItems="center" fontSize="24px">
+                      <Icon
+                        color="seafoam.500"
+                        w="50px"
+                        h="50px"
+                        mr="8px"
+                        as={MdCheck}
+                      />
+                      <Text>Impact-oriented</Text>
+                    </Flex>
+                    <Flex alignItems="center" fontSize="24px">
+                      <Icon
+                        color="seafoam.500"
+                        w="50px"
+                        h="50px"
+                        mr="8px"
+                        as={MdCheck}
+                      />
+                      <Text>&lt;$100k Buy in</Text>
+                    </Flex>
+                    <Flex alignItems="center" fontSize="24px">
+                      <Icon
+                        color="seafoam.500"
+                        w="50px"
+                        h="50px"
+                        mr="8px"
+                        as={MdCheck}
+                      />
+                      <Text>Direct Impact</Text>
+                    </Flex>
+                    <Flex alignItems="center" fontSize="24px">
+                      <Icon
+                        color="seafoam.500"
+                        w="50px"
+                        h="50px"
+                        mr="8px"
+                        as={MdCheck}
+                      />
+                      <Text>Participatory</Text>
+                    </Flex>
+                  </Flex>
+                </Flex>
+                <Image alt='Climate DAO logo' w="300px" m="auto" src="/ClimateDAO Logo.png"></Image>
+              </Box>
+            </Flex>
+          </Box>

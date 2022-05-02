@@ -1,0 +1,24 @@
+[
+  {
+    "address": "0x0d100000000000000001324f000000000000000001",
+    "campaignsSupported": 45
+  }, {
+    "address": "spud.eth",
+    "campaignsSupported": 455
+  }, {
+    "address": "spiro.eth",
+    "campaignsSupported": 4
+  },{
+    "address": "0x0d1000000000000000000000000000003454000001",
+    "campaignsSupported": 1
+  },{
+    "address": "elon.eth",
+    "campaignsSupported": 30
+  },{
+    "address": "0x0d1000000000000000000000000000000000000456",
+    "campaignsSupported": 24
+  },{
+    "address": "0x0d1000000000000000000000000000000000000006",
+    "campaignsSupported": 8
+  }
+]
