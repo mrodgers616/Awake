@@ -36,7 +36,7 @@ export default function WalletConnectBtn(props: ButtonProps) {
       <ButtonGroup isAttached onClick={handleClick}>
         {isConnected && (
           <Badge 
-            disabled 
+            //disabled 
             variant="outline"
             display='flex'
             p='8px 16px'
