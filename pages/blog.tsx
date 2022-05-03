@@ -10,6 +10,7 @@ import {
   Button,
   Icon,
   Image,
+  Link
 } from "@chakra-ui/react";
 import { FiArrowUpRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import tempArticles from "../data/articles.json";
@@ -132,10 +133,12 @@ const Blog: NextPage = () => {
               <Heading fontSize="1.5em" mb="16px" textTransform={"capitalize"}>
                 {article.title}
               </Heading>
-              <Text flexGrow="2">{article.description}</Text>
-              <Button my="8px" borderRadius={"18px"} colorScheme="seafoam">
-                Read on Medium <Icon as={FiArrowUpRight} />
-              </Button>
+              <Link href={article.link} isExternal>
+                <Text flexGrow="2">{article.description}</Text>
+                <Button my="8px" borderRadius={"18px"} colorScheme="seafoam">
+                  Read on Medium <Icon as={FiArrowUpRight} />
+                </Button>
+              </Link>
             </Flex>
           ))}
         </Flex>

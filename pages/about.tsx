@@ -199,10 +199,9 @@ const About: NextPage = () => {
               Mission
             </Heading>
             <Text zIndex={250} fontSize="1.6em">
-              Climate DAO is on a mission to mitigate the causes and symptoms of
-              human-caused climate change, democratize shareholder activism for
-              the &sqout;everyday&sqout; retail investor and increase adoption
-              of blockchain technology for social good
+              ClimateDAO is on a mission to mitigate the causes climate change while 
+              democratizing shareholder activism for the everyday retail investor. 
+              We want better corporate governance, but above all, we want change. 
             </Text>
             <Box
               bg="rgba(0,0,0,.4)"
@@ -230,9 +229,9 @@ const About: NextPage = () => {
               Values
             </Heading>
             <Text fontSize="1.6em" zIndex={250}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-              duis at tellus at urna condimentum mattis pellentesque.
+              We envision a world in which the wisdom of the crowds is used for social good, a world in which companies 
+              are held accountable for their actions. As a community, we will leverage our collective capital, expertise, 
+              and will to move mountains.
             </Text>
             <Box
               bg="rgba(0,0,0,.4)"

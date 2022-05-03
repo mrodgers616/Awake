@@ -220,21 +220,21 @@ export const community = [
 export const Steps = [
   {
     illustration: '/illustrations/Innovation _Two Color 1.png',
-    title: "Step 1: Buy $CLIMATE Tokens",
+    title: "Customize Your Profile",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget duis at tellus at urna condimentum mattis pellentesque.",
+      "Connect your wallet or link your brokerage account so you can start taking action!",
   },
   {
     illustration: "/illustrations/Online campaign_Two Color 1.png",
-    title: "Step 2: Proposal Research",
+    title: "Support Your Favorite Campaigns",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget duis at tellus at urna condimentum mattis pellentesque.",
+      "Support campaigns to get the companies in your portfolio to take climate action.",
   },
   {
     illustration: '/illustrations/Team presentation _Two Color 1.png',
-    title: "Step 3: Proposal Approval / Voting",
+    title: "Get Active, Earn Rewards",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget duis at tellus at urna condimentum mattis pellentesque.",
+      "Earn rewards by supporting campaings, proposing new ones, and referring friends.",
   }
 ];
 
