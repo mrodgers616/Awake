@@ -276,6 +276,25 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
     }
   }
 
+  async function castVote (_support: number): Promise<void> {
+    console.log("cast vote");
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const goveranceContract = new ethers.Contract(
+          libWeb3.CLIMATEDAO_GOVERANCE_ADDRESS,
+          ClimateDAO.abi,
+          signer
+        );
+        await goveranceContract.castVote(state.proposalId, _support);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async function connectWallet() {
     console.log("connect!!!");
     if (state.hasWeb3) {

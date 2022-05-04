@@ -12,6 +12,7 @@ import Link from "./Link";
 import WalletConnectBtn from "./WalletConnectBtn";
 // import WalletModal from "./WalletModal";
 import { useWeb3 } from "../contexts/Web3Context";
+import { useAuth } from "../contexts/AuthContext";
 
 import { useRouter } from "next/router";
 
