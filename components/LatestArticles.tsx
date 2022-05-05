@@ -124,7 +124,7 @@ export default function LatestArticles({
               textTransform={'capitalize'}
             >{article.title}</Heading>
             <Text
-              flexGrow='2'
+              flexGrow={2}
             >{article.description}</Text>
             <Button
               my='8px'

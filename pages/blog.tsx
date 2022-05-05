@@ -119,7 +119,7 @@ const Blog: NextPage = () => {
               p="16px"
               borderRadius="10px"
               mt="32px"
-              flexGrow="2"
+              flexGrow={2}
               color="white"
             >
               <Image
@@ -134,7 +134,7 @@ const Blog: NextPage = () => {
                 {article.title}
               </Heading>
               <Link href={article.link} isExternal>
-                <Text flexGrow="2">{article.description}</Text>
+                <Text flexGrow={2}>{article.description}</Text>
                 <Button my="8px" borderRadius={"18px"} colorScheme="seafoam">
                   Read on Medium <Icon as={FiArrowUpRight} />
                 </Button>
