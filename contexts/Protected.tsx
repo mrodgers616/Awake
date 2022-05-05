@@ -8,13 +8,13 @@ interface Props {
 
 export const Protected = ({ children }: Props) => {
   const router = useRouter();
-  const { user, loggingIn } = useAuth();
+  const { loggingIn, loggedIn } = useAuth();
 
   if (loggingIn) {
     return <div>Loading...</div>;
   }
 
-  if (!user) {
+  if (!loggedIn) {
     router.push('/login');
   }
 

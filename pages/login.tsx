@@ -1,5 +1,5 @@
-import type { NextPage } from "next";
-import { useRouter } from "next/router";
+import type { NextPageWithLayout } from '../lib/types/next';
+
 import Head from "next/head";
 import {
   Container,
@@ -18,44 +18,20 @@ import {
   useToast
 } from "@chakra-ui/react";
 import Link from '../components/Link';
+import Layout from '../components/layout';
+import { useAuth } from "../contexts/AuthContext";
 import { useForm } from "react-hook-form";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  UserCredential,
-} from 'firebase/auth';
-import { FirebaseError } from 'firebase/app';
+import { ReactElement } from "react";
+import { Protected } from '../contexts/Protected';
 
-const Login: NextPage = () => {
-  const router = useRouter();
-  const { register, handleSubmit, watch, formState: { errors }, reset} = useForm();
-  const toast = useToast();
+const Login: NextPageWithLayout = () => {
+  const { register, handleSubmit, formState: { errors }, reset} = useForm();
+  const {
+    login,
+  } = useAuth();
 
   const onSubmit = (data: any) => {
-    const authentication = getAuth();
-    signInWithEmailAndPassword(authentication, data.email, data.password)
-      .then((response: UserCredential) => {
-        if (window.sessionStorage) {
-          toast({
-            title: "Login Successful",
-            description: "You have successfully logged in.",
-            status: "success",
-            duration: 9000,
-            isClosable: true,
-          });
-          window.sessionStorage.setItem("Auth Token", response.user.refreshToken);
-          router.push('/');
-        }
-      }).catch((error: FirebaseError) => {
-        toast({
-          title: "Error",
-          description: error.message,
-          status: "error",
-          duration: 9000,
-          isClosable: true,
-        });
-        reset();
-      });
+    login(data);
   };
 
 

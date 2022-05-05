@@ -1,9 +1,11 @@
 import React from "react";
 import {
-  chakra,
   IconButton,
-  Image,
   Container,
+  chakra,
+  Button,
+  Image,
+  Text,
   Flex,
   Icon,
 } from "@chakra-ui/react";
@@ -20,6 +22,7 @@ export default function Navbar(): JSX.Element {
   const router = useRouter();
 
   const { web3Errors } = useWeb3();
+  const { logout, loggedIn } = useAuth();
 
   const LinkProps = {
     mx: '32px',
@@ -37,6 +40,28 @@ export default function Navbar(): JSX.Element {
       mr: '64px'
     }
   };
+
+
+
+  const Auth = () => (loggedIn ? (
+    <chakra.div>
+      {web3Errors && (<IconButton
+        aria-label="Check Notifications"
+        icon={<Icon as={FiBell} w={5} h={5} />}
+        p={0}
+        mr="8px"
+        size="lg"
+        bg="none"
+      />) }
+      <WalletConnectBtn />
+      <Button onClick={logout}>Logout</Button>
+    </chakra.div>
+  ) : (
+    <chakra.div>
+      <Button onClick={() => router.push("/login")}>Login</Button>
+      <Button onClick={() => router.push("/register")}>Register</Button>
+    </chakra.div>
+  ))
 
   return (
     <chakra.nav
@@ -75,15 +100,7 @@ export default function Navbar(): JSX.Element {
             >
               About
             </Link>
-            {/* <Link
-              href="https://uniswap.org"
-              target="_blank"
-              {...LinkProps}
-              className={router.pathname === "/buy-earth" ? "active" : ""}
-            >
-              Purchase CLIMATE 
-            </Link> */}
-            <Link
+            { loggedIn && (<><Link
               href="/campaigns"
               {...LinkProps}
               className={router.pathname === "/dao" ? "active" : ""}
@@ -96,47 +113,8 @@ export default function Navbar(): JSX.Element {
               className={router.pathname === "/dao" ? "active" : ""}
             >
               Blog
-            </Link>
-            {/* <Link
-              href="/leaderboard"
-              {...LinkProps}
-              className={router.pathname === "/leaderboard" ? "active" : ""}
-            >
-              Leaderboard
-            </Link>
-            <Link
-              href="https://forum.bankless.community/"
-              target="_blank"
-              {...LinkProps}
-              className={router.pathname === "/forum" ? "active" : ""}
-            >
-              Forum
-            </Link>
-            <Link
-              href="/about"
-              {...LinkProps}
-              className={router.pathname === "/about" ? "active" : ""}
-            >
-              About
-            </Link> */}
-            {/* <Link
-              href="/delegate"
-              {...LinkProps}
-              className={router.pathname === "/delegate" ? "active" : ""}
-            >
-              Share Delegation
-            </Link> */}
-            <chakra.div>
-              {web3Errors && (<IconButton
-                aria-label="Check Notifications"
-                icon={<Icon as={FiBell} w={5} h={5} />}
-                p={0}
-                mr="8px"
-                size="lg"
-                bg="none"
-              />) }
-              <WalletConnectBtn />
-            </chakra.div>
+            </Link></>)}
+            <Auth />
           </chakra.div>
         </Flex>
       </Container>

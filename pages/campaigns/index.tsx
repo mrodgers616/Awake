@@ -25,6 +25,7 @@ import { useState, useEffect, useMemo } from "react";
 import ProposalCard from "../../components/ProposalCard";
 import LatestArticles from "../../components/LatestArticles";
 import LeaderboardTable from "../../components/LeaderboardTable";
+import { Protected } from "../../contexts/Protected";
 import { useWeb3 } from "../../contexts/Web3Context";
 import firebase from "../../lib/firebase";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
@@ -32,13 +33,14 @@ import { Timestamp } from "firebase/firestore";
 import supporters from '../../data/supporters.json';
 import articles from '../../data/articles.json';
 import axios from "axios";
+import { NextPageWithLayout } from "../../lib/types/next";
 
 type Props = {
   campaigns: any;
   treasury: any;
 };
 
-const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
+const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => {
   /**
    * display the form to create proposals.
    */
@@ -171,7 +173,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
   }, [currentPage, pageSize, offset]);
 
   return (
-    <>
+    <Protected>
       <Head>
         <title>Climate DAO | Proposals</title>
       </Head>
@@ -370,7 +372,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
           </Box>
         </Container>
       </Box>
-    </>
+    </Protected>
   );
 };
 

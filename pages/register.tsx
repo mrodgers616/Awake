@@ -4,7 +4,6 @@ import Head from "next/head";
 import {
   Container,
   Heading,
-  Text,
   FormControl,
   Input,
   FormLabel,
@@ -12,54 +11,24 @@ import {
   Box,
   chakra,
   Button,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
-import Link from '../components/Link';
-import { SubmitHandler, useForm } from "react-hook-form";
+import Link from "../components/Link";
+import { useForm } from "react-hook-form";
+import { useAuth } from "../contexts/AuthContext";
 
-import { 
-  getAuth,
-  createUserWithEmailAndPassword, 
-  UserCredential
-} from 'firebase/auth';
-import { FirebaseError } from "firebase/app";
-
-type RegisterInputs = {
-  email: string;
-  password: string;
-}
 
 const Register: NextPage = () => {
   const router = useRouter();
-  const { register, handleSubmit, watch, formState: { errors }, reset} = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const toast = useToast();
+  const { register: userRegister } = useAuth();
 
-  const onSubmit = (data: any) => {
-    const authentication = getAuth();
-    createUserWithEmailAndPassword(authentication, data.email, data.password).then((response: UserCredential) => {
-      console.log(response);
-      if (window.sessionStorage) {
-        toast({
-          title: "Registration Successful",
-          description: "You have successfully registered. Please login to continue.",
-          status: "success",
-          duration: 9000,
-          isClosable: true,
-        });
-        window.sessionStorage.setItem("Auth Token", response.user.refreshToken);
-        router.push('/login');
-      }
-    }).catch((error: FirebaseError) => {
-      toast({
-        title: "Error",
-        description: error.message,
-        status: "error",
-        duration: 9000,
-        isClosable: true,
-      });
-      reset();
-    });
-  };
+  const onSubmit = (data: any) => userRegister(data);
 
   return (
     <>
@@ -67,48 +36,47 @@ const Register: NextPage = () => {
         <title>Climate DAO | Register</title>
       </Head>
       <Box>
-        <Container width="100%" h="600px" overflow="auto" marginX="auto" mt='120px'>
+        <Container
+          width="100%"
+          h="600px"
+          overflow="auto"
+          marginX="auto"
+          mt="120px"
+        >
           <Box>
-            <Heading>
-              Register:
-            </Heading>
+            <Heading>Register:</Heading>
             <chakra.form onSubmit={handleSubmit(onSubmit)}>
-              <FormLabel htmlFor="email">
-                Email:
-              </FormLabel>
+              <FormLabel htmlFor="email">Email:</FormLabel>
               <FormControl isInvalid={errors.email}>
                 <Input
-                  id='email'
-                  type='email'
-                  {...register('email', {
-                    required: 'Please enter your email',
+                  id="email"
+                  type="email"
+                  {...register("email", {
+                    required: "Please enter your email",
                   })}
-                  />
-                  <FormErrorMessage>
-                    {errors.email && errors.email.message }
-                  </FormErrorMessage>
+                />
+                <FormErrorMessage>
+                  {errors.email && errors.email.message}
+                </FormErrorMessage>
               </FormControl>
               <FormControl isInvalid={errors.password}>
-                <FormLabel htmlFor="password">
-                  Password:
-                </FormLabel>
+                <FormLabel htmlFor="password">Password:</FormLabel>
                 <Input
-                  id='password'
-                  type='password'
-                  {...register('password', {
-                    required: 'Please enter your password',
+                  id="password"
+                  type="password"
+                  {...register("password", {
+                    required: "Please enter your password",
                   })}
-                  />
-                  <FormErrorMessage>
-                    {errors.password && errors.password.message }
-                  </FormErrorMessage>
+                />
+                <FormErrorMessage>
+                  {errors.password && errors.password.message}
+                </FormErrorMessage>
               </FormControl>
-              <Button
-                type="submit"
-                bg='seafoam.500'
-              >Register</Button>
+              <Button type="submit" bg="seafoam.500">
+                Register
+              </Button>
             </chakra.form>
-            <Link href='/login'>Already Registered?</Link>
+            <Link href="/login">Already Registered?</Link>
           </Box>
         </Container>
       </Box>
