@@ -302,8 +302,29 @@ export default function Proposal({
           my="64px"
           images={images}
         />
+        /* Adding the about campaign content on the left*/
         <Flex mt="64px" w="100%">
           <Flex mb="64px" flexDir={"column"} w="55%" mr="32px">
+            <Box mb="32px">
+              <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
+                About Campaign
+              </Heading>
+              <Box
+                title="company graph"
+                w="100%"
+                bg="grey"
+                h="430px"
+                borderRadius="16px"
+                mb="8px"
+              ></Box>
+              <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
+                duis at tellus at urna condimentum mattis pellentesque. In nisl
+                nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
+              </Text>
+            </Box>
+
             <Box>
               <Flex justifyContent="space-between">
                 <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
