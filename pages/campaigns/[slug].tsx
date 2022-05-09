@@ -38,6 +38,8 @@ import { useWeb3 } from "../../contexts/Web3Context";
 import copy from "copy-to-clipboard";
 import { lighten } from "@chakra-ui/theme-tools";
 
+
+
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
   "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -153,7 +155,7 @@ export default function Proposal({
         zIndex={0}
       >
         <Box
-          bg="rgba(0,0,0,.4)"
+          bg="rgba(0,0,0,.8)"
           position="absolute"
           w="100%"
           h="100%"
@@ -179,6 +181,7 @@ export default function Proposal({
                 bg="blue.500"
                 mr="16px"
                 borderRadius="32px"
+                marginBottom={3}
               >
                 {currentState ?? "Pending"}
               </Badge>
@@ -189,8 +192,9 @@ export default function Proposal({
                 color="white"
                 bg="seafoam.500"
                 borderRadius="32px"
+                marginBottom={3}
               >
-                Logistics
+                Say on Climate
               </Badge>
             </Flex>
             <Heading color="white" w="100%">
@@ -219,9 +223,9 @@ export default function Proposal({
           >
             <Box color="white" p="16px 24px">
               <Heading textAlign={"center"} fontSize="48px" color="seafoam.500">
-                $13,498
+                13,498
               </Heading>
-              <Text fontWeight={400} fontSize="14px">
+              <Text fontWeight={500} fontSize="24px">
                 Shares commited to Campaign
               </Text>
             </Box>
@@ -229,7 +233,7 @@ export default function Proposal({
               <Heading textAlign={"center"} fontSize="48px" color="seafoam.500">
                 50M
               </Heading>
-              <Text fontWeight={400} fontSize="14px">
+              <Text fontWeight={500} fontSize="24px">
                 Campaign Supporters
               </Text>
             </Box>
@@ -253,16 +257,18 @@ export default function Proposal({
               <Button
                 bg="seafoam.500"
                 color="white"
-                fontSize="1.1em"
+                fontSize="1.4em"
                 w="350px"
                 mr="16px"
                 h="64px"
-                disabled={!hasEnoughBalance}
-                textDecoration="none"
-                _hover={{
-                  textDecoration: "none",
-                  bg: lighten("seafoam.500", 0.8),
-                }}
+                // enabling users to support the campaign if they have enough balance
+                    // change made in the "testing waters" commit
+                // disabled={!hasEnoughBalance}
+                // textDecoration="none"
+                // _hover={{
+                //   textDecoration: "none",
+                //   bg: lighten("seafoam.500", 0.8),
+                // }}
                 onClick={() => onVoteModalOpen()}
               >
                 Support Campaign
