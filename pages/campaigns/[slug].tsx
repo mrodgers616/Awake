@@ -302,7 +302,7 @@ export default function Proposal({
           my="64px"
           images={images}
         />
-        /* Adding the about campaign content on the left*/
+{/*Adding the about campaign content on the left*/}  
         <Flex mt="64px" w="100%">
           <Flex mb="64px" flexDir={"column"} w="55%" mr="32px">
             <Box mb="32px">
@@ -352,6 +352,7 @@ export default function Proposal({
                 flexDir={"column"}
                 overflow="hidden"
                 textDecoration="none !important"
+                marginBottom={16}
                 _hover={{
                   "& .join-discussion": {
                     transition: "opacity 0.2s ease-in-out",
@@ -413,9 +414,9 @@ export default function Proposal({
                   })}
               </Flex>
             </Box>
-          </Flex>
-          <Flex mb="63px" flexDir={"column"} w="45%">
-            <Box mb="32px">
+            
+{/* adding the stock information to the bottom */}
+        <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 Company Information
               </Heading>
@@ -457,6 +458,9 @@ export default function Proposal({
                 nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
               </Text>
             </Box>
+
+          </Flex>
+          <Flex mb="63px" flexDir={"column"} w="45%">
             <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 About Campaign
@@ -470,7 +474,7 @@ export default function Proposal({
                 mb="8px"
               ></Box>
               <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                Lorm ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
                 duis at tellus at urna condimentum mattis pellentesque. In nisl
                 nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
