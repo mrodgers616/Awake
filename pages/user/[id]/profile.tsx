@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { NextPage, GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import {
   Container,
@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import ProfileInfo from '../../../components/profile/ProfileInfo';
 
-const Profile: NextPage<{ profileImage: string }> = ({ profileImage }) => {
+const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage, id }) => {
 
   const ProfileImageStyles = {
     width: "250px",
@@ -54,7 +54,7 @@ const Profile: NextPage<{ profileImage: string }> = ({ profileImage }) => {
               linkedin: 'climateer',
             }
           }}/>
-          <Text position='absolute' top='32px' right='32px'>Member since Feb 2022</Text>
+          <Text position='absolute' top='32px' right='32px'>Member since Feb 2022 { id }</Text>
         </Box>
         <Box
           bg='#fff'
@@ -84,14 +84,16 @@ const Profile: NextPage<{ profileImage: string }> = ({ profileImage }) => {
   );
 };
 
-export async function getServerSideProps({ req, res }) {
+export async function getServerSideProps({ req, res, params }: GetServerSidePropsContext) {
   res.setHeader(
     "Cache-Control",
     'public, s-maxage=15, stale-while-revalidate=59'
   )
 
   return {
-    props: {},
+    props: {
+      id: params?.id ?? '',
+    },
   }
 }
 
