@@ -3,15 +3,12 @@ import Head from "next/head";
 import {
   Container,
   Heading,
-  Box,
-  Button,
   Image,
-  Link,
   Text,
-  Icon,
   Flex,
+  Box,
 } from "@chakra-ui/react";
-import { FaArrowRight } from "react-icons/fa";
+import ProfileInfo from '../../../components/profile/ProfileInfo';
 
 const Profile: NextPage<{ profileImage: string }> = ({ profileImage }) => {
 
@@ -22,11 +19,11 @@ const Profile: NextPage<{ profileImage: string }> = ({ profileImage }) => {
     border: '8px solid',
     borderColor: 'white',
     bg: 'grey',
-    top: 'calc(-250px / 3)',
-    left: '64px'
+    mt: 'calc(-250px / 2.5)',
+    ml: '32px',
   }
 
-  const ProfileImage = () => profileImage ? (<Image { ...ProfileImageStyles } position='absolute'/>) : (<Box {...ProfileImageStyles} position='absolute' />)
+  const ProfileImage = () => profileImage ? (<Image { ...ProfileImageStyles } />) : (<Box {...ProfileImageStyles}/>)
 
   return (
     <>
@@ -46,7 +43,18 @@ const Profile: NextPage<{ profileImage: string }> = ({ profileImage }) => {
           position={'relative'}
         >
           <ProfileImage />
-          <ProfileInfo />
+          <ProfileInfo profile={{
+            name: 'John Doe',
+            username: 'johndoe',
+            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod, nunc eget pretium aliquet, nisi nunc ultricies nisi, euismod euismod nunc nunc euismod nunc.',
+            social: {
+              email: 'email@example.com',
+              twitter: '@climateer',
+              facebook: 'climateer',
+              linkedin: 'climateer',
+            }
+          }}/>
+          <Text position='absolute' top='32px' right='32px'>Member since Feb 2022</Text>
         </Box>
         <Box
           bg='#fff'
@@ -54,6 +62,19 @@ const Profile: NextPage<{ profileImage: string }> = ({ profileImage }) => {
           borderRadius='10px'
           mb='32px'
         >
+          <Box>
+            <Heading>Badges</Heading>
+            <Flex>
+              <Box w='150px' h='150px' bg='gray' borderRadius={100} m='16px'/>
+              <Box w='150px' h='150px' bg='gray' borderRadius={100} m='16px'/>
+            </Flex>
+          </Box>
+          <Box>
+            <Heading>Proposals</Heading>
+          </Box>
+          <Box>
+            <Heading>Activity</Heading>
+          </Box>
           {/* <ProfileBadges />
           <ProfileProposals />
           <ProfileActivity /> */}
@@ -62,5 +83,16 @@ const Profile: NextPage<{ profileImage: string }> = ({ profileImage }) => {
     </>
   );
 };
+
+export async function getServerSideProps({ req, res }) {
+  res.setHeader(
+    "Cache-Control",
+    'public, s-maxage=15, stale-while-revalidate=59'
+  )
+
+  return {
+    props: {},
+  }
+}
 
 export default Profile;
