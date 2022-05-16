@@ -22,7 +22,7 @@ export default async function handler(
           return res.status(422).json(response.data);
         } else {
           return res.status(400).send({
-            error: 'There was an getting access token.',
+            error: 'There was an error connecting to Plaid.',
           });
         }
       default:
