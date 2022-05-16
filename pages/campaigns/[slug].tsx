@@ -144,7 +144,7 @@ export default function Proposal({
   return (
     <>
       <Head>
-        <title>Proposal {campaign?.id} | Climate DAO</title>
+        <title>Proposal {campaign?.id} | ClimateDAO</title>
       </Head>
       <Box
         bg="sage.500"
@@ -177,7 +177,7 @@ export default function Proposal({
                 title="Status"
                 p="8px 48px"
                 fontSize="16px"
-                color="white"
+                color="black"
                 bg="blue.500"
                 mr="16px"
                 borderRadius="32px"
@@ -189,7 +189,7 @@ export default function Proposal({
                 title="Category"
                 p="8px 48px"
                 fontSize="16px"
-                color="white"
+                color="black"
                 bg="seafoam.500"
                 borderRadius="32px"
                 marginBottom={3}
@@ -244,7 +244,8 @@ export default function Proposal({
             justifyContent="center"
             alignItems="center"
           >
-            <Tooltip
+{/* -------Disabled Tooltip---------------------- */}
+            {/* <Tooltip
               hasArrow
               isDisabled={hasEnoughBalance || !isConnected}
               label={
@@ -253,7 +254,7 @@ export default function Proposal({
                   : "You do not have enough CLIMATE to vote"
               }
               shouldWrapChildren
-            >
+            > */}
               <Button
                 bg="seafoam.500"
                 color="white"
@@ -273,7 +274,7 @@ export default function Proposal({
               >
                 Support Campaign
               </Button>
-            </Tooltip>
+            {/* </Tooltip> */}
             <CastVoteModal
               isOpen={voteModalIsOpen}
               onClose={onVoteModalClose}
@@ -294,14 +295,15 @@ export default function Proposal({
             </Button> */}
           </Flex>
         </Flex>
-        <CampaignCarousel
+{/* -------------Deleting camapaing Carousel-------------------- */}
+        {/* <CampaignCarousel
           w="100%"
           h="400px"
           justifyContent={"space-between"}
           alignItems={"center"}
           my="64px"
           images={images}
-        />
+        /> */}
 {/*Adding the about campaign content on the left*/}  
         <Flex mt="64px" w="100%">
           <Flex mb="64px" flexDir={"column"} w="55%" mr="32px">
@@ -480,7 +482,8 @@ export default function Proposal({
                 nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
               </Text>
             </Box>
-            <Box>
+{/* ----Deleting the team section------------------------------- */}            
+            {/* <Box>
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 team
               </Heading>
@@ -525,7 +528,7 @@ export default function Proposal({
                   </Box>
                 </Flex>
               </Flex>
-            </Box>
+            </Box> */}
             <Box>
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 share
