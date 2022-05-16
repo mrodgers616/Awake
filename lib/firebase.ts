@@ -10,12 +10,25 @@ import {
   DocumentSnapshot,
   updateDoc,
 } from "firebase/firestore";
+import {
+  getStorage,
+  ref,
+  uploadBytes
+} from "firebase/storage";
 
-const app = initializeApp({
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-});
+let app
+try {
+  app = initializeApp({
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+  });
+} catch (err) {
+  if(!/alreay exists/.test(err.message)) {
+    console.error('Firebase initialization error', err.stack);
+  }
+}
 
 const db = getFirestore(app);
 
@@ -55,6 +68,17 @@ async function updateProposalInStore (storeId: string, newData: Record<string, a
   }
 }
 
+async function addImageToStorage (file: any): Promise<any> {
+  try {
+    const storage = getStorage();
+    const storageRef = ref(storage, '/');
+    const id = await uploadBytes(storageRef, file);
+    console.log(id);
+  } catch (error: any) {
+    console.error(error.message);
+  }
+}
+
 type Firebase = {
   app: typeof app;
   onChainProposals: typeof onChainProposals;
@@ -62,6 +86,7 @@ type Firebase = {
   addProposalToStore: (proposal: any) => Promise<DocumentReference<any> | undefined>;
   updateProposalInStore: (storeId: string, newData: Record<string, any>) => Promise<any>;
   fetchProposalFromStore: (proposalId: string) => Promise<DocumentSnapshot | undefined>;
+  addImageToStorage: (file: any) => Promise<any>;
 }
 
 const firebase: Firebase = {
@@ -70,7 +95,8 @@ const firebase: Firebase = {
   getAllProposals,
   addProposalToStore,
   updateProposalInStore,
-  fetchProposalFromStore 
+  fetchProposalFromStore,
+  addImageToStorage
 };
 
 export default firebase;
