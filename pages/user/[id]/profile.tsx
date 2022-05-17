@@ -3,12 +3,14 @@ import Head from "next/head";
 import {
   Container,
   Heading,
+  Button,
   Image,
   Text,
   Flex,
   Box,
 } from "@chakra-ui/react";
 import ProfileInfo from '../../../components/profile/ProfileInfo';
+import Link from "../../../components/Link";
 
 const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage, id }) => {
 
@@ -42,6 +44,7 @@ const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage,
           mb='32px'
           position={'relative'}
         >
+          <Button as={Link} href={`/user/${id}/edit`}>Edit</Button>
           <ProfileImage />
           <ProfileInfo profile={{
             name: 'John Doe',

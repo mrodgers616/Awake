@@ -68,12 +68,22 @@ async function updateProposalInStore (storeId: string, newData: Record<string, a
   }
 }
 
+async function getProfileData (userId: string): Promise<any> {
+  try {
+    const ref = doc(getFirestore(), 'users', userId);
+    return await getDoc(ref);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
 async function addImageToStorage (file: any): Promise<any> {
   try {
+    if (!file) return;
     const storage = getStorage();
-    const storageRef = ref(storage, '/');
+    const storageRef = ref(storage, `images/${file.name}`);
     const id = await uploadBytes(storageRef, file);
-    console.log(id);
+    return id.metadata;
   } catch (error: any) {
     console.error(error.message);
   }
@@ -87,6 +97,7 @@ type Firebase = {
   updateProposalInStore: (storeId: string, newData: Record<string, any>) => Promise<any>;
   fetchProposalFromStore: (proposalId: string) => Promise<DocumentSnapshot | undefined>;
   addImageToStorage: (file: any) => Promise<any>;
+  getProfileData: (userId: string) => Promise<any>;
 }
 
 const firebase: Firebase = {
@@ -96,7 +107,8 @@ const firebase: Firebase = {
   addProposalToStore,
   updateProposalInStore,
   fetchProposalFromStore,
-  addImageToStorage
+  addImageToStorage,
+  getProfileData
 };
 
 export default firebase;

@@ -83,11 +83,16 @@ export default function ProfileEditForm({ profileImage }: any): JSX.Element {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      console.log(data);
-      const pfp = await firebase.addImageToStorage(data.profileImage[0]);
-      console.log(pfp);
-      const bgp = await firebase.addImageToStorage(data.backgroundImage[0]);
-      console.log(bgp);
+      let pfp;
+      let bgp;
+      if (data.profileImage) {
+        pfp = await firebase.addImageToStorage(data.profileImage[0]);
+        data.profileImage = pfp.fullPath;
+      }
+      if (data.backgroundImage) {
+        bgp = await firebase.addImageToStorage(data.backgroundImage[0]);
+        data.backgroundImage = bgp.fullPath;
+      }
     } catch (err) {
       console.error('there was an error uploading the image', err.stack);
     }

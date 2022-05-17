@@ -70,3 +70,25 @@ const ProfileEdit: NextPage<{ pfp: string }> = ({ pfp }) => {
 };
 
 export default ProfileEdit;
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const { req } = context;
+
+  let auth = true;
+  let id;
+
+  if (!auth) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      }
+    }
+  }
+
+  return {
+    props: {
+      message: 'hello',
+    }
+  }
+}
