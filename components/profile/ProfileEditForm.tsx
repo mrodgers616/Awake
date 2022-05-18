@@ -116,7 +116,7 @@ export default function ProfileEditForm({ id }: any): JSX.Element {
             <Box position="relative">
               <ProfileImage />
               <CustomFileInput name='profileImage' register={register} handler={onProfileImageChange}/>
-              { errors.profileImage && <FormErrorMessage>{errors.profileImage}</FormErrorMessage>}
+              { errors.profileImage && <FormErrorMessage>{errors.profileImage.message}</FormErrorMessage>}
             </Box>
           </Flex>
         </Flex>
@@ -126,7 +126,7 @@ export default function ProfileEditForm({ id }: any): JSX.Element {
             <Text>
               Upload a PNG or JPG file with resolution recommendation of 1400px x 400px
             </Text>
-            { errors.backgroundImage && <FormErrorMessage>{errors.backgroundImage}</FormErrorMessage>}
+            { errors.backgroundImage && <FormErrorMessage>{errors.backgroundImage.message}</FormErrorMessage>}
           </Flex>
           <Flex justifyContent={"center"} flexGrow={2}>
             <Box position="relative">
