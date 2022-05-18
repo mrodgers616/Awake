@@ -1,5 +1,5 @@
-import type { NextPage } from "next";
-import React from 'react';
+import type { NextPage, GetServerSidePropsContext } from "next";
+import React, { useState } from 'react';
 import Head from "next/head";
 import {
   Container,
@@ -14,9 +14,9 @@ import {
 } from "@chakra-ui/react";
 import ProfileEditForm from "../../../components/profile/ProfileEditForm";
 
-const ProfileEdit: NextPage<{ pfp: string }> = ({ pfp }) => {
-  const [profileImage, setProfileImage] = React.useState(pfp);
-  const [bgImage, setBgImage] = React.useState(profileImage);
+const ProfileEdit: NextPage<any> = ({ pfp, bgp, id, message }) => {
+  const [profileImage, setProfileImage] = useState(pfp);
+  const [bgImage, setBgImage] = useState(bgp);
 
   const ProfileImageStyles = {
     width: "250px",
@@ -53,7 +53,7 @@ const ProfileEdit: NextPage<{ pfp: string }> = ({ pfp }) => {
               </TabList>
               <TabPanels>
                 <TabPanel>
-                  <ProfileEditForm />
+                  <ProfileEditForm id={id}/>
                 </TabPanel>
                 <TabPanel>
                   <Text>Notifications</Text>
@@ -73,9 +73,9 @@ export default ProfileEdit;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { req } = context;
+  const { id } = context.query;
 
   let auth = true;
-  let id;
 
   if (!auth) {
     return {
@@ -89,6 +89,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   return {
     props: {
       message: 'hello',
+      id
     }
   }
 }

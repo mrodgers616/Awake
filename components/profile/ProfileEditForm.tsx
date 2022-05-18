@@ -18,21 +18,21 @@ import CustomFileInput from "../CustomFileInput";
 import * as yup from "yup";
 import firebase from "../../lib/firebase";
 
-export default function ProfileEditForm({ profileImage }: any): JSX.Element {
+export default function ProfileEditForm({ id }: any): JSX.Element {
   const [profileImageUrl, setProfileImageUrl] = useState('');
   const [bgImageUrl, setBgImageUrl] = useState('');
-  const [username, setUsername] = useState('');
-  const [linkedin, setLinkedin] = useState('');
-  const [facebook, setFacebook] = useState('');
-  const [twitter, setTwitter] = useState('');
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [bio, setBio] = useState('');
+  // const [username, setUsername] = useState('');
+  // const [linkedin, setLinkedin] = useState('');
+  // const [facebook, setFacebook] = useState('');
+  // const [twitter, setTwitter] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [name, setName] = useState('');
+  // const [bio, setBio] = useState('');
 
   type Inputs = {
     name: string,
     username: string,
-    linkedin: string,
+    linkedIn: string,
     facebook: string,
     twitter: string,
     email: string,
@@ -68,15 +68,13 @@ export default function ProfileEditForm({ profileImage }: any): JSX.Element {
   const ProfileBackground = () => bgImageUrl ? (<Image src={bgImageUrl} {...ProfileBackgroundStyles} objectFit='cover'/> ) : (<Box {...ProfileBackgroundStyles} />);
 
   const onProfileImageChange = (e: ChangeEvent) => {
-    console.log(e);
-    const [file] = e.target.files;
+    const [file] = (e.target as any).files;
     const src = URL.createObjectURL(file);
     setProfileImageUrl(src);
   }
 
   const onBgImageChange = (e: ChangeEvent) => {
-    console.log(e);
-    const [file] = e.target.files;
+    const [file] = (e.target as any).files;
     const src = URL.createObjectURL(file);
     setBgImageUrl(src);
   }
@@ -85,16 +83,21 @@ export default function ProfileEditForm({ profileImage }: any): JSX.Element {
     try {
       let pfp;
       let bgp;
-      if (data.profileImage) {
+      if (data.profileImage.length) {
         pfp = await firebase.addImageToStorage(data.profileImage[0]);
         data.profileImage = pfp.fullPath;
+      } else {
+        data.profileImage = '';
       }
-      if (data.backgroundImage) {
+      if (data.backgroundImage.length) {
         bgp = await firebase.addImageToStorage(data.backgroundImage[0]);
         data.backgroundImage = bgp.fullPath;
+      } else {
+        data.backgroundImage = '';
       }
+      const result = await firebase.updateOrAddProfileData(id, data);
     } catch (err) {
-      console.error('there was an error uploading the image', err.stack);
+      console.error('there was an error uploading the image', (err as Error).stack);
     }
   };
 
@@ -196,7 +199,7 @@ export default function ProfileEditForm({ profileImage }: any): JSX.Element {
         </Flex>
         <Flex justifyContent={"center"}>
           <Button bg='transparent' border='2px solid' borderColor='#EFEFEF' mr='16px'>Cancel</Button>
-          <Button bg='sage.500' color='white' type='submit'>Save Changes</Button>
+          <Button bg='sage.500' color='white' type='submit' loadingText="loading" isLoading={isSubmitting}>Save Changes</Button>
         </Flex>
       </chakra.form>
     </>
