@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { FirebaseError, initializeApp } from "firebase/app";
 import {
   doc,
   getFirestore,
@@ -10,16 +10,30 @@ import {
   DocumentSnapshot,
   updateDoc,
 } from "firebase/firestore";
+import {
+  getStorage,
+  ref,
+  uploadBytes
+} from "firebase/storage";
 
-const app = initializeApp({
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-});
+let app
+try {
+  app = initializeApp({
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+  });
+} catch (err) {
+  if(!/alreay exists/.test((err as FirebaseError).message)) {
+    console.error('Firebase initialization error', (err as FirebaseError).stack);
+  }
+}
 
 const db = getFirestore(app);
 
 const onChainProposals = collection(db, "proposals");
+const users = collection(db, 'users');
 
 async function getAllProposals(): Promise<any> {
   try {
@@ -39,8 +53,8 @@ async function addProposalToStore (proposal: any): Promise<DocumentReference<any
 
 async function fetchProposalFromStore (id: string): Promise<DocumentSnapshot | undefined> {
   try {
-    const ref = doc(getFirestore(), `proposals`, id);
-    return await getDoc(ref);
+    const proposalRef = doc(getFirestore(), `proposals`, id);
+    return await getDoc(proposalRef);
   } catch (error: any) {
     console.error(error.message);
   }
@@ -48,8 +62,46 @@ async function fetchProposalFromStore (id: string): Promise<DocumentSnapshot | u
 
 async function updateProposalInStore (storeId: string, newData: Record<string, any>) {
   try {
-   const ref = doc(getFirestore(), 'proposals', storeId);
-   return await updateDoc(ref, newData);
+   const proposalRef = doc(getFirestore(), 'proposals', storeId);
+   return await updateDoc(proposalRef, newData);
+  } catch (error: any) {
+    console.error(error.message);
+  }
+}
+
+async function getProfileData (userId: string): Promise<any> {
+  try {
+    const userRef = doc(getFirestore(), 'users', userId);
+    return await getDoc(userRef);
+  } catch (error) {
+    console.error((error as FirebaseError).message);
+  }
+}
+
+async function updateOrAddProfileData (
+  profileId: string, 
+  newData: Record<string, any>
+): Promise<any> {
+  try {
+    const userRef = doc(getFirestore(), 'users', profileId);
+    const userDoc = await getDoc(userRef);
+    if (userDoc.exists()) {
+      return await updateDoc(userRef, newData);
+    } else {
+      return await addDoc(users, newData);
+    }
+  } catch (err) {
+    console.error((err as FirebaseError).message);
+  }
+}
+
+async function addImageToStorage (file: any): Promise<any> {
+  try {
+    if (!file) return;
+    const storage = getStorage();
+    const storageRef = ref(storage, `images/${file.name}`);
+    const id = await uploadBytes(storageRef, file);
+    return id.metadata;
   } catch (error: any) {
     console.error(error.message);
   }
@@ -62,6 +114,9 @@ type Firebase = {
   addProposalToStore: (proposal: any) => Promise<DocumentReference<any> | undefined>;
   updateProposalInStore: (storeId: string, newData: Record<string, any>) => Promise<any>;
   fetchProposalFromStore: (proposalId: string) => Promise<DocumentSnapshot | undefined>;
+  addImageToStorage: (file: any) => Promise<any>;
+  getProfileData: (userId: string) => Promise<any>;
+  updateOrAddProfileData: (profileId: string, newData: Record<string, any>) => Promise<any>;
 }
 
 const firebase: Firebase = {
@@ -70,7 +125,10 @@ const firebase: Firebase = {
   getAllProposals,
   addProposalToStore,
   updateProposalInStore,
-  fetchProposalFromStore 
+  fetchProposalFromStore,
+  updateOrAddProfileData,
+  addImageToStorage,
+  getProfileData
 };
 
 export default firebase;
