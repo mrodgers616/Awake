@@ -3,7 +3,6 @@ import '@fontsource/dm-sans'
 import type { AppPropsWithLayout } from '../lib/types/next';
 import { ChakraProvider } from '@chakra-ui/react'
 import { Web3Provider } from '../contexts/Web3Context'
-import { FirebaseProvider } from '../contexts/FirebaseContext'
 import { AuthProvider } from '../contexts/AuthContext'
 
 
@@ -17,15 +16,13 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <ChakraProvider theme={theme}>
-      <FirebaseProvider>
-        <AuthProvider>
-          <Web3Provider>
-            <Layout>
-              { getLayout(<Component {...pageProps} />) }
-            </Layout>
-          </Web3Provider>
-        </AuthProvider>
-      </FirebaseProvider>
+      <AuthProvider>
+        <Web3Provider>
+          <Layout>
+            { getLayout(<Component {...pageProps} />) }
+          </Layout>
+        </Web3Provider>
+      </AuthProvider>
     </ChakraProvider>
   )
 }

@@ -14,6 +14,7 @@ type State = {
   loggedIn: boolean;
   loggingIn: boolean;
   authErrors?: any;
+  userid?: string | null;
   user?: UserRecord | null;
   user2?: UserCredential | null;
 };
@@ -40,6 +41,7 @@ function getInitialState(): State {
     loggedIn: false,
     loggingIn: false,
     authErrors: null,
+    userid: '123',
     user: null,
     user2: null,
   };

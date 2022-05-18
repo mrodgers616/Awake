@@ -22,7 +22,7 @@ export default function Navbar(): JSX.Element {
   const router = useRouter();
 
   const { web3Errors } = useWeb3();
-  const { logout, loggedIn } = useAuth();
+  const { logout, loggedIn, userid } = useAuth();
 
   const LinkProps = {
     mx: '32px',
@@ -53,12 +53,17 @@ export default function Navbar(): JSX.Element {
         size="lg"
         bg="none"
       />) }
-      <WalletConnectBtn />
+      {/* <WalletConnectBtn /> */}
+      <Link
+        href={`/user/${userid}/profile`}
+        {...LinkProps}
+        className={router.pathname === '/profile' ? 'active' : ''}
+      >Profile</Link>
       <Button onClick={logout}>Logout</Button>
     </chakra.div>
   ) : (
     <chakra.div>
-      <Button onClick={() => router.push("/login")}>Login</Button>
+      <Button mr='16px' onClick={() => router.push("/login")}>Login</Button>
       <Button onClick={() => router.push("/register")}>Register</Button>
     </chakra.div>
   ))
