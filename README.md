@@ -2,7 +2,7 @@
 
 First, run the development server:
 
-npm install --->
+npm install --force --->
 
 ```bash
 npm run dev
