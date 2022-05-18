@@ -307,7 +307,7 @@ export default function Proposal({
         /> */}
 {/*Adding the about campaign content on the left*/}  
         <Flex mt="64px" w="100%">
-          <Flex mb="64px" flexDir={"column"} w="55%" mr="32px">
+          <Flex mb="64px" flexDir={"column"} w="60%" mr="32px">
             <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 About Campaign
@@ -463,7 +463,7 @@ export default function Proposal({
             </Box>
 
           </Flex>
-          <Flex mb="63px" flexDir={"column"} w="45%">
+          <Flex mb="63px" flexDir={"column"} w="25%">
 {/*--  DELETING DEPRECATED BOX FROM THE RIGHT OF THE PAGE------------------------- */}
             {/* <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
@@ -486,6 +486,7 @@ export default function Proposal({
             </Box> */}
         {/* END OF DELETED SECTION */}
             <Flex
+                position={'absolute'}
                 justifyContent="center"
                 flexDirection="column"
                 alignItems="center"
@@ -495,23 +496,21 @@ export default function Proposal({
                 borderRadius="16px"
                 mt = '32px'
               >
-                <Image height="125px" width="200px" />
+                <Image height="125px" width="250px" />
                 <Text fontSize="xl" fontWeight="bold" mb={4} mt={4}>
-                  Text value
+                    {campaign?.title}
                 </Text>
                 <Button
                   variant="solid"
-                  size="md"
+                  size="lg"
                   width={48}
                   backgroundColor="seafoam.500"
+                  mb = '10px'
                 >
                   Support Campaign
                 </Button>
                 <Flex justifyContent="center" alignItems="space-around" width={48}>
                   <Box>
-                    <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                      share
-                    </Heading>
                     <Flex alignItems={"center"} justifyContent={"flex-start"}>
                       {socialMedia.map((social: any, index: number) => {
                         if (social.name === "clipboard") {
