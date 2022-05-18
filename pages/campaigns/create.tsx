@@ -227,7 +227,7 @@ const CreateCampaign: NextPage = (props: any) => {
             Select a company
           </Text>
           <Text fontSize="sm">
-            Identify a company failing to take sufficient climate action. Use this <Link color="blue"> guide</Link>.
+            Identify a company failing to take sufficient climate action. Use this <Link color="seafoam.500"> guide</Link>.
           </Text>
         </Box>
         <Box
@@ -248,7 +248,7 @@ const CreateCampaign: NextPage = (props: any) => {
             Select a cause
           </Text>
           <Text fontSize="sm">
-            Identify a specific change you want to see at a corporation. Use this <Link color="blue">guide</Link>.
+            Identify a specific change you want to see at a corporation. Use this <Link color="seafoam.500">guide</Link>.
           </Text>
         </Box>
         <Box
@@ -270,7 +270,7 @@ const CreateCampaign: NextPage = (props: any) => {
           </Text>
           <Text fontSize="sm">
             Make a case that this good for the planet AND good
-            for the company. Use this <Link color="blue">guide</Link>.
+            for the company. Use this <Link color="seafoam.500">guide</Link>.
           </Text>
         </Box>
         <Box
@@ -291,7 +291,7 @@ const CreateCampaign: NextPage = (props: any) => {
             Craft a proposal
           </Text>
           <Text fontSize="sm">
-            We’ll collaborate with you to bring this proposal to life. <Link color="blue">Learn more</Link>.
+            We’ll collaborate with you to bring this proposal to life. <Link color="seafoam.500">Learn more</Link>.
           </Text>
         </Box>
       </Flex>

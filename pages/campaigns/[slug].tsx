@@ -13,6 +13,7 @@ import {
   Container,
   useDisclosure,
   Tooltip,
+  IconButton,
 } from "@chakra-ui/react";
 import { ResponsiveContainer, LineChart, Line } from "recharts";
 import { ethers } from "ethers";
@@ -463,7 +464,8 @@ export default function Proposal({
 
           </Flex>
           <Flex mb="63px" flexDir={"column"} w="45%">
-            <Box mb="32px">
+{/*--  DELETING DEPRECATED BOX FROM THE RIGHT OF THE PAGE------------------------- */}
+            {/* <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 About Campaign
               </Heading>
@@ -481,113 +483,92 @@ export default function Proposal({
                 duis at tellus at urna condimentum mattis pellentesque. In nisl
                 nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
               </Text>
-            </Box>
-{/* ----Deleting the team section------------------------------- */}            
-            {/* <Box>
-              <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                team
-              </Heading>
-              <Flex flexWrap={"wrap"}>
-                <Flex alignItems={"center"} w="50%" mb="16px">
-                  <Box
-                    bg="grey"
-                    w="64px"
-                    h="64px"
-                    mr="16px"
-                    borderRadius={"100%"}
-                  />
-                  <Box>
-                    <Heading fontSize="18px">Guy</Heading>
-                    <Text>Founder</Text>
-                  </Box>
-                </Flex>
-                <Flex alignItems={"center"} w="50%" mb="16px">
-                  <Box
-                    bg="grey"
-                    w="64px"
-                    h="64px"
-                    mr="16px"
-                    borderRadius={"100%"}
-                  />
-                  <Box>
-                    <Heading fontSize="18px">Guy</Heading>
-                    <Text>Founder</Text>
-                  </Box>
-                </Flex>
-                <Flex alignItems={"center"} w="50%" mb="16px">
-                  <Box
-                    bg="grey"
-                    w="64px"
-                    h="64px"
-                    mr="16px"
-                    borderRadius={"100%"}
-                  />
-                  <Box>
-                    <Heading fontSize="18px">Guy</Heading>
-                    <Text>Founder</Text>
-                  </Box>
-                </Flex>
-              </Flex>
             </Box> */}
-            <Box>
-              <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                share
-              </Heading>
-              <Flex alignItems={"center"} justifyContent={"flex-start"}>
-                {socialMedia.map((social: any, index: number) => {
-                  if (social.name === "clipboard") {
-                    return (
-                      <Button
-                        key={index}
-                        name={social.name}
-                        w="48px"
-                        h="48px"
-                        onClick={() => copy(social.link)}
-                        background="transparent"
-                        _hover={{
-                          background: "transparent",
-                        }}
-                        p="8px"
-                      >
-                        <Icon
-                          w={8}
-                          h={8}
-                          _hover={{ color: "seafoam.500" }}
-                          as={social.icon}
-                        />
-                      </Button>
-                    );
-                  } else {
-                    return (
-                      <Link
-                        key={index}
-                        href={social.link}
-                        target="_blank"
-                        background="transparent"
-                        _hover={{
-                          background: "transparent",
-                        }}
-                        w="48px"
-                        h="48px"
-                        onClick={() => {
-                          copy(social.link, {
-                            message: "Copied to clipboard",
-                          });
-                        }}
-                        p="8px"
-                      >
-                        <Icon
-                          w={8}
-                          h={8}
-                          _hover={{ color: "seafoam.500" }}
-                          as={social.icon}
-                        />
-                      </Link>
-                    );
-                  }
-                })}
+        {/* END OF DELETED SECTION */}
+            <Flex
+                justifyContent="center"
+                flexDirection="column"
+                alignItems="center"
+                // width={60}
+                backgroundColor="FFFFFF"
+                boxShadow='2xl' p='6'
+                borderRadius="16px"
+                mt = '32px'
+              >
+                <Image height="125px" width="200px" />
+                <Text fontSize="xl" fontWeight="bold" mb={4} mt={4}>
+                  Text value
+                </Text>
+                <Button
+                  variant="solid"
+                  size="md"
+                  width={48}
+                  backgroundColor="seafoam.500"
+                >
+                  Support Campaign
+                </Button>
+                <Flex justifyContent="center" alignItems="space-around" width={48}>
+                  <Box>
+                    <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
+                      share
+                    </Heading>
+                    <Flex alignItems={"center"} justifyContent={"flex-start"}>
+                      {socialMedia.map((social: any, index: number) => {
+                        if (social.name === "clipboard") {
+                          return (
+                            <Button
+                              key={index}
+                              name={social.name}
+                              w="48px"
+                              h="48px"
+                              onClick={() => copy(social.link)}
+                              background="transparent"
+                              _hover={{
+                                background: "transparent",
+                              }}
+                              p="8px"
+                            >
+                              <Icon
+                                w={8}
+                                h={8}
+                                _hover={{ color: "seafoam.500" }}
+                                as={social.icon}
+                              />
+                            </Button>
+                          );
+                        } else {
+                          return (
+                            <Link
+                              key={index}
+                              href={social.link}
+                              target="_blank"
+                              background="transparent"
+                              _hover={{
+                                background: "transparent",
+                              }}
+                              w="48px"
+                              h="48px"
+                              onClick={() => {
+                                copy(social.link, {
+                                  message: "Copied to clipboard",
+                                });
+                              }}
+                              p="8px"
+                            >
+                              <Icon
+                                w={8}
+                                h={8}
+                                _hover={{ color: "seafoam.500" }}
+                                as={social.icon}
+                              />
+                            </Link>
+                          );
+                        }
+                      })}
+                    </Flex>
+                  </Box>
+                </Flex>
               </Flex>
-            </Box>
           </Flex>
         </Flex>
         <StepsSection steps={Steps} />
