@@ -2,20 +2,21 @@ import type { NextPageWithLayout } from '../lib/types/next';
 
 import Head from "next/head";
 import {
-  Container,
-  Heading,
-  Box,
-  Flex,
-  Image,
-  Icon,
-  Text,
   FormErrorMessage,
   FormControl,
+  Container,
   FormLabel,
-  Input,
-  chakra,
+  useToast,
+  Heading,
   Button,
-  useToast
+  HStack,
+  chakra,
+  Input,
+  Image,
+  Flex,
+  Icon,
+  Text,
+  Box,
 } from "@chakra-ui/react";
 import Link from '../components/Link';
 import Layout from '../components/layout';
@@ -41,22 +42,29 @@ const Login: NextPageWithLayout = () => {
         <title>Climate DAO | Proposals</title>
       </Head>
       <Box>
-        <Container 
+        <Container
           width="100%"
-          h="600px"
           overflow="auto"
           marginX="auto"
-          mt='120px'
+          mt="184px"
+          pb='16px'
         >
-        <Box>
-            <Heading>
-              Log in to your account:
+          <Box
+            w='80%'
+            p={16}
+            shadow='md'
+            borderWidth={'1px'}
+            mx='auto'
+            bg='white'
+          >
+            <Heading mb='32px' textTransform='capitalize'>
+              Log in to your account
             </Heading>
             <chakra.form onSubmit={handleSubmit(onSubmit)}>
-              <FormLabel htmlFor="email">
-                Email:
-              </FormLabel>
-              <FormControl isInvalid={errors.email}>
+              <FormControl mb='16px' isInvalid={errors.email}>
+                <FormLabel htmlFor="email">
+                  Email:
+                </FormLabel>
                 <Input
                   id='email'
                   type='email'
@@ -68,7 +76,7 @@ const Login: NextPageWithLayout = () => {
                     {errors.email && errors.email.message }
                   </FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={errors.password}>
+              <FormControl mb='32px' isInvalid={errors.password}>
                 <FormLabel htmlFor="password">
                   Password:
                 </FormLabel>
@@ -83,12 +91,14 @@ const Login: NextPageWithLayout = () => {
                     {errors.password && errors.password.message }
                   </FormErrorMessage>
               </FormControl>
-              <Button
-                type="submit"
-                bg='seafoam.500'
-              >Login</Button>
+              <HStack>
+                <Button
+                  type="submit"
+                  bg='seafoam.500'
+                >Login</Button>
+                <Link href='/register'>Registered A New Account</Link>
+              </HStack>
             </chakra.form>
-            <Link href='/register'>Registered A New Account</Link>
           </Box>
         </Container>
       </Box>
