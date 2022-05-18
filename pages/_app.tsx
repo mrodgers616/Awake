@@ -6,6 +6,7 @@ import { Web3Provider } from '../contexts/Web3Context'
 import { FirebaseProvider } from '../contexts/FirebaseContext'
 import { AuthProvider } from '../contexts/AuthContext'
 
+
 import theme from '../theme'
 import Layout from '../components/layout'
 

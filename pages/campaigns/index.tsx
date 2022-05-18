@@ -409,6 +409,7 @@ export async function getServerSideProps(_context: GetServerSidePropsContext) {
 
   try {
     treasuryInfo = (await axios.request(options as any)).data;
+    console.log(treasuryInfo);
   } catch (err) {
     console.error(err as any);
     treasuryInfo = null;
