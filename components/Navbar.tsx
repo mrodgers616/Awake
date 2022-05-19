@@ -116,6 +116,13 @@ export default function Navbar(): JSX.Element {
               className={router.pathname === "/dao" ? "active" : ""}
             >
               Blog
+            </Link>
+            <Link
+              href="/linkAccount"
+              {...LinkProps}
+              className={router.pathname === "/dao" ? "active" : ""}
+            >
+              Link Account
             </Link></>)}
             <Auth />
           </chakra.div>
