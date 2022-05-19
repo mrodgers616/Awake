@@ -27,7 +27,7 @@ import LatestArticles from "../../components/LatestArticles";
 import LeaderboardTable from "../../components/LeaderboardTable";
 import { Protected } from "../../contexts/Protected";
 import { useWeb3 } from "../../contexts/Web3Context";
-import firebase from "../../lib/firebase";
+import firebase from "../../lib/firebaseClient";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Timestamp } from "firebase/firestore";
 import supporters from '../../data/supporters.json';

@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react";
 import ProfileInfo from '../../../components/profile/ProfileInfo';
 import Link from "../../../components/Link";
+import nookies from 'nookies';
+import { admin } from '../../../lib/firebaseAdmin';
 
 const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage, id }) => {
 
@@ -87,16 +89,31 @@ const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage,
   );
 };
 
-export async function getServerSideProps({ req, res, params }: GetServerSidePropsContext) {
-  res.setHeader(
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  
+  context.res.setHeader(
     "Cache-Control",
     'public, s-maxage=15, stale-while-revalidate=59'
   )
 
-  return {
-    props: {
-      id: params?.id ?? '',
-    },
+  try {
+    const cookies = nookies.get(context);
+    const token = await admin.auth().verifyIdToken(cookies.token);
+
+    const { uid, email } = token;
+
+    return {
+      props: {
+        uid,
+        email
+      }
+    }
+    
+  } catch (error) {
+    context.res.writeHead(302, { Location: '/' });
+    context.res.end();
+    
+    return { props: {} as never }
   }
 }
 

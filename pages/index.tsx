@@ -71,7 +71,7 @@ const Home: NextPage<{
         bgGradient="linear(90deg, seafoam.500 -500%, sage.500 50%, seafoam.500 500%)"
         mt="120px"
         zIndex="500"
-        h="650px"
+        h={{ base: '1000px', lg: "650px" }}
       >
         <Container
           width="100%"
@@ -83,13 +83,15 @@ const Home: NextPage<{
             alignItems="center"
             justifyContent="center"
             height="calc(100% - 60px)"
+            flexDirection={{ base: "column-reverse", md: "row" }}
           >
             <Flex
               flexDir={"column"}
               justifyContent="center"
-              w="50%"
+              w={{ base: "100%", md: "50%" }}
               id="banner"
               mr='32px'
+              mb='8em'
             >
               <AnimatedMainHeading
                 text="Where Activist Investing Meets Web 3"
@@ -101,8 +103,9 @@ const Home: NextPage<{
                 mb="32px"
               />
               <Flex 
-                width='80%'
+                width={{ base: '100%', md: '80%' }}
                 justifyContent="space-between"
+                flexDirection={{ base: "column", md: "row" }}
               >
                 <Button
                   as={Link}
@@ -110,7 +113,8 @@ const Home: NextPage<{
                   bg="seafoam.500"
                   h="50px"
                   minW='33%'
-                  mx='1em'                
+                  mx={{ base: '0', md: '1em' }}
+                  mb={{ base: '1em', md: '0' }}      
                   target="_blank"
                   href='https://discord.gg/xfRTsxVA4d'
                   _first={{
@@ -127,7 +131,8 @@ const Home: NextPage<{
                   color="white"
                   bg="seafoam.500"
                   h="50px"
-                  mx='1em'                
+                  mx={{ base: '0', md: '1em' }}
+                  mb={{ base: '1em', md: '0' }}      
                   minW='33%'
                   target="_blank"
                   href='https://docs.google.com/document/d/1xdR38Y6xEO_C3NpPUk7gLTGdMYOUTIP0BKmJ4Cz8YF8/edit?usp=sharing'
@@ -141,13 +146,14 @@ const Home: NextPage<{
                   as={Link}
                   color="white"
                   bg="seafoam.500"
-                  mx='1em'                
+                  mx={{ base: '0', md: '1em' }}
+                  mb={{ base: '1em', md: '0' }}           
                   h="50px"
                   minW='33%'
                   target="_blank"
                   href='https://twitter.com/Climate_DAO'
                   _last={{
-                    mr: 0
+                    mr: 0,
                   }}
                   _disabled={{
                     pointerEvents: 'none'

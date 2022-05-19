@@ -20,7 +20,7 @@ import { getProposalState, getProposalVotes } from "../../lib/web3";
 import StepsSection from "../../components/StepsSection";
 import { useEffect, useState } from "react";
 import { Steps } from "../../lib/mock-data";
-import firebase from "../../lib/firebase";
+import firebase from "../../lib/firebaseClient";
 import LatestArticles from "../../components/LatestArticles";
 import ReactHtmlParser from "react-html-parser";
 import { GetServerSidePropsContext } from "next";

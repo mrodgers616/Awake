@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import CustomFileInput from "../CustomFileInput";
 import * as yup from "yup";
-import firebase from "../../lib/firebase";
+import firebase from "../../lib/firebaseClient";
 
 export default function ProfileEditForm({ id }: any): JSX.Element {
   const [profileImageUrl, setProfileImageUrl] = useState('');

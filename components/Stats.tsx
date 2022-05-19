@@ -15,7 +15,7 @@ const Stats: React.FC<{
     height="160px"
     color="black"
     mb='120px'
-    mx='36px'
+    mx={{ sm: '8px', md: '32px' }}
     justifyContent="center"
     alignItems="center"
     borderRadius="25px"
@@ -24,33 +24,43 @@ const Stats: React.FC<{
     <Box
       w="30%"
       borderRight="1px solid black"
-      px="86px"
+      px={{ base: '0em', sm: "1em", xl: "5.375em" }}
       textAlign={"center"}
     >
       <Text
-        fontSize="5xl"
+        fontSize={{ sm: "4xl", lg: "5xl" }}
         color='sage.500'
       >{ sharesCommited } +</Text>
-      <Text>~shares committed</Text>
+      <Text
+        fontSize={{ sm: "sm" }}
+      >~shares committed</Text>
     </Box>
     <Box
       w="30%"
       borderRight="1px solid black"
-      px="86px"
+      px={{ base: '0em', sm: "1em", xl: "5.375em" }}
       textAlign={"center"}
     >
       <Text
-        fontSize="5xl"
+        fontSize={{ sm: "4xl", lg: "5xl" }}
         color='sage.500'
       >{walletsConnected} +</Text>
-      <Text>~wallets connected</Text>
-    </Box>
-    <Box w="30%" px="86px" textAlign={"center"}>
       <Text
-        fontSize="5xl"
+        fontSize={{ sm: "sm" }}
+      >~wallets connected</Text>
+    </Box>
+    <Box
+      w="30%"
+      px={{ base: '0em', sm: "1em", xl: "5.375em" }}
+      textAlign={"center"}
+    >
+      <Text
+        fontSize={{ sm: "4xl", lg: "5xl" }}
         color='sage.500'
       >{treasury} +</Text>
-      <Text>~$ in treasury</Text>
+      <Text
+        fontSize={{ sm: "sm" }}
+      >~$ in treasury</Text>
     </Box>
   </Flex>)
 };

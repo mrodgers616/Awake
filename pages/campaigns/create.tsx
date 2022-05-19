@@ -25,7 +25,7 @@ import {
 import { useForm, useController } from "react-hook-form";
 import React, { ChangeEvent, useState } from "react";
 import { useWeb3 } from "../../contexts/Web3Context";
-import firebase from "../../lib/firebase";
+import firebase from "../../lib/firebaseClient";
 import _ from "lodash";
 import axios from "axios";
 

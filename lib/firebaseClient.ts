@@ -1,4 +1,5 @@
-import { FirebaseError, initializeApp } from "firebase/app";
+import type { FirebaseError } from "firebase/app";
+import firebaseClient, { initializeApp } from "firebase/app";
 import {
   doc,
   getFirestore,
@@ -15,6 +16,8 @@ import {
   ref,
   uploadBytes
 } from "firebase/storage";
+import * as fb from 'firebase/app';
+import { getAuth, setPersistence, browserSessionPersistence } from "firebase/auth";
 
 let app
 try {
@@ -23,6 +26,12 @@ try {
     projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+  });
+
+  const authentication = getAuth();
+
+  setPersistence(authentication, browserSessionPersistence).then(_ => {
+    console.log('Persistence set');
   });
 } catch (err) {
   if(!/alreay exists/.test((err as FirebaseError).message)) {
@@ -107,20 +116,8 @@ async function addImageToStorage (file: any): Promise<any> {
   }
 }
 
-type Firebase = {
-  app: typeof app;
-  onChainProposals: typeof onChainProposals;
-  getAllProposals: () => Promise<any>;
-  addProposalToStore: (proposal: any) => Promise<DocumentReference<any> | undefined>;
-  updateProposalInStore: (storeId: string, newData: Record<string, any>) => Promise<any>;
-  fetchProposalFromStore: (proposalId: string) => Promise<DocumentSnapshot | undefined>;
-  addImageToStorage: (file: any) => Promise<any>;
-  getProfileData: (userId: string) => Promise<any>;
-  updateOrAddProfileData: (profileId: string, newData: Record<string, any>) => Promise<any>;
-}
-
-const firebase: Firebase = {
-  app,
+export { 
+  firebaseClient,
   onChainProposals,
   getAllProposals,
   addProposalToStore,
@@ -130,7 +127,5 @@ const firebase: Firebase = {
   addImageToStorage,
   getProfileData
 };
-
-export default firebase;
 
 
