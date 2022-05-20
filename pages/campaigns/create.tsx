@@ -25,7 +25,7 @@ import {
 import { useForm, useController } from "react-hook-form";
 import React, { ChangeEvent, useState } from "react";
 import { useWeb3 } from "../../contexts/Web3Context";
-import firebase from "../../lib/firebaseClient";
+import { addProposalToStore } from "../../lib/firebaseClient";
 import _ from "lodash";
 import axios from "axios";
 
@@ -118,7 +118,7 @@ const CreateCampaign: NextPage = (props: any) => {
           // add threadId to proposal.
           proposal.threadId = test.topic_id;
           // create proposal. use the threadId as description.
-          const doc = await firebase.addProposalToStore(proposal);
+          const doc = await addProposalToStore(proposal);
           if (doc!.id) {
             if (values.proposalType === "activist") {
               await createProposal(walletAddress!, doc!.id);

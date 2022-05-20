@@ -4,6 +4,7 @@ import {
   doc,
   getFirestore,
   collection,
+  setDoc,
   addDoc,
   getDocs,
   getDoc,
@@ -12,9 +13,10 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import {
-  getStorage,
   ref,
-  uploadBytes
+  getStorage,
+  uploadBytes,
+  getDownloadURL
 } from "firebase/storage";
 import * as fb from 'firebase/app';
 import { getAuth, setPersistence, browserSessionPersistence } from "firebase/auth";
@@ -78,9 +80,10 @@ async function updateProposalInStore (storeId: string, newData: Record<string, a
   }
 }
 
-async function getProfileData (userId: string): Promise<any> {
+async function getProfileData (uid: string): Promise<any> {
   try {
-    const userRef = doc(getFirestore(), 'users', userId);
+    console.log(uid);
+    const userRef = doc(getFirestore(), 'users', uid);
     return await getDoc(userRef);
   } catch (error) {
     console.error((error as FirebaseError).message);
@@ -92,23 +95,24 @@ async function updateOrAddProfileData (
   newData: Record<string, any>
 ): Promise<any> {
   try {
+    console.log(profileId);
     const userRef = doc(getFirestore(), 'users', profileId);
     const userDoc = await getDoc(userRef);
     if (userDoc.exists()) {
       return await updateDoc(userRef, newData);
     } else {
-      return await addDoc(users, newData);
+      return await setDoc(userRef, newData);
     }
   } catch (err) {
     console.error((err as FirebaseError).message);
   }
 }
 
-async function addImageToStorage (file: any): Promise<any> {
+async function addImageToStorage (uid: string, file: any): Promise<any> {
   try {
     if (!file) return;
     const storage = getStorage();
-    const storageRef = ref(storage, `images/${file.name}`);
+    const storageRef = ref(storage, `${uid}/${file.name}`);
     const id = await uploadBytes(storageRef, file);
     return id.metadata;
   } catch (error: any) {
@@ -116,15 +120,26 @@ async function addImageToStorage (file: any): Promise<any> {
   }
 }
 
+async function getImageFromStorage (imageId: string): Promise<any> {
+  try {
+    const storage = getStorage();
+    const storageRef = ref(storage, imageId);
+    return await getDownloadURL(storageRef);
+  } catch (error: any) {
+    console.error(error.message);
+  }
+}
+
 export { 
-  firebaseClient,
+  updateOrAddProfileData,
+  fetchProposalFromStore,
+  updateProposalInStore,
+  getImageFromStorage,
+  addProposalToStore,
+  addImageToStorage,
   onChainProposals,
   getAllProposals,
-  addProposalToStore,
-  updateProposalInStore,
-  fetchProposalFromStore,
-  updateOrAddProfileData,
-  addImageToStorage,
+  firebaseClient,
   getProfileData
 };
 

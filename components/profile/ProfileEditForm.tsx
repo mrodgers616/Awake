@@ -16,18 +16,16 @@ import {
 } from "@chakra-ui/react";
 import CustomFileInput from "../CustomFileInput";
 import * as yup from "yup";
-import firebase from "../../lib/firebaseClient";
+import { firebaseClient, addImageToStorage, updateOrAddProfileData } from "../../lib/firebaseClient";
+import { useAuth } from "../../contexts/AuthContext";
+import Router, { useRouter } from "next/router";
 
-export default function ProfileEditForm({ id }: any): JSX.Element {
-  const [profileImageUrl, setProfileImageUrl] = useState('');
-  const [bgImageUrl, setBgImageUrl] = useState('');
-  // const [username, setUsername] = useState('');
-  // const [linkedin, setLinkedin] = useState('');
-  // const [facebook, setFacebook] = useState('');
-  // const [twitter, setTwitter] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [name, setName] = useState('');
-  // const [bio, setBio] = useState('');
+export default function ProfileEditForm({ id, profile, profileImage, backgroundImage }: any): JSX.Element {
+  const [profileImageUrl, setProfileImageUrl] = useState(profileImage);
+  const [bgImageUrl, setBgImageUrl] = useState(backgroundImage);
+
+  const { userid } = useAuth();
+  const router = useRouter();
 
   type Inputs = {
     name: string,
@@ -45,6 +43,7 @@ export default function ProfileEditForm({ id }: any): JSX.Element {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
+    reset
   } = useForm<Inputs>();
 
   const ProfileImageStyles = {
@@ -84,18 +83,18 @@ export default function ProfileEditForm({ id }: any): JSX.Element {
       let pfp;
       let bgp;
       if (data.profileImage.length) {
-        pfp = await firebase.addImageToStorage(data.profileImage[0]);
+        pfp = await addImageToStorage(userid!, data.profileImage[0]);
         data.profileImage = pfp.fullPath;
-      } else {
-        data.profileImage = '';
       }
+      
       if (data.backgroundImage.length) {
-        bgp = await firebase.addImageToStorage(data.backgroundImage[0]);
+        bgp = await addImageToStorage(userid!, data.backgroundImage[0]);
+        console.log('bgp: ', bgp);
         data.backgroundImage = bgp.fullPath;
-      } else {
-        data.backgroundImage = '';
       }
-      const result = await firebase.updateOrAddProfileData(id, data);
+      const result = await updateOrAddProfileData(id, data);
+      reset();
+      router.push(`/user/[id]/profile`, `/user/${id}/profile`);
     } catch (err) {
       console.error('there was an error uploading the image', (err as Error).stack);
     }
@@ -146,7 +145,9 @@ export default function ProfileEditForm({ id }: any): JSX.Element {
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Name
             </FormLabel>
-            <Input { ...register('name')} bg="#EFEFEF" h="48px" />
+            <Input { ...register('name', {
+              value: profile?.name,
+            })} bg="#EFEFEF" h="48px" />
           </FormControl>
         </Flex>
         <Flex mb="2em">
@@ -154,7 +155,9 @@ export default function ProfileEditForm({ id }: any): JSX.Element {
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Username
             </FormLabel>
-            <Input { ...register('username')} bg="#EFEFEF" h="48px" />
+            <Input { ...register('username', {
+              value: profile?.username,
+            })} bg="#EFEFEF" h="48px" />
           </FormControl>
         </Flex>
         <Flex mb="2em">
@@ -162,7 +165,9 @@ export default function ProfileEditForm({ id }: any): JSX.Element {
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Biography
             </FormLabel>
-            <Textarea { ...register('biography')} bg="#EFEFEF" rows={10} resize="none" />
+            <Textarea { ...register('biography', {
+              value: profile?.biography,
+            })} bg="#EFEFEF" rows={10} resize="none" />
           </FormControl>
         </Flex>
         <Flex mb="2em">
@@ -170,7 +175,9 @@ export default function ProfileEditForm({ id }: any): JSX.Element {
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Email
             </FormLabel>
-            <Input { ...register('email')} bg="#EFEFEF" h="48px" />
+            <Input { ...register('email', {
+              value: profile?.email,
+            })} bg="#EFEFEF" h="48px" />
           </FormControl>
         </Flex>
         <Flex mb="2em">
@@ -178,7 +185,9 @@ export default function ProfileEditForm({ id }: any): JSX.Element {
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               LinkedIn
             </FormLabel>
-            <Input { ...register('linkedIn')} bg="#EFEFEF" h="48px" />
+            <Input { ...register('linkedIn', {
+              value: profile?.linkedIn,
+            })} bg="#EFEFEF" h="48px" />
           </FormControl>
         </Flex>
         <Flex mb="2em">
@@ -186,7 +195,9 @@ export default function ProfileEditForm({ id }: any): JSX.Element {
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Facebook
             </FormLabel>
-            <Input { ...register('facebook')} bg="#EFEFEF" h="48px" />
+            <Input { ...register('facebook', {
+              value: profile?.facebook,
+            })} bg="#EFEFEF" h="48px" />
           </FormControl>
         </Flex>
         <Flex mb="12em">
@@ -194,7 +205,9 @@ export default function ProfileEditForm({ id }: any): JSX.Element {
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Twitter
             </FormLabel>
-            <Input { ...register('twitter')} bg="#EFEFEF" h="48px" />
+            <Input { ...register('twitter', {
+              value: profile?.twitter,
+            })} bg="#EFEFEF" h="48px" />
           </FormControl>
         </Flex>
         <Flex justifyContent={"center"}>

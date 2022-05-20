@@ -13,8 +13,30 @@ import ProfileInfo from '../../../components/profile/ProfileInfo';
 import Link from "../../../components/Link";
 import nookies from 'nookies';
 import { admin } from '../../../lib/firebaseAdmin';
+import { getProfileData, getImageFromStorage } from "../../../lib/firebaseClient";
+import { useAuth } from '../../../contexts/AuthContext';
 
-const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage, id }) => {
+type ProfileProps = {
+  linkedIn: string;
+  facebook: string;
+  twitter: string;
+  email: string;
+  profileImage: string;
+  backgroundImage: string;
+  username: string;
+  biography: string;
+  name: string;
+}
+
+type ProfilePageProps = {
+  profile: ProfileProps;
+  profileImage: string;
+  backgroundImage: string;
+};
+
+const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, backgroundImage }) => {
+
+  const { userid } = useAuth();
 
   const ProfileImageStyles = {
     width: "250px",
@@ -27,7 +49,14 @@ const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage,
     ml: '32px',
   }
 
-  const ProfileImage = () => profileImage ? (<Image { ...ProfileImageStyles } />) : (<Box {...ProfileImageStyles}/>)
+  const ProfileImage = () => profileImage ? (<Image 
+    src={profileImage} 
+    { ...ProfileImageStyles }
+    objectFit="cover"
+    objectPosition={'center'}
+  />) : (<Box {...ProfileImageStyles}/>)
+
+  console.log('bg image: ', backgroundImage);
 
   return (
     <>
@@ -35,7 +64,14 @@ const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage,
         <title>Climate DAO | Profile</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Box width='100%' height='400px' mt='120px' bg='green'/>
+      <Box
+        width='100%'
+        height='400px'
+        mt='120px'
+        backgroundImage={`${backgroundImage}`}
+        backgroundSize='cover'
+        backgroundPosition={`center`}
+      />
       <Container mt='-120px'>
         <Box
           width='100%'
@@ -46,20 +82,10 @@ const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage,
           mb='32px'
           position={'relative'}
         >
-          <Button as={Link} href={`/user/${id}/edit`}>Edit</Button>
+          <Button as={Link} href={`/user/${userid}/edit`}>Edit</Button>
           <ProfileImage />
-          <ProfileInfo profile={{
-            name: 'John Doe',
-            username: 'johndoe',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod, nunc eget pretium aliquet, nisi nunc ultricies nisi, euismod euismod nunc nunc euismod nunc.',
-            social: {
-              email: 'email@example.com',
-              twitter: '@climateer',
-              facebook: 'climateer',
-              linkedin: 'climateer',
-            }
-          }}/>
-          <Text position='absolute' top='32px' right='32px'>Member since Feb 2022 { id }</Text>
+          <ProfileInfo profile={profile}/>
+          <Text position='absolute' top='32px' right='32px'>Member since Feb 2022</Text>
         </Box>
         <Box
           bg='#fff'
@@ -94,7 +120,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   context.res.setHeader(
     "Cache-Control",
     'public, s-maxage=15, stale-while-revalidate=59'
-  )
+  );
 
   try {
     const cookies = nookies.get(context);
@@ -102,13 +128,33 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     const { uid, email } = token;
 
+    const profile = await getProfileData(uid);
+
+    const data = {
+      ...profile.data()
+    };
+
+    let pfp = null;
+    let bg = null;
+
+    if (data.profileImage) {
+      pfp = await getImageFromStorage(data.profileImage);
+    }
+
+    if (data.backgroundImage) {
+      bg = await getImageFromStorage(data.backgroundImage);
+    }
+
     return {
       props: {
-        uid,
-        email
+        profile: { ...profile.data() },
+        profileImage: pfp,
+        backgroundImage: bg,
+        activity: null,
+        badges: null,
+        proposals: null
       }
     }
-    
   } catch (error) {
     context.res.writeHead(302, { Location: '/' });
     context.res.end();

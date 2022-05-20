@@ -20,7 +20,7 @@ import { getProposalState, getProposalVotes } from "../../lib/web3";
 import StepsSection from "../../components/StepsSection";
 import { useEffect, useState } from "react";
 import { Steps } from "../../lib/mock-data";
-import firebase from "../../lib/firebaseClient";
+import { fetchProposalFromStore } from "../../lib/firebaseClient";
 import LatestArticles from "../../components/LatestArticles";
 import ReactHtmlParser from "react-html-parser";
 import { GetServerSidePropsContext } from "next";
@@ -567,7 +567,7 @@ export default function Proposal({
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { slug } = context.query;
-  const campaignDoc = await firebase.fetchProposalFromStore(slug as string);
+  const campaignDoc = await fetchProposalFromStore(slug as string);
 
   const campaign = {
     ...campaignDoc!.data(),

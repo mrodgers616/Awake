@@ -6,7 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onIdTokenChanged,
-  NextFn,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 import { updateOrAddProfileData } from "../lib/firebaseClient";
@@ -58,16 +58,24 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const authentication = getAuth();
     return onIdTokenChanged(
       authentication, async (user: User | null) => {
+        console.log('onIdTokenChanged', user);
           if (!user) {
-            setState({ ...state, loggedIn: false, user: null });
             nookies.set(undefined, 'token', '', { path: '/'});
           } else {
             const token = await user.getIdToken();
-            setState({ ...state, loggedIn: true, user: user });
+            setState({ ...state, userid: user.uid });
             nookies.set(undefined, 'token', token, { path: '/'});
           }
     })
   }, []);
+
+  useEffect(() => {
+    const authentication = getAuth();
+    return onAuthStateChanged(
+      authentication, async (user: User | null) => {
+        console.log('onAuthStateChanged', user);
+    })
+  }, [])
 
   useEffect(() => {
     const handle = setInterval(async () => {
@@ -135,8 +143,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
         password
       );
 
-      console.log(response);
-
       // construct new user profile obj.
       const newUser = {
         backgroundImage: "",
@@ -161,7 +167,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
           duration: 9000,
           isClosable: true,
         });
-        window.sessionStorage.setItem("Auth Token", response.user.refreshToken);
         router.push("/login");
       }
     } catch (error) {
