@@ -37,7 +37,7 @@ export default function StepsSection({
           <StepsCard
             key={index}
             {...option}
-            w="calc(30% - 1em)"
+            w={{sm: "calc(100% - 1em)", xl: "calc(30% - 1em)"}}
             minW="300px"
             padding="32px"
             boxShadow="0px 4px 100px 5px rgba(0,0,0,0.1)"

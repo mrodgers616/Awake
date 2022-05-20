@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 .firebase/
+
+/next-test-deploy-firebase-adminsdk-9op1d-f01e59390b.json
+/serviceAccountKey.json

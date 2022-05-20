@@ -41,8 +41,6 @@ export default function Navbar(): JSX.Element {
     }
   };
 
-
-
   const Auth = () => (loggedIn ? (
     <chakra.div>
       {web3Errors && (<IconButton

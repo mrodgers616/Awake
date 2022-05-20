@@ -25,9 +25,8 @@ import { useState, useEffect, useMemo } from "react";
 import ProposalCard from "../../components/ProposalCard";
 import LatestArticles from "../../components/LatestArticles";
 import LeaderboardTable from "../../components/LeaderboardTable";
-import { Protected } from "../../contexts/Protected";
 import { useWeb3 } from "../../contexts/Web3Context";
-import firebase from "../../lib/firebase";
+import { getAllProposals } from "../../lib/firebaseClient";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Timestamp } from "firebase/firestore";
 import supporters from '../../data/supporters.json';
@@ -173,7 +172,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
   }, [currentPage, pageSize, offset]);
 
   return (
-    <Protected>
+    <>
       <Head>
         <title>Climate DAO | Proposals</title>
       </Head>
@@ -320,34 +319,34 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
               normalStyles={normalStyles}
               separatorStyles={separatorStyles}
             >
-              <Flex justifyContent="flex-end" mb="120px">
-                <PaginatorContainer
-                  justify="space-between"
-                  w="fit-content"
-                  p={4}
+            <Flex justifyContent="flex-end" mb="120px">
+              <PaginatorContainer
+                justify="space-between"
+                w="fit-content"
+                p={4}
+              >
+                <Previous
+                  bg="transparent"
+                  _hover={{
+                    bg: "transparent",
+                    color: "blue",
+                  }}
                 >
-                  <Previous
-                    bg="transparent"
-                    _hover={{
-                      bg: "transparent",
-                      color: "blue",
-                    }}
-                  >
-                    <Icon as={FiChevronLeft} />
-                  </Previous>
-                  <PageGroup isInline align="center" />
-                  <Next
-                    bg="transparent"
-                    _hover={{
-                      bg: "transparent",
-                      color: "blue",
-                    }}
-                  >
-                    <Icon as={FiChevronRight} />
-                  </Next>
-                </PaginatorContainer>
-              </Flex>
-            </Paginator>
+                  <Icon as={FiChevronLeft} />
+                </Previous>
+                <PageGroup isInline align="center" />
+                <Next
+                  bg="transparent"
+                  _hover={{
+                    bg: "transparent",
+                    color: "blue",
+                  }}
+                >
+                  <Icon as={FiChevronRight} />
+                </Next>
+              </PaginatorContainer>
+            </Flex>
+          </Paginator>
           </Box>
           <LeaderboardTable
             data={supporterData}
@@ -372,12 +371,12 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
           </Box>
         </Container>
       </Box>
-    </Protected>
+    </>
   );
 };
 
 export async function getServerSideProps(_context: GetServerSidePropsContext) {
-  const data = await firebase.getAllProposals();
+  const data = await getAllProposals();
 
   const campaigns: any[] = [];
 

@@ -1,22 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
-import Router, { useRouter } from "next/router";
-import { UserRecord } from "firebase-admin/lib/auth/user-record";
+import { useRouter } from "next/router";
 import { useToast } from "@chakra-ui/react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  UserCredential,
+  onIdTokenChanged,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
+import { updateOrAddProfileData } from "../lib/firebaseClient";
+import nookies from 'nookies';
+import type { User } from 'firebase/auth';
 
 type State = {
   loggedIn: boolean;
   loggingIn: boolean;
   authErrors?: any;
   userid?: string | null;
-  user?: UserRecord | null;
-  user2?: UserCredential | null;
+  user?: User | null;
 };
 
 interface ContextValue extends State {
@@ -26,6 +28,7 @@ interface ContextValue extends State {
 }
 
 interface LoginAndRegisterProps {
+  username: string;
   email: string;
   password: string;
 }
@@ -41,9 +44,7 @@ function getInitialState(): State {
     loggedIn: false,
     loggingIn: false,
     authErrors: null,
-    userid: '123',
     user: null,
-    user2: null,
   };
 }
 
@@ -54,10 +55,35 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const toast = useToast();
 
   useEffect(() => {
-    if (window.sessionStorage) {
-      const token = sessionStorage.getItem("Auth Token");
-      setState({ ...state, loggedIn: token ? true : false });
-    }
+    const authentication = getAuth();
+    return onIdTokenChanged(
+      authentication, async (user: User | null) => {
+        console.log('onIdTokenChanged', user);
+          if (!user) {
+            nookies.set(undefined, 'token', '', { path: '/'});
+          } else {
+            const token = await user.getIdToken();
+            setState({ ...state, userid: user.uid });
+            nookies.set(undefined, 'token', token, { path: '/'});
+          }
+    })
+  }, []);
+
+  useEffect(() => {
+    const authentication = getAuth();
+    return onAuthStateChanged(
+      authentication, async (user: User | null) => {
+        console.log('onAuthStateChanged', user);
+    })
+  }, [])
+
+  useEffect(() => {
+    const handle = setInterval(async () => {
+      const user = await getAuth().currentUser;
+      if (user) await user.getIdToken(true);
+    }, 10 * 60 * 1000);
+
+    return () => clearInterval(handle);
   }, []);
 
   async function login({
@@ -75,19 +101,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
         password
       );
       setState({ ...state, loggedIn: true });
-
-      if (window.sessionStorage) {
-        toast({
+      toast({
           title: "Login Successful",
           description: "You have successfully logged in.",
           status: "success",
           duration: 9000,
           isClosable: true,
-        });
-        window.sessionStorage.setItem("Auth Token", response.user.refreshToken);
-
-        router.push("/");
-      }
+      });
+      router.push("/");
     } catch (error) {
       toast({
         title: "Error",
@@ -100,17 +121,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }
 
   async function logout(): Promise<void> {
-    if (window.sessionStorage) {
-      sessionStorage.removeItem("Auth Token");
-      setState({ ...state, user: undefined, loggedIn: false });
-      router.push("/");
-    }
+    await getAuth().signOut();
+    setState({ ...state, user: undefined, loggedIn: false });
+    router.push("/");
   }
 
   async function register({
+    username,
     email,
     password,
   }: {
+    username: string;
     email: string;
     password: string;
   }): Promise<void> {
@@ -121,6 +142,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
         email,
         password
       );
+
+      // construct new user profile obj.
+      const newUser = {
+        backgroundImage: "",
+        profileImage: "",
+        biography: "",
+        username,
+        email,
+        facebook: "",
+        linkedIn: "",
+        twitter: "",
+        name: "",
+      }
+
+      await updateOrAddProfileData(response.user.uid, newUser);
+
       if (window.sessionStorage) {
         toast({
           title: "Registration Successful",
@@ -130,7 +167,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
           duration: 9000,
           isClosable: true,
         });
-        window.sessionStorage.setItem("Auth Token", response.user.refreshToken);
         router.push("/login");
       }
     } catch (error) {

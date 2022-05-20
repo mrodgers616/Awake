@@ -28,8 +28,9 @@ export default function FeaturedCampaigns({
     borderRadius="24px"
     title="proposals"
     mb="128px"
+    flexDirection={{ sm: "column", lg: "row" }}
   >
-    <Box w="50%" px="32px">
+    <Box w={{ sm: '100%', lg: "50%"}} px="32px" mb={{ sm: "64px", lg: 0}}>
       <Heading fontSize="30px" textTransform="uppercase" mb="36px">
         Featured Campaign
       </Heading>
@@ -40,7 +41,7 @@ export default function FeaturedCampaigns({
         timer={true}
       />
     </Box>
-    <Box w="50%" px="32px">
+    <Box w={{ sm: '100%', lg: "50%"}} px="32px">
       <Heading fontSize="30px" textTransform="uppercase" mb="36px">
         Trending Campaigns
       </Heading>
