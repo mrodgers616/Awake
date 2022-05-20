@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { Configuration, LinkTokenCreateRequest, PlaidApi, PlaidEnvironments } from 'plaid';
 const util = require('util');
+const moment = require('moment');
 
 const baseURL = 'https://forum.climatedao.xyz';
 
@@ -37,5 +38,26 @@ export async function fetchLinkToken () {
     const response = await plaidClient.linkTokenCreate(configs);
     const linkToken = response;
     return linkToken;
-    
+}
+
+export async function getAcccessToken(PUBLIC_TOKEN: any) {
+    const tokenResponse = await plaidClient.itemPublicTokenExchange({
+        public_token: PUBLIC_TOKEN,
+    });
+    const access_token = tokenResponse;
+    return access_token;
+}
+
+export async function getInvestmentData(token: any) {
+    const startDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
+    const endDate = moment().format('YYYY-MM-DD');
+    const ACCESS_TOKEN = await token;
+    console.log(ACCESS_TOKEN)
+    const transactionConfigs = {
+        access_token: ACCESS_TOKEN,
+        start_date: startDate,
+        end_date: endDate,
+      };
+    const investmentTransactionsResponse = await plaidClient.investmentsTransactionsGet(transactionConfigs);
+    return investmentTransactionsResponse;
 }
