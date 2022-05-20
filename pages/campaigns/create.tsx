@@ -21,6 +21,7 @@ import {
   Textarea,
   Select,
   chakra,
+  Image,
 } from "@chakra-ui/react";
 import { useForm, useController } from "react-hook-form";
 import React, { ChangeEvent, useState } from "react";
@@ -157,7 +158,7 @@ const CreateCampaign: NextPage = (props: any) => {
       <Head>
         <title>Climate DAO | Create Proposal</title>
       </Head>
-      <Box mt="120px" bg="white">
+      <Box mt="120px" bg="white" mb="50px">
         <Container>
           <Flex h="180px" justifyContent="center" alignItems="center">
             <Heading
@@ -169,7 +170,8 @@ const CreateCampaign: NextPage = (props: any) => {
               Create a Proposal
             </Heading>
           </Flex>
-          <Flex flexWrap="wrap" mt="130px">
+{/* Taking out the four paragraphs of filler content */}
+          {/* <Flex flexWrap="wrap" mt="130px">
             <Box w="calc(50% - 36px)" mx="16px" mb="60px">
               <Heading>Sed ut perspicaitis</Heading>
               <Text>
@@ -202,14 +204,101 @@ const CreateCampaign: NextPage = (props: any) => {
                 veniam, quis nostrud exercitation ullamco laboris nisi.
               </Text>
             </Box>
-          </Flex>
-          <Box>
-            <Text mb="16px">
-              Read our guide on creating proposals{" "}
-              <Link color="blue">here</Link>.
-            </Text>
-          </Box>
-          <Box m="0 auto" maxW="1800px">
+          </Flex> */}
+
+{/* Adding the cards into the page --------------------------------------------------*/}
+<Box textAlign="center" ml="5%" mr="5%" mb="75px">
+      <Flex>
+        <Box
+          width="25%"
+          fontSize="xl"
+          backgroundColor="whiteAlpha.500"
+          m={1}
+          padding="4px"
+        >
+          <Image
+            height="100px"
+            width="100px"
+            ml="auto"
+            mr="auto"
+            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2043.png?alt=media&token=d43f47a3-d634-410f-a223-9643d41f602d"
+          />
+          <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
+            Select a company
+          </Text>
+          <Text fontSize="sm">
+            Identify a company failing to take sufficient climate action. Use this <Link color="seafoam.500"> guide</Link>.
+          </Text>
+        </Box>
+        <Box
+          width="25%"
+          fontSize="xl"
+          backgroundColor="whiteAlpha.500"
+          m={1}
+          padding="4px"
+        >
+          <Image
+            height="100px"
+            width="100px"
+            ml="auto"
+            mr="auto"
+            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2045.png?alt=media&token=efa701a7-13d1-4ed2-864f-7100cae9534f"
+          />
+          <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
+            Select a cause
+          </Text>
+          <Text fontSize="sm">
+            Identify a specific change you want to see at a corporation. Use this <Link color="seafoam.500">guide</Link>.
+          </Text>
+        </Box>
+        <Box
+          width="25%"
+          fontSize="xl"
+          backgroundColor="whiteAlpha.500"
+          m={1}
+          padding="4px"
+        >
+          <Image
+            height="100px"
+            width="100px"
+            ml="auto"
+            mr="auto"
+            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2046.png?alt=media&token=e395073c-7208-4a26-a301-398abe5fb4ec"
+          />
+          <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
+            Build a case
+          </Text>
+          <Text fontSize="sm">
+            Make a case that this good for the planet AND good
+            for the company. Use this <Link color="seafoam.500">guide</Link>.
+          </Text>
+        </Box>
+        <Box
+          width="25%"
+          fontSize="xl"
+          backgroundColor="whiteAlpha.500"
+          m={1}
+          padding="4px"
+        >
+          <Image
+            height="100px"
+            width="100px"
+            ml="auto"
+            mr="auto"
+            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2047.png?alt=media&token=18ac4bec-db75-4d18-b88d-070865319871"
+          />
+          <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
+            Craft a proposal
+          </Text>
+          <Text fontSize="sm">
+            We’ll collaborate with you to bring this proposal to life. <Link color="seafoam.500">Learn more</Link>.
+          </Text>
+        </Box>
+      </Flex>
+    </Box>
+{/* End of the Top section---------------------------------------------- */}
+
+          <Box m="0 auto" maxW="1800px" ml="5%" mr="5%">
             <Tabs variant="enclosed" borderRadius="8px">
               <TabList>
                 <Tab
