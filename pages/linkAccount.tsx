@@ -89,8 +89,35 @@ class linkAccount extends React.Component<Props, State> {
     }
   }
 
+  async getInvestmentData(accessToken: any) {
+    try {
+      const response = await fetch("/api/get_investment_data/", {method: 'POST', body: accessToken});
+      return await response.json();
+    }
+    catch(e) {
+      console.log(e);
+    }
+  }
+
+  async getAccessToken(publicToken: any) {
+    try {
+      const response = await fetch("/api/get_access_token/", {method: 'POST', body: publicToken});
+      console.log(response);
+      const accessToken = await response.json();
+      return accessToken.access_token;
+      
+    }
+    catch(e) {
+      console.log(e);
+    }
+  }
+
+  async storeInvestmentData(data: any) {
+    //const dataToStore = await data.json();
+    console.log(data);
+  }
+
   async componentDidMount() {
-    console.log("here");
     const token = await this.createLinkToken();
     this.setState({ token });
   }
@@ -99,6 +126,13 @@ class linkAccount extends React.Component<Props, State> {
     // send public_token to your server
     // https://plaid.com/docs/api/tokens/#token-exchange-flow
     console.log(publicToken, metadata);
+    console.log("----------------------------")
+    const accessToken = this.getAccessToken(publicToken).then(value => {
+      console.log(value);
+      const data = this.getInvestmentData(value).then(dataValue => {
+        this.storeInvestmentData(dataValue);
+      });
+    });
   };
 
   onEvent: PlaidLinkOnEvent = (eventName, metadata) => {
