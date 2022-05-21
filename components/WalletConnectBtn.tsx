@@ -10,7 +10,13 @@ import React from "react";
 import WalletModal from "./WalletModal";
 
 export default function WalletConnectBtn(props: ButtonProps) {
-  const { hasWeb3, walletAddress, connectWallet, isConnected, earthBalance } = useWeb3();
+  const { 
+    hasWeb3,
+    walletAddress,
+    connectWallet,
+    isConnected,
+    earthBalance 
+  } = useWeb3();
 
   const {
     isOpen: walletModalIsOpen,
@@ -51,7 +57,7 @@ export default function WalletConnectBtn(props: ButtonProps) {
           onClick={handleClick}
           color='white'
           bg='seafoam.500'
-          ml='8px'
+          mr='16px'
         >
           {walletAddress
             ? `${walletAddress.substring(0, 4)}..${walletAddress.substring(

@@ -1,4 +1,5 @@
 import type { NextPage, GetServerSidePropsContext } from "next";
+import { useState } from "react";
 import Head from "next/head";
 import {
   Container,
@@ -9,12 +10,12 @@ import {
   Flex,
   Box,
 } from "@chakra-ui/react";
-import ProfileInfo from '../../../components/profile/ProfileInfo';
-import Link from "../../../components/Link";
+import { useAuth } from '../../../contexts/AuthContext';
 import nookies from 'nookies';
+import Link from "../../../components/Link";
+import ProfileInfo from '../../../components/profile/ProfileInfo';
 import { admin } from '../../../lib/firebaseAdmin';
 import { getProfileData, getImageFromStorage } from "../../../lib/firebaseClient";
-import { useAuth } from '../../../contexts/AuthContext';
 
 type ProfileProps = {
   linkedIn: string;
@@ -32,11 +33,18 @@ type ProfilePageProps = {
   profile: ProfileProps;
   profileImage: string;
   backgroundImage: string;
+  badges: any;
+  activity: any;
+  proposals: any
 };
 
-const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, backgroundImage }) => {
+const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, backgroundImage, badges, activity, proposals }) => {
 
-  const { userid } = useAuth();
+  const { userid, user } = useAuth();
+
+  const [ memberSince, setMemberSince ] = useState(user?.metadata.creationTime);
+
+
 
   const ProfileImageStyles = {
     width: "250px",
@@ -49,6 +57,15 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
     ml: '32px',
   }
 
+  const placeholderStyles = {
+    textAlign: 'center',
+    w: '100%',
+    py: '64px',
+    m: '16px 4px',
+    border: '1px solid #efefef',
+    borderRadius: '8px'
+  }
+
   const ProfileImage = () => profileImage ? (<Image 
     src={profileImage} 
     { ...ProfileImageStyles }
@@ -56,7 +73,17 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
     objectPosition={'center'}
   />) : (<Box {...ProfileImageStyles}/>)
 
-  console.log('bg image: ', backgroundImage);
+  const Badges = () => (!badges ? 
+    (<Text sx={placeholderStyles}>You haven't earned any badges</Text>) :
+    (<Box></Box>));
+
+  const Proposals = () => (!proposals ? 
+    (<Text sx={placeholderStyles}>You haven't created any proposals</Text>) :
+    (<Box></Box>));
+
+  const Activity = () => (!activity ? 
+    (<Text sx={placeholderStyles}>You haven't been active yet. Check out <Link href='/campaigns' color='seafoam.500'>campaigns</Link> to get involved!</Text>) : 
+    (<Box></Box>));
 
   return (
     <>
@@ -68,21 +95,29 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
         width='100%'
         height='400px'
         mt='120px'
+        bg='grey'
         backgroundImage={`${backgroundImage}`}
-        backgroundSize='cover'
         backgroundPosition={`center`}
+        backgroundSize='cover'
       />
       <Container mt='-120px'>
         <Box
           width='100%'
-          height='300px'
+          minHeight='300px'
           bg='#fff'
           borderRadius='10px'
           padding='20px'
           mb='32px'
           position={'relative'}
         >
-          <Button as={Link} href={`/user/${userid}/edit`}>Edit</Button>
+          <Button
+            as={Link}
+            href={`/user/${userid}/edit`}
+            bg='seafoam.500'
+            position={'absolute'}
+            bottom={'32px'}
+            right={'32px'}
+          >Edit</Button>
           <ProfileImage />
           <ProfileInfo profile={profile}/>
           <Text position='absolute' top='32px' right='32px'>Member since Feb 2022</Text>
@@ -95,20 +130,22 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
         >
           <Box>
             <Heading>Badges</Heading>
-            <Flex>
-              <Box w='150px' h='150px' bg='gray' borderRadius={100} m='16px'/>
-              <Box w='150px' h='150px' bg='gray' borderRadius={100} m='16px'/>
+            <Flex w='100%'>
+              <Badges />
             </Flex>
           </Box>
           <Box>
             <Heading>Proposals</Heading>
+            <Flex w='100%'>
+              <Proposals />
+            </Flex>
           </Box>
           <Box>
             <Heading>Activity</Heading>
+            <Flex w='100%'>
+              <Activity />
+            </Flex>
           </Box>
-          {/* <ProfileBadges />
-          <ProfileProposals />
-          <ProfileActivity /> */}
         </Box>
       </Container>
     </>
@@ -126,7 +163,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const cookies = nookies.get(context);
     const token = await admin.auth().verifyIdToken(cookies.token);
 
-    const { uid, email } = token;
+    const { uid } = token;
 
     const profile = await getProfileData(uid);
 
