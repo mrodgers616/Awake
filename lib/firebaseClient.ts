@@ -1,8 +1,10 @@
-import { FirebaseError, initializeApp } from "firebase/app";
+import type { FirebaseError } from "firebase/app";
+import firebaseClient, { initializeApp } from "firebase/app";
 import {
   doc,
   getFirestore,
   collection,
+  setDoc,
   addDoc,
   getDocs,
   getDoc,
@@ -11,10 +13,13 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import {
-  getStorage,
   ref,
-  uploadBytes
+  getStorage,
+  uploadBytes,
+  getDownloadURL
 } from "firebase/storage";
+import * as fb from 'firebase/app';
+import { getAuth, setPersistence, browserSessionPersistence } from "firebase/auth";
 
 let app
 try {
@@ -23,6 +28,12 @@ try {
     projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+  });
+
+  const authentication = getAuth();
+
+  setPersistence(authentication, browserSessionPersistence).then(_ => {
+    console.log('Persistence set');
   });
 } catch (err) {
   if(!/alreay exists/.test((err as FirebaseError).message)) {
@@ -69,9 +80,10 @@ async function updateProposalInStore (storeId: string, newData: Record<string, a
   }
 }
 
-async function getProfileData (userId: string): Promise<any> {
+async function getProfileData (uid: string): Promise<any> {
   try {
-    const userRef = doc(getFirestore(), 'users', userId);
+    console.log(uid);
+    const userRef = doc(getFirestore(), 'users', uid);
     return await getDoc(userRef);
   } catch (error) {
     console.error((error as FirebaseError).message);
@@ -83,23 +95,24 @@ async function updateOrAddProfileData (
   newData: Record<string, any>
 ): Promise<any> {
   try {
+    console.log(profileId);
     const userRef = doc(getFirestore(), 'users', profileId);
     const userDoc = await getDoc(userRef);
     if (userDoc.exists()) {
       return await updateDoc(userRef, newData);
     } else {
-      return await addDoc(users, newData);
+      return await setDoc(userRef, newData);
     }
   } catch (err) {
     console.error((err as FirebaseError).message);
   }
 }
 
-async function addImageToStorage (file: any): Promise<any> {
+async function addImageToStorage (uid: string, file: any): Promise<any> {
   try {
     if (!file) return;
     const storage = getStorage();
-    const storageRef = ref(storage, `images/${file.name}`);
+    const storageRef = ref(storage, `${uid}/${file.name}`);
     const id = await uploadBytes(storageRef, file);
     return id.metadata;
   } catch (error: any) {
@@ -107,30 +120,27 @@ async function addImageToStorage (file: any): Promise<any> {
   }
 }
 
-type Firebase = {
-  app: typeof app;
-  onChainProposals: typeof onChainProposals;
-  getAllProposals: () => Promise<any>;
-  addProposalToStore: (proposal: any) => Promise<DocumentReference<any> | undefined>;
-  updateProposalInStore: (storeId: string, newData: Record<string, any>) => Promise<any>;
-  fetchProposalFromStore: (proposalId: string) => Promise<DocumentSnapshot | undefined>;
-  addImageToStorage: (file: any) => Promise<any>;
-  getProfileData: (userId: string) => Promise<any>;
-  updateOrAddProfileData: (profileId: string, newData: Record<string, any>) => Promise<any>;
+async function getImageFromStorage (imageId: string): Promise<any> {
+  try {
+    const storage = getStorage();
+    const storageRef = ref(storage, imageId);
+    return await getDownloadURL(storageRef);
+  } catch (error: any) {
+    console.error(error.message);
+  }
 }
 
-const firebase: Firebase = {
-  app,
+export { 
+  updateOrAddProfileData,
+  fetchProposalFromStore,
+  updateProposalInStore,
+  getImageFromStorage,
+  addProposalToStore,
+  addImageToStorage,
   onChainProposals,
   getAllProposals,
-  addProposalToStore,
-  updateProposalInStore,
-  fetchProposalFromStore,
-  updateOrAddProfileData,
-  addImageToStorage,
+  firebaseClient,
   getProfileData
 };
-
-export default firebase;
 
 

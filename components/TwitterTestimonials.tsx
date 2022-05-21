@@ -40,6 +40,7 @@ export default function TwitterTestimonial(): JSX.Element {
     <Box
       id="testimonials"
       bgGradient="linear(90deg, seafoam.500 -500%, sage.500 50%, seafoam.500 500%)"
+      overflow={'hidden'}
     >
       <Container>
         <Flex

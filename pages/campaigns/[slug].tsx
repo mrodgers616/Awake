@@ -20,7 +20,7 @@ import { getProposalState, getProposalVotes } from "../../lib/web3";
 import StepsSection from "../../components/StepsSection";
 import { useEffect, useState } from "react";
 import { Steps } from "../../lib/mock-data";
-import firebase from "../../lib/firebase";
+import { fetchProposalFromStore } from "../../lib/firebaseClient";
 import LatestArticles from "../../components/LatestArticles";
 import ReactHtmlParser from "react-html-parser";
 import { GetServerSidePropsContext } from "next";
@@ -204,20 +204,35 @@ export default function Proposal({
           w="100%"
           mb="32px"
           bg="sage.500"
-          height="175px"
+          height={{
+            base: 'fit-content',
+            lg: "175px"
+          }}
           borderRadius="16px"
           justifyContent="center"
           alignItems="center"
           boxShadow="4px 4px 62px -9px rgba(0, 0, 0, 0.15)"
           zIndex={500}
+          flexDir={{
+            base: "column",
+            md: "row"
+          }}
         >
           <Flex
             alignItems={"center"}
             justifyContent={"center"}
             flexBasis="50%"
-            borderRight="1px solid #eaeaea"
+            borderRight={{ 
+              base: 'none',
+              md: "1px solid #eaeaea"
+            }}
+            flexDirection={{
+              base: 'column',
+              lg: 'row'
+            }}
+            m='16px'
           >
-            <Box color="white" p="16px 24px">
+            <Box color="white" p={{ base: '0', lg: "16px 24px" }}>
               <Heading textAlign={"center"} fontSize="48px" color="seafoam.500">
                 $13,498
               </Heading>
@@ -225,7 +240,7 @@ export default function Proposal({
                 Shares commited to Campaign
               </Text>
             </Box>
-            <Box color="white" p=" 16px 24px">
+            <Box color="white" p={{ base: '0', lg: "16px 24px" }}>
               <Heading textAlign={"center"} fontSize="48px" color="seafoam.500">
                 50M
               </Heading>
@@ -256,6 +271,10 @@ export default function Proposal({
                 fontSize="1.1em"
                 w="350px"
                 mr="16px"
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
                 h="64px"
                 disabled={!hasEnoughBalance}
                 textDecoration="none"
@@ -290,14 +309,22 @@ export default function Proposal({
         </Flex>
         <CampaignCarousel
           w="100%"
-          h="400px"
+          h={{
+            base: 'fit-content',
+            md: "400px"
+          }}
           justifyContent={"space-between"}
           alignItems={"center"}
           my="64px"
           images={images}
         />
-        <Flex mt="64px" w="100%">
-          <Flex mb="64px" flexDir={"column"} w="55%" mr="32px">
+        <Flex mt="64px" w="100%"
+          flexDir={{
+            base: 'column-reverse',
+            md: 'row'
+          }}
+        >
+          <Flex mb="64px" flexDir={"column"} w={{ base: '100%', md:"55%" }}mr="32px">
             <Box>
               <Flex justifyContent="space-between">
                 <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
@@ -387,7 +414,7 @@ export default function Proposal({
               </Flex>
             </Box>
           </Flex>
-          <Flex mb="63px" flexDir={"column"} w="45%">
+          <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md:"45%" }}>
             <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 Company Information
@@ -403,14 +430,14 @@ export default function Proposal({
               >
                 <Box position="absolute" color="white">
                   <Text>{campaign.companyName}</Text>
-                  {historicalStockPrice && (
+                  {/* {historicalStockPrice && (
                     <Text>
                       ${" "}
                       {historicalStockPrice[
                         historicalStockPrice.length - 1
                       ].price.toFixed(2)}
                     </Text>
-                  )}
+                  )} */}
                 </Box>
                 <ResponsiveContainer width="100%" height={200}>
                   <LineChart data={historicalStockPrice}>
@@ -567,7 +594,7 @@ export default function Proposal({
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { slug } = context.query;
-  const campaignDoc = await firebase.fetchProposalFromStore(slug as string);
+  const campaignDoc = await fetchProposalFromStore(slug as string);
 
   const campaign = {
     ...campaignDoc!.data(),

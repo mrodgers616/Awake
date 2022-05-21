@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import * as libWeb3 from "../lib/web3";
 import { ethers } from "ethers";
 import ClimateDAO from "../abi/ClimateDAO.json";
-import firebase from "../lib/firebase";
+import { updateProposalInStore } from "../lib/firebaseClient";
 import { add } from "date-fns";
 
 type State = {
@@ -111,7 +111,7 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
         ) => {
           const createdAt = new Date().toISOString();
           const deadline = add(new Date(), { hours: 1 }).toISOString();
-          firebase.updateProposalInStore(description, {
+          updateProposalInStore(description, {
             proposalId: proposalId.toString(),
             proposer: proposer.toString(),
             createdAt,

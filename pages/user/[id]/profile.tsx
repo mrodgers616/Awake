@@ -1,4 +1,5 @@
 import type { NextPage, GetServerSidePropsContext } from "next";
+import { useState } from "react";
 import Head from "next/head";
 import {
   Container,
@@ -9,10 +10,41 @@ import {
   Flex,
   Box,
 } from "@chakra-ui/react";
-import ProfileInfo from '../../../components/profile/ProfileInfo';
+import { useAuth } from '../../../contexts/AuthContext';
+import nookies from 'nookies';
 import Link from "../../../components/Link";
+import ProfileInfo from '../../../components/profile/ProfileInfo';
+import { admin } from '../../../lib/firebaseAdmin';
+import { getProfileData, getImageFromStorage } from "../../../lib/firebaseClient";
 
-const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage, id }) => {
+type ProfileProps = {
+  linkedIn: string;
+  facebook: string;
+  twitter: string;
+  email: string;
+  profileImage: string;
+  backgroundImage: string;
+  username: string;
+  biography: string;
+  name: string;
+}
+
+type ProfilePageProps = {
+  profile: ProfileProps;
+  profileImage: string;
+  backgroundImage: string;
+  badges: any;
+  activity: any;
+  proposals: any
+};
+
+const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, backgroundImage, badges, activity, proposals }) => {
+
+  const { userid, user } = useAuth();
+
+  const [ memberSince, setMemberSince ] = useState(user?.metadata.creationTime);
+
+
 
   const ProfileImageStyles = {
     width: "250px",
@@ -25,7 +57,33 @@ const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage,
     ml: '32px',
   }
 
-  const ProfileImage = () => profileImage ? (<Image { ...ProfileImageStyles } />) : (<Box {...ProfileImageStyles}/>)
+  const placeholderStyles = {
+    textAlign: 'center',
+    w: '100%',
+    py: '64px',
+    m: '16px 4px',
+    border: '1px solid #efefef',
+    borderRadius: '8px'
+  }
+
+  const ProfileImage = () => profileImage ? (<Image 
+    src={profileImage} 
+    { ...ProfileImageStyles }
+    objectFit="cover"
+    objectPosition={'center'}
+  />) : (<Box {...ProfileImageStyles}/>)
+
+  const Badges = () => (!badges ? 
+    (<Text sx={placeholderStyles}>You haven't earned any badges</Text>) :
+    (<Box></Box>));
+
+  const Proposals = () => (!proposals ? 
+    (<Text sx={placeholderStyles}>You haven't created any proposals</Text>) :
+    (<Box></Box>));
+
+  const Activity = () => (!activity ? 
+    (<Text sx={placeholderStyles}>You haven't been active yet. Check out <Link href='/campaigns' color='seafoam.500'>campaigns</Link> to get involved!</Text>) : 
+    (<Box></Box>));
 
   return (
     <>
@@ -33,31 +91,36 @@ const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage,
         <title>Climate DAO | Profile</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Box width='100%' height='400px' mt='120px' bg='green'/>
+      <Box
+        width='100%'
+        height='400px'
+        mt='120px'
+        bg='grey'
+        backgroundImage={`${backgroundImage}`}
+        backgroundPosition={`center`}
+        backgroundSize='cover'
+      />
       <Container mt='-120px'>
         <Box
           width='100%'
-          height='300px'
+          minHeight='300px'
           bg='#fff'
           borderRadius='10px'
           padding='20px'
           mb='32px'
           position={'relative'}
         >
-          <Button as={Link} href={`/user/${id}/edit`}>Edit</Button>
+          <Button
+            as={Link}
+            href={`/user/${userid}/edit`}
+            bg='seafoam.500'
+            position={'absolute'}
+            bottom={'32px'}
+            right={'32px'}
+          >Edit</Button>
           <ProfileImage />
-          <ProfileInfo profile={{
-            name: 'John Doe',
-            username: 'johndoe',
-            bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris euismod, nunc eget pretium aliquet, nisi nunc ultricies nisi, euismod euismod nunc nunc euismod nunc.',
-            social: {
-              email: 'email@example.com',
-              twitter: '@climateer',
-              facebook: 'climateer',
-              linkedin: 'climateer',
-            }
-          }}/>
-          <Text position='absolute' top='32px' right='32px'>Member since Feb 2022 { id }</Text>
+          <ProfileInfo profile={profile}/>
+          <Text position='absolute' top='32px' right='32px'>Member since Feb 2022</Text>
         </Box>
         <Box
           bg='#fff'
@@ -67,36 +130,73 @@ const Profile: NextPage<{ profileImage: string; id:string; }> = ({ profileImage,
         >
           <Box>
             <Heading>Badges</Heading>
-            <Flex>
-              <Box w='150px' h='150px' bg='gray' borderRadius={100} m='16px'/>
-              <Box w='150px' h='150px' bg='gray' borderRadius={100} m='16px'/>
+            <Flex w='100%'>
+              <Badges />
             </Flex>
           </Box>
           <Box>
             <Heading>Proposals</Heading>
+            <Flex w='100%'>
+              <Proposals />
+            </Flex>
           </Box>
           <Box>
             <Heading>Activity</Heading>
+            <Flex w='100%'>
+              <Activity />
+            </Flex>
           </Box>
-          {/* <ProfileBadges />
-          <ProfileProposals />
-          <ProfileActivity /> */}
         </Box>
       </Container>
     </>
   );
 };
 
-export async function getServerSideProps({ req, res, params }: GetServerSidePropsContext) {
-  res.setHeader(
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  
+  context.res.setHeader(
     "Cache-Control",
     'public, s-maxage=15, stale-while-revalidate=59'
-  )
+  );
 
-  return {
-    props: {
-      id: params?.id ?? '',
-    },
+  try {
+    const cookies = nookies.get(context);
+    const token = await admin.auth().verifyIdToken(cookies.token);
+
+    const { uid } = token;
+
+    const profile = await getProfileData(uid);
+
+    const data = {
+      ...profile.data()
+    };
+
+    let pfp = null;
+    let bg = null;
+
+    if (data.profileImage) {
+      pfp = await getImageFromStorage(data.profileImage);
+    }
+
+    if (data.backgroundImage) {
+      bg = await getImageFromStorage(data.backgroundImage);
+    }
+
+    return {
+      props: {
+        profile: { ...profile.data() },
+        profileImage: pfp,
+        backgroundImage: bg,
+        activity: null,
+        badges: null,
+        proposals: null
+      }
+    }
+  } catch (error) {
+    context.res.writeHead(302, { Location: '/' });
+    context.res.end();
+    
+    return { props: {} as never }
   }
 }
 

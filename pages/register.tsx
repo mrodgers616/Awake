@@ -2,16 +2,19 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import {
-  Container,
-  Heading,
-  FormControl,
-  Input,
-  FormLabel,
   FormErrorMessage,
-  Box,
-  chakra,
-  Button,
+  InputLeftAddon,
+  FormControl,
+  InputGroup,
+  FormLabel,
+  Container,
   useToast,
+  Heading,
+  Button,
+  chakra,
+  HStack,
+  Input,
+  Box,
 } from "@chakra-ui/react";
 import Link from "../components/Link";
 import { useForm } from "react-hook-form";
@@ -38,16 +41,38 @@ const Register: NextPage = () => {
       <Box>
         <Container
           width="100%"
-          h="600px"
           overflow="auto"
           marginX="auto"
-          mt="120px"
+          mt="184px"
+          pb='16px'
         >
-          <Box>
-            <Heading>Register:</Heading>
+          <Box
+            w='80%'
+            p={16}
+            shadow='md'
+            borderWidth={'1px'}
+            mx='auto'
+            bg='white'
+          >
+            <Heading mb='32px'>Register</Heading>
             <chakra.form onSubmit={handleSubmit(onSubmit)}>
-              <FormLabel htmlFor="email">Email:</FormLabel>
-              <FormControl isInvalid={errors.email}>
+              <FormControl mb='16px' isInvalid={errors.username}>
+                <FormLabel htmlFor="username">Username:</FormLabel>
+                <InputGroup>
+                  <InputLeftAddon children='@' />
+                  <Input
+                    id='username'
+                    {...register("username", {
+                      required: "Username is required",
+                    })}
+                  />
+                </InputGroup>
+                <FormErrorMessage>
+                  {errors.username && errors.username.message}
+                </FormErrorMessage>
+              </FormControl>
+              <FormControl mb='16px' isInvalid={errors.email}>
+                <FormLabel htmlFor="email">Email:</FormLabel>
                 <Input
                   id="email"
                   type="email"
@@ -59,7 +84,7 @@ const Register: NextPage = () => {
                   {errors.email && errors.email.message}
                 </FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={errors.password}>
+              <FormControl mb='16px' isInvalid={errors.password}>
                 <FormLabel htmlFor="password">Password:</FormLabel>
                 <Input
                   id="password"
@@ -72,11 +97,30 @@ const Register: NextPage = () => {
                   {errors.password && errors.password.message}
                 </FormErrorMessage>
               </FormControl>
-              <Button type="submit" bg="seafoam.500">
-                Register
-              </Button>
+              <FormControl mb='32px' isInvalid={errors.password2}>
+                <FormLabel htmlFor="password">Verify Password:</FormLabel>
+                <Input
+                  id="password2"
+                  type="password"
+                  {...register("password2", {
+                    required: "Please enter your password",
+                  })}
+                />
+                <FormErrorMessage>
+                  {errors.password && errors.password.message}
+                </FormErrorMessage>
+              </FormControl>
+              <HStack>
+                <Button
+                  type="submit"
+                  bg="seafoam.500"
+                  mr='16px'
+                >
+                  Register
+                </Button>
+                <Link href="/login">Already Registered?</Link>
+              </HStack>
             </chakra.form>
-            <Link href="/login">Already Registered?</Link>
           </Box>
         </Container>
       </Box>
