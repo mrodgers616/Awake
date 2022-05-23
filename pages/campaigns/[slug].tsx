@@ -13,6 +13,7 @@ import {
   Container,
   useDisclosure,
   Tooltip,
+  IconButton,
 } from "@chakra-ui/react";
 import { ResponsiveContainer, LineChart, Line } from "recharts";
 import { ethers } from "ethers";
@@ -37,6 +38,8 @@ import axios from "axios";
 import { useWeb3 } from "../../contexts/Web3Context";
 import copy from "copy-to-clipboard";
 import { lighten } from "@chakra-ui/theme-tools";
+
+
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -142,7 +145,7 @@ export default function Proposal({
   return (
     <>
       <Head>
-        <title>Proposal {campaign?.id} | Climate DAO</title>
+        <title>Proposal {campaign?.id} | ClimateDAO</title>
       </Head>
       <Box
         bg="sage.500"
@@ -153,7 +156,7 @@ export default function Proposal({
         zIndex={0}
       >
         <Box
-          bg="rgba(0,0,0,.4)"
+          bg="rgba(0,0,0,.8)"
           position="absolute"
           w="100%"
           h="100%"
@@ -175,10 +178,11 @@ export default function Proposal({
                 title="Status"
                 p="8px 48px"
                 fontSize="16px"
-                color="white"
+                color="black"
                 bg="blue.500"
                 mr="16px"
                 borderRadius="32px"
+                marginBottom={3}
               >
                 {currentState ?? "Pending"}
               </Badge>
@@ -186,11 +190,12 @@ export default function Proposal({
                 title="Category"
                 p="8px 48px"
                 fontSize="16px"
-                color="white"
+                color="black"
                 bg="seafoam.500"
                 borderRadius="32px"
+                marginBottom={3}
               >
-                Logistics
+                Say on Climate
               </Badge>
             </Flex>
             <Heading color="white" w="100%">
@@ -234,9 +239,9 @@ export default function Proposal({
           >
             <Box color="white" p={{ base: '0', lg: "16px 24px" }}>
               <Heading textAlign={"center"} fontSize="48px" color="seafoam.500">
-                $13,498
+                13,498
               </Heading>
-              <Text fontWeight={400} fontSize="14px">
+              <Text fontWeight={500} fontSize="24px">
                 Shares commited to Campaign
               </Text>
             </Box>
@@ -244,7 +249,7 @@ export default function Proposal({
               <Heading textAlign={"center"} fontSize="48px" color="seafoam.500">
                 50M
               </Heading>
-              <Text fontWeight={400} fontSize="14px">
+              <Text fontWeight={500} fontSize="24px">
                 Campaign Supporters
               </Text>
             </Box>
@@ -255,7 +260,8 @@ export default function Proposal({
             justifyContent="center"
             alignItems="center"
           >
-            <Tooltip
+{/* -------Disabled Tooltip---------------------- */}
+            {/* <Tooltip
               hasArrow
               isDisabled={hasEnoughBalance || !isConnected}
               label={
@@ -264,11 +270,11 @@ export default function Proposal({
                   : "You do not have enough CLIMATE to vote"
               }
               shouldWrapChildren
-            >
+            > */}
               <Button
                 bg="seafoam.500"
                 color="white"
-                fontSize="1.1em"
+                fontSize="1.4em"
                 w="350px"
                 mr="16px"
                 mb={{
@@ -276,17 +282,19 @@ export default function Proposal({
                   md: '0'
                 }}
                 h="64px"
-                disabled={!hasEnoughBalance}
-                textDecoration="none"
-                _hover={{
-                  textDecoration: "none",
-                  bg: lighten("seafoam.500", 0.8),
-                }}
+                // enabling users to support the campaign if they have enough balance
+                    // change made in the "testing waters" commit
+                // disabled={!hasEnoughBalance}
+                // textDecoration="none"
+                // _hover={{
+                //   textDecoration: "none",
+                //   bg: lighten("seafoam.500", 0.8),
+                // }}
                 onClick={() => onVoteModalOpen()}
               >
                 Support Campaign
               </Button>
-            </Tooltip>
+            {/* </Tooltip> */}
             <CastVoteModal
               isOpen={voteModalIsOpen}
               onClose={onVoteModalClose}
@@ -307,7 +315,8 @@ export default function Proposal({
             </Button> */}
           </Flex>
         </Flex>
-        <CampaignCarousel
+{/* -------------Deleting camapaing Carousel-------------------- */}
+        {/* <CampaignCarousel
           w="100%"
           h={{
             base: 'fit-content',
@@ -325,6 +334,30 @@ export default function Proposal({
           }}
         >
           <Flex mb="64px" flexDir={"column"} w={{ base: '100%', md:"55%" }}mr="32px">
+        /> */}
+{/*Adding the about campaign content on the left*/}  
+        <Flex mt="64px" w="100%">
+          <Flex mb="64px" flexDir={"column"} w="60%" mr="32px">
+            <Box mb="32px">
+              <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
+                About Campaign
+              </Heading>
+              <Box
+                title="company graph"
+                w="100%"
+                bg="grey"
+                h="430px"
+                borderRadius="16px"
+                mb="8px"
+              ></Box>
+              <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
+                duis at tellus at urna condimentum mattis pellentesque. In nisl
+                nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
+              </Text>
+            </Box>
+
             <Box>
               <Flex justifyContent="space-between">
                 <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
@@ -352,6 +385,7 @@ export default function Proposal({
                 flexDir={"column"}
                 overflow="hidden"
                 textDecoration="none !important"
+                marginBottom={16}
                 _hover={{
                   "& .join-discussion": {
                     transition: "opacity 0.2s ease-in-out",
@@ -457,7 +491,11 @@ export default function Proposal({
                 nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
               </Text>
             </Box>
-            <Box mb="32px">
+
+          </Flex>
+          <Flex mb="63px" flexDir={"column"} w="25%">
+{/*--  DELETING DEPRECATED BOX FROM THE RIGHT OF THE PAGE------------------------- */}
+            {/* <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 About Campaign
               </Heading>
@@ -470,117 +508,96 @@ export default function Proposal({
                 mb="8px"
               ></Box>
               <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                Lorm ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
                 duis at tellus at urna condimentum mattis pellentesque. In nisl
                 nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
               </Text>
-            </Box>
-            <Box>
-              <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                team
-              </Heading>
-              <Flex flexWrap={"wrap"}>
-                <Flex alignItems={"center"} w="50%" mb="16px">
-                  <Box
-                    bg="grey"
-                    w="64px"
-                    h="64px"
-                    mr="16px"
-                    borderRadius={"100%"}
-                  />
+            </Box> */}
+        {/* END OF DELETED SECTION */}
+            <Flex
+                position={'absolute'}
+                justifyContent="center"
+                flexDirection="column"
+                alignItems="center"
+                // width={60}
+                backgroundColor="FFFFFF"
+                boxShadow='2xl' p='6'
+                borderRadius="16px"
+                mt = '32px'
+              >
+                <Image height="125px" width="250px" />
+                <Text fontSize="xl" fontWeight="bold" mb={4} mt={4}>
+                    {campaign?.title}
+                </Text>
+                <Button
+                  variant="solid"
+                  size="lg"
+                  width={48}
+                  backgroundColor="seafoam.500"
+                  mb = '10px'
+                >
+                  Support Campaign
+                </Button>
+                <Flex justifyContent="center" alignItems="space-around" width={48}>
                   <Box>
-                    <Heading fontSize="18px">Guy</Heading>
-                    <Text>Founder</Text>
-                  </Box>
-                </Flex>
-                <Flex alignItems={"center"} w="50%" mb="16px">
-                  <Box
-                    bg="grey"
-                    w="64px"
-                    h="64px"
-                    mr="16px"
-                    borderRadius={"100%"}
-                  />
-                  <Box>
-                    <Heading fontSize="18px">Guy</Heading>
-                    <Text>Founder</Text>
-                  </Box>
-                </Flex>
-                <Flex alignItems={"center"} w="50%" mb="16px">
-                  <Box
-                    bg="grey"
-                    w="64px"
-                    h="64px"
-                    mr="16px"
-                    borderRadius={"100%"}
-                  />
-                  <Box>
-                    <Heading fontSize="18px">Guy</Heading>
-                    <Text>Founder</Text>
+                    <Flex alignItems={"center"} justifyContent={"flex-start"}>
+                      {socialMedia.map((social: any, index: number) => {
+                        if (social.name === "clipboard") {
+                          return (
+                            <Button
+                              key={index}
+                              name={social.name}
+                              w="48px"
+                              h="48px"
+                              onClick={() => copy(social.link)}
+                              background="transparent"
+                              _hover={{
+                                background: "transparent",
+                              }}
+                              p="8px"
+                            >
+                              <Icon
+                                w={8}
+                                h={8}
+                                _hover={{ color: "seafoam.500" }}
+                                as={social.icon}
+                              />
+                            </Button>
+                          );
+                        } else {
+                          return (
+                            <Link
+                              key={index}
+                              href={social.link}
+                              target="_blank"
+                              background="transparent"
+                              _hover={{
+                                background: "transparent",
+                              }}
+                              w="48px"
+                              h="48px"
+                              onClick={() => {
+                                copy(social.link, {
+                                  message: "Copied to clipboard",
+                                });
+                              }}
+                              p="8px"
+                            >
+                              <Icon
+                                w={8}
+                                h={8}
+                                _hover={{ color: "seafoam.500" }}
+                                as={social.icon}
+                              />
+                            </Link>
+                          );
+                        }
+                      })}
+                    </Flex>
                   </Box>
                 </Flex>
               </Flex>
-            </Box>
-            <Box>
-              <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                share
-              </Heading>
-              <Flex alignItems={"center"} justifyContent={"flex-start"}>
-                {socialMedia.map((social: any, index: number) => {
-                  if (social.name === "clipboard") {
-                    return (
-                      <Button
-                        key={index}
-                        name={social.name}
-                        w="48px"
-                        h="48px"
-                        onClick={() => copy(social.link)}
-                        background="transparent"
-                        _hover={{
-                          background: "transparent",
-                        }}
-                        p="8px"
-                      >
-                        <Icon
-                          w={8}
-                          h={8}
-                          _hover={{ color: "seafoam.500" }}
-                          as={social.icon}
-                        />
-                      </Button>
-                    );
-                  } else {
-                    return (
-                      <Link
-                        key={index}
-                        href={social.link}
-                        target="_blank"
-                        background="transparent"
-                        _hover={{
-                          background: "transparent",
-                        }}
-                        w="48px"
-                        h="48px"
-                        onClick={() => {
-                          copy(social.link, {
-                            message: "Copied to clipboard",
-                          });
-                        }}
-                        p="8px"
-                      >
-                        <Icon
-                          w={8}
-                          h={8}
-                          _hover={{ color: "seafoam.500" }}
-                          as={social.icon}
-                        />
-                      </Link>
-                    );
-                  }
-                })}
-              </Flex>
-            </Box>
           </Flex>
         </Flex>
         <StepsSection steps={Steps} />

@@ -88,7 +88,7 @@ const Blog: NextPage = () => {
         bgPosition="center"
         mt="120px"
       >
-        <Box w="100%" h="100%" bg="rgba(0,0,0,.2)">
+        <Box w="100%" h="100%" bg="rgba(0,0,0,.6)">
           <Container h="400px">
             <Flex h="100%" justifyContent="center" alignItems="center">
               <Heading
@@ -140,7 +140,7 @@ const Blog: NextPage = () => {
               <Link href={article.link} isExternal>
                 <Text flexGrow={2}>{article.description}</Text>
                 <Button my="8px" borderRadius={"18px"} colorScheme="seafoam">
-                  Read on Medium <Icon as={FiArrowUpRight} />
+                  Read Article <Icon as={FiArrowUpRight} />
                 </Button>
               </Link>
             </Flex>
