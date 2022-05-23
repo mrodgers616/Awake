@@ -22,12 +22,8 @@ import {
   chakra,
   Image,
 } from "@chakra-ui/react";
-<<<<<<< HEAD
 import { useForm, useController } from "react-hook-form";
 import Upload from "rc-upload"
-=======
-import { useForm } from "react-hook-form";
->>>>>>> 7f35a592e59a3c613c4d197498a843e768ac0acf
 import React, { ChangeEvent, useState } from "react";
 import { useWeb3 } from "../../contexts/Web3Context";
 import { addProposalToStore, addImageToStorage } from "../../lib/firebaseClient";
@@ -467,6 +463,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         placeholder="Outline your proposal..."
                         rows={10}
                       />
+                      {/* @ts-ignore */}
                       <Upload {...uploaderProps}>
                         <Button
                         alignSelf={"flex-end"}
