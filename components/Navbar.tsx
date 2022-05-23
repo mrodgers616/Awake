@@ -83,15 +83,18 @@ export default function Navbar(): JSX.Element {
       />) }
       <Link
         href={`/user/${userid}/profile`}
-        {...LinkProps}
+        sx={{
+          ...LinkProps,
+          mx: '16px'
+        }}
         className={activeLink('/profile')}
       >Profile</Link>
-      <WalletConnectBtn mr='16px'/>
+      <WalletConnectBtn/>
       <Button onClick={logout}>Logout</Button>
     </chakra.div>
   ) : (
     <chakra.div>
-      <Button mr='16px' onClick={() => router.push("/login")}>Login</Button>
+      <Button mx='16px' onClick={() => router.push("/login")}>Login</Button>
       <Button onClick={() => router.push("/register")}>Register</Button>
     </chakra.div>
   ))
@@ -197,9 +200,10 @@ export default function Navbar(): JSX.Element {
           </chakra.div>
         </Flex>
         <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}>
+          isOpen={isOpen}
+          placement="right"
+          onClose={onClose}
+        >
           <DrawerOverlay />
           <DrawerContent paddingTop="4" background="white">
             <Flex

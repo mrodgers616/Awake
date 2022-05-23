@@ -39,7 +39,14 @@ export default function WalletConnectBtn(props: ButtonProps) {
 
   return (
     <>
-      <ButtonGroup isAttached onClick={handleClick}>
+      <ButtonGroup
+        isAttached
+        onClick={handleClick}
+        flexDir={{
+          base: 'column',
+          lg: 'row'
+        }}
+      >
         {isConnected && (
           <Badge 
             //disabled 
@@ -57,7 +64,7 @@ export default function WalletConnectBtn(props: ButtonProps) {
           onClick={handleClick}
           color='white'
           bg='seafoam.500'
-          mr='16px'
+          mx='16px'
         >
           {walletAddress
             ? `${walletAddress.substring(0, 4)}..${walletAddress.substring(
