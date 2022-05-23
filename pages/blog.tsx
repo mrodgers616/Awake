@@ -67,6 +67,15 @@ const Blog: NextPage = () => {
     bg: "green.200",
   };
 
+  const PaginatorProps = {
+    pagesQuantity: pagesQuantity,
+    currentPage: currentPage,
+    onPageChange: setCurrentPage,
+    activeStyles: activeStyles ,
+    normalStyles: normalStyles,
+    separatorStyles: separatorStyles
+  }
+
   useEffect(() => {
     setArticles(tempArticles.slice(offset, offset + pageSize));
     setArticlesTotal(tempArticles.length);
@@ -146,14 +155,7 @@ const Blog: NextPage = () => {
             </Flex>
           ))}
         </Flex>
-        <Paginator
-          pagesQuantity={pagesQuantity}
-          currentPage={currentPage}
-          onPageChange={setCurrentPage}
-          activeStyles={activeStyles}
-          normalStyles={normalStyles}
-          separatorStyles={separatorStyles}
-        >
+        <Paginator {...PaginatorProps}>
           <Flex justifyContent="flex-end">
             <PaginatorContainer justify="space-between" w="fit-content" p={4}>
               <Previous

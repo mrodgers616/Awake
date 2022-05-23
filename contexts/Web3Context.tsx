@@ -15,6 +15,7 @@ type State = {
   chainId: number | null;
   hasEnoughBalance: boolean;
   web3Errors: string | null;
+  proposalId: string | null;
 };
 
 interface ContextValue extends State {
@@ -44,7 +45,8 @@ function getInitialState(): State {
     name: null,
     error: null,
     hasEnoughBalance: false,
-    web3Errors: null
+    web3Errors: null,
+    proposalId: null
   };
 }
 
