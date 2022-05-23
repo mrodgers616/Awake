@@ -60,10 +60,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
       authentication, async (user: User | null) => {
         console.log('onIdTokenChanged', user);
           if (!user) {
+            setState({ ...state, user: null, userid: null })
             nookies.set(undefined, 'token', '', { path: '/'});
           } else {
             const token = await user.getIdToken();
-            setState({ ...state, userid: user.uid });
+            setState({ ...state, user: user, userid: user.uid });
             nookies.set(undefined, 'token', token, { path: '/'});
           }
     })
@@ -100,7 +101,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         email,
         password
       );
-      setState({ ...state, loggedIn: true });
+      setState({ ...state, loggedIn: true, user: response.user, userid: response.user.uid });
       toast({
           title: "Login Successful",
           description: "You have successfully logged in.",
@@ -122,7 +123,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   async function logout(): Promise<void> {
     await getAuth().signOut();
-    setState({ ...state, user: undefined, loggedIn: false });
+    setState({ ...state, user: null, loggedIn: false, userid: null });
     router.push("/");
   }
 

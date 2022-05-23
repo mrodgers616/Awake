@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import {
   FormControl,
@@ -16,9 +16,9 @@ import {
 } from "@chakra-ui/react";
 import CustomFileInput from "../CustomFileInput";
 import * as yup from "yup";
-import { firebaseClient, addImageToStorage, updateOrAddProfileData } from "../../lib/firebaseClient";
+import { addImageToStorage, updateOrAddProfileData } from "../../lib/firebaseClient";
 import { useAuth } from "../../contexts/AuthContext";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 export default function ProfileEditForm({ id, profile, profileImage, backgroundImage }: any): JSX.Element {
   const [profileImageUrl, setProfileImageUrl] = useState(profileImage);

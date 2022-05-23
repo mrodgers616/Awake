@@ -32,9 +32,7 @@ try {
 
   const authentication = getAuth();
 
-  setPersistence(authentication, browserSessionPersistence).then(_ => {
-    console.log('Persistence set');
-  });
+  setPersistence(authentication, browserSessionPersistence);
 } catch (err) {
   if(!/alreay exists/.test((err as FirebaseError).message)) {
     console.error('Firebase initialization error', (err as FirebaseError).stack);

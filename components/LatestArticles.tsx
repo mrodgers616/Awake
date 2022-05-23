@@ -101,7 +101,12 @@ export default function LatestArticles({
         mb='64px'
         ml='8px'
       >{ title ?? 'latest news' }</Heading>
-      <Flex>
+      <Flex
+        flexDirection={{
+          base: "column",
+          lg: 'row'
+        }}  
+      >
         {articles.map((article: any, index: number) => (
           <Box
             key={index}
@@ -109,8 +114,14 @@ export default function LatestArticles({
             p='16px'
             borderRadius='10px'
             mx='8px'
+            mb={{
+              base: '16px',
+            }}
             color='white'
-            maxW='33%'
+            maxW={{ 
+              base: '100%', 
+              lg: '33%'
+            }}
           >
             <Image
               src={article.src}
