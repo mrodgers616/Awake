@@ -6,7 +6,6 @@ import {
   TabPanels,
   TabPanel,
   TabList,
-  Image,
   Text,
   Tabs,
   Tab,
@@ -19,7 +18,7 @@ import { getImageFromStorage, getProfileData } from "../../../lib/firebaseClient
 import { useAuth } from "../../../contexts/AuthContext";
 
 const ProfileEdit: NextPage<any> = ({ profile: profileData, profileImage, backgroundImage }) => {
-  const [profile, setProfile] = useState(profileData);
+  const [profile, _setProfile] = useState(profileData);
 
   const { userid } = useAuth();
 
@@ -29,7 +28,15 @@ const ProfileEdit: NextPage<any> = ({ profile: profileData, profileImage, backgr
         <title>Climate DAO | Profile</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Box width="100%" height="400px" mt="120px" bg="green" />
+      <Box 
+        width='100%'
+        height='400px'
+        mt='120px'
+        bg='grey'
+        backgroundImage={`${backgroundImage}`}
+        backgroundSize='cover'
+        backgroundPosition={`center`}
+      />
       <Container mt="-120px">
         <Box bg="#fff" padding="20px" borderRadius="10px" mb="32px">
             <Tabs>
@@ -74,7 +81,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const cookies = nookies.get(context);
     const token = await admin.auth().verifyIdToken(cookies.token);
 
-    const { uid, email } = token;
+    const { uid } = token;
 
     const profile = await getProfileData(uid);
 

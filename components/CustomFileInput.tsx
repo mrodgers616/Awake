@@ -34,7 +34,7 @@ function CustomFileInput({ top='8px', right='16px', handler, register, name }: a
           zIndex='-1'
           position='absolute'
           type='file'
-          accept=".jpg, .jpeg, .png"
+          accept="image/png, image/jpeg, image/svg+xml"
           top='0'
           left='0'
           _focus={{

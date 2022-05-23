@@ -113,7 +113,11 @@ const Blog: NextPage = () => {
             <Flex
               key={index}
               flexDir="column"
-              maxW="calc(33% - 16px)"
+              maxW={{
+                base: 'calc(100% - 8px)',
+                md: 'calc(50% - 16px)',                
+                lg: "calc(33% - 16px)"
+              }}
               // flexBasis="30%"
               bg="sage.500"
               p="16px"

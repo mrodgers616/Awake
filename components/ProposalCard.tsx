@@ -163,7 +163,6 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
             mr="16px"
             href={`/campaigns/${id}`}
             textDecoration="none"
-            disabled={!isConnected}
             _disabled={{
               pointerEvents: 'none'
             }}

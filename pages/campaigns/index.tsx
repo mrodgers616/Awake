@@ -214,17 +214,33 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
             title="page-cta"
             bg="sage.500"
             w="100%"
-            h="240px"
+            h={{ 
+              base: "fit-content",
+              md: '260px'
+             }}
             mt="-120px"
-
             borderRadius="20px"
             alignItems="center"
             justifyContent="space-between"
             color="white"
             p="64px"
             mb="80px"
+            flexDirection={{
+              base: 'column',
+              md: 'row'
+            }}
           >
-            <Heading fontSize="36px">
+            <Heading
+              fontSize="36px"
+              mb={{ 
+                base: '32px',
+                md: '0px' 
+              }}
+              textAlign={{
+                base: 'center',
+                md: 'left'
+              }}
+            >
               Want to create your own movement and campaign?
             </Heading>
             <Tooltip
@@ -286,7 +302,11 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
             </Flex>
             <Grid
               title="proposals-list-content"
-              templateColumns="repeat(3, 1fr)"
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                md: "repeat(2, 1fr)",
+                lg: "repeat(3, 1fr)",
+              }}
               gap={4}
             >
               {proposals.map((proposal: any, index: number) => {

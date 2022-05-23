@@ -15,7 +15,6 @@ import {
   TabList,
   Tab,
   TabPanels,
-  Tooltip,
   TabPanel,
   Link,
   Textarea,
@@ -23,22 +22,25 @@ import {
   chakra,
   Image,
 } from "@chakra-ui/react";
+<<<<<<< HEAD
 import { useForm, useController } from "react-hook-form";
 import Upload from "rc-upload"
+=======
+import { useForm } from "react-hook-form";
+>>>>>>> 7f35a592e59a3c613c4d197498a843e768ac0acf
 import React, { ChangeEvent, useState } from "react";
 import { useWeb3 } from "../../contexts/Web3Context";
 import { addProposalToStore, addImageToStorage } from "../../lib/firebaseClient";
 import _ from "lodash";
 import axios from "axios";
 
-const CreateCampaign: NextPage = (props: any) => {
+const CreateCampaign: NextPage = (_props: any) => {
   const {
     createProposal,
     walletAddress,
-    isConnected,
     createGovernanceProposal,
   } = useWeb3();
-  const [etherscanAddress, setEtherscanAddress] = useState(null);
+  const [_etherscanAddress, _setEtherscanAddress] = useState(null);
   const [fetchedContractABI, setFetchedContractABI] = useState<
     Array<Record<string, any>>
   >([]);
@@ -58,7 +60,7 @@ const CreateCampaign: NextPage = (props: any) => {
     register: registerGovernance,
     formState: {
       errors: governanceErrors,
-      isSubmitting: governanceIsSubmitting,
+      isSubmitting: _governanceIsSubmitting,
     },
     reset: governanceReset,
   } = useForm();
@@ -120,7 +122,7 @@ const CreateCampaign: NextPage = (props: any) => {
 
   function handleContractFunctionSelection(e: ChangeEvent<HTMLSelectElement>) {
     const [functionData] = (
-      fetchedContractABI! as Array<Record<string, any>>
+      fetchedContractABI as Array<Record<string, any>>
     ).filter((func) => {
       return func.name === e.target.value;
     });
