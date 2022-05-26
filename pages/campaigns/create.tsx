@@ -114,6 +114,14 @@ const CreateCampaign: NextPage = (_props: any) => {
     console.log(fileData);
   }
 
+  function addFileName() {
+    if(typeof fileData === undefined || fileData === null) {
+      return "No file yet";
+    }
+    else {
+      return fileData.name;
+    }
+  }
 
 
   function handleContractFunctionSelection(e: ChangeEvent<HTMLSelectElement>) {
@@ -463,17 +471,20 @@ const CreateCampaign: NextPage = (_props: any) => {
                         placeholder="Outline your proposal..."
                         rows={10}
                       />
-                      {/* @ts-ignore */}
-                      <Upload {...uploaderProps}>
-                        <Button
-                        alignSelf={"flex-end"}
-                        mt={4}
-                        colorScheme="cyan"
-                        isLoading={isSubmitting}
-                        w="200px">
-                          Upload Image
-                        </Button>
-                      </Upload>
+                      <Flex>
+                        {/* @ts-ignore */}
+                        <Upload {...uploaderProps}>
+                          <Button
+                          alignSelf={"flex-end"}
+                          mt={4}
+                          colorScheme="cyan"
+                          isLoading={isSubmitting}
+                          w="200px">
+                            Upload Image
+                          </Button>
+                        </Upload>
+                        <Text size='30px'>No file Uploaded</Text>
+                      </Flex>
                       <FormErrorMessage>
                         {errors.description && errors.description.message}
                       </FormErrorMessage>

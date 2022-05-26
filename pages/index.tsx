@@ -71,6 +71,7 @@ const Home: NextPage<{
         bgGradient="linear(90deg, seafoam.500 -500%, sage.500 50%, seafoam.500 500%)"
         mt="120px"
         zIndex="500"
+        bgImage="url(https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FTitle.png?alt=media&token=a6ed1e7f-09b9-4987-bd63-6efa39d4c46a)"
         h={{ base: '1000px', lg: "650px" }}
       >
         <Container
