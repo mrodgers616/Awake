@@ -51,12 +51,6 @@ export default function Navbar(): JSX.Element {
 
   const NAV_LINKS = [
     {
-      name: "Home",
-      href: "/",
-    }, {
-      name: 'About',
-      href: '/about',
-    }, {
       name: 'Campaigns',
       href: '/campaigns',
     }, {
@@ -72,7 +66,16 @@ export default function Navbar(): JSX.Element {
   const activeLink = (path: string) => (router.pathname === path ? 'active' : '');
 
   const Auth = () => (userid ? (
-    <chakra.div>
+    <Flex
+      flexDir={{
+        base: 'column',
+        lg: 'row'
+      }}
+      alignItems={{
+        base: 'stretch',
+        lg: 'center'
+      }}
+    >
       {web3Errors && (<IconButton
         aria-label="Check Notifications"
         icon={<Icon as={FiBell} w={5} h={5} />}
@@ -85,19 +88,48 @@ export default function Navbar(): JSX.Element {
         href={`/user/${userid}/profile`}
         sx={{
           ...LinkProps,
-          mx: '16px'
+          mx: {
+            base: '0',
+            lg: '16px'
+          }
         }}
         className={activeLink('/profile')}
       >Profile</Link>
       <WalletConnectBtn/>
-      <Button onClick={logout}>Logout</Button>
-    </chakra.div>
+      <Button
+        display={{
+          base: 'flex',
+          lg: 'inline-flex'
+        }}
+        onClick={logout}>
+          Logout
+      </Button>
+    </Flex>
   ) : (
-    <chakra.div>
-      <Button mx='16px' onClick={() => router.push("/login")}>Login</Button>
-      <Button onClick={() => router.push("/register")}>Register</Button>
-    </chakra.div>
-  ))
+    <Flex
+      flexDirection={{
+        base: 'column',
+        lg: 'row'
+      }}
+    >
+      <Button
+        mx={{
+          base: '0',
+          lg: '16px'
+        }}
+        mb={{
+          base: '16px',
+          lg: '0'
+        }} 
+        onClick={() => { router.push("/login"); onClose(); }}>
+          Login
+      </Button>
+      <Button
+        onClick={() => { router.push("/register"); onClose(); }}>
+          Register
+      </Button>
+    </Flex>
+  ));
 
   return (
     <chakra.nav
@@ -114,7 +146,7 @@ export default function Navbar(): JSX.Element {
           h="120px"
           display={{
             base: 'none',
-            xl: 'flex'
+            lg: 'flex'
           }}
         >
           <chakra.div>
@@ -175,7 +207,7 @@ export default function Navbar(): JSX.Element {
           h="120px"
           display={{
             base: 'flex',
-            xl: 'none'
+            lg: 'none'
           }}
         >
           <chakra.div>
@@ -220,20 +252,42 @@ export default function Navbar(): JSX.Element {
             </Flex>
             <DrawerBody paddingTop="4">
               <List>
-                {
-                  NAV_LINKS.map((link, index) => (
-                    <ListItem key={index} my='16px'>
-                      <Link
-                        href={link.href}
-                        sx={{
-                          ...LinkProps,
-                          mx: 0
-                        }}
-                        className={activeLink(link.href)}
-                      >{ link.name }</Link>
-                    </ListItem>
-                  ))
-                }
+                <ListItem my='16px'>
+                  <Link
+                    href="/"
+                    sx={{
+                      ...LinkProps,
+                      mx: 0
+                  }}
+                    className={activeLink('/')}
+                  >
+                    Home
+                  </Link>
+                </ListItem>
+                <ListItem my='16px'>
+                  <Link
+                    href="/about"
+                    sx={{
+                      ...LinkProps,
+                      mx: 0
+                    }}
+                    className={activeLink('/about')}
+                  >
+                    About
+                  </Link>
+                </ListItem>
+                { userid && NAV_LINKS.map((link, index) => (
+                  <ListItem key={index} my='16px'>
+                    <Link
+                      href={link.href}
+                      sx={{
+                        ...LinkProps,
+                        mx: 0
+                      }}
+                      className={activeLink(link.href)}
+                    >{ link.name }</Link>
+                  </ListItem>
+                ))}
                 <ListItem>
                   <Auth />
                 </ListItem>

@@ -46,6 +46,14 @@ export default function WalletConnectBtn(props: ButtonProps) {
           base: 'column',
           lg: 'row'
         }}
+        display={{
+          base: 'flex',
+          lg: 'inline-flex'
+        }}
+        my={{
+          base: '16px',
+          lg: '0'
+        }}
       >
         {isConnected && (
           <Badge 
@@ -64,7 +72,10 @@ export default function WalletConnectBtn(props: ButtonProps) {
           onClick={handleClick}
           color='white'
           bg='seafoam.500'
-          mx='16px'
+          mx={{
+            base: '0',
+            lg: '16px'
+          }}
         >
           {walletAddress
             ? `${walletAddress.substring(0, 4)}..${walletAddress.substring(
