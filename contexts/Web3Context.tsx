@@ -85,11 +85,14 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
           setState({ ...state, web3Errors: err.message });
         });
 
-      libWeb3.getEarthBalance().then((balance) => {
-        const bal = ethers.utils.parseUnits(balance.toString(), 18);
-        setState({ ...state, earthBalance: balance.toString() });
-        setState({ ...state, hasEnoughBalance: bal >= balanceThreshold });
-      });
+      // only run this if there is a wallet address and the correct chain is activated.
+      if (state.walletAddress && state.chainId === 4) {
+        libWeb3.getEarthBalance().then((balance) => {
+          const bal = ethers.utils.parseUnits(balance.toString(), 18);
+          setState({ ...state, earthBalance: balance.toString() });
+          setState({ ...state, hasEnoughBalance: bal >= balanceThreshold });
+        });
+      }
 
       window.ethereum.on("chainChanged", (_chainId: any) =>
         window.location.reload()
