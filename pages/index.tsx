@@ -71,7 +71,7 @@ const Home: NextPage<{
         bgGradient="linear(90deg, seafoam.500 -500%, sage.500 50%, seafoam.500 500%)"
         mt="120px"
         zIndex="500"
-        h={{ base: '1000px', lg: "650px" }}
+        h={{ base: 'fit-content', lg: "650px" }}
       >
         <Container
           width="100%"
@@ -83,15 +83,23 @@ const Home: NextPage<{
             alignItems="center"
             justifyContent="center"
             height="calc(100% - 60px)"
-            flexDirection={{ base: "column-reverse", md: "row" }}
+            flexDirection={{ 
+              base: "column-reverse",
+              lg: "row" 
+            }}
           >
             <Flex
               flexDir={"column"}
               justifyContent="center"
-              w={{ base: "100%", md: "50%" }}
+              w={{ base: "100%", lg: "50%" }}
               id="banner"
               mr='32px'
-              mb='8em'
+              ml='32px'
+              mb={{
+                base: '5em',
+                md: '8em',
+                lg: '8em'
+              }}
             >
               <AnimatedMainHeading
                 text="Where Activist Investing Meets Web 3"
@@ -164,7 +172,18 @@ const Home: NextPage<{
               </Flex>
             </Flex>
             <Flex
-              w="50%"
+              w={{
+                base: "100%",
+                lg: '50%'
+              }}
+              mb={{
+                base: '32px',
+                lg: '0'
+              }}
+              mt={{
+                base: '32px',
+                lg: '0'
+              }}
               h="450px"
               bg="grey"
               borderRadius="10px"
