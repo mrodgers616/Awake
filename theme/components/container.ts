@@ -4,7 +4,7 @@ import {
 
 export default {
   baseStyle: {
-    maxW: '1440px', 
+    maxW: '1280px', 
   },
   sizes: { },
   variants: {
