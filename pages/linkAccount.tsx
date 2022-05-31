@@ -26,6 +26,8 @@ import {
   Stack
 } from "@chakra-ui/react";
 
+import { addImageToStorage, updateOrAddProfileData } from "../lib/firebaseClient";
+
 const configuration = new Configuration({
     basePath: PlaidEnvironments.sandbox,
     baseOptions: {
@@ -115,6 +117,10 @@ class linkAccount extends React.Component<Props, State> {
   async storeInvestmentData(data: any) {
     //const dataToStore = await data.json();
     console.log(data);
+    const cookies = nookies.get(context);
+    const token = await admin.auth().verifyIdToken(cookies.token);
+
+    const { uid } = token;
   }
 
   async componentDidMount() {
