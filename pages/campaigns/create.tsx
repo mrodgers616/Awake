@@ -22,10 +22,11 @@ import {
   chakra,
   Image,
 } from "@chakra-ui/react";
-import { useForm } from "react-hook-form";
+import { useForm, useController } from "react-hook-form";
+import Upload from "rc-upload"
 import React, { ChangeEvent, useState } from "react";
 import { useWeb3 } from "../../contexts/Web3Context";
-import { addProposalToStore } from "../../lib/firebaseClient";
+import { addProposalToStore, addImageToStorage } from "../../lib/firebaseClient";
 import _ from "lodash";
 import axios from "axios";
 
@@ -81,6 +82,38 @@ const CreateCampaign: NextPage = (_props: any) => {
         console.log(err);
       });
   }
+
+  let fileData;
+
+  const uploaderProps = {
+    action: '',
+    data: { a: 1, b: 2 },
+    multiple: false,
+    beforeUpload(file: any) {
+      console.log('beforeUpload', file.name);
+    },
+    onStart: (file: any) => {
+      console.log('onStart', file.name);
+    },
+    onSuccess(file: any) {
+      //console.log('onSuccess', file);
+      storeImageData(file, file.name);
+    },
+    onProgress(step: any, file: any) {
+      console.log('onProgress', Math.round(step.percent), file.name);
+    },
+    onError(err: any) {
+      console.log('onError', err);
+    },
+    capture: 'user',
+  };
+
+  function storeImageData(file: any, name: any) {
+    fileData = file;
+    console.log(name);
+    console.log(fileData);
+  }
+
 
   function handleContractFunctionSelection(e: ChangeEvent<HTMLSelectElement>) {
     const [functionData] = (
@@ -429,6 +462,20 @@ const CreateCampaign: NextPage = (_props: any) => {
                         placeholder="Outline your proposal..."
                         rows={10}
                       />
+                      <Flex>
+                        {/* @ts-ignore */}
+                        <Upload {...uploaderProps}>
+                          <Button
+                          alignSelf={"flex-end"}
+                          mt={4}
+                          colorScheme="cyan"
+                          isLoading={isSubmitting}
+                          w="200px">
+                            Upload Image
+                          </Button>
+                        </Upload>
+                        <Text size='30px'>No file Uploaded</Text>
+                      </Flex>
                       <FormErrorMessage>
                         {errors.description && errors.description.message}
                       </FormErrorMessage>
