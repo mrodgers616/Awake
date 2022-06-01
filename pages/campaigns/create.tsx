@@ -83,7 +83,7 @@ const CreateCampaign: NextPage = (_props: any) => {
       });
   }
 
-  let fileData;
+  let fileData: any;
 
   const uploaderProps = {
     action: '',
