@@ -58,6 +58,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
     }
   ], [])
 
+  /*
   const tData = useMemo((): any => {
     const [entries] = Object.entries(test);
     const [value] = (entries[1] as any).products;
@@ -73,6 +74,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
     
     return value.assets;
   }, []);
+  */
 
   const supporterData = useMemo((): any => [...supporters], []);
   
@@ -379,13 +381,13 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
             sortBy='campaignsSupported'
             {...treasuryBoardStyles}
           /> 
-          <LeaderboardTable
+          {/* <LeaderboardTable
             data={tData}
             columns={treasuryColumns} 
             title='Treasury'
             sortBy='total_value'
             {...treasuryBoardStyles}
-          /> 
+          />  */}
 
           <Box title="latest news">
             <LatestArticles
@@ -422,7 +424,7 @@ export async function getServerSideProps(_context: GetServerSidePropsContext) {
     }
   });
 
-  
+  /*
   const options = {
     method: "GET",
     url: `https://api.zapper.fi/v1/protocols/tokens/balances?addresses[]=${process.env.NEXT_PUBLIC_GNOSIS_VAULT_ADDRESS}&api_key=${process.env.NEXT_PUBLIC_ZAPPER_API_KEY}`,
@@ -437,11 +439,12 @@ export async function getServerSideProps(_context: GetServerSidePropsContext) {
     console.error(err as any);
     treasuryInfo = null;
   }
+  */
 
   return {
     props: {
       campaigns,
-      treasury: treasuryInfo,
+      //treasury: treasuryInfo,
     },
   };
 }
