@@ -114,6 +114,14 @@ const CreateCampaign: NextPage = (_props: any) => {
     console.log(fileData);
   }
 
+  function addFileName() {
+    if(typeof fileData === undefined || fileData === null) {
+      return "No file yet";
+    }
+    else {
+      return fileData.name;
+    }
+  }
 
   function handleContractFunctionSelection(e: ChangeEvent<HTMLSelectElement>) {
     const [functionData] = (
