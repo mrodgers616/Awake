@@ -161,6 +161,16 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
       },
     });
 
+  
+  const PaginatorProps = {
+    pagesQuantity: pagesQuantity,
+    currentPage: currentPage,
+    onPageChange: setCurrentPage,
+    activeStyles: activeStyles ,
+    normalStyles: normalStyles,
+    separatorStyles: separatorStyles
+  }
+
   useEffect(() => {
     setProposals(campaigns.slice(offset, offset + pageSize));
     setTotalProposals(campaigns.length);
@@ -332,14 +342,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
                 );
               })}
             </Grid>
-            <Paginator
-              pagesQuantity={pagesQuantity}
-              currentPage={currentPage}
-              onPageChange={setCurrentPage}
-              activeStyles={activeStyles}
-              normalStyles={normalStyles}
-              separatorStyles={separatorStyles}
-            >
+            <Paginator {...PaginatorProps}>
             <Flex justifyContent="flex-end" mb="120px">
               <PaginatorContainer
                 justify="space-between"

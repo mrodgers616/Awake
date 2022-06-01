@@ -55,6 +55,7 @@ const separatorStyles: ButtonProps = {
 };
 
 
+
 export default function LatestArticles({
   title,
   displayPaginator = true,
@@ -84,6 +85,16 @@ export default function LatestArticles({
       currentPage: 1,
     },
   });
+
+
+const PaginatorProps = {
+  pagesQuantity: pagesQuantity,
+  currentPage: currentPage,
+  onPageChange: setCurrentPage,
+  activeStyles: activeStyles ,
+  normalStyles: normalStyles,
+  separatorStyles: separatorStyles
+}
 
   useEffect(() => {
     setArticles(climateDAOArticles.slice(offset, offset + pageSize));
@@ -145,14 +156,7 @@ export default function LatestArticles({
           </Box>
         ))}
       </Flex>
-      { displayPaginator && (<Paginator
-        pagesQuantity={pagesQuantity}
-        currentPage={currentPage}
-        onPageChange={setCurrentPage}
-        activeStyles={ activeStyles }
-        normalStyles={ normalStyles }
-        separatorStyles={ separatorStyles }
-      >
+      { displayPaginator && (<Paginator {...PaginatorProps}>
         <Flex
           justifyContent='flex-end'
         >

@@ -27,7 +27,7 @@ const configs = {
     //remember to fix this id when the trad login and user data structure are complete
     client_user_id: 'user-id',
     },
-    client_name: 'Plaid Quickstart',
+    client_name: 'ClimateDAO Connect',
     products: plaidProducts,
     country_codes: plaidCountryCodes,
     language: 'en',
@@ -53,11 +53,9 @@ export async function getInvestmentData(token: any) {
     const endDate = moment().format('YYYY-MM-DD');
     const ACCESS_TOKEN = await token;
     console.log(ACCESS_TOKEN)
-    const transactionConfigs = {
-        access_token: ACCESS_TOKEN,
-        start_date: startDate,
-        end_date: endDate,
+    const holdingsConfigs = {
+        access_token: ACCESS_TOKEN
       };
-    const investmentTransactionsResponse = await plaidClient.investmentsTransactionsGet(transactionConfigs);
-    return investmentTransactionsResponse;
+    const investmentHoldingsResponse = await plaidClient.investmentsHoldingsGet(holdingsConfigs);
+    return investmentHoldingsResponse;
 }

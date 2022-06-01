@@ -103,6 +103,8 @@ export default function TwitterTestimonial(): JSX.Element {
                       src={profile_image_url} 
                       alt={`twitter profile image of ${username}`}
                       m='4px 16px 4px 0'
+                      borderRadius='full'
+                      boxSize='50px'
                       />
                     <Heading fontSize='1.6em'>{ username }</Heading>
                   </Flex>

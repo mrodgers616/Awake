@@ -1,7 +1,7 @@
-import type { NextPage } from "next";
+import type { NextPage, GetServerSidePropsContext } from "next";
 import React from 'react';
 import Head from "next/head";
-import { Configuration, LinkTokenCreateRequest, PlaidApi, PlaidEnvironments } from 'plaid';
+import { Configuration, LinkTokenCreateRequest, PlaidApi, PlaidEnvironments, InvestmentsHoldingsGetResponse } from 'plaid';
 import {
   PlaidLink,
   PlaidLinkOnSuccess,
@@ -25,6 +25,10 @@ import {
   ChakraProvider,
   Stack
 } from "@chakra-ui/react";
+import { admin } from '../lib/firebaseAdmin';
+import { addImageToStorage, updateOrAddProfileData} from "../lib/firebaseClient";
+import {parseCookies} from 'nookies';
+import { getServerSideProps } from ".";
 
 const configuration = new Configuration({
     basePath: PlaidEnvironments.sandbox,
@@ -67,13 +71,95 @@ async function linkPlaid() {
 interface Props {}
 interface State {
   token: null;
+  uid: null;
 }
+
+interface InvestmentsDataItem {
+  mask: string;
+  quantity: string;
+  price: string;
+  value: string;
+  name: string;
+}
+
+interface Categories {
+  title: string;
+  field: string;
+}
+
+interface InvestmentData {
+  error: null;
+  holdings: InvestmentsHoldingsGetResponse;
+}
+
+const formatCurrency = (
+  number: number | null | undefined,
+  code: string | null | undefined
+) => {
+  if (number != null && number !== undefined) {
+    return ` ${parseFloat(number.toFixed(2)).toLocaleString("en")} ${code}`;
+  }
+  return "no data";
+};
+
+const transformInvestmentsData = (data: InvestmentData) => {
+  const holdingsData = data.holdings.holdings!.sort(function (a, b) {
+    if (a.account_id > b.account_id) return 1;
+    return -1;
+  });
+  return holdingsData.map((holding) => {
+    const account = data.holdings.accounts!.filter(
+      (acc) => acc.account_id === holding.account_id
+    )[0];
+    const security = data.holdings.securities!.filter(
+      (sec) => sec.security_id === holding.security_id
+    )[0];
+    const value = holding.quantity * security.close_price!;
+
+    const obj = {
+      mask: account.mask!,
+      name: security.name!,
+      quantity: formatCurrency(holding.quantity, ""),
+      price: formatCurrency(
+        security.close_price!,
+        account.balances.iso_currency_code
+      ),
+      value: formatCurrency(value, account.balances.iso_currency_code),
+    };
+    return obj;
+  });
+};
+
+const investmentsCategories: Array<Categories> = [
+  {
+    title: "Account Mask",
+    field: "mask",
+  },
+  {
+    title: "Name",
+    field: "name",
+  },
+  {
+    title: "Quantity",
+    field: "quantity",
+  },
+  {
+    title: "Close Price",
+    field: "price",
+  },
+  {
+    title: "Value",
+    field: "value",
+  },
+];
 
 class linkAccount extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = { token: null };
+    this.state = { token: null,
+                   uid: null,
+                   };
   }
   async createLinkToken() {
     // get a link_token from your server
@@ -113,13 +199,39 @@ class linkAccount extends React.Component<Props, State> {
   }
 
   async storeInvestmentData(data: any) {
-    //const dataToStore = await data.json();
     console.log(data);
+    let data2: InvestmentData = {
+      error: null,
+      holdings: data,
+    }
+
+    const transformedData = transformInvestmentsData(data2);
+
+    const finalData = {
+      investments: transformedData
+    }
+    
+    try {
+      const uid = await this.getProfileUID()
+      updateOrAddProfileData(uid, finalData);
+    }
+    catch(e) {
+      console.log(e);
+    }
+  }
+
+  async getProfileUID() {
+    const cookie = parseCookies();
+    const uid = cookie.userUID;
+    console.log(uid);
+    return uid;
   }
 
   async componentDidMount() {
     const token = await this.createLinkToken();
     this.setState({ token });
+    
+    
   }
 
   onSuccess: PlaidLinkOnSuccess = (publicToken, metadata) => {
