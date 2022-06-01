@@ -41,10 +41,11 @@ export default function TwitterTestimonial(): JSX.Element {
       id="testimonials"
       bgGradient="linear(90deg, seafoam.500 -500%, sage.500 50%, seafoam.500 500%)"
       overflow={'hidden'}
+      borderRadius='25px'
     >
       <Container>
         <Flex
-          h='1200px'
+          h='800px'
           color='white'
         >
           <Flex
@@ -82,11 +83,11 @@ export default function TwitterTestimonial(): JSX.Element {
                 <Box 
                   key={`${id}{index}`}
                   bg='#36555A'
-                  p='24px'
+                  p='12px'
                   mx='16px'
                   mb='5em'
                   h='fit-content'
-                  w='450px'
+                  w='300px'
                   boxShadow={'0px 0px 48px 2px rgba(0, 0, 0, 0.1)'}
                   _first={{
                     mt: '13em'
@@ -102,15 +103,15 @@ export default function TwitterTestimonial(): JSX.Element {
                     <Image
                       src={profile_image_url} 
                       alt={`twitter profile image of ${username}`}
-                      m='4px 16px 4px 0'
+                      m='2px 8px 2px 0'
                       borderRadius='full'
-                      boxSize='50px'
+                      boxSize='40px'
                       />
-                    <Heading fontSize='1.6em'>{ username }</Heading>
+                    <Heading fontSize='1.2em'>{ username }</Heading>
                   </Flex>
                   <Text
-                    fontSize='1.33em'
-                    mb='16px'
+                    fontSize='1.0em'
+                    mb='12px'
                   >{ text }</Text>
                   <Text>{ format(new Date(created_at), 'MMMM d, yyyy') }</Text>
                 </Box>
