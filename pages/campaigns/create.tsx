@@ -123,7 +123,6 @@ const CreateCampaign: NextPage = (_props: any) => {
     }
   }
 
-
   function handleContractFunctionSelection(e: ChangeEvent<HTMLSelectElement>) {
     const [functionData] = (
       fetchedContractABI as Array<Record<string, any>>
