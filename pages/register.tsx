@@ -59,6 +59,7 @@ const Register: NextPage = () => {
               <FormControl mb='16px' isInvalid={errors.username}>
                 <FormLabel htmlFor="username">Username:</FormLabel>
                 <InputGroup>
+                  {/* eslint-disable-next-line react/no-children-prop*/}
                   <InputLeftAddon children='@' />
                   <Input
                     id='username'
