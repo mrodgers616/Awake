@@ -261,10 +261,10 @@ const About: NextPage = () => {
               Tactics
             </Heading>
             <Text fontSize="1.6em" zIndex={250}>
-              By getting thousands of retail investors to link their brokerage accounts and express what they want to see at the public companies they own. We can wield our collective voice to get public companies to take action. After getting thousands of campaign backers, we reach out to the corporations we`&#39;`re trying to get to take action and share what we`&#39;`ve gathered from our community. 
+              By getting thousands of retail investors to link their brokerage accounts and express what they want to see at the public companies they own. We can wield our collective voice to get public companies to take action. After getting thousands of campaign backers, we reach out to the corporations we&#39;re trying to get to take action and share what we&#39;ve gathered from our community. 
             </Text>
             <Box
-              bg="rgba(0,0,0,.4)"
+              bg="rgba(0,0,0,.0)"
               borderRadius="20px"
               position="absolute"
               w="100%"

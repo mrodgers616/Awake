@@ -74,15 +74,15 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
   />) : (<Box {...ProfileImageStyles}/>)
 
   const Badges = () => (!badges ? 
-    (<Text sx={placeholderStyles}>You haven`&apos;`t earned any badges</Text>) :
+    (<Text sx={placeholderStyles}>You haven&apos;t earned any badges</Text>) :
     (<Box></Box>));
 
   const Proposals = () => (!proposals ? 
-    (<Text sx={placeholderStyles}>You haven`&apos;`t created any proposals</Text>) :
+    (<Text sx={placeholderStyles}>You haven&apos;t created any proposals</Text>) :
     (<Box></Box>));
 
   const Activity = () => (!activity ? 
-    (<Text sx={placeholderStyles}>You haven`&apos;`t been active yet. Check out <Link href='/campaigns' color='seafoam.500'>campaigns</Link> to get involved!</Text>) : 
+    (<Text sx={placeholderStyles}>You haven&apos;t been active yet. Check out <Link href='/campaigns' color='seafoam.500'>campaigns</Link> to get involved!</Text>) : 
     (<Box></Box>));
 
   return (
