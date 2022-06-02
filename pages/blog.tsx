@@ -92,12 +92,13 @@ const Blog: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Box
-        bgImage="https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        bgGradient="linear-gradient(sage.500, seafoam.500)"
+        // bgImage="https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
         bgSize="cover"
         bgPosition="center"
         mt="120px"
       >
-        <Box w="100%" h="100%" bg="rgba(0,0,0,.6)">
+        <Box w="100%" h="100%" bg="rgba(0,0,0,.0)">
           <Container h="400px">
             <Flex h="100%" justifyContent="center" alignItems="center">
               <Heading

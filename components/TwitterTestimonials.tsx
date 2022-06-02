@@ -39,9 +39,11 @@ export default function TwitterTestimonial(): JSX.Element {
   return (
     <Box
       id="testimonials"
-      bgGradient="linear(90deg, seafoam.500 -500%, sage.500 50%, seafoam.500 500%)"
+      bgGradient="linear-gradient(seafoam.500, sage.500)"
       overflow={'hidden'}
-      borderRadius='25px'
+      borderRadius='30px'
+      width = "98%"
+      mx={"1%"}
     >
       <Container>
         <Flex
@@ -58,16 +60,16 @@ export default function TwitterTestimonial(): JSX.Element {
               fontSize='64px'
               fontWeight={'medium'}
               mb='8px'
-            >Testimonials</Heading>
+            >You're in good company</Heading>
             <Text
               fontSize='16px'
               mb='36px'
-            >Take corporate governance into your own hands; join</Text>
+            >Take corporate accountability into your own hands.</Text>
             <Button
               textTransform='capitalize'
               color='white'
               bg='seafoam.500'
-            >read more</Button>
+            >Browse Campaigns</Button>
           </Flex>
           <Flex
             w='50%'

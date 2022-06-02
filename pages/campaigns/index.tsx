@@ -99,7 +99,8 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
   const treasuryBoardStyles = {
     titleStyles: {
       fontSize: '24px',
-      bg: 'seafoam.500',
+      bg: 'sage.500',
+      color: "white",
       pl: '24px',
       pt: '24px',
       pb: '24px'
@@ -113,7 +114,8 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
       bg: 'transparent',
     },
     thStyles: {
-      bg: 'seafoam.500'
+      bg: 'sage.500',
+      color:'white',
     },
     tdStyles: {
       borderBottom: 'none',
@@ -191,13 +193,14 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
       <Box
         bg="sage.500"
         mt="120px"
-        bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
+        bgGradient="linear-gradient(sage.500, seafoam.500)"
+        // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
         bgSize="cover"
         zIndex={0}
         position="relative"
       >
         <Box
-          bg="rgba(0,0,0,.4)"
+          // bg="rgba(0,0,0,.4)"
           position="absolute"
           w="100%"
           h="100%"
@@ -215,7 +218,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
         >
           <Flex justifyContent="center" alignItems="center" h="100%">
             <Heading color="white" textAlign="center" fontSize="64px">
-              Back a campaign to tackle the climate crisis
+              Back a Campaign for Corporate Action
             </Heading>
           </Flex>
         </Container>

@@ -64,7 +64,8 @@ export default function FeaturedCampaigns({
         <Button
           as={Link}
           bg="seafoam.500"
-          disabled={isConnected}
+          // I've disabled the function below that disables the browse campaign button if the user doesn't have enough tokens
+          // disabled={isConnected}
           color="white"
           mr="16px"
           borderRadius="20px"
@@ -79,7 +80,8 @@ export default function FeaturedCampaigns({
         <Button
           as={Link}
           textDecoration="none"
-          disabled={!hasEnoughBalance}
+          // I've disabled the function below that disables the browse campaign button if the user doesn't have enough tokens
+          // disabled={!hasEnoughBalance}
           bg="seafoam.500" 
           color="white" 
           borderRadius="20px"

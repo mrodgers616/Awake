@@ -67,10 +67,12 @@ const Home: NextPage<{
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Box
-        w="100%"
-        bgGradient="linear(90deg, seafoam.500 -500%, sage.500 50%, seafoam.500 500%)"
+        w="98%"
+        mx={"1%"}
+        bgGradient="linear-gradient(sage.500, seafoam.500)"
         mt="120px"
         zIndex="500"
+        borderRadius={"30px"}
         h={{ base: 'fit-content', lg: "650px" }}
       >
         <Container

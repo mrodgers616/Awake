@@ -28,7 +28,7 @@ const About: NextPage = () => {
         bgPosition={"center"}
         position="relative"
         bgSize="cover"
-        bgImage={`url('https://images.unsplash.com/photo-1521405785232-7a56b029191e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80')`}
+        bgGradient="linear-gradient(sage.500, seafoam.500)"
       >
         <Box
           bg="rgba(0,0,0,.4)"
@@ -52,7 +52,7 @@ const About: NextPage = () => {
               mb="64px"
               zIndex={250}
             >
-              Untapped Value for Retail Investors
+              Activating the Power of Retail Investors
             </Heading>
             <Box>
               <Button
@@ -183,14 +183,14 @@ const About: NextPage = () => {
             </Box>
           </Flex> */}
           <Flex
-            borderRadius="16px"
+            borderRadius="20px"
             flexDir="column"
             mb="64px"
             color="white"
             bgSize="cover"
             bgImage="https://images.unsplash.com/photo-1588552070639-772396abbde5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
             p="64px"
-            h="600px"
+            h="400px"
             justifyContent={"center"}
             bgPosition={"center"}
             position="relative"
@@ -205,6 +205,7 @@ const About: NextPage = () => {
             </Text>
             <Box
               bg="rgba(0,0,0,.4)"
+              borderRadius="20px"
               position="absolute"
               w="100%"
               h="100%"
@@ -220,13 +221,13 @@ const About: NextPage = () => {
             color="white"
             bg='url("https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")'
             p="64px"
-            h="600px"
+            h="400px"
             justifyContent={"center"}
             bgPosition={"center"}
             position="relative"
           >
             <Heading fontFamily="2em" zIndex={250}>
-              Values
+              Vision
             </Heading>
             <Text fontSize="1.6em" zIndex={250}>
               We envision a world in which the wisdom of the crowds is used for social good, a world in which companies 
@@ -235,6 +236,36 @@ const About: NextPage = () => {
             </Text>
             <Box
               bg="rgba(0,0,0,.4)"
+              borderRadius="20px"
+              position="absolute"
+              w="100%"
+              h="100%"
+              top="0"
+              left="0"
+              zIndex={0}
+            />
+          </Flex>
+          <Flex
+            borderRadius="16px"
+            flexDir="column"
+            mb="64px"
+            color="white"
+            bg='url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80")'
+            p="64px"
+            h="400px"
+            justifyContent={"center"}
+            bgPosition={"center"}
+            position="relative"
+          >
+            <Heading fontFamily="2em" zIndex={250}>
+              Tactics
+            </Heading>
+            <Text fontSize="1.6em" zIndex={250}>
+              By getting thousands of retail investors to link their brokerage accounts and express what they want to see at the public companies they own. We can wield our collective voice to get public companies to take action. After getting thousands of campaign backers, we reach out to the corporations we're trying to get to take action and share what we've gathered from our community. 
+            </Text>
+            <Box
+              bg="rgba(0,0,0,.4)"
+              borderRadius="20px"
               position="absolute"
               w="100%"
               h="100%"
@@ -280,12 +311,12 @@ const About: NextPage = () => {
               px="86px"
               py="18px"
               target="_blank"
-              href="https://discord.gg/xfRTsxVA4d"
+              href="/campaigns"
               _disabled={{
                 pointerEvents: "none",
               }}
             >
-              Join ClimateDAO
+              Browse Campaigns
             </Button>
           </Flex>
         </Box>

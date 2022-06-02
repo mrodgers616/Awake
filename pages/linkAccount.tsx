@@ -269,7 +269,8 @@ class linkAccount extends React.Component<Props, State> {
       <Box
         bg="sage.500"
         mt="120px"
-        bgImage="url(https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FTitle.png?alt=media&token=a6ed1e7f-09b9-4987-bd63-6efa39d4c46a)"
+        bgGradient="linear-gradient(sage.500, seafoam.500)"
+        // bgImage="url(https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FTitle.png?alt=media&token=a6ed1e7f-09b9-4987-bd63-6efa39d4c46a)"
         bgSize="cover"
         zIndex={0}
       >
@@ -304,15 +305,40 @@ class linkAccount extends React.Component<Props, State> {
             <Heading fontSize="36px" w="60%">
                 Link your brokerage account to take the first step towards climate impact!
             </Heading>
-            <PlaidLink
-              style={{ padding: '40px', fontSize: '20px', cursor: 'pointer', color: 'white', backgroundColor: 'black', }}
+          {/* BEGINNING OF TESTING PLAID LINK */} 
+              <Button
+                  color="white"
+                  bg="seafoam.500"
+                  p="32px 64px"
+                  borderRadius="16px"
+                  fontSize="1.3em"
+                  _hover={{
+                    textDecoration: "none",
+                  }}
+                  _disabled={{
+                    pointerEvents: 'none'
+                  }}
+                >            
+                  <PlaidLink
+                    style={{ padding: '0px', fontSize: '1.3em', cursor: 'pointer', color: 'white', backgroundColor: 'transparent',border:"none" }}
+                    token={this.state.token}
+                    onSuccess={this.onSuccess}
+                    onEvent={this.onEvent}
+                    onExit={this.onExit}
+                >
+                    Link Brokerage Account
+                  </PlaidLink>
+              </Button>
+          {/* END OF TESTING PLAID LINK */}
+            {/* <PlaidLink
+              // style={{ padding: '40px', fontSize: '1.3em', cursor: 'pointer', color: 'white', backgroundColor: 'black', }}
               token={this.state.token}
               onSuccess={this.onSuccess}
               onEvent={this.onEvent}
               onExit={this.onExit}
             >
               Link Brokerage Account
-            </PlaidLink>
+            </PlaidLink> */}
           </Flex>
           <ChakraProvider resetCSS>
     <Box ml="3%" mr="3%" mb="10%" height="110%">
