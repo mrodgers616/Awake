@@ -350,12 +350,9 @@ export default function Proposal({
                 borderRadius="16px"
                 mb="8px"
               ></Box>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-                duis at tellus at urna condimentum mattis pellentesque. In nisl
-                nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
-              </Text>
+              {campaign?.description && (<Text>
+                {campaign?.description}
+              </Text>)}
             </Box>
 
             <Box>
