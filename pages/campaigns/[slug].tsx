@@ -446,7 +446,7 @@ export default function Proposal({
             </Box>
           </Flex>
           <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md:"45%" }}>
-            <Box mb="32px">
+            {/* <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 Company Information
               </Heading>
@@ -461,14 +461,6 @@ export default function Proposal({
               >
                 <Box position="absolute" color="white">
                   <Text>{campaign.companyName}</Text>
-                  {/* {historicalStockPrice && (
-                    <Text>
-                      ${" "}
-                      {historicalStockPrice[
-                        historicalStockPrice.length - 1
-                      ].price.toFixed(2)}
-                    </Text>
-                  )} */}
                 </Box>
                 <ResponsiveContainer width="100%" height={200}>
                   <LineChart data={historicalStockPrice}>
@@ -487,33 +479,10 @@ export default function Proposal({
                 duis at tellus at urna condimentum mattis pellentesque. In nisl
                 nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
               </Text>
-            </Box>
-
-          </Flex>
-          <Flex mb="63px" flexDir={"column"} w="25%">
-{/*--  DELETING DEPRECATED BOX FROM THE RIGHT OF THE PAGE------------------------- */}
-            {/* <Box mb="32px">
-              <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                About Campaign
-              </Heading>
-              <Box
-                title="company graph"
-                w="100%"
-                bg="grey"
-                h="430px"
-                borderRadius="16px"
-                mb="8px"
-              ></Box>
-              <Text>
-                Lorm ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-                duis at tellus at urna condimentum mattis pellentesque. In nisl
-                nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
-              </Text>
             </Box> */}
-        {/* END OF DELETED SECTION */}
+            <Flex mb="63px" flexDir={"column"} w="25%">
             <Flex
-                position="fixed"
+                position="absolute"
                 justifyContent="center"
                 flexDirection="column"
                 alignItems="center"
@@ -598,7 +567,10 @@ export default function Proposal({
                 </Flex>
               </Flex>
           </Flex>
-        </Flex>
+
+          </Flex>
+          </Flex>
+          
         <StepsSection steps={Steps} />
         <Flex flexDir={"column"}>
           <LatestArticles title="latest news" climateDAOArticles={articles} />
