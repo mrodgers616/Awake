@@ -105,7 +105,7 @@ const Blog: NextPage = () => {
                 color="white"
                 textAlign={"center"}
                 fontSize="4.5em"
-                mb="80px"
+                mb="60px"
               >
                 ClimateDAO Blog
               </Heading>

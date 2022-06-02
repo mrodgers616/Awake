@@ -31,7 +31,7 @@ const About: NextPage = () => {
         bgGradient="linear-gradient(sage.500, seafoam.500)"
       >
         <Box
-          bg="rgba(0,0,0,.4)"
+          bg="rgba(0,0,0,.0)"
           position="absolute"
           w="100%"
           h="100%"

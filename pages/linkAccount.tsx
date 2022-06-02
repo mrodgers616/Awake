@@ -274,7 +274,7 @@ class linkAccount extends React.Component<Props, State> {
         bgSize="cover"
         zIndex={0}
       >
-        <Container width="100%" h="600px" overflow="auto" marginX="auto">
+        <Container width="100%" h="400px" overflow="auto" marginX="auto">
           <Flex
             justifyContent="center"
             alignItems="center"
@@ -293,7 +293,7 @@ class linkAccount extends React.Component<Props, State> {
             bg="sage.500"
             w="100%"
             h="200px"
-            mt="-150px"
+            mt="-100px"
             zIndex={1000}
             borderRadius="20px"
             alignItems="center"
@@ -302,7 +302,7 @@ class linkAccount extends React.Component<Props, State> {
             p="64px"
             mb="120px"
           >
-            <Heading fontSize="36px" w="60%">
+            <Heading fontSize="2.0em" w="60%">
                 Link your brokerage account to take the first step towards climate impact!
             </Heading>
           {/* BEGINNING OF TESTING PLAID LINK */} 

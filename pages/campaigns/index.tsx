@@ -211,7 +211,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
         <Container
           position="relative"
           width="100%"
-          h="600px"
+          h="400px"
           overflow="auto"
           marginX="auto"
           zIndex={200}
@@ -231,9 +231,9 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
             w="100%"
             h={{ 
               base: "fit-content",
-              md: '260px'
+              md: '200px'
              }}
-            mt="-120px"
+            mt="-100px"
             borderRadius="20px"
             alignItems="center"
             justifyContent="space-between"
@@ -259,8 +259,8 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
               Want to create your own movement and campaign?
             </Heading>
             <Tooltip
-              label={ !isConnected ? 'Connect to Metamask' : !hasEnoughBalance ? 'You do not have enough CLIMATE tokens.' : 'Create a new campaign'}
-              shouldWrapChildren
+              // label={ !isConnected ? 'Connect to Metamask' : !hasEnoughBalance ? 'You do not have enough CLIMATE tokens.' : 'Create a new campaign'}
+              // shouldWrapChildren
             >
               <Button
                 color="white"
