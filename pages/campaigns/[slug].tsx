@@ -513,7 +513,7 @@ export default function Proposal({
             </Box> */}
         {/* END OF DELETED SECTION */}
             <Flex
-                position={'absolute'}
+                position="fixed"
                 justifyContent="center"
                 flexDirection="column"
                 alignItems="center"
@@ -521,7 +521,9 @@ export default function Proposal({
                 backgroundColor="FFFFFF"
                 boxShadow='2xl' p='6'
                 borderRadius="16px"
-                mt = '32px'
+                mt = '12px'
+                mb="50%"
+                ml="30px"
               >
                 <Image height="125px" width="250px" />
                 <Text fontSize="xl" fontWeight="bold" mb={4} mt={4}>

@@ -16,6 +16,7 @@
   "functions": {
     "source": ".",
     "runtime": "nodejs16",
+    "memory": "2GB",
     "ignore": [
       "**/.git/**",
       "**/src/**",

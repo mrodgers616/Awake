@@ -84,7 +84,7 @@ export default function TwitterTestimonial(): JSX.Element {
                   key={`${id}{index}`}
                   bg='#36555A'
                   p='12px'
-                  mx='16px'
+                  mx='12px'
                   mb='5em'
                   h='fit-content'
                   w='300px'

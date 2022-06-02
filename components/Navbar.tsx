@@ -150,11 +150,18 @@ export default function Navbar(): JSX.Element {
           }}
         >
           <chakra.div>
+          <Button
+              onClick={() => { router.push("/"); onClose(); }}
+              bg="white"
+              
+              >
             <Image
               src="/illustrations/Climate DAO dark.png"
               width={200}
               alt="Climate DAO Logo"
-            />
+            >
+            </Image>
+          </Button>
           </chakra.div>
           <chakra.div
             display="flex"
