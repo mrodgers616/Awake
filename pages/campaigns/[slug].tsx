@@ -21,7 +21,7 @@ import { getProposalState, getProposalVotes } from "../../lib/web3";
 import StepsSection from "../../components/StepsSection";
 import { useEffect, useState } from "react";
 import { Steps } from "../../lib/mock-data";
-import { fetchProposalFromStore } from "../../lib/firebaseClient";
+import { fetchProposalFromStore, getProfileData } from "../../lib/firebaseClient";
 import LatestArticles from "../../components/LatestArticles";
 import ReactHtmlParser from "react-html-parser";
 import { GetServerSidePropsContext } from "next";
@@ -38,6 +38,8 @@ import axios from "axios";
 import { useWeb3 } from "../../contexts/Web3Context";
 import copy from "copy-to-clipboard";
 import { lighten } from "@chakra-ui/theme-tools";
+import nookies from 'nookies';
+import { admin } from '../../lib/firebaseAdmin';
 
 
 
@@ -594,6 +596,31 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   };
 
   let stockData;
+
+  context.res.setHeader(
+    "Cache-Control",
+    'public, s-maxage=15, stale-while-revalidate=59'
+  );
+
+  try {
+    const cookies = nookies.get(context);
+    const token = await admin.auth().verifyIdToken(cookies.token);
+
+    const uid = token.uid;
+    console.log(uid);
+
+    const profile: any = await getProfileData(uid);
+    
+    const profileData = {
+      ...profile.data()
+    };
+
+    console.log(profileData);
+    
+  }
+  catch(e) {
+    console.log(e);
+  }
 
   try {
     stockData = (await axios.request(options as any)).data;

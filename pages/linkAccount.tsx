@@ -119,6 +119,7 @@ const transformInvestmentsData = (data: InvestmentData) => {
     const obj = {
       mask: account.mask!,
       name: security.name!,
+      ticker: security.ticker_symbol!,
       quantity: formatCurrency(holding.quantity, ""),
       price: formatCurrency(
         security.close_price!,
