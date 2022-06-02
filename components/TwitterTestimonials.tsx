@@ -60,7 +60,7 @@ export default function TwitterTestimonial(): JSX.Element {
               fontSize='64px'
               fontWeight={'medium'}
               mb='8px'
-            >You're in good company</Heading>
+            >You`&#39;`re in good company</Heading>
             <Text
               fontSize='16px'
               mb='36px'
