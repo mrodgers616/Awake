@@ -435,7 +435,7 @@ class linkAccount extends React.Component<Props, State> {
         />
       </Flex>
       <Button
-        {...this.isPlaidConnectedAlready() ? {bg:"gray", disabled:true} : {bg:"seafoam.500" }}
+        {...this.isPlaidConnectedAlready() ? {bg:"gray", disabled:true} : {bg:"seafoam.500", disabled: false}}
           color="white"
           _disabled={{
             pointerEvents: 'none'
