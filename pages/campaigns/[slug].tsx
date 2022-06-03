@@ -21,7 +21,7 @@ import { getProposalState, getProposalVotes } from "../../lib/web3";
 import StepsSection from "../../components/StepsSection";
 import { useEffect, useState } from "react";
 import { Steps } from "../../lib/mock-data";
-import { fetchProposalFromStore, getProfileData, updateProposalInStore } from "../../lib/firebaseClient";
+import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOrAddProfileData } from "../../lib/firebaseClient";
 import LatestArticles from "../../components/LatestArticles";
 import ReactHtmlParser from "react-html-parser";
 import { GetServerSidePropsContext } from "next";
@@ -71,6 +71,7 @@ export default function Proposal({
   investments,
   slug,
   uid,
+  profileData,
 }: {
   campaign: any;
   topicId: number;
@@ -80,6 +81,7 @@ export default function Proposal({
   investments: any;
   slug: string;
   uid: any;
+  profileData: any;
 }): JSX.Element {
   const [_votes, setVotes] = useState<string>();
   const [currentState, setCurrentState] = useState<string>();
@@ -171,6 +173,24 @@ export default function Proposal({
 
       updateProposalInStore(slug, dataToUpload);
     }
+
+    const proposals = profileData.proposalsVotedOn
+    if(proposals) {
+      let newArrayofSlugs = proposals.push(slug)
+      let slugs = {
+        proposalsVotedOn: newArrayofSlugs,
+      }
+  
+      updateOrAddProfileData(uid, slugs)
+    }
+    else {
+      let slugs = {
+        proposalsVotedOn: [slug],
+      }
+  
+      updateOrAddProfileData(uid, slugs)
+    }
+    
   }
 
   function userDoesNotOwnShares() {
@@ -195,6 +215,40 @@ export default function Proposal({
 
       updateProposalInStore(slug, dataToUpload);
     }
+
+    const proposals = profileData.proposalsVotedOn
+    if(proposals) {
+      let newArrayofSlugs = proposals.push(slug)
+      let slugs = {
+        proposalsVotedOn: newArrayofSlugs,
+      }
+  
+      updateOrAddProfileData(uid, slugs)
+    }
+    else {
+      let slugs = {
+        proposalsVotedOn: [slug],
+      }
+  
+      updateOrAddProfileData(uid, slugs)
+    }
+    
+  }
+
+  function hasUserVoted() {
+    const votedproposals = profileData.proposalsVotedOn
+    if(votedproposals) {
+      for(let i = 0; i < votedproposals.length; i++) {
+        if(votedproposals[i] === slug) {
+          return true
+        }
+      }
+      return false
+    }
+    else {
+      return false;
+    }
+    
   }
 
   const socialMedia = [
@@ -349,6 +403,7 @@ export default function Proposal({
               shouldWrapChildren
             > */}
               <Button
+                {...hasUserVoted() ? {bg:"gray", disabled:true} : {bg:"seafoam.500", disabled:false}}
                 bg="seafoam.500"
                 color="white"
                 fontSize="1.4em"
@@ -371,7 +426,7 @@ export default function Proposal({
                 // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
                 onClick={ doesUserOwnShares() ? userOwnShares : userDoesNotOwnShares}
               >
-                Support Campaign
+                {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
               </Button>
             {/* </Tooltip> */}
             <CastVoteModal
@@ -675,6 +730,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   let stockData;
   let investments;
   let uid;
+  let profileData;
 
   context.res.setHeader(
     "Cache-Control",
@@ -689,7 +745,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     const profile: any = await getProfileData(uid);
     
-    const profileData = {
+    profileData = {
       ...profile.data()
     };
 
@@ -735,6 +791,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       investments: investments,
       slug: slug as string,
       uid: uid,
+      profileData: profileData,
     },
   };
 }
