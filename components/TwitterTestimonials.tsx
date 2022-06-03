@@ -5,6 +5,8 @@ import {
   Box,
   Container,
   Button,
+  Link,
+  Icon,
   Image
 } from "@chakra-ui/react";
 import {
@@ -12,6 +14,7 @@ import {
   lighten
 } from '@chakra-ui/theme-tools';
 import tweets from '../data/tweets.json';
+import { FaArrowRight } from "react-icons/fa";
 import { format } from 'date-fns';
 
 type StepSectionProps = {
@@ -48,11 +51,13 @@ export default function TwitterTestimonial(): JSX.Element {
       <Container>
         <Flex
           h='800px'
+          w={"800px"}
           color='white'
+
         >
           <Flex
             flexDir='column'
-            w='25%'
+            w='30%'
             justifyContent={'center'}
             mr='120px'
           >
@@ -65,11 +70,19 @@ export default function TwitterTestimonial(): JSX.Element {
               fontSize='16px'
               mb='36px'
             >Take corporate accountability into your own hands.</Text>
-            <Button
-              textTransform='capitalize'
-              color='white'
-              bg='seafoam.500'
-            >Browse Campaigns</Button>
+              <Button
+                as={Link}
+                bg="seafoam.500"
+                color="white"
+                h="48px"
+                href="/campaigns"
+                _disabled={{
+                  pointerEvents: "none",
+                }}
+              >
+                Campaigns
+                <Icon as={FaArrowRight} ml="15px" />
+              </Button>
           </Flex>
           <Flex
             w='50%'

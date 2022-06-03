@@ -21,6 +21,7 @@ import {
   CLIMATEDAO_TOKEN_ADDRESS
 } from "../lib/web3";
 import copy from "copy-to-clipboard";
+import { FaClipboard, FaTwitter, FaFacebook} from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { Steps } from '../lib/mock-data';
 import campaigns from '../data/mockcampaigns.json';
@@ -122,7 +123,7 @@ const Home: NextPage<{
                   color="white"
                   bg="seafoam.500"
                   h="50px"
-                  minW='33%'
+                  minW='33%'                  
                   mx={{ base: '0', md: '1em' }}
                   mb={{ base: '1em', md: '0' }}      
                   target="_blank"
@@ -186,9 +187,9 @@ const Home: NextPage<{
                 base: '32px',
                 lg: '0'
               }}
-              h="450px"
+              h="400px"
               bg="grey"
-              borderRadius="10px"
+              borderRadius="16px"
               justifyContent="center"
               alignItems="center"
             >
@@ -197,7 +198,7 @@ const Home: NextPage<{
           </Flex>
         </Container>
       </Box>
-      <Box mt="-64px">
+      <Box mt="-80px">
         <Container      
           width="100%"
           overflow="none"
