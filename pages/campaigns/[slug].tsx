@@ -40,7 +40,7 @@ import copy from "copy-to-clipboard";
 import { lighten } from "@chakra-ui/theme-tools";
 import nookies from 'nookies';
 import { admin } from '../../lib/firebaseAdmin';
-import Confetti from 'react-confetti'
+import Confetti from 'react-confetti';
 
 
 
