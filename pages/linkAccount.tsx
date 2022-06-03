@@ -26,9 +26,10 @@ import {
   Stack
 } from "@chakra-ui/react";
 import { admin } from '../lib/firebaseAdmin';
-import { addImageToStorage, updateOrAddProfileData} from "../lib/firebaseClient";
+import { getProfileData, updateOrAddProfileData} from "../lib/firebaseClient";
 import {parseCookies} from 'nookies';
 import { getServerSideProps } from ".";
+import { profile } from "console";
 
 const configuration = new Configuration({
     basePath: PlaidEnvironments.sandbox,
@@ -72,6 +73,7 @@ interface Props {}
 interface State {
   token: null;
   uid: null;
+  isPlaidConnectedBefore: null;
 }
 
 interface InvestmentsDataItem {
@@ -160,6 +162,7 @@ class linkAccount extends React.Component<Props, State> {
     super(props);
     this.state = { token: null,
                    uid: null,
+                   isPlaidConnectedBefore: null,
                    };
   }
   async createLinkToken() {
@@ -228,20 +231,37 @@ class linkAccount extends React.Component<Props, State> {
     return uid;
   }
 
+  isPlaidConnectedAlready() {
+    if(this.state.isPlaidConnectedBefore) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
   async componentDidMount() {
     const token = await this.createLinkToken();
-    this.setState({ token });
     
-    
+    const uid = await this.getProfileUID();
+    const profile = await getProfileData(uid);
+    const profileData = {
+      ...profile.data()
+    };
+    this.setState({ token: token,
+                    isPlaidConnectedBefore: profileData.plaidPublicToken});
   }
 
   onSuccess: PlaidLinkOnSuccess = (publicToken, metadata) => {
-    // send public_token to your server
-    // https://plaid.com/docs/api/tokens/#token-exchange-flow
-    console.log(publicToken, metadata);
-    console.log("----------------------------")
+    const finalPublicToken = {
+      plaidPublicToken: publicToken
+    }
+
+    const uid = this.getProfileUID().then(profileUID => {
+      updateOrAddProfileData(profileUID, finalPublicToken);
+    });
+    
     const accessToken = this.getAccessToken(publicToken).then(value => {
-      console.log(value);
       const data = this.getInvestmentData(value).then(dataValue => {
         this.storeInvestmentData(dataValue);
       });
@@ -251,7 +271,6 @@ class linkAccount extends React.Component<Props, State> {
   onEvent: PlaidLinkOnEvent = (eventName, metadata) => {
     // log onEvent callbacks from Link
     // https://plaid.com/docs/link/web/#onevent
-    console.log(eventName, metadata);
   };
 
   onExit: PlaidLinkOnExit = (error, metadata) => {
@@ -307,17 +326,19 @@ class linkAccount extends React.Component<Props, State> {
             </Heading>
           {/* BEGINNING OF TESTING PLAID LINK */} 
               <Button
+                {...this.isPlaidConnectedAlready() ? {bg:"gray", disabled:true} : {bg:"seafoam.500" }}
                   color="white"
-                  bg="seafoam.500"
+                  _disabled={{
+                    pointerEvents: 'none'
+                  }}
+                  
                   p="32px 64px"
                   borderRadius="16px"
                   fontSize="1.3em"
                   _hover={{
                     textDecoration: "none",
                   }}
-                  _disabled={{
-                    pointerEvents: 'none'
-                  }}
+                  
                 >            
                   <PlaidLink
                     style={{ padding: '0px', fontSize: '1.3em', cursor: 'pointer', color: 'white', backgroundColor: 'transparent',border:"none" }}
@@ -326,7 +347,7 @@ class linkAccount extends React.Component<Props, State> {
                     onEvent={this.onEvent}
                     onExit={this.onExit}
                 >
-                    Link Brokerage Account
+                    {this.isPlaidConnectedAlready() ? "Account Linked Already" : "Link Brokerage Account"}
                   </PlaidLink>
               </Button>
           {/* END OF TESTING PLAID LINK */}
