@@ -615,7 +615,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       ...profile.data()
     };
 
-    console.log(profileData);
+    console.log(profileData.investments);
     
   }
   catch(e) {

@@ -335,6 +335,7 @@ class linkAccount extends React.Component<Props, State> {
                   p="32px 64px"
                   borderRadius="16px"
                   fontSize="1.3em"
+                  id="plaidB"
                   _hover={{
                     textDecoration: "none",
                   }}
