@@ -40,6 +40,7 @@ import copy from "copy-to-clipboard";
 import { lighten } from "@chakra-ui/theme-tools";
 import nookies from 'nookies';
 import { admin } from '../../lib/firebaseAdmin';
+import Confetti from 'react-confetti'
 
 
 
@@ -67,12 +68,14 @@ export default function Proposal({
   topicSlug,
   threadReplies,
   stockData,
+  investments,
 }: {
   campaign: any;
   topicId: number;
   topicSlug: string;
   threadReplies: any;
   stockData: any;
+  investments: any;
 }): JSX.Element {
   const [_votes, setVotes] = useState<string>();
   const [currentState, setCurrentState] = useState<string>();
@@ -121,6 +124,37 @@ export default function Proposal({
   }, []);
 
   const pageUri = `${router.basePath}${router.asPath}`;
+  
+  function doesUserOwnShares() {
+    let campaignTicker = campaign.symbol;
+
+    if(investments) {
+      for(let i = 0; i < investments.length; i++) {
+        let userInvestmentTicker = investments[i].ticker;
+        if(userInvestmentTicker === campaignTicker) {
+          return true;
+        }
+      }
+      return false;
+    }
+    else {
+      return false;
+    }
+    
+  }
+
+  function userOwnShares() {
+    return (
+      <Confetti></Confetti>
+    );
+  }
+
+  function userDoesNotOwnShares() {
+    console.log("here");
+    return (
+      <Confetti></Confetti>
+    );
+  }
 
   const socialMedia = [
     {
@@ -292,7 +326,9 @@ export default function Proposal({
                 //   textDecoration: "none",
                 //   bg: lighten("seafoam.500", 0.8),
                 // }}
-                onClick={() => onVoteModalOpen()}
+                // What is the 
+                // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
+                onClick={ doesUserOwnShares() ? userOwnShares : userDoesNotOwnShares}
               >
                 Support Campaign
               </Button>
@@ -596,6 +632,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   };
 
   let stockData;
+  let investments;
 
   context.res.setHeader(
     "Cache-Control",
@@ -607,7 +644,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const token = await admin.auth().verifyIdToken(cookies.token);
 
     const uid = token.uid;
-    console.log(uid);
 
     const profile: any = await getProfileData(uid);
     
@@ -615,7 +651,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       ...profile.data()
     };
 
-    console.log(profileData.investments);
+
+    if(profileData.investments) {
+      investments = await profileData.investments;
+
+    }
+    else {
+      investments = null;
+    }
     
   }
   catch(e) {
@@ -647,6 +690,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       campaign,
       threadReplies,
       stockData,
+      investments: investments,
     },
   };
 }

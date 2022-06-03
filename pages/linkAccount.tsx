@@ -263,7 +263,9 @@ class linkAccount extends React.Component<Props, State> {
     
     const accessToken = this.getAccessToken(publicToken).then(value => {
       const data = this.getInvestmentData(value).then(dataValue => {
-        this.storeInvestmentData(dataValue);
+        this.storeInvestmentData(dataValue).then(() => {
+          window.location.reload();
+        })
       });
     });
   };
@@ -348,7 +350,7 @@ class linkAccount extends React.Component<Props, State> {
                     onEvent={this.onEvent}
                     onExit={this.onExit}
                 >
-                    {this.isPlaidConnectedAlready() ? "Account Linked Already" : "Link Brokerage Account"}
+                    {this.isPlaidConnectedAlready() ? "Account Linked Already!" : "Link Brokerage Account"}
                   </PlaidLink>
               </Button>
           {/* END OF TESTING PLAID LINK */}
@@ -432,6 +434,34 @@ class linkAccount extends React.Component<Props, State> {
           src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2041.png?alt=media&token=134d5014-8b72-45ea-a293-d2d0d823297f"
         />
       </Flex>
+      <Button
+        {...this.isPlaidConnectedAlready() ? {bg:"gray", disabled:true} : {bg:"seafoam.500" }}
+          color="white"
+          _disabled={{
+            pointerEvents: 'none'
+          }}
+          
+          p="32px 64px"
+          mt="150px"
+          mx="30%"
+          borderRadius="16px"
+          fontSize="1.3em"
+          id="plaidB"
+          _hover={{
+            textDecoration: "none",
+          }}
+          
+        >            
+          <PlaidLink
+            style={{ padding: '0px', fontSize: '1.3em', cursor: 'pointer', color: 'white', backgroundColor: 'transparent',border:"none" }}
+            token={this.state.token}
+            onSuccess={this.onSuccess}
+            onEvent={this.onEvent}
+            onExit={this.onExit}
+        >
+            {this.isPlaidConnectedAlready() ? "Account Linked Already!" : "Link Brokerage Account"}
+          </PlaidLink>
+      </Button>
     </Box>
   </ChakraProvider>
         </Container>
