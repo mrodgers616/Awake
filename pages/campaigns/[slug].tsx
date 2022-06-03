@@ -21,7 +21,7 @@ import { getProposalState, getProposalVotes } from "../../lib/web3";
 import StepsSection from "../../components/StepsSection";
 import { useEffect, useState } from "react";
 import { Steps } from "../../lib/mock-data";
-import { fetchProposalFromStore, getProfileData } from "../../lib/firebaseClient";
+import { fetchProposalFromStore, getProfileData, updateProposalInStore } from "../../lib/firebaseClient";
 import LatestArticles from "../../components/LatestArticles";
 import ReactHtmlParser from "react-html-parser";
 import { GetServerSidePropsContext } from "next";
@@ -69,6 +69,8 @@ export default function Proposal({
   threadReplies,
   stockData,
   investments,
+  slug,
+  uid,
 }: {
   campaign: any;
   topicId: number;
@@ -76,6 +78,8 @@ export default function Proposal({
   threadReplies: any;
   stockData: any;
   investments: any;
+  slug: string;
+  uid: any;
 }): JSX.Element {
   const [_votes, setVotes] = useState<string>();
   const [currentState, setCurrentState] = useState<string>();
@@ -124,7 +128,8 @@ export default function Proposal({
   }, []);
 
   const pageUri = `${router.basePath}${router.asPath}`;
-  
+  let userInvestmentQuantity: number;
+
   function doesUserOwnShares() {
     let campaignTicker = campaign.symbol;
 
@@ -132,6 +137,7 @@ export default function Proposal({
       for(let i = 0; i < investments.length; i++) {
         let userInvestmentTicker = investments[i].ticker;
         if(userInvestmentTicker === campaignTicker) {
+          userInvestmentQuantity = investments[i].quantity;
           return true;
         }
       }
@@ -144,16 +150,51 @@ export default function Proposal({
   }
 
   function userOwnShares() {
-    return (
-      <Confetti></Confetti>
-    );
+    let currentVotes = campaign.verifiedVotes
+    let users = campaign.users
+
+    if(currentVotes && users) {
+      const totalVotes = currentVotes + investments.quantity;
+      users.push(uid);
+      const dataToUpload = {
+        verifiedVotes: totalVotes,
+        users: users,
+      }
+
+      updateProposalInStore(slug, dataToUpload);
+    }
+    else {
+      const dataToUpload = {
+        verifiedVotes: investments.quantity,
+        users: [uid],
+      }
+
+      updateProposalInStore(slug, dataToUpload);
+    }
   }
 
   function userDoesNotOwnShares() {
-    console.log("here");
-    return (
-      <Confetti></Confetti>
-    );
+    let currentVotes = campaign.unverifiedVotes
+    let users = campaign.users
+
+    if(currentVotes && users) {
+      const totalVotes = currentVotes + 1;
+      users.push(uid);
+      const dataToUpload = {
+        unverifiedVotes: totalVotes,
+        users: users,
+      }
+
+      updateProposalInStore(slug, dataToUpload);
+    }
+    else {
+      const dataToUpload = {
+        unverifiedVotes: 1,
+        users: [uid],
+      }
+
+      updateProposalInStore(slug, dataToUpload);
+    }
   }
 
   const socialMedia = [
@@ -633,6 +674,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   let stockData;
   let investments;
+  let uid;
 
   context.res.setHeader(
     "Cache-Control",
@@ -643,7 +685,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const cookies = nookies.get(context);
     const token = await admin.auth().verifyIdToken(cookies.token);
 
-    const uid = token.uid;
+    uid = token.uid;
 
     const profile: any = await getProfileData(uid);
     
@@ -691,6 +733,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       threadReplies,
       stockData,
       investments: investments,
+      slug: slug as string,
+      uid: uid,
     },
   };
 }
