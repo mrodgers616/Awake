@@ -40,7 +40,7 @@ export default function TwitterTestimonial(): JSX.Element {
     <Box
       id="testimonials"
       bgGradient="linear-gradient(seafoam.500, sage.500)"
-      overflow={'hidden'}
+      overflow={'visible'}
       borderRadius='30px'
       width = "98%"
       mx={"1%"}
@@ -52,12 +52,12 @@ export default function TwitterTestimonial(): JSX.Element {
         >
           <Flex
             flexDir='column'
-            w='30%'
+            w='25%'
             justifyContent={'center'}
             mr='120px'
           >
             <Heading
-              fontSize='64px'
+              fontSize='48px'
               fontWeight={'medium'}
               mb='8px'
             >You&#39;re in good company</Heading>
@@ -84,6 +84,7 @@ export default function TwitterTestimonial(): JSX.Element {
               return (
                 <Box 
                   key={`${id}{index}`}
+                  borderRadius = "16px"
                   bg='#36555A'
                   p='12px'
                   mx='12px'
