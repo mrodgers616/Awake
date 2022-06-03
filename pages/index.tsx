@@ -157,7 +157,7 @@ const Home: NextPage<{
                   color="white"
                   bg="seafoam.500"
                   mx={{ base: '0', md: '1em' }}
-                  mb={{ base: '1em', md: '0' }}           
+                  mb={{ base: '1em', md: '0' }}    
                   h="50px"
                   minW='33%'
                   target="_blank"
