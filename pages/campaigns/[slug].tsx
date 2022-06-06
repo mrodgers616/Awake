@@ -190,7 +190,7 @@ export default function Proposal({
   
       updateOrAddProfileData(uid, slugs)
     }
-    
+
   }
 
   function userDoesNotOwnShares() {
