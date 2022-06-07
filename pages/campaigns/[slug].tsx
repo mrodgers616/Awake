@@ -140,12 +140,15 @@ export default function Proposal({
         let userInvestmentTicker = investments[i].ticker;
         if(userInvestmentTicker === campaignTicker) {
           userInvestmentQuantity = investments[i].quantity;
+          userOwnShares();
           return true;
         }
       }
+      return userDoesNotOwnShares();
       return false;
     }
     else {
+      userDoesNotOwnShares();
       return false;
     }
     
@@ -424,7 +427,7 @@ export default function Proposal({
                 // }}
                 // What is the 
                 // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
-                onClick={ doesUserOwnShares() ? userOwnShares : userDoesNotOwnShares}
+                onClick={() => { doesUserOwnShares(); onVoteModalOpen()}}
               >
                 {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
               </Button>

@@ -35,14 +35,15 @@ export default function CastVoteModal({
         <ModalHeader>
           <ModalCloseButton />
           <Heading as="h2" size="lg" textAlign={"center"}>
-            Choose Delegation Type
+            {/*Choose Delegation Type*/}
+            Thanks For Supporting This Campagin
           </Heading>
         </ModalHeader>
         <ModalBody 
           as={Flex}
           justifyContent={"center"}
         >
-          <Button
+          {/*<Button
             w='33%'
             bg={'seafoam.500'}
             color='white'
@@ -58,7 +59,8 @@ export default function CastVoteModal({
             bg='purple'
             color='white'
             ml='16px'
-          >Abstain</Button>
+  >Abstain</Button>*/}
+          <Heading as="h4" size="sm"> Find out more below what your vote does</Heading>
         </ModalBody>
       </ModalContent>
     </Modal>
