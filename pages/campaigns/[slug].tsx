@@ -742,7 +742,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   try {
     const cookies = nookies.get(context);
-    const token = await admin.auth().verifyIdToken(cookies.token);
+    const token = await admin.auth().verifyIdToken(cookies.__session);
 
     uid = token.uid;
 

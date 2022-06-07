@@ -231,7 +231,6 @@ export async function getServerSideProps(_context: GetServerSidePropsContext) {
   // fetch featured campaigns.
   // fetch trending campaigns.
   let campaigns: any = await fetchFeaturedProposalFromStore();
-  console.log(campaigns[0]);
 
   return {
     props: {
