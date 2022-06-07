@@ -161,9 +161,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   try {
     const cookies = nookies.get(context);
-    const token = await admin.auth().verifyIdToken(cookies.__sessionn);
+    const session = cookies.__session;
+    const token = await admin.auth().verifyIdToken(session);
 
-    const { uid } = token;
+    const uid = token.uid;
 
     const profile = await getProfileData(uid);
 
@@ -193,6 +194,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       }
     }
   } catch (error) {
+    console.log(error);
     context.res.writeHead(302, { Location: '/' });
     context.res.end();
     

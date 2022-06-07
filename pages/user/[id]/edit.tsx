@@ -79,9 +79,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   try {
     const cookies = nookies.get(context);
-    const token = await admin.auth().verifyIdToken(cookies.token);
+    const session = cookies.__session;
+    const token = await admin.auth().verifyIdToken(session);
 
-    const { uid } = token;
+    const uid = token.uid;
+
 
     const profile = await getProfileData(uid);
 
