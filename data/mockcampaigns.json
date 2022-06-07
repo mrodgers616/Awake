@@ -1,15 +1,15 @@
 [
   {
-    "companyName": "Tesla",
+    "companyName": "Caterpillar Inc.",
     "createdAt": "2022-04-07T02:12:42.492Z",
-    "deadline": "2022-04-15T03:12:42.492Z",
-    "description": "The new truck coming from tesla aim",
+    "deadline": "2022-06-08T03:12:42.492Z",
+    "description": "Shareholders request that Caterpillar issue a report within a year, and annually thereafter, at reasonable expense and excluding confidential information, disclosing interim and long term greenhouse gas targets aligned with the Paris Agreement's goal of maintaining global temperature rise at 1.5 degrees Celsius, and progress made in achieving them.",
     "proposalId": "111236209506040138170967222949632535140062565252962516811455964037758680176742",
     "proposer": "0x592F49F77216f8C2eD42a93d2D493F7d2e656375",
     "quantity": 11,
-    "symbol": "TSLA",
+    "symbol": "CAT",
     "threadId": 56,
-    "title": "Purchase 11 shares of TSLA",
+    "title": "Caterpillar Inc. | Report on GHG reduction targets (net-zero) at Caterpillar Inc.",
     "type": "buy",
     "votes": {
       "abstain": 0,

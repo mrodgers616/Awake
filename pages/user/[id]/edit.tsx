@@ -42,8 +42,8 @@ const ProfileEdit: NextPage<any> = ({ profile: profileData, profileImage, backgr
             <Tabs>
               <TabList mb='8em'>
                 <Tab>Profile</Tab>
-                <Tab>Notifications</Tab>
-                <Tab>Wallet</Tab>
+                {/* <Tab>Notifications</Tab>
+                <Tab>Wallet</Tab> */}
               </TabList>
               <TabPanels>
                 <TabPanel>
