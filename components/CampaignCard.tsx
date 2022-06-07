@@ -72,34 +72,13 @@ export default function CampaignCard({
           h='100%'
           w='auto'
         />
-        {timer && (
-          <Progress
-            position='absolute'
-            alignSelf={'flex-end'}
-            zIndex={250}
-            h="24px"
-            left='16px'
-            bottom='16px'
-            borderRadius="5px"
-            w="calc(100% - 32px)"
-            colorScheme={ isTimeUp ? 'red' : 'teal' }
-            value={progress}
-          >
-            <ProgressLabel
-              fontSize='sm'
-              color='white'
-              w='fit-content'
-            >{ timerText }
-            </ProgressLabel>
-          </Progress>
-        )}
       </Flex>
       <Box>
         <Heading
           fontSize={ type === "trending" ? "xl" : "2xl" }
           mb='8px'
         >{ campaign.title }</Heading>
-        <Text>{ campaign.description }</Text>
+        <Text>{ campaign.description?.substring(0, 280) }</Text>
       </Box>
     </Flex>
   );

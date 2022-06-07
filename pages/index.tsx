@@ -24,8 +24,10 @@ import copy from "copy-to-clipboard";
 import { FaClipboard, FaTwitter, FaFacebook} from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { Steps } from '../lib/mock-data';
-import campaigns from '../data/mockcampaigns.json';
+//import campaigns from '../data/mockcampaigns.json';
 import { useWeb3 } from "../contexts/Web3Context";
+import { fetchFeaturedProposalFromStore } from "../lib/firebaseClient";
+
 
 const Home: NextPage<{
   featured: any;
@@ -228,6 +230,8 @@ const Home: NextPage<{
 export async function getServerSideProps(_context: GetServerSidePropsContext) {
   // fetch featured campaigns.
   // fetch trending campaigns.
+  let campaigns: any = await fetchFeaturedProposalFromStore();
+  console.log(campaigns[0]);
 
   return {
     props: {

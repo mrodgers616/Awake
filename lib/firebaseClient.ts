@@ -11,6 +11,8 @@ import {
   DocumentReference,
   DocumentSnapshot,
   updateDoc,
+  query,
+  where
 } from "firebase/firestore";
 import {
   ref,
@@ -64,6 +66,20 @@ async function fetchProposalFromStore (id: string): Promise<DocumentSnapshot | u
   try {
     const proposalRef = doc(getFirestore(), `proposals`, id);
     return await getDoc(proposalRef);
+  } catch (error: any) {
+    console.error(error.message);
+  }
+}
+
+async function fetchFeaturedProposalFromStore (): Promise<DocumentSnapshot | undefined> {
+  try {
+    const q = query(collection(db, "proposals"), where("featured", "==", true));
+    let proposals: any = [];
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      proposals.push(doc.data())
+    });
+    return proposals;
   } catch (error: any) {
     console.error(error.message);
   }
@@ -138,7 +154,8 @@ export {
   onChainProposals,
   getAllProposals,
   firebaseClient,
-  getProfileData
+  getProfileData,
+  fetchFeaturedProposalFromStore
 };
 
 
