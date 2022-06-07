@@ -20,7 +20,7 @@ export default function Layout({ children }: LayoutProps) {
       <Head>
         <title>Climate DAO</title>
         <meta name="description" content="Climate DAO" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="favicon.ico" />
       </Head>
       <Navbar />
       <Box 
