@@ -30,7 +30,7 @@ import {
   fetchCampaignThread,
   fetchCampaignThreadReplies,
 } from "../../lib/discourse";
-import { Timestamp } from "firebase/firestore";
+import { arrayUnion, Timestamp } from "firebase/firestore";
 import { FaClipboard, FaTwitter, FaFacebook } from "react-icons/fa";
 import CampaignCarousel from "../../components/CampaignCarousel";
 import CastVoteModal from "../../components/CastVoteModal";
@@ -160,7 +160,7 @@ export default function Proposal({
       users.push(uid);
       const dataToUpload = {
         verifiedVotes: totalVotes,
-        users: users,
+        users: arrayUnion(uid),
       }
 
       updateProposalInStore(slug, dataToUpload);
@@ -178,7 +178,7 @@ export default function Proposal({
     if(proposals) {
       let newArrayofSlugs = proposals.push(slug)
       let slugs = {
-        proposalsVotedOn: newArrayofSlugs,
+        proposalsVotedOn: arrayUnion(slug),
       }
   
       updateOrAddProfileData(uid, slugs)
@@ -202,7 +202,7 @@ export default function Proposal({
       users.push(uid);
       const dataToUpload = {
         unverifiedVotes: totalVotes,
-        users: users,
+        users: arrayUnion(uid),
       }
 
       updateProposalInStore(slug, dataToUpload);
@@ -220,7 +220,7 @@ export default function Proposal({
     if(proposals) {
       let newArrayofSlugs = proposals.push(slug)
       let slugs = {
-        proposalsVotedOn: newArrayofSlugs,
+        proposalsVotedOn: arrayUnion(slug)
       }
   
       updateOrAddProfileData(uid, slugs)

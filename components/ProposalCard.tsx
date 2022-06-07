@@ -12,6 +12,7 @@ import {
   Heading,
   Tooltip,
   Icon,
+  AspectRatio,
 } from "@chakra-ui/react";
 import { useTicker } from "../hooks/useTicker";
 import { differenceInSeconds } from "date-fns";
@@ -118,7 +119,9 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
 
   return (
     <Flex flexDir={"column"} {...rest}>
-      <Image src={image!} alt="a campaign image" mb="8px"></Image>
+      <AspectRatio maxW='475px' ratio={16 / 9}>
+        <Image src={image!} alt="a campaign image" mb="15px" objectFit='cover'></Image>
+      </AspectRatio>
       <Heading fontSize="1.2em" mb="8px">
         {companyName ?? "Company"} | {symbol ?? "SMBL"}
       </Heading>

@@ -1,24 +1,18 @@
 [
   {
-    "address": "0x0d100000000000000001324f000000000000000001",
+    "address": "Matthew Rodgers",
     "campaignsSupported": 45
   }, {
-    "address": "spud.eth",
+    "address": "Elliot Waxman",
     "campaignsSupported": 455
   }, {
-    "address": "spiro.eth",
-    "campaignsSupported": 4
+    "address": "John Spies",
+    "campaignsSupported": 22
   },{
-    "address": "0x0d1000000000000000000000000000003454000001",
-    "campaignsSupported": 1
+    "address": "Feems",
+    "campaignsSupported": 122
   },{
-    "address": "elon.eth",
+    "address": "Defi Beats",
     "campaignsSupported": 30
-  },{
-    "address": "0x0d1000000000000000000000000000000000000456",
-    "campaignsSupported": 24
-  },{
-    "address": "0x0d1000000000000000000000000000000000000006",
-    "campaignsSupported": 8
   }
 ]
