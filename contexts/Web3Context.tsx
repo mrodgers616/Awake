@@ -130,16 +130,6 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
         (_chainId: any) => window.location.reload()
       );
 
-      window.ethereum.on(
-        'disconnect',
-        (error: any) => console.log(error)
-      );
-
-      window.ethereum.on(
-        'connect',
-        (connectInfo: any) => console.log(connectInfo)
-      );
-
       // listen for new proposals.
       governanceContract.on(
         "ProposalCreated",
