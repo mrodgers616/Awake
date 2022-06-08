@@ -4,6 +4,7 @@ import { ethers } from "ethers";
 import ClimateDAO from "../abi/ClimateDAO.json";
 import { updateProposalInStore } from "../lib/firebaseClient";
 import { add } from "date-fns";
+import { useToast } from "@chakra-ui/react";
 
 type State = {
   hasWeb3: boolean;
@@ -53,6 +54,9 @@ function getInitialState(): State {
 export function Web3Provider({ children }: { children: React.ReactNode }) {
   const balanceThreshold = ethers.utils.parseUnits("0.0", 18);
   const [state, setState] = useState<State>(getInitialState());
+
+  const toast = useToast();
+
   // const { addProposalToStore } = useFirebase();
   // run this once when the app first loads to check if someone has an already connected a wallet in
   // local storage but hasn't yet loaded the ENS name because maybe it's newly registered.
@@ -76,7 +80,7 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
       // check if wallet was previously connected.
       if (localStorage.getItem('wallet')) {
         provider.send('eth_requestAccounts', []);
-      } 
+      }
 
       provider
         .getNetwork()
@@ -85,6 +89,13 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
         })
         .catch((err) => {
           setState({ ...state, web3Errors: err.message });
+          toast({
+            title: "Metamask:",
+            description: (err as any).message,
+            status: "error",
+            duration: 9000,
+            isClosable: true,
+          });
         });
 
       // only run this if there is a wallet address and the correct chain is activated.
@@ -93,11 +104,40 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
           const bal = ethers.utils.parseUnits(balance.toString(), 18);
           setState({ ...state, earthBalance: balance.toString() });
           setState({ ...state, hasEnoughBalance: bal >= balanceThreshold });
+        }).catch((err) => {
+          toast({
+            title: "Metamask:",
+            description: (err as any).message,
+            status: "error",
+            duration: 9000,
+            isClosable: true,
+          });
         });
       }
+      
+      window.ethereum.on(
+        'accountsChanged', 
+        (accounts: any) => {
+          if (accounts.length > 0) {
+            setState({ ...state, walletAddress: accounts[0] });
+            setState({ ...state, ensName: libWeb3.getENSName() });
+          }
+        }
+      );
 
-      window.ethereum.on("chainChanged", (_chainId: any) =>
-        window.location.reload()
+      window.ethereum.on(
+        'chainChanged',
+        (_chainId: any) => window.location.reload()
+      );
+
+      window.ethereum.on(
+        'disconnect',
+        (error: any) => console.log(error)
+      );
+
+      window.ethereum.on(
+        'connect',
+        (connectInfo: any) => console.log(connectInfo)
       );
 
       // listen for new proposals.
@@ -216,7 +256,13 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
         await goveranceContract.propose([sender], [0], [callData], description);
       }
     } catch (err: any) {
-      console.log(err);
+      toast({
+        title: "Proposal:",
+        description: (err as any).message,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
     }
   }
 
@@ -301,25 +347,43 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
   }
 
   async function connectWallet() {
-    console.log("connect!!!");
-    if (state.hasWeb3) {
-      let connectResult = await libWeb3.connectWallet();
-      if (connectResult !== false && connectResult.indexOf("0x") === 0) {
-        setState({
-          ...state,
-          walletAddress: connectResult,
-          ensName: libWeb3.getENSName(),
-        });
+    try {
+      if (state.hasWeb3) {
+        let connectResult = await libWeb3.connectWallet();
+        if (connectResult !== false && connectResult.indexOf("0x") === 0) {
+          setState({
+            ...state,
+            walletAddress: connectResult,
+            ensName: libWeb3.getENSName(),
+          });
+        }
+      } else {
+        throw new Error("Browser is not Web3 enabled");
       }
-    } else {
-      throw new Error("Browser is not Web3 enabled");
+    } catch (err) {
+      toast({
+        title: "Metamask:",
+        description: (err as any).message,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
     }
   }
 
   async function disconnectWallet() {
-    console.log("disconnectWallet");
-    await libWeb3.disconnectWallet();
-    setState(getInitialState());
+    try {
+      await libWeb3.disconnectWallet();
+      setState(getInitialState());
+    } catch (error) {
+      toast({
+        title: "Metamask:",
+        description: (error as any).message,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
   }
 
   const value: ContextValue = {

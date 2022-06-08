@@ -16,6 +16,9 @@ import Link from "../../../components/Link";
 import ProfileInfo from '../../../components/profile/ProfileInfo';
 import { admin } from '../../../lib/firebaseAdmin';
 import { getProfileData, getImageFromStorage } from "../../../lib/firebaseClient";
+import Debug from 'debug';
+
+const debug = Debug('pages:user:profile');
 
 type ProfileProps = {
   linkedIn: string;
@@ -43,8 +46,6 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
   const { userid, user } = useAuth();
 
   const [ memberSince, setMemberSince ] = useState(user?.metadata.creationTime);
-
-
 
   const ProfileImageStyles = {
     width: "250px",
@@ -153,13 +154,12 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  
-  context.res.setHeader(
-    "Cache-Control",
-    'public, s-maxage=15, stale-while-revalidate=59'
-  );
-
   try {
+    context.res.setHeader(
+      "Cache-Control",
+      'public, s-maxage=15, stale-while-revalidate=59'
+    );
+
     const cookies = nookies.get(context);
     const token = await admin.auth().verifyIdToken(cookies.token);
 
@@ -193,9 +193,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       }
     }
   } catch (error) {
+    debug((error as any).message);
     context.res.writeHead(302, { Location: '/' });
     context.res.end();
-    
     return { props: {} as never }
   }
 }

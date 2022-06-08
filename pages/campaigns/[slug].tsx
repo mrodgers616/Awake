@@ -8,38 +8,31 @@ import {
   Button,
   Badge,
   Box,
-  Link,
   Icon,
   Container,
   useDisclosure,
-  Tooltip,
-  IconButton,
+  useToast
 } from "@chakra-ui/react";
+import { fetchCampaignThreadReplies, fetchCampaignThread } from "../../lib/discourse";
 import { ResponsiveContainer, LineChart, Line } from "recharts";
-import { ethers } from "ethers";
-import { getProposalState, getProposalVotes } from "../../lib/web3";
-import StepsSection from "../../components/StepsSection";
-import { useEffect, useState } from "react";
-import { Steps } from "../../lib/mock-data";
-import { fetchProposalFromStore } from "../../lib/firebaseClient";
-import LatestArticles from "../../components/LatestArticles";
-import ReactHtmlParser from "react-html-parser";
-import { GetServerSidePropsContext } from "next";
-import articles from "../../data/articles.json";
-import {
-  fetchCampaignThread,
-  fetchCampaignThreadReplies,
-} from "../../lib/discourse";
-import { Timestamp } from "firebase/firestore";
 import { FaClipboard, FaTwitter, FaFacebook } from "react-icons/fa";
+import { getProposalState, getProposalVotes } from "../../lib/web3";
+import { GetServerSidePropsContext } from "next";
+import { fetchProposalFromStore } from "../../lib/firebaseClient";
+import { useEffect, useState } from "react";
 import CampaignCarousel from "../../components/CampaignCarousel";
+import ReactHtmlParser from "react-html-parser";
+import LatestArticles from "../../components/LatestArticles";
 import CastVoteModal from "../../components/CastVoteModal";
-import axios from "axios";
+import StepsSection from "../../components/StepsSection";
+import { Timestamp } from "firebase/firestore";
 import { useWeb3 } from "../../contexts/Web3Context";
+import { ethers } from "ethers";
+import { Steps } from "../../lib/mock-data";
+import Link from "../../components/Link";
+import articles from "../../data/articles.json";
+import axios from "axios";
 import copy from "copy-to-clipboard";
-import { lighten } from "@chakra-ui/theme-tools";
-
-
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -79,6 +72,8 @@ export default function Proposal({
   );
   const [historicalStockPrice, setHistoricalStockPrice] = useState<any>();
 
+  const toast = useToast();
+
   const { hasEnoughBalance, isConnected } = useWeb3();
   const router = useRouter();
 
@@ -91,15 +86,27 @@ export default function Proposal({
   useEffect(() => {
     const newProvider = new ethers.providers.Web3Provider(window.ethereum);
 
-    newProvider.getBlockNumber().then((blockNumber) => {
-      getProposalVotes(blockNumber - 1).then((res) => {
-        setVotes(res.toString());
+    if (isConnected) {
+      newProvider.getBlockNumber().then((blockNumber) => {
+        getProposalVotes(blockNumber - 1).then((res) => {
+          setVotes(res.toString());
+        });
+      }).catch((err) => {
+        console.error(err);
       });
-    });
 
-    getProposalState(campaign.proposalId).then((res) => {
-      setCurrentState(State[res.toString()]);
-    });
+      getProposalState(campaign.proposalId).then((res) => {
+        setCurrentState(State[res.toString()]);
+      }).catch((err) => {
+        toast({
+          title: "Error",
+          description: err.message,
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        })
+      });
+    }
 
     if (stockData !== null) {
       const lineData = [];
@@ -204,7 +211,7 @@ export default function Proposal({
           </Flex>
         </Container>
       </Box>
-      <Container position="relative" mt="-60px" zIndex={500}>
+      <Container position="relative" mt="-60px" zIndex={1}>
         <Flex
           w="100%"
           mb="32px"
@@ -367,7 +374,7 @@ export default function Proposal({
                     href={`https://forum.climatedao.xyz/t/${topicSlug}/${topicId}`}
                     target="_blank"
                   >
-                    <a>here</a>
+                    here
                   </Link>{" "}
                   to join the discussion
                 </Text>

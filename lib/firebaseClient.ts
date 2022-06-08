@@ -48,7 +48,7 @@ async function getAllProposals(): Promise<any> {
   try {
     return await getDocs(onChainProposals);
   } catch (error: any) {
-    console.error(error.message);
+    return error;
   }
 }
 
