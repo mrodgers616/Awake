@@ -146,6 +146,7 @@ const CreateCampaign: NextPage = (_props: any) => {
             values.proposalType === "activist"
               ? values.description
               : values.governanceDescription,
+          status: 0
         };
         // create a thread.
         const response = await fetch(`/api/discourse/thread`, {

@@ -152,13 +152,16 @@ export function disconnectWallet(): Promise<any> {
 export function getProposalState(proposalId: string): Promise<any> {
   return new Promise(async (resolve, reject) => {
     const { ethereum } = window;
-    const wallet = await getWalletAddress();
+    // const wallet = await getWalletAddress();
     if (ethereum) {
-      if (!wallet) reject('No wallet connected');
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
       const goveranceContract = new ethers.Contract(CLIMATEDAO_GOVERANCE_ADDRESS, ClimateDAO.abi, signer);
-      resolve(await goveranceContract.state(proposalId));
+      goveranceContract.state(proposalId).then((state: any) => {
+        resolve(state);
+      }).catch((err: Error) => {
+        reject(err);
+      })
     } else {
       reject('No ethereum provider found!');
     }

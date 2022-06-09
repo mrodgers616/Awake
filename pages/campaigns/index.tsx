@@ -60,6 +60,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
 
   /*
   const tData = useMemo((): any => {
+    if (test === null) return [];
     const [entries] = Object.entries(test);
     const [value] = (entries[1] as any).products;
 
@@ -341,7 +342,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
                       image="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                       {...proposal}
                       {...styles}
-                      {...{ walletAddress, isConnected }}
+                      {...{ isConnected }}
                     />
                   </GridItem>
                 );
@@ -404,16 +405,18 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
   );
 };
 
-export async function getServerSideProps(_context: GetServerSidePropsContext) {
-  const data = await getAllProposals();
-
-  const campaigns: any[] = [];
-
-  // fetch all campaigns
-  data.forEach((datum: any) => {
-    campaigns.push({
-      id: datum.id,
-      ...datum.data(),
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  try {
+    const data = await getAllProposals();
+  
+    const campaigns: any[] = [];
+  
+    // fetch all campaigns
+    data.forEach((datum: any) => {
+      campaigns.push({
+        id: datum.id,
+        ...datum.data(),
+      });
     });
   });
 
@@ -436,8 +439,16 @@ export async function getServerSideProps(_context: GetServerSidePropsContext) {
   let treasuryInfo;
 
   try {
+
     treasuryInfo = (await axios.request(options as any)).data;
-    console.log(treasuryInfo);
+  
+  
+    return {
+      props: {
+        campaigns,
+        treasury: treasuryInfo,
+      },
+    };
   } catch (err) {
     console.error(err as any);
     treasuryInfo = null;

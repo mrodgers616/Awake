@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import type { StyleProps } from "@chakra-ui/react";
+import { StyleProps, useToast } from "@chakra-ui/react";
 import {
   Flex,
   Image,
@@ -23,12 +23,16 @@ interface ProposalProps extends StyleProps {
   isFeatured?: boolean | null;
   proposalId: string;
   title?: string | null;
+  governanceTitle?: string | null;
   description?: string | null;
+  proposalType?: string | null;
+  smartContractAddress?: string | null;
+  threadId?: string | null;
+  governanceDescription?: string | null;
+  contractFunctions?: any;
   companyName?: string | null;
-  walletAddress?: string | null;
   isConnected: boolean;
   symbol?: string | null;
-  threadId?: string | null;
   id?: string | null;
   startBlock?: string | null;
   endBlock?: string | null;
@@ -62,21 +66,14 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
     createdAt ? new Date(createdAt) : new Date()
   );
   const [progress, setProgress] = useState(0);
-  const [campaignState, setCampaignState] = useState("");
 
   const { days, hours, minutes, seconds, isTimeUp, now } = useTicker(dl);
-
-  useEffect(() => {
-    getProposalState(proposalId).then((res) => {
-      setCampaignState(res);
-    });
-  }, []);
 
   useEffect(() => {
     if (isTimeUp) {
       setProgress(100);
     } else {
-      const diffTodayStart = differenceInSeconds(now as Date, start);
+      const diffTodayStart = differenceInSeconds(now, start);
       const diffEndStart = differenceInSeconds(dl, start);
       const prog = Math.round((diffTodayStart / diffEndStart) * 100);
       setProgress(prog);
@@ -176,13 +173,6 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
             Back Campaign
           </Button>
         </Tooltip>
-        {/* <Button
-          bg='seafoam.500'
-          color='white'
-          w='36px'
-        >
-          <Icon as={BiBookmark} />
-        </Button> */}
       </Box>
     </Flex>
   );
