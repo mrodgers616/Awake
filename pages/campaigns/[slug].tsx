@@ -25,23 +25,12 @@ import LatestArticles from "../../components/LatestArticles";
 import ReactHtmlParser from "react-html-parser";
 import { GetServerSidePropsContext } from "next";
 import articles from "../../data/articles.json";
-import {
-  fetchCampaignThread,
-  fetchCampaignThreadReplies,
-} from "../../lib/discourse";
 import { arrayUnion, Timestamp } from "firebase/firestore";
-import { FaClipboard, FaTwitter, FaFacebook } from "react-icons/fa";
 import CampaignCarousel from "../../components/CampaignCarousel";
-import ReactHtmlParser from "react-html-parser";
-import LatestArticles from "../../components/LatestArticles";
 import CastVoteModal from "../../components/CastVoteModal";
-import StepsSection from "../../components/StepsSection";
-import { Timestamp } from "firebase/firestore";
 import { useWeb3 } from "../../contexts/Web3Context";
 import { ethers } from "ethers";
-import { Steps } from "../../lib/mock-data";
 import Link from "../../components/Link";
-import articles from "../../data/articles.json";
 import axios from "axios";
 import copy from "copy-to-clipboard";
 import { lighten } from "@chakra-ui/theme-tools";

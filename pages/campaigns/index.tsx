@@ -406,11 +406,10 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  let campaigns: any[] = [];
   try {
     const data = await getAllProposals();
-  
-    const campaigns: any[] = [];
-  
+    
     // fetch all campaigns
     data.forEach((datum: any) => {
       campaigns.push({
@@ -418,7 +417,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         ...datum.data(),
       });
     });
-  });
+  } catch (error) {
+    console.error(error);
+  }
 
   // normalize data. May not need this in the future.
   campaigns.forEach((campaign: any) => {
