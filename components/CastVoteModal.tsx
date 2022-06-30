@@ -60,7 +60,7 @@ export default function CastVoteModal({
             color='white'
             ml='16px'
   >Abstain</Button>*/}
-          <Heading as="h4" size="sm"> Find out more below what your vote does</Heading>
+          <Heading as="h4" size="sm"> Find out more about what your vote does below </Heading>
         </ModalBody>
       </ModalContent>
     </Modal>
