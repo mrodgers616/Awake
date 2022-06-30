@@ -117,7 +117,12 @@ export default function TwitterTestimonial(): JSX.Element {
                     mb='16px'
                   >
                     <Image
-                      src={profile_image_url} 
+                      src={profile_image_url ? profile_image_url : "/illustrations/default.jpeg"}
+                      //@ts-ignore
+                      onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; // prevents looping
+                        currentTarget.src="/illustrations/default.jpeg";
+                      }}
                       alt={`twitter profile image of ${username}`}
                       m='2px 8px 2px 0'
                       borderRadius='full'
