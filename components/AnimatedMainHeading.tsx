@@ -15,6 +15,9 @@ const AnimatedMainHeading = (props: AnimatedMainHeadingProps) => {
   return (
     <Heading
       as="h1"
+      textAlign="center"
+      ml="auto"
+      mr="auto"
       { ...rest }
     >
       {animatedText.map((word, index) => {
@@ -28,7 +31,7 @@ const AnimatedMainHeading = (props: AnimatedMainHeadingProps) => {
             transition={{
               delay: index * 0.3,
             }}
-            mr="20px"
+            mr="32px"
           >
             {word}
           </MotionDiv>

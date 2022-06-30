@@ -1,5 +1,5 @@
 import React from "react";
-import { chakra, Container, Box, Text, Image } from "@chakra-ui/react";
+import { chakra, Container, Box, Text, Image, Flex, ChakraProvider, Stack} from "@chakra-ui/react";
 
 import Link from "./Link";
 
@@ -33,9 +33,11 @@ const socialMedia: Array<Record<string, any>> = [
 
 export default function Footer(): JSX.Element {
   return (
+    
     <chakra.footer
       bg='#f5f5f5'
     >
+      <Flex mr="10%" mt="10px">
       <Container
         
         h="120px"
@@ -51,6 +53,14 @@ export default function Footer(): JSX.Element {
           />
         </Box>
       </Container>
+      <Stack spacing={2}>
+        <Link href="https://twitter.com/Climate_DAO?s=20&t=KSWCSCV6J_BrI_9SGo-S9w">
+          Twitter
+        </Link>
+        <Link href="https://discord.gg/WwhjrS3HCm">Discord</Link>
+        <Text>Inquiries@climatedao.xyz</Text>
+      </Stack>
+      </Flex>
     </chakra.footer>
   );
 }

@@ -78,7 +78,7 @@ export default function CampaignCard({
           fontSize={ type === "trending" ? "xl" : "2xl" }
           mb='8px'
         >{ campaign.title }</Heading>
-        <Text>{ campaign.description?.substring(0, 280) }</Text>
+        <Text>{ campaign.description?.substring(0, 280) + "..."}</Text>
       </Box>
     </Flex>
   );

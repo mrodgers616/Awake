@@ -140,12 +140,12 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
         </Heading>
         <Text
           h="3em"
-          overflow="hidden"
+          //overflow="hidden"
           _after={{
             content: description ? "'...'" : '""',
           }}
         >
-          {description?.substring(0, 140)}
+          {description?.substring(0, 120)}
         </Text>
       </Box>
       <Box>

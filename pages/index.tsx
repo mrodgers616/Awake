@@ -7,6 +7,7 @@ import {
   Box,
   Button,
   Icon,
+  Image
 } from "@chakra-ui/react";
 import {
   FaPlayCircle
@@ -96,7 +97,7 @@ const Home: NextPage<{
             <Flex
               flexDir={"column"}
               justifyContent="center"
-              w={{ base: "100%", lg: "50%" }}
+              w={{ base: "100%", lg: "100%" }}
               id="banner"
               mr='32px'
               ml='32px'
@@ -106,8 +107,21 @@ const Home: NextPage<{
                 lg: '8em'
               }}
             >
+              <Image
+                ml="auto"
+                mr="auto"
+                mb="5%"
+                mt="13%"
+                src="/illustrations/ClimateDAO Logo.png"
+                width="60%"
+                alt="Climate DAO Logo"
+              > 
+              </Image>
               <AnimatedMainHeading
-                text="Where Activist Investing Meets Web 3"
+                text="Have Your Vote Matter"//"Where Activist Investing Meets Web 3"
+                textAlign="center"
+                ml="auto"
+                mr="auto"
                 color="white"
                 fontSize="70px"
                 display={"flex"}
@@ -120,7 +134,7 @@ const Home: NextPage<{
                 justifyContent="space-between"
                 flexDirection={{ base: "column", md: "row" }}
               >
-                <Button
+                {/* <Button
                   as={Link}
                   color="white"
                   bg="seafoam.500"
@@ -173,10 +187,10 @@ const Home: NextPage<{
                   }}
                 >
                   Twitter
-                </Button>
+                </Button> */}
               </Flex>
             </Flex>
-            <Flex
+            {/* <Flex
               w={{
                 base: "100%",
                 lg: '50%'
@@ -196,22 +210,22 @@ const Home: NextPage<{
               alignItems="center"
             >
               <Icon as={FaPlayCircle} color="white" w="50px" h="50px"></Icon>
-            </Flex>
+            </Flex> */}
           </Flex>
         </Container>
       </Box>
-      <Box mt="-80px">
+      <Box mt="100px">
         <Container      
           width="100%"
           overflow="none"
           m="auto"
           zIndex="1000"
         >
-          <Stats 
+          {/* <Stats 
             sharesCommited={sharesCommited}
             walletsConnected={walletsConnected}
             treasury={treasury}
-          />
+          /> */}
           <StepsSection
             mb='128px'
             steps={Steps}
