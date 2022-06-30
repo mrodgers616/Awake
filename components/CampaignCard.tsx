@@ -60,7 +60,7 @@ export default function CampaignCard({
   const timerText = isTimeUp ? "Voting Closed" : `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
   return (
-    <Flex flexDir={type === "trending" ? "row" : "column"}>
+    <Flex flexDir={type === "trending" ? "row" : "column"} mb="80px">
       <Flex
         w={ type === 'featured' ? '100%' : '50%' }
         position='relative'
@@ -69,7 +69,7 @@ export default function CampaignCard({
       >
         <Image 
           src={campaign.image ? campaign.image : "nature/lakeside.png"}
-          h='100%'
+          h='60%'
           w='auto'
         />
       </Flex>
@@ -78,7 +78,7 @@ export default function CampaignCard({
           fontSize={ type === "trending" ? "xl" : "2xl" }
           mb='8px'
         >{ campaign.title }</Heading>
-        <Text>{ campaign.description?.substring(0, 280) + "..."}</Text>
+        <Text>{ campaign.description?.substring(0, 200) + "..."}</Text>
       </Box>
     </Flex>
   );

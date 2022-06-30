@@ -16,6 +16,7 @@ import {
 import tweets from '../data/tweets.json';
 import { FaArrowRight } from "react-icons/fa";
 import { format } from 'date-fns';
+import picture from "../public/illustrations/default.jpeg"
 
 type StepSectionProps = {
   steps: Array<any>;

@@ -188,7 +188,7 @@ const About: NextPage = () => {
             mb="64px"
             color="white"
             bgSize="cover"
-            bgImage="https://images.unsplash.com/photo-1588552070639-772396abbde5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+            bgGradient="linear-gradient(sage.500, seafoam.500)"
             p="64px"
             h="400px"
             justifyContent={"center"}
@@ -219,7 +219,7 @@ const About: NextPage = () => {
             flexDir="column"
             mb="64px"
             color="white"
-            bg='url("https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")'
+            bgGradient="linear-gradient(sage.500, seafoam.500)"
             p="64px"
             h="400px"
             justifyContent={"center"}
@@ -250,7 +250,7 @@ const About: NextPage = () => {
             flexDir="column"
             mb="64px"
             color="white"
-            bg='url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80")'
+            bgGradient="linear-gradient(sage.500, seafoam.500)"
             p="64px"
             h="400px"
             justifyContent={"center"}
