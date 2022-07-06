@@ -384,7 +384,7 @@ class linkAccount extends React.Component<Props, State> {
             What happens to my data?
           </Text>
           <Text display="block" fontSize="2xl">
-            Don't worry, your data is safe with us! <b>All of your investment data is securely stored and encrypted. </b>
+            Don&apos;t worry, your data is safe with us! <b>All of your investment data is securely stored and encrypted. </b>
              Whether you own stocks or not, public companies have a huge impact
             on our everyday lives. Everything from the food we eat, to how we
             connect, and the environment we live in is impacted by the hands of
