@@ -61,115 +61,115 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
   // run this once when the app first loads to check if someone has an already connected a wallet in
   // local storage but hasn't yet loaded the ENS name because maybe it's newly registered.
   useEffect(() => {
-    if (state.walletAddress && !state.ensName) {
-      libWeb3.loadENSName(state.walletAddress).then((ensName) => {
-        setState({ ...state, ensName });
-      });
-    }
+    // if (state.walletAddress && !state.ensName) {
+    //   libWeb3.loadENSName(state.walletAddress).then((ensName) => {
+    //     setState({ ...state, ensName });
+    //   });
+    // }
 
-    if (window.ethereum) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      // set up event listeners.
-      const governanceContract = new ethers.Contract(
-        libWeb3.CLIMATEDAO_GOVERANCE_ADDRESS,
-        ClimateDAO.abi,
-        signer
-      );
+    // if (window.ethereum) {
+    //   const provider = new ethers.providers.Web3Provider(window.ethereum);
+    //   const signer = provider.getSigner();
+    //   // set up event listeners.
+    //   const governanceContract = new ethers.Contract(
+    //     libWeb3.CLIMATEDAO_GOVERANCE_ADDRESS,
+    //     ClimateDAO.abi,
+    //     signer
+    //   );
 
-      // check if wallet was previously connected.
-      if (localStorage.getItem('wallet')) {
-        provider.send('eth_requestAccounts', []);
-      }
+    //   // check if wallet was previously connected.
+    //   if (localStorage.getItem('wallet')) {
+    //     provider.send('eth_requestAccounts', []);
+    //   }
 
-      provider
-        .getNetwork()
-        .then((network) => {
-          setState({ ...state, chainId: network.chainId });
-        })
-        .catch((err) => {
-          setState({ ...state, web3Errors: err.message });
-          toast({
-            title: "Metamask:",
-            description: (err as any).message,
-            status: "error",
-            duration: 9000,
-            isClosable: true,
-          });
-        });
+    //   provider
+    //     .getNetwork()
+    //     .then((network) => {
+    //       setState({ ...state, chainId: network.chainId });
+    //     })
+    //     .catch((err) => {
+    //       setState({ ...state, web3Errors: err.message });
+    //       toast({
+    //         title: "Metamask:",
+    //         description: (err as any).message,
+    //         status: "error",
+    //         duration: 9000,
+    //         isClosable: true,
+    //       });
+    //     });
 
-      // only run this if there is a wallet address and the correct chain is activated.
-      if (state.walletAddress && state.chainId === 4) {
-        libWeb3.getEarthBalance().then((balance) => {
-          const bal = ethers.utils.parseUnits(balance.toString(), 18);
-          setState({ ...state, earthBalance: balance.toString() });
-          setState({ ...state, hasEnoughBalance: bal >= balanceThreshold });
-        }).catch((err) => {
-          toast({
-            title: "Metamask:",
-            description: (err as any).message,
-            status: "error",
-            duration: 9000,
-            isClosable: true,
-          });
-        });
-      }
+    //   // only run this if there is a wallet address and the correct chain is activated.
+    //   if (state.walletAddress && state.chainId === 4) {
+    //     libWeb3.getEarthBalance().then((balance) => {
+    //       const bal = ethers.utils.parseUnits(balance.toString(), 18);
+    //       setState({ ...state, earthBalance: balance.toString() });
+    //       setState({ ...state, hasEnoughBalance: bal >= balanceThreshold });
+    //     }).catch((err) => {
+    //       toast({
+    //         title: "Metamask:",
+    //         description: (err as any).message,
+    //         status: "error",
+    //         duration: 9000,
+    //         isClosable: true,
+    //       });
+    //     });
+    //   }
       
-      window.ethereum.on(
-        'accountsChanged', 
-        (accounts: any) => {
-          if (accounts.length > 0) {
-            setState({ ...state, walletAddress: accounts[0] });
-            setState({ ...state, ensName: libWeb3.getENSName() });
-          }
-        }
-      );
+    //   window.ethereum.on(
+    //     'accountsChanged', 
+    //     (accounts: any) => {
+    //       if (accounts.length > 0) {
+    //         setState({ ...state, walletAddress: accounts[0] });
+    //         setState({ ...state, ensName: libWeb3.getENSName() });
+    //       }
+    //     }
+    //   );
 
-      window.ethereum.on(
-        'chainChanged',
-        (_chainId: any) => window.location.reload()
-      );
+    //   window.ethereum.on(
+    //     'chainChanged',
+    //     (_chainId: any) => window.location.reload()
+    //   );
 
-      // listen for new proposals.
-      governanceContract.on(
-        "ProposalCreated",
-        async (
-          proposalId,
-          proposer,
-          _targets,
-          _values,
-          _signatures,
-          _calldatas,
-          _startBlock,
-          _endBlock,
-          description
-        ) => {
-          const createdAt = new Date().toISOString();
-          const deadline = add(new Date(), { hours: 1 }).toISOString();
-          updateProposalInStore(description, {
-            proposalId: proposalId.toString(),
-            proposer: proposer.toString(),
-            createdAt,
-            deadline,
-            votes: {
-              for: 0,
-              against: 0,
-              abstain: 0,
-            },
-          });
-        }
-      );
+    //   // listen for new proposals.
+    //   governanceContract.on(
+    //     "ProposalCreated",
+    //     async (
+    //       proposalId,
+    //       proposer,
+    //       _targets,
+    //       _values,
+    //       _signatures,
+    //       _calldatas,
+    //       _startBlock,
+    //       _endBlock,
+    //       description
+    //     ) => {
+    //       const createdAt = new Date().toISOString();
+    //       const deadline = add(new Date(), { hours: 1 }).toISOString();
+    //       updateProposalInStore(description, {
+    //         proposalId: proposalId.toString(),
+    //         proposer: proposer.toString(),
+    //         createdAt,
+    //         deadline,
+    //         votes: {
+    //           for: 0,
+    //           against: 0,
+    //           abstain: 0,
+    //         },
+    //       });
+    //     }
+    //   );
 
-      governanceContract.on(
-        "VoteCast",
-        (_account, _proposalId, _support, _weight, _reason) => {
-          // fetch the proposal in db.
-          // getDoc(collection(getFirestore(), 'proposals'), proposalId.toString()).then((proposal) => {
-          // update the totals.
-          console.log("vote cast");
-        }
-      );
-    }
+    //   governanceContract.on(
+    //     "VoteCast",
+    //     (_account, _proposalId, _support, _weight, _reason) => {
+    //       // fetch the proposal in db.
+    //       // getDoc(collection(getFirestore(), 'proposals'), proposalId.toString()).then((proposal) => {
+    //       // update the totals.
+    //       console.log("vote cast");
+    //     }
+    //   );
+    // }
   }, []);
 
   async function getProposalState(proposalId: number): Promise<any> {

@@ -31,7 +31,7 @@ import { useRouter } from "next/router";
 
 export default function Navbar(): JSX.Element {
   const router = useRouter();
-  const { web3Errors } = useWeb3();
+  //const { web3Errors } = useWeb3();
   const { logout, loggedIn, userid } = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -76,14 +76,14 @@ export default function Navbar(): JSX.Element {
         lg: 'center'
       }}
     >
-      {web3Errors && (<IconButton
+      {/* {web3Errors && (<IconButton
         aria-label="Check Notifications"
         icon={<Icon as={FiBell} w={5} h={5} />}
         p={0}
         mr="8px"
         size="lg"
         bg="none"
-      />) }
+      />) } */}
       <Link
         href={`/user/${userid}/profile`}
         sx={{
@@ -95,7 +95,7 @@ export default function Navbar(): JSX.Element {
         }}
         className={activeLink('/profile')}
       >Profile</Link>
-      <WalletConnectBtn/>
+      {/* <WalletConnectBtn/> */}
       <Button
         display={{
           base: 'flex',

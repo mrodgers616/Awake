@@ -160,27 +160,27 @@ const CreateCampaign: NextPage = (_props: any) => {
           proposal.threadId = test.topic_id;
           // create proposal. use the threadId as description.
           const doc = await addProposalToStore(proposal);
-          if (doc!.id) {
-            if (values.proposalType === "activist") {
-              await createProposal(walletAddress!, doc!.id);
-            } else {
-              const keys = Object.keys(values).filter((key: string) =>
-                key.includes("function-")
-              );
-              let inputs = [];
-              for (const key of keys) {
-                inputs.push(values[key]);
-              }
-              await createGovernanceProposal(
-                walletAddress!,
-                doc!.id,
-                values.smartContractAddress,
-                fetchedContractABI,
-                values.contractFunctions,
-                inputs
-              );
-            }
-          }
+          // if (doc!.id) {
+          //   if (values.proposalType === "activist") {
+          //     await createProposal(walletAddress!, doc!.id);
+          //   } else {
+          //     const keys = Object.keys(values).filter((key: string) =>
+          //       key.includes("function-")
+          //     );
+          //     let inputs = [];
+          //     for (const key of keys) {
+          //       inputs.push(values[key]);
+          //     }
+          //     await createGovernanceProposal(
+          //       walletAddress!,
+          //       doc!.id,
+          //       values.smartContractAddress,
+          //       fetchedContractABI,
+          //       values.contractFunctions,
+          //       inputs
+          //     );
+          //   }
+          // }
         } else {
           const responseError = await response.json();
           console.log(responseError);
@@ -353,7 +353,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                 >
                   Activist Proposal
                 </Tab>
-                <Tab
+                {/* <Tab
                   w="300px"
                   bg="grey"
                   _selected={{
@@ -364,7 +364,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                   }}
                 >
                   Governance Proposal
-                </Tab>
+                </Tab> */}
               </TabList>
               <TabPanels>
                 <TabPanel>
@@ -405,7 +405,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         {errors.title && errors.title.message}
                       </FormErrorMessage>
                     </FormControl>
-                    <FormControl isInvalid={errors.type} mt="16px">
+                    {/* <FormControl isInvalid={errors.type} mt="16px">
                       <FormLabel htmlFor="type">Proposal Type:</FormLabel>
                       <Select
                         {...register("type", {
@@ -418,8 +418,8 @@ const CreateCampaign: NextPage = (_props: any) => {
                       <FormErrorMessage>
                         {errors.type && errors.type.message}
                       </FormErrorMessage>
-                    </FormControl>
-                    <FormControl isInvalid={errors.quantity} mt="16px">
+                    </FormControl> */}
+                    {/* <FormControl isInvalid={errors.quantity} mt="16px">
                       <FormLabel htmlFor="quanity">Quantity:</FormLabel>
                       <Input
                         {...register("quantity", {
@@ -432,7 +432,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                       <FormErrorMessage>
                         {errors.quantity && errors.quantity.message}
                       </FormErrorMessage>
-                    </FormControl>
+                    </FormControl> */}
                     <FormControl isInvalid={errors.symbol} mt="16px">
                       <FormLabel htmlFor="symbol">Company Symbol:</FormLabel>
                       <Input
@@ -473,7 +473,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                       />
                       <Flex>
                         {/* @ts-ignore */}
-                        <Upload {...uploaderProps}>
+                        {/* <Upload {...uploaderProps}>
                           <Button
                           alignSelf={"flex-end"}
                           mt={4}
@@ -483,7 +483,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                             Upload Image
                           </Button>
                         </Upload>
-                        <Text size='30px'>No file Uploaded</Text>
+                        <Text size='30px'>No file Uploaded</Text> */}
                       </Flex>
                       <FormErrorMessage>
                         {errors.description && errors.description.message}

@@ -19,7 +19,7 @@ export default function FeaturedCampaigns({
   trending: any;
 }) {
 
-  const { hasEnoughBalance, isConnected } = useWeb3();
+  //const { hasEnoughBalance, isConnected } = useWeb3();
 
   return (          
   <Flex

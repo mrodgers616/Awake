@@ -29,8 +29,8 @@ const About: NextPage = () => {
         position="relative"
         bgSize="cover"
         bgGradient="linear-gradient(sage.500, seafoam.500)"
-        borderRadius='30px'
-        mx="1%"
+        //borderRadius='30px'
+        //mx="1%"
       >
         <Box
           bg="rgba(0,0,0,.0)"
@@ -52,6 +52,8 @@ const About: NextPage = () => {
               fontSize="60px"
               color="white"
               mb="64px"
+              ml="auto"
+              mr="auto"
               zIndex={250}
             >
               Activating the Power of Retail Investors
@@ -62,6 +64,7 @@ const About: NextPage = () => {
                 bg="seafoam.500"
                 color="white"
                 h="48px"
+                ml="6%"
                 href="/campaigns"
                 _disabled={{
                   pointerEvents: "none",

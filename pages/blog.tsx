@@ -97,8 +97,8 @@ const Blog: NextPage = () => {
         bgSize="cover"
         bgPosition="center"
         mt="8%"
-        borderRadius='30px'
-        mx="1%"
+        //borderRadius='30px'
+        //mx="1%"
       >
         <Box w="100%" h="100%" bg="rgba(0,0,0,.0)">
           <Container h="400px">

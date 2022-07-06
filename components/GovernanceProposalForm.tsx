@@ -22,10 +22,10 @@ export default function GoveranceProposalForm({
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const {
-    walletAddress,
-    createProposal,
-  } = useWeb3();
+  // const {
+  //   walletAddress,
+  //   createProposal,
+  // } = useWeb3();
 
   function onSubmit(values: any) {
     // return new Promise(async (resolve) => {      

@@ -42,7 +42,7 @@ const Home: NextPage<{
   const [ treasury, setTreasury ] = useState(10);
   const [ walletsConnected, setWalletsConnected ] = useState(0);
 
-  const { earthBalance } = useWeb3()
+  //const { earthBalance } = useWeb3()
 
   const copyToClipboard = (e: any) => {
     e.stopPropagation();

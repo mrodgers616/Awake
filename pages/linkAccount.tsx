@@ -32,7 +32,7 @@ import { getServerSideProps } from ".";
 import { profile } from "console";
 
 const configuration = new Configuration({
-    basePath: PlaidEnvironments.sandbox,
+    basePath: PlaidEnvironments.development,
     baseOptions: {
       headers: {
         'PLAID-CLIENT-ID': process.env.PLAID_CLIENT_ID,
@@ -291,7 +291,6 @@ class linkAccount extends React.Component<Props, State> {
         bg="sage.500"
         mt="120px"
         bgGradient="linear-gradient(sage.500, seafoam.500)"
-        // bgImage="url(https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FTitle.png?alt=media&token=a6ed1e7f-09b9-4987-bd63-6efa39d4c46a)"
         bgSize="cover"
         zIndex={0}
       >
@@ -372,40 +371,39 @@ class linkAccount extends React.Component<Props, State> {
         accounts, allows us to prove to the companies we’re approaching that
         verified shareholders supported the proposed campaings.
       </Text>
-      <Flex mt="4%">
-        <Stack spacing={2} mr="10%" height="400px">
+      <Flex ml="-20%" mr="-20%" mt="4%" bgGradient="linear(to bottom, #348477,#17CFA5)" borderRadius="30px" height="400px">
+        <Stack spacing={2} mr="15%" height="300px" mt="auto" mb="auto">
           <Text
             textAlign="left"
             fontSize="6xl"
             mt="5%"
             display="block"
             fontWeight="bold"
+            ml="15%"
           >
             What happens to my data?
           </Text>
-          <Text display="block" fontSize="2xl">
+          <Text display="block" fontSize="2xl" paddingLeft="15%">
             Don&apos;t worry, your data is safe with us! <b>All of your investment data is securely stored and encrypted. </b>
-             Whether you own stocks or not, public companies have a huge impact
-            on our everyday lives. Everything from the food we eat, to how we
-            connect, and the environment we live in is impacted by the hands of
-            public companies.{' '}
+             {' '}
           </Text>
         </Stack>
         <Image
-          height="400px"
+          height="300px"
           width="400px"
-          mr="3%"
+          mr="6%"
+          mt="auto" mb="auto"
           src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2039.png?alt=media&token=14c1cae2-5cf6-4ded-b1c9-ab8138e93409"
         />
       </Flex>
-      <Flex mt="15%">
+      <Flex mt="15%" ml="-20%" mr="-20%">
         <Image
-          height="400px"
+          height="300px"
           width="400px"
           src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FLink%20your%20Accounts.png?alt=media&token=54176198-7c1c-4287-b36d-2046d45c187a"
           ml=" 5%"
         />
-        <Stack spacing={2} ml="10%" height="400px">
+        <Stack spacing={2} ml="17%" height="300px" mr="6%">
           <Text textAlign="left" fontSize="6xl" fontWeight="bold">
             Why it’s important
           </Text>
@@ -417,19 +415,24 @@ class linkAccount extends React.Component<Props, State> {
           </Text>
         </Stack>
       </Flex>
-      <Flex mt="15%">
-        <Stack spacing={2} mr="15%">
-          <Text fontWeight="bold" fontSize="6xl">
+      <Flex mt="15%" ml="-20%" mr="-20%" bgGradient="linear(to bottom, #348477,#17CFA5)" borderRadius="30px" height="400px">
+        <Stack spacing={2} mr="15%" height="300px" mt="auto" mb="auto">
+          <Text fontWeight="bold" fontSize="6xl" ml="15%">
             Strength in numbers
           </Text>
-          <Text fontSize="2xl">
+          <Text fontSize="2xl" paddingLeft="15%">
             After verifying that you own shares and signaling your support for
-            campaigns, we can approach companies with much more leverage.
+            campaigns, we can approach companies with much more leverage. Whether you own stocks or not, public companies have a huge impact
+            on our everyday lives. Everything from the food we eat, to how we
+            connect, and the environment we live in is impacted by the hands of
+            public companies.
           </Text>
         </Stack>
         <Image
-          height="200px"
+          height="250px"
           width="400px"
+          mt="auto" mb="auto"
+          mr="6%"
           src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2041.png?alt=media&token=134d5014-8b72-45ea-a293-d2d0d823297f"
         />
       </Flex>
