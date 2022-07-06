@@ -96,7 +96,9 @@ const Blog: NextPage = () => {
         // bgImage="https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
         bgSize="cover"
         bgPosition="center"
-        mt="120px"
+        mt="8%"
+        borderRadius='30px'
+        mx="1%"
       >
         <Box w="100%" h="100%" bg="rgba(0,0,0,.0)">
           <Container h="400px">
@@ -107,7 +109,7 @@ const Blog: NextPage = () => {
                 fontSize="4.5em"
                 mb="60px"
               >
-                ClimateDAO Blog
+                Learn About ClimateDAO
               </Heading>
             </Flex>
           </Container>

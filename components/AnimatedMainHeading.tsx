@@ -16,8 +16,8 @@ const AnimatedMainHeading = (props: AnimatedMainHeadingProps) => {
     <Heading
       as="h1"
       textAlign="center"
-      ml="auto"
-      mr="auto"
+      ml="17%"
+      mr="13%"
       { ...rest }
     >
       {animatedText.map((word, index) => {

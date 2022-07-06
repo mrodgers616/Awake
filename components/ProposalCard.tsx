@@ -73,6 +73,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
     if (isTimeUp) {
       setProgress(100);
     } else {
+      //@ts-ignore
       const diffTodayStart = differenceInSeconds(now, start);
       const diffEndStart = differenceInSeconds(dl, start);
       const prog = Math.round((diffTodayStart / diffEndStart) * 100);

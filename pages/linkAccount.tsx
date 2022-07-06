@@ -324,7 +324,7 @@ class linkAccount extends React.Component<Props, State> {
             mb="120px"
           >
             <Heading fontSize="2.0em" w="60%">
-                Link your brokerage account to take the first step towards climate impact!
+                Link your brokerage account to take the first step towards having an impact!
             </Heading>
           {/* BEGINNING OF TESTING PLAID LINK */} 
               <Button
@@ -384,7 +384,8 @@ class linkAccount extends React.Component<Props, State> {
             What happens to my data?
           </Text>
           <Text display="block" fontSize="2xl">
-            Whether you own stocks or not, public companies have a huge impact
+            Don't worry, your data is safe with us! <b>All of your investment data is securely stored and encrypted. </b>
+             Whether you own stocks or not, public companies have a huge impact
             on our everyday lives. Everything from the food we eat, to how we
             connect, and the environment we live in is impacted by the hands of
             public companies.{' '}
@@ -423,9 +424,7 @@ class linkAccount extends React.Component<Props, State> {
           </Text>
           <Text fontSize="2xl">
             After verifying that you own shares and signaling your support for
-            campaigns, we can approach companies with much more leverage. Us to
-            companies: “We all want to see this change, and this many of your
-            shareholders said so.”
+            campaigns, we can approach companies with much more leverage.
           </Text>
         </Stack>
         <Image

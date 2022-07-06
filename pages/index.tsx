@@ -118,10 +118,10 @@ const Home: NextPage<{
               > 
               </Image>
               <AnimatedMainHeading
-                text="Have Your Vote Matter"//"Where Activist Investing Meets Web 3"
+                text="Have Your Voice Heard"//"Where Activist Investing Meets Web 3"
                 textAlign="center"
-                ml="auto"
-                mr="auto"
+                //ml="auto"
+                //mr="auto"
                 color="white"
                 fontSize="70px"
                 display={"flex"}

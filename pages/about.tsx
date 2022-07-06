@@ -24,11 +24,13 @@ const About: NextPage = () => {
       </Head>
       <Box
         title="membership-cta"
-        mt="120px"
+        mt="8%"
         bgPosition={"center"}
         position="relative"
         bgSize="cover"
         bgGradient="linear-gradient(sage.500, seafoam.500)"
+        borderRadius='30px'
+        mx="1%"
       >
         <Box
           bg="rgba(0,0,0,.0)"
