@@ -194,7 +194,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       }
     }
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     debug((error as any).message);
     context.res.writeHead(302, { Location: '/' });
     context.res.end();

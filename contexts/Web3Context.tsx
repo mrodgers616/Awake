@@ -166,7 +166,7 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
     //       // fetch the proposal in db.
     //       // getDoc(collection(getFirestore(), 'proposals'), proposalId.toString()).then((proposal) => {
     //       // update the totals.
-    //       console.log("vote cast");
+    //       //console.log("vote cast");
     //     }
     //   );
     // }
@@ -206,7 +206,7 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
           signer
         );
         const blocknumber = await provider.getBlockNumber();
-        console.log(blocknumber);
+        //console.log(blocknumber);
         return await goveranceContract.getVotes(
           state.walletAddress,
           blocknumber - 1
@@ -292,7 +292,7 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
         await goveranceContract.propose([sender], [0], [callData], description);
       }
     } catch (err: any) {
-      console.log(err);
+      //console.log(err);
     }
   }
 
@@ -312,13 +312,13 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
         return "";
       }
     } catch (err: any) {
-      console.log(err);
+      //console.log(err);
       return "";
     }
   }
 
   async function castVote (_support: number): Promise<void> {
-    console.log("cast vote");
+    //console.log("cast vote");
     try {
       const { ethereum } = window;
       if (ethereum) {
@@ -332,7 +332,7 @@ export function Web3Provider({ children }: { children: React.ReactNode }) {
         await goveranceContract.castVote(state.proposalId, _support);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   }
 

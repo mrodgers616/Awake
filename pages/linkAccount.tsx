@@ -59,13 +59,13 @@ const request: LinkTokenCreateRequest = {
 };
 
 async function linkPlaid() {
-  console.log("here");
+  //console.log("here");
     try {
         const response = await plaidClient.linkTokenCreate(request);
         const linkToken = response.data.link_token;
-        console.log(linkToken);
+        //console.log(linkToken);
       } catch (error) {
-       console.log(error);
+       //console.log(error);
       }
 }
 
@@ -167,7 +167,7 @@ class linkAccount extends React.Component<Props, State> {
   }
   async createLinkToken() {
     // get a link_token from your server
-    console.log("link token begin")
+    //console.log("link token begin")
     try {
       // get a link_token from your server
       const response = await fetch('/api/create_link_token', { method: 'POST' });
@@ -175,7 +175,7 @@ class linkAccount extends React.Component<Props, State> {
       return link_token;
     }
     catch(e) {
-      console.log(e);
+      //console.log(e);
     }
   }
 
@@ -185,25 +185,25 @@ class linkAccount extends React.Component<Props, State> {
       return await response.json();
     }
     catch(e) {
-      console.log(e);
+      //console.log(e);
     }
   }
 
   async getAccessToken(publicToken: any) {
     try {
       const response = await fetch("/api/get_access_token/", {method: 'POST', body: publicToken});
-      console.log(response);
+      //console.log(response);
       const accessToken = await response.json();
       return accessToken.access_token;
       
     }
     catch(e) {
-      console.log(e);
+      //console.log(e);
     }
   }
 
   async storeInvestmentData(data: any) {
-    console.log(data);
+    //console.log(data);
     let data2: InvestmentData = {
       error: null,
       holdings: data,
@@ -220,14 +220,14 @@ class linkAccount extends React.Component<Props, State> {
       updateOrAddProfileData(uid, finalData);
     }
     catch(e) {
-      console.log(e);
+      //console.log(e);
     }
   }
 
   async getProfileUID() {
     const cookie = parseCookies();
     const uid = cookie.userUID;
-    console.log(uid);
+    ////console.log(uid);
     return uid;
   }
 
@@ -278,7 +278,7 @@ class linkAccount extends React.Component<Props, State> {
   onExit: PlaidLinkOnExit = (error, metadata) => {
     // log onExit callbacks from Link, handle errors
     // https://plaid.com/docs/link/web/#onexit
-    console.log(error, metadata);
+    //console.log(error, metadata);
   };
 
   render() {
@@ -364,7 +364,7 @@ class linkAccount extends React.Component<Props, State> {
             </PlaidLink> */}
           </Flex>
           <ChakraProvider resetCSS>
-    <Box ml="3%" mr="3%" mb="10%" height="110%">
+    <Box ml="5%" mr="5%" mb="10%" height="110%">
       <Text display="block" ml="2%" mr="2%" textAlign="center" fontSize="2xl" mb="10%">
         At ClimateDAO we empower like-minded investors to collectively advocate
         for changes they want to see at public companies. Linking your brokerage

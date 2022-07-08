@@ -80,7 +80,7 @@ export function getENSName(): string | null {
 
 export function initWeb3(provider: any): Promise<any> {
   return new Promise((response) => {
-    console.log('Init new Web3 instance.');
+    //console.log('Init new Web3 instance.');
     // Connecto to Web3
     const web3 = new Web3(provider);
     // Return Web3 instance
@@ -90,7 +90,7 @@ export function initWeb3(provider: any): Promise<any> {
 
 export function initWeb3Modal(): Promise<any> {
   return new Promise(async (response) => {
-    console.log('Init new Web3Modal instance.');
+    //console.log('Init new Web3Modal instance.');
     // Connecto to Web3
     const web3Modal = new Web3Modal({
       network: 'rinkeby',
@@ -135,7 +135,7 @@ export async function connectWallet(): Promise<false | string> {
       }
       return accounts[0];
     } catch (e: any) {
-      console.log('Web3 errored:', e.message);
+      //console.log('Web3 errored:', e.message);
       return false;
     }
   }
@@ -214,7 +214,7 @@ export async function getEarthBalance(): Promise<number> {
 export async function loadENSName(address: string): Promise<string | null> {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const name = await provider.lookupAddress(address);
-  console.log('loadENSName', name);
+  //console.log('loadENSName', name);
   if (name) {
     localStorage.setItem('ensName', name);
   }
@@ -225,10 +225,10 @@ export async function addEarthToMetaMask(): Promise<boolean> {
   if (!window.ethereum) {
     return false;
   }
-  console.log(
-    'Adding BANK TOKEN',
-    `${window.location.origin}/images/token-metamask.svg`,
-  );
+  // console.log(
+  //   'Adding BANK TOKEN',
+  //   `${window.location.origin}/images/token-metamask.svg`,
+  // );
 
   try {
     // wasAdded is a boolean. Like any RPC method, an error may be thrown.
@@ -246,14 +246,14 @@ export async function addEarthToMetaMask(): Promise<boolean> {
     });
 
     if (wasAdded) {
-      console.log('Thanks for your interest!');
+      //console.log('Thanks for your interest!');
     } else {
-      console.log('Your loss!');
+      //console.log('Your loss!');
     }
 
     return wasAdded;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     return false;
   }
 }

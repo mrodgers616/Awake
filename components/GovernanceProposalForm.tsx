@@ -39,7 +39,7 @@ export default function GoveranceProposalForm({
   async function fetchContractABI(contractAddress: string) {
     const res = await fetch(`https://api.etherscan.io/api?module=contract&action=getabi&address=${contractAddress}&apikey=${process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY}`);
     const json = await res.json();
-    console.log(json);
+    //console.log(json);
   }
 
   return (

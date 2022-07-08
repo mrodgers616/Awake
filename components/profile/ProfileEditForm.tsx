@@ -89,7 +89,7 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
       
       if (data.backgroundImage.length) {
         bgp = await addImageToStorage(userid!, data.backgroundImage[0]);
-        console.log('bgp: ', bgp);
+        //console.log('bgp: ', bgp);
         data.backgroundImage = bgp.fullPath;
       }
       const result = await updateOrAddProfileData(id, data);

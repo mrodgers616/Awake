@@ -96,7 +96,7 @@ async function updateProposalInStore (storeId: string, newData: Record<string, a
 
 async function getProfileData (uid: string): Promise<any> {
   try {
-    console.log(uid);
+    //console.log(uid);
     const userRef = doc(getFirestore(), 'users', uid);
     return await getDoc(userRef);
   } catch (error) {
@@ -109,7 +109,7 @@ async function updateOrAddProfileData (
   newData: Record<string, any>
 ): Promise<any> {
   try {
-    console.log(profileId);
+    //console.log(profileId);
     const userRef = doc(getFirestore(), 'users', profileId);
     const userDoc = await getDoc(userRef);
     if (userDoc.exists()) {

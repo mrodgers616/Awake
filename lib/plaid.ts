@@ -52,7 +52,7 @@ export async function getInvestmentData(token: any) {
     const startDate = moment().subtract(30, 'days').format('YYYY-MM-DD');
     const endDate = moment().format('YYYY-MM-DD');
     const ACCESS_TOKEN = await token;
-    console.log(ACCESS_TOKEN)
+    //console.log(ACCESS_TOKEN)
     const holdingsConfigs = {
         access_token: ACCESS_TOKEN
       };

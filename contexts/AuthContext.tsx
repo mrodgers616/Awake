@@ -58,7 +58,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const authentication = getAuth();
     return onIdTokenChanged(
       authentication, async (user: User | null) => {
-        console.log('onIdTokenChanged', user);
+        ////console.log('onIdTokenChanged', user);
           if (!user) {
             setState({ ...state, user: null, userid: null })
             nookies.set(undefined, 'token', '', { path: '/'});
@@ -77,7 +77,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const authentication = getAuth();
     return onAuthStateChanged(
       authentication, async (user: User | null) => {
-        console.log('onAuthStateChanged', user);
+        //console.log('onAuthStateChanged', user);
     })
   }, [])
 

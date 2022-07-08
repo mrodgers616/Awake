@@ -79,7 +79,7 @@ const CreateCampaign: NextPage = (_props: any) => {
         setFetchedContractABI(abi);
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
       });
   }
 
@@ -90,28 +90,28 @@ const CreateCampaign: NextPage = (_props: any) => {
     data: { a: 1, b: 2 },
     multiple: false,
     beforeUpload(file: any) {
-      console.log('beforeUpload', file.name);
+      //console.log('beforeUpload', file.name);
     },
     onStart: (file: any) => {
-      console.log('onStart', file.name);
+      //console.log('onStart', file.name);
     },
     onSuccess(file: any) {
-      //console.log('onSuccess', file);
+      ////console.log('onSuccess', file);
       storeImageData(file, file.name);
     },
     onProgress(step: any, file: any) {
-      console.log('onProgress', Math.round(step.percent), file.name);
+      //console.log('onProgress', Math.round(step.percent), file.name);
     },
     onError(err: any) {
-      console.log('onError', err);
+      //console.log('onError', err);
     },
     capture: 'user',
   };
 
   function storeImageData(file: any, name: any) {
     fileData = file;
-    console.log(name);
-    console.log(fileData);
+    //console.log(name);
+    //console.log(fileData);
   }
 
   function addFileName() {
@@ -183,7 +183,7 @@ const CreateCampaign: NextPage = (_props: any) => {
           // }
         } else {
           const responseError = await response.json();
-          console.log(responseError);
+          //console.log(responseError);
           return;
         }
         reset();

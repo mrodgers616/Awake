@@ -771,7 +771,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     
   }
   catch(e) {
-    console.log(e);
+    //console.log(e);
   }
 
   try {
