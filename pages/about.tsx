@@ -200,13 +200,11 @@ const About: NextPage = () => {
             bgPosition={"center"}
             position="relative"
           >
-            <Heading zIndex={250} fontFamily="2em">
+            <Heading zIndex={250} fontFamily="3em" mb="2%">
               Mission
             </Heading>
             <Text zIndex={250} fontSize="1.6em">
-              ClimateDAO is on a mission to mitigate the causes climate change while 
-              democratizing shareholder activism for the everyday retail investor. 
-              We want better corporate governance, but above all, we want change. 
+            ClimateDAO is empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. ClimateDAO makes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
             </Text>
             <Box
               bg="rgba(0,0,0,.4)"
@@ -231,13 +229,13 @@ const About: NextPage = () => {
             bgPosition={"center"}
             position="relative"
           >
-            <Heading fontFamily="2em" zIndex={250}>
+            <Heading fontFamily="3em" mb="2%" zIndex={250}>
               Vision
             </Heading>
             <Text fontSize="1.6em" zIndex={250}>
               We envision a world in which the wisdom of the crowds is used for social good, a world in which companies 
               are held accountable for their actions. As a community, we will leverage our collective capital, expertise, 
-              and will to move mountains.
+              and we will move mountains.
             </Text>
             <Box
               bg="rgba(0,0,0,.4)"
@@ -262,11 +260,11 @@ const About: NextPage = () => {
             bgPosition={"center"}
             position="relative"
           >
-            <Heading fontFamily="2em" zIndex={250}>
+            <Heading fontFamily="3em" mb="2%" zIndex={250}>
               Tactics
             </Heading>
             <Text fontSize="1.6em" zIndex={250}>
-              By getting thousands of retail investors to link their brokerage accounts and express what they want to see at the public companies they own. We can wield our collective voice to get public companies to take action. After getting thousands of campaign backers, we reach out to the corporations we&#39;re trying to get to take action and share what we&#39;ve gathered from our community. 
+              We plan to get retail investors small and large alike to link their brokerage accounts and express what they want to see at the public companies they own. We can wield our collective voice to get public companies to take action. After getting campaign or proposal backers, we reach out to the corporations we&#39;re trying to get to take action and share what we&#39;ve gathered from our community. 
             </Text>
             <Box
               bg="rgba(0,0,0,.0)"
