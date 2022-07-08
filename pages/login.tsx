@@ -96,7 +96,7 @@ const Login: NextPageWithLayout = () => {
                   type="submit"
                   bg='seafoam.500'
                 >Login</Button>
-                <Link href='/register'>Registered A New Account</Link>
+                <Link href='/register'>Create A New Account</Link>
               </HStack>
             </chakra.form>
           </Box>

@@ -106,19 +106,19 @@ export function AuthProvider({ children }: AuthProviderProps) {
       );
       setState({ ...state, loggedIn: true, user: response.user, userid: response.user.uid });
       toast({
-          title: "Login Successful",
-          description: "You have successfully logged in.",
+          title: "Welcome Back!",
+          description: "",
           status: "success",
-          duration: 9000,
+          duration: 3000,
           isClosable: true,
       });
       router.push("/");
     } catch (error) {
       toast({
-        title: "Error",
-        description: (error as FirebaseError).message,
+        title: "Login Failed.",
+        description: "email or password is incorrect.",
         status: "error",
-        duration: 9000,
+        duration: 6000,
         isClosable: true,
       });
     }
@@ -166,12 +166,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
         toast({
           title: "Registration Successful",
           description:
-            "You have successfully registered. Please login to continue.",
+            "Welcome!",
           status: "success",
-          duration: 9000,
+          duration: 6000,
           isClosable: true,
         });
-        router.push("/login");
+        router.push("/");
       }
     } catch (error) {
       toast({
