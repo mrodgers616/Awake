@@ -1,18 +1,18 @@
 [
   {
     "question": "How Does the ClimateDAO Platform Work?",
-    "answer": "ClimateDAO’s mission is to stop the causes climate change. We do this through a two-fold approach. First, ClimateDAO buys shares of targeted companies to request they make the changes that our community suggests. The shares are purchased with the pooled capital from the token launch and the targeted companies are decided by the token holders. Second by allowing user’s to connect their brokerage account and signal support for a campaign, we can approach the company directly with the sentiment from their shareholders."
+    "answer": "ClimateDAO is empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. ClimateDAO makes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate will allow fund managers to make more informed decisions based on their investor’s sentiment."
   }, {
     "question": "What is Shareholder Activism? Where do I fit in?",
-    "answer": "Shareholder Activism is a way that shareholders can influence a corporation's behavior by exercising their rights as partial owners. While minority shareholders don't run the day-to-day operations, several ways exist for them to influence a company’s board of directors and executive management actions. These methods can range from dialogue with managers to formal proposals, which are voted on by all shareholders at a company's annual meeting. You can take action with ClimateDAO by purchasing our token to build up the treasury, linking a brokerage account to signal support with your own shares, sourcing opportunities by performing due diligence on active proposals, and participating in governance by voting with your tokens."
+    "answer": "Shareholder Activism is a way that shareholders can influence a corporation's behavior by exercising their rights as partial owners. While minority shareholders don't run the day-to-day operations, several ways exist for them to influence a company’s board of directors and executive management actions. These methods can range from dialogue with managers to formal proposals, which are voted on by all shareholders at a company's annual meeting. You can take action with ClimateDAO by linking your brokerage account, signaling support with your own shares, and sourcing opportunities by performing due diligence on active proposals."
   }, {
     "question": "What’s a Campaign vs a Proposal?",
-    "answer": "Proposals are the process by which the community decides on new companies to target based on the reasoning and support provided by the proposer. There is a minimum amount of tokens required to submit a proposal but any token holder can vote on active proposals. While a proposal is active, the community will decide through their voting power if we start a campaign. A campaign is the entire process of getting a company to decarbonize from the proposal passing to tangible change."
+    "answer": "Proposals are formal shareholder proposals that will pop up a few times a year around a company's annual general meeting. You can vote on proposals if you own shares in the company. A campaign is an informal petition for a company or organization to make some change. These campaigns do not require you to hold shares in the target company, but having shares greatly increases the chance the peition will be successful."
   }, {
     "question": "How do I join?",
-    "answer": "The first step to joining is signing up and creating an account! From there, you have a few options as next steps: Link a brokerage account to earn tokens and signal your support for a campaign. Link a crypto wallet and purchase our tokens to contribute to the treasury and partake in governance. Both of the above!"
+    "answer": "The first step to joining is signing up and creating an account once we are live (Coming very soon!)! From there, you can link a brokerage account to earn rewards and signal your support for a campaign."
   }, {
     "question": "Where can I find more information on ClimateDAO?",
-    "answer": "You can start by checking out our documentation here."
+    "answer": "You can start by checking out our blog to read more or checking out or social media pages in the footer."
   }
 ]
