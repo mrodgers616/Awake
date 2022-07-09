@@ -327,7 +327,7 @@ class linkAccount extends React.Component<Props, State> {
             </Heading>
           {/* BEGINNING OF TESTING PLAID LINK */} 
               <Button
-                {...this.isPlaidConnectedAlready() ? {bg:"gray", disabled:true} : {bg:"seafoam.500" }}
+                {...this.state.isPlaidConnectedBefore ? {bg:"gray", disabled:true} : {bg:"seafoam.500" }}
                   color="white"
                   _disabled={{
                     pointerEvents: 'none'
@@ -349,7 +349,7 @@ class linkAccount extends React.Component<Props, State> {
                     onEvent={this.onEvent}
                     onExit={this.onExit}
                 >
-                    {this.isPlaidConnectedAlready() ? "Account Linked Already!" : "Link Brokerage Account"}
+                    {this.state.isPlaidConnectedBefore ? "Account Linked Already!" : "Link Brokerage Account"}
                   </PlaidLink>
               </Button>
           {/* END OF TESTING PLAID LINK */}
