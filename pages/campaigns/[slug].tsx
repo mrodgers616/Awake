@@ -143,10 +143,10 @@ export default function Proposal({
   function doesUserOwnShares() {
     let campaignTicker = campaign.symbol;
 
-    if(investments) {
-      for(let i = 0; i < investments.length; i++) {
+    if (investments) {
+      for (let i = 0; i < investments.length; i++) {
         let userInvestmentTicker = investments[i].ticker;
-        if(userInvestmentTicker === campaignTicker) {
+        if (userInvestmentTicker === campaignTicker) {
           userInvestmentQuantity = investments[i].quantity;
           userOwnShares();
           return true;
@@ -159,14 +159,14 @@ export default function Proposal({
       userDoesNotOwnShares();
       return false;
     }
-    
+
   }
 
   function userOwnShares() {
     let currentVotes = campaign.verifiedVotes
     let users = campaign.users
 
-    if(currentVotes && users) {
+    if (currentVotes && users) {
       const totalVotes = currentVotes + investments.quantity;
       users.push(uid);
       const dataToUpload = {
@@ -186,19 +186,19 @@ export default function Proposal({
     }
 
     const proposals = profileData.proposalsVotedOn
-    if(proposals) {
+    if (proposals) {
       let newArrayofSlugs = proposals.push(slug)
       let slugs = {
         proposalsVotedOn: arrayUnion(slug),
       }
-  
+
       updateOrAddProfileData(uid, slugs)
     }
     else {
       let slugs = {
         proposalsVotedOn: [slug],
       }
-  
+
       updateOrAddProfileData(uid, slugs)
     }
 
@@ -208,7 +208,7 @@ export default function Proposal({
     let currentVotes = campaign.unverifiedVotes
     let users = campaign.users
 
-    if(currentVotes && users) {
+    if (currentVotes && users) {
       const totalVotes = currentVotes + 1;
       users.push(uid);
       const dataToUpload = {
@@ -228,29 +228,29 @@ export default function Proposal({
     }
 
     const proposals = profileData.proposalsVotedOn
-    if(proposals) {
+    if (proposals) {
       let newArrayofSlugs = proposals.push(slug)
       let slugs = {
         proposalsVotedOn: arrayUnion(slug)
       }
-  
+
       updateOrAddProfileData(uid, slugs)
     }
     else {
       let slugs = {
         proposalsVotedOn: [slug],
       }
-  
+
       updateOrAddProfileData(uid, slugs)
     }
-    
+
   }
 
   function hasUserVoted() {
     const votedproposals = profileData.proposalsVotedOn
-    if(votedproposals) {
-      for(let i = 0; i < votedproposals.length; i++) {
-        if(votedproposals[i] === slug) {
+    if (votedproposals) {
+      for (let i = 0; i < votedproposals.length; i++) {
+        if (votedproposals[i] === slug) {
           return true
         }
       }
@@ -259,7 +259,7 @@ export default function Proposal({
     else {
       return false;
     }
-    
+
   }
 
   const socialMedia = [
@@ -369,7 +369,7 @@ export default function Proposal({
             alignItems={"center"}
             justifyContent={"center"}
             flexBasis="50%"
-            borderRight={{ 
+            borderRight={{
               base: 'none',
               md: "1px solid #eaeaea"
             }}
@@ -402,7 +402,7 @@ export default function Proposal({
             justifyContent="center"
             alignItems="center"
           >
-{/* -------Disabled Tooltip---------------------- */}
+            {/* -------Disabled Tooltip---------------------- */}
             {/* <Tooltip
               hasArrow
               isDisabled={hasEnoughBalance || !isConnected}
@@ -413,32 +413,32 @@ export default function Proposal({
               }
               shouldWrapChildren
             > */}
-              <Button
-                {...hasUserVoted() ? {bg:"gray", disabled:true} : {bg:"seafoam.500", disabled:false}}
-                bg="seafoam.500"
-                color="white"
-                fontSize="1.4em"
-                w="350px"
-                mr="16px"
-                mb={{
-                  base: '32px',
-                  md: '0'
-                }}
-                h="64px"
-                // enabling users to support the campaign if they have enough balance
-                    // change made in the "testing waters" commit
-                // disabled={!hasEnoughBalance}
-                // textDecoration="none"
-                // _hover={{
-                //   textDecoration: "none",
-                //   bg: lighten("seafoam.500", 0.8),
-                // }}
-                // What is the 
-                // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
-                onClick={() => { doesUserOwnShares(); onVoteModalOpen()}}
-              >
-                {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
-              </Button>
+            <Button
+              {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "seafoam.500", disabled: false }}
+              bg="seafoam.500"
+              color="white"
+              fontSize="1.4em"
+              w="350px"
+              mr="16px"
+              mb={{
+                base: '32px',
+                md: '0'
+              }}
+              h="64px"
+              // enabling users to support the campaign if they have enough balance
+              // change made in the "testing waters" commit
+              // disabled={!hasEnoughBalance}
+              // textDecoration="none"
+              // _hover={{
+              //   textDecoration: "none",
+              //   bg: lighten("seafoam.500", 0.8),
+              // }}
+              // What is the 
+              // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
+              onClick={() => { doesUserOwnShares(); onVoteModalOpen() }}
+            >
+              {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
+            </Button>
             {/* </Tooltip> */}
             <CastVoteModal
               isOpen={voteModalIsOpen}
@@ -460,7 +460,7 @@ export default function Proposal({
             </Button> */}
           </Flex>
         </Flex>
-{/* -------------Deleting camapaing Carousel-------------------- */}
+        {/* -------------Deleting camapaing Carousel-------------------- */}
         {/* <CampaignCarousel
           w="100%"
           h={{
@@ -480,14 +480,42 @@ export default function Proposal({
         >
           <Flex mb="64px" flexDir={"column"} w={{ base: '100%', md:"55%" }}mr="32px">
         /> */}
-{/*Adding the about campaign content on the left*/}  
+        {/*Adding the about campaign content on the left*/}
         <Flex mt="64px" w="100%">
           <Flex mb="64px" flexDir={"column"} w="60%" mr="32px">
             <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 About Campaign
               </Heading>
-              <Box
+              {/* TESTING TO SEE WHAT THIS DOES */}
+              <Box mb="32px">
+                <Box
+                  title="company graph"
+                  w="100%"
+                  mb="8px"
+                  bg="#313341"
+                  p="16px"
+                  borderRadius="10px"
+                  position="relative"
+                >
+                  <Box position="absolute" color="white">
+                    <Text>{campaign.companyName}</Text>
+                  </Box>
+                  <ResponsiveContainer width="100%" height={200}>
+                    <LineChart data={historicalStockPrice}>
+                      <Line
+                        type="monotone"
+                        dataKey="price"
+                        stroke="#1CD0A7"
+                        dot={false}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </Box>
+              </Box>
+
+              {/* TESTING TO SEE WHAT THIS DOES */}
+              {/* <Box
                 title="company graph"
                 w="100%"
                 bg="grey"
@@ -496,7 +524,7 @@ export default function Proposal({
                 mb="8px"
               >
                 <Image w="100%" height="100%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" />
-              </Box>
+              </Box> */}
               {campaign?.description && (<Text>
                 {campaign?.description}
               </Text>)}
@@ -592,43 +620,10 @@ export default function Proposal({
               </Flex>
             </Box>
           </Flex>
-          <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md:"45%" }}>
-            {/* <Box mb="32px">
-              <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                Company Information
-              </Heading>
-              <Box
-                title="company graph"
-                w="100%"
-                mb="8px"
-                bg="#313341"
-                p="16px"
-                borderRadius="10px"
-                position="relative"
-              >
-                <Box position="absolute" color="white">
-                  <Text>{campaign.companyName}</Text>
-                </Box>
-                <ResponsiveContainer width="100%" height={200}>
-                  <LineChart data={historicalStockPrice}>
-                    <Line
-                      type="monotone"
-                      dataKey="price"
-                      stroke="#1CD0A7"
-                      dot={false}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
-              </Box>
-              <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-                duis at tellus at urna condimentum mattis pellentesque. In nisl
-                nisi scelerisque eu ultrices vitae auctor eu augue. READ MORE
-              </Text>
-            </Box> */}
+          <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }}>
+
             <Flex mb="63px" flexDir={"column"} w="25%">
-            <Flex
+              <Flex
                 position="absolute"
                 justifyContent="center"
                 flexDirection="column"
@@ -637,20 +632,21 @@ export default function Proposal({
                 backgroundColor="FFFFFF"
                 boxShadow='2xl' p='6'
                 borderRadius="16px"
-                mt = '12px'
+                mt='12px'
                 mb="50%"
                 ml="30px"
               >
-                <Image height="125px" width="250px" />
+                {/* <Image height="125px" width="250px" /> */}
+                <Image w="50%" height="70%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" />
                 <Text fontSize="xl" fontWeight="bold" mb={4} mt={4}>
-                    {campaign?.title}
+                  {campaign?.title}
                 </Text>
                 <Button
                   variant="solid"
                   size="lg"
                   width={48}
                   backgroundColor="seafoam.500"
-                  mb = '10px'
+                  mb='10px'
                 >
                   Support Campaign
                 </Button>
@@ -713,11 +709,11 @@ export default function Proposal({
                   </Box>
                 </Flex>
               </Flex>
-          </Flex>
+            </Flex>
 
           </Flex>
-          </Flex>
-          
+        </Flex>
+
         <StepsSection steps={Steps} />
         <Flex flexDir={"column"}>
           <LatestArticles title="latest news" climateDAOArticles={articles} />
@@ -757,22 +753,22 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     uid = token.uid;
 
     const profile: any = await getProfileData(uid);
-    
+
     profileData = {
       ...profile.data()
     };
 
 
-    if(profileData.investments) {
+    if (profileData.investments) {
       investments = await profileData.investments;
 
     }
     else {
       investments = null;
     }
-    
+
   }
-  catch(e) {
+  catch (e) {
     //console.log(e);
   }
 
