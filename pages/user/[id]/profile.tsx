@@ -38,10 +38,11 @@ type ProfilePageProps = {
   backgroundImage: string;
   badges: any;
   activity: any;
-  proposals: any
+  proposals: any;
+  investments: any;
 };
 
-const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, backgroundImage, badges, activity, proposals }) => {
+const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, backgroundImage, investments, badges, activity, proposals }) => {
 
   const { userid, user } = useAuth();
 
@@ -67,6 +68,15 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
     borderRadius: '8px'
   }
 
+  const placeholderStylesInvestments = {
+    textAlign: 'center',
+    w: '100%',
+    py: '64px',
+    m: '16px 4px',
+    border: '1px solid #efefef',
+    borderRadius: '8px'
+  }
+
   const ProfileImage = () => profileImage ? (<Image 
     src={profileImage} 
     { ...ProfileImageStyles }
@@ -74,6 +84,17 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
     objectPosition={'center'}
   />) : (<Box {...ProfileImageStyles}/>)
 
+  const Investments = () => (!investments ? 
+    (<Text sx={placeholderStyles}>You haven&apos;t <Link href="/linkAccount" color="blue">linked an account </Link>yet!</Text>) :
+    (<
+      Text sx={placeholderStylesInvestments}> 
+        <b> Here are your holdings </b><br/>
+        {investments.map((investment: any) => (
+          <Text key={investment} textAlign="left"> {investment} <br/></Text>
+        ))}
+      </Text>
+    ));
+  
   const Badges = () => (!badges ? 
     (<Text sx={placeholderStyles}>You haven&apos;t earned any badges</Text>) :
     (<Box></Box>));
@@ -130,6 +151,12 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
           mb='32px'
         >
           <Box>
+            <Heading>Investments</Heading>
+            <Flex w='100%'>
+              <Investments />
+            </Flex>
+          </Box>
+          <Box>
             <Heading>Badges</Heading>
             <Flex w='100%'>
               <Badges />
@@ -174,6 +201,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     let pfp = null;
     let bg = null;
+    let investmentsFromDatabase = null;
 
     if (data.profileImage) {
       pfp = await getImageFromStorage(data.profileImage);
@@ -183,6 +211,17 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       bg = await getImageFromStorage(data.backgroundImage);
     }
 
+    if (data.investments) {
+       let unformattedInvestments = data.investments;
+       let investmentsAsArray = new Array();
+       for(let i = 0; i < unformattedInvestments.length; i++) {
+          investmentsAsArray.push(unformattedInvestments[i].name);
+       }
+
+       investmentsFromDatabase = investmentsAsArray;
+
+    }
+
     return {
       props: {
         profile: { ...profile.data() },
@@ -190,7 +229,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         backgroundImage: bg,
         activity: null,
         badges: null,
-        proposals: null
+        proposals: null,
+        investments: investmentsFromDatabase
       }
     }
   } catch (error) {
