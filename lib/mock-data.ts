@@ -220,21 +220,21 @@ export const community = [
 export const Steps = [
   {
     illustration: '/illustrations/Innovation _Two Color 1.png',
-    title: "Customize Your Profile",
+    title: "Link Your Brokerage",
     description:
-      "Connect your wallet or link your brokerage account so you can start taking action!",
+      "Link your brokerage account to see campaigns for companies in your portfolio",
   },
   {
     illustration: "/illustrations/Online campaign_Two Color 1.png",
     title: "Support Your Favorite Campaigns",
     description:
-      "Support campaigns to get the companies in your portfolio to take climate action.",
+      "Vote on campaigns to get the companies in your portfolio to take climate action.",
   },
   {
     illustration: '/illustrations/Team presentation _Two Color 1.png',
-    title: "Get Active, Earn Rewards",
+    title: "Watch the Impact",
     description:
-      "Earn rewards by supporting campaings, proposing new ones, and referring friends.",
+      "We'll share how you and other investors feel with the companies in your portfolio and urge them to take action",
   }
 ];
 
