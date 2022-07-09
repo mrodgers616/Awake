@@ -88,7 +88,7 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
     (<Text sx={placeholderStyles}>You haven&apos;t <Link href="/linkAccount" color="blue">linked an account </Link>yet!</Text>) :
     (<
       Text sx={placeholderStylesInvestments}> 
-        <b> Here are your holdings </b><br/>
+        <b> Here are your the companies you own</b><br/>
         {investments.map((investment: any) => (
           <Text key={investment} textAlign="left"> {investment} <br/></Text>
         ))}
