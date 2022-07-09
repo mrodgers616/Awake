@@ -65,16 +65,15 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
     py: '64px',
     m: '16px 4px',
     border: '1px solid #efefef',
-    borderRadius: '8px'
+    borderRadius: '8px',
+    fontSize: '2xl',
   }
 
   const placeholderStylesInvestments = {
     textAlign: 'center',
-    w: '100%',
-    py: '64px',
-    m: '16px 4px',
-    border: '1px solid #efefef',
-    borderRadius: '8px'
+    w: 'fit',
+    m: '8px 20% 8px 20%',
+    fontSize: 'md',
   }
 
   const ProfileImage = () => profileImage ? (<Image 
@@ -87,10 +86,18 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
   const Investments = () => (!investments ? 
     (<Text sx={placeholderStyles}>You haven&apos;t <Link href="/linkAccount" color="blue">linked an account </Link>yet!</Text>) :
     (<
-      Text sx={placeholderStylesInvestments}> 
-        <b> Here are your the companies you own</b><br/>
+      Text sx={placeholderStyles}> 
+         Here are your holdings:<br/>
         {investments.map((investment: any) => (
-          <Text key={investment} textAlign="left"> {investment} <br/></Text>
+          <Text sx={placeholderStylesInvestments} 
+          key={investment} 
+          paddingLeft="3%" 
+          paddingTop="2%"
+          paddingBottom="2%"
+          border='3px solid black' 
+          borderRadius='8px'> 
+            <b>{investment} </b> <br/>
+          </Text>
         ))}
       </Text>
     ));
