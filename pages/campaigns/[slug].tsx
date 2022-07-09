@@ -137,7 +137,7 @@ export default function Proposal({
     }
   }, []);
 
-  const pageUri = `${router.basePath}${router.asPath}`;
+  const pageUri = `https://climatedao-8fdb5.web.app${router.basePath}${router.asPath}`;
   let userInvestmentQuantity: number;
 
   function doesUserOwnShares() {
@@ -247,18 +247,24 @@ export default function Proposal({
   }
 
   function hasUserVoted() {
-    const votedproposals = profileData.proposalsVotedOn
-    if (votedproposals) {
-      for (let i = 0; i < votedproposals.length; i++) {
-        if (votedproposals[i] === slug) {
-          return true
+    try {
+      const votedproposals = profileData.proposalsVotedOn
+      if (votedproposals) {
+        for (let i = 0; i < votedproposals.length; i++) {
+          if (votedproposals[i] === slug) {
+            return true
+          }
         }
+        return false
       }
-      return false
+      else {
+        return false;
+      }
     }
-    else {
-      return false;
+    catch(err) {
+      router.push("/login");
     }
+    
 
   }
 
@@ -642,13 +648,14 @@ export default function Proposal({
                   {campaign?.title}
                 </Text>
                 <Button
+                {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "seafoam.500", disabled: false }}
                   variant="solid"
                   size="lg"
                   width={48}
                   backgroundColor="seafoam.500"
                   mb='10px'
                 >
-                  Support Campaign
+                  {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
                 </Button>
                 <Flex justifyContent="center" alignItems="space-around" width={48}>
                   <Box>
