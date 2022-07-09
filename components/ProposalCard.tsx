@@ -137,7 +137,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
       </Progress>
       <Box mb="32px" flexGrow={2}>
         <Heading mb="16px" fontSize="1.2em">
-          {title}
+          {title?.substring(0, 100)}
         </Heading>
         <Text
           h="3em"

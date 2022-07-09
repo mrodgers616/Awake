@@ -96,29 +96,29 @@ export default function Proposal({
   } = useDisclosure();
 
   useEffect(() => {
-    const newProvider = new ethers.providers.Web3Provider(window.ethereum);
+    //const newProvider = new ethers.providers.Web3Provider(window.ethereum);
 
-    if (isConnected) {
-      newProvider.getBlockNumber().then((blockNumber) => {
-        getProposalVotes(blockNumber - 1).then((res) => {
-          setVotes(res.toString());
-        });
-      }).catch((err) => {
-        console.error(err);
-      });
+    // if (isConnected) {
+    //   newProvider.getBlockNumber().then((blockNumber) => {
+    //     getProposalVotes(blockNumber - 1).then((res) => {
+    //       setVotes(res.toString());
+    //     });
+    //   }).catch((err) => {
+    //     console.error(err);
+    //   });
 
-      getProposalState(campaign.proposalId).then((res) => {
-        setCurrentState(State[res.toString()]);
-      }).catch((err) => {
-        toast({
-          title: "Error",
-          description: err.message,
-          status: "error",
-          duration: 9000,
-          isClosable: true,
-        })
-      });
-    }
+    //   getProposalState(campaign.proposalId).then((res) => {
+    //     setCurrentState(State[res.toString()]);
+    //   }).catch((err) => {
+    //     toast({
+    //       title: "Error",
+    //       description: err.message,
+    //       status: "error",
+    //       duration: 9000,
+    //       isClosable: true,
+    //     })
+    //   });
+    // }
 
     if (stockData !== null) {
       const lineData = [];
@@ -213,7 +213,7 @@ export default function Proposal({
       users.push(uid);
       const dataToUpload = {
         unverifiedVotes: totalVotes,
-        users: arrayUnion(uid),
+        unverifiedUsers: arrayUnion(uid),
       }
 
       updateProposalInStore(slug, dataToUpload);
@@ -221,7 +221,7 @@ export default function Proposal({
     else {
       const dataToUpload = {
         unverifiedVotes: 1,
-        users: [uid],
+        unverifiedUsers: [uid],
       }
 
       updateProposalInStore(slug, dataToUpload);
@@ -494,7 +494,9 @@ export default function Proposal({
                 h="430px"
                 borderRadius="16px"
                 mb="8px"
-              ></Box>
+              >
+                <Image w="100%" height="100%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" />
+              </Box>
               {campaign?.description && (<Text>
                 {campaign?.description}
               </Text>)}
