@@ -18,6 +18,7 @@ import { useTicker } from "../hooks/useTicker";
 import { differenceInSeconds } from "date-fns";
 import { BiBookmark } from "react-icons/bi";
 import { getProposalState } from "../lib/web3";
+import { useAuth } from "../contexts/AuthContext";
 
 interface ProposalProps extends StyleProps {
   isFeatured?: boolean | null;
@@ -69,6 +70,8 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
 
   const { days, hours, minutes, seconds, isTimeUp, now } = useTicker(dl);
 
+  const { userid } = useAuth();
+
   useEffect(() => {
     if (isTimeUp) {
       setProgress(100);
@@ -116,7 +119,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
   };
 
   return (
-    <Flex flexDir={"column"} {...rest} as={Link} href={`/campaigns/${id}`}>
+    <Flex flexDir={"column"} {...rest} as={Link} href={userid ? `/campaigns/${id}` : "/login" }>
       <AspectRatio maxW='475px' ratio={16 / 9}>
         <Image src={image!} alt="a campaign image" mb="15px" objectFit='cover'></Image>
       </AspectRatio>
@@ -162,7 +165,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
             color="white"
             w="55%"
             mr="16px"
-            href={`/campaigns/${id}`}
+            href={userid ? `/campaigns/${id}` : "/login" }
             textDecoration="none"
             _disabled={{
               pointerEvents: 'none'

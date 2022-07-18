@@ -54,9 +54,6 @@ export default function Navbar(): JSX.Element {
       name: 'Campaigns',
       href: '/campaigns',
     }, {
-      name: 'Blog',
-      href: '/blog',
-    }, {
       name: 'Link Account',
       href: '/linkAccount',
     }
@@ -112,6 +109,22 @@ export default function Navbar(): JSX.Element {
         lg: 'row'
       }}
     >
+      <Link
+      href="/campaigns"
+      {...LinkProps}
+      className={activeLink('/campaigns')}
+      mt="2%"
+    >
+      Campaigns
+    </Link>
+    <Link
+      href="/blog"
+      {...LinkProps}
+      className={activeLink('/blog')}
+      mt="2%"
+    >
+      Blog
+    </Link>
       <Button
         mx={{
           base: '0',

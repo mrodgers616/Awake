@@ -32,6 +32,7 @@ import { Timestamp } from "firebase/firestore";
 import supporters from '../../data/supporters.json';
 import articles from '../../data/articles.json';
 import axios from "axios";
+import { useAuth } from "../../contexts/AuthContext";
 import { NextPageWithLayout } from "../../lib/types/next";
 
 type Props = {
@@ -47,6 +48,8 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
   const [proposals, setProposals] = useState(campaigns);
   const [totalProposals, setTotalProposals] = useState(0);
   const [treasuryBalance, setTreasuryBalance] = useState(0);
+
+  const { userid } = useAuth();
 
   const supporterColumns = useMemo((): any => [
     {
@@ -267,7 +270,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
                 color="white"
                 bg="seafoam.500"
                 as={Link}
-                href="campaigns/create"
+                href={userid ? "campaigns/create" : "/login"}
                 p="32px 64px"
                 borderRadius="16px"
                 fontSize="1.3em"
