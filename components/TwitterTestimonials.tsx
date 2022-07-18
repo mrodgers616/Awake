@@ -47,7 +47,7 @@ export default function TwitterTestimonial(): JSX.Element {
       overflow={'visible'}
       borderRadius='30px'
       width = "98%"
-      mx={"1%"}
+      mx={"3%"}
     >
       <Container>
         <Flex
@@ -86,7 +86,7 @@ export default function TwitterTestimonial(): JSX.Element {
               </Button>
           </Flex>
           <Flex
-            w='50%'
+            w='fit-content'
             flexDir={'column'}
             flexWrap={'wrap'}
             justifyContent={'center'}
@@ -104,7 +104,7 @@ export default function TwitterTestimonial(): JSX.Element {
                   mx='12px'
                   mb='5em'
                   h='fit-content'
-                  w='300px'
+                  w='65%'
                   boxShadow={'0px 0px 48px 2px rgba(0, 0, 0, 0.1)'}
                   _first={{
                     mt: '13em'

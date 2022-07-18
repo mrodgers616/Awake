@@ -116,7 +116,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
   };
 
   return (
-    <Flex flexDir={"column"} {...rest}>
+    <Flex flexDir={"column"} {...rest} as={Link} href={`/campaigns/${id}`}>
       <AspectRatio maxW='475px' ratio={16 / 9}>
         <Image src={image!} alt="a campaign image" mb="15px" objectFit='cover'></Image>
       </AspectRatio>
@@ -171,7 +171,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
               textDecoration: "none",
             }}
           >
-            Back Campaign
+            View Campaign
           </Button>
         </Tooltip>
       </Box>

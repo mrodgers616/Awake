@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import CustomFileInput from "../CustomFileInput";
 import * as yup from "yup";
-import { addImageToStorage, updateOrAddProfileData } from "../../lib/firebaseClient";
+import { addImageToStorage, updateOrAddProfileData, getProfileData } from "../../lib/firebaseClient";
 import { useAuth } from "../../contexts/AuthContext";
 import { useRouter } from "next/router";
 
@@ -82,9 +82,13 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
     try {
       let pfp;
       let bgp;
+      console.log(data);
       if (data.profileImage.length) {
         pfp = await addImageToStorage(userid!, data.profileImage[0]);
         data.profileImage = pfp.fullPath;
+      }
+      else {
+        profileImageUrl ? data.profileImage = profileImageUrl : "";
       }
       
       if (data.backgroundImage.length) {
@@ -92,9 +96,23 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
         //console.log('bgp: ', bgp);
         data.backgroundImage = bgp.fullPath;
       }
+      else {
+        bgImageUrl ? data.backgroundImage = bgImageUrl : "";
+      }
       const result = await updateOrAddProfileData(id, data);
+      console.log(result);
+
+      const profileBeforeData = await getProfileData(userid!);
+      const profileData = profileBeforeData.data();
+      
       reset();
-      router.push(`/user/[id]/profile`, `/user/${id}/profile`);
+      if(profileData.loginCounter == 1) {
+        router.push("/campaigns");
+      }
+      else {
+        router.push(`/user/[id]/profile`, `/user/${id}/profile`)
+      }
+      //router.push(`/user/[id]/profile`, `/user/${id}/profile`);
     } catch (err) {
       console.error('there was an error uploading the image', (err as Error).stack);
     }
@@ -121,7 +139,7 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
         </Flex>
         <Flex mb="8em">
           <Flex flexDirection="column" justifyContent={"space-evenly"} w='50%'>
-            <Heading>Profile Picture</Heading>
+            <Heading>Background Picture</Heading>
             <Text>
               Upload a PNG or JPG file with resolution recommendation of 1400px x 400px
             </Text>

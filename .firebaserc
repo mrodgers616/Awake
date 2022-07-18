@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "climatedao-8fdb5"
+  },
+  "targets": {
+    "climatedao-8fdb5": {
+      "hosting": {
+        "climatedao-alpha": [
+          "climatedao-alpha"
+        ]
+      }
+    }
   }
 }

@@ -128,7 +128,9 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
         backgroundImage={`${backgroundImage}`}
         backgroundPosition={`center`}
         backgroundSize='cover'
-      />
+      >
+        <Image src={backgroundImage} w="100%" h="100%"/>
+      </Box>
       <Container mt='-120px'>
         <Box
           width='100%'
@@ -212,10 +214,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     if (data.profileImage) {
       pfp = await getImageFromStorage(data.profileImage);
+      //pfp = data.profileImage;
     }
 
     if (data.backgroundImage) {
       bg = await getImageFromStorage(data.backgroundImage);
+      //bg = data.backgroundImage;
     }
 
     if (data.investments) {

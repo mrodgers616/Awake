@@ -9,7 +9,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
-import { updateOrAddProfileData } from "../lib/firebaseClient";
+import { getProfileData, updateOrAddProfileData } from "../lib/firebaseClient";
 import nookies from 'nookies';
 import type { User } from 'firebase/auth';
 
@@ -112,7 +112,18 @@ export function AuthProvider({ children }: AuthProviderProps) {
           duration: 3000,
           isClosable: true,
       });
-      router.push("/");
+      const pData = await getProfileData(response.user.uid);
+      const profileData = pData.data();
+
+      let logins; 
+      if(profileData.loginCounter) {
+        logins = profileData.loginCounter + 1;
+      }
+      else {
+        logins = 1;
+      }
+      updateOrAddProfileData(response.user.uid, { loginCounter: logins });
+      router.push("/campaigns");
     } catch (error) {
       toast({
         title: "Login Failed.",
@@ -158,6 +169,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         linkedIn: "",
         twitter: "",
         name: "",
+        loginCounter: 1,
       }
 
       await updateOrAddProfileData(response.user.uid, newUser);
@@ -171,7 +183,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
           duration: 6000,
           isClosable: true,
         });
-        router.push("/");
+        let routerPushAfterRegister = "user/" + response.user.uid + "/edit";
+        router.push(routerPushAfterRegister);
       }
     } catch (error) {
       toast({

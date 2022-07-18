@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "climatedao-alpha",
     "public": "public",
     "ignore": [
       "firebase.json",
@@ -9,7 +10,7 @@
     "rewrites": [
       {
         "source": "**",
-        "function": "nextServer"
+        "function": "nextServerAlpha"
       }
     ]
   },

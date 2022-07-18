@@ -214,7 +214,7 @@ const Home: NextPage<{
           </Flex>
         </Container>
       </Box>
-      <Box mt="100px">
+      <Box mt="100px" mr="3%">
         <Container      
           width="100%"
           overflow="none"

@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "firebase deploy --only hosting,functions:nextServer"
+    "deploy": "firebase deploy --only hosting:climatedao-alpha,functions:nextServerAlpha"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.1",
