@@ -409,7 +409,7 @@ class linkAccount extends React.Component<Props, State> {
           </Text>
           <Text textAlign="left" fontSize="2xl">
             Linking your brokerage accounts allows ClimateDAO to prove to the
-            companies that its approaches that verfiied shareholders have
+            companies that its approaches that verified shareholders have
             supported these proposed campaigns. In short, by linking your
             brokerage account- it shows that we mean business.
           </Text>
