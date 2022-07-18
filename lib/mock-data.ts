@@ -228,7 +228,7 @@ export const Steps = [
     illustration: "/illustrations/Online campaign_Two Color 1.png",
     title: "Support Your Favorite Campaigns",
     description:
-      "Vote on campaigns to get the companies in your portfolio to take climate action.",
+      "Vote on campaigns to get the companies in your portfolio to take action.",
   },
   {
     illustration: '/illustrations/Team presentation _Two Color 1.png',
