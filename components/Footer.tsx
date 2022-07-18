@@ -54,10 +54,10 @@ export default function Footer(): JSX.Element {
         </Box>
       </Container>
       <Stack spacing={2}>
-        <Link href="https://twitter.com/Climate_DAO?s=20&t=KSWCSCV6J_BrI_9SGo-S9w">
+        <Link href="https://twitter.com/Climate_DAO?s=20&t=KSWCSCV6J_BrI_9SGo-S9w" isExternal>
           Twitter
         </Link>
-        <Link href="https://discord.gg/WwhjrS3HCm">Discord</Link>
+        <Link href="https://discord.gg/WwhjrS3HCm" isExternal>Discord</Link>
         <Text>Inquiries@climatedao.xyz</Text>
       </Stack>
       </Flex>

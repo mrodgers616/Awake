@@ -313,7 +313,7 @@ const About: NextPage = () => {
               bg="seafoam.500"
               px="86px"
               py="18px"
-              target="_blank"
+              //target="_blank"
               href="/campaigns"
               _disabled={{
                 pointerEvents: "none",
