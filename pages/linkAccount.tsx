@@ -424,7 +424,7 @@ class linkAccount extends React.Component<Props, State> {
             After verifying that you own shares and signaling your support for
             campaigns, we can approach companies with much more leverage. Whether you own stocks or not, public companies have a huge impact
             on our everyday lives. Everything from the food we eat, to how we
-            connect, and the environment we live in is impacted by the hands of
+            connect, and the environment we live in is impacted by
             public companies.
           </Text>
         </Stack>
