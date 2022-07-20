@@ -4,6 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { Web3Provider } from '../contexts/Web3Context'
 import { AuthProvider } from '../contexts/AuthContext'
 import { AppProps } from 'next/app'
+import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 
 
 import theme from '../theme'
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <AuthProvider>
         <Web3Provider>
           <Layout>
+            <GoogleAnalytics measurementId="G-E829D3LL4P" />
             <Component {...pageProps} />
           </Layout>
         </Web3Provider>
