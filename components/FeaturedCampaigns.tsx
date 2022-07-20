@@ -10,6 +10,8 @@ import {
 import { FaArrowRight } from "react-icons/fa";
 import CampaignCard from "./CampaignCard";
 import { useWeb3 } from "../contexts/Web3Context";
+import { useAuth } from "../contexts/AuthContext";
+
 
 export default function FeaturedCampaigns({
   featured,
@@ -20,6 +22,7 @@ export default function FeaturedCampaigns({
 }) {
 
   //const { hasEnoughBalance, isConnected } = useWeb3();
+  const { userid } = useAuth();
 
   return (          
   <Flex
@@ -85,7 +88,7 @@ export default function FeaturedCampaigns({
           bg="seafoam.500" 
           color="white" 
           borderRadius="20px"
-          href="campaigns/create"
+          href={userid ? "campaigns/create" : "/login"}
           _hover={{
             textDecoration: "none"
           }}

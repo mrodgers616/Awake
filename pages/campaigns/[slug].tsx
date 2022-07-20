@@ -146,9 +146,9 @@ export default function Proposal({
     if (investments) {
       for (let i = 0; i < investments.length; i++) {
         let userInvestmentTicker = investments[i].ticker;
-        if (userInvestmentTicker === campaignTicker) {
+        if (userInvestmentTicker == campaignTicker) {
           userInvestmentQuantity = investments[i].quantity;
-          userOwnShares();
+          userOwnShares(i);
           return true;
         }
       }
@@ -162,12 +162,12 @@ export default function Proposal({
 
   }
 
-  function userOwnShares() {
+  function userOwnShares(i: number) {
     let currentVotes = campaign.verifiedVotes
     let users = campaign.users
 
     if (currentVotes && users) {
-      const totalVotes = currentVotes + investments.quantity;
+      const totalVotes = currentVotes + investments[i].quantity;
       users.push(uid);
       const dataToUpload = {
         verifiedVotes: totalVotes,
@@ -178,7 +178,7 @@ export default function Proposal({
     }
     else {
       const dataToUpload = {
-        verifiedVotes: investments.quantity,
+        verifiedVotes: investments[i].quantity,
         users: [uid],
       }
 
@@ -654,6 +654,7 @@ export default function Proposal({
                   width={48}
                   backgroundColor="seafoam.500"
                   mb='10px'
+                  onClick={() => { doesUserOwnShares(); onVoteModalOpen() }}
                 >
                   {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
                 </Button>

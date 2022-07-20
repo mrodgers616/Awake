@@ -19,6 +19,7 @@ import { differenceInSeconds } from "date-fns";
 import { BiBookmark } from "react-icons/bi";
 import { getProposalState } from "../lib/web3";
 import { useAuth } from "../contexts/AuthContext";
+import Router from "next/router";
 
 interface ProposalProps extends StyleProps {
   isFeatured?: boolean | null;
@@ -41,6 +42,11 @@ interface ProposalProps extends StyleProps {
   datePosted?: Date | null;
   deadline: Date;
   createdAt: Date;
+}
+
+function pushLoginAndCampaignId(campaignID: string) {
+  localStorage.setItem('campaignID', campaignID);
+  Router.push("/login");
 }
 
 export default function ProposalCard(props: ProposalProps): JSX.Element {
@@ -71,6 +77,15 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
   const { days, hours, minutes, seconds, isTimeUp, now } = useTicker(dl);
 
   const { userid } = useAuth();
+
+  function handleLinkClick(campaignID: string) {
+    if (userid) {
+      Router.push(`${campaignID}`);
+    }
+    else {
+      pushLoginAndCampaignId(campaignID);
+    }
+  }
 
   useEffect(() => {
     if (isTimeUp) {
@@ -119,7 +134,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
   };
 
   return (
-    <Flex flexDir={"column"} {...rest} as={Link} href={userid ? `/campaigns/${id}` : "/login" }>
+    <Flex flexDir={"column"} {...rest} as={Link} onClick={() => handleLinkClick(`/campaigns/${id}`)}>
       <AspectRatio maxW='475px' ratio={16 / 9}>
         <Image src={image!} alt="a campaign image" mb="15px" objectFit='cover'></Image>
       </AspectRatio>
@@ -165,7 +180,8 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
             color="white"
             w="55%"
             mr="16px"
-            href={userid ? `/campaigns/${id}` : "/login" }
+            //href={userid ? `/campaigns/${id}` : pushLoginAndCampaignId(`/campaigns/${id}`)}
+            onClick={() => handleLinkClick(`/campaigns/${id}`)}
             textDecoration="none"
             _disabled={{
               pointerEvents: 'none'

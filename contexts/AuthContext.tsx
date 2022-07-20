@@ -123,7 +123,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
         logins = 1;
       }
       updateOrAddProfileData(response.user.uid, { loginCounter: logins });
-      router.push("/campaigns");
+      const campaignID = localStorage.getItem('campaignID');
+      if(campaignID) {
+        router.push(`${campaignID}`);
+        localStorage.removeItem('campaignID');
+      }
+      else {
+        router.push("/campaigns");
+      }
     } catch (error) {
       toast({
         title: "Login Failed.",
