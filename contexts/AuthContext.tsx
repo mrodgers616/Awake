@@ -138,6 +138,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
   async function logout(): Promise<void> {
     await getAuth().signOut();
     setState({ ...state, user: null, loggedIn: false, userid: null });
+    nookies.destroy(undefined, 'token', { path: '/'});
+    nookies.destroy(undefined, '_session', { path: '/'});
+    nookies.destroy(undefined, 'session', { path: '/'});
+    nookies.destroy(undefined, '__session', { path: '/'});
+    nookies.destroy(null, "userUID", {path: '/', maxAge: 60*60*24*14});
     router.push("/");
   }
 
