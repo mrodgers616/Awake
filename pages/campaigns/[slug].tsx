@@ -37,7 +37,7 @@ import { lighten } from "@chakra-ui/theme-tools";
 import nookies from 'nookies';
 import { admin } from '../../lib/firebaseAdmin';
 import Confetti from 'react-confetti'
-
+import { IoArrowBackOutline } from "react-icons/io5";
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
   "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -268,6 +268,10 @@ export default function Proposal({
 
   }
 
+  function goBack() {
+    router.push("/campaigns");
+  }
+
   const socialMedia = [
     {
       name: "twitter",
@@ -296,9 +300,10 @@ export default function Proposal({
         <title>Proposal {campaign?.id} | ClimateDAO</title>
       </Head>
       <Box
-        bg="sage.500"
+        //bg="sage.500"
         mt="120px"
-        bgImage="url('https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1259&q=80')"
+        bgGradient="linear-gradient(sage.500, seafoam.500)"
+        //bgImage="url('https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1259&q=80')"
         bgSize="cover"
         position="relative"
         zIndex={0}
@@ -313,6 +318,9 @@ export default function Proposal({
           left="0"
         />
         <Container p="0 25px" m="0 auto" width={"100%"}>
+        <Button leftIcon={<IoArrowBackOutline/>} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px"> 
+          All Campaigns
+        </Button>
           <Flex
             position="relative"
             minH="400px"
@@ -641,6 +649,7 @@ export default function Proposal({
                 mt='12px'
                 mb="50%"
                 ml="30px"
+                border="4px solid gray"
               >
                 {/* <Image height="125px" width="250px" /> */}
                 <Image w="50%" height="70%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" />
