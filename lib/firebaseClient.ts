@@ -12,7 +12,11 @@ import {
   DocumentSnapshot,
   updateDoc,
   query,
-  where
+  where,
+  orderBy,
+  serverTimestamp,
+  writeBatch,
+  FieldValue
 } from "firebase/firestore";
 import {
   ref,
@@ -144,6 +148,64 @@ async function getImageFromStorage (imageId: string): Promise<any> {
   }
 }
 
+const addComment = async (comment: any, user: any, userId: any) => {
+  const batch = writeBatch(db);
+
+  if (comment.parentId) {
+      const parentCommentRef = doc(db, 'comments3', comment.parentId);
+
+      let childCounter = await getDoc(parentCommentRef)
+      let childData = childCounter.data()
+
+      batch.set(parentCommentRef, 
+          { childCount: childData ? childData.childCount + 1 : 1 }, 
+          { merge: true });
+  }
+  const newCommentRef = doc(collection(db, 'comments3'))
+
+  user = await getProfileData(userId);
+  if(user) {
+    user = user.data();
+  }
+
+  batch.set(newCommentRef, {
+      content: comment.content,
+      createdAt: serverTimestamp(),
+      updatedAt: null,
+      moderated: false,
+      parentId: comment.parentId,
+      postId: comment.postId,
+      postType: comment.postType,
+      user: {
+          uid: userId,
+          displayName: user.username,
+          profileImage: user.profileImage ?  user.profileImage : null,
+      }
+  });
+
+  batch.commit();
+
+  const docReturn = getDoc(newCommentRef);
+  return await docReturn;
+};
+
+const getComments = async (parentId: any, slug: any, type: any, limit: any) => {
+  console.log("getComments");
+  let commentsQuery = query(collection(db, 'comments3'),
+                          where('postType', '==', type),
+                          where('postId', '==', slug),
+                          where('parentId', '==', parentId || null),
+                          orderBy("createdAt"));
+
+  // if (limit) {
+  //     commentsQuery = commentsQuery.limit(limit);
+  // }
+
+  let querySnapshot = getDocs(commentsQuery);
+
+  return querySnapshot;
+}
+
 export { 
   updateOrAddProfileData,
   fetchProposalFromStore,
@@ -155,7 +217,9 @@ export {
   getAllProposals,
   firebaseClient,
   getProfileData,
-  fetchFeaturedProposalFromStore
+  fetchFeaturedProposalFromStore,
+  addComment,
+  getComments
 };
 
 

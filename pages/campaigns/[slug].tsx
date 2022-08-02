@@ -14,7 +14,7 @@ import {
   useToast
 } from "@chakra-ui/react";
 import { fetchCampaignThreadReplies, fetchCampaignThread } from "../../lib/discourse";
-import { ResponsiveContainer, LineChart, Line } from "recharts";
+//import { ResponsiveContainer, LineChart, Line } from "recharts";
 import { FaClipboard, FaTwitter, FaFacebook } from "react-icons/fa";
 import { getProposalState, getProposalVotes } from "../../lib/web3";
 import StepsSection from "../../components/StepsSection";
@@ -38,6 +38,7 @@ import nookies from 'nookies';
 import { admin } from '../../lib/firebaseAdmin';
 import Confetti from 'react-confetti'
 import { IoArrowBackOutline } from "react-icons/io5";
+import MasterCommentThread from "../../components/comments/MasterCommentThread";
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
   "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -515,7 +516,7 @@ export default function Proposal({
                   <Box position="absolute" color="white">
                     <Text>{campaign.companyName}</Text>
                   </Box>
-                  <ResponsiveContainer width="100%" height={200}>
+                  {/* <ResponsiveContainer width="100%" height={200}>
                     <LineChart data={historicalStockPrice}>
                       <Line
                         type="monotone"
@@ -524,7 +525,7 @@ export default function Proposal({
                         dot={false}
                       />
                     </LineChart>
-                  </ResponsiveContainer>
+                  </ResponsiveContainer> */}
                 </Box>
               </Box>
 
@@ -561,6 +562,10 @@ export default function Proposal({
                   to join the discussion
                 </Text>
               </Flex>
+              <br></br>
+              <Box mt="2%" mb="2%">
+                <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread>
+              </Box>
               <Flex
                 as={Link}
                 href={`https://forum.climatedao.xyz/t/${topicSlug}/${topicId}`}

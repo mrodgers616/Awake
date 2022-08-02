@@ -374,7 +374,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                     onSubmit={handleSubmit(onSubmit)}
                   >
                     <FormControl
-                      isInvalid={errors.proposalType}
+                      _invalid={errors.proposalType}
                       visibility="hidden"
                       position="absolute"
                     >
@@ -384,10 +384,10 @@ const CreateCampaign: NextPage = (_props: any) => {
                         defaultValue="activist"
                       />
                       <FormErrorMessage>
-                        {errors.proposalType && errors.proposalType.message}
+                        
                       </FormErrorMessage>
                     </FormControl>
-                    <FormControl isInvalid={errors.title} mt="16px">
+                    <FormControl _invalid={errors.title} mt="16px">
                       <FormLabel htmlFor="title">Title:</FormLabel>
                       <Input
                         id="title"
@@ -402,7 +402,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         })}
                       />
                       <FormErrorMessage>
-                        {errors.title && errors.title.message}
+                        
                       </FormErrorMessage>
                     </FormControl>
                     {/* <FormControl isInvalid={errors.type} mt="16px">
@@ -433,7 +433,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         {errors.quantity && errors.quantity.message}
                       </FormErrorMessage>
                     </FormControl> */}
-                    <FormControl isInvalid={errors.symbol} mt="16px">
+                    <FormControl _invalid={errors.symbol} mt="16px">
                       <FormLabel htmlFor="symbol">Company Symbol:</FormLabel>
                       <Input
                         {...register("symbol", {
@@ -442,10 +442,10 @@ const CreateCampaign: NextPage = (_props: any) => {
                         placeholder="TSLA"
                       />
                       <FormErrorMessage>
-                        {errors.symbol && errors.symbol.message}
+                        
                       </FormErrorMessage>
                     </FormControl>
-                    <FormControl isInvalid={errors.companyName} mt="16px">
+                    <FormControl _invalid={errors.companyName} mt="16px">
                       <FormLabel htmlFor="companyName">Company Name:</FormLabel>
                       <Input
                         {...register("companyName", {
@@ -454,10 +454,10 @@ const CreateCampaign: NextPage = (_props: any) => {
                         placeholder="Tesla"
                       />
                       <FormErrorMessage>
-                        {errors.companyName && errors.companyName.message}
+                        
                       </FormErrorMessage>
                     </FormControl>
-                    <FormControl isInvalid={errors.description} mt="16px">
+                    <FormControl _invalid={errors.description} mt="16px">
                       <FormLabel htmlFor="description">Description:</FormLabel>
                       <Textarea
                         {...register("description", {
@@ -486,7 +486,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         <Text size='30px'>No file Uploaded</Text> */}
                       </Flex>
                       <FormErrorMessage>
-                        {errors.description && errors.description.message}
+                        
                       </FormErrorMessage>
                     </FormControl>
                     <Flex alignSelf="end">
@@ -510,7 +510,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                     onSubmit={handleGovernanceSubmit(onSubmit)}
                   >
                     <FormControl
-                      isInvalid={governanceErrors.proposalType}
+                      _invalid={governanceErrors.proposalType}
                       visibility="hidden"
                       position="absolute"
                     >
@@ -520,12 +520,11 @@ const CreateCampaign: NextPage = (_props: any) => {
                         defaultValue="governance"
                       />
                       <FormErrorMessage>
-                        {governanceErrors.proposalType &&
-                          governanceErrors.proposalType.message}
+                        
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
-                      isInvalid={governanceErrors.governanceTitle}
+                      _invalid={governanceErrors.governanceTitle}
                       mt="16px"
                     >
                       <FormLabel htmlFor="governanceTitle">Title:</FormLabel>
@@ -542,12 +541,11 @@ const CreateCampaign: NextPage = (_props: any) => {
                         })}
                       />
                       <FormErrorMessage>
-                        {governanceErrors.governanceTitle &&
-                          governanceErrors.governanceTitle.message}
+                        
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
-                      isInvalid={governanceErrors.governanceDescription}
+                      _invalid={governanceErrors.governanceDescription}
                       mt="16px"
                     >
                       <FormLabel htmlFor="governanceDescription">
@@ -567,12 +565,11 @@ const CreateCampaign: NextPage = (_props: any) => {
                         rows={10}
                       />
                       <FormErrorMessage>
-                        {governanceErrors.governanceDescription &&
-                          governanceErrors.governanceDescription.message}
+                        
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
-                      isInvalid={governanceErrors.smartContractAddress}
+                      _invalid={governanceErrors.smartContractAddress}
                       mt="16px"
                     >
                       <FormLabel htmlFor="smartContractAddress">
@@ -591,12 +588,11 @@ const CreateCampaign: NextPage = (_props: any) => {
                         onChange={handleContractSearch}
                       />
                       <FormErrorMessage>
-                        {governanceErrors.smartContractAddress &&
-                          governanceErrors.smartContractAddress.message}
+                        
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
-                      isInvalid={governanceErrors.contractFunctions}
+                      _invalid={governanceErrors.contractFunctions}
                       mt="16px"
                     >
                       <FormLabel htmlFor="contractFunctions">
@@ -620,8 +616,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                           ))}
                       </Select>
                       <FormErrorMessage>
-                        {governanceErrors.contractFunctions &&
-                          governanceErrors.contractFunctions.message}
+                        
                       </FormErrorMessage>
                     </FormControl>
                     {selectedFunction &&
@@ -629,7 +624,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                       selectedFunction.inputs.map(
                         (input: Record<string, any>, index: number) => (
                           <FormControl
-                            isInvalid={
+                            _invalid={
                               governanceErrors[`function-${input.name}`]
                             }
                             mt="16px"
@@ -646,9 +641,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                               })}
                             />
                             <FormErrorMessage>
-                              {governanceErrors[`function-${input.name}`] &&
-                                governanceErrors[`function-${input.name}`]
-                                  .message}
+                              
                             </FormErrorMessage>
                           </FormControl>
                         )

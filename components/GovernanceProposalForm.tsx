@@ -45,7 +45,7 @@ export default function GoveranceProposalForm({
   return (
     <chakra.form onSubmit={handleSubmit(onSubmit)}>
       <Box p="8px 56px 16px">
-        <FormControl isInvalid={errors.from}>
+        <FormControl _invalid={errors.from}>
           <FormLabel>
             Balance: 0.12 WBTC
             <Input 
@@ -56,7 +56,7 @@ export default function GoveranceProposalForm({
           </FormLabel>
           { errors.from && <FormErrorMessage>from input required</FormErrorMessage> }
         </FormControl>
-        <FormControl isInvalid={errors.to}>
+        <FormControl _invalid={errors.to}>
           <FormLabel>
             Balance: STX
             <Input 
@@ -67,7 +67,7 @@ export default function GoveranceProposalForm({
           </FormLabel>
           { errors.to && <FormErrorMessage>to input required</FormErrorMessage> }
         </FormControl>
-        <FormControl isInvalid={errors.slippage}>
+        <FormControl _invalid={errors.slippage}>
           <FormLabel>
             Description
             <Input 
@@ -76,7 +76,7 @@ export default function GoveranceProposalForm({
               {...register('description', { required: true, min: 0, max: 240 })}
             />
           </FormLabel>
-          { errors.slippage && <FormErrorMessage>{errors.slippage?.type === 'required' ? 'Must provide a slippage' : 'another error'}</FormErrorMessage> }
+          { errors.slippage && <FormErrorMessage></FormErrorMessage> }
         </FormControl>
       </Box>
       <Box p="0 56px" m="24px 0 40px">

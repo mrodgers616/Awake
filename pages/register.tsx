@@ -56,7 +56,7 @@ const Register: NextPage = () => {
           >
             <Heading mb='32px'>Register</Heading>
             <chakra.form onSubmit={handleSubmit(onSubmit)}>
-              <FormControl mb='16px' isInvalid={errors.username}>
+              <FormControl mb='16px' _invalid={errors.username}>
                 <FormLabel htmlFor="username">Username:</FormLabel>
                 <InputGroup>
                   {/* eslint-disable-next-line react/no-children-prop*/}
@@ -69,10 +69,10 @@ const Register: NextPage = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  {errors.username && errors.username.message}
+                  
                 </FormErrorMessage>
               </FormControl>
-              <FormControl mb='16px' isInvalid={errors.email}>
+              <FormControl mb='16px' _invalid={errors.email}>
                 <FormLabel htmlFor="email">Email:</FormLabel>
                 <Input
                   id="email"
@@ -82,10 +82,10 @@ const Register: NextPage = () => {
                   })}
                 />
                 <FormErrorMessage>
-                  {errors.email && errors.email.message}
+                  
                 </FormErrorMessage>
               </FormControl>
-              <FormControl mb='16px' isInvalid={errors.password}>
+              <FormControl mb='16px' _invalid={errors.password}>
                 <FormLabel htmlFor="password">Password:</FormLabel>
                 <Input
                   id="password"
@@ -95,10 +95,10 @@ const Register: NextPage = () => {
                   })}
                 />
                 <FormErrorMessage>
-                  {errors.password && errors.password.message}
+                  
                 </FormErrorMessage>
               </FormControl>
-              <FormControl mb='32px' isInvalid={errors.password2}>
+              <FormControl mb='32px' _invalid={errors.password2}>
                 <FormLabel htmlFor="password">Verify Password:</FormLabel>
                 <Input
                   id="password2"
@@ -108,7 +108,7 @@ const Register: NextPage = () => {
                   })}
                 />
                 <FormErrorMessage>
-                  {errors.password && errors.password.message}
+                  
                 </FormErrorMessage>
               </FormControl>
               <HStack>

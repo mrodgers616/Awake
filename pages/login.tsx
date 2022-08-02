@@ -61,7 +61,7 @@ const Login: NextPageWithLayout = () => {
               Log in to your account
             </Heading>
             <chakra.form onSubmit={handleSubmit(onSubmit)}>
-              <FormControl mb='16px' isInvalid={errors.email}>
+              <FormControl mb='16px' _invalid={errors.email}>
                 <FormLabel htmlFor="email">
                   Email:
                 </FormLabel>
@@ -73,10 +73,10 @@ const Login: NextPageWithLayout = () => {
                   })}
                   />
                   <FormErrorMessage>
-                    {errors.email && errors.email.message }
+                    
                   </FormErrorMessage>
               </FormControl>
-              <FormControl mb='32px' isInvalid={errors.password}>
+              <FormControl mb='32px' _invalid={errors.password}>
                 <FormLabel htmlFor="password">
                   Password:
                 </FormLabel>
@@ -88,7 +88,7 @@ const Login: NextPageWithLayout = () => {
                   })}
                   />
                   <FormErrorMessage>
-                    {errors.password && errors.password.message }
+                    
                   </FormErrorMessage>
               </FormControl>
               <HStack>

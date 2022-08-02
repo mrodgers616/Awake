@@ -10,6 +10,7 @@ import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import theme from '../theme'
 import Layout from '../components/layout'
 import "./campaigns.css"
+import "./styles.css"
 
 
 function MyApp({ Component, pageProps }: AppProps) {
