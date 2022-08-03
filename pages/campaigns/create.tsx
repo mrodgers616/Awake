@@ -29,6 +29,7 @@ import { useWeb3 } from "../../contexts/Web3Context";
 import { addProposalToStore, addImageToStorage } from "../../lib/firebaseClient";
 import _ from "lodash";
 import axios from "axios";
+import Router from "next/router";
 
 const CreateCampaign: NextPage = (_props: any) => {
   const {
@@ -148,47 +149,50 @@ const CreateCampaign: NextPage = (_props: any) => {
               : values.governanceDescription,
           status: 0
         };
-        // create a thread.
-        const response = await fetch(`/api/discourse/thread`, {
-          method: "POST",
-          body: JSON.stringify(proposal),
-        });
+        // // create a thread.
+        // const response = await fetch(`/api/discourse/thread`, {
+        //   method: "POST",
+        //   body: JSON.stringify(proposal),
+        // });
 
-        if (response.status === 200) {
-          const test = await response.json();
-          // add threadId to proposal.
-          proposal.threadId = test.topic_id;
-          // create proposal. use the threadId as description.
-          const doc = await addProposalToStore(proposal);
-          // if (doc!.id) {
-          //   if (values.proposalType === "activist") {
-          //     await createProposal(walletAddress!, doc!.id);
-          //   } else {
-          //     const keys = Object.keys(values).filter((key: string) =>
-          //       key.includes("function-")
-          //     );
-          //     let inputs = [];
-          //     for (const key of keys) {
-          //       inputs.push(values[key]);
-          //     }
-          //     await createGovernanceProposal(
-          //       walletAddress!,
-          //       doc!.id,
-          //       values.smartContractAddress,
-          //       fetchedContractABI,
-          //       values.contractFunctions,
-          //       inputs
-          //     );
-          //   }
-          // }
-        } else {
-          const responseError = await response.json();
-          //console.log(responseError);
-          return;
-        }
+        const doc = await addProposalToStore(proposal);
+
+        // if (response.status === 200) {
+        //   const test = await response.json();
+        //   // add threadId to proposal.
+        //   proposal.threadId = test.topic_id;
+        //   // create proposal. use the threadId as description.
+          
+        //   // if (doc!.id) {
+        //   //   if (values.proposalType === "activist") {
+        //   //     await createProposal(walletAddress!, doc!.id);
+        //   //   } else {
+        //   //     const keys = Object.keys(values).filter((key: string) =>
+        //   //       key.includes("function-")
+        //   //     );
+        //   //     let inputs = [];
+        //   //     for (const key of keys) {
+        //   //       inputs.push(values[key]);
+        //   //     }
+        //   //     await createGovernanceProposal(
+        //   //       walletAddress!,
+        //   //       doc!.id,
+        //   //       values.smartContractAddress,
+        //   //       fetchedContractABI,
+        //   //       values.contractFunctions,
+        //   //       inputs
+        //   //     );
+        //   //   }
+        //   // }
+        // } else {
+        //   const responseError = await response.json();
+        //   //console.log(responseError);
+        //   return;
+        // }
         reset();
-        governanceReset();
+        //governanceReset();
         resolve();
+        Router.push("/campaigns");
       }, 100);
     });
   }
@@ -267,7 +271,7 @@ const CreateCampaign: NextPage = (_props: any) => {
             Select a company
           </Text>
           <Text fontSize="sm">
-            Identify a company failing to take sufficient climate action. Use this <Link color="seafoam.500"> guide</Link>.
+            Identify a company. Use this <Link color="seafoam.500"> guide</Link>.
           </Text>
         </Box>
         <Box
@@ -351,7 +355,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                     borderBottomColor: "white",
                   }}
                 >
-                  Activist Proposal
+                  Proposal
                 </Tab>
                 {/* <Tab
                   w="300px"
@@ -395,7 +399,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         {...register("title", {
                           required: "Please provide a campaign title",
                           minLength: {
-                            value: 15,
+                            value: 1,
                             message:
                               "The campaign title should be at least 15 characters long",
                           },
@@ -463,7 +467,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         {...register("description", {
                           required: "Please outline your campaign",
                           minLength: {
-                            value: 20,
+                            value: 1,
                             message:
                               "Your outline should have a minimum of 20 characters",
                           },
