@@ -11,7 +11,6 @@ const CommentThread = ({ slug, type, parentId, maxThreadDepth, currentDepth, par
 
     useEffect(() => {
       const loadComments = async () => {
-        console.log(`fetching data for currentDepth: ${currentDepth}`);
 
         if (currentDepth < maxThreadDepth || showMore) {
             const commentsForLevel = await getComments(parentId, slug, type);

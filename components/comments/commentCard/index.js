@@ -13,6 +13,7 @@ import {
 	Text,
 	Flex,
 	Box,
+	Center
   } from "@chakra-ui/react";
 
 
@@ -24,9 +25,9 @@ const CommentCard = ({ comment, commentDepth, maxThreadDepth }) => {
     let firebaseUser = userid;
 
 	const ProfileImageStyles = {
-		width: "75px",
-		height: "75px",
-		borderRadius: "50%",
+		width: "50px",
+		height: "50px",
+		borderRadius: "60%",
 		border: '8px solid',
 		borderColor: 'white',
 		bg: 'grey',
@@ -56,29 +57,36 @@ const CommentCard = ({ comment, commentDepth, maxThreadDepth }) => {
     return (
 		<>
 			<div className={`card comment id-${comment.id}`}>
-				<div className="card-body">
+				<Container >
 					<div className="row">
-						<div className="col-md-2">
+						<Flex className="col-md-2">
 							<ProfileImage/>
-							<p className="text-secondary text-center">15 Minutes Ago</p>
-						</div>
+							<Center>
+								<Text className="float-left"><strong>{comment.user.displayName} </strong> 15 Minutes Ago</Text>
+								<Text className="text-secondary text-center">   </Text>
+							</Center>
+						</Flex>
 						<div className="col-md-10">
 							<p>
-								<a className="float-left"><strong>{comment.user.displayName}</strong></a>
+								
 								<span className="float-right"><i className="text-warning fa fa-star"></i></span>
 								<span className="float-right"><i className="text-warning fa fa-star"></i></span>
 								<span className="float-right"><i className="text-warning fa fa-star"></i></span>
 								<span className="float-right"><i className="text-warning fa fa-star"></i></span>
 
 							</p>
-							<div className="clearfix"></div>
-							<p>{comment.content}</p>
-							<div>
-								{firebaseUser && <ReplyForm buttonText="Add comment" postComment={replyToComment} />}
-							</div>
+							<Container ml="2.5em">
+								<div className="clearfix"></div>
+								<Container mb="2%">
+									<Text justifyContent="left">{comment.content}</Text>
+								</Container>
+									<div>
+										{firebaseUser && <ReplyForm submitButtonText="Post" cancelButtonText="cancel" buttonText="Add comment" postComment={replyToComment} />}
+									</div>
+							</Container>
 						</div>
 					</div>
-				</div>
+				</Container>
 			</div>
 			<CommentThread parentId={comment.id} type={comment.postType} slug={comment.postId} parentAddedSubThreadComments={addedSubThreadComments} currentDepth={(commentDepth + 1)} maxThreadDepth={maxThreadDepth} commentReplyCount={comment.childCount} />
 		</>

@@ -190,7 +190,6 @@ const addComment = async (comment: any, user: any, userId: any) => {
 };
 
 const getComments = async (parentId: any, slug: any, type: any, limit: any) => {
-  console.log("getComments");
   let commentsQuery = query(collection(db, 'comments3'),
                           where('postType', '==', type),
                           where('postId', '==', slug),

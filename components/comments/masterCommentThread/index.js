@@ -5,6 +5,16 @@ import { useAuth } from '../../../contexts/AuthContext';
 import { addComment, getProfileData } from '../../../lib/firebaseClient';
 import CommentThread from '../commentThread/index.js';
 import ReplyForm from '../replyForm/index.js';
+import {
+	Container,
+	Heading,
+	Button,
+	Image,
+	Text,
+	Flex,
+	Box,
+	Center
+  } from "@chakra-ui/react";
 
 const MasterCommentThread = ({ slug, type, parentId, maxThreadDepth }) => {
     const [addedSubThreadComments, setAddedSubThreadComments] = useState([]);
@@ -24,10 +34,13 @@ const MasterCommentThread = ({ slug, type, parentId, maxThreadDepth }) => {
     };
 
     return (
+        <Container width="175%">
         <div className="container">
             <div className="row"> 
                 <div className="col-sm-12"> 
-                    {firebaseUser ? <ReplyForm newCommentButtonText="Add comment" postComment={addCommentToMasterThread} /> : <p>Login to comment</p>}
+                    <Button bgColor="white" border="1px">
+                        {firebaseUser ? <ReplyForm newCommentButtonText="New comment" postComment={addCommentToMasterThread} /> : <p>Login to comment</p>}
+                    </Button>
                 </div>
             </div>
             <div className="row">
@@ -36,6 +49,7 @@ const MasterCommentThread = ({ slug, type, parentId, maxThreadDepth }) => {
                 </div>
             </div>
         </div>
+        </Container>
     );
 }
 
