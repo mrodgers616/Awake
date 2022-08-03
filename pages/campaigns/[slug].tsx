@@ -22,7 +22,7 @@ import { useEffect, useState } from "react";
 import { Steps } from "../../lib/mock-data";
 import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOrAddProfileData } from "../../lib/firebaseClient";
 import LatestArticles from "../../components/LatestArticles";
-import ReactHtmlParser from "react-html-parser";
+//import ReactHtmlParser from "react-html-parser";
 import { GetServerSidePropsContext } from "next";
 import articles from "../../data/articles.json";
 import { arrayUnion, Timestamp } from "firebase/firestore";
@@ -566,7 +566,7 @@ export default function Proposal({
               <Box mt="2%" mb="2%">
                 <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread>
               </Box>
-              <Flex
+              {/* <Flex
                 as={Link}
                 href={`https://forum.climatedao.xyz/t/${topicSlug}/${topicId}`}
                 target="_blank"
@@ -636,7 +636,7 @@ export default function Proposal({
                       );
                     }
                   })}
-              </Flex>
+              </Flex> */}
             </Box>
           </Flex>
           <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }}>

@@ -15,13 +15,13 @@ import {
 import { FiArrowUpRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import tempArticles from "../data/articles.json";
 import {
-  Paginator,
-  Container as PaginatorContainer,
-  Previous,
-  usePaginator,
-  Next,
-  PageGroup,
-} from "chakra-paginator";
+  Pagination as Paginator,
+  PaginationContainer as PaginatorContainer,
+  PaginationPrevious as Previous,
+  usePagination as usePaginator,
+  PaginationNext as Next,
+  PaginationPageGroup as PageGroup,
+} from "@ajna/pagination";
 
 import { useEffect, useState } from "react";
 import { fakerArticles } from "../lib/mock-data";
@@ -29,7 +29,7 @@ import { fakerArticles } from "../lib/mock-data";
 const Blog: NextPage = () => {
   const [articles, setArticles] = useState(fakerArticles);
   const [articlesTotal, setArticlesTotal] = useState(6);
-  const { pagesQuantity, offset, currentPage, setCurrentPage, pageSize } =
+  const { pagesCount, offset, currentPage, setCurrentPage, pageSize } =
     usePaginator({
       total: articlesTotal,
       initialState: {
@@ -68,7 +68,7 @@ const Blog: NextPage = () => {
   };
 
   const PaginatorProps = {
-    pagesQuantity: pagesQuantity,
+    pagesCount: pagesCount,
     currentPage: currentPage,
     onPageChange: setCurrentPage,
     activeStyles: activeStyles ,

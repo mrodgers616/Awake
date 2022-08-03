@@ -13,13 +13,13 @@ import {
   Flex
 } from "@chakra-ui/react";
 import {
-  Paginator,
-  Container,
-  Previous,
-  usePaginator,
-  Next,
-  PageGroup,
-} from "chakra-paginator";
+  Pagination as Paginator,
+  PaginationContainer as Container,
+  PaginationPrevious as Previous,
+  usePagination as usePaginator,
+  PaginationNext as Next,
+  PaginationPageGroup as PageGroup,
+} from "@ajna/pagination";
 import { FiArrowUpRight, FiChevronRight, FiChevronLeft } from "react-icons/fi";
 
 const fetchArticles = (pageSize: number, offset: number) => {};
@@ -69,7 +69,7 @@ export default function LatestArticles({
   const [articlesTotal, setArticlesTotal] = useState(6);
 
   const {
-    pagesQuantity,
+    pagesCount,
     offset,
     currentPage,
     setCurrentPage,
@@ -88,7 +88,7 @@ export default function LatestArticles({
 
 
 const PaginatorProps = {
-  pagesQuantity: pagesQuantity,
+  pagesCount: pagesCount,
   currentPage: currentPage,
   onPageChange: setCurrentPage,
   activeStyles: activeStyles ,

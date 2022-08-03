@@ -14,13 +14,13 @@ import {
   Tooltip
 } from "@chakra-ui/react";
 import {
-  Paginator,
-  Container as PaginatorContainer,
-  Previous,
-  usePaginator,
-  Next,
-  PageGroup,
-} from "chakra-paginator";
+  Pagination as Paginator,
+  PaginationContainer as PaginatorContainer,
+  PaginationPrevious as Previous,
+  usePagination as usePaginator,
+  PaginationNext as Next,
+  PaginationPageGroup as PageGroup,
+} from "@ajna/pagination";
 import { useState, useEffect, useMemo } from "react";
 import ProposalCard from "../../components/ProposalCard";
 import LatestArticles from "../../components/LatestArticles";
@@ -160,7 +160,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
     bg: "green.200",
   };
 
-  const { pagesQuantity, offset, currentPage, setCurrentPage, pageSize } =
+  const { pagesCount, offset, currentPage, setCurrentPage, pageSize } =
     usePaginator({
       total: totalProposals,
       initialState: {
@@ -172,7 +172,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
 
   
   const PaginatorProps = {
-    pagesQuantity: pagesQuantity,
+    pagesCount: pagesCount,
     currentPage: currentPage,
     onPageChange: setCurrentPage,
     activeStyles: activeStyles ,
