@@ -13,7 +13,9 @@ import {
 	Text,
 	Flex,
 	Box,
-	Center
+	Center,
+	Stack,
+	Divider
   } from "@chakra-ui/react";
 
 
@@ -29,7 +31,7 @@ const CommentCard = ({ comment, commentDepth, maxThreadDepth }) => {
 		height: "50px",
 		borderRadius: "60%",
 		border: '8px solid',
-		borderColor: 'white',
+		borderColor: '#F7FAFC',
 		bg: 'grey',
 		mt: '2px',
 		mb: '2px',
@@ -60,12 +62,15 @@ const CommentCard = ({ comment, commentDepth, maxThreadDepth }) => {
 				<Container >
 					<div className="row">
 						<Flex className="col-md-2">
+						
 							<ProfileImage/>
+							
 							<Center>
 								<Text className="float-left"><strong>{comment.user.displayName} </strong> 15 Minutes Ago</Text>
 								<Text className="text-secondary text-center">   </Text>
 							</Center>
 						</Flex>
+						
 						<div className="col-md-10">
 							<p>
 								
@@ -78,7 +83,10 @@ const CommentCard = ({ comment, commentDepth, maxThreadDepth }) => {
 							<Container ml="2.5em">
 								<div className="clearfix"></div>
 								<Container mb="2%">
-									<Text justifyContent="left">{comment.content}</Text>
+								<Stack height="75px" direction='row' ml="-5%">
+									<Divider orientation='vertical' color="black"></Divider>
+									<Text paddingLeft="23px" justifyContent="left">{comment.content}</Text>
+								</Stack>
 								</Container>
 									<div>
 										{firebaseUser && <ReplyForm submitButtonText="Post" cancelButtonText="cancel" buttonText="Add comment" postComment={replyToComment} />}

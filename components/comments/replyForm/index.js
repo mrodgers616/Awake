@@ -9,7 +9,8 @@ import {
 	Flex,
 	Box,
 	Center,
-    Input
+    Input,
+    Textarea
   } from "@chakra-ui/react";
 
 const ReplyForm = ({ newCommentButtonText, submitButtonText, cancelButtonText, postComment }) => {
@@ -26,22 +27,22 @@ const ReplyForm = ({ newCommentButtonText, submitButtonText, cancelButtonText, p
         <div>
         {!showReplyForm && (
             <a className="float-right btn btn-outline-primary ml-2" onClick={() => setShowReplyForm(true)}>
-            <i className="fa fa-reply"></i> {newCommentButtonText}
+            <i className="fa fa-reply"></i><Text color="blue"> {newCommentButtonText} </Text>
             </a>
         )} 
         {showReplyForm && (
-            <Box bgColor="#F7FAFC" placeholder="Reply" width="50%" justifyContent="left">
+            <Box bgColor="#F7FAFC" width="50%" justifyContent="left">
                     <label htmlFor="exampleFormControlTextarea1"></label>
-                    <Input className="form-control" id="exampleFormControlTextarea1" rows="3" value={commentReplyText} onChange={(event) => setCommentReplyText(event.target.value)}></Input>
-                <Flex ml="23%">	
+                    <Textarea border="2px" placeholder="Reply" className="form-control" id="exampleFormControlTextarea1" rows="3" value={commentReplyText} onChange={(event) => setCommentReplyText(event.target.value)}></Textarea>
+                <Flex>	
                     <Box mr="7%">
-                        <Button bgColor="white">
+                        <Button bgColor="#F7FAFC" justifyContent="left">
                         <a className="float-right btn btn-outline-primary ml-2" onClick={handleSubmitClick}>
                             <i className="fa fa-reply"></i> {submitButtonText}
                         </a>
                         </Button>
                     </Box>
-                    <Button bgColor="white">
+                    <Button bgColor="#F7FAFC" justifyContent="left">
                         <a className="float-right btn text-white btn-danger" onClick={() => setShowReplyForm(false)}>
                             <i className="fa fa-heart"></i> {cancelButtonText}
                         </a>
