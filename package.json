@@ -45,6 +45,7 @@
     "react-plaid-link": "^3.3.2",
     "react-scripts": "^5.0.1",
     "react-table": "^7.7.0",
+    "react-use": "^17.4.0",
     "recharts": "^2.1.13",
     "web3": "^1.7.0",
     "web3modal": "^1.9.5",

@@ -25,7 +25,7 @@ import LatestArticles from "../../components/LatestArticles";
 //import ReactHtmlParser from "react-html-parser";
 import { GetServerSidePropsContext } from "next";
 import articles from "../../data/articles.json";
-import { arrayUnion, Timestamp } from "firebase/firestore";
+import { arrayUnion, Timestamp, increment } from "firebase/firestore";
 import CampaignCarousel from "../../components/CampaignCarousel";
 import CastVoteModal from "../../components/CastVoteModal";
 import { useWeb3 } from "../../contexts/Web3Context";
@@ -36,8 +36,8 @@ import copy from "copy-to-clipboard";
 import { lighten } from "@chakra-ui/theme-tools";
 import nookies from 'nookies';
 import { admin } from '../../lib/firebaseAdmin';
-import Confetti from 'react-confetti'
 import { IoArrowBackOutline } from "react-icons/io5";
+import useWindowSize from 'react-use/lib/useWindowSize'
 import MasterCommentThread from "../../components/comments/MasterCommentThread";
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -84,6 +84,7 @@ export default function Proposal({
     threadReplies.post_stream.posts
   );
   const [historicalStockPrice, setHistoricalStockPrice] = useState<any>();
+
 
   const toast = useToast();
 
@@ -139,113 +140,6 @@ export default function Proposal({
   }, []);
 
   const pageUri = `https://climatedao-8fdb5.web.app${router.basePath}${router.asPath}`;
-  let userInvestmentQuantity: number;
-
-  function doesUserOwnShares() {
-    let campaignTicker = campaign.symbol;
-
-    if (investments) {
-      for (let i = 0; i < investments.length; i++) {
-        let userInvestmentTicker = investments[i].ticker;
-        if (userInvestmentTicker == campaignTicker) {
-          userInvestmentQuantity = investments[i].quantity;
-          userOwnShares(i);
-          return true;
-        }
-      }
-      return userDoesNotOwnShares();
-      return false;
-    }
-    else {
-      userDoesNotOwnShares();
-      return false;
-    }
-
-  }
-
-  function userOwnShares(i: number) {
-    let currentVotes = campaign.verifiedVotes
-    let users = campaign.users
-
-    if (currentVotes && users) {
-      const totalVotes = currentVotes + investments[i].quantity;
-      users.push(uid);
-      const dataToUpload = {
-        verifiedVotes: totalVotes,
-        users: arrayUnion(uid),
-      }
-
-      updateProposalInStore(slug, dataToUpload);
-    }
-    else {
-      const dataToUpload = {
-        verifiedVotes: investments[i].quantity,
-        users: [uid],
-      }
-
-      updateProposalInStore(slug, dataToUpload);
-    }
-
-    const proposals = profileData.proposalsVotedOn
-    if (proposals) {
-      let newArrayofSlugs = proposals.push(slug)
-      let slugs = {
-        proposalsVotedOn: arrayUnion(slug),
-      }
-
-      updateOrAddProfileData(uid, slugs)
-    }
-    else {
-      let slugs = {
-        proposalsVotedOn: [slug],
-      }
-
-      updateOrAddProfileData(uid, slugs)
-    }
-
-  }
-
-  function userDoesNotOwnShares() {
-    let currentVotes = campaign.unverifiedVotes
-    let users = campaign.users
-
-    if (currentVotes && users) {
-      const totalVotes = currentVotes + 1;
-      users.push(uid);
-      const dataToUpload = {
-        unverifiedVotes: totalVotes,
-        unverifiedUsers: arrayUnion(uid),
-      }
-
-      updateProposalInStore(slug, dataToUpload);
-    }
-    else {
-      const dataToUpload = {
-        unverifiedVotes: 1,
-        unverifiedUsers: [uid],
-      }
-
-      updateProposalInStore(slug, dataToUpload);
-    }
-
-    const proposals = profileData.proposalsVotedOn
-    if (proposals) {
-      let newArrayofSlugs = proposals.push(slug)
-      let slugs = {
-        proposalsVotedOn: arrayUnion(slug)
-      }
-
-      updateOrAddProfileData(uid, slugs)
-    }
-    else {
-      let slugs = {
-        proposalsVotedOn: [slug],
-      }
-
-      updateOrAddProfileData(uid, slugs)
-    }
-
-  }
 
   function hasUserVoted() {
     try {
@@ -309,6 +203,7 @@ export default function Proposal({
         position="relative"
         zIndex={0}
       >
+        
         <Box
           bg="rgba(0,0,0,.8)"
           position="absolute"
@@ -450,7 +345,7 @@ export default function Proposal({
               // }}
               // What is the 
               // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
-              onClick={() => { doesUserOwnShares(); onVoteModalOpen() }}
+              onClick={() => {onVoteModalOpen();}}
             >
               {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
             </Button>
@@ -459,6 +354,11 @@ export default function Proposal({
               isOpen={voteModalIsOpen}
               onClose={onVoteModalClose}
               onOpen={onVoteModalOpen}
+              campaign={campaign}
+              profileData={profileData}
+              uid={uid}
+              investments={investments}
+              slug={slug}
             />
             {/* <Button
               bg="seafoam.500"
@@ -668,7 +568,7 @@ export default function Proposal({
                   width={48}
                   backgroundColor="seafoam.500"
                   mb='10px'
-                  onClick={() => { doesUserOwnShares(); onVoteModalOpen() }}
+                  onClick={() => {onVoteModalOpen();}}
                 >
                   {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
                 </Button>
