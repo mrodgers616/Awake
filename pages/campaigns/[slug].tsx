@@ -13,7 +13,6 @@ import {
   useDisclosure,
   useToast
 } from "@chakra-ui/react";
-import { fetchCampaignThreadReplies, fetchCampaignThread } from "../../lib/discourse";
 //import { ResponsiveContainer, LineChart, Line } from "recharts";
 import { FaClipboard, FaTwitter, FaFacebook } from "react-icons/fa";
 import { getProposalState, getProposalVotes } from "../../lib/web3";
@@ -450,17 +449,6 @@ export default function Proposal({
                 <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                   discussion
                 </Heading>
-                <Text>
-                  Click{" "}
-                  <Link
-                    color="seafoam.500"
-                    href={`https://forum.climatedao.xyz/t/${topicSlug}/${topicId}`}
-                    target="_blank"
-                  >
-                    here
-                  </Link>{" "}
-                  to join the discussion
-                </Text>
               </Flex>
               <br></br>
               <Box mt="2%" mb="2%">
@@ -468,7 +456,6 @@ export default function Proposal({
               </Box>
               {/* <Flex
                 as={Link}
-                href={`https://forum.climatedao.xyz/t/${topicSlug}/${topicId}`}
                 target="_blank"
                 position="relative"
                 borderRadius="16px"
@@ -709,15 +696,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     campaign.deadline = new Date(campaign.deadline.seconds).toString();
   }
 
-  const thread = await fetchCampaignThread(campaign.threadId);
-  const threadReplies = await fetchCampaignThreadReplies(thread.topic_id);
-
   return {
     props: {
-      topicId: thread.topic_id,
-      topicSlug: thread.topic_slug,
       campaign,
-      threadReplies,
       stockData,
       investments: investments,
       slug: slug as string,
