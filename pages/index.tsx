@@ -273,7 +273,7 @@ const Home: NextPage<{
                   src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FLink%20your%20Accounts.png?alt=media&token=54176198-7c1c-4287-b36d-2046d45c187a"
                   ml=" 5%"
                 />
-                <Stack spacing={2} ml="17%" height="300px" mr="6%">
+                <Stack spacing={2} ml={{ base: "5px", sm: "10px", lg: "17%" }} height="300px" mr="6%">
                   <Text textAlign="left" fontSize={{ base: "32px", sm: "32px", lg: "6xl" }} fontWeight="bold">
                     Why it’s important
                   </Text>

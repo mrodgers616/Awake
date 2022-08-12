@@ -88,6 +88,7 @@ export default function FeaturedCampaigns({
             bg="seafoam.500"
             color="white"
             borderRadius="20px"
+            display={{ base: "none", sm: "none", lg: "block" }}
             href={userid ? "campaigns/create" : "/login"}
             _hover={{
               textDecoration: "none"
