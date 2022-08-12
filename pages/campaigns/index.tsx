@@ -1,4 +1,5 @@
 import type { NextPage, GetServerSidePropsContext } from "next";
+import theme from "../../theme/styles";
 import Head from "next/head";
 import {
   ButtonProps,
