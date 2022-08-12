@@ -164,7 +164,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
     usePaginator({
       total: totalProposals,
       initialState: {
-        pageSize: 6,
+        pageSize: 9,
         isDisabled: false,
         currentPage: 1,
       },
@@ -382,13 +382,13 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
               </Flex>
             </Paginator>
           </Box>
-          <LeaderboardTable
+          {/* <LeaderboardTable
             data={supporterData}
             columns={supporterColumns}
             title='Leaderboard'
             sortBy='campaignsSupported'
             {...treasuryBoardStyles}
-          />
+          />  */}
           {/* <LeaderboardTable
             data={tData}
             columns={treasuryColumns} 

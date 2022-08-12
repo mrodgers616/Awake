@@ -18,6 +18,7 @@ import {
 
 const MasterCommentThread = ({ slug, type, parentId, maxThreadDepth }) => {
     const [addedSubThreadComments, setAddedSubThreadComments] = useState([]);
+    const [showReplyForm, setShowReplyForm] = useState(true);
     const { userid } = useAuth();
     let firebaseUser = userid;
 
@@ -35,20 +36,16 @@ const MasterCommentThread = ({ slug, type, parentId, maxThreadDepth }) => {
 
     return (
         <Container width="175%">
-        <div className="container">
-            <div className="row"> 
-                <div className="col-sm-12"> 
-                    <Button bgColor="white" border="1px">
-                        {firebaseUser ? <ReplyForm newCommentButtonText="New comment" postComment={addCommentToMasterThread} /> : <p>Login to comment</p>}
-                    </Button>
-                </div>
-            </div>
+                <Box bgColor="#F7FAFC" width="50%">
+                    <div >
+                        {firebaseUser ? <ReplyForm newCommentButtonText="New Comment" postComment={addCommentToMasterThread} /> : <p>Login to comment</p>}
+                    </div>
+                </Box>
             <div className="row">
                 <div className="col-sm-12"> 
                     <CommentThread slug={slug} type={type} parentId={parentId} maxThreadDepth={maxThreadDepth} parentAddedSubThreadComments={addedSubThreadComments} />
                 </div>
             </div>
-        </div>
         </Container>
     );
 }

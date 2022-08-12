@@ -3,8 +3,6 @@ import { Configuration, LinkTokenCreateRequest, PlaidApi, PlaidEnvironments } fr
 const util = require('util');
 const moment = require('moment');
 
-const baseURL = 'https://forum.climatedao.xyz';
-
 const configuration = new Configuration({
     basePath: PlaidEnvironments.development,
     baseOptions: {

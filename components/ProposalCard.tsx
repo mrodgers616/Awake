@@ -170,8 +170,6 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
       <Box>
         <Tooltip
           hasArrow
-          isDisabled={isConnected}
-          label={"Connect your wallet to participate"}
           shouldWrapChildren
         >
           <Button
