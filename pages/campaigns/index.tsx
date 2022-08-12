@@ -82,22 +82,22 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
   */
 
   const supporterData = useMemo((): any => [...supporters], []);
-  
+
   const treasuryColumns = useMemo((): any => [{
     Header: 'Market',
     accessor: 'symbol'
   }, {
     Header: '% of Holdings',
     accessor: 'percentage',
-    Cell: ({ value }: any) => <Box>{ value.toFixed(3) }%</Box>
+    Cell: ({ value }: any) => <Box>{value.toFixed(3)}%</Box>
   }, {
     Header: 'Balance',
     accessor: 'balance',
-    Cell: ({ value }: any) => <Box>{ value.toFixed(3) }</Box>
+    Cell: ({ value }: any) => <Box>{value.toFixed(3)}</Box>
   }, {
     Header: 'Total Value',
     accessor: 'balanceUSD',
-    Cell: ({ value }: any) => <Box>${ value.toFixed(2) }</Box>,
+    Cell: ({ value }: any) => <Box>${value.toFixed(2)}</Box>,
     Footer: () => <Box fontWeight={800}>${treasuryBalance.toFixed(2)}</Box>
   }], []);
 
@@ -120,7 +120,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
     },
     thStyles: {
       bg: 'sage.500',
-      color:'white',
+      color: 'white',
     },
     tdStyles: {
       borderBottom: 'none',
@@ -131,7 +131,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
       border: 'none'
     }
   }
-  
+
   const baseStyles: ButtonProps = {
     w: 7,
     fontSize: "sm",
@@ -170,12 +170,12 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
       },
     });
 
-  
+
   const PaginatorProps = {
     pagesCount: pagesCount,
     currentPage: currentPage,
     onPageChange: setCurrentPage,
-    activeStyles: activeStyles ,
+    activeStyles: activeStyles,
     normalStyles: normalStyles,
     separatorStyles: separatorStyles
   }
@@ -231,13 +231,13 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
       <Box title="page-content" position="relative" zIndex={0}>
         <Container width="100%">
           <Flex
-            title="page-cta"
+            title=""
             bg="sage.500"
             w="100%"
-            h={{ 
+            h={{
               base: "fit-content",
               md: '200px'
-             }}
+            }}
             mt="-100px"
             borderRadius="20px"
             alignItems="center"
@@ -252,9 +252,9 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
           >
             <Heading
               fontSize="36px"
-              mb={{ 
+              mb={{
                 base: '32px',
-                md: '0px' 
+                md: '0px'
               }}
               textAlign={{
                 base: 'center',
@@ -264,8 +264,8 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
               Want to create your own movement and campaign?
             </Heading>
             <Tooltip
-              // label={ !isConnected ? 'Connect to Metamask' : !hasEnoughBalance ? 'You do not have enough CLIMATE tokens.' : 'Create a new campaign'}
-              // shouldWrapChildren
+            // label={ !isConnected ? 'Connect to Metamask' : !hasEnoughBalance ? 'You do not have enough CLIMATE tokens.' : 'Create a new campaign'}
+            // shouldWrapChildren
             >
               <Button
                 color="white"
@@ -275,7 +275,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
                 p="32px 64px"
                 borderRadius="16px"
                 fontSize="1.3em"
-// Enabling Button regardless of connect wallet status------------------------
+                // Enabling Button regardless of connect wallet status------------------------
                 // disabled={!isConnected || !hasEnoughBalance}
                 _hover={{
                   textDecoration: "none",
@@ -288,8 +288,8 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
               </Button>
             </Tooltip>
           </Flex>
-          <Box title="proposals-list">
-            <Flex title="proposals-list-header" justifyContent="space-between">
+          <Box title="">
+            <Flex title="" justifyContent="space-between">
               <Heading mb="64px">Proposals</Heading>
               {/* <Flex w="33%" mb="36px">
                 <Select
@@ -321,7 +321,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
               </Flex> */}
             </Flex>
             <Grid
-              title="proposals-list-content"
+              title=""
               templateColumns={{
                 base: "repeat(1, 1fr)",
                 md: "repeat(2, 1fr)",
@@ -353,42 +353,42 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
               })}
             </Grid>
             <Paginator {...PaginatorProps}>
-            <Flex justifyContent="flex-end" mb="120px">
-              <PaginatorContainer
-                justify="space-between"
-                w="fit-content"
-                p={4}
-              >
-                <Previous
-                  bg="transparent"
-                  _hover={{
-                    bg: "transparent",
-                    color: "blue",
-                  }}
+              <Flex justifyContent="flex-end" mb="120px">
+                <PaginatorContainer
+                  justify="space-between"
+                  w="fit-content"
+                  p={4}
                 >
-                  <Icon as={FiChevronLeft} />
-                </Previous>
-                <PageGroup isInline align="center" />
-                <Next
-                  bg="transparent"
-                  _hover={{
-                    bg: "transparent",
-                    color: "blue",
-                  }}
-                >
-                  <Icon as={FiChevronRight} />
-                </Next>
-              </PaginatorContainer>
-            </Flex>
-          </Paginator>
+                  <Previous
+                    bg="transparent"
+                    _hover={{
+                      bg: "transparent",
+                      color: "blue",
+                    }}
+                  >
+                    <Icon as={FiChevronLeft} />
+                  </Previous>
+                  <PageGroup isInline align="center" />
+                  <Next
+                    bg="transparent"
+                    _hover={{
+                      bg: "transparent",
+                      color: "blue",
+                    }}
+                  >
+                    <Icon as={FiChevronRight} />
+                  </Next>
+                </PaginatorContainer>
+              </Flex>
+            </Paginator>
           </Box>
           <LeaderboardTable
             data={supporterData}
-            columns={supporterColumns} 
+            columns={supporterColumns}
             title='Leaderboard'
             sortBy='campaignsSupported'
             {...treasuryBoardStyles}
-          /> 
+          />
           {/* <LeaderboardTable
             data={tData}
             columns={treasuryColumns} 
@@ -397,9 +397,9 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
             {...treasuryBoardStyles}
           />  */}
 
-          <Box title="latest news">
+          <Box title="">
             <LatestArticles
-              title="Latest News"
+              title=""
               climateDAOArticles={articles}
             />
           </Box>
@@ -413,7 +413,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   let campaigns: any[] = [];
   try {
     const data = await getAllProposals();
-    
+
     // fetch all campaigns
     data.forEach((datum: any) => {
       campaigns.push({
