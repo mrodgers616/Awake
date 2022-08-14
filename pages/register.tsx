@@ -34,6 +34,7 @@ const Register: NextPage = () => {
   const toast = useToast();
   const { register: userRegister } = useAuth();
   const {googleSignIn: googleRegister} = useAuth();
+  const {facebookSignIn: facebook} = useAuth();
 
   const onSubmit = (data: any) => userRegister(data);
 
@@ -127,9 +128,14 @@ const Register: NextPage = () => {
                 </Flex>
                 <Link href="/login">Already Registered?</Link>
               </HStack>
+              <Flex>
               <Container mt="3%" ml="-1.75%">
                 <GoogleButton onClick={() => {googleRegister()}}></GoogleButton>
               </Container>
+              <Container mt="3%" ml="-1.75%">
+                <Button onClick={() => {facebook()}}>Log in with facebook</Button>
+              </Container>
+              </Flex>
             </chakra.form>
           </Box>
         </Container>
