@@ -11,7 +11,8 @@ import {
 import { FirebaseError } from "firebase/app";
 import { getProfileData, updateOrAddProfileData } from "../lib/firebaseClient";
 import nookies from 'nookies';
-import type { User } from 'firebase/auth';
+import { User, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import ProfileEditForm from "../components/profile/ProfileEditForm";
 
 type State = {
   loggedIn: boolean;
@@ -25,6 +26,7 @@ interface ContextValue extends State {
   login: (data: LoginAndRegisterProps) => Promise<void>;
   register: (data: LoginAndRegisterProps) => Promise<void>;
   logout: () => Promise<void>;
+  googleSignIn: () => Promise<void>;
 }
 
 interface LoginAndRegisterProps {
@@ -53,6 +55,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const router = useRouter();
   const toast = useToast();
+  const provider = new GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/user.phonenumbers.read');
+  provider.addScope('https://www.googleapis.com/auth/userinfo.profile');
 
   useEffect(() => {
     const authentication = getAuth();
@@ -89,6 +94,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     return () => clearInterval(handle);
   }, []);
+
 
   async function login({
     email,
@@ -153,6 +159,100 @@ export function AuthProvider({ children }: AuthProviderProps) {
     router.push("/");
   }
 
+  async function googleSignIn(): Promise<void> {
+    const authentication = getAuth();
+    signInWithPopup(authentication, provider)
+  .then(async (result) => {
+
+    try {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential?.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+
+      const profile = await getProfileData(user.uid);
+      const profileData = profile.data();
+
+      if(profileData) {
+        let logins; 
+        if(profileData.loginCounter) {
+          logins = profileData.loginCounter + 1;
+        }
+        else {
+          logins = 1;
+        }
+        updateOrAddProfileData(user.uid, { loginCounter: logins });
+
+        setState({ ...state, loggedIn: true, user: user, userid: user.uid });
+
+        const campaignID = localStorage.getItem('campaignID');
+        if(campaignID) {
+          router.push(`${campaignID}`);
+          localStorage.removeItem('campaignID');
+        }
+        else {
+          router.push("/campaigns");
+        }
+      }
+
+      else {
+        const newUser = {
+          backgroundImage: "",
+          profileImage: "",
+          biography: "",
+          username: user.displayName,
+          email: user.email,
+          phoneNumber: user.phoneNumber || "",
+          facebook: "",
+          linkedIn: "",
+          twitter: "",
+          name: "",
+          loginCounter: 1,
+        }
+  
+        await updateOrAddProfileData(user.uid, newUser);
+
+        setState({ ...state, loggedIn: true, user: user, userid: user.uid });
+      
+        console.log(user);
+        if (window.sessionStorage) {
+          toast({
+            title: "Registration Successful",
+            description:
+              "Welcome!",
+            status: "success",
+            duration: 6000,
+            isClosable: true,
+          });
+          let routerPushAfterRegister = "user/" + user.uid + "/edit";
+          router.push(routerPushAfterRegister);
+        }
+      }
+      
+      
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: (error as FirebaseError).message,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+  }
+
   async function register({
     username,
     email,
@@ -213,6 +313,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     login,
     logout,
     register,
+    googleSignIn,
     ...state,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

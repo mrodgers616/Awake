@@ -24,12 +24,15 @@ import { useAuth } from "../contexts/AuthContext";
 import { useForm } from "react-hook-form";
 import { ReactElement } from "react";
 import { Protected } from '../contexts/Protected';
+import GoogleButton from 'react-google-button'
+
 
 const Login: NextPageWithLayout = () => {
   const { register, handleSubmit, formState: { errors }, reset} = useForm();
   const {
     login,
   } = useAuth();
+  const {googleSignIn: googleRegister} = useAuth();
 
   const onSubmit = (data: any) => {
     login(data);
@@ -92,12 +95,18 @@ const Login: NextPageWithLayout = () => {
                   </FormErrorMessage>
               </FormControl>
               <HStack>
+                <Flex>
                 <Button
                   type="submit"
                   bg='seafoam.500'
                 >Login</Button>
+                
+                </Flex>
                 <Link href='/register'>Create A New Account</Link>
               </HStack>
+              <Container mt="3%" ml="-1.75%">
+                <GoogleButton onClick={() => {googleRegister()}}></GoogleButton>
+              </Container>
             </chakra.form>
           </Box>
         </Container>

@@ -15,10 +15,13 @@ import {
   HStack,
   Input,
   Box,
+  Flex,
 } from "@chakra-ui/react";
 import Link from "../components/Link";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../contexts/AuthContext";
+import { getAuth } from "firebase/auth";
+import GoogleButton from 'react-google-button'
 
 
 const Register: NextPage = () => {
@@ -30,6 +33,7 @@ const Register: NextPage = () => {
   } = useForm();
   const toast = useToast();
   const { register: userRegister } = useAuth();
+  const {googleSignIn: googleRegister} = useAuth();
 
   const onSubmit = (data: any) => userRegister(data);
 
@@ -112,6 +116,7 @@ const Register: NextPage = () => {
                 </FormErrorMessage>
               </FormControl>
               <HStack>
+                <Flex>
                 <Button
                   type="submit"
                   bg="seafoam.500"
@@ -119,8 +124,12 @@ const Register: NextPage = () => {
                 >
                   Register
                 </Button>
+                </Flex>
                 <Link href="/login">Already Registered?</Link>
               </HStack>
+              <Container mt="3%" ml="-1.75%">
+                <GoogleButton onClick={() => {googleRegister()}}></GoogleButton>
+              </Container>
             </chakra.form>
           </Box>
         </Container>

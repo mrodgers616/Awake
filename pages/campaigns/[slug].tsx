@@ -58,9 +58,6 @@ enum State {
 
 export default function Proposal({
   campaign,
-  topicId,
-  topicSlug,
-  threadReplies,
   stockData,
   investments,
   slug,
@@ -68,9 +65,6 @@ export default function Proposal({
   profileData,
 }: {
   campaign: any;
-  topicId: number;
-  topicSlug: string;
-  threadReplies: any;
   stockData: any;
   investments: any;
   slug: string;
@@ -79,9 +73,6 @@ export default function Proposal({
 }): JSX.Element {
   const [_votes, setVotes] = useState<string>();
   const [currentState, setCurrentState] = useState<string>();
-  const [discussion, _setDiscussion] = useState<any>(
-    threadReplies.post_stream.posts
-  );
   const [historicalStockPrice, setHistoricalStockPrice] = useState<any>();
 
 
