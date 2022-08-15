@@ -121,17 +121,17 @@ const Home: NextPage<{
                 >
                 </Image>
                 <AnimatedMainHeading
-                  text="Have Your Voice Heard"//"Where Activist Investing Meets Web 3"
+                  text="Align Your Money with Your Values"//"Where Activist Investing Meets Web 3"
                   textAlign="center"
-                  //ml="auto"
-                  //mr="auto"
                   color="white"
-                  // fontSize="70px" 
-                  // COMMENTED OUT THE LINE ABOVE TO EXPERIMENT WITH RESPONSIVE UI            
-                  fontSize={{ base: "24px", sm: "32px", md: "42px", lg: "70px" }}
+                  fontSize={{ base: "32px", sm: "32px", md: "42px", lg: "70px" }}
                   display={"flex"}
                   flexWrap={"wrap"}
+                  mx={"auto"}
+                  w={{ base: "80%", sm: "80%", lg: "60%" }}
                   fontFamily="DM Sans"
+                  borderColor={"red"}
+                  borderWidth={"thick"}
                   mb="32px"
                 />
                 <Flex
