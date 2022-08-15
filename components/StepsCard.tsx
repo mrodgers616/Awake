@@ -16,9 +16,9 @@ interface StepsCardProps extends StyleProps {
 const StepsCard: React.FC<StepsCardProps> = ({ title, illustration, description, ...rest }) => {
   return (
     <Flex
-      { ...rest}
+      {...rest}
     >
-      { (illustration &&  <Image w="170px" h="170px" src={illustration} objectFit='contain' alt={`Illustration of ${title} Key Option`}/>) || <Box w="170px" h="170px" bg="grey" />}
+      {(illustration && <Image w="170px" h="170px" src={illustration} objectFit='contain' alt={`Illustration of ${title} Key Option`} />) || <Box w="170px" h="170px" bg="grey" />}
       <Heading
         as="h2"
         fontSize="18px"
@@ -33,7 +33,7 @@ const StepsCard: React.FC<StepsCardProps> = ({ title, illustration, description,
       <Text
         m="1em 0"
         textAlign='center'
-        w={['50%', '60%', '70%', '80%']}
+        w={['100%', '60%', '70%', '80%']}
       >{description}</Text>
     </Flex>
   )

@@ -7,6 +7,7 @@ import {
   Flex,
   Box,
   Button,
+  Center,
   Icon,
   Image,
   Stack,
@@ -120,20 +121,24 @@ const Home: NextPage<{
                   alt="Climate DAO Logo"
                 >
                 </Image>
-                <AnimatedMainHeading
-                  text="Align Your Money with Your Values"//"Where Activist Investing Meets Web 3"
-                  textAlign="center"
-                  color="white"
-                  fontSize={{ base: "32px", sm: "32px", md: "42px", lg: "70px" }}
-                  display={"flex"}
-                  flexWrap={"wrap"}
-                  mx={"auto"}
-                  w={{ base: "80%", sm: "80%", lg: "60%" }}
-                  fontFamily="DM Sans"
-                  borderColor={"red"}
-                  borderWidth={"thick"}
-                  mb="32px"
-                />
+                <Center>
+                  <AnimatedMainHeading
+                    text="Your Investments, Your Values."
+                    textAlign="center"
+                    color="white"
+                    fontSize={{ base: "32px", sm: "32px", md: "42px", lg: "70px" }}
+                    display={"flex"}
+                    flexWrap={"wrap"}
+                    ml={"auto"}
+                    mr={"auto"}
+                    w={{ base: "100%", sm: "100%", lg: "100%" }}
+                    fontFamily="DM Sans"
+                    // borderColor={"red"}
+                    // borderWidth={"thick"}
+                    mb="32px"
+                    width={"fit-content"}
+                  />
+                </Center>
                 <Flex
                   width={{ base: '100%', md: '80%' }}
                   justifyContent="space-between"
@@ -220,7 +225,7 @@ const Home: NextPage<{
           </Container>
         </Box>
 
-        <Box mt="100px" mr="3%">
+        <Box mt="100px" mx="3%">
           <Container
             width="100%"
             overflow="none"
@@ -234,11 +239,16 @@ const Home: NextPage<{
           /> */}
             <StepsSection
               mb='128px'
+
               steps={Steps}
             />
-            <Box ml="5%" mr="5%" mb="10%" height="100%">
+            <Box
+              ml="5%"
+              mr="5%"
+              mb="10%"
+              height="100%">
               <Text display="block" ml="2%" mr="2%" textAlign="center" fontSize="2xl" mb="10%">
-                At ClimateDAO we empower like-minded investors to collectively advocate
+                At ClimateDAO, we empower like-minded investors to collectively advocate
                 for changes they want to see at public companies.
               </Text>
               <Flex ml={{ base: "-10%", sm: "-10%", lg: "-20%" }} mr={{ base: "-10%", sm: "-10%", lg: "-20%" }} mt="4%" bgGradient="linear(to bottom, #348477,#17CFA5)" borderRadius="30px" height="400px">
@@ -290,13 +300,12 @@ const Home: NextPage<{
                     Strength in numbers
                   </Text>
                   <Text fontSize={{ base: "12px", sm: "12px", lg: "2xl" }} ml={"15px"}
-                    paddingLeft={{ base: "0px", sm: "0px", lg: "15%" }}
+                    paddingLeft={{ base: "0px", sm: "0px", lg: "0px" }}
                   >
-                    After verifying that you own shares and signaling your support for
-                    campaigns, we can approach companies with much more leverage. Whether you own stocks or not, public companies have a huge impact
-                    on our everyday lives. Everything from the food we eat, to how we
+                    Everything from the food we eat, to how we
                     connect, and the environment we live in is impacted by
-                    public companies.
+                    public companies. After verifying that you own shares and signaling your support for
+                    campaigns, we can approach companies with much more leverage.
                   </Text>
                 </Stack>
                 <Image

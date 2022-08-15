@@ -18,7 +18,7 @@ export default function StepsSection({
   return (
     <Box overflow={"none"} mb={rest.mb || "8px"}>
       <Heading
-        mb="32px"
+        mb={{ base: "12px", sm: "12px", lg: "32px" }}
         mx="18px"
         textTransform="uppercase"
         fontSize="28px"
@@ -37,12 +37,16 @@ export default function StepsSection({
           <StepsCard
             key={index}
             {...option}
-            w={{base: 'calc(100% - 1em)', lg: '30%', xl: "calc(30% - 1em)"}}
+            w={{
+              base:
+                'calc(100% - 1em)',
+              lg: '30%', xl: "calc(30% - 1em)"
+            }}
             padding="32px"
             boxShadow="0px 4px 100px 5px rgba(0,0,0,0.1)"
             borderRadius="15px"
             mx={{
-              base: "1em",
+              base: "0px",
               md: '0',
               lg: '1em'
             }}

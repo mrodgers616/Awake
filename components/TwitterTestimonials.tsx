@@ -73,7 +73,7 @@ export default function TwitterTestimonial(): JSX.Element {
               fontSize={{ base: "16px", sm: "16px", md: "24px", lg: "54px" }}
               fontWeight={'medium'}
               mb='8px'
-              mt="16px"
+              mt={{ base: "16px", sm: "16px", lg: "32px" }}
             >You&#39;re in good company</Heading>
             <Text
               fontSize={{ base: "12px", sm: "12px", md: "14px", lg: "32px" }}
@@ -108,7 +108,7 @@ export default function TwitterTestimonial(): JSX.Element {
           h='100%'
           // borderColor={"yellow"}
           // borderWidth={"thick"}
-          mt="0px"
+          mt="20px"
         >
           {tweetData.map(({ data, includes }, index) => {
             const { id, text, created_at } = data;
