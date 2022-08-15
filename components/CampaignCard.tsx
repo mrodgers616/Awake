@@ -60,27 +60,60 @@ export default function CampaignCard({
   const timerText = isTimeUp ? "Voting Closed" : `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
   return (
-    <Flex flexDir={type === "trending" ? "row" : "column"} mb="80px">
+    <div>
       <Flex
-        w={type === 'featured' ? '100%' : '50%'}
-        position='relative'
-        mb={type === 'featured' ? '16px' : '32px'}
-        mr={type === "trending" ? "16px" : "0px"}
-      >
+        display={{ base: "none", sm: "none", lg: "inline-flex" }}
+        flexDir={type === "trending" ? "row" : "column"} mb="80px" >
+        <Flex
+          w={type === 'featured' ? '100%' : '50%'}
+          position='relative'
+          mb={type === 'featured' ? '16px' : '32px'}
+          mr={type === "trending" ? "0px" : "0px"}
+        >
+          <Image
+            src={campaign.image ? campaign.image : "nature/lakeside.png"}
+            h={{ base: "20px", sm: "60%", lg: '60%' }}
+            w={{ base: "20px", sm: "60%", lg: 'auto' }}
+          />
+        </Flex>
+        <Box>
+          <Heading
+            fontSize={type === "trending" ? "xl" : "2xl"}
+            mb='8px'
+          >{campaign.title}</Heading>
+          <Text display={{ base: "none", sm: "none", md: "inline-flex" }}
+          >{campaign.description?.substring(0, 200) + "..."}</Text>
+        </Box>
+
+      </Flex >
+      {/* This is the content that will be displayed in mobile view */}
+      <Flex
+        display={{ base: "inline-flex", sm: "inline-flex", lg: "none" }}
+        flexDir={"column"} mb="80px" >
+        {/* <Flex
+          w={type === 'featured' ? '100%' : '50%'}
+          position='relative'
+          mb={type === 'featured' ? '16px' : '32px'}
+          mr={type === "trending" ? "0px" : "0px"}
+        > */}
         <Image
+          mr="auto"
+          ml="auto"
           src={campaign.image ? campaign.image : "nature/lakeside.png"}
-          h={{ base: "200px", sm: "60%", lg: '60%' }}
-          w={{ base: "200px", sm: "60%", lg: 'auto' }}
+          h={{ base: "auto", sm: "60%", lg: '60%' }}
+          w={{ base: "100%", sm: "60%", lg: 'auto' }}
         />
-      </Flex>
-      <Box>
-        <Heading
-          fontSize={type === "trending" ? "xl" : "2xl"}
-          mb='8px'
-        >{campaign.title}</Heading>
-        <Text>{campaign.description?.substring(0, 200) + "..."}</Text>
-      </Box>
-    </Flex>
+        {/* </Flex> */}
+        <Box>
+          <Heading
+            fontSize={type === "trending" ? "lg" : "2xl"}
+            mb='8px'
+          >{campaign.title}</Heading>
+          <Text display={{ base: "none", sm: "none", md: "inline-flex" }}
+          >{campaign.description?.substring(0, 200) + "..."}</Text>
+        </Box>
+      </Flex >
+    </div >
   );
 }
 

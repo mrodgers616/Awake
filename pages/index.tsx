@@ -251,19 +251,23 @@ const Home: NextPage<{
                 At ClimateDAO, we empower like-minded investors to collectively advocate
                 for changes they want to see at public companies.
               </Text>
-              <Flex ml={{ base: "-10%", sm: "-10%", lg: "-20%" }} mr={{ base: "-10%", sm: "-10%", lg: "-20%" }} mt="4%" bgGradient="linear(to bottom, #348477,#17CFA5)" borderRadius="30px" height="400px">
-                <Stack spacing={2} mr={{ base: "0%", sm: "0%", lg: "15%" }} height="300px" mt="auto" mb="auto">
+              <Flex ml={{ base: "-10%", sm: "-10%", lg: "-20%" }} mr={{ base: "-10%", sm: "-10%", lg: "-20%" }} bgGradient="linear(to bottom, #348477,#17CFA5)" borderRadius="30px" height={{ base: "none", lg: "400px" }}>
+                <Stack spacing={2} mr={{ base: "0%", sm: "0%", lg: "15%" }} mt="auto" mb="auto" paddingTop={{ base: "5%", sm: "5%", lg: "0%" }} paddingBottom={{ base: "5%", sm: "5%", lg: "0%" }}>
                   <Text
                     textAlign="left"
                     fontSize={{ base: "32px", sm: "32px", lg: "6xl" }}
-                    mt="5%"
+                    // mt="5%"
                     display="block"
                     fontWeight="bold"
-                    ml={{ base: "10px", sm: "0%", lg: "15%" }}
+                    paddingLeft={{ base: "5%", sm: "0%", lg: "15%" }}
+                    paddingRight={{ base: "5%", sm: "0%", lg: "15%" }}
                   >
                     What happens to my data?
                   </Text>
-                  <Text display="block" fontSize={{ base: "16px", sm: "24px", lg: "2xl" }} ml={{ base: "20px", sm: "0%", lg: "0px" }} paddingLeft={{ base: "0%", sm: "0%", lg: "15%" }}>
+                  <Text display="block" fontSize={{ base: "16px", sm: "24px", lg: "2xl" }}
+                    ml={{ base: "10px", sm: "10px", lg: "15%" }} paddingLeft={{ base: "5%", sm: "0%", lg: "15%" }}
+                    paddingRight={{ base: "5%", sm: "0%", lg: "15%" }}
+                  >
                     Don&apos;t worry, your data is safe with us! <b>All of your investment data is securely stored and encrypted. </b>
                     {' '}
                   </Text>
@@ -294,23 +298,20 @@ const Home: NextPage<{
                   </Text>
                 </Stack>
               </Flex>
-              <Flex mt="15%" ml={{ base: "-10%", sm: "-10%", lg: "-20%" }} mr={{ base: "-10%", sm: "-10%", lg: "-20%" }} bgGradient="linear(to bottom, #348477,#17CFA5)" borderRadius="30px" height="400px">
-                <Stack spacing={2} ml="10%" height="300px" mt="auto" mb="auto">
+              <Flex mt="15%" ml={{ base: "-10%", sm: "-10%", lg: "-20%" }} mr={{ base: "-10%", sm: "-10%", lg: "-20%" }} bgGradient="linear(to bottom, #348477,#17CFA5)" borderRadius="30px" height={{ base: "200", sm: "100px", lg: "400px" }}>
+                <Stack spacing={2} ml="10%" height={{ lg: "300px" }} mt="auto" mb="auto">
                   <Text fontWeight="bold" fontSize={{ base: "32px", sm: "32px", lg: "6xl" }}>
                     Strength in numbers
                   </Text>
                   <Text fontSize={{ base: "12px", sm: "12px", lg: "2xl" }} ml={"15px"}
                     paddingLeft={{ base: "0px", sm: "0px", lg: "0px" }}
                   >
-                    Everything from the food we eat, to how we
-                    connect, and the environment we live in is impacted by
-                    public companies. After verifying that you own shares and signaling your support for
-                    campaigns, we can approach companies with much more leverage.
+                    One shareholder advocating for change will not move the needle, but with thousands joining forces we'll move mountains.
                   </Text>
                 </Stack>
                 <Image
                   height={{ base: "100", sm: "100px", lg: "250px" }}
-                  width="400px"
+                  width={{ base: "200", sm: "100px", lg: "auto" }}
                   mt="auto" mb="auto"
                   mr="6%"
                   src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2041.png?alt=media&token=134d5014-8b72-45ea-a293-d2d0d823297f"
