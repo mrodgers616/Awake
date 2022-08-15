@@ -1,5 +1,5 @@
 import type { StyleProps } from "@chakra-ui/react";
-import { Heading, chakra } from "@chakra-ui/react";
+import { Heading, Container, chakra } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 const MotionDiv = motion(chakra.div);
@@ -16,9 +16,9 @@ const AnimatedMainHeading = (props: AnimatedMainHeadingProps) => {
     <Heading
       as="h1"
       textAlign="center"
-      ml="17.5%"
-      mr="12.5%"
-      { ...rest }
+      // ml="12.5%"
+      // mr="12.5%"
+      {...rest}
     >
       {animatedText.map((word, index) => {
         return (
@@ -33,10 +33,10 @@ const AnimatedMainHeading = (props: AnimatedMainHeadingProps) => {
             }}
             mr="32px"
           >
-            {word}
+            <Container justifyContent={"center"}>{word}</Container>
           </MotionDiv>
         );
-      })}        
+      })}
     </Heading>
   )
 }

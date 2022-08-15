@@ -17,7 +17,7 @@ interface Campaign {
   createdAt: string;
 }
 
-interface Votes {}
+interface Votes { }
 
 export default function CampaignCard({
   campaign,
@@ -52,7 +52,7 @@ export default function CampaignCard({
     } else {
       const diffTodayStart = differenceInSeconds(new Date(), start);
       const diffEndStart = differenceInSeconds(dl, start);
-      const prog =  Math.round((diffTodayStart / diffEndStart) * 100);
+      const prog = Math.round((diffTodayStart / diffEndStart) * 100);
       setProgress(prog);
     }
   }, [now])
@@ -62,23 +62,23 @@ export default function CampaignCard({
   return (
     <Flex flexDir={type === "trending" ? "row" : "column"} mb="80px">
       <Flex
-        w={ type === 'featured' ? '100%' : '50%' }
+        w={type === 'featured' ? '100%' : '50%'}
         position='relative'
-        mb={ type === 'featured' ? '16px' : '32px' }
-        mr={ type === "trending" ? "16px" : "0px" }
+        mb={type === 'featured' ? '16px' : '32px'}
+        mr={type === "trending" ? "16px" : "0px"}
       >
-        <Image 
+        <Image
           src={campaign.image ? campaign.image : "nature/lakeside.png"}
-          h='60%'
-          w='auto'
+          h={{ base: "200px", sm: "60%", lg: '60%' }}
+          w={{ base: "200px", sm: "60%", lg: 'auto' }}
         />
       </Flex>
       <Box>
         <Heading
-          fontSize={ type === "trending" ? "xl" : "2xl" }
+          fontSize={type === "trending" ? "xl" : "2xl"}
           mb='8px'
-        >{ campaign.title }</Heading>
-        <Text>{ campaign.description?.substring(0, 200) + "..."}</Text>
+        >{campaign.title}</Heading>
+        <Text>{campaign.description?.substring(0, 200) + "..."}</Text>
       </Box>
     </Flex>
   );
