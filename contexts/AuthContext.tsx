@@ -266,67 +266,68 @@ export function AuthProvider({ children }: AuthProviderProps) {
       const credential = FacebookAuthProvider.credentialFromResult(result);
       const token = credential?.accessToken;
       // The signed-in user info.
+      console.log("hello");
       const user = result.user;
       console.log(user);
 
       const profile = await getProfileData(user.uid);
       const profileData = profile.data();
 
-      // if(profileData) {
-      //   let logins; 
-      //   if(profileData.loginCounter) {
-      //     logins = profileData.loginCounter + 1;
-      //   }
-      //   else {
-      //     logins = 1;
-      //   }
-      //   updateOrAddProfileData(user.uid, { loginCounter: logins });
+      if(profileData) {
+        let logins; 
+        if(profileData.loginCounter) {
+          logins = profileData.loginCounter + 1;
+        }
+        else {
+          logins = 1;
+        }
+        updateOrAddProfileData(user.uid, { loginCounter: logins });
 
-      //   setState({ ...state, loggedIn: true, user: user, userid: user.uid });
+        setState({ ...state, loggedIn: true, user: user, userid: user.uid });
 
-      //   const campaignID = localStorage.getItem('campaignID');
-      //   if(campaignID) {
-      //     router.push(`${campaignID}`);
-      //     localStorage.removeItem('campaignID');
-      //   }
-      //   else {
-      //     router.push("/campaigns");
-      //   }
-      // }
+        const campaignID = localStorage.getItem('campaignID');
+        if(campaignID) {
+          router.push(`${campaignID}`);
+          localStorage.removeItem('campaignID');
+        }
+        else {
+          router.push("/campaigns");
+        }
+      }
 
-      // else {
-      //   const newUser = {
-      //     backgroundImage: "",
-      //     profileImage: "",
-      //     biography: "",
-      //     username: user.displayName,
-      //     email: user.email,
-      //     phoneNumber: user.phoneNumber || "",
-      //     facebook: "",
-      //     linkedIn: "",
-      //     twitter: "",
-      //     name: "",
-      //     loginCounter: 1,
-      //   }
+      else {
+        const newUser = {
+          backgroundImage: "",
+          profileImage: "",
+          biography: "",
+          username: user.displayName,
+          email: user.email,
+          phoneNumber: user.phoneNumber || "",
+          facebook: "",
+          linkedIn: "",
+          twitter: "",
+          name: "",
+          loginCounter: 1,
+        }
   
-      //   await updateOrAddProfileData(user.uid, newUser);
+        await updateOrAddProfileData(user.uid, newUser);
 
-      //   setState({ ...state, loggedIn: true, user: user, userid: user.uid });
+        setState({ ...state, loggedIn: true, user: user, userid: user.uid });
       
-      //   console.log(user);
-      //   if (window.sessionStorage) {
-      //     toast({
-      //       title: "Registration Successful",
-      //       description:
-      //         "Welcome!",
-      //       status: "success",
-      //       duration: 6000,
-      //       isClosable: true,
-      //     });
-      //     let routerPushAfterRegister = "user/" + user.uid + "/edit";
-      //     router.push(routerPushAfterRegister);
-      //   }
-      // }
+        console.log(user);
+        if (window.sessionStorage) {
+          toast({
+            title: "Registration Successful",
+            description:
+              "Welcome!",
+            status: "success",
+            duration: 6000,
+            isClosable: true,
+          });
+          let routerPushAfterRegister = "user/" + user.uid + "/edit";
+          router.push(routerPushAfterRegister);
+        }
+      }
       
       
     } catch (error) {

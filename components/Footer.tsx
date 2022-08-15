@@ -58,6 +58,7 @@ export default function Footer(): JSX.Element {
           Twitter
         </Link>
         <Link href="https://discord.gg/WwhjrS3HCm" isExternal>Discord</Link>
+        <Link href="/privacypolicy">Privacy Policy</Link>
         <Text>Inquiries@climatedao.xyz</Text>
       </Stack>
       </Flex>

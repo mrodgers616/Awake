@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import {
   DrawerCloseButton,
   DrawerOverlay,
@@ -26,6 +26,8 @@ import WalletModal from "./WalletModal";
 import { useWeb3 } from "../contexts/Web3Context";
 import { useAuth } from "../contexts/AuthContext";
 import { HamburgerIcon } from '@chakra-ui/icons';
+import { getAllDocs } from "../lib/firebaseClient";
+import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
 import { useRouter } from "next/router";
 
@@ -34,6 +36,18 @@ export default function Navbar(): JSX.Element {
   //const { web3Errors } = useWeb3();
   const { logout, loggedIn, userid } = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  let [allDocs, setAllDocs] = useState([{id: "", name: ""}]);
+
+  useEffect(() => {
+    async function getDocs() {
+      const thedocs = await getAllDocs("users");
+      setAllDocs(thedocs);
+      allDocs = thedocs;
+    }
+    getDocs();
+  
+  }, []);
 
   const LinkProps = {
     mx: '16px',
@@ -58,6 +72,35 @@ export default function Navbar(): JSX.Element {
       href: '/linkAccount',
     }
   ];
+
+  const handleOnSearch = (string: any, results: any) => {
+    // onSearch will have as the first callback parameter
+    // the string searched and for the second the results.
+    console.log(string, results)
+  }
+
+  const handleOnHover = (result: any) => {
+    // the item hovered
+    console.log(result)
+  }
+
+  const handleOnSelect = (item: any) => {
+    // the item selected
+    console.log(item)
+  }
+
+  const handleOnFocus = () => {
+    console.log('Focused')
+  }
+
+  const formatResult = (item: any) => {
+    return (
+      <>
+        <span style={{ display: 'block', textAlign: 'left' }}>{item.name}</span>
+        {/* <span style={{ display: 'block', textAlign: 'left' }}>name: {item.name}</span> */}
+      </>
+    )
+  }
 
 
   const activeLink = (path: string) => (router.pathname === path ? 'active' : '');
@@ -152,7 +195,7 @@ export default function Navbar(): JSX.Element {
       bg="white"
       zIndex={1000}
     >
-      <Container  p="0 25px">
+      <Container  p="0 10px">
         <Flex
           justifyContent="space-between" 
           alignItems={"center"} 
@@ -183,6 +226,19 @@ export default function Navbar(): JSX.Element {
             alignItems="center"
             justifyContent="flex-end"
           >
+          {(userid) &&
+            <Container mr="5%" width="300px">
+            <ReactSearchAutocomplete
+            items={allDocs}
+            onSearch={handleOnSearch}
+            onHover={handleOnHover}
+            onSelect={handleOnSelect}
+            onFocus={handleOnFocus}
+            autoFocus
+            formatResult={formatResult}
+          />
+          </Container>
+        }
             <Link
               href="/"
               {...LinkProps}

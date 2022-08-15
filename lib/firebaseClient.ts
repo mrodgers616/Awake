@@ -108,6 +108,24 @@ async function getProfileData (uid: string): Promise<any> {
   }
 }
 
+async function getAllDocs (collectionToGet: string): Promise<any> {
+  try {
+    let arrayOfDocs: any = [];
+    const querySnapshot = await getDocs(collection(db, collectionToGet));
+    querySnapshot.forEach((doc) => {
+      let docData = doc.data();
+      let formatDocData = {
+        name: docData.username,
+        id: doc.id,
+      }
+      arrayOfDocs.push(formatDocData);
+    });
+    return arrayOfDocs;
+  } catch (error) {
+    console.error((error as FirebaseError).message);
+  }
+}
+
 async function updateOrAddProfileData (
   profileId: string, 
   newData: Record<string, any>
@@ -218,7 +236,8 @@ export {
   getProfileData,
   fetchFeaturedProposalFromStore,
   addComment,
-  getComments
+  getComments,
+  getAllDocs
 };
 
 
