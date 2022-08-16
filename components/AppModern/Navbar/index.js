@@ -1,21 +1,20 @@
 import React, { useState, useRef } from 'react';
-import Fade from 'react-reveal/Fade';
-import ScrollSpyMenu from 'common/components/ScrollSpyMenu';
+import ScrollSpyMenu from '../../common/components/ScrollSpyMenu';
 import Scrollspy from 'react-scrollspy';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Icon } from 'react-icons-kit';
 import { menu } from 'react-icons-kit/feather/menu';
 import { x } from 'react-icons-kit/feather/x';
 import { search } from 'react-icons-kit/feather/search';
-import Logo from 'common/components/UIElements/Logo';
-import Button from 'common/components/Button';
-import Container from 'common/components/UI/Container';
-import useOnClickOutside from 'common/hooks/useOnClickOutside';
+import Logo from '../../common/components/UIElements/Logo';
+import Button from '../../common/components/Button';
+import Container from '../../common/components/UI/Container';
+import useOnClickOutside from '../../common/hooks/useOnClickOutside';
 import NavbarWrapper, { MenuArea, MobileMenu, Search } from './navbar.style';
-import LogoImage from 'common/assets/image/appModern/logo-white.png';
-import LogoImageAlt from 'common/assets/image/appModern/logo.png';
+import LogoImage from '../../../public/illustrations/ClimateDAO Logo.png';
+import LogoImageAlt from '../../../public/illustrations/Climate DAO dark.png';
 
-import { navbar } from 'common/data/AppModern';
+import { navbar } from '../../common/data/AppModern';
 
 const Navbar = () => {
   const { navMenu } = navbar;
@@ -73,7 +72,7 @@ const Navbar = () => {
   const scrollItems = [];
 
   navMenu.forEach((item) => {
-    scrollItems.push(item.path.slice(1));
+    scrollItems.push(item.path);
   });
 
   const handleRemoveMenu = () => {
@@ -87,13 +86,13 @@ const Navbar = () => {
     <NavbarWrapper className="navbar">
       <Container>
         <Logo
-          href="/appmodern"
+          href="/"
           logoSrc={LogoImage}
           title="App Modern"
           className="main-logo"
         />
         <Logo
-          href="/appmodern"
+          href="/"
           logoSrc={LogoImageAlt}
           title="App Modern"
           className="logo-alt"
@@ -128,15 +127,6 @@ const Navbar = () => {
 
           <Button
             className="menubar"
-            icon={
-              state.mobileMenu ? (
-                <Icon className="bar" icon={x} />
-              ) : (
-                <Fade>
-                  <Icon className="close" icon={menu} />
-                </Fade>
-              )
-            }
             color="#0F2137"
             variant="textButton"
             onClick={() => toggleHandler('menu')}

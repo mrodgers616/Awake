@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Icon } from 'react-icons-kit';
 import { checkmarkCircled } from 'react-icons-kit/ionicons/checkmarkCircled';
-import Text from 'common/components/Text';
-import Heading from 'common/components/Heading';
-import Button from 'common/components/Button';
-import Container from 'common/components/UI/Container';
+import Text from '../../common/components/Text';
+import Heading from '../../common/components/Heading';
+import Button from '../../common/components/Button';
+import Container from '../../common/components/UI/Container';
 import { SectionHeader } from '../appModern.style';
 import SectionWrapper, {
   ButtonGroup,
@@ -14,9 +14,9 @@ import SectionWrapper, {
   PricingCard,
 } from './pricingPolicy.style';
 
-import crown from 'common/assets/image/appClassic/crown.svg';
+import crown from '../../common/assets/image/appClassic/crown.svg';
 
-import { pricing } from 'common/data/AppModern';
+import { pricing } from '../../common/data/AppModern';
 
 const PricingPolicy = () => {
   const { slogan, title, monthly, annualy } = pricing;

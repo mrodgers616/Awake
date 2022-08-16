@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
-import searchIcon from 'common/assets/image/appModern/search.svg';
+import searchIcon from '../../common/assets/image/appModern/search.svg';
 
 const NavbarWrapper = styled.nav`
   width: 100%;

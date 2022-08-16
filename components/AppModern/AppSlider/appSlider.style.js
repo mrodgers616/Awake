@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
-import circleBg from 'common/assets/image/appClassic/circle-bg.svg';
+import circleBg from '../../common/assets/image/appClassic/circle-bg.svg';
 
 const SectionWrapper = styled.div`
   padding: 75px 0 145px;

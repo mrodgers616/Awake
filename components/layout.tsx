@@ -2,8 +2,10 @@ import { chakra, Box } from "@chakra-ui/react";
 import Head from "next/head";
 import { ReactNode } from "react";
 import type { Component } from "react";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Sticky from 'react-stickynode';
+import Navbar from '../components/AppModern/Navbar';
+
 
 interface LayoutProps {
   children: ReactNode;
@@ -25,7 +27,10 @@ export default function Layout({ children }: LayoutProps) {
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"/>
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"/>
       </Head>
-      <Navbar />
+      
+      <Sticky top={0} innerZ={9999} activeClass="sticky-active">
+        <Navbar />
+      </Sticky>
       <Box 
         flexGrow={1}
         fontFamily='DM Sans'

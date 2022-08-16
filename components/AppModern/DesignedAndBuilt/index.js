@@ -1,11 +1,11 @@
 import React from 'react';
-import Text from 'common/components/Text';
-import Heading from 'common/components/Heading';
-import NextImage from 'common/components/NextImage';
-import Container from 'common/components/UI/Container';
+import Text from '../../common/components/Text';
+import Heading from '../../common/components/Heading';
+import NextImage from '../../common/components/NextImage';
+import Container from '../../common/components/UI/Container';
 import SectionWrapper, { ContentWrapper } from './designedAndBuilt.style';
 
-import { designAndBuilt } from 'common/data/AppModern';
+import { designAndBuilt } from '../../common/data/AppModern';
 
 const DesignedAndBuilt = () => {
   const { image, title, slogan, description } = designAndBuilt;

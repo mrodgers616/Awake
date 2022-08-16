@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
-import Text from 'common/components/Text';
-import NextImage from 'common/components/NextImage';
-import Heading from 'common/components/Heading';
-import Container from 'common/components/UI/Container';
-import FeatureBlock from 'common/components/FeatureBlock';
-import GlideCarousel from 'common/components/GlideCarousel';
-import GlideSlide from 'common/components/GlideCarousel/glideSlide';
+import Text from '../../common/components/Text';
+import NextImage from '../../common/components/NextImage';
+import Heading from '../../common/components/Heading';
+import Container from '../../common/components/UI/Container';
+import FeatureBlock from '../../common/components/FeatureBlock';
+import GlideCarousel from '../../common/components/GlideCarousel';
+import GlideSlide from '../../common/components/GlideCarousel/glideSlide';
 import SectionWrapper, { CarouseWrapper, TextWrapper } from './appSlider.style';
 
-import { appSlider } from 'common/data/AppModern';
+import { appSlider } from '../../common/data/AppModern';
 
 const AppSlider = () => {
   const { title, description, features, carousel } = appSlider;

@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import Box from 'common/components/Box';
-import Text from 'common/components/Text';
-import Image from 'common/components/Image';
-import Logo from 'common/components/UIElements/Logo';
-import Heading from 'common/components/Heading';
-import Container from 'common/components/UI/Container';
+import Box from '../../common/components/Box';
+import Text from '../../common/components/Text';
+import Image from '../../common/components/Image';
+import Logo from '../../common/components/UIElements/Logo';
+import Heading from '../../common/components/Heading';
+import Container from '../../common/components/UI/Container';
 import FooterArea, {
   WidgetArea,
   MenuArea,
@@ -14,7 +14,7 @@ import FooterArea, {
   CopyrightText,
 } from './footer.style';
 
-import { footer } from 'common/data/AppModern';
+import { footer } from '../../common/data/AppModern';
 
 const Footer = () => {
   const { logo, menu, widgets } = footer;

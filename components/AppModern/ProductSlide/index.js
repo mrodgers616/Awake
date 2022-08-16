@@ -1,9 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Link from 'next/link';
-import Fade from 'react-reveal/Fade';
-import Heading from 'common/components/Heading';
-import Image from 'common/components/Image';
-import NextImage from 'common/components/NextImage';
+import Heading from '../../common/components/Heading';
+import Image from '../../common/components/Image';
+import NextImage from '../../common/components/NextImage';
 // import Swiper from 'react-id-swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -15,8 +14,8 @@ import ProductSlideWrapper, {
   SectionHeader,
 } from './productSlide.style';
 
-import { productData } from 'common/data/AppModern';
-import SlideMockup from 'common/assets/image/appModern/screen.png';
+import { productData } from '../../common/data/AppModern';
+import SlideMockup from '../../common/assets/image/appModern/screen.png';
 const params = {
   slidesPerView: 5,
   centeredSlides: true,
@@ -56,10 +55,8 @@ const ProductSlide = () => {
     <ProductSlideWrapper>
       <Container>
         <SectionHeader>
-          <Fade up>
             <Heading as="h5" content={slogan} />
             <Heading content={title} />
-          </Fade>
         </SectionHeader>
         <CarouselArea>
           {loading ? (

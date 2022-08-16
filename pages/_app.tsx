@@ -11,6 +11,10 @@ import theme from '../theme'
 import Layout from '../components/layout'
 import "./campaigns.css"
 import "./styles.css"
+import GlobalStyle, {
+  AppWrapper,
+  ContentWrapper,
+} from '../components/AppModern/appModern.style';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -19,10 +23,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider theme={theme}>
       <AuthProvider>
         <Web3Provider>
+          <AppWrapper>
           <Layout>
             <GoogleAnalytics measurementId="G-E829D3LL4P" />
             <Component {...pageProps} />
           </Layout>
+          </AppWrapper>
         </Web3Provider>
       </AuthProvider>
     </ChakraProvider>

@@ -1,6 +1,6 @@
 import React from 'react';
-import Text from 'common/components/Text';
-import Image from 'common/components/Image';
+import Text from '../../common/components/Text';
+import Image from '../../common/components/Image';
 import CustomerWrapper, { ImageWrapper } from './customer.style';
 
 import { client } from 'common/data/AppModern';
