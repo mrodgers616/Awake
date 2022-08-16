@@ -27,7 +27,7 @@ import { useWeb3 } from "../contexts/Web3Context";
 import { useAuth } from "../contexts/AuthContext";
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { getAllDocs } from "../lib/firebaseClient";
-import { ReactSearchAutocomplete } from 'react-search-autocomplete';
+//import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
 import { useRouter } from "next/router";
 
@@ -226,19 +226,19 @@ export default function Navbar(): JSX.Element {
             alignItems="center"
             justifyContent="flex-end"
           >
-          {(userid) &&
-            <Container mr="5%" width="300px">
-            <ReactSearchAutocomplete
-            items={allDocs}
-            onSearch={handleOnSearch}
-            onHover={handleOnHover}
-            onSelect={handleOnSelect}
-            onFocus={handleOnFocus}
-            autoFocus
-            formatResult={formatResult}
-          />
-          </Container>
-        }
+          {/* {(userid) &&
+          //   <Container mr="5%" width="300px">
+          //   <ReactSearchAutocomplete
+          //   items={allDocs}
+          //   onSearch={handleOnSearch}
+          //   onHover={handleOnHover}
+          //   onSelect={handleOnSelect}
+          //   onFocus={handleOnFocus}
+          //   autoFocus
+          //   formatResult={formatResult}
+          // />
+          // </Container>
+        } */}
             <Link
               href="/"
               {...LinkProps}

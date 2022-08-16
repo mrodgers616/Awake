@@ -306,7 +306,7 @@ const Home: NextPage<{
                   <Text fontSize={{ base: "12px", sm: "12px", lg: "2xl" }} ml={"15px"}
                     paddingLeft={{ base: "0px", sm: "0px", lg: "0px" }}
                   >
-                    One shareholder advocating for change will not move the needle, but with thousands joining forces we'll move mountains.
+                    One shareholder advocating for change will not move the needle, but with thousands joining forces we&apos;ll move mountains.
                   </Text>
                 </Stack>
                 <Image
