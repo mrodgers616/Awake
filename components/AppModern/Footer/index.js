@@ -13,6 +13,8 @@ import FooterArea, {
   MenuItem,
   CopyrightText,
 } from './footer.style';
+import LogoImage from '../../../public/illustrations/ClimateDAO Logo.png';
+
 
 import { footer } from '../../common/data/AppModern';
 
@@ -37,8 +39,7 @@ const Footer = () => {
         <MenuArea>
           <Logo
             className="logo"
-            href="/appclassic"
-            logoSrc={logo}
+            logoSrc={LogoImage}
             title="App Classic"
           />
           <Menu>

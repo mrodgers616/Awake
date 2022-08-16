@@ -88,13 +88,13 @@ const Navbar = () => {
         <Logo
           href="/"
           logoSrc={LogoImage}
-          title="App Modern"
+          title="ClimateDAO"
           className="main-logo"
         />
         <Logo
           href="/"
           logoSrc={LogoImageAlt}
-          title="App Modern"
+          title="ClimateDAO"
           className="logo-alt"
         />
         {/* end of logo */}
@@ -145,13 +145,13 @@ const Navbar = () => {
           >
             {navMenu.map((menu, index) => (
               <li key={`menu_key${index}`}>
-                <AnchorLink
+                <a
                   href={menu.path}
                   offset={menu.offset}
                   onClick={handleRemoveMenu}
                 >
                   {menu.label}
-                </AnchorLink>
+                </a>
               </li>
             ))}
           </Scrollspy>

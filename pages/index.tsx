@@ -2,17 +2,6 @@ import type { NextPage } from "next";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import {
-  Container,
-  Flex,
-  Box,
-  Button,
-  Center,
-  Icon,
-  Image,
-  Stack,
-  Text
-} from "@chakra-ui/react";
-import {
   FaPlayCircle
 } from "react-icons/fa";
 import Link from "../components/Link";
@@ -51,11 +40,14 @@ import GlobalStyle, {
   AppWrapper,
   ContentWrapper,
 } from '../components/AppModern/appModern.style';
+import type { NextPageWithLayout } from './_app'
+import type { ReactElement } from 'react'
 
 
-const Home: NextPage = () => {
+
+
+const Home: NextPageWithLayout = () => {
   return (
-    <ThemeProvider theme={theme}>
       <>
         <ResetCSS />
         <GlobalStyle />
@@ -77,13 +69,13 @@ const Home: NextPage = () => {
             <TeamPortfolio />
             <Newsletter />
           </ContentWrapper>
-          <Footer />
         {/* end of app classic landing */}
       </>
-    </ThemeProvider>
   );
 
 
 };
+
+Home.layout="appWrapper";
 
 export default Home;

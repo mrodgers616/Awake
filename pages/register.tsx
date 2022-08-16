@@ -61,7 +61,7 @@ const Register: NextPage = () => {
           >
             <Heading mb='32px'>Register</Heading>
             <chakra.form onSubmit={handleSubmit(onSubmit)}>
-              <FormControl mb='16px' _invalid={errors.username}>
+              <FormControl mb='16px'>
                 <FormLabel htmlFor="username">Username:</FormLabel>
                 <InputGroup>
                   {/* eslint-disable-next-line react/no-children-prop*/}
@@ -77,7 +77,7 @@ const Register: NextPage = () => {
                   
                 </FormErrorMessage>
               </FormControl>
-              <FormControl mb='16px' _invalid={errors.email}>
+              <FormControl mb='16px'>
                 <FormLabel htmlFor="email">Email:</FormLabel>
                 <Input
                   id="email"
@@ -90,7 +90,7 @@ const Register: NextPage = () => {
                   
                 </FormErrorMessage>
               </FormControl>
-              <FormControl mb='16px' _invalid={errors.password}>
+              <FormControl mb='16px'>
                 <FormLabel htmlFor="password">Password:</FormLabel>
                 <Input
                   id="password"
@@ -103,7 +103,7 @@ const Register: NextPage = () => {
                   
                 </FormErrorMessage>
               </FormControl>
-              <FormControl mb='32px' _invalid={errors.password2}>
+              <FormControl mb='32px'>
                 <FormLabel htmlFor="password">Verify Password:</FormLabel>
                 <Input
                   id="password2"

@@ -2,9 +2,10 @@ import { chakra, Box } from "@chakra-ui/react";
 import Head from "next/head";
 import { ReactNode } from "react";
 import type { Component } from "react";
-import Footer from "../components/Footer";
 import Sticky from 'react-stickynode';
-import Navbar from './Navbar';
+import Navbar from './AppModern/Navbar';
+import Footer from '../components/AppModern/Footer';
+
 
 
 interface LayoutProps {
@@ -13,12 +14,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <chakra.div
-      className="global-wrap"
-      display="flex"
-      flexDirection="column"
-      minHeight="100vh"
-    >
+    <div>
       <Head>
         <title>Climate DAO</title>
         <meta name="description" content="Climate DAO" />
@@ -31,11 +27,9 @@ export default function Layout({ children }: LayoutProps) {
       <Sticky top={0} innerZ={9999} activeClass="sticky-active">
         <Navbar />
       </Sticky>
-      <Box 
-        flexGrow={1}
-        fontFamily='DM Sans'
-      >{children}</Box>
+      <div 
+      >{children}</div>
       <Footer />
-    </chakra.div>
+    </div>
   );
 }
