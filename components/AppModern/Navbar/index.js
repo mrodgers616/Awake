@@ -15,6 +15,8 @@ import LogoImage from '../../../public/illustrations/ClimateDAO Logo.png';
 import LogoImageAlt from '../../../public/illustrations/Climate DAO dark.png';
 
 import { navbar } from '../../common/data/AppModern';
+import { useRouter } from "next/router";
+
 
 const Navbar = () => {
   const { navMenu } = navbar;
@@ -122,7 +124,7 @@ const Navbar = () => {
           {/* end of search */}
 
           <AnchorLink href="#trail" offset={84}>
-            <Button className="trail" title="Try for Free" />
+            <Button className="trail" title="Login"  />
           </AnchorLink>
 
           <Button
@@ -155,7 +157,7 @@ const Navbar = () => {
               </li>
             ))}
           </Scrollspy>
-          <Button title="Try for Free" />
+          <Button title="Login" href="/login"/>
         </Container>
       </MobileMenu>
       {/* end of mobile menu */}
