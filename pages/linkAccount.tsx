@@ -28,7 +28,6 @@ import {
 import { admin } from '../lib/firebaseAdmin';
 import { getProfileData, updateOrAddProfileData} from "../lib/firebaseClient";
 import {parseCookies} from 'nookies';
-import { getServerSideProps } from ".";
 import { profile } from "console";
 
 const configuration = new Configuration({

@@ -14,8 +14,10 @@ import {
 import Faq from "../components/Faq";
 import { FaArrowRight } from "react-icons/fa";
 import faqs from "../data/faqs.json";
+import type { NextPageWithLayout } from './_app'
 
-const About: NextPage = () => {
+
+const About: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -328,5 +330,7 @@ const About: NextPage = () => {
     </>
   );
 };
+
+About.layout = "layout";
 
 export default About;

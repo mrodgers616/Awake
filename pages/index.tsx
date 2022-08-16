@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import type { NextPageWithLayout } from './_app'
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import {
@@ -22,7 +23,6 @@ import { useWeb3 } from "../contexts/Web3Context";
 import { fetchFeaturedProposalFromStore } from "../lib/firebaseClient";
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../components/common/theme/appModern';
-import ResetCSS from '../components/common/assets/css/style';
 import Sticky from 'react-stickynode';
 import Navbar from '../components/AppModern/Navbar';
 import Banner from '../components/AppModern/Banner';
@@ -40,7 +40,8 @@ import GlobalStyle, {
   AppWrapper,
   ContentWrapper,
 } from '../components/AppModern/appModern.style';
-import type { NextPageWithLayout } from './_app'
+
+import ResetCSS from '../components/common/assets/css/style';
 import type { ReactElement } from 'react'
 
 
@@ -49,26 +50,16 @@ import type { ReactElement } from 'react'
 const Home: NextPageWithLayout = () => {
   return (
       <>
-        <ResetCSS />
-        <GlobalStyle />
-        {/* end of global and reset style */}
-
-        {/* start app classic landing */}
-          {/* <Sticky top={0} innerZ={9999} activeClass="sticky-active">
-            <Navbar />
-          </Sticky> */}
-          <ContentWrapper>
-            <Banner />
-            <Features />
-            <AppSlider />
-            <DashboardFeatures />
-            <Testimonial />
-            <ProductSlide />
-            <DesignedAndBuilt />
-            <PricingPolicy />
-            <TeamPortfolio />
-            <Newsletter />
-          </ContentWrapper>
+        <Banner />
+        <Features />
+        <AppSlider />
+        <DashboardFeatures />
+        <Testimonial />
+        <ProductSlide />
+        <DesignedAndBuilt />
+        <PricingPolicy />
+        <TeamPortfolio />
+        <Newsletter />
         {/* end of app classic landing */}
       </>
   );
