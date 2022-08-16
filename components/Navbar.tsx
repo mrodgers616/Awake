@@ -141,7 +141,7 @@ export default function Navbar(): JSX.Element {
           base: 'flex',
           lg: 'inline-flex'
         }}
-        onClick={() => { logout(); router.push("/login"); onClose();}}>
+        onClick={() => { logout(); onClose();}}>
           Logout
       </Button>
     </Flex>

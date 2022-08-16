@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Scrollspy from 'react-scrollspy';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { useAuth } from "../../../../contexts/AuthContext";
+
 
 import { DrawerContext } from '../../contexts/DrawerContext';
 
@@ -9,6 +11,9 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
   const { dispatch } = useContext(DrawerContext);
   // empty array for scrollspy items
   const scrollItems = [];
+
+  const { userid } = useAuth();
+
 
   // convert menu path to scrollspy items
   menuItems.forEach((item) => {
@@ -40,7 +45,14 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
       {menuItems.map((menu, index) => (
         <li key={`menu-item-${index}`}>
           {menu.staticLink ? (
-            <a href={menu.path}>{menu.label}</a>
+            menu.needAuth ? 
+            (
+              userid ? ( 
+              <a href={menu.path}>{menu.label}</a> 
+              ) : null
+            
+            ) : (<a href={menu.path}>{menu.label}</a>)
+            
           ) : (
             <>
               {drawerClose ? (

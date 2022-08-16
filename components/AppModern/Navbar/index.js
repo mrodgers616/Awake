@@ -16,6 +16,8 @@ import LogoImageAlt from '../../../public/illustrations/Climate DAO dark.png';
 
 import { navbar } from '../../common/data/AppModern';
 import { useRouter } from "next/router";
+import { useAuth } from "../../../contexts/AuthContext";
+
 
 
 const Navbar = () => {
@@ -25,6 +27,9 @@ const Navbar = () => {
     searchToggle: false,
     mobileMenu: false,
   });
+
+  const { logout, loggedIn, userid } = useAuth();
+  const router = useRouter();
 
   const searchRef = useRef(null);
   useOnClickOutside(searchRef, () =>
@@ -123,9 +128,17 @@ const Navbar = () => {
           </Search>
           {/* end of search */}
 
-          <AnchorLink href="#trail" offset={84}>
-            <Button className="trail" title="Login"  />
-          </AnchorLink>
+          {userid ? (
+            <div href="#trail" offset={84}>
+              <Button className="trail" title="Profile" onClick={() => { router.push(`/user/${userid}/profile`);}} /> <span> </span> 
+              <Button className="trail" title="Logout" onClick={() => { logout();}} />
+            </div>
+          ) : (
+            <div href="#trail" offset={84}>
+              <Button className="trail" title="Login" onClick={() => { router.push("/login");}} />
+            </div>
+          )}
+          
 
           <Button
             className="menubar"
