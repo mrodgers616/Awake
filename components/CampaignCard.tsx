@@ -60,7 +60,7 @@ export default function CampaignCard({
   const timerText = isTimeUp ? "Voting Closed" : `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
   return (
-    <div>
+    <>
       <Flex
         display={{ base: "none", sm: "none", lg: "inline-flex" }}
         flexDir={type === "trending" ? "row" : "column"} mb="80px" >
@@ -113,7 +113,7 @@ export default function CampaignCard({
           >{campaign.description?.substring(0, 200) + "..."}</Text>
         </Box>
       </Flex >
-    </div >
+    </ >
   );
 }
 

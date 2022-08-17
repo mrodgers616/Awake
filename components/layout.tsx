@@ -3,8 +3,18 @@ import Head from "next/head";
 import { ReactNode } from "react";
 import type { Component } from "react";
 import Footer from "../components/Footer";
+import { ThemeProvider } from 'styled-components';
+import { theme as themeModernApp} from '../components/common/theme/appModern';
+
 import Sticky from 'react-stickynode';
-import Navbar from './Navbar';
+import Navbar from '../components/AppModern/Navbar';
+import ResetCSS from '../components/common/assets/css/style';
+
+import GlobalStyle, {
+  AppWrapper2,
+  ContentWrapper,
+} from '../components/AppModern/appModern.style';
+
 
 
 interface LayoutProps {
@@ -17,7 +27,6 @@ export default function Layout({ children }: LayoutProps) {
       className="global-wrap"
       display="flex"
       flexDirection="column"
-      minHeight="100vh"
     >
       <Head>
         <title>Climate DAO</title>
@@ -27,10 +36,15 @@ export default function Layout({ children }: LayoutProps) {
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"/>
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"/>
       </Head>
-      
-      <Sticky top={0} innerZ={9999} activeClass="sticky-active">
-        <Navbar />
-      </Sticky>
+      <ThemeProvider theme={themeModernApp}>
+        <ResetCSS />
+        <GlobalStyle />
+        <AppWrapper2>
+          <Sticky top={0} innerZ={9999} activeClass="sticky-active">
+            <Navbar />
+          </Sticky>
+        </AppWrapper2>
+      </ThemeProvider>
       <Box 
         flexGrow={1}
         fontFamily='DM Sans'

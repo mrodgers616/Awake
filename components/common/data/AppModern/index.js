@@ -3,6 +3,7 @@
 /* ------------------------------------ */
 import logo from '../../../../public/illustrations/Awake Logo.png';
 
+
 export const navbar = {
   logo: logo,
   navMenu: [
@@ -134,6 +135,8 @@ import appSlide1 from '../../assets/image/appModern/appSlider1.png';
 import appSlide2 from '../../assets/image/appModern/appSlider2.png';
 import appSlide3 from '../../assets/image/appModern/appSlider3.png';
 import appIcon from '../../assets/image/appModern/icon1.svg';
+
+import aLogo from '../../../../public/illustrations/Awake Logo light.png';
 
 export const appSlider = {
   carousel: [

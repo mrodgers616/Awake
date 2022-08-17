@@ -26,7 +26,6 @@ const About: NextPageWithLayout = () => {
       </Head>
       <Box
         title="membership-cta"
-        mt="8%"
         bgPosition={"center"}
         position="relative"
         bgSize="cover"

@@ -44,11 +44,6 @@ interface ProposalProps extends StyleProps {
   createdAt: Date;
 }
 
-function pushLoginAndCampaignId(campaignID: string) {
-  localStorage.setItem('campaignID', campaignID);
-  Router.push("/login");
-}
-
 export default function ProposalCard(props: ProposalProps): JSX.Element {
   const {
     id,
@@ -67,6 +62,12 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
     deadline,
     ...rest
   } = props;
+
+
+function pushLoginAndCampaignId(campaignID: string) {
+  localStorage.setItem('campaignID', campaignID);
+  Router.push("/login");
+}
 
   const [dl, setDL] = useState(deadline ? new Date(deadline) : new Date());
   const [start, setStart] = useState(
