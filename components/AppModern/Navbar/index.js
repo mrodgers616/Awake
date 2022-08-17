@@ -79,7 +79,15 @@ const Navbar = () => {
   const scrollItems = [];
 
   navMenu.forEach((item) => {
-    scrollItems.push(item.path);
+    if(item.needAuth) {
+      if(userid) {
+        scrollItems.push(item.path);
+      }
+    }
+    else {
+      scrollItems.push(item.path);
+    }
+    
   });
 
   const handleRemoveMenu = () => {
@@ -159,18 +167,45 @@ const Navbar = () => {
             currentClassName="active"
           >
             {navMenu.map((menu, index) => (
-              <li key={`menu_key${index}`}>
-                <a
-                  href={menu.path}
-                  offset={menu.offset}
-                  onClick={handleRemoveMenu}
-                >
-                  {menu.label}
-                </a>
-              </li>
+              menu.needAuth ? (
+                userid ? (
+                  <li key={`menu_key${index}`}>
+                    <a
+                      href={menu.path}
+                      offset={menu.offset}
+                      onClick={handleRemoveMenu}
+                    >
+                      {menu.label}
+                    </a>
+                  </li>
+                ) : (
+                  null
+                )
+              ) : (
+                <li key={`menu_key${index}`}>
+                  <a
+                    href={menu.path}
+                    offset={menu.offset}
+                    onClick={handleRemoveMenu}
+                  >
+                    {menu.label}
+                  </a>
+                </li>
+              )
+              
             ))}
           </Scrollspy>
-          <Button title="Login" href="/login"/>
+          {userid ? (
+            <div href="#trail" offset={84}>
+              <Button className="trail" title="Profile" onClick={() => { router.push(`/user/${userid}/profile`);}} /> <div> </div> 
+              <span> </span>
+              <Button className="trail" title="Logout" onClick={() => { logout();}} />
+            </div>
+          ) : (
+            <div href="#trail" offset={84}>
+              <Button className="trail" title="Login" onClick={() => { router.push("/login");}} />
+            </div>
+          )}
         </Container>
       </MobileMenu>
       {/* end of mobile menu */}

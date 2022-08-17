@@ -23,10 +23,16 @@ import BannerWrapper, {
 import { client } from '../../common/data/AppModern';
 
 import microsoft from '../../common/assets/image/appModern/envato-icon.png';
-import bannerImg from '../../common/assets/image/appModern/banner2.png';
+import bannerImg from '../../../public/illustrations/abstractBanner.png';
 import videoBanner1 from '../../common/assets/image/appModern/video-1.png';
 import videoBanner2 from '../../common/assets/image/appModern/video-2.png';
 import circleBorder from '../../common/assets/image/appModern/shape.svg';
+import cdLogo from '../../../public/illustrations/ClimateDAO Logo.png';
+import { useAuth } from "../../../contexts/AuthContext";
+import { useRouter } from "next/router";
+
+
+
 // close button for modal
 // const CloseModalButton = () => (
 //   <Button
@@ -67,33 +73,46 @@ const Banner = () => {
   //     closeOnClickOutside: true,
   //   });
   // };
+
+  const imageStyle = {
+    margin: '-50px 0 0 0',
+  }
+
+  const { userid } = useAuth();
+  const router = useRouter();
+
   return (
     <BannerWrapper id="home">
       <Container>
         <BannerContent>
             <RatingInfo>
-              <Rating rating={4} />
-              4.9 of 5 By <img src={microsoft?.src} alt="Microsoft" />
+              <Image src={cdLogo?.src} alt="ClimateDAO Logo" style={imageStyle}/>
             </RatingInfo>
             <Heading
               as="h1"
-              content="The Revolution of
-          Ultimate Platform to
-          monitor your task"
+              content="Use Your Shares to Have Your Voice Heard"
             />
             <Text
-              content="Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore magna
-          ipsum dolor sit amet consectetur."
+              content="After verifying that you own shares and signaling your support for
+              campaigns, we can approach companies with much more leverage. Whether you own stocks or not, public companies have a huge impact
+              on our everyday lives. Everything from the food we eat, to how we
+              connect, and the environment we live in is impacted by
+              public companies."
             />
             <ButtonGroup>
-              <Button className="primary" title="Start Free trail" />
-              <Button
+              {userid ? (
+                <Button className="primary" title="Connect Your Brokerage Account" onClick={() => {}}/>
+              ) : (
+                <Button className="primary" title="Create An Account" onClick={() => {router.push("/register")}}/>
+              )}
+              
+              {/* <Button
                 className="text"
                 variant="textButton"
                 icon={<Icon icon={playCircle} />}
                 iconPosition="left"
                 title="Watch Video"
-              />
+              /> */}
             </ButtonGroup>
         </BannerContent>
         <BannerImage>

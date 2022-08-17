@@ -89,8 +89,8 @@ import featureIcon3 from '../../assets/image/appModern/icon3.svg';
 import featureIcon4 from '../../assets/image/appModern/icon4.svg';
 
 export const features = {
-  slogan: 'KEY FEATURES',
-  title: 'Why you choose our app',
+  slogan: 'How Does it Work',
+  title: 'Join Now to Participate in Campaigns',
   items: [
     {
       id: 1,
@@ -153,28 +153,27 @@ export const appSlider = {
       title: 'App Slide 1',
     },
   ],
-  title: 'Smart Jackpots that you may love this anytime & anywhere',
+  title: 'ClimateDAO is empowering everyday investors to be activists.',
   description:
-    "The rise of mobile devices transforms the way we consume information entirely and the world's most elevant channels such as Facebook.",
+    "Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf",
   features: [
     {
       id: 1,
       icon: appIcon,
-      title: 'Easy Invoicing',
-      description: 'Surprice your clients with professional looking invoices.',
+      title: 'Easy Voting',
+      description: "Link an account, choose a campaign, and vote. It's as easy as that.",
     },
     {
       id: 2,
       icon: appIcon,
-      title: 'UX Planning',
-      description:
-        'UI/UX Design by following and maintaining the latest trends .',
+      title: 'Easy Voting',
+      description: "Link an account, choose a campaign, and vote. It's as easy as that.",
     },
     {
       id: 3,
       icon: appIcon,
-      title: 'Customer Support',
-      description: 'A Dedicated support team will be always ready for you.',
+      title: 'Easy Voting',
+      description: "Link an account, choose a campaign, and vote. It's as easy as that.",
     },
   ],
 };
