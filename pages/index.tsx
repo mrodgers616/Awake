@@ -68,8 +68,4 @@ const Home: NextPageWithLayout = () => {
 
 Home.layout = "appWrapper";
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  
-}
-
 export default Home;
