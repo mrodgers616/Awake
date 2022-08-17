@@ -28,6 +28,7 @@ import videoBanner1 from '../../common/assets/image/appModern/video-1.png';
 import videoBanner2 from '../../common/assets/image/appModern/video-2.png';
 import circleBorder from '../../common/assets/image/appModern/shape.svg';
 import cdLogo from '../../../public/illustrations/ClimateDAO Logo.png';
+import aLogo from '../../../public/illustrations/Awake Logo light.png';
 import { useAuth } from "../../../contexts/AuthContext";
 import { useRouter } from "next/router";
 
@@ -85,38 +86,38 @@ const Banner = () => {
     <BannerWrapper id="home">
       <Container>
         <BannerContent>
-            <RatingInfo>
-              <Image src={cdLogo?.src} alt="ClimateDAO Logo" style={imageStyle}/>
-            </RatingInfo>
-            <Heading
-              as="h1"
-              content="Use Your Shares to Have Your Voice Heard"
-            />
-            <Text
-              content="After verifying that you own shares and signaling your support for
+          <RatingInfo>
+            <Image src={aLogo?.src} alt="Awake Logo" style={imageStyle} />
+          </RatingInfo>
+          <Heading
+            as="h1"
+            content="Use Your Shares to Have Your Voice Heard"
+          />
+          <Text
+            content="After verifying that you own shares and signaling your support for
               campaigns, we can approach companies with much more leverage. Whether you own stocks or not, public companies have a huge impact
               on our everyday lives. Everything from the food we eat, to how we
               connect, and the environment we live in is impacted by
               public companies."
-            />
-            <ButtonGroup>
-              {userid ? (
-                <Button className="primary" title="Connect Your Brokerage Account" onClick={() => {}}/>
-              ) : (
-                <Button className="primary" title="Create An Account" onClick={() => {router.push("/register")}}/>
-              )}
-              
-              {/* <Button
+          />
+          <ButtonGroup>
+            {userid ? (
+              <Button className="primary" title="Connect Your Brokerage Account" onClick={() => { }} />
+            ) : (
+              <Button className="primary" title="Create An Account" onClick={() => { router.push("/register") }} />
+            )}
+
+            {/* <Button
                 className="text"
                 variant="textButton"
                 icon={<Icon icon={playCircle} />}
                 iconPosition="left"
                 title="Watch Video"
               /> */}
-            </ButtonGroup>
+          </ButtonGroup>
         </BannerContent>
         <BannerImage>
-            <NextImage src={bannerImg} alt="Banner" />
+          <NextImage src={bannerImg} alt="Banner" />
         </BannerImage>
       </Container>
       <CustomerWrapper>

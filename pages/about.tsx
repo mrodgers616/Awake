@@ -31,8 +31,8 @@ const About: NextPageWithLayout = () => {
         position="relative"
         bgSize="cover"
         bgGradient="linear-gradient(sage.500, seafoam.500)"
-        //borderRadius='30px'
-        //mx="1%"
+      //borderRadius='30px'
+      //mx="1%"
       >
         <Box
           bg="rgba(0,0,0,.0)"
@@ -206,7 +206,7 @@ const About: NextPageWithLayout = () => {
               Mission
             </Heading>
             <Text zIndex={250} fontSize="1.6em">
-            ClimateDAO is empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. ClimateDAO makes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
+              Awakeis empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. Awakemakes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
             </Text>
             <Box
               bg="rgba(0,0,0,.4)"
@@ -235,8 +235,8 @@ const About: NextPageWithLayout = () => {
               Vision
             </Heading>
             <Text fontSize="1.6em" zIndex={250}>
-              We envision a world in which the wisdom of the crowds is used for social good, a world in which companies 
-              are held accountable for their actions. As a community, we will leverage our collective capital, expertise, 
+              We envision a world in which the wisdom of the crowds is used for social good, a world in which companies
+              are held accountable for their actions. As a community, we will leverage our collective capital, expertise,
               and we will move mountains.
             </Text>
             <Box
@@ -266,7 +266,7 @@ const About: NextPageWithLayout = () => {
               Tactics
             </Heading>
             <Text fontSize="1.6em" zIndex={250}>
-              We plan to get retail investors small and large alike to link their brokerage accounts and express what they want to see at the public companies they own. We can wield our collective voice to get public companies to take action. After getting campaign or proposal backers, we reach out to the corporations we&#39;re trying to get to take action and share what we&#39;ve gathered from our community. 
+              We plan to get retail investors small and large alike to link their brokerage accounts and express what they want to see at the public companies they own. We can wield our collective voice to get public companies to take action. After getting campaign or proposal backers, we reach out to the corporations we&#39;re trying to get to take action and share what we&#39;ve gathered from our community.
             </Text>
             <Box
               bg="rgba(0,0,0,.0)"
@@ -303,7 +303,7 @@ const About: NextPageWithLayout = () => {
               textTransform={"revert"}
               mb="16px"
             >
-              A growing ClimateDAO community
+              A growing Awake community
             </Heading>
             <Text mb="32px">
               Join a community of creatives, artists, experts, and activits tied

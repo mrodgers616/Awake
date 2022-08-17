@@ -194,7 +194,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
   return (
     <>
       <Head>
-        <title>Climate DAO | Proposals</title>
+        <title>Awake | Proposals</title>
       </Head>
       <Box
         bg="sage.500"

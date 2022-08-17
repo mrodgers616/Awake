@@ -11,8 +11,13 @@ import Button from '../../common/components/Button';
 import Container from '../../common/components/UI/Container';
 import useOnClickOutside from '../../common/hooks/useOnClickOutside';
 import NavbarWrapper, { MenuArea, MobileMenu, Search } from './navbar.style';
-import LogoImage from '../../../public/illustrations/ClimateDAO Logo.png';
-import LogoImageAlt from '../../../public/illustrations/Climate DAO dark.png';
+// COMMENTED OUT THE OLD LOGO
+// import LogoImage from '../../../public/illustrations/ClimateDAO Logo.png';
+import LogoImage from '../../../public/illustrations/Awake Logo.png';
+import LogoImageLight from '../../../public/illustrations/Awake Logo light.png';
+// COMMENTED OUT THE OLD LOGO
+// import LogoImageAlt from '../../../public/illustrations/Climate DAO dark.png';
+import LogoImageAlt from '../../../public/illustrations/Awake Logo dark.png';
 
 import { navbar } from '../../common/data/AppModern';
 import { useRouter } from "next/router";
@@ -79,15 +84,15 @@ const Navbar = () => {
   const scrollItems = [];
 
   navMenu.forEach((item) => {
-    if(item.needAuth) {
-      if(userid) {
+    if (item.needAuth) {
+      if (userid) {
         scrollItems.push(item.path);
       }
     }
     else {
       scrollItems.push(item.path);
     }
-    
+
   });
 
   const handleRemoveMenu = () => {
@@ -102,7 +107,7 @@ const Navbar = () => {
       <Container>
         <Logo
           href="/"
-          logoSrc={LogoImage}
+          logoSrc={LogoImageLight}
           title="ClimateDAO"
           className="main-logo"
         />
@@ -138,15 +143,15 @@ const Navbar = () => {
 
           {userid ? (
             <div href="#trail" offset={84}>
-              <Button className="trail" title="Profile" onClick={() => { router.push(`/user/${userid}/profile`);}} /> <span> </span> 
-              <Button className="trail" title="Logout" onClick={() => { logout();}} />
+              <Button className="trail" title="Profile" onClick={() => { router.push(`/user/${userid}/profile`); }} /> <span> </span>
+              <Button className="trail" title="Logout" onClick={() => { logout(); }} />
             </div>
           ) : (
             <div href="#trail" offset={84}>
-              <Button className="trail" title="Login" onClick={() => { router.push("/login");}} />
+              <Button className="trail" title="Login" onClick={() => { router.push("/login"); }} />
             </div>
           )}
-          
+
 
           <Button
             className="menubar"
@@ -192,18 +197,18 @@ const Navbar = () => {
                   </a>
                 </li>
               )
-              
+
             ))}
           </Scrollspy>
           {userid ? (
             <div href="#trail" offset={84}>
-              <Button className="trail" title="Profile" onClick={() => { router.push(`/user/${userid}/profile`);}} /> <div> </div> 
+              <Button className="trail" title="Profile" onClick={() => { router.push(`/user/${userid}/profile`); }} /> <div> </div>
               <span> </span>
-              <Button className="trail" title="Logout" onClick={() => { logout();}} />
+              <Button className="trail" title="Logout" onClick={() => { logout(); }} />
             </div>
           ) : (
             <div href="#trail" offset={84}>
-              <Button className="trail" title="Login" onClick={() => { router.push("/login");}} />
+              <Button className="trail" title="Login" onClick={() => { router.push("/login"); }} />
             </div>
           )}
         </Container>

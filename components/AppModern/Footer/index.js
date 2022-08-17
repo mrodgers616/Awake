@@ -13,7 +13,7 @@ import FooterArea, {
   MenuItem,
   CopyrightText,
 } from './footer.style';
-import LogoImage from '../../../public/illustrations/ClimateDAO Logo.png';
+import LogoImage from '../../../public/illustrations/Awake Logo light.png';
 
 
 import { footer } from '../../common/data/AppModern';
@@ -51,7 +51,7 @@ const Footer = () => {
               </MenuItem>
             ))}
           </Menu>
-          <CopyrightText>Copyright {year} By RedQ Inc</CopyrightText>
+          <CopyrightText>Copyright {year} By Awake Inc</CopyrightText>
         </MenuArea>
         {/* End of footer menu area */}
       </Container>

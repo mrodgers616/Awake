@@ -1,7 +1,7 @@
 /* ------------------------------------ */
 // Navbar data section
 /* ------------------------------------ */
-import logo from '../../../../public/illustrations/ClimateDAO Logo.png';
+import logo from '../../../../public/illustrations/Awake Logo.png';
 
 export const navbar = {
   logo: logo,

@@ -33,15 +33,15 @@ const Register: NextPage = () => {
   } = useForm();
   const toast = useToast();
   const { register: userRegister } = useAuth();
-  const {googleSignIn: googleRegister} = useAuth();
-  const {facebookSignIn: facebook} = useAuth();
+  const { googleSignIn: googleRegister } = useAuth();
+  const { facebookSignIn: facebook } = useAuth();
 
   const onSubmit = (data: any) => userRegister(data);
 
   return (
     <>
       <Head>
-        <title>Climate DAO | Register</title>
+        <title>Awake | Register</title>
       </Head>
       <Box>
         <Container
@@ -74,7 +74,7 @@ const Register: NextPage = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  
+
                 </FormErrorMessage>
               </FormControl>
               <FormControl mb='16px'>
@@ -87,7 +87,7 @@ const Register: NextPage = () => {
                   })}
                 />
                 <FormErrorMessage>
-                  
+
                 </FormErrorMessage>
               </FormControl>
               <FormControl mb='16px'>
@@ -100,7 +100,7 @@ const Register: NextPage = () => {
                   })}
                 />
                 <FormErrorMessage>
-                  
+
                 </FormErrorMessage>
               </FormControl>
               <FormControl mb='32px'>
@@ -113,28 +113,28 @@ const Register: NextPage = () => {
                   })}
                 />
                 <FormErrorMessage>
-                  
+
                 </FormErrorMessage>
               </FormControl>
               <HStack>
                 <Flex>
-                <Button
-                  type="submit"
-                  bg="seafoam.500"
-                  mr='16px'
-                >
-                  Register
-                </Button>
+                  <Button
+                    type="submit"
+                    bg="seafoam.500"
+                    mr='16px'
+                  >
+                    Register
+                  </Button>
                 </Flex>
                 <Link href="/login">Already Registered?</Link>
               </HStack>
               <Flex>
-              <Container mt="3%" ml="-1.75%">
-                <GoogleButton onClick={() => {googleRegister()}}></GoogleButton>
-              </Container>
-              <Container mt="3%" ml="-1.75%">
-                <Button onClick={() => {facebook()}}>Log in with facebook</Button>
-              </Container>
+                <Container mt="3%" ml="-1.75%">
+                  <GoogleButton onClick={() => { googleRegister() }}></GoogleButton>
+                </Container>
+                <Container mt="3%" ml="-1.75%">
+                  <Button onClick={() => { facebook() }}>Log in with facebook</Button>
+                </Container>
               </Flex>
             </chakra.form>
           </Box>

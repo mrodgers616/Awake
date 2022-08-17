@@ -22,7 +22,7 @@ const Membership: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Climate DAO | Proposals</title>
+        <title>Awake | Proposals</title>
       </Head>
       <Box
         bg="sage.500"
@@ -118,8 +118,8 @@ const Membership: NextPage = () => {
             mb="8px"
           >
             <Image
-              src="illustrations/ClimateDAO Logo.png"
-              alt="ClimateDAO logo"
+              src="illustrations/Awake Logo dark.png"
+              alt="Awake Logo Dark"
             />
             <Heading
               color="white"

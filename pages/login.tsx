@@ -28,11 +28,11 @@ import GoogleButton from 'react-google-button'
 
 
 const Login: NextPageWithLayout = () => {
-  const { register, handleSubmit, formState: { errors }, reset} = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const {
     login,
   } = useAuth();
-  const {googleSignIn: googleRegister} = useAuth();
+  const { googleSignIn: googleRegister } = useAuth();
 
   const onSubmit = (data: any) => {
     login(data);
@@ -42,7 +42,7 @@ const Login: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>Climate DAO | Proposals</title>
+        <title>Awake | Proposals</title>
       </Head>
       <Box>
         <Container
@@ -74,10 +74,10 @@ const Login: NextPageWithLayout = () => {
                   {...register('email', {
                     required: 'Please enter your email',
                   })}
-                  />
-                  <FormErrorMessage>
-                    
-                  </FormErrorMessage>
+                />
+                <FormErrorMessage>
+
+                </FormErrorMessage>
               </FormControl>
               <FormControl mb='32px'>
                 <FormLabel htmlFor="password">
@@ -89,23 +89,23 @@ const Login: NextPageWithLayout = () => {
                   {...register('password', {
                     required: 'Please enter your password',
                   })}
-                  />
-                  <FormErrorMessage>
-                    
-                  </FormErrorMessage>
+                />
+                <FormErrorMessage>
+
+                </FormErrorMessage>
               </FormControl>
               <HStack>
                 <Flex>
-                <Button
-                  type="submit"
-                  bg='seafoam.500'
-                >Login</Button>
-                
+                  <Button
+                    type="submit"
+                    bg='seafoam.500'
+                  >Login</Button>
+
                 </Flex>
                 <Link href='/register'>Create A New Account</Link>
               </HStack>
               <Container mt="3%" ml="-1.75%">
-                <GoogleButton onClick={() => {googleRegister()}}></GoogleButton>
+                <GoogleButton onClick={() => { googleRegister() }}></GoogleButton>
               </Container>
             </chakra.form>
           </Box>

@@ -37,7 +37,7 @@ export default function Navbar(): JSX.Element {
   const { logout, loggedIn, userid } = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  let [allDocs, setAllDocs] = useState([{id: "", name: ""}]);
+  let [allDocs, setAllDocs] = useState([{ id: "", name: "" }]);
 
   useEffect(() => {
     async function getDocs() {
@@ -46,7 +46,7 @@ export default function Navbar(): JSX.Element {
       allDocs = thedocs;
     }
     getDocs();
-  
+
   }, []);
 
   const LinkProps = {
@@ -141,8 +141,8 @@ export default function Navbar(): JSX.Element {
           base: 'flex',
           lg: 'inline-flex'
         }}
-        onClick={() => { logout(); onClose();}}>
-          Logout
+        onClick={() => { logout(); onClose(); }}>
+        Logout
       </Button>
     </Flex>
   ) : (
@@ -153,21 +153,21 @@ export default function Navbar(): JSX.Element {
       }}
     >
       <Link
-      href="/campaigns"
-      {...LinkProps}
-      className={activeLink('/campaigns')}
-      mt="2%"
-    >
-      Campaigns
-    </Link>
-    <Link
-      href="/blog"
-      {...LinkProps}
-      className={activeLink('/blog')}
-      mt="2%"
-    >
-      Blog
-    </Link>
+        href="/campaigns"
+        {...LinkProps}
+        className={activeLink('/campaigns')}
+        mt="2%"
+      >
+        Campaigns
+      </Link>
+      <Link
+        href="/blog"
+        {...LinkProps}
+        className={activeLink('/blog')}
+        mt="2%"
+      >
+        Blog
+      </Link>
       <Button
         mx={{
           base: '0',
@@ -176,13 +176,13 @@ export default function Navbar(): JSX.Element {
         mb={{
           base: '16px',
           lg: '0'
-        }} 
+        }}
         onClick={() => { router.push("/login"); onClose(); }}>
-          Login
+        Login
       </Button>
       <Button
         onClick={() => { router.push("/register"); onClose(); }}>
-          Register
+        Register
       </Button>
     </Flex>
   ));
@@ -195,10 +195,10 @@ export default function Navbar(): JSX.Element {
       bg="white"
       zIndex={1000}
     >
-      <Container  p="0 10px">
+      <Container p="0 10px">
         <Flex
-          justifyContent="space-between" 
-          alignItems={"center"} 
+          justifyContent="space-between"
+          alignItems={"center"}
           h="120px"
           display={{
             base: 'none',
@@ -206,18 +206,18 @@ export default function Navbar(): JSX.Element {
           }}
         >
           <chakra.div>
-          <Button
+            <Button
               onClick={() => { router.push("/"); onClose(); }}
               bg="white"
-              
-              >
-            <Image
-              src="/illustrations/Climate DAO dark.png"
-              width={200}
-              alt="Climate DAO Logo"
+
             >
-            </Image>
-          </Button>
+              <Image
+                src="/illustrations/Awake Logo dark.png"
+                width={200}
+                alt="Awake Logo dark"
+              >
+              </Image>
+            </Button>
           </chakra.div>
           <chakra.div
             display="flex"
@@ -226,7 +226,7 @@ export default function Navbar(): JSX.Element {
             alignItems="center"
             justifyContent="flex-end"
           >
-          {/* {(userid) &&
+            {/* {(userid) &&
           //   <Container mr="5%" width="300px">
           //   <ReactSearchAutocomplete
           //   items={allDocs}
@@ -253,33 +253,33 @@ export default function Navbar(): JSX.Element {
             >
               About
             </Link>
-            { userid && (<><Link
+            {userid && (<><Link
               href="/campaigns"
               {...LinkProps}
               className={activeLink('/campaigns')}
             >
               Campaigns
             </Link>
-            <Link
-              href="/blog"
-              {...LinkProps}
-              className={activeLink('/blog')}
-            >
-              Blog
-            </Link>
-            <Link
-              href="/linkAccount"
-              {...LinkProps}
-              className={activeLink('/linkAccount')}
-            >
-              Link Account
-            </Link></>)}
+              <Link
+                href="/blog"
+                {...LinkProps}
+                className={activeLink('/blog')}
+              >
+                Blog
+              </Link>
+              <Link
+                href="/linkAccount"
+                {...LinkProps}
+                className={activeLink('/linkAccount')}
+              >
+                Link Account
+              </Link></>)}
             <Auth />
           </chakra.div>
         </Flex>
         <Flex
-          justifyContent="space-between" 
-          alignItems={"center"} 
+          justifyContent="space-between"
+          alignItems={"center"}
           h="120px"
           display={{
             base: 'flex',
@@ -288,9 +288,9 @@ export default function Navbar(): JSX.Element {
         >
           <chakra.div>
             <Image
-              src="/illustrations/Climate DAO dark.png"
+              src="/illustrations/Awake Logo dark.png"
               width={250}
-              alt="Climate DAO Logo"
+              alt="Awake Logo dark"
             />
           </chakra.div>
           <chakra.div>
@@ -320,11 +320,11 @@ export default function Navbar(): JSX.Element {
               px='16px'
             >
               <Image
-                src="/illustrations/Climate DAO dark.png"
+                src="/illustrations/Awake Logo dark.png"
                 width={200}
-                alt="Climate DAO Logo"
+                alt="Awake Logo Dark"
               />
-              <DrawerCloseButton position='relative' size="lg" top={0} right={0}/>
+              <DrawerCloseButton position='relative' size="lg" top={0} right={0} />
             </Flex>
             <DrawerBody paddingTop="4">
               <List>
@@ -334,7 +334,7 @@ export default function Navbar(): JSX.Element {
                     sx={{
                       ...LinkProps,
                       mx: 0
-                  }}
+                    }}
                     className={activeLink('/')}
                   >
                     Home
@@ -352,7 +352,7 @@ export default function Navbar(): JSX.Element {
                     About
                   </Link>
                 </ListItem>
-                { userid && NAV_LINKS.map((link, index) => (
+                {userid && NAV_LINKS.map((link, index) => (
                   <ListItem key={index} my='16px'>
                     <Link
                       href={link.href}
@@ -361,7 +361,7 @@ export default function Navbar(): JSX.Element {
                         mx: 0
                       }}
                       className={activeLink(link.href)}
-                    >{ link.name }</Link>
+                    >{link.name}</Link>
                   </ListItem>
                 ))}
                 <ListItem>

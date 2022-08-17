@@ -49,24 +49,24 @@ import type { ReactElement } from 'react'
 
 const Home: NextPageWithLayout = () => {
   return (
-      <>
-        <Banner />
-        <Features />
-        <AppSlider />
-        <DashboardFeatures />
-        <Testimonial />
-        <ProductSlide />
-        <DesignedAndBuilt />
-        <PricingPolicy />
-        <TeamPortfolio />
-        <Newsletter />
-        {/* end of app classic landing */}
-      </>
+    <>
+      <Banner />
+      <Features />
+      <AppSlider />
+      <DashboardFeatures />
+      <Testimonial />
+      <ProductSlide />
+      <DesignedAndBuilt />
+      <PricingPolicy />
+      <TeamPortfolio />
+      <Newsletter />
+      {/* end of app classic landing */}
+    </>
   );
 
 
 };
 
-Home.layout="appWrapper";
+Home.layout = "appWrapper";
 
 export default Home;
