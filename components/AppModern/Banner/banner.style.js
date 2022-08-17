@@ -7,18 +7,17 @@ const BannerWrapper = styled.div`
   overflow: hidden;
   position: relative;
   background-image: -moz-linear-gradient(
-    139deg,
-    
+    41deg,
     rgb(164,191,217) 100%
     rgb(100, 43, 115) 0%,
   );
   background-image: -webkit-linear-gradient(
-    139deg,
+    41deg,
     rgb(100, 43, 115) 0%,
     rgb(164,191,217) 100%
   );
   background-image: -ms-linear-gradient(
-    139deg,
+    41deg,
     rgb(100, 43, 115) 0%,
     rgb(164,191,217) 100%
   );

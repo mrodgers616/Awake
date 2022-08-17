@@ -80,8 +80,9 @@ const Banner = () => {
     margin: '-50px 0 0 0',
   }
   const popStyle = {
-    minWidth: "50%",
-    maxWidth: "50%"
+    minWidth: "55%",
+    maxWidth: "55%",
+    marginRight: "220px"
   }
 
   const { userid } = useAuth();
