@@ -156,6 +156,13 @@ const Navbar = () => {
           <Button
             className="menubar"
             color="#0F2137"
+            icon={
+              state.mobileMenu ? (
+                <Icon className="bar" icon={x} />
+              ) : (
+                <Icon className="close" icon={menu} />
+              )
+            }
             variant="textButton"
             onClick={() => toggleHandler('menu')}
           />
@@ -200,17 +207,7 @@ const Navbar = () => {
 
             ))}
           </Scrollspy>
-          {userid ? (
-            <div href="#trail" offset={84}>
-              <Button className="trail" title="Profile" onClick={() => { router.push(`/user/${userid}/profile`); }} /> <div> </div>
-              <span> </span>
-              <Button className="trail" title="Logout" onClick={() => { logout(); }} />
-            </div>
-          ) : (
-            <div href="#trail" offset={84}>
-              <Button className="trail" title="Login" onClick={() => { router.push("/login"); }} />
-            </div>
-          )}
+          <Button title="Menu" />
         </Container>
       </MobileMenu>
       {/* end of mobile menu */}
