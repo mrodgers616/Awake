@@ -79,6 +79,10 @@ const Banner = () => {
   const imageStyle = {
     margin: '-50px 0 0 0',
   }
+  const popStyle = {
+    minWidth: "50%",
+    maxWidth: "50%"
+  }
 
   const { userid } = useAuth();
   const router = useRouter();
@@ -118,7 +122,7 @@ const Banner = () => {
           </ButtonGroup>
         </BannerContent>
         <BannerImage>
-          <NextImage src={bannerImg} alt="Banner" />
+          <Image src={bannerImg?.src} style={popStyle} alt="Banner" />
         </BannerImage>
       </Container>
       <CustomerWrapper>

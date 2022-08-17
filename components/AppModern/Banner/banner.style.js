@@ -8,8 +8,9 @@ const BannerWrapper = styled.div`
   position: relative;
   background-image: -moz-linear-gradient(
     139deg,
-    rgb(100, 43, 115) 0%,
+    
     rgb(164,191,217) 100%
+    rgb(100, 43, 115) 0%,
   );
   background-image: -webkit-linear-gradient(
     139deg,
@@ -19,7 +20,6 @@ const BannerWrapper = styled.div`
   background-image: -ms-linear-gradient(
     139deg,
     rgb(100, 43, 115) 0%,
-    
     rgb(164,191,217) 100%
   );
   @media only screen and (min-width: 1201px) and (max-width: 1440px) {
