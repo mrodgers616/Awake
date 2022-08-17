@@ -34,7 +34,6 @@
 			}
 		]
 	},
-
 	"client": [
 		{
 			"id": 1,
@@ -57,7 +56,6 @@
 			"title": "the verge"
 		}
 	],
-
 	"features": {
 		"slogan": "KEY FEATURES",
 		"title": "Why you choose our app",
@@ -92,7 +90,6 @@
 			}
 		]
 	},
-
 	"appSlider": {
 		"carousel": [
 			{
@@ -134,14 +131,12 @@
 			}
 		]
 	},
-
 	"designAndBuilt": {
 		"image": "../../assets/image/appModern/code.png",
 		"slogan": "CODE INTEGRATION",
 		"title": "Introducing coding features of our apps with Customization",
 		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore features that Lorem ipsum dolor sit amet consectetur."
 	},
-
 	"productData": {
 		"slogan": "PRODUCT SHOWCASE",
 		"title": "Meet Client Satisfaction by using our product",
@@ -164,14 +159,12 @@
 				"link": "#1",
 				"title": "slide 3"
 			},
-
 			{
 				"id": 4,
 				"thumb_url": "../../assets/image/appModern/page1.png",
 				"link": "#1",
 				"title": "slide 4"
 			},
-
 			{
 				"id": 5,
 				"thumb_url": "../../assets/image/appModern/page3.png",
@@ -186,7 +179,6 @@
 			}
 		]
 	},
-
 	"pricing": {
 		"slogan": "PRICING PLAN",
 		"title": "Choose your pricing policy",
@@ -301,11 +293,9 @@
 			}
 		]
 	},
-
 	"teamportfolio": {
 		"title": "Meet our awesome team members, work behind the sense",
 		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore features that Lorem ipsum dolor sit amet consectetur.",
-
 		"teammember": [
 			{
 				"id": 1,
@@ -344,7 +334,6 @@
 			}
 		]
 	},
-
 	"testimonial": {
 		"slogan": "TESTIMONIAL",
 		"title": "Meet Client Satisfaction by using product",
@@ -378,7 +367,6 @@
 			}
 		]
 	},
-
 	"footer": {
 		"widgets": [
 			{

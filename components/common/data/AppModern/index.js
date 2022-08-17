@@ -3,7 +3,6 @@
 /* ------------------------------------ */
 import logo from '../../../../public/illustrations/Awake Logo.png';
 
-
 export const navbar = {
   logo: logo,
   navMenu: [
@@ -53,7 +52,9 @@ export const navbar = {
 /* ------------------------------------ */
 // client data section
 /* ------------------------------------ */
-import client1 from '../../assets/image/appModern/company1.png';
+// import client1 from '../../assets/image/appModern/company1.png';
+import client1 from '../../assets/image/appModern/CC.png';
+
 import client2 from '../../assets/image/appModern/company2.png';
 import client3 from '../../assets/image/appModern/company3.png';
 import client4 from '../../assets/image/appModern/company4.png';
@@ -136,8 +137,6 @@ import appSlide2 from '../../assets/image/appModern/appSlider2.png';
 import appSlide3 from '../../assets/image/appModern/appSlider3.png';
 import appIcon from '../../assets/image/appModern/icon1.svg';
 
-import aLogo from '../../../../public/illustrations/Awake Logo light.png';
-
 export const appSlider = {
   carousel: [
     {
@@ -156,7 +155,7 @@ export const appSlider = {
       title: 'App Slide 1',
     },
   ],
-  title: 'ClimateDAO is empowering everyday investors to be activists.',
+  title: 'Awake is empowering everyday investors to be activists.',
   description:
     "Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf",
   features: [

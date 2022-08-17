@@ -23,7 +23,8 @@ import BannerWrapper, {
 import { client } from '../../common/data/AppModern';
 
 import microsoft from '../../common/assets/image/appModern/envato-icon.png';
-import bannerImg from '../../../public/illustrations/abstractBanner.png';
+// import bannerImg from '../../../public/illustrations/abstractBanner.png';
+import bannerImg from '../../../public/illustrations/homepage2.png';
 import videoBanner1 from '../../common/assets/image/appModern/video-1.png';
 import videoBanner2 from '../../common/assets/image/appModern/video-2.png';
 import circleBorder from '../../common/assets/image/appModern/shape.svg';
@@ -87,7 +88,7 @@ const Banner = () => {
       <Container>
         <BannerContent>
           <RatingInfo>
-            <Image src={aLogo?.src} alt="Awake Logo" style={imageStyle} />
+            {/* <Image src={aLogo?.src} alt="Awake Logo" style={imageStyle} /> */}
           </RatingInfo>
           <Heading
             as="h1"

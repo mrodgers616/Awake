@@ -16,7 +16,7 @@ import "./styles.css"
 import type { NextPage } from "next";
 import type { ReactElement, ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components';
-import { theme as themeModernApp} from '../components/common/theme/appModern';
+import { theme as themeModernApp } from '../components/common/theme/appModern';
 
 import Sticky from 'react-stickynode';
 import Navbar from '../components/AppModern/Navbar';
@@ -46,18 +46,18 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   let layout;
   Component.layout ? layout = Component.layout : layout = "";
 
-  if(layout === 'appWrapper') {
+  if (layout === 'appWrapper') {
     return (
       <ThemeProvider theme={themeModernApp}>
         <>
 
           <Head>
-            <title>Climate DAO</title>
+            <title>Awake</title>
             <meta name="description" content="ClimateDAO" />
             <link rel="shortcut icon" href="/images/favicon.ico" />
             <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-            <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"/>
-            <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"/>
+            <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+            <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
             <link
               href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700&display=swap"
               rel="stylesheet"
@@ -65,19 +65,19 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           </Head>
           <ResetCSS />
           <GlobalStyle />
-            <AuthProvider>
-              <AppWrapper>
-                <Sticky top={0} innerZ={9999} activeClass="sticky-active">
-                  <Navbar />
-                </Sticky>
-                <ContentWrapper>
-                  <LayoutAppModern>
-                    <GoogleAnalytics measurementId="G-E829D3LL4P" />
-                    <Component {...pageProps} />
-                  </LayoutAppModern>
-                </ContentWrapper>
-              </AppWrapper>
-            </AuthProvider>
+          <AuthProvider>
+            <AppWrapper>
+              <Sticky top={0} innerZ={9999} activeClass="sticky-active">
+                <Navbar />
+              </Sticky>
+              <ContentWrapper>
+                <LayoutAppModern>
+                  <GoogleAnalytics measurementId="G-E829D3LL4P" />
+                  <Component {...pageProps} />
+                </LayoutAppModern>
+              </ContentWrapper>
+            </AppWrapper>
+          </AuthProvider>
         </>
       </ThemeProvider>
     )
@@ -98,7 +98,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   }
 
-  
+
 }
 
 export default MyApp
