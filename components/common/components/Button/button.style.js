@@ -11,7 +11,7 @@ const ButtonStyle = styled.button`
   align-items: center;
   justify-content: center;
   color: ${themeGet('colors.white', '#ffffff')};
-  background-color: ${themeGet('colors.primary', '#028489')};
+  background-color: ${themeGet('colors.primary', '#32006b')};
   min-height: ${themeGet('heights.3', '48')}px;
   min-width: ${themeGet('widths.3', '48')}px;
   border-radius: ${themeGet('radius.0', '3')}px;
