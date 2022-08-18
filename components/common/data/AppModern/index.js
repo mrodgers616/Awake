@@ -91,7 +91,7 @@ import featureIcon4 from '../../assets/image/appModern/icon4.svg';
 
 export const features = {
   slogan: 'How Does it Work',
-  title: 'Join Now to Participate in Campaigns',
+  title: 'Get off the couch; join us!',
   items: [
     {
       id: 1,
@@ -149,17 +149,17 @@ export const appSlider = {
     {
       id: 2,
       image: appSlide2,
-      title: 'App Slide 1',
+      title: 'App Slide 2',
     },
     {
       id: 3,
       image: appSlide3,
-      title: 'App Slide 1',
+      title: 'App Slide 3',
     },
   ],
   title: 'Awake is empowering everyday investors to be activists.',
   description:
-    "Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf",
+    "Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf.",
   features: [
     {
       id: 1,
