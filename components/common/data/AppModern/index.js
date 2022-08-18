@@ -383,37 +383,37 @@ export const teamportfolio = {
     {
       id: 1,
       img: member1,
-      text: 'Berlin Corleone',
+      text: 'Elliot \'The Cheese\' Waxman',
     },
     {
       id: 2,
       img: member2,
-      text: 'Jona White',
+      text: 'Matthew \'Big Daddy\' Rodgers',
     },
     {
       id: 3,
       img: member3,
-      text: 'Michael Price',
+      text: 'Tom \'The OG\' O\'keefe',
     },
     {
       id: 4,
       img: member4,
-      text: 'Gullyboy Rana',
+      text: 'Eli \'The Tank\' Danzinger',
     },
     {
       id: 5,
       img: member5,
-      text: 'Miss Clair',
+      text: 'Fahima \'Feems\' Gibrel',
     },
     {
       id: 6,
       img: member6,
-      text: 'Bucky Ali',
+      text: 'Johnny \'Ice Man\' Gabrielle',
     },
     {
       id: 7,
       img: member7,
-      text: 'Arthus Doe',
+      text: 'John \'The Ghost\' Spies'
     },
   ],
 };
