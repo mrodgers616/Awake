@@ -464,7 +464,7 @@ export const testimonial = {
 /* ------------------------------------ */
 import chat from '../../assets/image/appModern/chat.svg';
 import group from '../../assets/image/appModern/group.svg';
-import github from '../../assets/image/appModern/github.svg';
+import twitter from '../../assets/image/appModern/twitter.png';
 import footerLogo from '../../assets/image/appModern/logoWhite.png';
 
 export const footer = {
@@ -474,49 +474,44 @@ export const footer = {
       icon: chat,
       title: 'Join the Community',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore.',
+        'Create your account, link a brokerage account, and start voting to make a difference',
     },
     {
       id: 2,
       icon: group,
-      title: 'Join in Chat Community',
+      title: 'Discuss With the Community',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore.',
+        'Chat about campaigns with other users',
     },
     {
       id: 3,
-      icon: github,
-      title: 'Github Access',
+      icon: twitter,
+      title: 'Follow Us On Twitter',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore.',
+        'Get updates and insights about popular campaigns',
     },
   ],
   logo: footerLogo,
   menu: [
     {
       id: 1,
-      text: 'Home',
-      link: '#',
-    },
-    {
-      id: 2,
       text: 'Adversite',
       link: '#',
     },
     {
+      id: 2,
+      text: 'Privacy Policy',
+      link: '/privacypolicy',
+    },
+    {
       id: 3,
-      text: 'Supports',
-      link: '#',
+      text: 'Twitter',
+      link: 'https://twitter.com/Climate_DAO?s=20&t=7kfsw7yZBFaki0n8p6Qg7w',
     },
     {
       id: 4,
-      text: 'Marketing',
-      link: '#',
-    },
-    {
-      id: 5,
       text: 'Contact',
-      link: '#',
+      link: 'mailto:inquiries@climatedao.xyz',
     },
   ],
 };

@@ -2,12 +2,13 @@ import { chakra, Box } from "@chakra-ui/react";
 import Head from "next/head";
 import { ReactNode } from "react";
 import type { Component } from "react";
-import Footer from "../components/Footer";
 import { ThemeProvider } from 'styled-components';
 import { theme as themeModernApp} from '../components/common/theme/appModern';
 
 import Sticky from 'react-stickynode';
 import Navbar from '../components/AppModern/Navbar';
+import Footer from '../components/AppModern/Footer';
+
 import ResetCSS from '../components/common/assets/css/style';
 
 import GlobalStyle, {
@@ -49,7 +50,13 @@ export default function Layout({ children }: LayoutProps) {
         flexGrow={1}
         fontFamily='DM Sans'
       >{children}</Box>
-      <Footer />
+      <ThemeProvider theme={themeModernApp}>
+        <ResetCSS />
+        <GlobalStyle />
+        <AppWrapper2>
+            <Footer />
+        </AppWrapper2>
+      </ThemeProvider>
     </chakra.div>
   );
 }
