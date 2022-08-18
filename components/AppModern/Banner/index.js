@@ -84,6 +84,10 @@ const Banner = () => {
     maxWidth: "55%",
     marginRight: "220px"
   }
+  const small = {
+    w: "5%",
+    h: "100px"
+  }
 
   const { userid } = useAuth();
   const router = useRouter();
@@ -126,7 +130,7 @@ const Banner = () => {
       </Container>
       <CustomerWrapper>
         <Text content="Trusted by companies like:" />
-        <ImageWrapper>
+        <ImageWrapper style={small}>
           {client.map((item) => (
             <Image
               key={`client-key${item.id}`}

@@ -55,25 +55,24 @@ export const navbar = {
 // import client1 from '../../assets/image/appModern/company1.png';
 import client1 from '../../assets/image/appModern/CC.png';
 
-import client2 from '../../assets/image/appModern/company2.png';
-import client3 from '../../assets/image/appModern/company3.png';
+import client2 from '../../assets/image/appModern/possibilian.png';
+import client3 from '../../assets/image/appModern/allegory.png';
 import client4 from '../../assets/image/appModern/company4.png';
-
 export const client = [
   {
     id: 1,
     image: client1,
-    title: 'The new york times',
+    title: 'Carbon Collective',
   },
   {
     id: 2,
     image: client2,
-    title: 'amazon',
+    title: 'Possibilian Ventures',
   },
   {
     id: 3,
     image: client3,
-    title: 'evernote',
+    title: 'Allegory Capital',
   },
   {
     id: 4,
