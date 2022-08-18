@@ -19,6 +19,7 @@ import BannerWrapper, {
   CustomerWrapper,
   ImageWrapper,
 } from './banner.style';
+import LinkAccount from "../../plaidLinkButton";
 
 import { client } from '../../common/data/AppModern';
 
@@ -110,7 +111,7 @@ const Banner = () => {
           />
           <ButtonGroup>
             {userid ? (
-              <Button className="primary" title="Activate Your Shares" onClick={() => { }} />
+              <LinkAccount className="primary" title="Activate Your Shares" onClick={() => { }} />
             ) : (
               <Button className="primary" title="Create An Account" onClick={() => { router.push("/register") }} />
             )}

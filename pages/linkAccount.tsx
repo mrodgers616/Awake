@@ -1,5 +1,5 @@
 import type { NextPage, GetServerSidePropsContext } from "next";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from "next/head";
 import { Configuration, LinkTokenCreateRequest, PlaidApi, PlaidEnvironments, InvestmentsHoldingsGetResponse } from 'plaid';
 import {
@@ -7,6 +7,8 @@ import {
   PlaidLinkOnSuccess,
   PlaidLinkOnEvent,
   PlaidLinkOnExit,
+  usePlaidLink,
+  PlaidLinkOptionsWithLinkToken,
 } from 'react-plaid-link';
 // import {
 //   Container,
@@ -46,7 +48,7 @@ import BannerWrapper, {
   CustomerWrapper,
   ImageWrapper,
 } from '../components/AppModern/Banner/banner.style';
-import bannerImg from '../public/illustrations/homepage2.png';
+import bannerImg from '../public/illustrations/stocks.png';
 import circleBorder from '../components/common/assets/image/appModern/shape.svg';
 import { useAuth } from "../contexts/AuthContext";
 
@@ -210,18 +212,31 @@ const investmentsCategories: Array<Categories> = [
   },
 ];
 
-class linkAccount extends React.Component<Props, State> {
+const LinkAccount: NextPage = () => {
 
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      token: null,
-      uid: null,
-      isPlaidConnectedBefore: null,
+  const [theToken, setTheToken] = useState(null);
+  const [isPlaidConnectedBefore, setIsPlaidConnectedBefore] = useState(String);
+  let plaidConnectedBefore: any;
+  const [uid, setUid] = useState(String);
+  const { userid } = useAuth();
+
+
+  async function loadOnPageLoad() {
+    const token = await createLinkToken();
+    const uid = await getProfileUID();
+    const profile = await getProfileData(uid);
+    const profileData = {
+      ...profile.data()
     };
+    setTheToken(token);
+    setIsPlaidConnectedBefore(profileData.plaidPublicToken);
+    setUid(uid);
+    plaidConnectedBefore = profileData.plaidPublicToken;
+    
   }
-  
-  async createLinkToken() {
+
+
+  async function createLinkToken() {
     // get a link_token from your server
     //console.log("link token begin")
     try {
@@ -235,7 +250,7 @@ class linkAccount extends React.Component<Props, State> {
     }
   }
 
-  async getInvestmentData(accessToken: any) {
+  async function getInvestmentData(accessToken: any) {
     try {
       const response = await fetch("/api/get_investment_data/", { method: 'POST', body: accessToken });
       return await response.json();
@@ -245,7 +260,7 @@ class linkAccount extends React.Component<Props, State> {
     }
   }
 
-  async getAccessToken(publicToken: any) {
+  async function getAccessToken(publicToken: any) {
     try {
       const response = await fetch("/api/get_access_token/", { method: 'POST', body: publicToken });
       //console.log(response);
@@ -258,7 +273,7 @@ class linkAccount extends React.Component<Props, State> {
     }
   }
 
-  async storeInvestmentData(data: any) {
+  async function storeInvestmentData(data: any) {
     //console.log(data);
     let data2: InvestmentData = {
       error: null,
@@ -272,7 +287,7 @@ class linkAccount extends React.Component<Props, State> {
     }
 
     try {
-      const uid = await this.getProfileUID()
+      const uid = await getProfileUID()
       updateOrAddProfileData(uid, finalData);
     }
     catch (e) {
@@ -280,15 +295,15 @@ class linkAccount extends React.Component<Props, State> {
     }
   }
 
-  async getProfileUID() {
+  async function getProfileUID() {
     const cookie = parseCookies();
     const uid = cookie.userUID;
     ////console.log(uid);
     return uid;
   }
 
-  isPlaidConnectedAlready() {
-    if (this.state.isPlaidConnectedBefore) {
+  function isPlaidConnectedAlready() {
+    if (isPlaidConnectedBefore) {
       return true;
     }
     else {
@@ -296,50 +311,57 @@ class linkAccount extends React.Component<Props, State> {
     }
   }
 
-  async componentDidMount() {
-    const token = await this.createLinkToken();
-
-    const uid = await this.getProfileUID();
-    const profile = await getProfileData(uid);
-    const profileData = {
-      ...profile.data()
-    };
-    this.setState({
-      token: token,
-      isPlaidConnectedBefore: profileData.plaidPublicToken
-    });
-  }
-
-  onSuccess: PlaidLinkOnSuccess = (publicToken, metadata) => {
+  const onSuccess: PlaidLinkOnSuccess = (publicToken, metadata) => {
     const finalPublicToken = {
       plaidPublicToken: publicToken
     }
 
-    const uid = this.getProfileUID().then(profileUID => {
+    const uid = getProfileUID().then(profileUID => {
       updateOrAddProfileData(profileUID, finalPublicToken);
     });
 
-    const accessToken = this.getAccessToken(publicToken).then(value => {
-      const data = this.getInvestmentData(value).then(dataValue => {
-        this.storeInvestmentData(dataValue).then(() => {
+    const accessToken = getAccessToken(publicToken).then(value => {
+      const data = getInvestmentData(value).then(dataValue => {
+        storeInvestmentData(dataValue).then(() => {
           window.location.reload();
         })
       });
     });
   };
 
-  onEvent: PlaidLinkOnEvent = (eventName, metadata) => {
+  const onEvent: PlaidLinkOnEvent = (eventName, metadata) => {
     // log onEvent callbacks from Link
     // https://plaid.com/docs/link/web/#onevent
   };
 
-  onExit: PlaidLinkOnExit = (error, metadata) => {
+  const onExit: PlaidLinkOnExit = (error, metadata) => {
     // log onExit callbacks from Link, handle errors
     // https://plaid.com/docs/link/web/#onexit
     //console.log(error, metadata);
   };
 
-  render() {
+  const config: PlaidLinkOptionsWithLinkToken = {
+    onSuccess,
+    onExit,
+    onEvent,
+    token: theToken,
+  };
+
+  const { open, exit, ready } = usePlaidLink(config);
+  
+  useEffect(() => {
+    loadOnPageLoad();
+    //open();
+    
+  }, []);
+
+  if(ready) {
+    if(!isPlaidConnectedAlready()) {
+      open();
+    }
+  }
+  
+
     return (
       <BannerWrapper id="home">
         {/*@ts-ignore*/}
@@ -361,14 +383,21 @@ class linkAccount extends React.Component<Props, State> {
           />
           <ButtonGroup>
             {/*@ts-ignore*/}
-              <Button className="primary" title="Connect Your Brokerage Account" as={PlaidLink} 
-              token={this.state.token}
-              onSuccess={this.onSuccess}
-              onEvent={this.onEvent}
-              onExit={this.onExit}>
+            {isPlaidConnectedBefore ? ( <Button className="primary" title="Account Already Linked" disabled={true}>
                 
-                {this.state.isPlaidConnectedBefore ? "Account Linked Already!" : "Link Brokerage Account"}
               </Button>
+              
+            ) : ( 
+            /*@ts-ignore*/
+            <Button className="primary" title="Connect Your Brokerage Account" as={PlaidLink} 
+            token={theToken}
+            onSuccess={onSuccess}
+            onEvent={onEvent}
+            onExit={onExit}>
+              
+            </Button>
+              
+            )}
 
             {/* <Button
                 className="text"
@@ -576,9 +605,8 @@ class linkAccount extends React.Component<Props, State> {
       //   </Box>
       // </>
     )
-  }
 
 
 }
 
-export default linkAccount;
+export default LinkAccount;
