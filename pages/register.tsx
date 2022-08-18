@@ -43,12 +43,22 @@ const Register: NextPage = () => {
       <Head>
         <title>Awake | Register</title>
       </Head>
+      <Box
+        bg="sage.500"
+        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+        // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
+        bgSize="cover"
+        zIndex={0}
+        position="relative"
+        height="96px"
+      />
       <Box>
         <Container
           width="100%"
           overflow="auto"
           marginX="auto"
-          mt="184px"
+          mt="94px"
+          mb="94px"
           pb='16px'
         >
           <Box
