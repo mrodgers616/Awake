@@ -383,37 +383,37 @@ export const teamportfolio = {
     {
       id: 1,
       img: member1,
-      text: 'Berlin Corleone',
+      text: 'Elliot \'The Cheese\' Waxman',
     },
     {
       id: 2,
       img: member2,
-      text: 'Jona White',
+      text: 'Matthew \'Big Daddy\' Rodgers',
     },
     {
       id: 3,
       img: member3,
-      text: 'Michael Price',
+      text: 'Tom \'The OG\' O\'keefe',
     },
     {
       id: 4,
       img: member4,
-      text: 'Gullyboy Rana',
+      text: 'Eli \'The Tank\' Danzinger',
     },
     {
       id: 5,
       img: member5,
-      text: 'Miss Clair',
+      text: 'Fahima \'Feems\' Gibrel',
     },
     {
       id: 6,
       img: member6,
-      text: 'Bucky Ali',
+      text: 'Johnny \'Ice Man\' Gabrielle',
     },
     {
       id: 7,
       img: member7,
-      text: 'Arthus Doe',
+      text: 'John \'The Ghost\' Spies'
     },
   ],
 };
@@ -423,36 +423,36 @@ export const teamportfolio = {
 /* ------------------------------------ */
 export const testimonial = {
   slogan: 'TESTIMONIAL',
-  title: 'Meet Client Satisfaction by using product',
+  title: 'What Users Are Saying',
   reviews: [
     {
       id: 1,
-      title: 'Modern look & trending design',
+      title: 'Literally cured me',
       description:
-        'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
+        'I am not a doctor, but I tried different therapies for years before my cancer was cured. Coincidentally (or not) once I started using Awake, it went away. Okay, Awake literally cured my cancer.',
       avatar:
         'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg',
-      name: 'Jon Doe',
+      name: 'Tim Khan',
       designation: 'CEO of RedQ Inc.',
       review: 4,
     },
     {
       id: 2,
-      title: 'User friendly & Customizable',
+      title: 'Finally having an impact!',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore features Lorem ipsum dolor sit amet consectetur adipisicing.',
+        'I spent years flirting with sustainable finance, divesting from oil companies and investing in clean tech, but still did not feel like I was moving the dial, then finally I started using Awake.',
       avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-      name: 'Jeny Doe',
+      name: 'Jon Armweak',
       designation: 'Co Founder of RedQ Inc.',
       review: 5,
     },
     {
       id: 3,
-      title: 'User friendly & Customizable',
+      title: 'The finance app I didnt know I needed',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore features Lorem ipsum dolor sit amet consectetur adipisicing.',
+        'I was curious about sustainable finance and how I can have an impact; a friend recommended Awake to me and I have backed so many impactful campaigns!',
       avatar: 'https://randomuser.me/api/portraits/men/44.jpg',
-      name: 'Jon Doe',
+      name: 'Felix Tran',
       designation: 'Co Founder of RedQ Inc.',
       review: 5,
     },

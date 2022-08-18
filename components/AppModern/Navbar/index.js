@@ -17,7 +17,7 @@ import LogoImage from '../../../public/illustrations/Awake Logo.png';
 import LogoImageLight from '../../../public/illustrations/Awake Logo light.png';
 // COMMENTED OUT THE OLD LOGO
 // import LogoImageAlt from '../../../public/illustrations/Climate DAO dark.png';
-import LogoImageAlt from '../../../public/illustrations/Awake Logo dark.png';
+import LogoImageAlt from '../../../public/illustrations/Awake Logo dark (new).png';
 
 import { navbar } from '../../common/data/AppModern';
 import { useRouter } from "next/router";

@@ -76,12 +76,12 @@ export const AppWrapper = styled.div`
             font-weight: 400;
             transition: all 0.3s ease;
             &:hover {
-              color: ${themeGet('colors.primary', '#d1397c')};
+              color: ${themeGet('colors.primary', '#32006B')};
             }
           }
           &.is-current {
             a {
-              color: ${themeGet('colors.primary', '#d1397c')};
+              color: ${themeGet('colors.primary', '#32006B')};
             }
           }
         }
@@ -131,12 +131,12 @@ export const AppWrapper2 = styled.div`
             font-weight: 400;
             transition: all 0.3s ease;
             &:hover {
-              color: ${themeGet('colors.primary', '#d1397c')};
+              color: ${themeGet('colors.primary', '#32006B')};
             }
           }
           &.is-current {
             a {
-              color: ${themeGet('colors.primary', '#d1397c')};
+              color: ${themeGet('colors.primary', '#32006B')};
             }
           }
         }

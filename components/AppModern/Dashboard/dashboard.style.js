@@ -90,7 +90,7 @@ const DashboardWrapper = styled.section`
     line-height: 24px;
     margin-bottom: 12px;
     letter-spacing: 1.5px;
-    color: #d1397c;
+    color: #32006B;
     text-transform: uppercase;
   }
 `;

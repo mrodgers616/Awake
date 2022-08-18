@@ -118,7 +118,7 @@ const Membership: NextPage = () => {
             mb="8px"
           >
             <Image
-              src="illustrations/Awake Logo dark.png"
+              src="illustrations/Awake Logo dark (new).png"
               alt="Awake Logo Dark"
             />
             <Heading

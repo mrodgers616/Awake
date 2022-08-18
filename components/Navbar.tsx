@@ -212,7 +212,7 @@ export default function Navbar(): JSX.Element {
 
             >
               <Image
-                src="/illustrations/Awake Logo dark.png"
+                src="/illustrations/Awake Logo dark (new).png"
                 width={200}
                 alt="Awake Logo dark"
               >
@@ -288,7 +288,7 @@ export default function Navbar(): JSX.Element {
         >
           <chakra.div>
             <Image
-              src="/illustrations/Awake Logo dark.png"
+              src="/illustrations/Awake Logo dark (new).png"
               width={250}
               alt="Awake Logo dark"
             />
@@ -320,7 +320,7 @@ export default function Navbar(): JSX.Element {
               px='16px'
             >
               <Image
-                src="/illustrations/Awake Logo dark.png"
+                src="/illustrations/Awake Logo dark (new).png"
                 width={200}
                 alt="Awake Logo Dark"
               />

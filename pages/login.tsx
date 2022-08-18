@@ -98,7 +98,7 @@ const Login: NextPageWithLayout = () => {
                 <Flex>
                   <Button
                     type="submit"
-                    bg='seafoam.500'
+                    bg='rgb(164,191,217)'
                   >Login</Button>
 
                 </Flex>
