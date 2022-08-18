@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import type { Component } from "react";
 import Footer from "../components/Footer";
 import { ThemeProvider } from 'styled-components';
-import { theme as themeModernApp} from '../components/common/theme/appModern';
+import { theme as themeModernApp } from '../components/common/theme/appModern';
 
 import Sticky from 'react-stickynode';
 import Navbar from '../components/AppModern/Navbar';
@@ -29,12 +29,12 @@ export default function Layout({ children }: LayoutProps) {
       flexDirection="column"
     >
       <Head>
-        <title>Climate DAO</title>
-        <meta name="description" content="Climate DAO" />
+        <title>Awake</title>
+        <meta name="description" content="Awake" />
         <link rel="shortcut icon" href="/images/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
       </Head>
       <ThemeProvider theme={themeModernApp}>
         <ResetCSS />
@@ -45,7 +45,7 @@ export default function Layout({ children }: LayoutProps) {
           </Sticky>
         </AppWrapper2>
       </ThemeProvider>
-      <Box 
+      <Box
         flexGrow={1}
         fontFamily='DM Sans'
       >{children}</Box>
