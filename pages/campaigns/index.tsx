@@ -198,7 +198,6 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
       </Head>
       <Box
         bg="sage.500"
-        mt="120px"
         bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
         // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
         bgSize="cover"
@@ -217,7 +216,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
         <Container
           position="relative"
           width="100%"
-          h="400px"
+          h="600px"
           overflow="auto"
           marginX="auto"
           zIndex={200}
