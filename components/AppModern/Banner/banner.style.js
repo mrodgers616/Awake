@@ -8,8 +8,8 @@ const BannerWrapper = styled.div`
   position: relative;
   background-image: -moz-linear-gradient(
     41deg,
-    rgb(164,191,217) 100%
     rgb(100, 43, 115) 0%,
+    rgb(164,191,217) 100%,
   );
   background-image: -webkit-linear-gradient(
     41deg,
