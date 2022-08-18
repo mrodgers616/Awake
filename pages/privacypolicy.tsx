@@ -1,5 +1,8 @@
 import type { NextPage, GetServerSidePropsContext } from "next";
 import React from 'react';
+import {
+    Container,
+  } from "@chakra-ui/react";
 
 interface Props { }
 interface State { }
@@ -11,6 +14,7 @@ class privacyPolicy extends React.Component<Props, State> {
   render() {
     return (
       <>
+      <Container mt="5%">
         <h1>Privacy Policy for ClimateDAO Incorporated</h1>
 
         <p>At climatedao.xyz, accessible from https://climatedao.xyz/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by climatedao.xyz and how we use it.</p>
@@ -91,6 +95,7 @@ class privacyPolicy extends React.Component<Props, State> {
         <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
 
         <p>climatedao.xyz does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+        </Container>
       </>
     )
   }

@@ -155,7 +155,7 @@ const Navbar = () => {
 
           <Button
             className="menubar"
-            color="#0F2137"
+            color="#32006b"
             icon={
               state.mobileMenu ? (
                 <Icon className="bar" icon={x} />
