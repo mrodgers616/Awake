@@ -204,7 +204,7 @@ export const CustomerWrapper = styled.div`
   display: flex;
   align-items: center;
   @media only screen and (max-width: 1440px) {
-    padding: 0px 25% 55px;
+    padding: 0px 0% 55px;
   }
   @media only screen and (max-width: 1099px) {
     padding: 55px 0 55px;
