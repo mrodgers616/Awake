@@ -135,7 +135,10 @@ export const features = {
 import appSlide1 from '../../assets/image/appModern/appSlider1.png';
 import appSlide2 from '../../assets/image/appModern/appSlider2.png';
 import appSlide3 from '../../assets/image/appModern/appSlider3.png';
-import appIcon from '../../assets/image/appModern/icon1.svg';
+// import appIcon from '../../assets/image/appModern/icon1.svg';
+import appIcon1 from '../../assets/image/appModern/icon1.png';
+import appIcon2 from '../../assets/image/appModern/icon2.png';
+import appIcon3 from '../../assets/image/appModern/icon3.png';
 
 export const appSlider = {
   carousel: [
@@ -161,21 +164,21 @@ export const appSlider = {
   features: [
     {
       id: 1,
-      icon: appIcon,
-      title: 'Easy Voting',
-      description: "Link an account, choose a campaign, and vote. It's as easy as that.",
+      icon: appIcon1,
+      title: 'Activate Your Shares',
+      description: "Make a profile and link your brokerage account to get started.",
     },
     {
       id: 2,
-      icon: appIcon,
-      title: 'Easy Voting',
-      description: "Link an account, choose a campaign, and vote. It's as easy as that.",
+      icon: appIcon2,
+      title: 'Vote On Campaigns',
+      description: "Supporting initiatives to change companies in your portfolio is a click away.",
     },
     {
       id: 3,
-      icon: appIcon,
-      title: 'Easy Voting',
-      description: "Link an account, choose a campaign, and vote. It's as easy as that.",
+      icon: appIcon3,
+      title: 'Join the Community',
+      description: "Stay in the loop about campaigns to fight the worlds toughest problems",
     },
   ],
 };
@@ -375,9 +378,9 @@ import member6 from '../../assets/image/appModern/6.png';
 import member7 from '../../assets/image/appModern/7.png';
 
 export const teamportfolio = {
-  title: 'Meet our awesome team members, work behind the sense',
+  title: 'The mad scientists behind the movement',
   description:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore features that Lorem ipsum dolor sit amet consectetur.',
+    "We've come quite a long way as a team. Click below to learn more about our journey.",
 
   teammember: [
     {
@@ -487,6 +490,7 @@ export const footer = {
       id: 3,
       icon: twitter,
       title: 'Follow Us On Twitter',
+      link: 'https://twitter.com/Climate_DAO?s=20&t=7kfsw7yZBFaki0n8p6Qg7w',
       description:
         'Get updates and insights about popular campaigns',
     },

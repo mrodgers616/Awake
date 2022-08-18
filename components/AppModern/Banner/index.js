@@ -97,18 +97,16 @@ const Banner = () => {
           </RatingInfo>
           <Heading
             as="h1"
-            content="Use Your Shares to Have Your Voice Heard"
+            content="Where Value Meets Values"
           />
           <Text
-            content="After verifying that you own shares and signaling your support for
-              campaigns, we can approach companies with much more leverage. Whether you own stocks or not, public companies have a huge impact
-              on our everyday lives. Everything from the food we eat, to how we
-              connect, and the environment we live in is impacted by
-              public companies."
+            as="h3"
+            color="white"
+            content="What if I told you...you can fight climate change with investments you've already made?"
           />
           <ButtonGroup>
             {userid ? (
-              <Button className="primary" title="Connect Your Brokerage Account" onClick={() => { }} />
+              <Button className="primary" title="Activate Your Shares" onClick={() => { }} />
             ) : (
               <Button className="primary" title="Create An Account" onClick={() => { router.push("/register") }} />
             )}
