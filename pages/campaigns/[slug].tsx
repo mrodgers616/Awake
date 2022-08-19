@@ -317,8 +317,10 @@ export default function Proposal({
               bg="rgb(100, 43, 115)"
               color="white"
               fontSize="1.4em"
-              w="350px"
-              mr="16px"
+              w={{ lg: "350px" }}
+              mr={{
+                base: "0px", sm: "0", lg: "16px"
+              }}
               mb={{
                 base: '32px',
                 md: '0'
@@ -386,7 +388,7 @@ export default function Proposal({
         /> */}
         {/*Adding the about campaign content on the left*/}
         <Flex mt="64px" w="100%">
-          <Flex mb="64px" flexDir={"column"} w="60%" mr="32px">
+          <Flex mb="64px" flexDir={"column"} w={{ base: "100%", sm: "100%", md: "60%", lg: "60 %" }} mr="32px">
             <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 About Campaign
@@ -541,7 +543,7 @@ export default function Proposal({
                 <Button
                   {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
                   variant="solid"
-                  size="lg"
+                  size={{ base: "sm", sm: "sm", lg: "lg" }}
                   width={48}
                   backgroundColor="rgb(164,191,217)"
                   mb='10px'
