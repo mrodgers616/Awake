@@ -58,6 +58,7 @@ import client1 from '../../assets/image/appModern/CC.png';
 import client2 from '../../assets/image/appModern/possibilian.png';
 import client3 from '../../assets/image/appModern/allegory.png';
 import client4 from '../../assets/image/appModern/company4.png';
+import client5 from '../../assets/image/appModern/giphy.gif';
 export const client = [
   {
     id: 1,
@@ -77,6 +78,11 @@ export const client = [
   {
     id: 4,
     image: client4,
+    title: 'the verge',
+  },
+  {
+    id: 5,
+    image: client5,
     title: 'the verge',
   },
 ];
