@@ -4,6 +4,12 @@ import Heading from '../../common/components/Heading';
 import NextImage from '../../common/components/NextImage';
 import Container from '../../common/components/UI/Container';
 import SectionWrapper, { ContentWrapper } from './designedAndBuilt.style';
+import ProductSlideWrapper, {
+  CarouselArea,
+  CircleLoader,
+  MockupWrapper,
+  SectionHeader,
+} from '../ProductSlide/productSlide.style';
 
 import { designAndBuilt } from '../../common/data/AppModern';
 

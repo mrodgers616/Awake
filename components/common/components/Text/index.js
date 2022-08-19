@@ -7,6 +7,7 @@ import {
   textAlign,
   lineHeight,
   letterSpacing,
+  color,
 } from 'styled-system';
 import { base, themed } from '../base';
 
@@ -17,6 +18,7 @@ const TextWrapper = styled('p')(
   textAlign,
   lineHeight,
   letterSpacing,
+  color,
   themed('Text')
 );
 
@@ -72,6 +74,13 @@ Text.propTypes = {
     ),
   ]),
   letterSpacing: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    ),
+  ]),
+  color: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
     PropTypes.arrayOf(
