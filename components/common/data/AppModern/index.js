@@ -435,7 +435,7 @@ export const testimonial = {
       avatar:
         'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg',
       name: 'Tim Khan',
-      designation: 'CEO of RedQ Inc.',
+      designation: '',
       review: 4,
     },
     {
@@ -445,7 +445,7 @@ export const testimonial = {
         'I spent years flirting with sustainable finance, divesting from oil companies and investing in clean tech, but still did not feel like I was moving the dial, then finally I started using Awake.',
       avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
       name: 'Jon Armweak',
-      designation: 'Co Founder of RedQ Inc.',
+      designation: '',
       review: 5,
     },
     {
@@ -455,7 +455,7 @@ export const testimonial = {
         'I was curious about sustainable finance and how I can have an impact; a friend recommended Awake to me and I have backed so many impactful campaigns!',
       avatar: 'https://randomuser.me/api/portraits/men/44.jpg',
       name: 'Felix Tran',
-      designation: 'Co Founder of RedQ Inc.',
+      designation: '',
       review: 5,
     },
   ],
