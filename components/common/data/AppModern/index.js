@@ -80,11 +80,6 @@ export const client = [
     image: client4,
     title: 'the verge',
   },
-  {
-    id: 5,
-    image: client5,
-    title: 'the verge',
-  },
 ];
 
 /* ------------------------------------ */
