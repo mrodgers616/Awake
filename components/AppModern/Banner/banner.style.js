@@ -197,14 +197,14 @@ export const VideoWrapper = styled.div`
 `;
 export const CustomerWrapper = styled.div`
   max-width: 15%;
-  min-width: 5%; 
+  min-width: 5%;
+  margin-right:5%; 
   padding: 0px 0 70px;
   width: 100%;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   @media only screen and (max-width: 1440px) {
-    padding: 0px 0% 55px;
+    padding: 0px % 55px;
   }
   @media only screen and (max-width: 1099px) {
     padding: 55px 0 55px;

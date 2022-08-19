@@ -21,7 +21,7 @@ const About: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>Climate DAO | About us</title>
+        <title>Awake | About us</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Box

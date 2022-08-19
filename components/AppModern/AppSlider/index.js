@@ -21,6 +21,14 @@ const AppSlider = () => {
     animationDuration: 700,
   };
 
+  const boxStyle = {
+    borderColor: "red",
+    borderWidth: "5px"
+    // :hover {
+    //   box-shadow: #1e2a4a 0px 12px 24px -10px;
+    // }
+  }
+
   return (
     <SectionWrapper>
       <Container>
@@ -49,6 +57,7 @@ const AppSlider = () => {
               key={`app-feature--key${item.id}`}
               iconPosition="left"
               icon={<img src={item.icon?.src} alt={item.title} />}
+              style={boxStyle}
               title={<Heading as="h3" content={item.title} />}
               description={<Text content={item.description} />}
             />

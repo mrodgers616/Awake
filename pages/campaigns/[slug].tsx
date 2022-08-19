@@ -146,10 +146,10 @@ export default function Proposal({
         return false;
       }
     }
-    catch(err) {
+    catch (err) {
       router.push("/login");
     }
-    
+
 
   }
 
@@ -185,17 +185,17 @@ export default function Proposal({
         <title>Proposal {campaign?.id} | ClimateDAO</title>
       </Head>
       <Box
-        //bg="sage.500"
         mt="120px"
-        bgGradient="linear-gradient(sage.500, seafoam.500)"
+        bg="sage.500"
+        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
         //bgImage="url('https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1259&q=80')"
         bgSize="cover"
         position="relative"
         zIndex={0}
       >
-        
+
         <Box
-          bg="rgba(0,0,0,.8)"
+          // bg="rgba(0,0,0,.8)"
           position="absolute"
           w="100%"
           h="100%"
@@ -204,9 +204,9 @@ export default function Proposal({
           left="0"
         />
         <Container p="0 25px" m="0 auto" width={"100%"}>
-        <Button leftIcon={<IoArrowBackOutline/>} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px"> 
-          All Campaigns
-        </Button>
+          <Button leftIcon={<IoArrowBackOutline />} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px">
+            All Campaigns
+          </Button>
           <Flex
             position="relative"
             minH="400px"
@@ -215,7 +215,7 @@ export default function Proposal({
             flexDir="column"
             zIndex={250}
           >
-            <Flex w="100%" alignItems={["flex-start", "center"]}>
+            {/* <Flex w="100%" alignItems={["flex-start", "center"]}>
               <Badge
                 title="Status"
                 p="8px 48px"
@@ -239,7 +239,7 @@ export default function Proposal({
               >
                 Say on Climate
               </Badge>
-            </Flex>
+            </Flex> */}
             <Heading color="white" w="100%">
               {campaign?.title ?? "TITLE!"}
             </Heading>
@@ -250,7 +250,7 @@ export default function Proposal({
         <Flex
           w="100%"
           mb="32px"
-          bg="sage.500"
+          bg='rgb(164,191,217)'
           height={{
             base: 'fit-content',
             lg: "175px"
@@ -280,19 +280,19 @@ export default function Proposal({
             m='16px'
           >
             <Box color="white" p={{ base: '0', lg: "16px 24px" }}>
-              <Heading textAlign={"center"} fontSize="48px" color="seafoam.500">
+              <Heading textAlign={"center"} fontSize="48px" color="White">
                 13,498
               </Heading>
               <Text fontWeight={500} fontSize="24px">
-                Shares commited to Campaign
+                Shares Commited
               </Text>
             </Box>
             <Box color="white" p={{ base: '0', lg: "16px 24px" }}>
-              <Heading textAlign={"center"} fontSize="48px" color="seafoam.500">
+              <Heading textAlign={"center"} fontSize="48px" color="White">
                 50M
               </Heading>
               <Text fontWeight={500} fontSize="24px">
-                Campaign Supporters
+                Supporters
               </Text>
             </Box>
           </Flex>
@@ -314,8 +314,8 @@ export default function Proposal({
               shouldWrapChildren
             > */}
             <Button
-              {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "seafoam.500", disabled: false }}
-              bg="seafoam.500"
+              {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
+              bg="rgb(100, 43, 115)"
               color="white"
               fontSize="1.4em"
               w="350px"
@@ -335,7 +335,7 @@ export default function Proposal({
               // }}
               // What is the 
               // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
-              onClick={() => {onVoteModalOpen();}}
+              onClick={() => { onVoteModalOpen(); }}
             >
               {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
             </Button>
@@ -393,7 +393,7 @@ export default function Proposal({
                 About Campaign
               </Heading>
               {/* TESTING TO SEE WHAT THIS DOES */}
-              <Box mb="32px">
+              {/* <Box mb="32px">
                 <Box
                   title="company graph"
                   w="100%"
@@ -406,7 +406,7 @@ export default function Proposal({
                   <Box position="absolute" color="white">
                     <Text>{campaign.companyName}</Text>
                   </Box>
-                  {/* <ResponsiveContainer width="100%" height={200}>
+                  <ResponsiveContainer width="100%" height={200}>
                     <LineChart data={historicalStockPrice}>
                       <Line
                         type="monotone"
@@ -415,9 +415,9 @@ export default function Proposal({
                         dot={false}
                       />
                     </LineChart>
-                  </ResponsiveContainer> */}
+                  </ResponsiveContainer>
                 </Box>
-              </Box>
+              </Box> */}
 
               {/* TESTING TO SEE WHAT THIS DOES */}
               {/* <Box
@@ -540,13 +540,13 @@ export default function Proposal({
                   {campaign?.title}
                 </Text>
                 <Button
-                {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "seafoam.500", disabled: false }}
+                  {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
                   variant="solid"
                   size="lg"
                   width={48}
-                  backgroundColor="seafoam.500"
+                  backgroundColor="rgb(164,191,217)"
                   mb='10px'
-                  onClick={() => {onVoteModalOpen();}}
+                  onClick={() => { onVoteModalOpen(); }}
                 >
                   {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
                 </Button>
