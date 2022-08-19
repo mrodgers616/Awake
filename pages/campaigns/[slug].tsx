@@ -182,11 +182,11 @@ export default function Proposal({
   return (
     <>
       <Head>
-        <title>Proposal {campaign?.id} | ClimateDAO</title>
+        <title>Proposal {campaign?.id} | Awake</title>
       </Head>
       <Box
-        mt="120px"
-        bg="sage.500"
+        mt="0px"
+        bg="rgb(164,191,217)"
         bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
         //bgImage="url('https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1259&q=80')"
         bgSize="cover"
@@ -195,7 +195,6 @@ export default function Proposal({
       >
 
         <Box
-          // bg="rgba(0,0,0,.8)"
           position="absolute"
           w="100%"
           h="100%"
