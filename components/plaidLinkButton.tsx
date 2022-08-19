@@ -12,6 +12,7 @@ import { getProfileData, updateOrAddProfileData } from "../lib/firebaseClient";
 import { useAuth } from "../contexts/AuthContext";
 import Button from '../components/common/components/Button';
 import { parseCookies } from 'nookies';
+import Link from "next/Link"
 
 
 const configuration = new Configuration({
@@ -280,8 +281,7 @@ const configuration = new Configuration({
         <>
             {this.state.isPlaidConnectedBefore ? (
                 //@ts-ignore
-                <Button className="primary" title="Campaigns" href="/campaigns">
-                </Button>
+                <Button className="primary" title="Campaigns" href="/campaigns" />
             ) : (
                 //@ts-ignore
                 <Button className="primary" title="Connect Your Brokerage Account" as={PlaidLink} 

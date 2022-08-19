@@ -25,23 +25,30 @@ const About: NextPageWithLayout = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Box
-        title="membership-cta"
-        h="500px"
-        bgPosition={"center"}
-        position="relative"
+        bg="sage.500"
+        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+        // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
         bgSize="cover"
-        bgGradient="linear-gradient(sage.500, seafoam.500)"
-      //borderRadius='30px'
-      //mx="1%"
+        zIndex={0}
+        position="relative"
       >
         <Box
-          bg="rgba(0,0,0,.0)"
+          // bg="rgba(0,0,0,.4)"
           position="absolute"
           w="100%"
           h="100%"
           zIndex={0}
+          top="0"
+          left="0"
         />
-        <Container>
+        <Container
+          position="relative"
+          width="100%"
+          h="600px"
+          overflow="auto"
+          marginX="auto"
+          zIndex={200}
+        >
           <Flex
             flexDir="column"
             h="400px"
@@ -55,6 +62,7 @@ const About: NextPageWithLayout = () => {
               color="white"
               ml="auto"
               mr="auto"
+              mt="20%"
               zIndex={250}
             >
               Activating the Power of Retail Investors
