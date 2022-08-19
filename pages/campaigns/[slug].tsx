@@ -203,7 +203,7 @@ export default function Proposal({
           left="0"
         />
         <Container p="0 25px" m="0 auto" width={"100%"}>
-          <Button leftIcon={<IoArrowBackOutline />} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px">
+          <Button leftIcon={<IoArrowBackOutline />} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px" display={{ base: "none", sm: "none" }}>
             All Campaigns
           </Button>
           <Flex
@@ -434,7 +434,7 @@ export default function Proposal({
               </Text>)}
             </Box>
 
-            <Box>
+            <Box display={{ base: "none", sm: "none", lg: "block" }}>
               <Flex justifyContent="space-between">
                 <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                   discussion
@@ -516,7 +516,7 @@ export default function Proposal({
               </Flex> */}
             </Box>
           </Flex>
-          <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }}>
+          <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }} display={{ base: "none", sm: "none", lg: "block" }}>
 
             <Flex mb="63px" flexDir={"column"} w="25%">
               <Flex
@@ -531,7 +531,7 @@ export default function Proposal({
                 mt='12px'
                 mb="50%"
                 ml="30px"
-                border="4px solid gray"
+                border="3px solid gray"
               >
                 {/* <Image height="125px" width="250px" /> */}
                 <Image w="50%" height="70%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" />
@@ -612,11 +612,11 @@ export default function Proposal({
 
           </Flex>
         </Flex>
-
-        <StepsSection steps={Steps} />
+        {/* I've commented out the steps section and the latest articles section for simplicity */}
+        {/* <StepsSection steps={Steps} />
         <Flex flexDir={"column"}>
           <LatestArticles title="latest news" climateDAOArticles={articles} />
-        </Flex>
+        </Flex> */}
       </Container>
     </>
   );

@@ -198,7 +198,8 @@ export const VideoWrapper = styled.div`
 export const CustomerWrapper = styled.div`
   max-width: 15%;
   min-width: 5%;
-  margin-right:5%; 
+  margin-right:20%; 
+  margin-left:20%; 
   padding: 0px 0 70px;
   width: 100%;
   display: flex;

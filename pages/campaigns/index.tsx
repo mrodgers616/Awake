@@ -165,7 +165,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
     usePaginator({
       total: totalProposals,
       initialState: {
-        pageSize: 9,
+        pageSize: 3,
         isDisabled: false,
         currentPage: 1,
       },
@@ -216,13 +216,13 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
         <Container
           position="relative"
           width="100%"
-          h="600px"
+          h="400px"
           overflow="auto"
           marginX="auto"
           zIndex={200}
         >
           <Flex justifyContent="center" alignItems="center" h="100%">
-            <Heading color="white" textAlign="center" fontSize="64px">
+            <Heading color="white" textAlign="center" fontSize="3em">
               Back a Campaign for Corporate Action
             </Heading>
           </Flex>
@@ -396,13 +396,13 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
             sortBy='total_value'
             {...treasuryBoardStyles}
           />  */}
-
-          <Box title="">
+          {/* COMMENTING OUT THE LATEST ARTICLES SECTION */}
+          {/* <Box title="">
             <LatestArticles
               title=""
               climateDAOArticles={articles}
             />
-          </Box>
+          </Box> */}
         </Container>
       </Box>
     </>
