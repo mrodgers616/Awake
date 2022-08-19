@@ -141,7 +141,7 @@ import appIcon3 from '../../assets/image/appModern/icon3.png';
 
 export const appSlider = {
   carousel: [
-    {
+    { 
       id: 1,
       image: appSlide1,
       title: 'App Slide 1',
@@ -198,7 +198,7 @@ export const designAndBuilt = {
 /* ------------------------------------ */
 // Product  Slide  section
 /* ------------------------------------ */
-import slide1 from '../../assets/image/appModern/page1.png';
+import slide1 from '../../../../public/illustrations/abstractBanner.png';
 import slide2 from '../../assets/image/appModern/page2.png';
 import slide3 from '../../assets/image/appModern/page3.png';
 
@@ -207,20 +207,20 @@ export const productData = {
   title: 'Meet Client Satisfaction by using our product',
   carousel: [
     {
-      id: 1,
+      id: 1, 
       thumb_url: slide1,
       link: '#1',
       title: 'slide 1',
     },
     {
       id: 2,
-      thumb_url: slide2,
+      thumb_url: slide1,
       link: '#1',
       title: 'slide 2',
     },
     {
       id: 3,
-      thumb_url: slide3,
+      thumb_url: slide1,
       link: '#1',
       title: 'slide 3',
     },
@@ -234,13 +234,13 @@ export const productData = {
 
     {
       id: 5,
-      thumb_url: slide3,
+      thumb_url: slide1,
       link: '#1',
       title: 'slide 5',
     },
     {
       id: 6,
-      thumb_url: slide2,
+      thumb_url: slide1,
       link: '#1',
       title: 'slide 6',
     },
@@ -385,37 +385,37 @@ export const teamportfolio = {
     {
       id: 1,
       img: member1,
-      text: 'Elliot \'The Cheese\' Waxman',
+      text: 'Elliot Waxman',
     },
     {
       id: 2,
       img: member2,
-      text: 'Matthew \'Big Daddy\' Rodgers',
+      text: 'Matthew Rodgers',
     },
     {
       id: 3,
       img: member3,
-      text: 'Tom \'The OG\' O\'keefe',
+      text: 'Tom keefe',
     },
     {
       id: 4,
       img: member4,
-      text: 'Eli \'The Tank\' Danzinger',
+      text: 'Eli Danzinger',
     },
     {
       id: 5,
       img: member5,
-      text: 'Fahima \'Feems\' Gibrel',
+      text: 'Fahima Gibrel',
     },
     {
       id: 6,
       img: member6,
-      text: 'Johnny \'Ice Man\' Gabrielle',
+      text: 'Johnny Gabrielle',
     },
     {
       id: 7,
       img: member7,
-      text: 'John \'The Ghost\' Spies'
+      text: 'John Spies'
     },
   ],
 };

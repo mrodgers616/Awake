@@ -5,6 +5,8 @@ import Image from '../../common/components/Image';
 import NextImage from '../../common/components/NextImage';
 // import Swiper from 'react-id-swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { getAllProposals } from "../../../lib/firebaseClient";
+
 
 import ProductSlideWrapper, {
   Container,
@@ -48,8 +50,12 @@ const ProductSlide = () => {
   const { carousel, slogan, title } = productData;
 
   const [loading, setLoading] = useState(false);
+  const [proposals, setProposals] = useState();
   useEffect(() => {
     setLoading(true);
+    getAllProposals().then(proposals => {
+      setProposals(proposals);
+    })
   }, []);
   return (
     <ProductSlideWrapper>
@@ -61,9 +67,6 @@ const ProductSlide = () => {
         <CarouselArea>
           {loading ? (
             <Fragment>
-              <MockupWrapper>
-                <Image src={SlideMockup?.src} alt="mockup" />
-              </MockupWrapper>
               <Swiper {...params}>
                 {carousel.map((item, index) => (
                   <SwiperSlide key={index}>

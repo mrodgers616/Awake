@@ -59,6 +59,7 @@ const Home: NextPageWithLayout = () => {
       <DesignedAndBuilt />
       <TeamPortfolio />
       <Newsletter />
+      <Footer />
       {/* end of app classic landing */}
     </>
   );
