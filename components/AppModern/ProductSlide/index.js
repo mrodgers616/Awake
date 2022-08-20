@@ -6,7 +6,9 @@ import NextImage from '../../common/components/NextImage';
 // import Swiper from 'react-id-swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { getAllProposals } from "../../../lib/firebaseClient";
-
+import Text from '../../common/components/Text';
+import SectionWrapper, { ContentWrapper } from '../DesignedAndBuilt/designedAndBuilt.style';
+import image from "../../../public/illustrations/homepage1.png";
 
 import ProductSlideWrapper, {
   Container,
@@ -64,28 +66,14 @@ const ProductSlide = () => {
             <Heading as="h5" content={slogan} />
             <Heading content={title} />
         </SectionHeader>
-        <CarouselArea>
-          {loading ? (
-            <Fragment>
-              <Swiper {...params}>
-                {carousel.map((item, index) => (
-                  <SwiperSlide key={index}>
-                    <Link href={item.link} key={`productSlide--key${item.id}`}>
-                      <a className="item_wrapper">
-                        <NextImage src={item.thumb_url} alt={item.title} />
-                      </a>
-                    </Link>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </Fragment>
-          ) : (
-            <CircleLoader>
-              <div className="circle"></div>
-              <div className="circle"></div>
-            </CircleLoader>
-          )}
-        </CarouselArea>
+        <ContentWrapper>
+          <div className="content">
+            <Text content={"Lorum Ipsum"} color="white" as="h3"/>
+          </div>
+          <div className="image">
+            <NextImage src={image} alt="Built Logo" />
+          </div>
+        </ContentWrapper>
         {/* End of carousel section */}
       </Container>
     </ProductSlideWrapper>

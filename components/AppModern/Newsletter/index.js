@@ -24,7 +24,7 @@ const Newsletter = ({
           <Box {...textArea}>
             <Heading content="Subscribe our newsletter" {...title} />
             <Text
-              content="Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore"
+              content="Sign up to be the first to know about updates and new features"
               {...description}
             />
           </Box>
@@ -37,7 +37,7 @@ const Newsletter = ({
                 isMaterial={true}
                 className="email_input"
               />
-              <Button {...buttonStyle} title="Get access" />
+              <Button {...buttonStyle} title="Subscribe" />
             </ContactFormWrapper>
           </Box>
         </Container>
