@@ -273,24 +273,27 @@ export default function Proposal({
               md: "1px solid #eaeaea"
             }}
             flexDirection={{
-              base: 'column',
+              base: 'row',
+              sm: "row",
               lg: 'row'
             }}
             m='16px'
           >
-            <Box color="white" p={{ base: '0', lg: "16px 24px" }}>
-              <Heading textAlign={"center"} fontSize="48px" color="White">
+            <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
+              <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "48px" }} color="White">
                 13,498
               </Heading>
-              <Text fontWeight={500} fontSize="24px">
+              <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
                 Shares Commited
               </Text>
             </Box>
-            <Box color="white" p={{ base: '0', lg: "16px 24px" }}>
-              <Heading textAlign={"center"} fontSize="48px" color="White">
+            <Box color="white" p={{ base: '4', lg: "16px 24px" }}>
+              <Heading textAlign={"center"}
+                fontSize={{ base: "24px", sm: "24px", lg: "48px" }}
+                color="White">
                 50M
               </Heading>
-              <Text fontWeight={500} fontSize="24px">
+              <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
                 Supporters
               </Text>
             </Box>

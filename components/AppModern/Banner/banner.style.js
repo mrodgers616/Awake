@@ -134,6 +134,7 @@ export const ButtonGroup = styled.div`
       background-color: ${themeGet('colors.white', '#fff')};
       color: rgb(15, 33, 55);
       font-size: 16px;
+      margin-bottom:12px;
       letter-spacing: -0.1px;
       &:hover {
         box-shadow: #1e2a4a 0px 12px 24px -10px;
@@ -215,7 +216,10 @@ export const CustomerWrapper = styled.div`
     padding: 40px 0;
   }
   @media only screen and (max-width: 600px) {
-    padding: 25px 0 40px;
+    padding: 0px 0 0px;
+    margin-right:0%;
+    margin-left:0%;
+    display:none;
   }
 
   p {
