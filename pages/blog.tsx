@@ -92,29 +92,42 @@ const Blog: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Box
-        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,
-          rgb(164,191,217)100%)"
-        // bgImage="https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        bg="sage.500"
+        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+        // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
         bgSize="cover"
-        bgPosition="center"
-        mt="8%"
-      //borderRadius='30px'
-      //mx="1%"
+        zIndex={0}
+        position="relative"
       >
-        <Box w="100%" h="100%" bg="rgba(0,0,0,.0)">
-          <Container h={{ base: "200px", sm: "200px", lg: "400px" }}>
+        <Box
+          // bg="rgba(0,0,0,.4)"
+          position="absolute"
+          w="100%"
+          h="100%"
+          zIndex={0}
+          top="0"
+          left="0"
+        />
+        <Container
+          position="relative"
+          width="100%"
+          h={{ base: "200px", sm: "200px", lg: "400px" }}
+          overflow="auto"
+          marginX="auto"
+          zIndex={200}
+        >
             <Flex h="100%" justifyContent="center" alignItems="center">
               <Heading
                 color="white"
                 textAlign={"center"}
                 fontSize={{ base: "2em", sm: "2em", lg: "4.5em" }}
                 mb={{ base: "0px", lg: "60px" }}
+                mt={{ base: "20px", lg: "20" }}
               >
                 Learn About Awake
               </Heading>
             </Flex>
           </Container>
-        </Box>
       </Box>
       <Container>
         <Flex
