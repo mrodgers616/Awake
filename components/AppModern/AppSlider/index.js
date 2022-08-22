@@ -16,7 +16,7 @@ const AppSlider = () => {
   const glideOptions = {
     type: 'carousel',
     gap: 0,
-    autoplay: 5000,
+    autoplay: 7000,
     perView: 1,
     animationDuration: 700,
   };

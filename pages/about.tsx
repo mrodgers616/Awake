@@ -44,7 +44,7 @@ const About: NextPageWithLayout = () => {
         <Container
           position="relative"
           width="100%"
-          h="600px"
+          h="400px"
           overflow="auto"
           marginX="auto"
           zIndex={200}
@@ -62,18 +62,19 @@ const About: NextPageWithLayout = () => {
               color="white"
               ml="auto"
               mr="auto"
-              mt="20%"
+              mt="0"
               zIndex={250}
             >
               Activating the Power of Retail Investors
             </Heading>
             <Box>
-              <Button
+              {/* <Button
                 as={Link}
-                bg="seafoam.500"
+                bg="rgb(164,191,217)"
                 color="white"
                 h="48px"
                 ml="6%"
+                mt="6%"
                 href="/campaigns"
                 _disabled={{
                   pointerEvents: "none",
@@ -81,7 +82,7 @@ const About: NextPageWithLayout = () => {
               >
                 Campaigns
                 <Icon as={FaArrowRight} ml="15px" />
-              </Button>
+              </Button> */}
             </Box>
           </Flex>
         </Container>
@@ -202,7 +203,7 @@ const About: NextPageWithLayout = () => {
             mb="64px"
             color="white"
             bgSize="cover"
-            bgGradient="linear-gradient(sage.500, seafoam.500)"
+            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
             p="64px"
             h="400px"
             justifyContent={"center"}
@@ -213,10 +214,10 @@ const About: NextPageWithLayout = () => {
               Mission
             </Heading>
             <Text zIndex={250} fontSize="1.6em">
-              Awakeis empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. Awakemakes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
+              Awake is empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. Awakemakes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
             </Text>
             <Box
-              bg="rgba(0,0,0,.4)"
+              bg="rgba(0,0,0,.0)"
               borderRadius="20px"
               position="absolute"
               w="100%"
@@ -231,7 +232,7 @@ const About: NextPageWithLayout = () => {
             flexDir="column"
             mb="64px"
             color="white"
-            bgGradient="linear-gradient(sage.500, seafoam.500)"
+            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
             p="64px"
             h="400px"
             justifyContent={"center"}
@@ -247,7 +248,7 @@ const About: NextPageWithLayout = () => {
               and we will move mountains.
             </Text>
             <Box
-              bg="rgba(0,0,0,.4)"
+              bg="rgba(0,0,0,.0)"
               borderRadius="20px"
               position="absolute"
               w="100%"
@@ -262,7 +263,7 @@ const About: NextPageWithLayout = () => {
             flexDir="column"
             mb="64px"
             color="white"
-            bgGradient="linear-gradient(sage.500, seafoam.500)"
+            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
             p="64px"
             h="400px"
             justifyContent={"center"}
@@ -319,7 +320,7 @@ const About: NextPageWithLayout = () => {
             <Button
               as={Link}
               color="white"
-              bg="seafoam.500"
+              bg="rgb(164,191,217)"
               px="86px"
               py="18px"
               //target="_blank"
