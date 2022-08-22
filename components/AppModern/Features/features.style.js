@@ -17,7 +17,6 @@ export const FeatureWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   margin: -12px 0 -30px;
-
   > div {
     width: calc(100% / 4 - 34px);
     margin: 38px 0 30px;

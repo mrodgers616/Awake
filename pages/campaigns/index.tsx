@@ -105,7 +105,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
   const treasuryBoardStyles = {
     titleStyles: {
       fontSize: '24px',
-      bg: 'sage.500',
+      bg: 'rgb(164,191,217)',
       color: "white",
       pl: '24px',
       pt: '24px',
@@ -165,7 +165,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
     usePaginator({
       total: totalProposals,
       initialState: {
-        pageSize: 9,
+        pageSize: 3,
         isDisabled: false,
         currentPage: 1,
       },
@@ -194,12 +194,11 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
   return (
     <>
       <Head>
-        <title>Climate DAO | Proposals</title>
+        <title>Awake | Proposals</title>
       </Head>
       <Box
         bg="sage.500"
-        mt="120px"
-        bgGradient="linear-gradient(sage.500, seafoam.500)"
+        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
         // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
         bgSize="cover"
         zIndex={0}
@@ -223,7 +222,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
           zIndex={200}
         >
           <Flex justifyContent="center" alignItems="center" h="100%">
-            <Heading color="white" textAlign="center" fontSize="64px">
+            <Heading color="white" textAlign="center" fontSize="3em">
               Back a Campaign for Corporate Action
             </Heading>
           </Flex>
@@ -233,7 +232,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
         <Container width="100%">
           <Flex
             title=""
-            bg="sage.500"
+            bg="rgb(164,191,217)"
             w="100%"
             h={{
               base: "fit-content",
@@ -270,7 +269,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
             >
               <Button
                 color="white"
-                bg="seafoam.500"
+                bg="rgb(100, 43, 115)"
                 as={Link}
                 href={userid ? "campaigns/create" : "/login"}
                 p="32px 64px"
@@ -397,13 +396,13 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
             sortBy='total_value'
             {...treasuryBoardStyles}
           />  */}
-
-          <Box title="">
+          {/* COMMENTING OUT THE LATEST ARTICLES SECTION */}
+          {/* <Box title="">
             <LatestArticles
               title=""
               climateDAOArticles={articles}
             />
-          </Box>
+          </Box> */}
         </Container>
       </Box>
     </>

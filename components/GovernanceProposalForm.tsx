@@ -45,7 +45,7 @@ export default function GoveranceProposalForm({
   return (
     <chakra.form onSubmit={handleSubmit(onSubmit)}>
       <Box p="8px 56px 16px">
-        <FormControl _invalid={errors.from}>
+        <FormControl>
           <FormLabel>
             Balance: 0.12 WBTC
             <Input 
@@ -56,7 +56,7 @@ export default function GoveranceProposalForm({
           </FormLabel>
           { errors.from && <FormErrorMessage>from input required</FormErrorMessage> }
         </FormControl>
-        <FormControl _invalid={errors.to}>
+        <FormControl>
           <FormLabel>
             Balance: STX
             <Input 
@@ -67,7 +67,7 @@ export default function GoveranceProposalForm({
           </FormLabel>
           { errors.to && <FormErrorMessage>to input required</FormErrorMessage> }
         </FormControl>
-        <FormControl _invalid={errors.slippage}>
+        <FormControl >
           <FormLabel>
             Description
             <Input 

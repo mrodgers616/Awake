@@ -275,7 +275,7 @@ export const SectionHeader = styled.section`
   }
   h5 {
     text-align: center;
-    color: #c2416e;
+    color: #A4BFD9;
   }
   h2 {
     max-width: 400px;

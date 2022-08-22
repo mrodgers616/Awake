@@ -193,7 +193,7 @@ export const PricingCard = styled.div`
       border-radius: 5px;
       transition: all 0.3s ease;
       &:hover {
-        box-shadow: #d1397c 0px 12px 24px -10px;
+        box-shadow: #32006B 0px 12px 24px -10px;
       }
       @media only screen and (max-width: 767px) {
         width: 100%;

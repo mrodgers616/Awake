@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Box from 'common/components/Box';
-import Text from 'common/components/Text';
-import Heading from 'common/components/Heading';
-import Button from 'common/components/Button';
-import Input from 'common/components/Input';
-import Container from 'common/components/UI/Container';
+import Box from '../../common/components/Box';
+import Text from '../../common/components/Text';
+import Heading from '../../common/components/Heading';
+import Button from '../../common/components/Button';
+import Input from '../../common/components/Input';
+import Container from '../../common/components/UI/Container';
 
 import NewsletterWrapper, { ContactFormWrapper } from './newsletter.style';
 
@@ -24,7 +24,7 @@ const Newsletter = ({
           <Box {...textArea}>
             <Heading content="Subscribe our newsletter" {...title} />
             <Text
-              content="Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore"
+              content="Sign up to be the first to know about updates and new features"
               {...description}
             />
           </Box>
@@ -37,7 +37,7 @@ const Newsletter = ({
                 isMaterial={true}
                 className="email_input"
               />
-              <Button {...buttonStyle} title="Get access" />
+              <Button {...buttonStyle} title="Subscribe" />
             </ContactFormWrapper>
           </Box>
         </Container>

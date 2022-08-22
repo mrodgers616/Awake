@@ -1,5 +1,5 @@
 import React from "react";
-import { chakra, Container, Box, Text, Image, Flex, ChakraProvider, Stack} from "@chakra-ui/react";
+import { chakra, Container, Box, Text, Image, Flex, ChakraProvider, Stack } from "@chakra-ui/react";
 
 import Link from "./Link";
 
@@ -33,34 +33,34 @@ const socialMedia: Array<Record<string, any>> = [
 
 export default function Footer(): JSX.Element {
   return (
-    
+
     <chakra.footer
       bg='#f5f5f5'
     >
       <Flex mr="10%" mt="10px">
-      <Container
-        
-        h="120px"
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Box>
-          <Image
-            src='/illustrations/Climate DAO dark.png'
-            w='160px'
-            alt='ClimateDAO Logo'
-          />
-        </Box>
-      </Container>
-      <Stack spacing={2}>
-        <Link href="https://twitter.com/Climate_DAO?s=20&t=KSWCSCV6J_BrI_9SGo-S9w" isExternal>
-          Twitter
-        </Link>
-        <Link href="https://discord.gg/WwhjrS3HCm" isExternal>Discord</Link>
-        <Link href="/privacypolicy">Privacy Policy</Link>
-        <Text>Inquiries@climatedao.xyz</Text>
-      </Stack>
+        <Container
+
+          h="120px"
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Box>
+            <Image
+              src='/illustrations/Awake Logo light.png'
+              w='160px'
+              alt='Awake Logo light'
+            />
+          </Box>
+        </Container>
+        <Stack spacing={2}>
+          <Link href="https://twitter.com/Climate_DAO?s=20&t=KSWCSCV6J_BrI_9SGo-S9w" isExternal>
+            Twitter
+          </Link>
+          <Link href="https://discord.gg/WwhjrS3HCm" isExternal>Discord</Link>
+          <Link href="/privacypolicy">Privacy Policy</Link>
+          <Text>Inquiries@climatedao.xyz</Text>
+        </Stack>
       </Flex>
     </chakra.footer>
   );

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import BannerBG from 'common/assets/image/appModern/bottom.png';
+import BannerBG from '../../common/assets/image/appModern/bottom.png';
 
 const NewsletterWrapper = styled.div`
   position: relative;
-  background-image: url(${BannerBG?.src});
+  background-color: #9EAED7;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -1,11 +1,14 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Link from 'next/link';
-import Fade from 'react-reveal/Fade';
-import Heading from 'common/components/Heading';
-import Image from 'common/components/Image';
-import NextImage from 'common/components/NextImage';
+import Heading from '../../common/components/Heading';
+import Image from '../../common/components/Image';
+import NextImage from '../../common/components/NextImage';
 // import Swiper from 'react-id-swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { getAllProposals } from "../../../lib/firebaseClient";
+import Text from '../../common/components/Text';
+import SectionWrapper, { ContentWrapper } from '../DesignedAndBuilt/designedAndBuilt.style';
+import image from "../../../public/illustrations/homepage1.png";
 
 import ProductSlideWrapper, {
   Container,
@@ -15,8 +18,8 @@ import ProductSlideWrapper, {
   SectionHeader,
 } from './productSlide.style';
 
-import { productData } from 'common/data/AppModern';
-import SlideMockup from 'common/assets/image/appModern/screen.png';
+import { productData } from '../../common/data/AppModern';
+import SlideMockup from '../../common/assets/image/appModern/screen.png';
 const params = {
   slidesPerView: 5,
   centeredSlides: true,
@@ -49,43 +52,28 @@ const ProductSlide = () => {
   const { carousel, slogan, title } = productData;
 
   const [loading, setLoading] = useState(false);
+  const [proposals, setProposals] = useState();
   useEffect(() => {
     setLoading(true);
+    getAllProposals().then(proposals => {
+      setProposals(proposals);
+    })
   }, []);
   return (
     <ProductSlideWrapper>
       <Container>
         <SectionHeader>
-          <Fade up>
             <Heading as="h5" content={slogan} />
             <Heading content={title} />
-          </Fade>
         </SectionHeader>
-        <CarouselArea>
-          {loading ? (
-            <Fragment>
-              <MockupWrapper>
-                <Image src={SlideMockup?.src} alt="mockup" />
-              </MockupWrapper>
-              <Swiper {...params}>
-                {carousel.map((item, index) => (
-                  <SwiperSlide key={index}>
-                    <Link href={item.link} key={`productSlide--key${item.id}`}>
-                      <a className="item_wrapper">
-                        <NextImage src={item.thumb_url} alt={item.title} />
-                      </a>
-                    </Link>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </Fragment>
-          ) : (
-            <CircleLoader>
-              <div className="circle"></div>
-              <div className="circle"></div>
-            </CircleLoader>
-          )}
-        </CarouselArea>
+        <ContentWrapper>
+          <div className="content">
+            <Text content={"Lorum Ipsum"} color="white" as="h3"/>
+          </div>
+          <div className="image">
+            <NextImage src={image} alt="Built Logo" />
+          </div>
+        </ContentWrapper>
         {/* End of carousel section */}
       </Container>
     </ProductSlideWrapper>

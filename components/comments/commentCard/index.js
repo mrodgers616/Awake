@@ -66,7 +66,7 @@ const CommentCard = ({ comment, commentDepth, maxThreadDepth }) => {
 							<ProfileImage/>
 							
 							<Center>
-								<Text className="float-left"><strong>{comment.user.displayName} </strong> 15 Minutes Ago</Text>
+								<Text className="float-left"><strong>{comment.user.displayName} </strong> {/*15 Minutes Ago*/}</Text>
 								<Text className="text-secondary text-center">   </Text>
 							</Center>
 						</Flex>

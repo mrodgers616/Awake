@@ -76,12 +76,67 @@ export const AppWrapper = styled.div`
             font-weight: 400;
             transition: all 0.3s ease;
             &:hover {
-              color: ${themeGet('colors.primary', '#d1397c')};
+              color: ${themeGet('colors.primary', '#32006B')};
             }
           }
           &.is-current {
             a {
-              color: ${themeGet('colors.primary', '#d1397c')};
+              color: ${themeGet('colors.primary', '#32006B')};
+            }
+          }
+        }
+      }
+      .reusecore__button {
+        &.menubar {
+          color: ${themeGet('colors.secondary', '#000')};
+        }
+        &.text {
+          color: ${themeGet('colors.secondary', '#000')};
+          .btn-icon {
+            svg {
+              stroke: ${themeGet('colors.secondary', '#000')};
+            }
+          }
+          @media only screen and (max-width: 991px) {
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const AppWrapper2 = styled.div`
+
+  .sticky-active {
+    .navbar {
+      background-color: ${themeGet('colors.white', '#ffffff')};
+      box-shadow: 0px 3px 8px 0px rgba(43, 83, 135, 0.08);
+      @media only screen and (max-width: 1366px) {
+        padding: 15px 0 16px;
+      }
+      .main-logo {
+        display: none;
+      }
+      .logo-alt {
+        display: block;
+      }
+      .mobile-menu {
+        top: 72px;
+      }
+      ul {
+        li {
+          a {
+            color: ${themeGet('colors.secondary', '#000')};
+            font-size: 16px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            &:hover {
+              color: ${themeGet('colors.primary', '#32006B')};
+            }
+          }
+          &.is-current {
+            a {
+              color: ${themeGet('colors.primary', '#32006B')};
             }
           }
         }

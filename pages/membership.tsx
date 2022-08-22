@@ -22,7 +22,7 @@ const Membership: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Climate DAO | Proposals</title>
+        <title>Awake | Proposals</title>
       </Head>
       <Box
         bg="sage.500"
@@ -117,49 +117,6 @@ const Membership: NextPage = () => {
             justifyContent="center"
             mb="8px"
           >
-            <Image
-              src="illustrations/ClimateDAO Logo.png"
-              alt="ClimateDAO logo"
-            />
-            <Heading
-              color="white"
-              fontSize="36px"
-              mb="100px"
-              textAlign="center"
-              fontWeight="normal"
-            >
-              A decentralized activist network focued on climate change
-              mitigation.
-            </Heading>
-            <Text textAlign="center" mb="64px">
-              Add your email to sign up for our new newletter.
-            </Text>
-            <chakra.form w="33%">
-              <Flex alignItems="center">
-                <FormControl>
-                  <FormLabel m="0" mr="8px">
-                    <Input
-                      bg="white"
-                      borderRadius="0"
-                      h="64px"
-                      id="email"
-                      type="email"
-                      placeholder="Email Address"
-                    />
-                  </FormLabel>
-                  <FormErrorMessage>from input required</FormErrorMessage>
-                </FormControl>
-                <Button
-                  bg="white"
-                  color="black"
-                  borderRadius="0"
-                  p="32px 48px"
-                  type="submit"
-                >
-                  Add me
-                </Button>
-              </Flex>
-            </chakra.form>
           </Flex>
         </Container>
       </Box>

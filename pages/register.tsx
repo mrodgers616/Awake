@@ -33,22 +33,32 @@ const Register: NextPage = () => {
   } = useForm();
   const toast = useToast();
   const { register: userRegister } = useAuth();
-  const {googleSignIn: googleRegister} = useAuth();
-  const {facebookSignIn: facebook} = useAuth();
+  const { googleSignIn: googleRegister } = useAuth();
+  const { facebookSignIn: facebook } = useAuth();
 
   const onSubmit = (data: any) => userRegister(data);
 
   return (
     <>
       <Head>
-        <title>Climate DAO | Register</title>
+        <title>Awake | Register</title>
       </Head>
+      <Box
+        bg="sage.500"
+        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+        // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
+        bgSize="cover"
+        zIndex={0}
+        position="relative"
+        height="96px"
+      />
       <Box>
         <Container
           width="100%"
           overflow="auto"
           marginX="auto"
-          mt="184px"
+          mt="94px"
+          mb="94px"
           pb='16px'
         >
           <Box
@@ -61,7 +71,7 @@ const Register: NextPage = () => {
           >
             <Heading mb='32px'>Register</Heading>
             <chakra.form onSubmit={handleSubmit(onSubmit)}>
-              <FormControl mb='16px' _invalid={errors.username}>
+              <FormControl mb='16px'>
                 <FormLabel htmlFor="username">Username:</FormLabel>
                 <InputGroup>
                   {/* eslint-disable-next-line react/no-children-prop*/}
@@ -74,10 +84,10 @@ const Register: NextPage = () => {
                   />
                 </InputGroup>
                 <FormErrorMessage>
-                  
+
                 </FormErrorMessage>
               </FormControl>
-              <FormControl mb='16px' _invalid={errors.email}>
+              <FormControl mb='16px'>
                 <FormLabel htmlFor="email">Email:</FormLabel>
                 <Input
                   id="email"
@@ -87,10 +97,10 @@ const Register: NextPage = () => {
                   })}
                 />
                 <FormErrorMessage>
-                  
+
                 </FormErrorMessage>
               </FormControl>
-              <FormControl mb='16px' _invalid={errors.password}>
+              <FormControl mb='16px'>
                 <FormLabel htmlFor="password">Password:</FormLabel>
                 <Input
                   id="password"
@@ -100,10 +110,10 @@ const Register: NextPage = () => {
                   })}
                 />
                 <FormErrorMessage>
-                  
+
                 </FormErrorMessage>
               </FormControl>
-              <FormControl mb='32px' _invalid={errors.password2}>
+              <FormControl mb='32px'>
                 <FormLabel htmlFor="password">Verify Password:</FormLabel>
                 <Input
                   id="password2"
@@ -113,28 +123,28 @@ const Register: NextPage = () => {
                   })}
                 />
                 <FormErrorMessage>
-                  
+
                 </FormErrorMessage>
               </FormControl>
               <HStack>
                 <Flex>
-                <Button
-                  type="submit"
-                  bg="seafoam.500"
-                  mr='16px'
-                >
-                  Register
-                </Button>
+                  <Button
+                    type="submit"
+                    bg="seafoam.500"
+                    mr='16px'
+                  >
+                    Register
+                  </Button>
                 </Flex>
                 <Link href="/login">Already Registered?</Link>
               </HStack>
               <Flex>
-              <Container mt="3%" ml="-1.75%">
-                <GoogleButton onClick={() => {googleRegister()}}></GoogleButton>
-              </Container>
-              <Container mt="3%" ml="-1.75%">
-                <Button onClick={() => {facebook()}}>Log in with facebook</Button>
-              </Container>
+                <Container mt="3%" ml="-1.75%">
+                  <GoogleButton onClick={() => { googleRegister() }}></GoogleButton>
+                </Container>
+                <Container mt="3%" ml="-1.75%">
+                  <Button onClick={() => { facebook() }}>Log in with facebook</Button>
+                </Container>
               </Flex>
             </chakra.form>
           </Box>

@@ -14,32 +14,41 @@ import {
 import Faq from "../components/Faq";
 import { FaArrowRight } from "react-icons/fa";
 import faqs from "../data/faqs.json";
+import type { NextPageWithLayout } from './_app'
 
-const About: NextPage = () => {
+
+const About: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>Climate DAO | About us</title>
+        <title>Awake | About us</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Box
-        title="membership-cta"
-        mt="8%"
-        bgPosition={"center"}
-        position="relative"
+        bg="sage.500"
+        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+        // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
         bgSize="cover"
-        bgGradient="linear-gradient(sage.500, seafoam.500)"
-        //borderRadius='30px'
-        //mx="1%"
+        zIndex={0}
+        position="relative"
       >
         <Box
-          bg="rgba(0,0,0,.0)"
+          // bg="rgba(0,0,0,.4)"
           position="absolute"
           w="100%"
           h="100%"
           zIndex={0}
+          top="0"
+          left="0"
         />
-        <Container>
+        <Container
+          position="relative"
+          width="100%"
+          h="600px"
+          overflow="auto"
+          marginX="auto"
+          zIndex={200}
+        >
           <Flex
             flexDir="column"
             h="400px"
@@ -51,9 +60,9 @@ const About: NextPage = () => {
               size="xl"
               fontSize="60px"
               color="white"
-              mb="64px"
               ml="auto"
               mr="auto"
+              mt="20%"
               zIndex={250}
             >
               Activating the Power of Retail Investors
@@ -204,7 +213,7 @@ const About: NextPage = () => {
               Mission
             </Heading>
             <Text zIndex={250} fontSize="1.6em">
-            ClimateDAO is empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. ClimateDAO makes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
+              Awakeis empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. Awakemakes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
             </Text>
             <Box
               bg="rgba(0,0,0,.4)"
@@ -233,8 +242,8 @@ const About: NextPage = () => {
               Vision
             </Heading>
             <Text fontSize="1.6em" zIndex={250}>
-              We envision a world in which the wisdom of the crowds is used for social good, a world in which companies 
-              are held accountable for their actions. As a community, we will leverage our collective capital, expertise, 
+              We envision a world in which the wisdom of the crowds is used for social good, a world in which companies
+              are held accountable for their actions. As a community, we will leverage our collective capital, expertise,
               and we will move mountains.
             </Text>
             <Box
@@ -264,7 +273,7 @@ const About: NextPage = () => {
               Tactics
             </Heading>
             <Text fontSize="1.6em" zIndex={250}>
-              We plan to get retail investors small and large alike to link their brokerage accounts and express what they want to see at the public companies they own. We can wield our collective voice to get public companies to take action. After getting campaign or proposal backers, we reach out to the corporations we&#39;re trying to get to take action and share what we&#39;ve gathered from our community. 
+              We plan to get retail investors small and large alike to link their brokerage accounts and express what they want to see at the public companies they own. We can wield our collective voice to get public companies to take action. After getting campaign or proposal backers, we reach out to the corporations we&#39;re trying to get to take action and share what we&#39;ve gathered from our community.
             </Text>
             <Box
               bg="rgba(0,0,0,.0)"
@@ -301,7 +310,7 @@ const About: NextPage = () => {
               textTransform={"revert"}
               mb="16px"
             >
-              A growing ClimateDAO community
+              A growing Awake community
             </Heading>
             <Text mb="32px">
               Join a community of creatives, artists, experts, and activits tied
@@ -328,5 +337,7 @@ const About: NextPage = () => {
     </>
   );
 };
+
+About.layout = "layout";
 
 export default About;

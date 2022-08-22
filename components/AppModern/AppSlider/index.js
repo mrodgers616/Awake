@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
-import Text from 'common/components/Text';
-import NextImage from 'common/components/NextImage';
-import Heading from 'common/components/Heading';
-import Container from 'common/components/UI/Container';
-import FeatureBlock from 'common/components/FeatureBlock';
-import GlideCarousel from 'common/components/GlideCarousel';
-import GlideSlide from 'common/components/GlideCarousel/glideSlide';
+import Text from '../../common/components/Text';
+import NextImage from '../../common/components/NextImage';
+import Heading from '../../common/components/Heading';
+import Container from '../../common/components/UI/Container';
+import FeatureBlock from '../../common/components/FeatureBlock';
+import GlideCarousel from '../../common/components/GlideCarousel';
+import GlideSlide from '../../common/components/GlideCarousel/glideSlide';
 import SectionWrapper, { CarouseWrapper, TextWrapper } from './appSlider.style';
 
-import { appSlider } from 'common/data/AppModern';
+import { appSlider } from '../../common/data/AppModern';
 
 const AppSlider = () => {
   const { title, description, features, carousel } = appSlider;
@@ -20,6 +20,14 @@ const AppSlider = () => {
     perView: 1,
     animationDuration: 700,
   };
+
+  const boxStyle = {
+    borderColor: "red",
+    borderWidth: "5px"
+    // :hover {
+    //   box-shadow: #1e2a4a 0px 12px 24px -10px;
+    // }
+  }
 
   return (
     <SectionWrapper>
@@ -49,6 +57,7 @@ const AppSlider = () => {
               key={`app-feature--key${item.id}`}
               iconPosition="left"
               icon={<img src={item.icon?.src} alt={item.title} />}
+              style={boxStyle}
               title={<Heading as="h3" content={item.title} />}
               description={<Text content={item.description} />}
             />

@@ -378,7 +378,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                     onSubmit={handleSubmit(onSubmit)}
                   >
                     <FormControl
-                      _invalid={errors.proposalType}
+                
                       visibility="hidden"
                       position="absolute"
                     >
@@ -391,7 +391,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         
                       </FormErrorMessage>
                     </FormControl>
-                    <FormControl _invalid={errors.title} mt="16px">
+                    <FormControl  mt="16px">
                       <FormLabel htmlFor="title">Title:</FormLabel>
                       <Input
                         id="title"
@@ -437,7 +437,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         {errors.quantity && errors.quantity.message}
                       </FormErrorMessage>
                     </FormControl> */}
-                    <FormControl _invalid={errors.symbol} mt="16px">
+                    <FormControl mt="16px">
                       <FormLabel htmlFor="symbol">Company Symbol:</FormLabel>
                       <Input
                         {...register("symbol", {
@@ -449,7 +449,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         
                       </FormErrorMessage>
                     </FormControl>
-                    <FormControl _invalid={errors.companyName} mt="16px">
+                    <FormControl mt="16px">
                       <FormLabel htmlFor="companyName">Company Name:</FormLabel>
                       <Input
                         {...register("companyName", {
@@ -461,7 +461,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         
                       </FormErrorMessage>
                     </FormControl>
-                    <FormControl _invalid={errors.description} mt="16px">
+                    <FormControl mt="16px">
                       <FormLabel htmlFor="description">Description:</FormLabel>
                       <Textarea
                         {...register("description", {
@@ -514,7 +514,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                     onSubmit={handleGovernanceSubmit(onSubmit)}
                   >
                     <FormControl
-                      _invalid={governanceErrors.proposalType}
+                      
                       visibility="hidden"
                       position="absolute"
                     >
@@ -528,7 +528,6 @@ const CreateCampaign: NextPage = (_props: any) => {
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
-                      _invalid={governanceErrors.governanceTitle}
                       mt="16px"
                     >
                       <FormLabel htmlFor="governanceTitle">Title:</FormLabel>
@@ -549,7 +548,6 @@ const CreateCampaign: NextPage = (_props: any) => {
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
-                      _invalid={governanceErrors.governanceDescription}
                       mt="16px"
                     >
                       <FormLabel htmlFor="governanceDescription">
@@ -573,7 +571,6 @@ const CreateCampaign: NextPage = (_props: any) => {
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
-                      _invalid={governanceErrors.smartContractAddress}
                       mt="16px"
                     >
                       <FormLabel htmlFor="smartContractAddress">
@@ -596,7 +593,6 @@ const CreateCampaign: NextPage = (_props: any) => {
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
-                      _invalid={governanceErrors.contractFunctions}
                       mt="16px"
                     >
                       <FormLabel htmlFor="contractFunctions">
@@ -628,9 +624,6 @@ const CreateCampaign: NextPage = (_props: any) => {
                       selectedFunction.inputs.map(
                         (input: Record<string, any>, index: number) => (
                           <FormControl
-                            _invalid={
-                              governanceErrors[`function-${input.name}`]
-                            }
                             mt="16px"
                             key={index}
                           >

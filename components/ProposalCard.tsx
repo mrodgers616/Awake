@@ -44,11 +44,6 @@ interface ProposalProps extends StyleProps {
   createdAt: Date;
 }
 
-function pushLoginAndCampaignId(campaignID: string) {
-  localStorage.setItem('campaignID', campaignID);
-  Router.push("/login");
-}
-
 export default function ProposalCard(props: ProposalProps): JSX.Element {
   const {
     id,
@@ -67,6 +62,12 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
     deadline,
     ...rest
   } = props;
+
+
+  function pushLoginAndCampaignId(campaignID: string) {
+    localStorage.setItem('campaignID', campaignID);
+    Router.push("/login");
+  }
 
   const [dl, setDL] = useState(deadline ? new Date(deadline) : new Date());
   const [start, setStart] = useState(
@@ -138,18 +139,20 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
       <AspectRatio maxW='475px' ratio={16 / 9}>
         <Image src={image!} alt="a campaign image" mb="15px" objectFit='cover'></Image>
       </AspectRatio>
-      <Heading fontSize="1.2em" mb="8px">
+      {/* I'VE COMMENTED OUT THE HEADING FOR INDIVIDUAL CAMPAIGNS SO THAT IT EMPHASIZES THE IMAGES OVER THE TEXT */}
+      {/* <Heading fontSize="1.2em" mb="8px">
         {companyName ?? "Company"} | {symbol ?? "SMBL"}
-      </Heading>
+      </Heading> */}
       <Progress
-        colorScheme={isTimeUp ? "red" : "seafoam.500"}
+        colorScheme={isTimeUp ? "green" : "seafoam.500"}
         value={progress}
         w="100%"
         h="32px"
         borderRadius="8px"
         mb="18px"
+        mt="9px"
       >
-        <ProgressLabel fontSize="sm" color="sage.500" w="fit-content">
+        <ProgressLabel fontSize="sm" color="#BAC7BE" w="fit-content">
           {timerText}
         </ProgressLabel>
       </Progress>
@@ -174,7 +177,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
         >
           <Button
             as={Link}
-            bg="seafoam.500"
+            bg="rgb(100, 43, 115)"
             color="white"
             w="55%"
             mr="16px"

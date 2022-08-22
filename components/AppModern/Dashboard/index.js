@@ -1,21 +1,33 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Box from 'common/components/Box';
-import Text from 'common/components/Text';
-import NextImage from 'common/components/NextImage';
-import Heading from 'common/components/Heading';
-import Button from 'common/components/Button';
-import FeatureBlock from 'common/components/FeatureBlock';
-import Container from 'common/components/UI/Container';
+import Box from '../../common/components/Box';
+import Text from '../../common/components/Text';
+import NextImage from '../../common/components/NextImage';
+import Heading from '../../common/components/Heading';
+import Button from '../../common/components/Button';
+import FeatureBlock from '../../common/components/FeatureBlock';
+import Container from '../../common/components/UI/Container';
 import Particles from '../Particle';
 import DashboardWrapper, { DashboardObject } from './dashboard.style';
 
-import DashboardObject1 from 'common/assets/image/appModern/dashboard.png';
+import DashboardObject1 from '../../common/assets/image/appModern/dashboard.png';
+import { useAuth } from "../../../contexts/AuthContext";
+
 
 const DashboardSection = ({ row, col, title, btnStyle, description }) => {
+  const { userid } = useAuth();
+
   const ButtonGroup = () => (
     <Fragment>
-      <Button title="FREE TRAIL" {...btnStyle} />
+      {userid ? (
+            <div href="#trail" offset={84}>
+              <Button {...btnStyle} title="Link Your Account" onClick={() => { router.push(`/linkaccount`);}} />
+            </div>
+          ) : (
+            <div href="#trail" offset={84}>
+              <Button {...btnStyle} title="Login" onClick={() => { router.push("/login");}} />
+            </div>
+          )}
     </Fragment>
   );
   return (
@@ -24,17 +36,17 @@ const DashboardSection = ({ row, col, title, btnStyle, description }) => {
       <Container>
         <Box className="row" {...row}>
           <Box className="col" {...col}>
-            <Heading className="subtitle" as="h5" content="APP'S DASHBOARD" />
+            <Heading className="subtitle" as="h5" content="What's Going On" />
             <FeatureBlock
               title={
                 <Heading
-                  content="Meet the dashboard features of our financial management."
+                  content="Meet the crossroads of fintech and shareholder activism"
                   {...title}
                 />
               }
               description={
                 <Text
-                  content="We help to create SaaS product that are innovative, differentiated with a superb User Experience, fully accessible through mobile devices. SaaS products are changing the world ."
+                  content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit ante quis metus auctor, in eleifend ante sodales. Fusce efficitur nisl eget diam sagittis, et facilisis sem congue."
                   {...description}
                 />
               }

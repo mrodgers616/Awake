@@ -146,10 +146,10 @@ export default function Proposal({
         return false;
       }
     }
-    catch(err) {
+    catch (err) {
       router.push("/login");
     }
-    
+
 
   }
 
@@ -182,20 +182,19 @@ export default function Proposal({
   return (
     <>
       <Head>
-        <title>Proposal {campaign?.id} | ClimateDAO</title>
+        <title>Proposal {campaign?.id} | Awake</title>
       </Head>
       <Box
-        //bg="sage.500"
-        mt="120px"
-        bgGradient="linear-gradient(sage.500, seafoam.500)"
+        mt="0px"
+        bg="rgb(164,191,217)"
+        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
         //bgImage="url('https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1259&q=80')"
         bgSize="cover"
         position="relative"
         zIndex={0}
       >
-        
+
         <Box
-          bg="rgba(0,0,0,.8)"
           position="absolute"
           w="100%"
           h="100%"
@@ -204,9 +203,9 @@ export default function Proposal({
           left="0"
         />
         <Container p="0 25px" m="0 auto" width={"100%"}>
-        <Button leftIcon={<IoArrowBackOutline/>} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px"> 
-          All Campaigns
-        </Button>
+          <Button leftIcon={<IoArrowBackOutline />} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px" display={{ base: "none", sm: "none" }}>
+            All Campaigns
+          </Button>
           <Flex
             position="relative"
             minH="400px"
@@ -215,7 +214,7 @@ export default function Proposal({
             flexDir="column"
             zIndex={250}
           >
-            <Flex w="100%" alignItems={["flex-start", "center"]}>
+            {/* <Flex w="100%" alignItems={["flex-start", "center"]}>
               <Badge
                 title="Status"
                 p="8px 48px"
@@ -239,7 +238,7 @@ export default function Proposal({
               >
                 Say on Climate
               </Badge>
-            </Flex>
+            </Flex> */}
             <Heading color="white" w="100%">
               {campaign?.title ?? "TITLE!"}
             </Heading>
@@ -250,7 +249,7 @@ export default function Proposal({
         <Flex
           w="100%"
           mb="32px"
-          bg="sage.500"
+          bg='rgb(164,191,217)'
           height={{
             base: 'fit-content',
             lg: "175px"
@@ -274,25 +273,28 @@ export default function Proposal({
               md: "1px solid #eaeaea"
             }}
             flexDirection={{
-              base: 'column',
+              base: 'row',
+              sm: "row",
               lg: 'row'
             }}
             m='16px'
           >
-            <Box color="white" p={{ base: '0', lg: "16px 24px" }}>
-              <Heading textAlign={"center"} fontSize="48px" color="seafoam.500">
+            <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
+              <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "48px" }} color="White">
                 13,498
               </Heading>
-              <Text fontWeight={500} fontSize="24px">
-                Shares commited to Campaign
+              <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
+                Shares Commited
               </Text>
             </Box>
-            <Box color="white" p={{ base: '0', lg: "16px 24px" }}>
-              <Heading textAlign={"center"} fontSize="48px" color="seafoam.500">
+            <Box color="white" p={{ base: '4', lg: "16px 24px" }}>
+              <Heading textAlign={"center"}
+                fontSize={{ base: "24px", sm: "24px", lg: "48px" }}
+                color="White">
                 50M
               </Heading>
-              <Text fontWeight={500} fontSize="24px">
-                Campaign Supporters
+              <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
+                Supporters
               </Text>
             </Box>
           </Flex>
@@ -314,12 +316,14 @@ export default function Proposal({
               shouldWrapChildren
             > */}
             <Button
-              {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "seafoam.500", disabled: false }}
-              bg="seafoam.500"
+              {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
+              bg="rgb(100, 43, 115)"
               color="white"
               fontSize="1.4em"
-              w="350px"
-              mr="16px"
+              w={{ lg: "350px" }}
+              mr={{
+                base: "0px", sm: "0", lg: "16px"
+              }}
               mb={{
                 base: '32px',
                 md: '0'
@@ -335,7 +339,7 @@ export default function Proposal({
               // }}
               // What is the 
               // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
-              onClick={() => {onVoteModalOpen();}}
+              onClick={() => { onVoteModalOpen(); }}
             >
               {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
             </Button>
@@ -387,13 +391,13 @@ export default function Proposal({
         /> */}
         {/*Adding the about campaign content on the left*/}
         <Flex mt="64px" w="100%">
-          <Flex mb="64px" flexDir={"column"} w="60%" mr="32px">
+          <Flex mb="64px" flexDir={"column"} w={{ base: "100%", sm: "100%", md: "60%", lg: "60 %" }} mr="32px">
             <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 About Campaign
               </Heading>
               {/* TESTING TO SEE WHAT THIS DOES */}
-              <Box mb="32px">
+              {/* <Box mb="32px">
                 <Box
                   title="company graph"
                   w="100%"
@@ -406,7 +410,7 @@ export default function Proposal({
                   <Box position="absolute" color="white">
                     <Text>{campaign.companyName}</Text>
                   </Box>
-                  {/* <ResponsiveContainer width="100%" height={200}>
+                  <ResponsiveContainer width="100%" height={200}>
                     <LineChart data={historicalStockPrice}>
                       <Line
                         type="monotone"
@@ -415,9 +419,9 @@ export default function Proposal({
                         dot={false}
                       />
                     </LineChart>
-                  </ResponsiveContainer> */}
+                  </ResponsiveContainer>
                 </Box>
-              </Box>
+              </Box> */}
 
               {/* TESTING TO SEE WHAT THIS DOES */}
               {/* <Box
@@ -435,7 +439,7 @@ export default function Proposal({
               </Text>)}
             </Box>
 
-            <Box>
+            <Box display={{ base: "none", sm: "none", lg: "block" }}>
               <Flex justifyContent="space-between">
                 <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                   discussion
@@ -517,7 +521,7 @@ export default function Proposal({
               </Flex> */}
             </Box>
           </Flex>
-          <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }}>
+          <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }} display={{ base: "none", sm: "none", lg: "block" }}>
 
             <Flex mb="63px" flexDir={"column"} w="25%">
               <Flex
@@ -532,7 +536,7 @@ export default function Proposal({
                 mt='12px'
                 mb="50%"
                 ml="30px"
-                border="4px solid gray"
+                border="3px solid gray"
               >
                 {/* <Image height="125px" width="250px" /> */}
                 <Image w="50%" height="70%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" />
@@ -540,13 +544,13 @@ export default function Proposal({
                   {campaign?.title}
                 </Text>
                 <Button
-                {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "seafoam.500", disabled: false }}
+                  {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
                   variant="solid"
-                  size="lg"
+                  size={{ base: "sm", sm: "sm", lg: "lg" }}
                   width={48}
-                  backgroundColor="seafoam.500"
+                  backgroundColor="rgb(164,191,217)"
                   mb='10px'
-                  onClick={() => {onVoteModalOpen();}}
+                  onClick={() => { onVoteModalOpen(); }}
                 >
                   {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
                 </Button>
@@ -613,11 +617,11 @@ export default function Proposal({
 
           </Flex>
         </Flex>
-
-        <StepsSection steps={Steps} />
+        {/* I've commented out the steps section and the latest articles section for simplicity */}
+        {/* <StepsSection steps={Steps} />
         <Flex flexDir={"column"}>
           <LatestArticles title="latest news" climateDAOArticles={articles} />
-        </Flex>
+        </Flex> */}
       </Container>
     </>
   );

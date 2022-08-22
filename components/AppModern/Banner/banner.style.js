@@ -7,19 +7,19 @@ const BannerWrapper = styled.div`
   overflow: hidden;
   position: relative;
   background-image: -moz-linear-gradient(
-    139deg,
+    41deg,
     rgb(100, 43, 115) 0%,
-    rgb(198, 66, 110) 100%
+    rgb(164,191,217) 100%,
   );
   background-image: -webkit-linear-gradient(
-    139deg,
+    41deg,
     rgb(100, 43, 115) 0%,
-    rgb(198, 66, 110) 100%
+    rgb(164,191,217) 100%
   );
   background-image: -ms-linear-gradient(
-    139deg,
+    41deg,
     rgb(100, 43, 115) 0%,
-    rgb(198, 66, 110) 100%
+    rgb(164,191,217) 100%
   );
   @media only screen and (min-width: 1201px) and (max-width: 1440px) {
     min-height: 100vh;
@@ -134,6 +134,7 @@ export const ButtonGroup = styled.div`
       background-color: ${themeGet('colors.white', '#fff')};
       color: rgb(15, 33, 55);
       font-size: 16px;
+      margin-bottom:12px;
       letter-spacing: -0.1px;
       &:hover {
         box-shadow: #1e2a4a 0px 12px 24px -10px;
@@ -196,14 +197,16 @@ export const VideoWrapper = styled.div`
   }
 `;
 export const CustomerWrapper = styled.div`
-  max-width: 850px;
+  max-width: 15%;
+  min-width: 5%;
+  margin-right:20%; 
+  margin-left:20%; 
   padding: 0px 0 70px;
   width: 100%;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   @media only screen and (max-width: 1440px) {
-    padding: 0px 0 55px;
+    padding: 0px % 55px;
   }
   @media only screen and (max-width: 1099px) {
     padding: 55px 0 55px;
@@ -213,7 +216,10 @@ export const CustomerWrapper = styled.div`
     padding: 40px 0;
   }
   @media only screen and (max-width: 600px) {
-    padding: 25px 0 40px;
+    padding: 0px 0 0px;
+    margin-right:0%;
+    margin-left:0%;
+    display:none;
   }
 
   p {
