@@ -1,30 +1,16 @@
-# Base on offical Node.js Alpine image
-FROM node:alpine
+FROM node:14-alpine AS dependencies
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci --only=production
 
-# Set working directory
-WORKDIR /Users/matthewrodgers/Desktop/Eudaimonia/app/climateDaoApp
-
-# Install PM2 globally
-RUN npm install --global pm2
-
-# Copy package.json and package-lock.json before other files
-# Utilise Docker cache to save re-installing dependencies if unchanged
-COPY ./package*.json ./
-
-# Install dependencies
-RUN npm install --force
-# Copy all files
-COPY ./ ./
-
-# Build app
+# Rebuild the source code only when needed
+FROM node:14-alpine AS builder
+WORKDIR /app
+COPY . .
+COPY --from=dependencies /app/node_modules ./node_modules
 RUN npm run build
 
-# Expose the listening port
-EXPOSE 3000
-
-# Run container as non-root (unprivileged) user
-# The node user is provided in the Node.js Alpine base image
-# USER node
-
-# Run npm start script when container starts
-CMD [ "pm2-runtime", "npm", "--", "start" ]
+# Production image, copy all the files and run next
+FROM node:14-alpine AS runner
+WORKDIR /app
