@@ -37,7 +37,7 @@ import nookies from 'nookies';
 import { admin } from '../../lib/firebaseAdmin';
 import { IoArrowBackOutline } from "react-icons/io5";
 import useWindowSize from 'react-use/lib/useWindowSize'
-import MasterCommentThread from "../../components/comments/MasterCommentThread";
+import MasterCommentThread from "../../components/comments/masterCommentThread";
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
   "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
