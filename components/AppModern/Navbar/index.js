@@ -18,7 +18,7 @@ import LogoImageLight from '../../../public/illustrations/Awake Logo light.png';
 // COMMENTED OUT THE OLD LOGO
 // import LogoImageAlt from '../../../public/illustrations/Climate DAO dark.png';
 import LogoImageAlt from '../../../public/illustrations/Awake Logo dark (new).png';
-
+import { getAllDocs } from "../../../lib/firebaseClient";
 import { navbar } from '../../common/data/AppModern';
 import { useRouter } from "next/router";
 import { useAuth } from "../../../contexts/AuthContext";
@@ -207,7 +207,16 @@ const Navbar = () => {
 
             ))}
           </Scrollspy>
-          <Button title="Menu" />
+          {userid ? (
+            <div href="#trail" offset={84}>
+              <Button title="Profile" onClick={() => { router.push(`/user/${userid}/profile`); }} /> <span> </span>
+              <Button title="Logout" onClick={() => { logout(); }} />
+            </div>
+          ) : (
+            <div href="#trail" offset={84}>
+              <Button title="Login" onClick={() => { router.push("/login"); }} />
+            </div>
+          )}
         </Container>
       </MobileMenu>
       {/* end of mobile menu */}
