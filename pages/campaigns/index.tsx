@@ -221,7 +221,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
           zIndex={200}
         >
           <Flex justifyContent="center" alignItems="center" h="100%">
-            <Heading color="white" textAlign="center" fontSize="3em">
+            <Heading color="white" textAlign="center" fontSize={{ base: "2em", lg: "3em" }}>
               Back a Campaign for Corporate Action
             </Heading>
           </Flex>
@@ -242,17 +242,21 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
             alignItems="center"
             justifyContent="space-between"
             color="white"
-            p="64px"
-            mb="80px"
+            p={{ base: "28px", sm: "28px", lg: "64px" }}
+            mb={{ base: "40px", sm: "40px", lg: "80px" }}
             flexDirection={{
               base: 'column',
               md: 'row'
             }}
           >
             <Heading
-              fontSize="36px"
+              fontSize={{
+                base: "22px",
+                sm: "22px",
+                lg: "36px"
+              }}
               mb={{
-                base: '32px',
+                base: '16px',
                 md: '0px'
               }}
               textAlign={{
@@ -289,7 +293,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
           </Flex>
           <Box title="">
             <Flex title="" justifyContent="space-between">
-              <Heading mb="64px">Proposals</Heading>
+              <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }}>Proposals</Heading>
               {/* <Flex w="33%" mb="36px">
                 <Select
                   placeholder="Filter By"
@@ -333,7 +337,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
                   borderRadius: "16px",
                   padding: "16px",
                   boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                  mx: "8px",
+                  mx: "0px",
                   mb: "16px",
                   w: "100%",
                   h: "100%",
