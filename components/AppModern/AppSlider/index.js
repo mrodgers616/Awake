@@ -14,9 +14,9 @@ const AppSlider = () => {
   const { title, description, features, carousel } = appSlider;
 
   const glideOptions = {
-    type: 'carousel',
+    type: 'slider',
     gap: 0,
-    autoplay: 7000,
+    // autoplay: 7000,
     perView: 1,
     animationDuration: 700,
   };

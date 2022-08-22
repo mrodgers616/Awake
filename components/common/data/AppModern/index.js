@@ -369,8 +369,8 @@ export const pricing = {
 /* ------------------------------------ */
 // Team Portfolio data section
 /* ------------------------------------ */
-import member1 from '../../assets/image/appModern/1.png';
-import member2 from '../../assets/image/appModern/2.png';
+import member1 from '../../assets/image/appModern/elliotw.png';
+import member2 from '../../assets/image/appModern/matthew.png';
 import member3 from '../../assets/image/appModern/3.png';
 import member4 from '../../assets/image/appModern/4.png';
 import member5 from '../../assets/image/appModern/5.png';
@@ -396,7 +396,7 @@ export const teamportfolio = {
     {
       id: 3,
       img: member3,
-      text: 'Tom keefe',
+      text: "Tom O'keefe",
     },
     {
       id: 4,

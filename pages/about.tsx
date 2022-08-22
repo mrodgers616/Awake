@@ -62,7 +62,7 @@ const About: NextPageWithLayout = () => {
               color="white"
               ml="auto"
               mr="auto"
-              mt={{ base: "60px", lg: "0" }}
+              mt={{ base: "60px", lg: "60" }}
               zIndex={250}
             >
               Activating the Power of Retail Investors
