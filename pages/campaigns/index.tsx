@@ -25,7 +25,6 @@ import {
 import { useState, useEffect, useMemo } from "react";
 import ProposalCard from "../../components/ProposalCard";
 import LatestArticles from "../../components/LatestArticles";
-import LeaderboardTable from "../../components/LeaderboardTable";
 import { useWeb3 } from "../../contexts/Web3Context";
 import { getAllProposals } from "../../lib/firebaseClient";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
