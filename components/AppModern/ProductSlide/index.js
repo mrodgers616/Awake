@@ -6,7 +6,11 @@ import { Icon } from 'react-icons-kit';
 import { useAuth } from "../../../contexts/AuthContext";
 import Button from '../../common/components/Button';
 import ButtonGroup from '../Banner/banner.style';
-import { BannerContent } from '../Banner/banner.style';
+
+import { BannerContent, BannerContentCamp, BannerWrapper, BannerImage } from '../Banner/banner.style';
+import { popStyle } from '../../../components/AppModern/Banner/index';
+import { bannerImg } from '../../../public/illustrations/homepage2.png';
+import { circleBorder } from '../../common/assets/image/appModern/shape.svg';
 import { playCircle } from 'react-icons-kit/fa/playCircle';
 // import { openModal, closeModal } from '@redq/reuse-modal';
 import NextImage from '../../common/components/NextImage';
@@ -16,7 +20,8 @@ import { getAllProposals } from "../../../lib/firebaseClient";
 import { useRouter } from "next/router";
 import Text from '../../common/components/Text';
 import SectionWrapper, { ContentWrapper } from '../DesignedAndBuilt/designedAndBuilt.style';
-import image from "../../../public/illustrations/homepage1.png";
+// import image from "../../../public/illustrations/homepage1.png";
+
 
 
 import ProductSlideWrapper, {
@@ -73,52 +78,34 @@ const ProductSlide = () => {
   }, []);
   return (
     <ProductSlideWrapper>
-      <Container>
-        <SectionHeader>
-          <Heading as="h5" content={slogan} />
-          <Heading as="h1" color={"white"} content={title} />
-        </SectionHeader>
-        <Flex
-          width="100%"
-        >
-          <Flex
-            direction={"column"}
-            width={"40%"}
-            className="content">
-            <Heading color={"white"} content={"title"} />
-            <Text content={`Total is the only western energy giant that hasn’t announced plans to quit Russia. Shell is shedding its ties, BP is going beyond Putin, and Exxon announced it's exiting too. 
+      <SectionHeader>
+        <Heading as="h5" content={slogan} />
+        <Heading as="h1" color={"white"} content={title} />
+      </SectionHeader>
+      <Flex
+        flexDirection={"row"}
+      >
+        <Container>
+          <BannerContentCamp>
+            <Text
+              color="white"
+              content={`Total is the only western energy giant that hasn’t announced plans to quit Russia. Shell is shedding its ties, BP is going beyond Putin, and Exxon announced it's exiting too. 
             
             Simply put, Total’s greed is enabling Putin’s war.
             
             But if enough of us raise our voices we can make Total divest from Russia, and get Europe to speed up going fossil-free – cutting off the stream of cash from gas projects and pipelines in the Russian Arctic that feed right into Putin’s war machine.`}
-              color="white" />
-            <ButtonGroup
-              bg="none"
-            >
-              {userid ? (
-                <LinkAccount
-                  className="primary"
-                  title="Activate Your Shares" onClick={() => { }} />
-              ) : (
-                <Button
-                  className="primary"
-                  title="Create An Account" onClick={() => { router.push("/register") }} />
-              )}
-              <Button
-                className="text"
-                variant="textButton"
-                icon={<Icon icon={playCircle} />}
-                iconPosition="left"
-                title="Watch Video"
-              />
-            </ButtonGroup>
-          </Flex>
-          <div className="image">
-            <NextImage src={image} alt="Built Logo" />
-          </div>
-        </Flex>
-        {/* End of carousel section */}
-      </Container>
+            />
+
+            {userid ? (
+              <LinkAccount className="primary" title="Activate Your Shares" onClick={() => { }} />
+            ) : (
+              <Button className="primary" title="Create An Account" onClick={() => { router.push("/register") }} />
+            )}
+          </BannerContentCamp>
+        </Container>
+        <iframe mr="auto" ml="auto" width="560" height="315" src="https://www.youtube.com/embed/J_oAuiVSW-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </Flex>
+      {/* End of carousel section */}
     </ProductSlideWrapper >
   );
 };

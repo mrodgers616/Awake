@@ -58,6 +58,35 @@ const BannerWrapper = styled.div`
 `;
 
 export const BannerContent = styled.div`
+  width: 35%;
+  flex-shrink: 0;
+  @media only screen and (max-width: 1199px) {
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  h1 {
+    font-size: 46px;
+    line-height: 55px;
+    font-weight: 700;
+    color: ${themeGet('colors.menu', '#0D233E')};
+    margin-bottom: 24px;
+    @media only screen and (max-width: 1366px) {
+      font-size: 32px;
+      line-height: 42px;
+      margin-bottom: 20px;
+    }
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    line-height: 29px;
+  }
+`;
+
+export const BannerContentCamp = styled.div`
   width: 40%;
   flex-shrink: 0;
   @media only screen and (max-width: 1199px) {
@@ -194,6 +223,7 @@ export const VideoWrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+    mr:100px;
   }
 `;
 export const CustomerWrapper = styled.div`
@@ -235,7 +265,9 @@ export const ImageWrapper = styled.div`
   display: flex;
   align-items: center;
   @media only screen and (max-width: 991px) {
-
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
   }
   img {
     margin: 0 12px;
