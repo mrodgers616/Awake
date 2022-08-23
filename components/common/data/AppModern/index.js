@@ -57,7 +57,7 @@ import client1 from '../../assets/image/appModern/CC.png';
 
 import client2 from '../../assets/image/appModern/possibilian.png';
 import client3 from '../../assets/image/appModern/allegory.png';
-import client4 from '../../assets/image/appModern/company4.png';
+import client4 from '../../assets/image/appModern/image 30.png';
 import client5 from '../../assets/image/appModern/bi.svg';
 export const client = [
   {
@@ -204,8 +204,8 @@ import slide2 from '../../assets/image/appModern/page2.png';
 import slide3 from '../../assets/image/appModern/page3.png';
 
 export const productData = {
-  slogan: 'PRODUCT SHOWCASE',
-  title: 'Meet Client Satisfaction by using our product',
+  slogan: 'FLAGSHIP CAMPAIGN',
+  title: 'Get Total to Divest from Russian Oil Now!',
   carousel: [
     {
       id: 1,
