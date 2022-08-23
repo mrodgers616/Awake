@@ -371,11 +371,11 @@ export const pricing = {
 /* ------------------------------------ */
 import member1 from '../../assets/image/appModern/elliotw.png';
 import member2 from '../../assets/image/appModern/matthew.png';
-import member3 from '../../assets/image/appModern/3.png';
-import member4 from '../../assets/image/appModern/4.png';
-import member5 from '../../assets/image/appModern/5.png';
-import member6 from '../../assets/image/appModern/6.png';
-import member7 from '../../assets/image/appModern/7.png';
+import member3 from '../../assets/image/appModern/DEFI.png';
+import member4 from '../../assets/image/appModern/ELI.png';
+import member5 from '../../assets/image/appModern/feems.png';
+import member6 from '../../assets/image/appModern/Tom.png';
+import member7 from '../../assets/image/appModern/Sigal.png';
 
 export const teamportfolio = {
   title: 'The mad scientists behind the movement',
@@ -396,12 +396,12 @@ export const teamportfolio = {
     {
       id: 3,
       img: member3,
-      text: "Tom O'keefe",
+      text: "Johnny Gabrielle",
     },
     {
       id: 4,
       img: member4,
-      text: 'Eli Danzinger',
+      text: 'Eli Danziger',
     },
     {
       id: 5,
@@ -411,12 +411,12 @@ export const teamportfolio = {
     {
       id: 6,
       img: member6,
-      text: 'Johnny Gabrielle',
+      text: "Tom O'Keefe",
     },
     {
       id: 7,
       img: member7,
-      text: 'John Spies'
+      text: 'Sigal Shemesh'
     },
   ],
 };
