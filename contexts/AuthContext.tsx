@@ -138,7 +138,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         localStorage.removeItem('campaignID');
       }
       else {
-        router.push("/campaigns");
+        router.push("/linkAccount");
       }
     } catch (error) {
       toast({
@@ -195,7 +195,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           localStorage.removeItem('campaignID');
         }
         else {
-          router.push("/campaigns");
+          router.push("/linkAccount");
         }
       }
 

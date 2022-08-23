@@ -25,7 +25,7 @@ import WalletConnectBtn from "./WalletConnectBtn";
 import WalletModal from "./WalletModal";
 import { useWeb3 } from "../contexts/Web3Context";
 import { useAuth } from "../contexts/AuthContext";
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { HamburgerIcon } from '@chakra-ui/icons'; 
 import { getAllDocs } from "../lib/firebaseClient";
 //import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
