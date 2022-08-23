@@ -209,16 +209,16 @@ export const CustomerWrapper = styled.div`
     padding: 0px % 55px;
   }
   @media only screen and (max-width: 1099px) {
-    padding: 55px 0 55px;
-    max-width: 920px;
+    padding: 0px % 55px;
   }
   @media only screen and (max-width: 991px) {
-    padding: 40px 0;
+    padding: 0px % 55px;
   }
   @media only screen and (max-width: 600px) {
     padding: 0px 0 0px;
     margin-right:0%;
     margin-left:0%;
+    
     display:none;
   }
 
@@ -235,9 +235,7 @@ export const ImageWrapper = styled.div`
   display: flex;
   align-items: center;
   @media only screen and (max-width: 991px) {
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
+
   }
   img {
     margin: 0 12px;
