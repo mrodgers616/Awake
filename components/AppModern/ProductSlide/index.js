@@ -96,14 +96,14 @@ const ProductSlide = () => {
             But if enough of us raise our voices we can make Total divest from Russia, and get Europe to speed up going fossil-free – cutting off the stream of cash from gas projects and pipelines in the Russian Arctic that feed right into Putin’s war machine.`}
             />
 
-            {userid ? (
+            {/* {userid ? (
               <LinkAccount className="primary" title="Activate Your Shares" onClick={() => { }} />
             ) : (
               <Button className="primary" title="Create An Account" onClick={() => { router.push("/register") }} />
-            )}
+            )} */}
           </BannerContentCamp>
         </Container>
-        <iframe mr="auto" ml="auto" width="560" height="315" src="https://www.youtube.com/embed/J_oAuiVSW-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe mr="auto" ml="auto" width="560" height="315" src="https://www.youtube.com/embed/J_oAuiVSW-U" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </Flex>
       {/* End of carousel section */}
     </ProductSlideWrapper >
