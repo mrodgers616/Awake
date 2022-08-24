@@ -53,6 +53,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
           <Head>
             <title>Awake</title>
+            <meta name="google-site-verification" content="bBjfWyYyEb_3QNlHLnP-IWhoMb4kl8VNytdbQid1Wz8" />
             <meta name="description" content="Awake" />
             <link rel="shortcut icon" href="/images/favicon.ico" />
             <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
