@@ -19,34 +19,36 @@ const TeamPortfolioSection = () => {
       active: index,
     });
   };
-
+  const imgStyle = {
+    width: "200px",
+    height: "200px",
+  }
   return (
     <SectionWrapper id="team">
       <Container>
         <ContentWrapper>
           <div className="image">
             {teammember.map((item, index) => (
-                <div
-                  className={`item_wrapper ${
-                    hover.active === index ? 'active' : ''
+              <div
+                className={`item_wrapper ${hover.active === index ? 'active' : ''
                   }`}
-                  key={index}
-                  onMouseEnter={() => {
-                    setHover({
-                      active: index,
-                    });
-                  }}
-                  onMouseLeave={() => {
-                    setHover({
-                      active: index,
-                    });
-                  }}
-                >
-                  <div className="imageWrapper">
-                    <NextImage src={item.img} alt={item.text} />
-                  </div>
-                  <Text className="author_name" content={item.text} />
+                key={index}
+                onMouseEnter={() => {
+                  setHover({
+                    active: index,
+                  });
+                }}
+                onMouseLeave={() => {
+                  setHover({
+                    active: index,
+                  });
+                }}
+              >
+                <div className="imageWrapper">
+                  <NextImage src={item.img} alt={item.text} style={imgStyle} />
                 </div>
+                <Text className="author_name" content={item.text} />
+              </div>
             ))}
           </div>
           <div className="content">

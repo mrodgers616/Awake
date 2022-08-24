@@ -44,36 +44,37 @@ const About: NextPageWithLayout = () => {
         <Container
           position="relative"
           width="100%"
-          h="600px"
+          h={{ base: "200px", sm: "200px", lg: "400px" }}
           overflow="auto"
           marginX="auto"
           zIndex={200}
         >
           <Flex
             flexDir="column"
-            h="400px"
+            h="200px"
             justifyContent={"center"}
             zIndex={200}
           >
             <Heading
               as="h1"
               size="xl"
-              fontSize="60px"
+              fontSize={{ base: "24px", sm: "24px", lg: "60px" }}
               color="white"
               ml="auto"
               mr="auto"
-              mt="20%"
+              mt={{ base: "60px", lg: "60" }}
               zIndex={250}
             >
               Activating the Power of Retail Investors
             </Heading>
             <Box>
-              <Button
+              {/* <Button
                 as={Link}
-                bg="seafoam.500"
+                bg="rgb(164,191,217)"
                 color="white"
                 h="48px"
                 ml="6%"
+                mt="6%"
                 href="/campaigns"
                 _disabled={{
                   pointerEvents: "none",
@@ -81,13 +82,13 @@ const About: NextPageWithLayout = () => {
               >
                 Campaigns
                 <Icon as={FaArrowRight} ml="15px" />
-              </Button>
+              </Button> */}
             </Box>
           </Flex>
         </Container>
       </Box>
       <Container>
-        <Box title="values" my="120px">
+        <Box title="values" my={{ base: "60px", sm: "60px", lg: "120px" }}>
           {/* <Flex
             className="value"
             alignItems={"center"}
@@ -197,26 +198,25 @@ const About: NextPageWithLayout = () => {
             </Box>
           </Flex> */}
           <Flex
-            borderRadius="20px"
+            borderRadius="16px"
             flexDir="column"
             mb="64px"
             color="white"
-            bgSize="cover"
-            bgGradient="linear-gradient(sage.500, seafoam.500)"
-            p="64px"
-            h="400px"
+            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+            p={{ base: "32px", sm: "32px", lg: "64px" }}
+            h={{ base: "fit-content", lg: "400px" }}
             justifyContent={"center"}
             bgPosition={"center"}
             position="relative"
           >
-            <Heading zIndex={250} fontFamily="3em" mb="2%">
+            <Heading zIndex={250} fontFamily={{ base: "28px", sm: "28px", lg: "3em" }} mb="2%">
               Mission
             </Heading>
-            <Text zIndex={250} fontSize="1.6em">
-              Awakeis empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. Awakemakes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
+            <Text zIndex={250} fontSize={{ base: "16px", sm: "16px", lg: "1.6em" }}>
+              Awake is empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. Awake makes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
             </Text>
             <Box
-              bg="rgba(0,0,0,.4)"
+              bg="rgba(0,0,0,.0)"
               borderRadius="20px"
               position="absolute"
               w="100%"
@@ -231,23 +231,23 @@ const About: NextPageWithLayout = () => {
             flexDir="column"
             mb="64px"
             color="white"
-            bgGradient="linear-gradient(sage.500, seafoam.500)"
-            p="64px"
-            h="400px"
+            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+            p={{ base: "32px", sm: "32px", lg: "64px" }}
+            h={{ base: "fit-content", lg: "400px" }}
             justifyContent={"center"}
             bgPosition={"center"}
             position="relative"
           >
-            <Heading fontFamily="3em" mb="2%" zIndex={250}>
+            <Heading fontFamily={{ base: "28px", sm: "28px", lg: "3em" }} mb="2%" zIndex={250}>
               Vision
             </Heading>
-            <Text fontSize="1.6em" zIndex={250}>
+            <Text fontSize={{ base: "16px", sm: "16px", lg: "1.6em" }} zIndex={250}>
               We envision a world in which the wisdom of the crowds is used for social good, a world in which companies
               are held accountable for their actions. As a community, we will leverage our collective capital, expertise,
               and we will move mountains.
             </Text>
             <Box
-              bg="rgba(0,0,0,.4)"
+              bg="rgba(0,0,0,.0)"
               borderRadius="20px"
               position="absolute"
               w="100%"
@@ -262,17 +262,17 @@ const About: NextPageWithLayout = () => {
             flexDir="column"
             mb="64px"
             color="white"
-            bgGradient="linear-gradient(sage.500, seafoam.500)"
-            p="64px"
-            h="400px"
+            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+            p={{ base: "32px", sm: "32px", lg: "64px" }}
+            h={{ base: "fit-content", lg: "400px" }}
             justifyContent={"center"}
             bgPosition={"center"}
             position="relative"
           >
-            <Heading fontFamily="3em" mb="2%" zIndex={250}>
+            <Heading fontFamily={{ base: "28px", sm: "28px", lg: "3em" }} mb="2%" zIndex={250}>
               Tactics
             </Heading>
-            <Text fontSize="1.6em" zIndex={250}>
+            <Text fontSize={{ base: "16px", sm: "16px", lg: "1.6em" }} zIndex={250}>
               We plan to get retail investors small and large alike to link their brokerage accounts and express what they want to see at the public companies they own. We can wield our collective voice to get public companies to take action. After getting campaign or proposal backers, we reach out to the corporations we&#39;re trying to get to take action and share what we&#39;ve gathered from our community.
             </Text>
             <Box
@@ -294,7 +294,8 @@ const About: NextPageWithLayout = () => {
             justifyContent={"center"}
             mb="64px"
             position="relative"
-            my="120px"
+            my={{ base: "60px", sm: "60px", lg: "120px" }}
+            display={{ base: "none", sm: "none", lg: "" }}
           >
             <Image
               position={"absolute"}
@@ -319,7 +320,7 @@ const About: NextPageWithLayout = () => {
             <Button
               as={Link}
               color="white"
-              bg="seafoam.500"
+              bg="rgb(164,191,217)"
               px="86px"
               py="18px"
               //target="_blank"

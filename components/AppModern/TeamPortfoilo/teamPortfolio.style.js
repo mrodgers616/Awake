@@ -73,6 +73,8 @@ export const ContentWrapper = styled.div`
       &:nth-child(1) {
         top: -80px;
         right: 0px;
+        width:100px;
+        height:100px;
         @media only screen and (max-width: 1099px) {
           top: auto;
           right: auto;
@@ -81,6 +83,8 @@ export const ContentWrapper = styled.div`
       &:nth-child(2) {
         top: 120px;
         right: 150px;
+        width:100px;
+        height:100px;
         @media only screen and (max-width: 1099px) {
           top: auto;
           right: auto;
@@ -89,6 +93,8 @@ export const ContentWrapper = styled.div`
       &:nth-child(3) {
         left: 190px;
         top: 140px;
+        width:100px;
+        height:100px;
         @media only screen and (max-width: 1099px) {
           top: auto;
           left: auto;
@@ -97,6 +103,8 @@ export const ContentWrapper = styled.div`
       &:nth-child(4) {
         right: 205px;
         top: -35px;
+        width:100px;
+        height:100px;
         @media only screen and (max-width: 1099px) {
           top: auto;
           right: auto;
@@ -105,6 +113,8 @@ export const ContentWrapper = styled.div`
       &:nth-child(5) {
         top: -170px;
         right: 180px;
+        width:100px;
+        height:100px;
         @media only screen and (max-width: 1099px) {
           top: auto;
           right: auto;
@@ -113,6 +123,8 @@ export const ContentWrapper = styled.div`
       &:nth-child(6) {
         left: 110px;
         top: -3px;
+        width:100px;
+        height:100px;
         @media only screen and (max-width: 1099px) {
           top: auto;
           left: auto;
@@ -121,6 +133,8 @@ export const ContentWrapper = styled.div`
       &:nth-child(7) {
         top: -180px;
         left: 155px;
+        width:100px;
+        height:100px;
         @media only screen and (max-width: 1099px) {
           top: auto;
           left: auto;
@@ -131,6 +145,8 @@ export const ContentWrapper = styled.div`
         padding: 20px;
         top: -59px;
         left: 34px;
+        width:100px;
+        height:100px;
         background-color: rgb(44, 13, 103);
         box-shadow: 0px 16px 57px 0px rgba(57, 81, 111, 0.1);
         border-radius: 28px 28px 28px 0;

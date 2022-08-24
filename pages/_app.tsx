@@ -53,7 +53,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
           <Head>
             <title>Awake</title>
-            <meta name="description" content="ClimateDAO" />
+            <meta name="description" content="Awake" />
             <link rel="shortcut icon" href="/images/favicon.ico" />
             <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
             <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />

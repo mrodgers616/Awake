@@ -22,13 +22,13 @@ export default function Faq({
   return (
     <Box
       id="questions"
-      p="50px 0 180px"
+      p={{ base: "0px 0 180px", sm: "0px 0 180px", lg: "50px 0 180px" }}
     >
       <Box
         m="0 auto"
       >
         <Heading
-          fontSize="36px"
+          fontSize={{ base: "18px", sm: "18px", lg: "36px" }}
           mb="36px"
           textTransform='uppercase'
         >
@@ -38,33 +38,33 @@ export default function Faq({
           allowToggle
         >
           {faqs.map((faq, index) => (
-          <AccordionItem
-            key={index}
-            borderRadius="24px"
-            p="42px 46px 42px 95px"
-            mb="24px"
-            bg='lightblue.500'
-            boxShadow='0px 2px 8px 0px rgba(0,0,0,0.1)'
-          >
-            <Flex>
-              <AccordionButton
-                border="none"
-                _active={{
-                  border: "none",
-                }}
-              >
-                <Heading flex="1" textAlign="left">
-                  {faq.question}
-                </Heading>
-              </AccordionButton>
-              <AccordionIcon />
-            </Flex>
-            <AccordionPanel pb={4}>
-              <Text fontSize={"18px"} fontWeight={400} lineHeight={"31px"}>
-                {faq.answer}
-              </Text>
-            </AccordionPanel>
-          </AccordionItem>
+            <AccordionItem
+              key={index}
+              borderRadius="24px"
+              p={{ base: "12px 12px 12px 12px", sm: "12px 12px 12px 12px", lg: "42px 46px 42px 12px" }}
+              mb="24px"
+              bg='lightblue.500'
+              boxShadow='0px 2px 8px 0px rgba(0,0,0,0.1)'
+            >
+              <Flex>
+                <AccordionButton
+                  border="none"
+                  _active={{
+                    border: "none",
+                  }}
+                >
+                  <Heading flex="1" textAlign="left" fontSize={{ base: "18px", sm: "18px", lg: "28" }}>
+                    {faq.question}
+                  </Heading>
+                </AccordionButton>
+                <AccordionIcon />
+              </Flex>
+              <AccordionPanel pb={4}>
+                <Text fontSize={"18px"} fontWeight={400} lineHeight={"31px"}>
+                  {faq.answer}
+                </Text>
+              </AccordionPanel>
+            </AccordionItem>
           ))}
         </Accordion>
       </Box>

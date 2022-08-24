@@ -57,7 +57,7 @@ import client1 from '../../assets/image/appModern/CC.png';
 
 import client2 from '../../assets/image/appModern/possibilian.png';
 import client3 from '../../assets/image/appModern/allegory.png';
-import client4 from '../../assets/image/appModern/company4.png';
+import client4 from '../../assets/image/appModern/image 30.png';
 import client5 from '../../assets/image/appModern/bi.svg';
 export const client = [
   {
@@ -133,8 +133,8 @@ export const features = {
 // App slider data section
 /* ------------------------------------ */
 import appSlide1 from '../../assets/image/appModern/giphy.gif';
-import appSlide2 from '../../assets/image/appModern/appSlider2.png';
-import appSlide3 from '../../assets/image/appModern/appSlider3.png';
+import appSlide2 from '../../assets/image/appModern/gif2.gif';
+import appSlide3 from '../../assets/image/appModern/giphy3.gif';
 // import appIcon from '../../assets/image/appModern/icon1.svg';
 import appIcon1 from '../../assets/image/appModern/icon1.png';
 import appIcon2 from '../../assets/image/appModern/icon2.png';
@@ -204,8 +204,8 @@ import slide2 from '../../assets/image/appModern/page2.png';
 import slide3 from '../../assets/image/appModern/page3.png';
 
 export const productData = {
-  slogan: 'PRODUCT SHOWCASE',
-  title: 'Meet Client Satisfaction by using our product',
+  slogan: 'FLAGSHIP CAMPAIGN',
+  title: 'Get Total to Divest from Russian Oil Now!',
   carousel: [
     {
       id: 1,
@@ -369,13 +369,13 @@ export const pricing = {
 /* ------------------------------------ */
 // Team Portfolio data section
 /* ------------------------------------ */
-import member1 from '../../assets/image/appModern/1.png';
-import member2 from '../../assets/image/appModern/2.png';
-import member3 from '../../assets/image/appModern/3.png';
-import member4 from '../../assets/image/appModern/4.png';
-import member5 from '../../assets/image/appModern/5.png';
-import member6 from '../../assets/image/appModern/6.png';
-import member7 from '../../assets/image/appModern/7.png';
+import member1 from '../../assets/image/appModern/elliotw.png';
+import member2 from '../../assets/image/appModern/matthew.png';
+import member3 from '../../assets/image/appModern/DEFI.png';
+import member4 from '../../assets/image/appModern/ELI.png';
+import member5 from '../../assets/image/appModern/feems.png';
+import member6 from '../../assets/image/appModern/Tom.png';
+import member7 from '../../assets/image/appModern/Sigal.png';
 
 export const teamportfolio = {
   title: 'The mad scientists behind the movement',
@@ -396,12 +396,12 @@ export const teamportfolio = {
     {
       id: 3,
       img: member3,
-      text: 'Tom keefe',
+      text: "Johnny Gabrielle",
     },
     {
       id: 4,
       img: member4,
-      text: 'Eli Danzinger',
+      text: 'Eli Danziger',
     },
     {
       id: 5,
@@ -411,12 +411,12 @@ export const teamportfolio = {
     {
       id: 6,
       img: member6,
-      text: 'Johnny Gabrielle',
+      text: "Tom O'Keefe",
     },
     {
       id: 7,
       img: member7,
-      text: 'John Spies'
+      text: 'Sigal Shemesh'
     },
   ],
 };
