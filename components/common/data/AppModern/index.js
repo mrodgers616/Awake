@@ -369,13 +369,13 @@ export const pricing = {
 /* ------------------------------------ */
 // Team Portfolio data section
 /* ------------------------------------ */
-import member1 from '../../assets/image/AppModern/elliotw.png';
-import member2 from '../../assets/image/AppModern/matthew.png';
-import member3 from '../../assets/image/AppModern/DEFI.png';
-import member4 from '../../assets/image/AppModern/ELI.png';
-import member5 from '../../assets/image/AppModern/feems.png';
-import member6 from '../../assets/image/AppModern/Tom.png';
-import member7 from '../../assets/image/AppModern/Sigal.png';
+import member1 from '../../assets/image/appModern/elliotw.png';
+import member2 from '../../assets/image/appModern/matthew.png';
+import member3 from '../../assets/image/appModern/DEFI.png';
+import member4 from '../../assets/image/appModern/ELI.png';
+import member5 from '../../assets/image/appModern/FEEMS.png';
+import member6 from '../../assets/image/appModern/TOM.png';
+import member7 from '../../assets/image/appModern/SIGAL.png';
 
 export const teamportfolio = {
   title: 'The mad scientists behind the movement',
