@@ -45,7 +45,7 @@ const TeamPortfolioSection = () => {
                 }}
               >
                 <div className="imageWrapper">
-                  <NextImage src={item.img} alt={item.text} style={imgStyle} />
+                  <NextImage src={item.img} alt={item.text} />
                 </div>
                 <Text className="author_name" content={item.text} />
               </div>
