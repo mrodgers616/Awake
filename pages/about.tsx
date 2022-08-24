@@ -210,7 +210,7 @@ const About: NextPageWithLayout = () => {
             position="relative"
           >
             <Heading zIndex={250} fontFamily={{ base: "28px", sm: "28px", lg: "3em" }} mb="2%">
-              Mission
+              Mission 
             </Heading>
             <Text zIndex={250} fontSize={{ base: "16px", sm: "16px", lg: "1.6em" }}>
               Awake is empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. Awake makes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
