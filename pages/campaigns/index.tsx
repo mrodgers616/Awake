@@ -27,14 +27,13 @@ import { getAllProposals } from "../../lib/firebaseClient";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Timestamp } from "firebase/firestore";
 import { useAuth } from "../../contexts/AuthContext";
-import { NextPageWithLayout } from "../../lib/types/next";
 
 type Props = {
   campaigns: any;
   treasury: any;
 };
 
-const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => {
+const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
   /**
    * display the form to create proposals.
    */
