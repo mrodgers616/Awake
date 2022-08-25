@@ -7,6 +7,7 @@ import Container from '../../common/components/UI/Container';
 import SectionWrapper, { ContentWrapper } from './teamPortfolio.style';
 
 import { teamportfolio } from '../../common/data/AppModern';
+import { useRouter } from "next/router";
 
 const TeamPortfolioSection = () => {
   const { title, description, teammember } = teamportfolio;
@@ -23,6 +24,9 @@ const TeamPortfolioSection = () => {
     width: "200px",
     height: "200px",
   }
+
+  const router = useRouter();
+
   return (
     <SectionWrapper id="team">
       <Container>
@@ -54,7 +58,7 @@ const TeamPortfolioSection = () => {
           <div className="content">
             <Heading content={title} />
             <Text content={description} />
-            <Button title="Learn More" />
+            <Button title="Learn More" onClick={() => { router.push("/about")}} />
           </div>
         </ContentWrapper>
       </Container>
