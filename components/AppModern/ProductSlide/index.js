@@ -97,7 +97,7 @@ const ProductSlide = () => {
             />
 
             {userid ? (
-              <Button className="primary" title="Campaigns" onClick={() => { router.push("/campaigns") }} />
+              <Button className="primary" title="Check it out" onClick={() => { router.push("/campaigns") }} />
             ) : (
               <Button className="primary" title="Create An Account" onClick={() => { router.push("/register") }} />
             )}

@@ -10,30 +10,11 @@ import {
   usePlaidLink,
   PlaidLinkOptionsWithLinkToken,
 } from 'react-plaid-link';
-// import {
-//   Container,
-//   Heading,
-//   Box,
-//   Flex,
-//   Image,
-//   Button,
-//   Icon,
-//   Text,
-//   FormErrorMessage,
-//   FormControl,
-//   FormLabel,
-//   Input,
-//   chakra,
-//   ChakraProvider,
-//   Stack
-// } from "@chakra-ui/react";
 import { admin } from '../lib/firebaseAdmin';
 import { getProfileData, updateOrAddProfileData } from "../lib/firebaseClient";
 import { parseCookies } from 'nookies';
-import { profile } from "console";
 import Text from '../components/common/components/Text';
 import Image from '../components/common/components/Image';
-import NextImage from '../components/common/components/NextImage';
 import Button from '../components/common/components/Button';
 import Heading from '../components/common/components/Heading';
 import Rating from '../components/common/components/Rating';
