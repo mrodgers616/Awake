@@ -113,12 +113,7 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
         bgImageUrl ? data.backgroundImage = bgImageUrl : data.backgroundImage =  "";
       }
 
-      console.log(data.profileImage)
-      console.log(profileImageUrl)
-      console.log(data.backgroundImage)
-      console.log(bgImageUrl)
       const result = await updateOrAddProfileData(id, data);
-      console.log(result);
 
       const profileBeforeData = await getProfileData(userid!);
       const profileData = profileBeforeData.data();
