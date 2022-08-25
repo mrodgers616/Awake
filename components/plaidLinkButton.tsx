@@ -280,7 +280,7 @@ const configuration = new Configuration({
         <>
             {this.state.isPlaidConnectedBefore ? (
                 //@ts-ignore
-                <Button className="primary" title="Campaigns" href="/campaigns" />
+                <Button className="primary" title="Account Linked Go Vote!" disabled={true} />
             ) : (
                 //@ts-ignore
                 <Button className="primary" title="Connect Your Brokerage Account" as={PlaidLink} 

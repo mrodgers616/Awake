@@ -2,6 +2,7 @@ import type { NextPage, GetServerSidePropsContext } from "next";
 import React from 'react';
 import {
     Container,
+    Box
   } from "@chakra-ui/react";
 
 interface Props { }
@@ -14,6 +15,7 @@ class privacyPolicy extends React.Component<Props, State> {
   render() {
     return (
       <>
+      <Box bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)" height="98px" width="100%"></Box>
       <Container mt="5%">
         <h1>Privacy Policy for ClimateDAO Incorporated</h1>
 

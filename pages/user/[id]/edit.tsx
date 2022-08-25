@@ -25,13 +25,13 @@ const ProfileEdit: NextPage<any> = ({ profile: profileData, profileImage, backgr
   return (
     <>
       <Head>
-        <title>Climate DAO | Profile</title>
+        <title>Awake | Profile</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
+      <Box bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)" height="98px" width="100%"></Box>
       <Box 
         width='100%'
         height='400px'
-        mt='120px'
         bg='grey'
         backgroundImage={`${backgroundImage}`}
         backgroundSize='cover'

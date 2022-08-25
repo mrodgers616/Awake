@@ -97,13 +97,15 @@ const ProductSlide = () => {
             />
 
             {userid ? (
-              <Button className="primary" title="Campaings" onClick={() => { router.push("/campaigns") }} />
+              <Button className="primary" title="Campaigns" onClick={() => { router.push("/campaigns") }} />
             ) : (
               <Button className="primary" title="Create An Account" onClick={() => { router.push("/register") }} />
             )}
           </BannerContentCamp>
         </Container>
-        <iframe mr="auto" ml="auto" width="560" height="315" src="https://www.youtube.com/embed/J_oAuiVSW-U" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <Container>
+          <iframe mr="auto" ml="auto" width="560" height="315" src="https://www.youtube.com/embed/J_oAuiVSW-U" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        </Container>
       </Flex>
       {/* End of carousel section */}
     </ProductSlideWrapper >

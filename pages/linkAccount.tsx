@@ -363,6 +363,10 @@ const LinkAccount: NextPage = () => {
   
 
     return (
+      <>
+      <head>
+        <title>Awake | Blog</title>
+      </head>
       <BannerWrapper id="home">
         {/*@ts-ignore*/}
       <Container>
@@ -418,6 +422,7 @@ const LinkAccount: NextPage = () => {
         alt="Bottom Circle"
       />
     </BannerWrapper>
+    </>
       // <>
       //   <Head>
       //     <title>Climate DAO | Link Account</title>
@@ -504,7 +509,7 @@ const LinkAccount: NextPage = () => {
       //             At Awakewe empower like-minded investors to collectively advocate
       //             for changes they want to see at public companies. Linking your brokerage
       //             accounts, allows us to prove to the companies we’re approaching that
-      //             verified shareholders supported the proposed campaings.
+      //             verified shareholders supported the proposed campaigns.
       //           </Text>
       //           <Flex ml="-20%" mr="-20%" mt="4%" bgGradient="linear(to bottom, #348477,#17CFA5)" borderRadius="30px" height="400px">
       //             <Stack spacing={2} mr="15%" height="300px" mt="auto" mb="auto">
