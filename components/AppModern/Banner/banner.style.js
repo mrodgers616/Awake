@@ -87,7 +87,7 @@ export const BannerContent = styled.div`
 `;
 
 export const BannerContentCamp = styled.div`
-  width: 40%;
+  width: 75%;
   flex-shrink: 0;
   @media only screen and (max-width: 1199px) {
     flex-shrink: 0;

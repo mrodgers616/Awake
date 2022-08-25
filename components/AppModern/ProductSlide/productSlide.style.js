@@ -17,15 +17,19 @@ const ProductSlideWrapper = styled.div`
   background-color: ${themeGet('colors.banner', 'rgb(29, 35, 54)')};
   padding-top: 80px;
   overflow: hidden;
+  height: 850px;
   @media only screen and (max-width: 1440px) {
     margin-bottom: 30px;
+    height: 850px;
   }
   @media only screen and (max-width: 1440px) {
     padding-top: 60px;
+    height: 850px;
   }
   @media only screen and (max-width: 767px) {
     margin-bottom: 42px;
     padding-top: 40px;
+    height: 850px;
   }
 `;
 export const Container = styled.div`
