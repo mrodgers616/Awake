@@ -123,7 +123,7 @@ const Navbar = () => {
           <ScrollSpyMenu className="menu" menuItems={navMenu} offset={-84} />
           {/* end of main menu */}
 
-          <Search className="search" ref={searchRef}>
+          {/* <Search className="search" ref={searchRef}>
             <form onSubmit={handleSearchForm}>
               <input
                 type="text"
@@ -139,7 +139,7 @@ const Navbar = () => {
               onClick={() => toggleHandler('search')}
             />
           </Search>
-          {/* end of search */}
+          end of search */}
 
           {userid ? (
             <div href="#trail" offset={84}>
