@@ -83,12 +83,25 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
       let pfp;
       let bgp;
       console.log(data);
+
+      if(data.profileImage.length) {
+        console.log("here")
+      }
+
+      if(data.profileImage) {
+        console.log("here2")
+      }
+
+      if (data.backgroundImage.length) {
+        console.log("nowhere")
+      }
+
       if (data.profileImage.length) {
         pfp = await addImageToStorage(userid!, data.profileImage[0]);
         data.profileImage = pfp.fullPath;
       }
       else {
-        profileImageUrl ? data.profileImage = profileImageUrl : "";
+        profileImageUrl ? data.profileImage = profileImageUrl : data.profileImage = "";
       }
       
       if (data.backgroundImage.length) {
@@ -97,10 +110,10 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
         data.backgroundImage = bgp.fullPath;
       }
       else {
-        bgImageUrl ? data.backgroundImage = bgImageUrl : "";
+        bgImageUrl ? data.backgroundImage = bgImageUrl : data.backgroundImage =  "";
       }
+
       const result = await updateOrAddProfileData(id, data);
-      console.log(result);
 
       const profileBeforeData = await getProfileData(userid!);
       const profileData = profileBeforeData.data();
