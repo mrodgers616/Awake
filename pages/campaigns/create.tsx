@@ -25,18 +25,12 @@ import {
 import { useForm, useController } from "react-hook-form";
 import Upload from "rc-upload"
 import React, { ChangeEvent, useState } from "react";
-import { useWeb3 } from "../../contexts/Web3Context";
 import { addProposalToStore, addImageToStorage } from "../../lib/firebaseClient";
 import _ from "lodash";
 import axios from "axios";
 import Router from "next/router";
 
 const CreateCampaign: NextPage = (_props: any) => {
-  const {
-    createProposal,
-    walletAddress,
-    createGovernanceProposal,
-  } = useWeb3();
   const [_etherscanAddress, _setEtherscanAddress] = useState(null);
   const [fetchedContractABI, setFetchedContractABI] = useState<
     Array<Record<string, any>>

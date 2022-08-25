@@ -1,5 +1,4 @@
 import type { NextPage, GetServerSidePropsContext } from "next";
-import theme from "../../theme/styles";
 import Head from "next/head";
 import {
   ButtonProps,
@@ -24,113 +23,24 @@ import {
 } from "@ajna/pagination";
 import { useState, useEffect, useMemo } from "react";
 import ProposalCard from "../../components/ProposalCard";
-import LatestArticles from "../../components/LatestArticles";
-import { useWeb3 } from "../../contexts/Web3Context";
 import { getAllProposals } from "../../lib/firebaseClient";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Timestamp } from "firebase/firestore";
-import supporters from '../../data/supporters.json';
-import articles from '../../data/articles.json';
-import axios from "axios";
 import { useAuth } from "../../contexts/AuthContext";
-import { NextPageWithLayout } from "../../lib/types/next";
-import Router from "next/router";
 
 type Props = {
   campaigns: any;
   treasury: any;
 };
 
-const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => {
+const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
   /**
    * display the form to create proposals.
    */
-  const { walletAddress, isConnected, hasEnoughBalance } = useWeb3();
   const [proposals, setProposals] = useState(campaigns);
   const [totalProposals, setTotalProposals] = useState(0);
-  const [treasuryBalance, setTreasuryBalance] = useState(0);
 
   const { userid } = useAuth();
-
-  const supporterColumns = useMemo((): any => [
-    {
-      Header: 'Address',
-      accessor: 'address'
-    }, {
-      Header: 'Campaigns Supported',
-      accessor: 'campaignsSupported',
-    }
-  ], [])
-
-  /*
-  const tData = useMemo((): any => {
-    if (test === null) return [];
-    const [entries] = Object.entries(test);
-    const [value] = (entries[1] as any).products;
-
-    const totalBalance = value.assets.map((item: any) => item.balance).reduce((a: any, b: any) => a + b, 0);
-    setTreasuryBalance(totalBalance);
-
-    const percentOfHoldings = value.assets.map((item: any) => (item.balance /totalBalance) * 100);
-
-    for (const asset of value.assets) {
-      asset.percentage = percentOfHoldings.shift();
-    }
-    
-    return value.assets;
-  }, []);
-  */
-
-  const supporterData = useMemo((): any => [...supporters], []);
-
-  const treasuryColumns = useMemo((): any => [{
-    Header: 'Market',
-    accessor: 'symbol'
-  }, {
-    Header: '% of Holdings',
-    accessor: 'percentage',
-    Cell: ({ value }: any) => <Box>{value.toFixed(3)}%</Box>
-  }, {
-    Header: 'Balance',
-    accessor: 'balance',
-    Cell: ({ value }: any) => <Box>{value.toFixed(3)}</Box>
-  }, {
-    Header: 'Total Value',
-    accessor: 'balanceUSD',
-    Cell: ({ value }: any) => <Box>${value.toFixed(2)}</Box>,
-    Footer: () => <Box fontWeight={800}>${treasuryBalance.toFixed(2)}</Box>
-  }], []);
-
-  const treasuryBoardStyles = {
-    titleStyles: {
-      fontSize: '24px',
-      bg: 'rgb(164,191,217)',
-      color: "white",
-      pl: '24px',
-      pt: '24px',
-      pb: '24px'
-    },
-    containerStyles: {
-      borderRadius: '8px',
-      overflow: 'hidden',
-      mb: '120px'
-    },
-    headerStyles: {
-      bg: 'transparent',
-    },
-    thStyles: {
-      bg: 'sage.500',
-      color: 'white',
-    },
-    tdStyles: {
-      borderBottom: 'none',
-      h: '86px'
-    },
-    trStyles: {
-      bg: 'transparent',
-      border: 'none'
-    }
-  }
 
   const baseStyles: ButtonProps = {
     w: 7,
@@ -294,34 +204,6 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
           <Box title="">
             <Flex title="" justifyContent="space-between">
               <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }}>Proposals</Heading>
-              {/* <Flex w="33%" mb="36px">
-                <Select
-                  placeholder="Filter By"
-                  mr="16px"
-                  bg="seafoam.500"
-                  color="white"
-                  borderRadius="20px"
-                  fontSize="24px"
-                >
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
-                  <option>Option 4</option>
-                </Select>
-                <Select
-                  placeholder="Sort By"
-                  mr="16px"
-                  bg="seafoam.500"
-                  color="white"
-                  borderRadius="20px"
-                  fontSize="24px"
-                >
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
-                  <option>Option 4</option>
-                </Select>
-              </Flex> */}
             </Flex>
             <Grid
               title=""
@@ -349,7 +231,6 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
                       image="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                       {...proposal}
                       {...styles}
-                      {...{ isConnected }}
                     />
                   </GridItem>
                 );
@@ -385,27 +266,6 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
               </Flex>
             </Paginator>
           </Box>
-          {/* <LeaderboardTable
-            data={supporterData}
-            columns={supporterColumns}
-            title='Leaderboard'
-            sortBy='campaignsSupported'
-            {...treasuryBoardStyles}
-          />  */}
-          {/* <LeaderboardTable
-            data={tData}
-            columns={treasuryColumns} 
-            title='Treasury'
-            sortBy='total_value'
-            {...treasuryBoardStyles}
-          />  */}
-          {/* COMMENTING OUT THE LATEST ARTICLES SECTION */}
-          {/* <Box title="">
-            <LatestArticles
-              title=""
-              climateDAOArticles={articles}
-            />
-          </Box> */}
         </Container>
       </Box>
     </>
@@ -413,6 +273,7 @@ const Campaigns: NextPageWithLayout<Props> = ({ campaigns, treasury: test }) => 
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
+  
   let campaigns: any[] = [];
   try {
     const data = await getAllProposals();
@@ -438,35 +299,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     }
   });
 
-  /*
-  const options = {
-    method: "GET",
-    url: `https://api.zapper.fi/v1/protocols/tokens/balances?addresses[]=${process.env.NEXT_PUBLIC_GNOSIS_VAULT_ADDRESS}&api_key=${process.env.NEXT_PUBLIC_ZAPPER_API_KEY}`,
-  };
-
-  let treasuryInfo;
-
-  try {
-
-    treasuryInfo = (await axios.request(options as any)).data;
-  
-  
-    return {
-      props: {
-        campaigns,
-        treasury: treasuryInfo,
-      },
-    };
-  } catch (err) {
-    console.error(err as any);
-    treasuryInfo = null;
-  }
-  */
-
   return {
     props: {
       campaigns,
-      //treasury: treasuryInfo,
     },
   };
 }

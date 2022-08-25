@@ -13,30 +13,18 @@ import {
   useDisclosure,
   useToast
 } from "@chakra-ui/react";
-//import { ResponsiveContainer, LineChart, Line } from "recharts";
 import { FaClipboard, FaTwitter, FaFacebook } from "react-icons/fa";
-import { getProposalState, getProposalVotes } from "../../lib/web3";
-import StepsSection from "../../components/StepsSection";
 import { useEffect, useState } from "react";
-import { Steps } from "../../lib/mock-data";
 import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOrAddProfileData } from "../../lib/firebaseClient";
-import LatestArticles from "../../components/LatestArticles";
-//import ReactHtmlParser from "react-html-parser";
 import { GetServerSidePropsContext } from "next";
-import articles from "../../data/articles.json";
 import { arrayUnion, Timestamp, increment } from "firebase/firestore";
-import CampaignCarousel from "../../components/CampaignCarousel";
 import CastVoteModal from "../../components/CastVoteModal";
-import { useWeb3 } from "../../contexts/Web3Context";
-import { ethers } from "ethers";
 import Link from "../../components/Link";
 import axios from "axios";
 import copy from "copy-to-clipboard";
-import { lighten } from "@chakra-ui/theme-tools";
 import nookies from 'nookies';
 import { admin } from '../../lib/firebaseAdmin';
 import { IoArrowBackOutline } from "react-icons/io5";
-import useWindowSize from 'react-use/lib/useWindowSize'
 import MasterCommentThread from "../../components/comments/masterCommentThread";
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -78,7 +66,6 @@ export default function Proposal({
 
   const toast = useToast();
 
-  const { hasEnoughBalance, isConnected } = useWeb3();
   const router = useRouter();
 
   const {

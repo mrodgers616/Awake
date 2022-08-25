@@ -2,7 +2,6 @@ import '@fontsource/dm-sans'
 import Head from "next/head";
 
 import { ChakraProvider } from '@chakra-ui/react'
-import { Web3Provider } from '../contexts/Web3Context'
 import { AuthProvider } from '../contexts/AuthContext'
 import { AppProps } from 'next/app'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
@@ -14,7 +13,6 @@ import LayoutAppModern from '../components/layoutAppModern'
 import "./campaigns.css"
 import "./styles.css"
 import type { NextPage } from "next";
-import type { ReactElement, ReactNode } from 'react'
 import { ThemeProvider } from 'styled-components';
 import { theme as themeModernApp } from '../components/common/theme/appModern';
 
@@ -55,6 +53,10 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
             <title>Awake</title>
             <meta name="google-site-verification" content="bBjfWyYyEb_3QNlHLnP-IWhoMb4kl8VNytdbQid1Wz8" />
             <meta name="description" content="Awake" />
+            <meta
+              name="keywords"
+              content="Awake, awake, AwakeInvest, awakeInvest, awakeinvest, shareholder collective action, awake finance, shareholder proposals, petitions, climte change, democratizing shareholder acitivism, campaigns for corporate action, awake campaigns, "
+            />
             <link rel="shortcut icon" href="/images/favicon.ico" />
             <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
             <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
@@ -87,12 +89,10 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     return (
       <ChakraProvider theme={theme}>
         <AuthProvider>
-          <Web3Provider>
             <Layout>
               <GoogleAnalytics measurementId="G-E829D3LL4P" />
               <Component {...pageProps} />
             </Layout>
-          </Web3Provider>
         </AuthProvider>
       </ChakraProvider>
     )
