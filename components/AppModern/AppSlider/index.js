@@ -20,6 +20,9 @@ const AppSlider = () => {
     perView: 1,
     animationDuration: 700,
   };
+  const marge = {
+    mt: "100px"
+  }
 
   const boxStyle = {
     borderColor: "red",
@@ -28,11 +31,11 @@ const AppSlider = () => {
     //   box-shadow: #1e2a4a 0px 12px 24px -10px;
     // }
   }
-
   return (
     <SectionWrapper>
       <Container>
-        <CarouseWrapper>
+        <CarouseWrapper
+        >
           <GlideCarousel
             bullets={true}
             controls={false}

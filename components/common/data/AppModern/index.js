@@ -158,9 +158,9 @@ export const appSlider = {
       title: 'App Slide 3',
     },
   ],
-  title: 'Awake is empowering everyday investors to be activists.',
+  title: 'Empowering investors to be activists.',
   description:
-    "Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf.",
+    "Whether you own stock through a brokerage, a pension or a 401k, you should have a say.",
   features: [
     {
       id: 1,
