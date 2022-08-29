@@ -27,7 +27,7 @@ export const CarouseWrapper = styled.div`
   width: calc(100% - 428px);
   background-image: url(${circleBg?.src});
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: left bottom;
   @media only screen and (max-width: 1366px) {
     background-size: contain;
     align-self: center;

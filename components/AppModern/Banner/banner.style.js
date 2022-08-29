@@ -87,7 +87,7 @@ export const BannerContent = styled.div`
 `;
 
 export const BannerContentCamp = styled.div`
-  width: 40%;
+  width: 75%;
   flex-shrink: 0;
   @media only screen and (max-width: 1199px) {
     flex-shrink: 0;
@@ -234,6 +234,7 @@ export const CustomerWrapper = styled.div`
   padding: 0px 0 70px;
   width: 100%;
   display: flex;
+  flex-direction:row;
   align-items: center;
   @media only screen and (max-width: 1440px) {
     padding: 0px % 55px;
@@ -245,11 +246,7 @@ export const CustomerWrapper = styled.div`
     padding: 0px % 55px;
   }
   @media only screen and (max-width: 600px) {
-    padding: 0px 0 0px;
-    margin-right:0%;
-    margin-left:0%;
-    
-    display:none;
+    padding: 0px % 55px;
   }
 
   p {
@@ -264,11 +261,7 @@ export const CustomerWrapper = styled.div`
 export const ImageWrapper = styled.div`
   display: flex;
   align-items: center;
-  @media only screen and (max-width: 991px) {
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-  }
+
   img {
     margin: 0 12px;
     @media only screen and (max-width: 667px) {

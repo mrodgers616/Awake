@@ -87,6 +87,7 @@ const ProductSlide = () => {
       >
         <Container>
           <BannerContentCamp>
+            <Heading as="h1" color={"white"} content={"The Issue"} />
             <Text
               color="white"
               content={`Total is the only western energy giant that hasn’t announced plans to quit Russia. Shell is shedding its ties, BP is going beyond Putin, and Exxon announced it's exiting too. 
@@ -104,7 +105,7 @@ const ProductSlide = () => {
           </BannerContentCamp>
         </Container>
         <Container>
-          <iframe mr="auto" ml="auto" width="560" height="315" src="https://www.youtube.com/embed/J_oAuiVSW-U" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe mr="auto" ml="auto" width="720" height="405" src="https://www.youtube.com/embed/J_oAuiVSW-U" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </Container>
       </Flex>
       {/* End of carousel section */}
