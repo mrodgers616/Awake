@@ -143,7 +143,7 @@ const Register: NextPage = () => {
                   <GoogleButton onClick={() => { googleRegister() }}></GoogleButton>
                 </Container>
                 <Container mt="3%" ml="-1.75%">
-                  <Button onClick={() => { facebook() }}>Log in with facebook</Button>
+                  {/* <Button onClick={() => { facebook() }}>Log in with facebook</Button> */}
                 </Container>
               </Flex>
             </chakra.form>
