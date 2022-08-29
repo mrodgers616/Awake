@@ -174,7 +174,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 md: 'left'
               }}
             >
-              Want to create your own movement and campaign?
+              Check out our featured campaign
             </Heading>
             <Tooltip
             // label={ !isConnected ? 'Connect to Metamask' : !hasEnoughBalance ? 'You do not have enough CLIMATE tokens.' : 'Create a new campaign'}
@@ -184,7 +184,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 color="white"
                 bg="rgb(100, 43, 115)"
                 as={Link}
-                href={userid ? "campaigns/create" : "/login"}
+                href={userid ? "campaigns/" : "/login"}
                 p="32px 64px"
                 borderRadius="16px"
                 fontSize="1.3em"
@@ -197,7 +197,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                   pointerEvents: 'none'
                 }}
               >
-                Create Proposal
+                Featured Campaign
               </Button>
             </Tooltip>
           </Flex>
