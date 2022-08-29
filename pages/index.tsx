@@ -20,7 +20,7 @@ const Home: NextPageWithLayout = () => {
       <Features />
       <AppSlider />
       <ProductSlide />
-      <DashboardFeatures />
+      {/* <DashboardFeatures /> */}
       <Testimonial />
       {/* <DesignedAndBuilt /> */}
       <TeamPortfolio />

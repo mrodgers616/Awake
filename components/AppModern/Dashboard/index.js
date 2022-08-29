@@ -12,10 +12,12 @@ import DashboardWrapper, { DashboardObject } from './dashboard.style';
 
 import DashboardObject1 from '../../common/assets/image/appModern/dashboard.png';
 import { useAuth } from "../../../contexts/AuthContext";
+import { useRouter } from "next/router";
 
 
 const DashboardSection = ({ row, col, title, btnStyle, description }) => {
   const { userid } = useAuth();
+  const router = useRouter();
 
   const ButtonGroup = () => (
     <Fragment>
