@@ -145,7 +145,7 @@ const Blog: NextPage = () => {
                 lg: "calc(33% - 16px)"
               }}
               // flexBasis="30%"
-              bg="rgb(164,191,217)"
+              bg="#08152E"
 
               p="16px"
               borderRadius="10px"

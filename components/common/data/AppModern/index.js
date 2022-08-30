@@ -409,11 +409,6 @@ export const teamportfolio = {
       text: 'Fahima Gibrel',
     },
     {
-      id: 6,
-      img: member6,
-      text: "Tom O'Keefe",
-    },
-    {
       id: 7,
       img: member7,
       text: 'Sigal Shemesh'
@@ -499,23 +494,23 @@ export const footer = {
   menu: [
     {
       id: 1,
-      text: 'Adversite',
-      link: '#',
-    },
-    {
-      id: 2,
       text: 'Privacy Policy',
       link: '/privacypolicy',
     },
     {
-      id: 3,
+      id: 2,
       text: 'Twitter',
       link: 'https://twitter.com/Climate_DAO?s=20&t=7kfsw7yZBFaki0n8p6Qg7w',
     },
     {
-      id: 4,
+      id: 3,
       text: 'Contact',
       link: 'mailto:inquiries@climatedao.xyz',
+    },
+    {
+      id: 4,
+      text: 'Discord',
+      link: 'https://discord.gg/WwhjrS3HCm',
     },
   ],
 };

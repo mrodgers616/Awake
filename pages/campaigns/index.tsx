@@ -141,7 +141,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
         <Container width="100%">
           <Flex
             title=""
-            bg="rgb(164,191,217)"
+            bg="#08152E"
             w="100%"
             h={{
               base: "fit-content",
