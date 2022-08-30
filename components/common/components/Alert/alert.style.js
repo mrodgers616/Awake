@@ -15,7 +15,7 @@ const AlertStyle = styled.div`
   font-size: ${themeGet('fontSizes.4', '16')}px;
   color: #FFFFFF;
   background-color: #32006B;
-  margin-right: auto;
+  margin-right: auto; 
   margin-left: auto;
   margin-top: 15px;
 
