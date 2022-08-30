@@ -7,16 +7,23 @@ import { base } from '../base';
 const AlertStyle = styled.div`
   /* Alert default style */
   padding: 20px 25px;
+  width: 15%;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
   border-color: ${themeGet('colors.borderColor', '#dadada')};
   font-size: ${themeGet('fontSizes.4', '16')}px;
-  color: ${themeGet('colors.textColor', '#484848')};
+  color: #FFFFFF;
+  background-color: #32006B;
+  margin-right: auto; 
+  margin-left: auto;
+  margin-top: 15px;
 
   p {
     &:last-child {
       margin-bottom: 0;
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 

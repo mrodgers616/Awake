@@ -49,6 +49,7 @@ const db = getFirestore(app);
 
 const onChainProposals = collection(db, "proposals");
 const users = collection(db, 'users');
+const newsletter = collection(db, 'newsletter');
 
 async function getAllProposals(): Promise<any> {
   try {
@@ -61,6 +62,14 @@ async function getAllProposals(): Promise<any> {
 async function addProposalToStore (proposal: any): Promise<DocumentReference<any> | undefined> {
   try {
     return await addDoc(onChainProposals, proposal);
+  } catch (error: any) {
+    console.error(error.message);
+  }
+}
+
+async function addNewsletterSubscriberToStore (email: any): Promise<DocumentReference<any> | undefined> {
+  try {
+    return await addDoc(newsletter, email);
   } catch (error: any) {
     console.error(error.message);
   }
@@ -237,7 +246,8 @@ export {
   fetchFeaturedProposalFromStore,
   addComment,
   getComments,
-  getAllDocs
+  getAllDocs,
+  addNewsletterSubscriberToStore
 };
 
 

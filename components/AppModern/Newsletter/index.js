@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../../common/components/Box';
 import Text from '../../common/components/Text';
@@ -6,6 +6,9 @@ import Heading from '../../common/components/Heading';
 import Button from '../../common/components/Button';
 import Input from '../../common/components/Input';
 import Container from '../../common/components/UI/Container';
+import { addNewsletterSubscriberToStore } from "../../../lib/firebaseClient";
+import * as EmailValidator from 'email-validator';
+import Alert from '../../common/components/Alert';
 
 import NewsletterWrapper, { ContactFormWrapper } from './newsletter.style';
 
@@ -17,6 +20,45 @@ const Newsletter = ({
   title,
   description,
 }) => {
+
+  const [state, setState] = useState({
+    email: ""
+  });
+
+  const [alert, setAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState(false);
+
+  const controlref = useRef();
+
+  const handleEmailChange = (event) => {
+    setState({ email: event});
+    setAlert(false);
+ }
+
+ const handleOnSubmit = async () => {
+  
+  if(EmailValidator.validate(state.email)) {
+    let data = {
+      email: state.email
+    }
+  
+    await addNewsletterSubscriberToStore(data);
+    setState({email: ""});
+    setAlertMessage("Success");
+    setAlert(true);
+  }
+  else {
+    setAlertMessage("Invalid Email");
+    setAlert(true);
+  }
+
+  const alertstyle = {
+    width: "10%",
+  }
+  
+  
+ }
+
   return (
     <Box {...sectionWrapper} as="section">
       <NewsletterWrapper>
@@ -36,11 +78,15 @@ const Newsletter = ({
                 iconPosition="right"
                 isMaterial={true}
                 className="email_input"
+                value={state.email}
+                ref={controlref}
+                onChange={handleEmailChange}
               />
-              <Button {...buttonStyle} title="Subscribe" />
+              <Button {...buttonStyle} title="Subscribe" onClick={handleOnSubmit}/>
             </ContactFormWrapper>
           </Box>
         </Container>
+        {alert && <Alert isMaterial={true}> {alertMessage} </Alert>}
       </NewsletterWrapper>
     </Box>
   );
