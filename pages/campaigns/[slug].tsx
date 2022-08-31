@@ -19,7 +19,7 @@ import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOr
 import { GetServerSidePropsContext } from "next";
 import { arrayUnion, Timestamp, increment } from "firebase/firestore";
 import CastVoteModal from "../../components/CastVoteModal";
-import Link from "../../components/Link";
+import Link from "../../components/Link"; 
 import axios from "axios";
 import copy from "copy-to-clipboard";
 import nookies from 'nookies';
