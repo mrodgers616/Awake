@@ -110,7 +110,7 @@ const CreateCampaign: NextPage = (_props: any) => {
   }
 
   function addFileName() {
-    if(typeof fileData === undefined || fileData === null) {
+    if (typeof fileData === undefined || fileData === null) {
       return "No file yet";
     }
     else {
@@ -157,7 +157,7 @@ const CreateCampaign: NextPage = (_props: any) => {
         //   // add threadId to proposal.
         //   proposal.threadId = test.topic_id;
         //   // create proposal. use the threadId as description.
-          
+
         //   // if (doc!.id) {
         //   //   if (values.proposalType === "activist") {
         //   //     await createProposal(walletAddress!, doc!.id);
@@ -195,7 +195,7 @@ const CreateCampaign: NextPage = (_props: any) => {
   return (
     <>
       <Head>
-        <title>Climate DAO | Create Proposal</title>
+        <title>Awake | Create Proposal</title>
       </Head>
       <Box bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)" height="98px" width="100%"></Box>
       <Box mt="120px" bg="white" mb="50px">
@@ -205,12 +205,12 @@ const CreateCampaign: NextPage = (_props: any) => {
               textAlign="center"
               fontSize="80px"
               backgroundClip="text"
-              bgGradient="linear(90deg, #1BD3B4 0%, #36575B 100%)"
+              bgGradient="linear(41deg, rgb(100, 43, 115) 0%, rgb(164,191,217) 100%,)"
             >
               Create a Proposal
             </Heading>
           </Flex>
-{/* Taking out the four paragraphs of filler content */}
+          {/* Taking out the four paragraphs of filler content */}
           {/* <Flex flexWrap="wrap" mt="130px">
             <Box w="calc(50% - 36px)" mx="16px" mb="60px">
               <Heading>Sed ut perspicaitis</Heading>
@@ -246,97 +246,97 @@ const CreateCampaign: NextPage = (_props: any) => {
             </Box>
           </Flex> */}
 
-{/* Adding the cards into the page --------------------------------------------------*/}
-<Box textAlign="center" ml="5%" mr="5%" mb="75px">
-      <Flex>
-        <Box
-          width="25%"
-          fontSize="xl"
-          backgroundColor="whiteAlpha.500"
-          m={1}
-          padding="4px"
-        >
-          <Image
-            height="100px"
-            width="100px"
-            ml="auto"
-            mr="auto"
-            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2043.png?alt=media&token=d43f47a3-d634-410f-a223-9643d41f602d"
-          />
-          <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
-            Select a company
-          </Text>
-          <Text fontSize="sm">
-            Identify a company. Use this <Link color="seafoam.500"> guide</Link>.
-          </Text>
-        </Box>
-        <Box
-          width="25%"
-          fontSize="xl"
-          backgroundColor="whiteAlpha.500"
-          m={1}
-          padding="4px"
-        >
-          <Image
-            height="100px"
-            width="100px"
-            ml="auto"
-            mr="auto"
-            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2045.png?alt=media&token=efa701a7-13d1-4ed2-864f-7100cae9534f"
-          />
-          <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
-            Select a cause
-          </Text>
-          <Text fontSize="sm">
-            Identify a specific change you want to see at a corporation. Use this <Link color="seafoam.500">guide</Link>.
-          </Text>
-        </Box>
-        <Box
-          width="25%"
-          fontSize="xl"
-          backgroundColor="whiteAlpha.500"
-          m={1}
-          padding="4px"
-        >
-          <Image
-            height="100px"
-            width="100px"
-            ml="auto"
-            mr="auto"
-            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2046.png?alt=media&token=e395073c-7208-4a26-a301-398abe5fb4ec"
-          />
-          <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
-            Build a case
-          </Text>
-          <Text fontSize="sm">
-            Make a case that this good for the planet AND good
-            for the company. Use this <Link color="seafoam.500">guide</Link>.
-          </Text>
-        </Box>
-        <Box
-          width="25%"
-          fontSize="xl"
-          backgroundColor="whiteAlpha.500"
-          m={1}
-          padding="4px"
-        >
-          <Image
-            height="100px"
-            width="100px"
-            ml="auto"
-            mr="auto"
-            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2047.png?alt=media&token=18ac4bec-db75-4d18-b88d-070865319871"
-          />
-          <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
-            Craft a proposal
-          </Text>
-          <Text fontSize="sm">
-            We’ll collaborate with you to bring this proposal to life. <Link color="seafoam.500">Learn more</Link>.
-          </Text>
-        </Box>
-      </Flex>
-    </Box>
-{/* End of the Top section---------------------------------------------- */}
+          {/* Adding the cards into the page --------------------------------------------------*/}
+          <Box textAlign="center" ml="5%" mr="5%" mb="75px">
+            <Flex>
+              <Box
+                width="25%"
+                fontSize="xl"
+                backgroundColor="whiteAlpha.500"
+                m={1}
+                padding="4px"
+              >
+                <Image
+                  height="100px"
+                  width="100px"
+                  ml="auto"
+                  mr="auto"
+                  src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2043.png?alt=media&token=d43f47a3-d634-410f-a223-9643d41f602d"
+                />
+                <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
+                  Select a company
+                </Text>
+                <Text fontSize="sm">
+                  Identify a company. Use this <Link color="#32006B"> guide</Link>.
+                </Text>
+              </Box>
+              <Box
+                width="25%"
+                fontSize="xl"
+                backgroundColor="whiteAlpha.500"
+                m={1}
+                padding="4px"
+              >
+                <Image
+                  height="100px"
+                  width="100px"
+                  ml="auto"
+                  mr="auto"
+                  src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2045.png?alt=media&token=efa701a7-13d1-4ed2-864f-7100cae9534f"
+                />
+                <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
+                  Select a cause
+                </Text>
+                <Text fontSize="sm">
+                  Identify a specific change you want to see at a corporation. Use this <Link href="https://awakeinvest.gitbook.io/shares/" color="#32006B">guide</Link>.
+                </Text>
+              </Box>
+              <Box
+                width="25%"
+                fontSize="xl"
+                backgroundColor="whiteAlpha.500"
+                m={1}
+                padding="4px"
+              >
+                <Image
+                  height="100px"
+                  width="100px"
+                  ml="auto"
+                  mr="auto"
+                  src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2046.png?alt=media&token=e395073c-7208-4a26-a301-398abe5fb4ec"
+                />
+                <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
+                  Build a case
+                </Text>
+                <Text fontSize="sm">
+                  Make a case that this good for the planet AND
+                  for the company. Use this <Link href="https://awakeinvest.gitbook.io/shares/" color="rgb(100, 43, 115)">guide</Link>.
+                </Text>
+              </Box>
+              <Box
+                width="25%"
+                fontSize="xl"
+                backgroundColor="whiteAlpha.500"
+                m={1}
+                padding="4px"
+              >
+                <Image
+                  height="100px"
+                  width="100px"
+                  ml="auto"
+                  mr="auto"
+                  src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2047.png?alt=media&token=18ac4bec-db75-4d18-b88d-070865319871"
+                />
+                <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold">
+                  Craft a proposal
+                </Text>
+                <Text fontSize="sm">
+                  We’ll collaborate with you to bring this proposal to life. <Link href="https://awakeinvest.gitbook.io/shares/" color="#32006B">Learn more</Link>.
+                </Text>
+              </Box>
+            </Flex>
+          </Box>
+          {/* End of the Top section---------------------------------------------- */}
 
           <Box m="0 auto" maxW="1800px" ml="5%" mr="5%">
             <Tabs variant="enclosed" borderRadius="8px">
@@ -374,7 +374,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                     onSubmit={handleSubmit(onSubmit)}
                   >
                     <FormControl
-                
+
                       visibility="hidden"
                       position="absolute"
                     >
@@ -384,10 +384,10 @@ const CreateCampaign: NextPage = (_props: any) => {
                         defaultValue="activist"
                       />
                       <FormErrorMessage>
-                        
+
                       </FormErrorMessage>
                     </FormControl>
-                    <FormControl  mt="16px">
+                    <FormControl mt="16px">
                       <FormLabel htmlFor="title">Title:</FormLabel>
                       <Input
                         id="title"
@@ -402,7 +402,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         })}
                       />
                       <FormErrorMessage>
-                        
+
                       </FormErrorMessage>
                     </FormControl>
                     {/* <FormControl isInvalid={errors.type} mt="16px">
@@ -442,7 +442,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         placeholder="TSLA"
                       />
                       <FormErrorMessage>
-                        
+
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl mt="16px">
@@ -454,7 +454,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         placeholder="Tesla"
                       />
                       <FormErrorMessage>
-                        
+
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl mt="16px">
@@ -486,14 +486,14 @@ const CreateCampaign: NextPage = (_props: any) => {
                         <Text size='30px'>No file Uploaded</Text> */}
                       </Flex>
                       <FormErrorMessage>
-                        
+
                       </FormErrorMessage>
                     </FormControl>
                     <Flex alignSelf="end">
                       <Button
                         alignSelf={"flex-end"}
                         mt={4}
-                        colorScheme="teal"
+                        color="#32006B"
                         isLoading={isSubmitting}
                         w="300px"
                         type="submit"
@@ -510,7 +510,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                     onSubmit={handleGovernanceSubmit(onSubmit)}
                   >
                     <FormControl
-                      
+
                       visibility="hidden"
                       position="absolute"
                     >
@@ -520,7 +520,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         defaultValue="governance"
                       />
                       <FormErrorMessage>
-                        
+
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
@@ -540,7 +540,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         })}
                       />
                       <FormErrorMessage>
-                        
+
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
@@ -563,7 +563,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         rows={10}
                       />
                       <FormErrorMessage>
-                        
+
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
@@ -585,7 +585,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                         onChange={handleContractSearch}
                       />
                       <FormErrorMessage>
-                        
+
                       </FormErrorMessage>
                     </FormControl>
                     <FormControl
@@ -612,7 +612,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                           ))}
                       </Select>
                       <FormErrorMessage>
-                        
+
                       </FormErrorMessage>
                     </FormControl>
                     {selectedFunction &&
@@ -634,7 +634,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                               })}
                             />
                             <FormErrorMessage>
-                              
+
                             </FormErrorMessage>
                           </FormControl>
                         )

@@ -19,7 +19,7 @@ import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOr
 import { GetServerSidePropsContext } from "next";
 import { arrayUnion, Timestamp, increment } from "firebase/firestore";
 import CastVoteModal from "../../components/CastVoteModal";
-import Link from "../../components/Link";
+import Link from "../../components/Link"; 
 import axios from "axios";
 import copy from "copy-to-clipboard";
 import nookies from 'nookies';
@@ -600,6 +600,7 @@ export default function Proposal({
                   </Box>
                 </Flex>
               </Flex>
+
             </Flex>
 
           </Flex>
@@ -609,6 +610,71 @@ export default function Proposal({
         <Flex flexDir={"column"}>
           <LatestArticles title="latest news" climateDAOArticles={articles} />
         </Flex> */}
+        <Flex
+          w="100%"
+          mb="32px"
+          bg='#08152E'
+          height={{
+            base: 'fit-content',
+            lg: "175px"
+          }}
+          borderRadius="16px"
+          justifyContent="center"
+          alignItems="center"
+          boxShadow="4px 4px 62px -9px rgba(0, 0, 0, 0.15)"
+          zIndex={500}
+          flexDir={{
+            base: "column",
+            md: "row"
+          }}
+        >
+          <Flex
+            alignItems={"center"}
+            justifyContent={"center"}
+            flexBasis="50%"
+            borderRight={{
+              base: 'none',
+              md: "1px solid #eaeaea"
+            }}
+            flexDirection={{
+              base: 'row',
+              sm: "row",
+              lg: 'row'
+            }}
+            m='16px'
+          >
+            <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
+              <Text fontWeight={500} fontSize={{ base: "16px", lg: "32px" }}>
+                Want to create your own campaign?
+              </Text>
+            </Box>
+          </Flex>
+          <Flex
+            h="100%"
+            flexBasis={"50%"}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Button
+              bg="rgb(100, 43, 115)"
+              color="white"
+              fontSize="1.4em"
+              w={{ lg: "350px" }}
+              mr={{
+                base: "0px", sm: "0", lg: "16px"
+              }}
+              mb={{
+                base: '32px',
+                md: '0'
+              }}
+              h="64px"
+              // href={"/campaigns/create"}
+              onClick={() => { router.push("/campaigns/create"); }}
+            >
+              Start Your Own
+            </Button>
+          </Flex>
+        </Flex>
       </Container>
     </>
   );
