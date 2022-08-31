@@ -236,7 +236,7 @@ export default function Proposal({
         <Flex
           w="100%"
           mb="32px"
-          bg='rgb(164,191,217)'
+          bg='#08152E'
           height={{
             base: 'fit-content',
             lg: "175px"
@@ -268,7 +268,7 @@ export default function Proposal({
           >
             <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
               <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "48px" }} color="White">
-                13,498
+                {campaign.verifiedVotes ? String(campaign.verifiedVotes) : "0"}
               </Heading>
               <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
                 Shares Commited
@@ -278,7 +278,7 @@ export default function Proposal({
               <Heading textAlign={"center"}
                 fontSize={{ base: "24px", sm: "24px", lg: "48px" }}
                 color="White">
-                50M
+                {String(campaign.unverifiedUsers.length + campaign.users.length)}
               </Heading>
               <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
                 Supporters

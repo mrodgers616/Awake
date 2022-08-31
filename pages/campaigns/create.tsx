@@ -141,7 +141,8 @@ const CreateCampaign: NextPage = (_props: any) => {
             values.proposalType === "activist"
               ? values.description
               : values.governanceDescription,
-          status: 0
+          status: 0,
+          verified: false,
         };
         // // create a thread.
         // const response = await fetch(`/api/discourse/thread`, {
@@ -196,6 +197,7 @@ const CreateCampaign: NextPage = (_props: any) => {
       <Head>
         <title>Climate DAO | Create Proposal</title>
       </Head>
+      <Box bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)" height="98px" width="100%"></Box>
       <Box mt="120px" bg="white" mb="50px">
         <Container>
           <Flex h="180px" justifyContent="center" alignItems="center">

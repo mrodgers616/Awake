@@ -27,6 +27,7 @@ import { getAllProposals } from "../../lib/firebaseClient";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Timestamp } from "firebase/firestore";
 import { useAuth } from "../../contexts/AuthContext";
+import { forEach } from "lodash";
 
 type Props = {
   campaigns: any;
@@ -91,12 +92,16 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
   }
 
   useEffect(() => {
-    setProposals(campaigns.slice(offset, offset + pageSize));
-    setTotalProposals(campaigns.length);
-  }, []);
-
-  useEffect(() => {
-    setProposals(campaigns.slice(offset, offset + pageSize));
+    let verifiedCampaigns = [];
+    for(let i = 0; i < campaigns.length; i++) {
+      if(campaigns[i].verified) {
+        verifiedCampaigns.push(campaigns[i])
+      }
+      else {
+        continue;
+      }
+    }
+    setProposals(verifiedCampaigns.slice(offset, offset + pageSize));
     setTotalProposals(campaigns.length);
   }, [currentPage, pageSize, offset]);
 
@@ -214,6 +219,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
               }}
               gap={4}
             >
+
               {proposals.map((proposal: any, index: number) => {
                 const styles = {
                   borderRadius: "16px",
@@ -224,7 +230,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                   w: "100%",
                   h: "100%",
                 };
-
+                
                 return (
                   <GridItem key={index}>
                     <ProposalCard
