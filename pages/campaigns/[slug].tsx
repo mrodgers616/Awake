@@ -268,7 +268,7 @@ export default function Proposal({
           >
             <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
               <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "48px" }} color="White">
-                {campaign.verifiedVotes ? String(campaign.verifiedVotes) : "0"}
+                {campaign.verifiedVotes ? String(Math.round(campaign.verifiedVotes * 100) /100) : "0"}
               </Heading>
               <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
                 Shares Commited
