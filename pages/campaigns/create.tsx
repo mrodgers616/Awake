@@ -195,7 +195,7 @@ const CreateCampaign: NextPage = (_props: any) => {
   return (
     <>
       <Head>
-        <title>Climate DAO | Create Proposal</title>
+        <title>Awake | Create Proposal</title>
       </Head>
       <Box bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)" height="98px" width="100%"></Box>
       <Box mt="120px" bg="white" mb="50px">
