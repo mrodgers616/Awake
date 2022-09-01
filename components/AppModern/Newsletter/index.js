@@ -31,40 +31,40 @@ const Newsletter = ({
   const controlref = useRef();
 
   const handleEmailChange = (event) => {
-    setState({ email: event});
+    setState({ email: event });
     setAlert(false);
- }
+  }
 
- const handleOnSubmit = async () => {
-  
-  if(EmailValidator.validate(state.email)) {
-    let data = {
-      email: state.email
+  const handleOnSubmit = async () => {
+
+    if (EmailValidator.validate(state.email)) {
+      let data = {
+        email: state.email
+      }
+
+      await addNewsletterSubscriberToStore(data);
+      setState({ email: "" });
+      setAlertMessage("Success");
+      setAlert(true);
     }
-  
-    await addNewsletterSubscriberToStore(data);
-    setState({email: ""});
-    setAlertMessage("Success");
-    setAlert(true);
-  }
-  else {
-    setAlertMessage("Invalid Email");
-    setAlert(true);
-  }
+    else {
+      setAlertMessage("Invalid Email");
+      setAlert(true);
+    }
 
-  const alertstyle = {
-    width: "10%",
+    const alertstyle = {
+      width: "10%",
+    }
+
+
   }
-  
-  
- }
 
   return (
     <Box {...sectionWrapper} as="section">
       <NewsletterWrapper>
         <Container>
           <Box {...textArea}>
-            <Heading content="Subscribe our newsletter" {...title} />
+            <Heading content="Subscribe to our newsletter" {...title} />
             <Text
               content="Sign up to be the first to know about updates and new features"
               {...description}
@@ -82,7 +82,7 @@ const Newsletter = ({
                 ref={controlref}
                 onChange={handleEmailChange}
               />
-              <Button {...buttonStyle} title="Subscribe" onClick={handleOnSubmit}/>
+              <Button {...buttonStyle} title="Subscribe" onClick={handleOnSubmit} />
             </ContactFormWrapper>
           </Box>
         </Container>
