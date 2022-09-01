@@ -189,7 +189,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 color="white"
                 bg="rgb(100, 43, 115)"
                 as={Link}
-                href={userid ? "campaigns/" : "/login"}
+                // href={userid ? "campaigns/" : "/login"}
                 p="32px 64px"
                 borderRadius="16px"
                 fontSize="1.3em"
@@ -198,11 +198,12 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 _hover={{
                   textDecoration: "none",
                 }}
-                _disabled={{
-                  pointerEvents: 'none'
-                }}
+                // _disabled={{
+                //   pointerEvents: 'none'
+                // }}
+                disabled={true}
               >
-                Featured Campaign
+                Featured Campaign (Coming Soon)
               </Button>
             </Tooltip>
           </Flex>
