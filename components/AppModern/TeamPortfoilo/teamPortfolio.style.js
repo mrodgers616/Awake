@@ -14,7 +14,7 @@ const SectionWrapper = styled.div`
     padding: 75px 0;
   }
   @media only screen and (max-width: 480px) {
-    padding: 75px 0 50px;
+    padding: 75px 0;
   }
 `;
 
@@ -47,7 +47,7 @@ export const ContentWrapper = styled.div`
     }
     @media only screen and (max-width: 480px) {
       left: 0%;
-      padding-bottom: 20px;
+      margin-bottom: 20px;
     }
 
     .item_wrapper {
