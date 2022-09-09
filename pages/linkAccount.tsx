@@ -96,13 +96,13 @@ const request: LinkTokenCreateRequest = {
 };
 
 async function linkPlaid() {
-  //console.log("here");
+  ////console.log("here");
   try {
     const response = await plaidClient.linkTokenCreate(request);
     const linkToken = response.data.link_token;
-    //console.log(linkToken);
+    ////console.log(linkToken);
   } catch (error) {
-    //console.log(error);
+    ////console.log(error);
   }
 }
 
@@ -219,7 +219,7 @@ const LinkAccount: NextPage = () => {
 
   async function createLinkToken() {
     // get a link_token from your server
-    //console.log("link token begin")
+    ////console.log("link token begin")
     try {
       // get a link_token from your server
       const response = await fetch('/api/create_link_token', { method: 'POST' });
@@ -227,7 +227,7 @@ const LinkAccount: NextPage = () => {
       return link_token;
     }
     catch (e) {
-      //console.log(e);
+      ////console.log(e);
     }
   }
 
@@ -237,20 +237,20 @@ const LinkAccount: NextPage = () => {
       return await response.json();
     }
     catch (e) {
-      //console.log(e);
+      ////console.log(e);
     }
   }
 
   async function getAccessToken(publicToken: any) {
     try {
       const response = await fetch("/api/get_access_token/", { method: 'POST', body: publicToken });
-      //console.log(response);
+      ////console.log(response);
       const accessToken = await response.json();
       return accessToken.access_token;
 
     }
     catch (e) {
-      //console.log(e);
+      ////console.log(e);
     }
   }
 
@@ -266,7 +266,7 @@ const LinkAccount: NextPage = () => {
     const finalData = {
       investments: transformedData
     }
-
+    //console.log("here")
     try {
       const uid = await getProfileUID()
       updateOrAddProfileData(uid, finalData);
@@ -279,7 +279,7 @@ const LinkAccount: NextPage = () => {
   async function getProfileUID() {
     const cookie = parseCookies();
     const uid = cookie.userUID;
-    ////console.log(uid);
+    //console.log(uid);
     return uid;
   }
 
@@ -318,7 +318,7 @@ const LinkAccount: NextPage = () => {
   const onExit: PlaidLinkOnExit = (error, metadata) => {
     // log onExit callbacks from Link, handle errors
     // https://plaid.com/docs/link/web/#onexit
-    //console.log(error, metadata);
+    ////console.log(error, metadata);
   };
 
   const config: PlaidLinkOptionsWithLinkToken = {
