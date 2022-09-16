@@ -102,7 +102,7 @@ const DashboardSection = ({ row, col, title, btnStyle, description }) => {
             <FeatureBlock
               title={
                 <Heading
-                  content="Meet the crossroads of fintech and shareholder activism"
+                  content="Title of first campaign"
                   {...title}
                 />
               }
