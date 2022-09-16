@@ -30,13 +30,14 @@ const About: NextPageWithLayout = () => {
         // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
         bgSize="cover"
         zIndex={0}
+        h="300px"
         position="relative"
       >
         <Box
           // bg="rgba(0,0,0,.4)"
           position="absolute"
           w="100%"
-          h="100%"
+          h="50%"
           zIndex={0}
           top="0"
           left="0"
@@ -51,7 +52,7 @@ const About: NextPageWithLayout = () => {
         >
           <Flex
             flexDir="column"
-            h="200px"
+            h="100px"
             justifyContent={"center"}
             zIndex={200}
           >
@@ -65,7 +66,7 @@ const About: NextPageWithLayout = () => {
               mt={{ base: "60px", lg: "60" }}
               zIndex={250}
             >
-              Activating the Power of Retail Investors
+              FAQ
             </Heading>
             <Box>
               {/* <Button
@@ -88,115 +89,8 @@ const About: NextPageWithLayout = () => {
         </Container>
       </Box>
       <Container>
-        <Box title="values" my={{ base: "60px", sm: "60px", lg: "120px" }}>
-          {/* <Flex
-            className="value"
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
-            <Image
-              w="40%"
-              h="auto"
-              src="/illustrations/Link your Accounts.png"
-              alt="Analytics team"
-            />
-            <Box className="value-content" w="55%">
-              <Heading fontSize="48px" mb="28px">
-                link your brokerage account
-              </Heading>
-              <Text fontSize="1.5em">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-                duis at tellus at urna condimentum mattis pellentesque.
-              </Text>
-            </Box>
-          </Flex>
-          <Flex
-            className="value"
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
-            <Box className="value-content" w="55%">
-              <Heading fontSize="48px" mb="28px">
-                holding corporations to their word
-              </Heading>
-              <Text fontSize="1.5em">
-              Climate DAO intends to create value by holding corporations accountable to its shareholders and its stakeholders.
-              </Text>
-            </Box>
-            <Image
-              w="40%"
-              h="auto"
-              src="/illustrations/Analytics team_Two Color 1.png"
-              alt="Analytics team"
-            />
-          </Flex>
-          <Flex
-            className="value"
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
-            <Image
-              w="40%"
-              h="auto"
-              src="/illustrations/Data storage_Two Color 1.png"
-              alt="Analytics image"
-            />
-            <Box className="value-content" w="55%">
-              <Heading fontSize="48px" mb="28px">
-                link your borkerage accounts
-              </Heading>
-              <Text fontSize="1.5em">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-                duis at tellus at urna condimentum mattis pellentesque.
-              </Text>
-            </Box>
-          </Flex>
-          <Flex
-            className="value"
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
-            <Box className="value-content" w="55%">
-              <Heading fontSize="48px" mb="28px">
-                vote with your values
-              </Heading>
-              <Text fontSize="1.5em">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-                duis at tellus at urna condimentum mattis pellentesque.
-              </Text>
-            </Box>
-            <Image
-              w="40%"
-              h="auto"
-              src="/illustrations/Analytics team_Two Color 1.png"
-              alt="Analytics image"
-            />
-          </Flex>
-          <Flex
-            className="value"
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
-            <Image
-              w="40%"
-              h="auto"
-              src="/illustrations/Data storage_Two Color 1.png"
-              alt="Analytics image"
-            />
-            <Box className="value-content" w="55%">
-              <Heading fontSize="48px" mb="28px">
-                join our community
-              </Heading>
-              <Text fontSize="1.5em">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-                duis at tellus at urna condimentum mattis pellentesque.
-              </Text>
-            </Box>
-          </Flex> */}
+        {/* <Box title="values" my={{ base: "60px", sm: "60px", lg: "120px" }}>
+          
           <Flex
             borderRadius="16px"
             flexDir="column"
@@ -332,7 +226,7 @@ const About: NextPageWithLayout = () => {
               Browse Campaigns
             </Button>
           </Flex>
-        </Box>
+        </Box> */}
         <Faq faqs={faqs} />
       </Container>
     </>

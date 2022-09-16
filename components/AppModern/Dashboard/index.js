@@ -20,6 +20,7 @@ import {
   ChakraProvider
 } from "@chakra-ui/react";
 import theme from '../../../theme'
+import plaidLink from "../../plaidLinkButton"
 
 
 const DashboardSection = ({ row, col, title, btnStyle, description }) => {
@@ -80,6 +81,8 @@ const DashboardSection = ({ row, col, title, btnStyle, description }) => {
                 />
             </ChakraProvider>
               <Button {...btnStyle} title="Vote Now" onClick={() => { onVoteModalOpen();}} /> <span></span>
+              <plaidLink/>
+              {!investments ? (<plaidLink></plaidLink>) : (null)} <span></span>
               <Button {...btnStyle} title="See more" onClick={() => { router.push(`/campaigns/${slug}`);}} />
             </div>
           ) : (
