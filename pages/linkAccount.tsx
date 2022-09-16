@@ -216,6 +216,9 @@ const LinkAccount: NextPage = () => {
     setIsPlaidConnectedBefore(profileData.plaidPublicToken);
     setUid(uid);
     plaidConnectedBefore = profileData.plaidPublicToken;
+    if(plaidConnectedBefore) {
+      router.push(`/campaigns/PVQFakOIwa7jgQRLeXWo`)
+    }
     
   }
 
