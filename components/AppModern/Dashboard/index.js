@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../../common/components/Box';
 import Text from '../../common/components/Text';
@@ -9,25 +9,82 @@ import FeatureBlock from '../../common/components/FeatureBlock';
 import Container from '../../common/components/UI/Container';
 import Particles from '../Particle';
 import DashboardWrapper, { DashboardObject } from './dashboard.style';
+import CastVoteModal from "../../CastVoteModal" 
 
 import DashboardObject1 from '../../common/assets/image/appModern/dashboard.png';
 import { useAuth } from "../../../contexts/AuthContext";
 import { useRouter } from "next/router";
+import {fetchProposalFromStore, getProfileData} from "../../../lib/firebaseClient"
+import {
+  useDisclosure,
+  ChakraProvider
+} from "@chakra-ui/react";
+import theme from '../../../theme'
 
 
 const DashboardSection = ({ row, col, title, btnStyle, description }) => {
   const { userid } = useAuth();
   const router = useRouter();
+  const [profileData, setProfileData] = useState();
+  const [campaign, setCampaign] = useState();
+  
+  let uid = userid;
+  let investments = null;
+  const slug = "PVQFakOIwa7jgQRLeXWo"
+  const {
+    isOpen: voteModalIsOpen,
+    onOpen: onVoteModalOpen,
+    onClose: onVoteModalClose,
+  } = useDisclosure();
+  
+  useEffect(() => {
+    
+    if(userid) {
+
+      getProfileData(userid).then(profile => {
+        setProfileData(profile.data());
+      })
+
+      fetchProposalFromStore(slug).then(campaign => {
+        setCampaign(campaign.data());
+      })
+    
+    }
+  }, [userid])
+
+
+    if(profileData) {
+      if (profileData.investments) {
+        investments = profileData.investments;
+
+      }
+      else {
+        investments = null;
+      }
+    }
 
   const ButtonGroup = () => (
     <Fragment>
       {userid ? (
             <div href="#trail" offset={84}>
-              <Button {...btnStyle} title="Link Your Account" onClick={() => { router.push(`/linkaccount`);}} />
+              <ChakraProvider theme={theme}>
+                <CastVoteModal
+                  isOpen={voteModalIsOpen}
+                  onClose={onVoteModalClose}
+                  onOpen={onVoteModalOpen}
+                  campaign={campaign}
+                  profileData={profileData}
+                  uid={uid}
+                  investments={investments}
+                  slug={slug}
+                />
+            </ChakraProvider>
+              <Button {...btnStyle} title="Vote Now" onClick={() => { onVoteModalOpen();}} /> <span></span>
+              <Button {...btnStyle} title="See more" onClick={() => { router.push(`/campaigns/${slug}`);}} />
             </div>
           ) : (
             <div href="#trail" offset={84}>
-              <Button {...btnStyle} title="Login" onClick={() => { router.push("/login");}} />
+              <Button {...btnStyle} title="Login to Get Started" onClick={() => { router.push("/login");}} />
             </div>
           )}
     </Fragment>
@@ -38,7 +95,7 @@ const DashboardSection = ({ row, col, title, btnStyle, description }) => {
       <Container>
         <Box className="row" {...row}>
           <Box className="col" {...col}>
-            <Heading className="subtitle" as="h5" content="What's Going On" />
+            <Heading className="subtitle" as="h5" content="Featured Campaign" />
             <FeatureBlock
               title={
                 <Heading

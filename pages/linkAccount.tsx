@@ -35,6 +35,7 @@ import { useAuth } from "../contexts/AuthContext";
 
 
 import { client } from '../components/common/data/AppModern';
+import { useRouter } from "next/router";
 
 const popStyle = {
   minWidth: "55%",
@@ -200,6 +201,8 @@ const LinkAccount: NextPage = () => {
   let plaidConnectedBefore: any;
   const [uid, setUid] = useState(String);
   const { userid } = useAuth();
+  const router = useRouter();
+
 
 
   async function loadOnPageLoad() {
@@ -304,7 +307,7 @@ const LinkAccount: NextPage = () => {
     const accessToken = getAccessToken(publicToken).then(value => {
       const data = getInvestmentData(value).then(dataValue => {
         storeInvestmentData(dataValue).then(() => {
-          window.location.reload();
+          router.push(`/campaigns/PVQFakOIwa7jgQRLeXWo`);
         })
       });
     });

@@ -6,40 +6,40 @@ import logo from '../../../../public/illustrations/Awake Logo.png';
 export const navbar = {
   logo: logo,
   navMenu: [
+    // {
+    //   id: 1,
+    //   label: 'Home',
+    //   path: '/',
+    //   offset: '84',
+    //   staticLink: true,
+    //   needAuth: false,
+    // },
+    // {
+    //   id: 2,
+    //   label: 'Campaigns',
+    //   path: '/campaigns',
+    //   offset: '81',
+    //   staticLink: true,
+    //   needAuth: false,
+    // },
+    // {
+    //   id: 3,
+    //   label: 'About',
+    //   path: '/about',
+    //   offset: '81',
+    //   staticLink: true,
+    //   needAuth: false,
+    // },
+    // {
+    //   id: 4,
+    //   label: 'Blog',
+    //   path: '/blog',
+    //   offset: '81',
+    //   staticLink: true,
+    //   needAuth: false,
+    // },
     {
       id: 1,
-      label: 'Home',
-      path: '/',
-      offset: '84',
-      staticLink: true,
-      needAuth: false,
-    },
-    {
-      id: 2,
-      label: 'Campaigns',
-      path: '/campaigns',
-      offset: '81',
-      staticLink: true,
-      needAuth: false,
-    },
-    {
-      id: 3,
-      label: 'About',
-      path: '/about',
-      offset: '81',
-      staticLink: true,
-      needAuth: false,
-    },
-    {
-      id: 4,
-      label: 'Blog',
-      path: '/blog',
-      offset: '81',
-      staticLink: true,
-      needAuth: false,
-    },
-    {
-      id: 5,
       label: 'Link Account',
       path: '/linkAccount',
       offset: '81',
@@ -92,7 +92,7 @@ import featureIcon4 from '../../assets/image/appModern/icon4.svg';
 
 export const features = {
   slogan: 'How Does it Work',
-  title: 'Get off the couch; join us!',
+  title: 'Login, Link an Investment Account, and Vote!',
   items: [
     {
       id: 1,
@@ -158,7 +158,7 @@ export const appSlider = {
       title: 'App Slide 3',
     },
   ],
-  title: 'Empowering investors to be activists.',
+  title: 'Empowering Investors',
   description:
     "Whether you own stock through a brokerage, a pension or a 401k, you should have a say.",
   features: [
