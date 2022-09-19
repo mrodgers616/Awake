@@ -103,13 +103,13 @@ const DashboardSection = ({ row, col, title, btnStyle, description }) => {
             <FeatureBlock
               title={
                 <Heading
-                  content="Title of first campaign placeholder"
+                  content="Amazon Retirement Plan Disclosures"
                   {...title}
                 />
               }
               description={
                 <Text
-                  content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit ante quis metus auctor, in eleifend ante sodales. Fusce efficitur nisl eget diam sagittis, et facilisis sem congue."
+                  content="Shareholders request the Board, at reasonable expense and excluding proprietary information, prepare a report reviewing the Company's retirement plan options with the board's assessment of how the Company's current retirement plan options align with its climate action goals."
                   {...description}
                 />
               }
