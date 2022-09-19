@@ -143,14 +143,14 @@ export const ContentWrapper = styled.div`
       .author_name {
         position: absolute;
         padding: 20px;
-        top: -59px;
+        top: -80px;
         left: 34px;
-        width:100px;
-        height:100px;
+        width:30px;
+        height:82px;
         background-color: rgb(44, 13, 103);
         box-shadow: 0px 16px 57px 0px rgba(57, 81, 111, 0.1);
         border-radius: 28px 28px 28px 0;
-        width: 122%;
+        width: 105%;
         text-align: center;
         opacity: 0;
         transition: all 0.35s ease;

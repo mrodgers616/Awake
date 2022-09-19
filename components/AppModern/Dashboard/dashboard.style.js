@@ -11,11 +11,11 @@ const DashboardWrapper = styled.section`
   min-height: 100%;
   position: relative;
   background-color: #fff;
-  /* background-image: linear-gradient(
+  background-image: linear-gradient(
 		to bottom,
 		#fff 35%,
 		rgb(244, 246, 250) 100%
-	); */
+	);
   @media (max-width: 1800px) {
     padding-bottom: 180px;
   }

@@ -147,9 +147,10 @@ const Navbar = () => {
               <Button className="trail" title="Logout" onClick={() => { logout(); }} />
             </div>
           ) : (
-            <div href="#trail" offset={84}>
-              <Button className="trail" title="Login" onClick={() => { router.push("/login"); }} />
-            </div>
+            // <div href="#trail" offset={84}>
+            //   <Button className="trail" title="Login" onClick={() => { router.push("/login"); }} />
+            // </div>
+            null
           )}
 
 

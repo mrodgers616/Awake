@@ -6,21 +6,43 @@ const BannerWrapper = styled.div`
   min-height: 802px;
   overflow: hidden;
   position: relative;
-  background-image: -moz-linear-gradient(
-    41deg,
-    rgb(100, 43, 115) 0%,
-    rgb(164,191,217) 100%,
-  );
-  background-image: -webkit-linear-gradient(
-    41deg,
-    rgb(100, 43, 115) 0%,
-    rgb(164,191,217) 100%
-  );
-  background-image: -ms-linear-gradient(
-    41deg,
-    rgb(100, 43, 115) 0%,
-    rgb(164,191,217) 100%
-  );
+  background: linear-gradient(131deg, #75518c, #9fb1ce);
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationName 45s ease infinite;
+  -moz-animation: AnimationName 45s ease infinite;
+  animation: AnimationName 45s ease infinite;
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 25%}
+    50%{background-position:100% 76%}
+    100%{background-position:0% 25%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 25%}
+    50%{background-position:100% 76%}
+    100%{background-position:0% 25%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 25%}
+    50%{background-position:100% 76%}
+    100%{background-position:0% 25%}
+}
+  // background-image: -moz-linear-gradient(
+  //   41deg,
+  //   rgb(100, 43, 115) 0%,
+  //   rgb(164,191,217) 100%,
+  // );
+  // background-image: -webkit-linear-gradient(
+  //   41deg,
+  //   rgb(100, 43, 115) 0%,
+  //   rgb(164,191,217) 100%
+  // );
+  // background-image: -ms-linear-gradient(
+  //   41deg,
+  //   rgb(100, 43, 115) 0%,
+  //   rgb(164,191,217) 100%
+  // );
   @media only screen and (min-width: 1201px) and (max-width: 1440px) {
     min-height: 100vh;
   }

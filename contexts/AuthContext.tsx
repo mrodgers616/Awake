@@ -22,6 +22,7 @@ type State = {
   user?: User | null;
 };
 
+//Need to add slug of first campaign here
 const slug = ""
 
 interface ContextValue extends State {

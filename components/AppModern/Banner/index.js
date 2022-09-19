@@ -113,7 +113,11 @@ const Banner = () => {
             {userid ? (
               <LinkAccount className="primary" title="Activate Your Shares" onClick={() => { }} />
             ) : (
-              <Button className="primary" title="Create An Account" onClick={() => { router.push("/register") }} />
+              <>
+              <Button className="primary" title="Login" onClick={() => { router.push("/login") }} /> <span></span>
+              <span></span>
+              <Button className="primary" title="Sign Up" onClick={() => { router.push("/register") }} /> 
+              </>
             )}
 
             {/* <Button

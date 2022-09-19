@@ -27,6 +27,7 @@ const Newsletter = ({
 
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState(false);
+  const [color, setColor] = useState("green");
 
   const controlref = useRef();
 
@@ -46,10 +47,12 @@ const Newsletter = ({
       setState({ email: "" });
       setAlertMessage("Success");
       setAlert(true);
+      setColor("green")
     }
     else {
       setAlertMessage("Invalid Email");
       setAlert(true);
+      setColor("red")
     }
 
     const alertstyle = {
@@ -86,7 +89,7 @@ const Newsletter = ({
             </ContactFormWrapper>
           </Box>
         </Container>
-        {alert && <Alert isMaterial={true}> {alertMessage} </Alert>}
+        {alert && <Alert isMaterial={true} theColor={color}> {alertMessage} </Alert>}
       </NewsletterWrapper>
     </Box>
   );
