@@ -31,6 +31,7 @@ const DashboardSection = ({ row, col, title, btnStyle, description }) => {
   
   let uid = userid;
   let investments = null;
+  // Need to change slug here and in OnSuccess method in link account page and button
   const slug = "PVQFakOIwa7jgQRLeXWo"
   const {
     isOpen: voteModalIsOpen,
@@ -102,7 +103,7 @@ const DashboardSection = ({ row, col, title, btnStyle, description }) => {
             <FeatureBlock
               title={
                 <Heading
-                  content="Title of first campaign"
+                  content="Title of first campaign placeholder"
                   {...title}
                 />
               }
