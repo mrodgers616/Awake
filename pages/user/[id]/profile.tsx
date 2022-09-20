@@ -44,7 +44,7 @@ type ProfilePageProps = {
 
 const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, backgroundImage, investments, badges, activity, proposals }) => {
 
-  const { userid, user } = useAuth();
+  const { userid, user, logout } = useAuth();
 
   const [ memberSince, setMemberSince ] = useState(user?.metadata.creationTime);
 
@@ -183,6 +183,7 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
             <Flex w='100%'>
               <Activity />
             </Flex>
+            <Button className="trail" title="Logout" onClick={() => { logout(); }}> Logout </Button>
           </Box>
         </Box>
       </Container>

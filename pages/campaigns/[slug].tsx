@@ -328,7 +328,7 @@ export default function Proposal({
               // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
               onClick={() => { onVoteModalOpen(); }}
             >
-              {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
+              {hasUserVoted() ? "Already Voted!" : "Vote"}
             </Button>
             {/* </Tooltip> */}
             <CastVoteModal

@@ -111,7 +111,7 @@ const Banner = () => {
           />
           <ButtonGroup>
             {userid ? (
-              <LinkAccount className="primary" title="Activate Your Shares" onClick={() => { }} />
+              <LinkAccount className="primary" title="Activate Your Investments" onClick={() => { }} />
             ) : (
               <>
               <Button className="primary" title="Login" onClick={() => { router.push("/login") }} /> <span></span>

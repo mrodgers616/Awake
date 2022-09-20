@@ -11,7 +11,7 @@ const AlertStyle = styled.div`
   font-size: ${themeGet('fontSizes.4', '16')}px;
   color: #000000;
   margin-left: 55%;
-  margin-top: -60px;
+  margin-top: -70px;
 
   p {
     &:last-child {
