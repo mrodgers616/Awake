@@ -29,18 +29,25 @@ import BannerWrapper, {
   CustomerWrapper,
   ImageWrapper,
 } from '../components/AppModern/Banner/banner.style';
-import bannerImg from '../public/illustrations/stocks.png';
+import bannerImg from '../public/illustrations/yourdata2.png';
+import plaid from '../public/illustrations/Plaid_logo.svg';
 import circleBorder from '../components/common/assets/image/appModern/shape.svg';
 import { useAuth } from "../contexts/AuthContext";
 
 
 import { client } from '../components/common/data/AppModern';
 import { useRouter } from "next/router";
+import { Box, ChakraProvider, Flex, Stack, } from "@chakra-ui/react";
 
 const popStyle = {
   minWidth: "55%",
   maxWidth: "55%",
   marginRight: "220px"
+}
+
+const topStyle = {
+  maxWidth: "25%",
+  marginLeft: "10%"
 }
 
 const Banner = () => {
@@ -216,7 +223,7 @@ const LinkAccount: NextPage = () => {
     setIsPlaidConnectedBefore(profileData.plaidPublicToken);
     setUid(uid);
     plaidConnectedBefore = profileData.plaidPublicToken;
-    
+
   }
 
 
@@ -332,270 +339,149 @@ const LinkAccount: NextPage = () => {
   };
 
   const { open, exit, ready } = usePlaidLink(config);
-  
+
   useEffect(() => {
     loadOnPageLoad();
     //open();
-    
+
   }, []);
 
-  if(ready) {
-    if(!isPlaidConnectedAlready()) {
+  if (ready) {
+    if (!isPlaidConnectedAlready()) {
       open();
     }
   }
-  
 
-    return (
-      <>
+
+  return (
+    <>
       <head>
-        <title>Awake | Blog</title>
+        <title>Awake | Link Account</title>
       </head>
       <BannerWrapper id="home">
         {/*@ts-ignore*/}
-      <Container>
-        <BannerContent>
-          <RatingInfo>
-            {/* <Image src={aLogo?.src} alt="Awake Logo" style={imageStyle} /> */}
-          </RatingInfo>
-          <Heading
-            as="h1"
-            content="Use Your Shares to Have Your Voice Heard"
-          />
-          <Text
-            content="After verifying that you own shares and signaling your support for
-              campaigns, we can approach companies with much more leverage. Whether you own stocks or not, public companies have a huge impact
-              on our everyday lives. Everything from the food we eat, to how we
-              connect, and the environment we live in is impacted by
-              public companies. Don&apos;t worry, your data is safe with us! All of your investment data is securely stored and encrypted."
-          />
-          <ButtonGroup>
-            {/*@ts-ignore*/}
-            {isPlaidConnectedBefore ? ( <Button className="primary" title="Account Already Linked" disabled={true}>
-                
-              </Button>
-              
-            ) : ( 
-            /*@ts-ignore*/
-            <Button className="primary" title="Connect Your Brokerage Account" as={PlaidLink} 
-            token={theToken}
-            onSuccess={onSuccess}
-            onEvent={onEvent}
-            onExit={onExit}>
-              
-            </Button>
-              
-            )}
+        <Container>
+          <BannerContent>
+            <Heading
+              as="h1"
+              content={"Link Your Account"}
+            />
+            <Text
+              content="By linking your account and signaling your support for
+              campaigns, we can approach companies with much more leverage. We use bank-level encryption for connecting to brokers, never store user credentials on our servers, and encrypt all user data."
+            />
+            <ButtonGroup>
+              {/*@ts-ignore*/}
+              {isPlaidConnectedBefore ? (<Button className="primary" title="Account Already Linked" disabled={true}>
 
-            {/* <Button
+              </Button>
+
+              ) : (
+                /*@ts-ignore*/
+                <Button className="primary" title="Connect Your Brokerage Account" as={PlaidLink}
+                  token={theToken}
+                  onSuccess={onSuccess}
+                  onEvent={onEvent}
+                  onExit={onExit}>
+
+                </Button>
+
+              )}
+
+              {/* <Button
                 className="text"
                 variant="textButton"
                 icon={<Icon icon={playCircle} />}
                 iconPosition="left"
                 title="Watch Video"
               /> */}
+            </ButtonGroup>
+          </BannerContent>
+          <BannerImage>
+            <Image src={bannerImg?.src} style={topStyle} alt="Banner" />
+          </BannerImage>
+        </Container>
+        <img
+          className="bannerBottomShape"
+          src={circleBorder?.src}
+          alt="Bottom Circle"
+        />
+      </BannerWrapper>
+
+      <Box ml="15%" mr="15%" mb="10%" height="100%">
+
+        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" bgGradient="linear(to bottom, #9EAED4,#9EAED4)" borderRadius="30px" height="300px">
+          <Stack>
+            <Text
+              textAlign="left"
+              fontSize="48px"
+              mt="5%"
+              display="block"
+              fontWeight="bold"
+              ml="15%" content="What happens to my data?">
+            </Text>
+            <Text display="block" fontSize="2xl" paddingLeft="15%" content="Your data is securely custodied by Plaid; Awake looks at anonymous data of how many shares are owned by what accounts, and what campaigns are supported. This allows us to advocate for change without violating your privacy.">
+            </Text>
+          </Stack>
+          <Image
+            height="200px"
+            width="300px"
+            m="64px"
+            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Plaid_logo.svg?alt=media&token=380cdb7c-d0c1-41e1-bfa5-5af0bc2e9f46" alt={undefined} />
+        </Flex>
+
+        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" borderRadius="30px" height="300px">
+          <Image
+            height="200px"
+            width="300px"
+            m="64px"
+            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/security-icon-encryption.webp?alt=media&token=b8046807-a840-4463-878e-8cb32fa134bd" alt={undefined} />
+          <Stack>
+            <Text
+              textAlign="left"
+              fontSize="48px"
+              mt="5%"
+              display="block"
+              fontWeight="bold"
+              ml="15%" content="Data Encryption">
+            </Text>
+            <Text display="block" fontSize="2xl" paddingLeft="15%" content="The combination of the Advanced Encryption Standard (AES-256) and Transport Layer Security (TLS) help keep your personal information safe. Plaid also uses multi-factor authentication for added security in its systems.">
+            </Text>
+          </Stack>
+        </Flex>
+
+
+        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" bgGradient="linear(to bottom, #9EAED4,#9EAED4)" borderRadius="30px" height="200px">
+          <Stack>
+            <Text
+              textAlign="left"
+              fontSize="48px"
+              mt="5%"
+              display="block"
+              fontWeight="bold"
+              ml="15%" content="Link Your Account">
+            </Text>
+            <Text display="block" fontSize="2xl" paddingLeft="15%" content="Now that you know your data will be safe and that no one else will be able to see your information, link your account to help us advocate for change!">
+            </Text>
+          </Stack>
+          <ButtonGroup>
+            {/*@ts-ignore*/}
+            {isPlaidConnectedBefore ? (<Button className="primary" title="Account Already Linked" disabled={true}>
+            </Button>
+            ) : (
+              /*@ts-ignore*/
+              <Button
+                ml="100px"
+                className="primary" title="Connect Your Brokerage Account" as={PlaidLink}
+                token={theToken}
+                onSuccess={onSuccess}
+                onEvent={onEvent}
+                onExit={onExit}>
+              </Button>
+            )}
           </ButtonGroup>
-        </BannerContent>
-        <BannerImage>
-          <Image src={bannerImg?.src} style={popStyle} alt="Banner" />
-        </BannerImage>
-      </Container>
-      <img
-        className="bannerBottomShape"
-        src={circleBorder?.src}
-        alt="Bottom Circle"
-      />
-    </BannerWrapper>
-    </>
-      // <>
-      //   <Head>
-      //     <title>Climate DAO | Link Account</title>
-      //   </Head>
-      //   <Box
-      //     bg="sage.500"
-      //     mt="120px"
-      //     bgGradient="linear-gradient(sage.500, seafoam.500)"
-      //     bgSize="cover"
-      //     zIndex={0}
-      //   >
-      //     <Container width="100%" h="400px" overflow="auto" marginX="auto">
-      //       <Flex
-      //         justifyContent="center"
-      //         alignItems="center"
-      //         h="calc(100% - 120px)"
-      //       >
-      //         <Heading color="white" textAlign="center" fontSize="64px">
-      //           Link Your Brokerage Accounts
-      //         </Heading>
-      //       </Flex>
-      //     </Container>
-      //   </Box>
-      //   <Box title="page-content">
-      //     <Container width="100%">
-      //       <Flex
-      //         title="page-cta"
-      //         bg="sage.500"
-      //         w="100%"
-      //         h="200px"
-      //         mt="-100px"
-      //         zIndex={1000}
-      //         borderRadius="20px"
-      //         alignItems="center"
-      //         justifyContent="space-between"
-      //         color="white"
-      //         p="64px"
-      //         mb="120px"
-      //       >
-      //         <Heading fontSize="2.0em" w="60%">
-      //           Link your brokerage account to take the first step towards having an impact!
-      //         </Heading>
-      //         {/* BEGINNING OF TESTING PLAID LINK */}
-      //         <Button
-      //           {...this.state.isPlaidConnectedBefore ? { bg: "gray", disabled: true } : { bg: "seafoam.500" }}
-      //           color="white"
-      //           _disabled={{
-      //             pointerEvents: 'none'
-      //           }}
-
-      //           p="32px 64px"
-      //           borderRadius="16px"
-      //           fontSize="1.3em"
-      //           id="plaidB"
-      //           _hover={{
-      //             textDecoration: "none",
-      //           }}
-
-      //         >
-      //           <PlaidLink
-      //             style={{ padding: '0px', fontSize: '1.3em', cursor: 'pointer', color: 'white', backgroundColor: 'transparent', border: "none" }}
-      //             token={this.state.token}
-      //             onSuccess={this.onSuccess}
-      //             onEvent={this.onEvent}
-      //             onExit={this.onExit}
-      //           >
-      //             {this.state.isPlaidConnectedBefore ? "Account Linked Already!" : "Link Brokerage Account"}
-      //           </PlaidLink>
-      //         </Button>
-      //         {/* END OF TESTING PLAID LINK */}
-      //         {/* <PlaidLink
-      //         // style={{ padding: '40px', fontSize: '1.3em', cursor: 'pointer', color: 'white', backgroundColor: 'black', }}
-      //         token={this.state.token}
-      //         onSuccess={this.onSuccess}
-      //         onEvent={this.onEvent}
-      //         onExit={this.onExit}
-      //       >
-      //         Link Brokerage Account
-      //       </PlaidLink> */}
-      //       </Flex>
-      //       <ChakraProvider resetCSS>
-      //         <Box ml="5%" mr="5%" mb="10%" height="110%">
-      //           <Text display="block" ml="2%" mr="2%" textAlign="center" fontSize="2xl" mb="10%">
-      //             At Awakewe empower like-minded investors to collectively advocate
-      //             for changes they want to see at public companies. Linking your brokerage
-      //             accounts, allows us to prove to the companies we’re approaching that
-      //             verified shareholders supported the proposed campaigns.
-      //           </Text>
-      //           <Flex ml="-20%" mr="-20%" mt="4%" bgGradient="linear(to bottom, #348477,#17CFA5)" borderRadius="30px" height="400px">
-      //             <Stack spacing={2} mr="15%" height="300px" mt="auto" mb="auto">
-      //               <Text
-      //                 textAlign="left"
-      //                 fontSize="6xl"
-      //                 mt="5%"
-      //                 display="block"
-      //                 fontWeight="bold"
-      //                 ml="15%"
-      //               >
-      //                 What happens to my data?
-      //               </Text>
-      //               <Text display="block" fontSize="2xl" paddingLeft="15%">
-      //                 Don&apos;t worry, your data is safe with us! <b>All of your investment data is securely stored and encrypted. </b>
-      //                 {' '}
-      //               </Text>
-      //             </Stack>
-      //             <Image
-      //               height="300px"
-      //               width="400px"
-      //               mr="6%"
-      //               mt="auto" mb="auto"
-      //               src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2039.png?alt=media&token=14c1cae2-5cf6-4ded-b1c9-ab8138e93409"
-      //             />
-      //           </Flex>
-      //           <Flex mt="15%" ml="-20%" mr="-20%">
-      //             <Image
-      //               height="300px"
-      //               width="400px"
-      //               src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FLink%20your%20Accounts.png?alt=media&token=54176198-7c1c-4287-b36d-2046d45c187a"
-      //               ml=" 5%"
-      //             />
-      //             <Stack spacing={2} ml="17%" height="300px" mr="6%">
-      //               <Text textAlign="left" fontSize="6xl" fontWeight="bold">
-      //                 Why it’s important
-      //               </Text>
-      //               <Text textAlign="left" fontSize="2xl">
-      //                 Linking your brokerage accounts allows Awake to prove to the
-      //                 companies that its approaches that verified shareholders have
-      //                 supported these proposed campaigns. In short, by linking your
-      //                 brokerage account- it shows that we mean business.
-      //               </Text>
-      //             </Stack>
-      //           </Flex>
-      //           <Flex mt="15%" ml="-20%" mr="-20%" bgGradient="linear(to bottom, #348477,#17CFA5)" borderRadius="30px" height="400px">
-      //             <Stack spacing={2} mr="15%" height="300px" mt="auto" mb="auto">
-      //               <Text fontWeight="bold" fontSize="6xl" ml="15%">
-      //                 Strength in numbers
-      //               </Text>
-      //               <Text fontSize="2xl" paddingLeft="15%">
-      //                 After verifying that you own shares and signaling your support for
-      //                 campaigns, we can approach companies with much more leverage. Whether you own stocks or not, public companies have a huge impact
-      //                 on our everyday lives. Everything from the food we eat, to how we
-      //                 connect, and the environment we live in is impacted by
-      //                 public companies.
-      //               </Text>
-      //             </Stack>
-      //             <Image
-      //               height="250px"
-      //               width="400px"
-      //               mt="auto" mb="auto"
-      //               mr="6%"
-      //               src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2041.png?alt=media&token=134d5014-8b72-45ea-a293-d2d0d823297f"
-      //             />
-      //           </Flex>
-      //           <Button
-      //             {...this.isPlaidConnectedAlready() ? { bg: "gray", disabled: true } : { bg: "seafoam.500", disabled: false }}
-      //             color="white"
-      //             _disabled={{
-      //               pointerEvents: 'none'
-      //             }}
-
-      //             p="32px 64px"
-      //             mt="150px"
-      //             mx="30%"
-      //             borderRadius="16px"
-      //             fontSize="1.3em"
-      //             id="plaidB"
-      //             _hover={{
-      //               textDecoration: "none",
-      //             }}
-
-      //           >
-      //             <PlaidLink
-      //               style={{ padding: '0px', fontSize: '1.3em', cursor: 'pointer', color: 'white', backgroundColor: 'transparent', border: "none" }}
-      //               token={this.state.token}
-      //               onSuccess={this.onSuccess}
-      //               onEvent={this.onEvent}
-      //               onExit={this.onExit}
-      //             >
-      //               {this.isPlaidConnectedAlready() ? "Account Linked Already!" : "Link Brokerage Account"}
-      //             </PlaidLink>
-      //           </Button>
-      //         </Box>
-      //       </ChakraProvider>
-      //     </Container>
-      //   </Box>
-      // </>
-    )
-
-
+        </Flex>
+      </Box>
+    </>)
 }
-
 export default LinkAccount;
