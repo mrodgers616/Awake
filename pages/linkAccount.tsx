@@ -303,15 +303,15 @@ const LinkAccount: NextPage = () => {
   }
 
   const onSuccess: PlaidLinkOnSuccess = (publicToken, metadata) => {
-    const finalPublicToken = {
-      plaidPublicToken: publicToken
-    }
-
-    const uid = getProfileUID().then(profileUID => {
-      updateOrAddProfileData(profileUID, finalPublicToken);
-    });
-
+    
     const accessToken = getAccessToken(publicToken).then(value => {
+      const finalPublicToken = {
+        plaidPublicToken: publicToken,
+        accessToken: value
+      }
+      const uid = getProfileUID().then(profileUID => {
+        updateOrAddProfileData(profileUID, finalPublicToken);
+      });
       const data = getInvestmentData(value).then(dataValue => {
         storeInvestmentData(dataValue).then(() => {
           router.push(`/campaigns/PVQFakOIwa7jgQRLeXWo`);
@@ -420,7 +420,7 @@ const LinkAccount: NextPage = () => {
               fontWeight="bold"
               ml="15%" content="What happens to my data?">
             </Text>
-            <Text display="block" fontSize="2xl" paddingLeft="15%" content="Your data is securely custodied by Plaid; Awake looks at anonymous data of how many shares are owned by what accounts, and what campaigns are supported. This allows us to advocate for change without violating your privacy.">
+            <Text display="block" fontSize="2xl" paddingLeft="15%" content="Awake analyzes data about how many voters there are, how many shares were voted, and what campaigns were supported. This allows us to advocate for change without violating your privacy.">
             </Text>
           </Stack>
           <Image
