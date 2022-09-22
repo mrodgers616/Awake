@@ -89,7 +89,7 @@ const Newsletter = ({
             </ContactFormWrapper>
           </Box>
         </Container>
-        {alert && <Alert isMaterial={true} theColor={color}> {alertMessage} </Alert>}
+        {alert && <Alert className="alert_output" isMaterial={true} theColor={color}> {alertMessage} </Alert>}
       </NewsletterWrapper>
     </Box>
   );
