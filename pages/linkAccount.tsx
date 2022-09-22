@@ -398,7 +398,7 @@ const LinkAccount: NextPage = () => {
             </ButtonGroup>
           </BannerContent>
           <BannerImage>
-            <Image src={bannerImg?.src} style={topStyle} alt="Banner" />
+            <Image src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Safedata.png?alt=media&token=2227059e-ed77-4e97-88b7-ddbcbb3c436b" style={topStyle} alt="Banner" />
           </BannerImage>
         </Container>
         <img
