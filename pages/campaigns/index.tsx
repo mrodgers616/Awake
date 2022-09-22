@@ -11,7 +11,9 @@ import {
   Link,
   Icon,
   Box,
-  Tooltip
+  Tooltip,
+  Stack,
+  Text
 } from "@chakra-ui/react";
 import {
   Pagination as Paginator,
@@ -130,21 +132,47 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
         <Container
           position="relative"
           width="100%"
-          h="400px"
+          h="300px"
           overflow="auto"
           marginX="auto"
           zIndex={200}
         >
-          <Flex justifyContent="center" alignItems="center" h="100%">
+          <Flex justifyContent="center" alignItems="center" h="100%" paddingTop="80px">
+            <Stack>
             <Heading color="white" textAlign="center" fontSize={{ base: "2em", lg: "3em" }}>
-              Back a Campaign for Corporate Action
+              <Text fontSize='3xl'>
+                Vote With Your Investments
+              </Text>
             </Heading>
+
+            <Button
+                color="white"
+                // bg="rgb(100, 43, 115)"
+                bg="#000000"
+                as={Link}
+                // href={userid ? "campaigns/" : "/login"}
+                p="32px 64px"
+                borderRadius="16px"
+                fontSize="1.3em"
+                // Enabling Button regardless of connect wallet status------------------------
+                // disabled={!isConnected || !hasEnoughBalance}
+                _hover={{
+                  textDecoration: "none",
+                }}
+                // _disabled={{
+                //   pointerEvents: 'none'
+                // }}
+                disabled={true}
+              >
+                Featured Campaign (Coming Soon)
+              </Button>
+              </Stack>
           </Flex>
         </Container>
       </Box>
       <Box title="page-content" position="relative" zIndex={0}>
-        <Container width="100%">
-          <Flex
+        <Container width="100%" mt="2%">
+          {/* <Flex
             title=""
             bg="#08152E"
             w="100%"
@@ -185,31 +213,11 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
             // label={ !isConnected ? 'Connect to Metamask' : !hasEnoughBalance ? 'You do not have enough CLIMATE tokens.' : 'Create a new campaign'}
             // shouldWrapChildren
             >
-              <Button
-                color="white"
-                bg="rgb(100, 43, 115)"
-                as={Link}
-                // href={userid ? "campaigns/" : "/login"}
-                p="32px 64px"
-                borderRadius="16px"
-                fontSize="1.3em"
-                // Enabling Button regardless of connect wallet status------------------------
-                // disabled={!isConnected || !hasEnoughBalance}
-                _hover={{
-                  textDecoration: "none",
-                }}
-                // _disabled={{
-                //   pointerEvents: 'none'
-                // }}
-                disabled={true}
-              >
-                Featured Campaign (Coming Soon)
-              </Button>
-            </Tooltip>
-          </Flex>
+            </Tooltip> 
+          </Flex> */}
           <Box title="">
             <Flex title="" justifyContent="space-between">
-              <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }}>Proposals</Heading>
+              {/* <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }}>Proposals</Heading> */}
             </Flex>
             <Grid
               title=""
