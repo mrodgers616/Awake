@@ -451,7 +451,7 @@ const LinkAccount: NextPage = () => {
         </Flex>
 
 
-        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" bgGradient="linear(to bottom, #9EAED4,#9EAED4)" borderRadius="30px" height="200px">
+        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" bgGradient="linear(to bottom, #9EAED4,#9EAED4)" borderRadius="30px" height="300px">
           <Stack>
             <Text
               textAlign="left"
@@ -463,15 +463,15 @@ const LinkAccount: NextPage = () => {
             </Text>
             <Text display="block" fontSize="2xl" paddingLeft="15%" content="Now that you know your data will be safe and that no one else will be able to see your information, link your account to help us advocate for change!">
             </Text>
-          </Stack>
+
           <ButtonGroup>
             {/*@ts-ignore*/}
-            {isPlaidConnectedBefore ? (<Button className="primary" title="Account Already Linked" disabled={true}>
+            {isPlaidConnectedBefore ? (<Button className="primary" title="Account Already Linked" disabled={true} mt="10px" ml="15%">
             </Button>
             ) : (
               /*@ts-ignore*/
               <Button
-                ml="100px"
+                mt="10px" ml="15%"
                 className="primary" title="Connect Your Brokerage Account" as={PlaidLink}
                 token={theToken}
                 onSuccess={onSuccess}
@@ -480,6 +480,7 @@ const LinkAccount: NextPage = () => {
               </Button>
             )}
           </ButtonGroup>
+          </Stack>
         </Flex>
       </Box>
     </>)
