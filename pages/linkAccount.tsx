@@ -447,7 +447,8 @@ const LinkAccount: NextPage = () => {
               fontWeight="bold"
               ml="15%" content="What happens to my data?">
             </Text>
-            <Text display="block" fontSize="2xl" paddingLeft="15%" content="Awake analyzes data about how many voters there are, how many shares were voted, and what campaigns were supported. This allows us to advocate for change without violating your privacy.">
+            <Text display="block" fontSize="2xl" paddingLeft="15%"
+              paddingRight="15%" paddingBottom="5%" content="Awake analyzes data about how many voters there are, how many shares were voted, and what campaigns were supported. This allows us to advocate for change without violating your privacy.">
             </Text>
           </Stack>
           <Image

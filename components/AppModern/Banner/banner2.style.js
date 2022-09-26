@@ -231,6 +231,15 @@ export const BannerImage = styled.div`
     width: 20%
     max-width:25%;
   }
+  @media only screen and (max-width: 480px) {
+    img {
+        margin-left:0%;
+        margin-top: 50px;
+        width: 20%
+        max-width:25%;
+      }
+  }
+  
 `;
 
 export const ButtonGroup = styled.div`
