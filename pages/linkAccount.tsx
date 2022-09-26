@@ -50,6 +50,10 @@ const topStyle = {
   marginLeft: "10%"
 }
 
+const copstyle = {
+  p: "30px"
+}
+
 const Banner = () => {
   // // modal handler
   // const handleVideoModal = () => {
@@ -303,7 +307,7 @@ const LinkAccount: NextPage = () => {
   }
 
   const onSuccess: PlaidLinkOnSuccess = (publicToken, metadata) => {
-    
+
     const accessToken = getAccessToken(publicToken).then(value => {
       const finalPublicToken = {
         plaidPublicToken: publicToken,
@@ -450,8 +454,7 @@ const LinkAccount: NextPage = () => {
           </Stack>
         </Flex>
 
-
-        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" bgGradient="linear(to bottom, #9EAED4,#9EAED4)" borderRadius="30px" height="200px">
+        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" bgGradient="linear(to bottom, #9EAED4,#9EAED4)" borderRadius="30px" height="300px">
           <Stack>
             <Text
               textAlign="left"
@@ -459,7 +462,7 @@ const LinkAccount: NextPage = () => {
               mt="5%"
               display="block"
               fontWeight="bold"
-              ml="15%" content="Link Your Account">
+              ml="15%" content="What happens to my data?">
             </Text>
             <Text display="block" fontSize="2xl" paddingLeft="15%" content="Now that you know your data will be safe and that no one else will be able to see your information, link your account to help us advocate for change!">
             </Text>
@@ -471,7 +474,6 @@ const LinkAccount: NextPage = () => {
             ) : (
               /*@ts-ignore*/
               <Button
-                ml="100px"
                 className="primary" title="Connect Your Brokerage Account" as={PlaidLink}
                 token={theToken}
                 onSuccess={onSuccess}
@@ -481,7 +483,7 @@ const LinkAccount: NextPage = () => {
             )}
           </ButtonGroup>
         </Flex>
-      </Box>
+      </Box >
     </>)
 }
 export default LinkAccount;
