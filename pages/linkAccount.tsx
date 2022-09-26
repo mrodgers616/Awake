@@ -19,10 +19,12 @@ import Button from '../components/common/components/Button';
 import Heading from '../components/common/components/Heading';
 import Rating from '../components/common/components/Rating';
 import Container from '../components/common/components/UI/Container';
-import BannerWrapper, {
+import BannerWrapper2, {
   BannerContent,
   RatingInfo,
   BannerImage,
+  Block,
+  BlockClear,
   ButtonGroup,
   VideoGroup,
   VideoWrapper,
@@ -362,7 +364,7 @@ const LinkAccount: NextPage = () => {
       <head>
         <title>Awake | Link Account</title>
       </head>
-      <BannerWrapper id="home">
+      <BannerWrapper2 id="home">
         {/*@ts-ignore*/}
         <Container>
           <BannerContent>
@@ -413,15 +415,33 @@ const LinkAccount: NextPage = () => {
           src={circleBorder?.src}
           alt="Bottom Circle"
         />
-      </BannerWrapper>
+      </BannerWrapper2>
 
       <Box ml="15%" mr="15%" mb="10%" height="100%">
 
-        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" bgGradient="linear(to bottom, #9EAED4,#9EAED4)" borderRadius="30px" height="300px">
+
+        <BlockClear>
+          <Image
+            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/security-icon-encryption.webp?alt=media&token=b8046807-a840-4463-878e-8cb32fa134bd" alt={undefined} />
           <Stack>
             <Text
               textAlign="left"
-              fontSize="48px"
+              as="h1"
+              mt="5%"
+              display="block"
+              fontWeight="bold"
+              ml="15%" content="Data Encryption">
+            </Text>
+            <Text display="block" fontSize="2xl" paddingLeft="15%" content="The combination of the Advanced Encryption Standard (AES-256) and Transport Layer Security (TLS) help keep your personal information safe. Plaid also uses multi-factor authentication for added security in its systems.">
+            </Text>
+          </Stack>
+        </BlockClear>
+
+        <Block>
+          <Stack>
+            <Text
+              textAlign="left"
+              as="h1"
               mt="5%"
               display="block"
               fontWeight="bold"
@@ -431,63 +451,9 @@ const LinkAccount: NextPage = () => {
             </Text>
           </Stack>
           <Image
-            height="200px"
-            width="300px"
             m="64px"
             src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Plaid_logo.svg?alt=media&token=380cdb7c-d0c1-41e1-bfa5-5af0bc2e9f46" alt={undefined} />
-        </Flex>
-
-        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" borderRadius="30px" height="300px">
-          <Image
-            height="200px"
-            width="300px"
-            m="64px"
-            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/security-icon-encryption.webp?alt=media&token=b8046807-a840-4463-878e-8cb32fa134bd" alt={undefined} />
-          <Stack>
-            <Text
-              textAlign="left"
-              fontSize="48px"
-              mt="5%"
-              display="block"
-              fontWeight="bold"
-              ml="15%" content="Data Encryption">
-            </Text>
-            <Text display="block" fontSize="2xl" paddingLeft="15%" content="The combination of the Advanced Encryption Standard (AES-256) and Transport Layer Security (TLS) help keep your personal information safe. Plaid also uses multi-factor authentication for added security in its systems.">
-            </Text>
-          </Stack>
-        </Flex>
-
-        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" bgGradient="linear(to bottom, #9EAED4,#9EAED4)" borderRadius="30px" height="300px">
-          <Stack>
-            <Text
-              textAlign="left"
-              fontSize="48px"
-              mt="5%"
-              display="block"
-              fontWeight="bold"
-              ml="15%" content="What happens to my data?">
-            </Text>
-            <Text display="block" fontSize="2xl" paddingLeft="15%" content="Now that you know your data will be safe and that no one else will be able to see your information, link your account to help us advocate for change!">
-            </Text>
-
-            <ButtonGroup>
-              {/*@ts-ignore*/}
-              {isPlaidConnectedBefore ? (<Button className="primary" title="Account Already Linked" disabled={true} mt="10px" ml="15%">
-              </Button>
-              ) : (
-                /*@ts-ignore*/
-                <Button
-                  mt="10px" ml="15%"
-                  className="primary" title="Connect Your Brokerage Account" as={PlaidLink}
-                  token={theToken}
-                  onSuccess={onSuccess}
-                  onEvent={onEvent}
-                  onExit={onExit}>
-                </Button>
-              )}
-            </ButtonGroup>
-          </Stack>
-        </Flex>
+        </Block>
       </Box >
     </>)
 }
