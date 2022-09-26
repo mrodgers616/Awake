@@ -56,6 +56,10 @@ const DashboardWrapper = styled.section`
     }
   }
 
+  .iframeWrapper {
+    margin-left: 50px;
+  }
+
   .row {
     position: relative;
     z-index: 1;
