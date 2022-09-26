@@ -67,6 +67,7 @@ const BannerWrapper2 = styled.div`
     }
     @media only screen and (max-width: 480px) {
       flex-wrap: wrap;
+
     }
   }
   .bannerBottomShape {
@@ -136,8 +137,11 @@ img{
 `;
 
 export const BannerContent = styled.div`
-width: 35%;
   flex-shrink: 0;
+  width: 35%;
+  @media only screen and (max-width: 480px) {
+    width:100%; 
+  }
   h1 {
     font-size: 46px;
     line-height: 55px;
@@ -149,12 +153,6 @@ width: 35%;
       line-height: 42px;
       margin-bottom: 20px;
     }
-    @media only screen and (max-width: 734px) {
-        width:100%;
-        font-size: 32px;
-        line-height: 42px;
-        margin-bottom: 20px;
-      }
   }
 
   p {
@@ -311,37 +309,7 @@ export const VideoWrapper = styled.div`
     mr:100px;
   }
 `;
-export const CustomerWrapper = styled.div`
-  max-width: 15%;
-  min-width: 5%;
-  margin-right:20%; 
-  margin-left:20%; 
-  padding: 0px 0 70px;
-  width: 100%;
-  display: flex;
-  flex-direction:row;
-  align-items: center;
-  @media only screen and (max-width: 1440px) {
-    padding: 0px % 55px;
-  }
-  @media only screen and (max-width: 1099px) {
-    padding: 0px % 55px;
-  }
-  @media only screen and (max-width: 991px) {
-    padding: 0px % 55px;
-  }
-  @media only screen and (max-width: 600px) {
-    padding: 0px % 55px;
-  }
 
-  p {
-    margin: 0 12px 0 0;
-    color: ${themeGet('colors.menu', '#0D233E')};
-    @media only screen and (max-width: 991px) {
-      display: none;
-    }
-  }
-`;
 
 export const ImageWrapper = styled.div`
   display: flex;
