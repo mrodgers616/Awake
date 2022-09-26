@@ -28,7 +28,7 @@ import BannerWrapper, {
   VideoWrapper,
   CustomerWrapper,
   ImageWrapper,
-} from '../components/AppModern/Banner/banner.style';
+} from '../components/AppModern/Banner/banner2.style';
 import bannerImg from '../public/illustrations/yourdata2.png';
 import plaid from '../public/illustrations/Plaid_logo.svg';
 import circleBorder from '../components/common/assets/image/appModern/shape.svg';
@@ -39,16 +39,16 @@ import { client } from '../components/common/data/AppModern';
 import { useRouter } from "next/router";
 import { Box, ChakraProvider, Flex, Stack, } from "@chakra-ui/react";
 
-const popStyle = {
-  minWidth: "55%",
-  maxWidth: "55%",
-  marginRight: "220px"
-}
+// const popStyle = {
+//   minWidth: "55%",
+//   maxWidth: "55%",
+//   marginRight: "220px"
+// }
 
-const topStyle = {
-  maxWidth: "25%",
-  marginLeft: "10%"
-}
+// const topStyle = {
+//   maxWidth: "25%",
+//   marginLeft: "8%"
+// }
 
 const copstyle = {
   p: "30px"
@@ -402,7 +402,10 @@ const LinkAccount: NextPage = () => {
             </ButtonGroup>
           </BannerContent>
           <BannerImage>
-            <Image src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Safedata.png?alt=media&token=2227059e-ed77-4e97-88b7-ddbcbb3c436b" style={topStyle} alt="Banner" />
+            <Image src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Safedata.png?alt=media&token=2227059e-ed77-4e97-88b7-ddbcbb3c436b"
+
+              // style={topStyle}
+              alt="Banner" />
           </BannerImage>
         </Container>
         <img
@@ -454,10 +457,6 @@ const LinkAccount: NextPage = () => {
           </Stack>
         </Flex>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 836b008ab975b373febb4858db3346720139d058
         <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" bgGradient="linear(to bottom, #9EAED4,#9EAED4)" borderRadius="30px" height="300px">
           <Stack>
             <Text
@@ -471,25 +470,22 @@ const LinkAccount: NextPage = () => {
             <Text display="block" fontSize="2xl" paddingLeft="15%" content="Now that you know your data will be safe and that no one else will be able to see your information, link your account to help us advocate for change!">
             </Text>
 
-          <ButtonGroup>
-            {/*@ts-ignore*/}
-            {isPlaidConnectedBefore ? (<Button className="primary" title="Account Already Linked" disabled={true} mt="10px" ml="15%">
-            </Button>
-            ) : (
-              /*@ts-ignore*/
-              <Button
-<<<<<<< HEAD
-=======
-                mt="10px" ml="15%"
->>>>>>> 836b008ab975b373febb4858db3346720139d058
-                className="primary" title="Connect Your Brokerage Account" as={PlaidLink}
-                token={theToken}
-                onSuccess={onSuccess}
-                onEvent={onEvent}
-                onExit={onExit}>
+            <ButtonGroup>
+              {/*@ts-ignore*/}
+              {isPlaidConnectedBefore ? (<Button className="primary" title="Account Already Linked" disabled={true} mt="10px" ml="15%">
               </Button>
-            )}
-          </ButtonGroup>
+              ) : (
+                /*@ts-ignore*/
+                <Button
+                  mt="10px" ml="15%"
+                  className="primary" title="Connect Your Brokerage Account" as={PlaidLink}
+                  token={theToken}
+                  onSuccess={onSuccess}
+                  onEvent={onEvent}
+                  onExit={onExit}>
+                </Button>
+              )}
+            </ButtonGroup>
           </Stack>
         </Flex>
       </Box >
