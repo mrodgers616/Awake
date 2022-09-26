@@ -129,6 +129,7 @@ export const MenuArea = styled.div`
       }
     }
     &.trail {
+      margin-left: 30px;
       &:hover {
         box-shadow: #32006B 0px 12px 24px -10px;
       }

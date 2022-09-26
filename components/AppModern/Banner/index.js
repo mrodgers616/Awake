@@ -114,9 +114,7 @@ const Banner = () => {
               <LinkAccount className="primary" title="Activate Your Investments" onClick={() => { }} />
             ) : (
               <>
-              <Button className="primary" title="Login" onClick={() => { router.push("/login") }} /> <span></span>
-              <span></span>
-              <Button className="primary" title="Sign Up" onClick={() => { router.push("/register") }} /> 
+              <Button className="primary" title="Login" onClick={() => { router.push("/login") }} />
               </>
             )}
 

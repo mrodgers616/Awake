@@ -32,7 +32,7 @@ export default function Faq({
           mb="36px"
           textTransform='uppercase'
         >
-          {title ?? 'common questions'}
+          {title ?? 'Frequently Asked Questions'}
         </Heading>
         <Accordion
           allowToggle
