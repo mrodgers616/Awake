@@ -19,16 +19,18 @@ import Button from '../components/common/components/Button';
 import Heading from '../components/common/components/Heading';
 import Rating from '../components/common/components/Rating';
 import Container from '../components/common/components/UI/Container';
-import BannerWrapper, {
+import BannerWrapper2, {
   BannerContent,
   RatingInfo,
   BannerImage,
+  Block,
+  BlockClear,
   ButtonGroup,
   VideoGroup,
   VideoWrapper,
   CustomerWrapper,
   ImageWrapper,
-} from '../components/AppModern/Banner/banner.style';
+} from '../components/AppModern/Banner/banner2.style';
 import bannerImg from '../public/illustrations/yourdata2.png';
 import plaid from '../public/illustrations/Plaid_logo.svg';
 import circleBorder from '../components/common/assets/image/appModern/shape.svg';
@@ -39,16 +41,16 @@ import { client } from '../components/common/data/AppModern';
 import { useRouter } from "next/router";
 import { Box, ChakraProvider, Flex, Stack, } from "@chakra-ui/react";
 
-const popStyle = {
-  minWidth: "55%",
-  maxWidth: "55%",
-  marginRight: "220px"
-}
+// const popStyle = {
+//   minWidth: "55%",
+//   maxWidth: "55%",
+//   marginRight: "220px"
+// }
 
-const topStyle = {
-  maxWidth: "25%",
-  marginLeft: "10%"
-}
+// const topStyle = {
+//   maxWidth: "25%",
+//   marginLeft: "8%"
+// }
 
 const copstyle = {
   p: "30px"
@@ -362,7 +364,7 @@ const LinkAccount: NextPage = () => {
       <head>
         <title>Awake | Link Account</title>
       </head>
-      <BannerWrapper id="home">
+      <BannerWrapper2 id="home">
         {/*@ts-ignore*/}
         <Container>
           <BannerContent>
@@ -402,7 +404,10 @@ const LinkAccount: NextPage = () => {
             </ButtonGroup>
           </BannerContent>
           <BannerImage>
-            <Image src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Safedata.png?alt=media&token=2227059e-ed77-4e97-88b7-ddbcbb3c436b" style={topStyle} alt="Banner" />
+            <Image src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Safedata.png?alt=media&token=2227059e-ed77-4e97-88b7-ddbcbb3c436b"
+
+              // style={topStyle}
+              alt="Banner" />
           </BannerImage>
         </Container>
         <img
@@ -410,40 +415,18 @@ const LinkAccount: NextPage = () => {
           src={circleBorder?.src}
           alt="Bottom Circle"
         />
-      </BannerWrapper>
+      </BannerWrapper2>
 
       <Box ml="15%" mr="15%" mb="10%" height="100%">
 
-        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" bgGradient="linear(to bottom, #9EAED4,#9EAED4)" borderRadius="30px" height="300px">
-          <Stack>
-            <Text
-              textAlign="left"
-              fontSize="48px"
-              mt="5%"
-              display="block"
-              fontWeight="bold"
-              ml="15%" content="What happens to my data?">
-            </Text>
-            <Text display="block" fontSize="2xl" paddingLeft="15%" content="Awake analyzes data about how many voters there are, how many shares were voted, and what campaigns were supported. This allows us to advocate for change without violating your privacy.">
-            </Text>
-          </Stack>
-          <Image
-            height="200px"
-            width="300px"
-            m="64px"
-            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Plaid_logo.svg?alt=media&token=380cdb7c-d0c1-41e1-bfa5-5af0bc2e9f46" alt={undefined} />
-        </Flex>
 
-        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" borderRadius="30px" height="300px">
+        <BlockClear>
           <Image
-            height="200px"
-            width="300px"
-            m="64px"
             src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/security-icon-encryption.webp?alt=media&token=b8046807-a840-4463-878e-8cb32fa134bd" alt={undefined} />
           <Stack>
             <Text
               textAlign="left"
-              fontSize="48px"
+              as="h1"
               mt="5%"
               display="block"
               fontWeight="bold"
@@ -452,46 +435,26 @@ const LinkAccount: NextPage = () => {
             <Text display="block" fontSize="2xl" paddingLeft="15%" content="The combination of the Advanced Encryption Standard (AES-256) and Transport Layer Security (TLS) help keep your personal information safe. Plaid also uses multi-factor authentication for added security in its systems.">
             </Text>
           </Stack>
-        </Flex>
+        </BlockClear>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 836b008ab975b373febb4858db3346720139d058
-        <Flex justify-content="space-around" ml="0%" mr="0%" mt="8%" bgGradient="linear(to bottom, #9EAED4,#9EAED4)" borderRadius="30px" height="300px">
+        <Block>
           <Stack>
             <Text
               textAlign="left"
-              fontSize="48px"
+              as="h1"
               mt="5%"
               display="block"
               fontWeight="bold"
               ml="15%" content="What happens to my data?">
             </Text>
-            <Text display="block" fontSize="2xl" paddingLeft="15%" content="Now that you know your data will be safe and that no one else will be able to see your information, link your account to help us advocate for change!">
+            <Text display="block" fontSize="2xl" paddingLeft="15%"
+              paddingRight="15%" paddingBottom="5%" content="Awake analyzes data about how many voters there are, how many shares were voted, and what campaigns were supported. This allows us to advocate for change without violating your privacy.">
             </Text>
-
-          <ButtonGroup>
-            {/*@ts-ignore*/}
-            {isPlaidConnectedBefore ? (<Button className="primary" title="Account Already Linked" disabled={true} mt="10px" ml="15%">
-            </Button>
-            ) : (
-              /*@ts-ignore*/
-              <Button
-<<<<<<< HEAD
-=======
-                mt="10px" ml="15%"
->>>>>>> 836b008ab975b373febb4858db3346720139d058
-                className="primary" title="Connect Your Brokerage Account" as={PlaidLink}
-                token={theToken}
-                onSuccess={onSuccess}
-                onEvent={onEvent}
-                onExit={onExit}>
-              </Button>
-            )}
-          </ButtonGroup>
           </Stack>
-        </Flex>
+          <Image
+            m="64px"
+            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Plaid_logo.svg?alt=media&token=380cdb7c-d0c1-41e1-bfa5-5af0bc2e9f46" alt={undefined} />
+        </Block>
       </Box >
     </>)
 }
