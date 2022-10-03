@@ -28,7 +28,6 @@ import BannerWrapper2, {
   ButtonGroup,
   VideoGroup,
   VideoWrapper,
-  CustomerWrapper,
   ImageWrapper,
 } from '../components/AppModern/Banner/banner2.style';
 import bannerImg from '../public/illustrations/yourdata2.png';
