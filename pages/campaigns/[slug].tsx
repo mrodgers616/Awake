@@ -159,7 +159,7 @@ export default function Proposal({
       name: "facebook",
       icon: FaFacebook,
       link: encodeURI(
-        `https://www.facebook.com/sharer/sharer.php?u=https://www.crowdfund.it/campaigns/${campaign.slug}`
+        `https://www.facebook.com/sharer/sharer.php?u=https://www.awakeinvest.com/campaigns/${campaign.slug}`
       ),
     },
     {
