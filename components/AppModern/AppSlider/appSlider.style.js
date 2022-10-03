@@ -21,6 +21,7 @@ const SectionWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
   }
+  //background-color: #ecebed;
 `;
 
 export const CarouseWrapper = styled.div`
@@ -41,8 +42,9 @@ export const CarouseWrapper = styled.div`
   }
   .glide {
     width: 337px;
-    margin: 0 auto;
+    margin: 0 auto 0 auto;
     position: relative;
+    padding-top: 75px;
     @media only screen and (max-width: 991px) {
       width: 310px;
     }

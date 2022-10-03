@@ -25,7 +25,9 @@ import copy from "copy-to-clipboard";
 import nookies from 'nookies';
 import { admin } from '../../lib/firebaseAdmin';
 import { IoArrowBackOutline } from "react-icons/io5";
+import { useAuth } from "../../contexts/AuthContext";
 import MasterCommentThread from "../../components/comments/masterCommentThread";
+import plaidLink from "../../components/plaidLinkButton"
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
   "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -67,6 +69,7 @@ export default function Proposal({
   const toast = useToast();
 
   const router = useRouter();
+  const { userid } = useAuth();
 
   const {
     isOpen: voteModalIsOpen,
@@ -116,7 +119,7 @@ export default function Proposal({
     }
   }, []);
 
-  const pageUri = `https://climatedao-8fdb5.web.app${router.basePath}${router.asPath}`;
+  const pageUri = `https://awakeinvest.com${router.basePath}${router.asPath}`;
 
   function hasUserVoted() {
     try {
@@ -134,7 +137,7 @@ export default function Proposal({
       }
     }
     catch (err) {
-      router.push("/login");
+      //router.push("/login");
     }
 
 
@@ -149,14 +152,14 @@ export default function Proposal({
       name: "twitter",
       icon: FaTwitter,
       link: encodeURI(
-        `https://twitter.com/intent/tweet?text=I just backed the ${campaign.title} campaign on ClimateDAO. learn more here:\n&url=${pageUri}`
+        `https://twitter.com/intent/tweet?text=I just backed the ${campaign.title} campaign on Awake. learn more here:\n&url=${pageUri}`
       ),
     },
     {
       name: "facebook",
       icon: FaFacebook,
       link: encodeURI(
-        `https://www.facebook.com/sharer/sharer.php?u=https://www.crowdfund.it/campaigns/${campaign.slug}`
+        `https://www.facebook.com/sharer/sharer.php?u=https://www.awakeinvest.com/campaigns/${campaign.slug}`
       ),
     },
     {
@@ -302,58 +305,76 @@ export default function Proposal({
               }
               shouldWrapChildren
             > */}
-            <Button
-              {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
-              bg="rgb(100, 43, 115)"
-              color="white"
-              fontSize="1.4em"
-              w={{ lg: "350px" }}
-              mr={{
-                base: "0px", sm: "0", lg: "16px"
-              }}
-              mb={{
-                base: '32px',
-                md: '0'
-              }}
-              h="64px"
-              // enabling users to support the campaign if they have enough balance
-              // change made in the "testing waters" commit
-              // disabled={!hasEnoughBalance}
-              // textDecoration="none"
-              // _hover={{
-              //   textDecoration: "none",
-              //   bg: lighten("seafoam.500", 0.8),
-              // }}
-              // What is the 
-              // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
-              onClick={() => { onVoteModalOpen(); }}
-            >
-              {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
-            </Button>
-            {/* </Tooltip> */}
-            <CastVoteModal
-              isOpen={voteModalIsOpen}
-              onClose={onVoteModalClose}
-              onOpen={onVoteModalOpen}
-              campaign={campaign}
-              profileData={profileData}
-              uid={uid}
-              investments={investments}
-              slug={slug}
-            />
-            {/* <Button
-              bg="seafoam.500"
-              color="white"
-              w="64px"
-              h="64px"
-              disabled={!isConnected}
-            >
-              <Icon
-                w={6}
-                h={6}
-                as={BiBookmark}
-              />
-            </Button> */}
+            {userid ? ( <>
+              <Button
+                {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
+                bg="rgb(100, 43, 115)"
+                color="white"
+                fontSize="1.4em"
+                w={{ lg: "350px" }}
+                mr={{
+                  base: "0px", sm: "0", lg: "16px"
+                }}
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
+                h="64px"
+                // enabling users to support the campaign if they have enough balance
+                // change made in the "testing waters" commit
+                // disabled={!hasEnoughBalance}
+                // textDecoration="none"
+                // _hover={{
+                //   textDecoration: "none",
+                //   bg: lighten("seafoam.500", 0.8),
+                // }}
+                // What is the 
+                // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
+                onClick={() => { onVoteModalOpen(); }}
+              >
+                {hasUserVoted() ? "Already Voted!" : "Vote"}
+              </Button>
+              <CastVoteModal
+                isOpen={voteModalIsOpen}
+                onClose={onVoteModalClose}
+                onOpen={onVoteModalOpen}
+                campaign={campaign}
+                profileData={profileData}
+                uid={uid}
+                investments={investments}
+                slug={slug}
+              /> </>) 
+              : 
+              (<Button
+                bg="rgb(100, 43, 115)"
+                color="white"
+                fontSize="1.4em"
+                w={{ lg: "350px" }}
+                mr={{
+                  base: "0px", sm: "0", lg: "16px"
+                }}
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
+                h="64px"
+                // enabling users to support the campaign if they have enough balance
+                // change made in the "testing waters" commit
+                // disabled={!hasEnoughBalance}
+                // textDecoration="none"
+                // _hover={{
+                //   textDecoration: "none",
+                //   bg: lighten("seafoam.500", 0.8),
+                // }}
+                // What is the 
+                // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
+                onClick={() => { router.push('/login'); }}
+              >
+               {"Login to vote"}
+              </Button>) 
+            }
+            
+            
           </Flex>
         </Flex>
         {/* -------------Deleting camapaing Carousel-------------------- */}
@@ -693,10 +714,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     url: `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${campaign.symbol}&apikey=${process.env.NEXT_PUBLIC_ALPHAVANTAGE_KEY}&outputsize=compact`,
   };
 
-  let stockData;
-  let investments;
-  let uid;
-  let profileData;
+  let stockData  = null;
+  let investments = null;
+  let uid  = null;
+  let profileData  = null;
 
   context.res.setHeader(
     "Cache-Control",

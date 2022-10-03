@@ -102,18 +102,20 @@ const Banner = () => {
           </RatingInfo>
           <Heading
             as="h1"
-            content="Where Value Meets Values"
+            content="Vote With Your Investments"
           />
           <Text
             as="h3"
             color="white"
-            content="What if I told you...you can fight climate change with investments you've already made?"
+            content="Make an impact with stocks you already own"
           />
           <ButtonGroup>
             {userid ? (
-              <LinkAccount className="primary" title="Activate Your Shares" onClick={() => { }} />
+              <LinkAccount className="primary" title="Activate Your Investments" onClick={() => { }} />
             ) : (
-              <Button className="primary" title="Create An Account" onClick={() => { router.push("/register") }} />
+              <>
+              <Button className="primary" title="Login" onClick={() => { router.push("/login") }} />
+              </>
             )}
 
             {/* <Button

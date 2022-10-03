@@ -22,6 +22,9 @@ type State = {
   user?: User | null;
 };
 
+//Need to add slug of first campaign here
+const slug = ""
+
 interface ContextValue extends State {
   login: (data: LoginAndRegisterProps) => Promise<void>;
   register: (data: LoginAndRegisterProps) => Promise<void>;
@@ -137,6 +140,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
         router.push(`${campaignID}`);
         localStorage.removeItem('campaignID');
       }
+      else if(profileData.plaidPublicToken) {
+        router.push(`/campaigns/${slug}`)
+      }
       else {
         router.push("/linkAccount");
       }
@@ -193,6 +199,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
         if(campaignID) {
           router.push(`${campaignID}`);
           localStorage.removeItem('campaignID');
+        }
+        else if(profileData.plaidPublicToken) {
+          router.push(`/campaigns/${slug}`)
         }
         else {
           router.push("/linkAccount");
@@ -395,7 +404,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           isClosable: true,
         });
         let routerPushAfterRegister = "user/" + response.user.uid + "/edit";
-        router.push(routerPushAfterRegister);
+        router.push("/linkAccount");
       }
     } catch (error) {
       toast({

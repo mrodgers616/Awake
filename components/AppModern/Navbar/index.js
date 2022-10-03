@@ -144,7 +144,6 @@ const Navbar = () => {
           {userid ? (
             <div href="#trail" offset={84}>
               <Button className="trail" title="Profile" onClick={() => { router.push(`/user/${userid}/profile`); }} /> <span> </span>
-              <Button className="trail" title="Logout" onClick={() => { logout(); }} />
             </div>
           ) : (
             <div href="#trail" offset={84}>
@@ -210,7 +209,6 @@ const Navbar = () => {
           {userid ? (
             <div href="#trail" offset={84}>
               <Button title="Profile" onClick={() => { router.push(`/user/${userid}/profile`); }} /> <span> </span>
-              <Button title="Logout" onClick={() => { logout(); }} />
             </div>
           ) : (
             <div href="#trail" offset={84}>

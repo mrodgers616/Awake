@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
-const BannerWrapper = styled.div`
+const BannerWrapper2 = styled.div`
   padding-top: 100px;
-  min-height: 802px;
+  
   overflow: hidden;
   position: relative;
   background: linear-gradient(131deg, #75518c, #9fb1ce);
@@ -67,6 +67,7 @@ const BannerWrapper = styled.div`
     }
     @media only screen and (max-width: 480px) {
       flex-wrap: wrap;
+
     }
   }
   .bannerBottomShape {
@@ -79,15 +80,68 @@ const BannerWrapper = styled.div`
   }
 `;
 
-export const BannerContent = styled.div`
-  width: 35%;
-  flex-shrink: 0;
-  @media only screen and (max-width: 1199px) {
-    flex-shrink: 0;
-    width: 100%;
-    margin-top: 25px;
-  }
+export const Block = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: linear-gradient(131deg, #75518c, #9fb1ce);
+border-radius:30px;
+height=100%;
+margin-top:80px;
+h1 {
+    font-size: 46px;
+    @media only screen and (max-width: 1156px) {
+        font-size: 32px;
+    }
+}
+img {
+    height:200px;
+    width:300px;
+    m:64px;
+    @media only screen and (max-width: 1156px) {
+        width:25%;
+        m:32px;
+    }
+    @media only screen and (max-width: 734px) {
+        display:none;
+    }
+}
 
+`;
+export const BlockClear = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+border-radius:30px;
+height=100%;
+margin-bottom:80px;
+margin-top:80px;
+h1 {
+    font-size: 46px;
+    @media only screen and (max-width: 1156px) {
+        font-size: 32px;
+    }
+}
+img{
+    height:200px;
+    width:200px;
+    @media only screen and (max-width: 1156px) {
+        width:25%;
+        height:25%;
+        m:32px;
+    }
+    @media only screen and (max-width: 734px) {
+        display:none;
+    }
+}
+`;
+
+export const BannerContent = styled.div`
+  flex-shrink: 0;
+  width: 35%;
+  @media only screen and (max-width: 480px) {
+    width:100%; 
+  }
   h1 {
     font-size: 46px;
     line-height: 55px;
@@ -103,8 +157,11 @@ export const BannerContent = styled.div`
 
   p {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 16px;
+    
     line-height: 29px;
+    @media only screen and (max-width: 734px) {
+        font-size: 16px;
+      }
   }
 `;
 
@@ -124,9 +181,17 @@ export const BannerContentCamp = styled.div`
     color: ${themeGet('colors.menu', '#0D233E')};
     margin-bottom: 24px;
     @media only screen and (max-width: 1366px) {
+      font-size: 46px;
+      line-height: 55px;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    @media only screen and (max-width: 734px) {
       font-size: 32px;
-      line-height: 42px;
-      margin-bottom: 20px;
+      width:100%;
+      line-height: 55px;
+      margin-bottom: 24px;
+      font-weight: 700;
     }
   }
 
@@ -159,17 +224,22 @@ export const RatingInfo = styled.div`
 `;
 
 export const BannerImage = styled.div`
-  flex-shrink: 0;
+  flex-shrink: 1;
   img {
-    margin-left: -40px;
+    margin-left: 8%;
     margin-top: 50px;
-    @media only screen and (max-width: 1440px) {
-      margin-top: 0px;
-    }
+    width: 20%
+    max-width:25%;
   }
-  @media only screen and (max-width: 1199px) {
-    display: none;
+  @media only screen and (max-width: 480px) {
+    img {
+        margin-left:0%;
+        margin-top: 50px;
+        width: 20%
+        max-width:25%;
+      }
   }
+  
 `;
 
 export const ButtonGroup = styled.div`
@@ -248,37 +318,7 @@ export const VideoWrapper = styled.div`
     mr:100px;
   }
 `;
-export const CustomerWrapper = styled.div`
-  max-width: 15%;
-  min-width: 5%;
-  margin-right:20%; 
-  margin-left:20%; 
-  padding: 0px 0 70px;
-  width: 100%;
-  display: flex;
-  flex-direction:row;
-  align-items: center;
-  @media only screen and (max-width: 1440px) {
-    padding: 0px % 55px;
-  }
-  @media only screen and (max-width: 1099px) {
-    padding: 0px % 55px;
-  }
-  @media only screen and (max-width: 991px) {
-    padding: 0px % 55px;
-  }
-  @media only screen and (max-width: 600px) {
-    padding: 0px % 55px;
-  }
 
-  p {
-    margin: 0 12px 0 0;
-    color: ${themeGet('colors.menu', '#0D233E')};
-    @media only screen and (max-width: 991px) {
-      display: none;
-    }
-  }
-`;
 
 export const ImageWrapper = styled.div`
   display: flex;
@@ -291,4 +331,4 @@ export const ImageWrapper = styled.div`
     }
   }
 `;
-export default BannerWrapper;
+export default BannerWrapper2;

@@ -17,11 +17,11 @@ const Home: NextPageWithLayout = () => {
   return (
     <>
       <Banner />
+      <DashboardFeatures />
       <Features />
       <AppSlider />
-      <ProductSlide />
-      {/* <DashboardFeatures /> */}
-      <Testimonial />
+      {/* <ProductSlide /> */}
+      {/* <Testimonial /> */}
       {/* <DesignedAndBuilt /> */}
       <TeamPortfolio />
       <Newsletter />

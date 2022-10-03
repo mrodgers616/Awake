@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AlertStyle from './alert.style';
 
-const Alert = ({ className, isMaterial, children, ...props }) => {
+const Alert = ({ className, isMaterial, children, theColor, ...props }) => {
   // Add all classs to an array
   const addAllClasses = ['reusecore__alert'];
 
@@ -17,7 +17,7 @@ const Alert = ({ className, isMaterial, children, ...props }) => {
   }
 
   return (
-    <AlertStyle className={addAllClasses.join(' ')} {...props}>
+    <AlertStyle className={addAllClasses.join(' ')} {...props} color={theColor}>
       {children}
     </AlertStyle>
   );
@@ -33,6 +33,8 @@ Alert.propTypes = {
   /** Used to render icon, button, text or any elements inside the Alert.
    * This can be a string or any component. */
   children: PropTypes.element,
+
+  theColor: PropTypes.string,
 };
 
 Alert.defaultProps = {};

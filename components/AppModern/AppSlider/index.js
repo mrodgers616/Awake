@@ -7,7 +7,6 @@ import FeatureBlock from '../../common/components/FeatureBlock';
 import GlideCarousel from '../../common/components/GlideCarousel';
 import GlideSlide from '../../common/components/GlideCarousel/glideSlide';
 import SectionWrapper, { CarouseWrapper, TextWrapper } from './appSlider.style';
-
 import { appSlider } from '../../common/data/AppModern';
 
 const AppSlider = () => {
@@ -25,7 +24,7 @@ const AppSlider = () => {
   }
 
   const boxStyle = {
-    borderColor: "red",
+    borderColor: "#FFFFFF",
     borderWidth: "5px"
     // :hover {
     //   box-shadow: #1e2a4a 0px 12px 24px -10px;
@@ -52,6 +51,7 @@ const AppSlider = () => {
             </Fragment>
           </GlideCarousel>
         </CarouseWrapper>
+        
         <TextWrapper>
           <Heading content={title} />
           <Text content={description} />

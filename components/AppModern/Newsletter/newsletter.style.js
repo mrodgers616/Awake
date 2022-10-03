@@ -16,6 +16,16 @@ const NewsletterWrapper = styled.div`
     padding: 35px 20px;
   }
 
+  .alert_output {
+
+    @media (max-width: 990px) {
+      width: 125px;
+      margin-right: auto;
+      margin-left: auto;
+      padding-top: 75px;
+    }
+  }
+
   .container {
     display: flex;
     align-items: center;

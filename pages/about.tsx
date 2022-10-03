@@ -30,13 +30,14 @@ const About: NextPageWithLayout = () => {
         // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
         bgSize="cover"
         zIndex={0}
+        h="300px"
         position="relative"
       >
         <Box
           // bg="rgba(0,0,0,.4)"
           position="absolute"
           w="100%"
-          h="100%"
+          h="50%"
           zIndex={0}
           top="0"
           left="0"
@@ -51,7 +52,7 @@ const About: NextPageWithLayout = () => {
         >
           <Flex
             flexDir="column"
-            h="200px"
+            h="100px"
             justifyContent={"center"}
             zIndex={200}
           >
@@ -65,7 +66,7 @@ const About: NextPageWithLayout = () => {
               mt={{ base: "60px", lg: "60" }}
               zIndex={250}
             >
-              Activating the Power of Retail Investors
+              FAQ
             </Heading>
             <Box>
               {/* <Button
@@ -89,120 +90,13 @@ const About: NextPageWithLayout = () => {
       </Box>
       <Container>
         <Box title="values" my={{ base: "60px", sm: "60px", lg: "120px" }}>
-          {/* <Flex
-            className="value"
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
-            <Image
-              w="40%"
-              h="auto"
-              src="/illustrations/Link your Accounts.png"
-              alt="Analytics team"
-            />
-            <Box className="value-content" w="55%">
-              <Heading fontSize="48px" mb="28px">
-                link your brokerage account
-              </Heading>
-              <Text fontSize="1.5em">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-                duis at tellus at urna condimentum mattis pellentesque.
-              </Text>
-            </Box>
-          </Flex>
-          <Flex
-            className="value"
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
-            <Box className="value-content" w="55%">
-              <Heading fontSize="48px" mb="28px">
-                holding corporations to their word
-              </Heading>
-              <Text fontSize="1.5em">
-              Climate DAO intends to create value by holding corporations accountable to its shareholders and its stakeholders.
-              </Text>
-            </Box>
-            <Image
-              w="40%"
-              h="auto"
-              src="/illustrations/Analytics team_Two Color 1.png"
-              alt="Analytics team"
-            />
-          </Flex>
-          <Flex
-            className="value"
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
-            <Image
-              w="40%"
-              h="auto"
-              src="/illustrations/Data storage_Two Color 1.png"
-              alt="Analytics image"
-            />
-            <Box className="value-content" w="55%">
-              <Heading fontSize="48px" mb="28px">
-                link your borkerage accounts
-              </Heading>
-              <Text fontSize="1.5em">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-                duis at tellus at urna condimentum mattis pellentesque.
-              </Text>
-            </Box>
-          </Flex>
-          <Flex
-            className="value"
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
-            <Box className="value-content" w="55%">
-              <Heading fontSize="48px" mb="28px">
-                vote with your values
-              </Heading>
-              <Text fontSize="1.5em">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-                duis at tellus at urna condimentum mattis pellentesque.
-              </Text>
-            </Box>
-            <Image
-              w="40%"
-              h="auto"
-              src="/illustrations/Analytics team_Two Color 1.png"
-              alt="Analytics image"
-            />
-          </Flex>
-          <Flex
-            className="value"
-            alignItems={"center"}
-            justifyContent="space-between"
-          >
-            <Image
-              w="40%"
-              h="auto"
-              src="/illustrations/Data storage_Two Color 1.png"
-              alt="Analytics image"
-            />
-            <Box className="value-content" w="55%">
-              <Heading fontSize="48px" mb="28px">
-                join our community
-              </Heading>
-              <Text fontSize="1.5em">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget
-                duis at tellus at urna condimentum mattis pellentesque.
-              </Text>
-            </Box>
-          </Flex> */}
+          
           <Flex
             borderRadius="16px"
             flexDir="column"
             mb="64px"
-            color="white"
-            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+            color="black"
+            // bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
             p={{ base: "32px", sm: "32px", lg: "64px" }}
             h={{ base: "fit-content", lg: "400px" }}
             justifyContent={"center"}
@@ -213,7 +107,7 @@ const About: NextPageWithLayout = () => {
               Mission
             </Heading>
             <Text zIndex={250} fontSize={{ base: "16px", sm: "16px", lg: "1.6em" }}>
-              Awake is empowering everyday investors to be activists. Voting on shareholder proposals is a complicated and tedious process. Awake makes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
+              Awake is giving back the power of investments to investors. Voting on shareholder proposals is a complicated and tedious process. Awake makes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
             </Text>
             <Box
               bg="rgba(0,0,0,.0)"
@@ -226,7 +120,7 @@ const About: NextPageWithLayout = () => {
               left="0"
             />
           </Flex>
-          <Flex
+          {/*<Flex
             borderRadius="16px"
             flexDir="column"
             mb="64px"
@@ -331,8 +225,8 @@ const About: NextPageWithLayout = () => {
             >
               Browse Campaigns
             </Button>
-          </Flex>
-        </Box>
+          </Flex>*/}
+        </Box> 
         <Faq faqs={faqs} />
       </Container>
     </>
