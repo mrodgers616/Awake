@@ -296,15 +296,14 @@ const LinkAccount: NextPage = () => {
   }
 
   const onSuccess: PlaidLinkOnSuccess = (publicToken, metadata) => {
-    const finalPublicToken = {
-      plaidPublicToken: publicToken
-    }
-
-    const uid = getProfileUID().then(profileUID => {
-      updateOrAddProfileData(profileUID, finalPublicToken);
-    });
-
     const accessToken = getAccessToken(publicToken).then(value => {
+      const finalPublicToken = {
+        plaidPublicToken: publicToken,
+        accessToken: value
+      }
+      const uid = getProfileUID().then(profileUID => {
+        updateOrAddProfileData(profileUID, finalPublicToken);
+      });
       const data = getInvestmentData(value).then(dataValue => {
         storeInvestmentData(dataValue).then(() => {
           router.push(`/campaigns/PVQFakOIwa7jgQRLeXWo`);

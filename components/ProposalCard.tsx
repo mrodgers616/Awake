@@ -80,12 +80,15 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
   const { userid } = useAuth();
 
   function handleLinkClick(campaignID: string) {
-    if (userid) {
-      Router.push(`${campaignID}`);
-    }
-    else {
-      pushLoginAndCampaignId(campaignID);
-    }
+
+    localStorage.setItem('campaignID', campaignID);
+    Router.push(`${campaignID}`);
+    // if (userid) {
+    //   Router.push(`${campaignID}`);
+    // }
+    // else {
+    //   pushLoginAndCampaignId(campaignID);
+    // }
   }
 
   useEffect(() => {
