@@ -96,7 +96,10 @@ const DashboardSection = ({ row, col, title, btnStyle, description }) => {
   return (
     <DashboardWrapper id="banner_section">
       <Particles />
-      <Container>
+
+      {/* ADD BACK AFTER THE FIRST CAMPAIGN IS DECIDED */}
+
+      {/* <Container>
         <Box className="row" {...row}>
           <Box className="col" {...col}>
             <Heading className="subtitle" as="h4" content="Featured Campaign" />
@@ -119,7 +122,9 @@ const DashboardSection = ({ row, col, title, btnStyle, description }) => {
           <iframe className='iframeWrapper' width="560" height="315" src="https://www.youtube.com/embed/75quolGMWkk" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
           </iframe>
         </Box>
-      </Container>
+      </Container> */}
+
+
       {/* <DashboardObject>
         <div className="dashboardWrapper">
           <NextImage src={DashboardObject1} alt="DashboardObject1" />
