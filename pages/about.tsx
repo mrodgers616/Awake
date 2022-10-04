@@ -66,7 +66,7 @@ const About: NextPageWithLayout = () => {
               mt={{ base: "60px", lg: "60" }}
               zIndex={250}
             >
-              FAQ
+              About and FAQs
             </Heading>
             <Box>
               {/* <Button
@@ -90,7 +90,7 @@ const About: NextPageWithLayout = () => {
       </Box>
       <Container>
         <Box title="values" my={{ base: "60px", sm: "60px", lg: "120px" }}>
-          
+
           <Flex
             borderRadius="16px"
             flexDir="column"
@@ -107,7 +107,7 @@ const About: NextPageWithLayout = () => {
               Mission
             </Heading>
             <Text zIndex={250} fontSize={{ base: "16px", sm: "16px", lg: "1.6em" }}>
-              Awake is giving back the power of investments to investors. Voting on shareholder proposals is a complicated and tedious process. Awake makes it easy for investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. We act as the missing link between shareholders who care about complex issues and the fund managers voting on their behalf. The data we aggregate from users will be used to engage fund managers with their investors&#39; sentiment so that they can make more informed decisions.
+              Our mission is to empower everyday investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. For too long, everyday shareholders have sat on the sidelines while the real decisions were being made behind closed doors. We are building a world where the actions of the most influential corporations are directed by us, the people who own them.
             </Text>
             <Box
               bg="rgba(0,0,0,.0)"
@@ -226,7 +226,7 @@ const About: NextPageWithLayout = () => {
               Browse Campaigns
             </Button>
           </Flex>*/}
-        </Box> 
+        </Box>
         <Faq faqs={faqs} />
       </Container>
     </>
