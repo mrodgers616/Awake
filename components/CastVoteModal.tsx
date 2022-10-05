@@ -10,6 +10,7 @@ import {
   Flex,
   Button,
   Icon,
+  Center,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import useWindowSize from 'react-use/lib/useWindowSize'
@@ -424,7 +425,7 @@ export default function CastVoteModal({
         </ModalBody>
         {!showForAgainst && (
         <ModalBody>
-          <Heading as="h4" size="sm"> Your vote and votes like yours are important for this campaign&apos;s success</Heading>
+          <Center><Heading as="h4" size="sm"> Your vote and votes like yours are important for this campaign&apos;s success</Heading></Center>
         </ModalBody>
         )}
       </ModalContent>
