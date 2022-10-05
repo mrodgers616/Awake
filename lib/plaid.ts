@@ -25,7 +25,7 @@ const configs = {
     //remember to fix this id when the trad login and user data structure are complete
     client_user_id: 'user-id',
     },
-    client_name: 'Awake Connect',
+    client_name: 'Awake',
     products: plaidProducts,
     country_codes: plaidCountryCodes,
     language: 'en',

@@ -105,6 +105,7 @@ export default function CastVoteModal({
   const { width, height } = useWindowSize()
   const [showConfetti, setShowConfetti] = useState(false);
   const [showForAgainst, setShowForAgainst] = useState(profileData.investments ? false : true);
+  const [showModal, setShowModal] = useState(true);
   const theConfetti: any = async () => {
     setShowConfetti(true);
     await sleep(7000);
@@ -526,7 +527,10 @@ export default function CastVoteModal({
       
       const data = getInvestmentData(value).then(dataValue => {
         storeInvestmentData(dataValue).then(() => {
-          doesUserOwnSharesFor(); theConfetti(); setShowForAgainst(false);
+          doesUserOwnSharesFor(); 
+          theConfetti(); 
+          setShowForAgainst(false); 
+          setShowModal(true);
         })
       });
     });
@@ -538,6 +542,7 @@ export default function CastVoteModal({
   };
 
   const onExit: PlaidLinkOnExit = (error, metadata) => {
+    setShowModal(true);
     // log onExit callbacks from Link, handle errors
     // https://plaid.com/docs/link/web/#onexit
     ////console.log(error, metadata);
@@ -550,6 +555,12 @@ export default function CastVoteModal({
     token: theToken,
   };
 
+  const handleOnClick = () => {
+    console.log("here")
+    setShowModal(false)
+
+  }
+
   useEffect(() => {
     loadOnPageLoad();
     
@@ -560,6 +571,8 @@ export default function CastVoteModal({
       isCentered
       isOpen={isOpen}
       onClose={onClose}
+      motionPreset='slideInBottom'
+      trapFocus={false}
     >
       {showConfetti && (<Confetti width={width} height={height}/>)}
       <ModalOverlay />
@@ -585,11 +598,13 @@ export default function CastVoteModal({
         >
           {showForAgainst && (
           <>
-            <Button w='33%' border="0px" as={PlaidLink} bg='white' color="green"
+            <Button w='33%' mr="5%" border="0px" as={PlaidLink} bg='white' color="green"
+                onClick={handleOnClick}
                 token={theToken}
                 onSuccess={onSuccess}
                 onEvent={onEvent}
-                onExit={onExit}>Yes
+                onExit={onExit}
+                >Yes
             </Button>
           </>)}
           {showForAgainst && (
