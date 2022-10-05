@@ -378,7 +378,7 @@ import member6 from '../../assets/image/appModern/TOM.png';
 import member7 from '../../assets/image/appModern/SIGAL.png';
 
 export const teamportfolio = {
-  title: 'The mad scientists behind the movement',
+  title: 'The humans behind the movement',
   description:
     "We've come quite a long way as a team. Click below to learn more about our journey.",
 

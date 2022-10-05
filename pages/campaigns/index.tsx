@@ -219,9 +219,9 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
 
           {/* ADD BACK AFTER THE FIRST CAMPAIGN IS DECIDED */}
 
-          {/* <Box title="">
+          <Box title="">
             <Flex title="" justifyContent="space-between">
-              <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }}>Proposals</Heading>
+              <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }}>Campaigns</Heading>
             </Flex>
             <Grid
               title=""
@@ -243,7 +243,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                   w: "100%",
                   h: "100%",
                 };
-                
+
                 return (
                   <GridItem key={index}>
                     <ProposalCard
@@ -284,7 +284,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 </PaginatorContainer>
               </Flex>
             </Paginator>
-          </Box> */}
+          </Box>
         </Container>
       </Box>
     </>
