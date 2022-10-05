@@ -140,12 +140,12 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
           <Flex justifyContent="center" alignItems="center" h="100%" paddingTop="80px">
             <Stack>
               <Heading color="white" textAlign="center" fontSize={{ base: "2em", lg: "3em" }}>
-                <Text fontSize='3xl'>
-                  Vote With Your Investments
+                <Text fontSize='5xl'>
+                  Back a Campaign for Action
                 </Text>
               </Heading>
-
-              <Button
+              {/* COMMENTED OUT THE  */}
+              {/* <Button
                 color="white"
                 // bg="rgb(100, 43, 115)"
                 bg="#000000"
@@ -165,7 +165,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 disabled={true}
               >
                 Featured Campaign (Coming Soon)
-              </Button>
+              </Button> */}
             </Stack>
           </Flex>
         </Container>

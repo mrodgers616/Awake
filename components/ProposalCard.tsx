@@ -105,7 +105,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
 
   const timerText = isTimeUp
     ? "Voting Closed"
-    : `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    : `${days}d ${hours}h ${minutes}m ${seconds}s left`;
 
   const proposalOutcomeStyles = (state: string): Object => {
     const baseStyle = {
@@ -147,22 +147,23 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
         {companyName ?? "Company"} | {symbol ?? "SMBL"}
       </Heading> */}
       <Progress
-        colorScheme={isTimeUp ? "green" : "seafoam.500"}
-        value={progress}
+        colorScheme={isTimeUp ? "purple" : "green"}
+        value={isTimeUp ? progress : 80}
         w="100%"
         h="32px"
         borderRadius="8px"
         mb="18px"
         mt="9px"
       >
-        <ProgressLabel fontSize="sm" color="#BAC7BE" w="fit-content">
+        <ProgressLabel fontSize="sm" color={isTimeUp ? "#BAC7BE" : "white"} w="fit-content">
           {timerText}
         </ProgressLabel>
       </Progress>
-      <Box mb="32px" flexGrow={2}>
-        <Heading mb="16px" fontSize="1.2em">
+      <Box mb="0px" flexGrow={2}>
+        <Heading mb="8px" fontSize="1.2em">
           {title?.substring(0, 100)}
         </Heading>
+        {/* TESTING TAKING THE DESCRIPTION OUT TO OPTIMZE FOR CAMPAIGN VISIBILITY */}
         <Text
           h="3em"
           //overflow="hidden"
