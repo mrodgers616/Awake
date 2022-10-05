@@ -29,8 +29,10 @@ const Footer = () => {
         <WidgetArea>
           {widgets.map((item) => (
             <Box className="col" key={`footer-widget--key${item.id}`}>
-              <Image src={item.icon?.src} alt={item.title} />
-              <Heading as="h3" content={item.title} />
+              <Link href={item.link}>
+                <Image src={item.icon?.src} alt={item.title} />
+                <a><Heading as="h3" content={item.title} /></a>
+              </Link>
               <Text content={item.description} />
             </Box>
           ))}

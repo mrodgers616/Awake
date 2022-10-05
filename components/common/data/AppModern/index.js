@@ -468,6 +468,7 @@ export const footer = {
       id: 1,
       icon: chat,
       title: 'Join the Community',
+      link: 'https://discord.gg/RExDdhJw7X',
       description:
         'Create your account, link a brokerage account, and start voting to make a difference',
     },
@@ -475,6 +476,7 @@ export const footer = {
       id: 2,
       icon: group,
       title: 'Discuss With the Community',
+      link: 'https://discord.gg/RExDdhJw7X',
       description:
         'Chat about campaigns with other users',
     },
