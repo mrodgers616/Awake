@@ -97,7 +97,7 @@ export default function Proposal({
     });
   }
 
-  function doesUserOwnSharesFor() {
+  function doesUserOwnSharesFor() { 
     let campaignTicker = campaign.symbol;
 
     if (investments) {
