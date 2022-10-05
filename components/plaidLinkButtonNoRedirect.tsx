@@ -10,49 +10,39 @@ import {
   usePlaidLink,
   PlaidLinkOptionsWithLinkToken,
 } from 'react-plaid-link';
+import {
+  Button,
+} from "@chakra-ui/react";
 import { admin } from '../lib/firebaseAdmin';
 import { getProfileData, updateOrAddProfileData } from "../lib/firebaseClient";
 import { parseCookies } from 'nookies';
-import Text from '../components/common/components/Text';
-import Image from '../components/common/components/Image';
-import Button from '../components/common/components/Button';
-import Heading from '../components/common/components/Heading';
-import Rating from '../components/common/components/Rating';
-import Container from '../components/common/components/UI/Container';
-import BannerWrapper2, {
+import Text from './common/components/Text';
+import Image from './common/components/Image';
+import Heading from './common/components/Heading';
+import Rating from './common/components/Rating';
+import Container from './common/components/UI/Container';
+import BannerWrapper, {
   BannerContent,
   RatingInfo,
   BannerImage,
-  Block,
-  BlockClear,
   ButtonGroup,
   VideoGroup,
   VideoWrapper,
+  CustomerWrapper,
   ImageWrapper,
-} from '../components/AppModern/Banner/banner2.style';
-import bannerImg from '../public/illustrations/yourdata2.png';
-import plaid from '../public/illustrations/Plaid_logo.svg';
+} from './AppModern/Banner/banner.style';
+import bannerImg from '../public/illustrations/stocks.png';
 import circleBorder from '../components/common/assets/image/appModern/shape.svg';
 import { useAuth } from "../contexts/AuthContext";
 
 
-import { client } from '../components/common/data/AppModern';
+import { client } from './common/data/AppModern';
 import { useRouter } from "next/router";
-import { Box, ChakraProvider, Flex, Stack, } from "@chakra-ui/react";
 
-// const popStyle = {
-//   minWidth: "55%",
-//   maxWidth: "55%",
-//   marginRight: "220px"
-// }
-
-// const topStyle = {
-//   maxWidth: "25%",
-//   marginLeft: "8%"
-// }
-
-const copstyle = {
-  p: "30px"
+const popStyle = {
+  minWidth: "55%",
+  maxWidth: "55%",
+  marginRight: "220px"
 }
 
 const Banner = () => {
@@ -210,7 +200,6 @@ const LinkAccount: NextPage = () => {
 
   const [theToken, setTheToken] = useState(null);
   const [isPlaidConnectedBefore, setIsPlaidConnectedBefore] = useState(String);
-  const [plaidOpen, setPlaidOpen] = useState(true);
   let plaidConnectedBefore: any;
   const [uid, setUid] = useState(String);
   const { userid } = useAuth();
@@ -229,7 +218,7 @@ const LinkAccount: NextPage = () => {
     setIsPlaidConnectedBefore(profileData.plaidPublicToken);
     setUid(uid);
     plaidConnectedBefore = profileData.plaidPublicToken;
-
+    
   }
 
 
@@ -309,7 +298,6 @@ const LinkAccount: NextPage = () => {
   }
 
   const onSuccess: PlaidLinkOnSuccess = (publicToken, metadata) => {
-
     const accessToken = getAccessToken(publicToken).then(value => {
       const finalPublicToken = {
         plaidPublicToken: publicToken,
@@ -320,7 +308,7 @@ const LinkAccount: NextPage = () => {
       });
       const data = getInvestmentData(value).then(dataValue => {
         storeInvestmentData(dataValue).then(() => {
-          router.push(`/campaigns/PVQFakOIwa7jgQRLeXWo`);
+          //router.push(`/campaigns/PVQFakOIwa7jgQRLeXWo`);
         })
       });
     });
@@ -332,7 +320,6 @@ const LinkAccount: NextPage = () => {
   };
 
   const onExit: PlaidLinkOnExit = (error, metadata) => {
-    setPlaidOpen(false);
     // log onExit callbacks from Link, handle errors
     // https://plaid.com/docs/link/web/#onexit
     ////console.log(error, metadata);
@@ -344,119 +331,26 @@ const LinkAccount: NextPage = () => {
     onEvent,
     token: theToken,
   };
-
-  const { open, exit, ready } = usePlaidLink(config);
-
+  
   useEffect(() => {
     loadOnPageLoad();
     //open();
-
+    
   }, []);
-
-  if (ready) {
-    if (!isPlaidConnectedAlready() && plaidOpen) {
-      open();
-    }
-  }
-
-
-  return (
-    <>
-      <head>
-        <title>Awake | Link Account</title>
-      </head>
-      <BannerWrapper2 id="home">
-        {/*@ts-ignore*/}
-        <Container>
-          <BannerContent>
-            <Heading
-              as="h1"
-              content={"Link Your Account"}
-            />
-            <Text
-              content="By linking your account and signaling your support for
-              campaigns, we can approach companies with much more leverage. We use bank-level encryption for connecting to brokers, never store user credentials on our servers, and encrypt all user data."
-            />
-            <ButtonGroup>
-              {/*@ts-ignore*/}
-              {isPlaidConnectedBefore ? (<Button className="primary" title="Account Already Linked" disabled={true}>
-
-              </Button>
-
-              ) : (
-                /*@ts-ignore*/
-                <Button className="primary" title="Connect Your Brokerage Account" as={PlaidLink}
-                  token={theToken}
-                  onSuccess={onSuccess}
-                  onEvent={onEvent}
-                  onExit={onExit}>
-
-                </Button>
-
-              )}
-
-              {/* <Button
-                className="text"
-                variant="textButton"
-                icon={<Icon icon={playCircle} />}
-                iconPosition="left"
-                title="Watch Video"
-              /> */}
-            </ButtonGroup>
-          </BannerContent>
-          <BannerImage>
-            <Image src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Safedata.png?alt=media&token=2227059e-ed77-4e97-88b7-ddbcbb3c436b"
-
-              // style={topStyle}
-              alt="Banner" />
-          </BannerImage>
-        </Container>
-        <img
-          className="bannerBottomShape"
-          src={circleBorder?.src}
-          alt="Bottom Circle"
-        />
-      </BannerWrapper2>
-
-      <Box ml="15%" mr="15%" mb="10%" height="100%">
-
-
-        <BlockClear>
-          <Image
-            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/security-icon-encryption.webp?alt=media&token=b8046807-a840-4463-878e-8cb32fa134bd" alt={undefined} />
-          <Stack>
-            <Text
-              textAlign="left"
-              as="h1"
-              mt="5%"
-              display="block"
-              fontWeight="bold"
-              ml="15%" content="Data Encryption">
-            </Text>
-            <Text display="block" fontSize="2xl" paddingLeft="15%" content="The combination of the Advanced Encryption Standard (AES-256) and Transport Layer Security (TLS) help keep your personal information safe. Plaid also uses multi-factor authentication for added security in its systems.">
-            </Text>
-          </Stack>
-        </BlockClear>
-
-        <Block>
-          <Stack>
-            <Text
-              textAlign="left"
-              as="h1"
-              mt="5%"
-              display="block"
-              fontWeight="bold"
-              ml="15%" content="What happens to my data?">
-            </Text>
-            <Text display="block" fontSize="2xl" paddingLeft="15%"
-              paddingRight="15%" paddingBottom="5%" content="Awake analyzes data about how many voters there are, how many shares were voted, and what campaigns were supported. This allows us to advocate for change without violating your privacy.">
-            </Text>
-          </Stack>
-          <Image
-            m="64px"
-            src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Plaid_logo.svg?alt=media&token=380cdb7c-d0c1-41e1-bfa5-5af0bc2e9f46" alt={undefined} />
-        </Block>
-      </Box >
-    </>)
+      return (
+        <>
+          {/*@ts-ignore*/}
+          <Button title="Yes" bg='black' border="0px"
+            color='green' as={PlaidLink} mr='10px' w='33%'
+          token={theToken}
+          onSuccess={onSuccess}
+          onEvent={onEvent}
+          onExit={onExit}> Yes
+          </Button>
+            
+        </>
+      );
+  
 }
-export default LinkAccount;
+  
+  export default LinkAccount;

@@ -13,6 +13,7 @@ import {
   useDisclosure,
   useToast
 } from "@chakra-ui/react";
+import useWindowSize from 'react-use/lib/useWindowSize'
 import { FaClipboard, FaTwitter, FaFacebook } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOrAddProfileData } from "../../lib/firebaseClient";
@@ -28,6 +29,8 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import { useAuth } from "../../contexts/AuthContext";
 import MasterCommentThread from "../../components/comments/masterCommentThread";
 import plaidLink from "../../components/plaidLinkButton"
+import Confetti from 'react-confetti'
+
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
   "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
@@ -61,15 +64,19 @@ export default function Proposal({
   uid: any;
   profileData: any;
 }): JSX.Element {
-  const [_votes, setVotes] = useState<string>();
+  const [modalClose, setModalClose] = useState(false);
   const [currentState, setCurrentState] = useState<string>();
   const [historicalStockPrice, setHistoricalStockPrice] = useState<any>();
-
+  const [_votes, setVotes] = useState<string>();
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const toast = useToast();
 
   const router = useRouter();
   const { userid } = useAuth();
+  const { width, height } = useWindowSize()
+
+  let userInvestmentQuantity: number;
 
   const {
     isOpen: voteModalIsOpen,
@@ -77,30 +84,182 @@ export default function Proposal({
     onClose: onVoteModalClose,
   } = useDisclosure();
 
+  const theConfetti: any = async () => {
+    setShowConfetti(true);
+    await sleep(7000);
+    setShowConfetti(false);
+
+  }
+
+  function sleep(ms: any) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
+
+  function doesUserOwnSharesFor() {
+    let campaignTicker = campaign.symbol;
+
+    if (investments) {
+      for (let i = 0; i < investments.length; i++) {
+        let userInvestmentTicker = investments[i].ticker;
+        if (userInvestmentTicker == campaignTicker) {
+          userInvestmentQuantity = investments[i].quantity;
+          userOwnSharesFor(i);
+          return true;
+        }
+      }
+      return userDoesNotOwnSharesFor();
+      return false;
+    }
+    else {
+      userDoesNotOwnSharesFor();
+      return false;
+    }
+
+  }
+
+  function userOwnSharesFor(i: number) {
+    let currentVotes = campaign.verifiedVotes
+    let users = campaign.users
+
+    let forVotes = 1;
+    let againstVotes = 0;
+
+    if(campaign.verifiedVote) {
+      againstVotes = campaign.verifiedVote.against
+    }
+    else {
+      againstVotes = 0;
+    }
+
+    if(campaign.verifiedVote) {
+      forVotes = Number(campaign.verifiedVote.for) + 1
+    }
+    else {
+      forVotes = 1;
+    }
+
+    if (currentVotes && users) {
+      const totalVotes = currentVotes + investments[i].quantity;
+      users.push(uid);
+      const dataToUpload = {
+        verifiedVotes: increment(Number(investments[i].quantity)),
+        users: arrayUnion(uid),
+        verifiedVote:{
+          for: forVotes,
+          against: againstVotes
+        }
+      }
+
+      updateProposalInStore(slug, dataToUpload);
+    }
+    else {
+      const dataToUpload = {
+        verifiedVotes: Number(investments[i].quantity),
+        users: [uid],
+        verifiedVote:{
+          for: 1,
+          against: 0
+        }
+      }
+
+      updateProposalInStore(slug, dataToUpload);
+    }
+
+    const proposals = profileData.proposalsVotedOn
+    if (proposals) {
+      let newArrayofSlugs = proposals.push(slug)
+      let slugs = {
+        proposalsVotedOn: arrayUnion(slug),
+      }
+
+      updateOrAddProfileData(uid, slugs)
+    }
+    else {
+      let slugs = {
+        proposalsVotedOn: [slug],
+      }
+
+      updateOrAddProfileData(uid, slugs)
+    }
+
+  }
+
+  function userDoesNotOwnSharesFor() {
+    let currentVotes = campaign.unverifiedVotes
+    let users = campaign.unverifiedUsers
+    let forVotes = 1;
+    let againstVotes = 0;
+
+    if(campaign.unverifiedVote) {
+      againstVotes = campaign.unverifiedVote.against
+    }
+    else {
+      againstVotes = 0;
+    }
+
+    if(campaign.unverifiedVote) {
+      forVotes = Number(campaign.unverifiedVote.for) + 1
+    }
+    else {
+      forVotes = 1;
+    }
+
+    if (currentVotes && users) {
+      const totalVotes = currentVotes + 1;
+      users.push(uid);
+      const dataToUpload = {
+        unverifiedVotes: increment(1),
+        unverifiedUsers: arrayUnion(uid),
+        unverifiedVote:{
+          for: forVotes,
+          against: againstVotes
+        }
+      }
+
+      updateProposalInStore(slug, dataToUpload);
+    }
+    else {
+      const dataToUpload = {
+        unverifiedVotes: 1,
+        unverifiedUsers: [uid],
+        unverifiedVote:{
+          for: 1,
+          against: 0
+        }
+      }
+
+      updateProposalInStore(slug, dataToUpload);
+    }
+
+    const proposals = profileData.proposalsVotedOn
+    if (proposals) {
+      let newArrayofSlugs = proposals.push(slug)
+      let slugs = {
+        proposalsVotedOn: arrayUnion(slug)
+      }
+
+      updateOrAddProfileData(uid, slugs)
+    }
+    else {
+      let slugs = {
+        proposalsVotedOn: [slug],
+      }
+
+      updateOrAddProfileData(uid, slugs)
+    }
+
+  }
+
+  function checkAndVote() {
+    if(profileData.investments) {
+      doesUserOwnSharesFor();
+      theConfetti();
+    }
+  }
+
   useEffect(() => {
-    //const newProvider = new ethers.providers.Web3Provider(window.ethereum);
-
-    // if (isConnected) {
-    //   newProvider.getBlockNumber().then((blockNumber) => {
-    //     getProposalVotes(blockNumber - 1).then((res) => {
-    //       setVotes(res.toString());
-    //     });
-    //   }).catch((err) => {
-    //     console.error(err);
-    //   });
-
-    //   getProposalState(campaign.proposalId).then((res) => {
-    //     setCurrentState(State[res.toString()]);
-    //   }).catch((err) => {
-    //     toast({
-    //       title: "Error",
-    //       description: err.message,
-    //       status: "error",
-    //       duration: 9000,
-    //       isClosable: true,
-    //     })
-    //   });
-    // }
 
     if (stockData !== null) {
       const lineData = [];
@@ -147,6 +306,21 @@ export default function Proposal({
     router.push("/campaigns");
   }
 
+  function howManyUsers() {
+    if(campaign.unverifiedUsers && campaign.users) {
+      return (campaign.unverifiedUsers.length + campaign.users.length)
+    }
+    else if(campaign.unverifiedUsers) {
+      return campaign.unverifiedUsers.length;
+    }
+    else if(campaign.users) {
+      return campaign.users.length;
+    }
+    else {
+      return 0;
+    }
+  }
+
   const socialMedia = [
     {
       name: "twitter",
@@ -172,8 +346,9 @@ export default function Proposal({
   return (
     <>
       <Head>
-        <title>Proposal {campaign?.id} | Awake</title>
+        {/* <title>Proposal {campaign?.id} | Awake</title> */}
       </Head>
+      {showConfetti && (<Confetti width={width} height={height}/>)}
       <Box
         mt="0px"
         bg="rgb(164,191,217)"
@@ -281,7 +456,7 @@ export default function Proposal({
               <Heading textAlign={"center"}
                 fontSize={{ base: "24px", sm: "24px", lg: "48px" }}
                 color="White">
-                {String(campaign.unverifiedUsers.length + campaign.users.length)}
+                {String(howManyUsers())}
               </Heading>
               <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
                 Supporters
@@ -330,20 +505,20 @@ export default function Proposal({
                 // }}
                 // What is the 
                 // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
-                onClick={() => { onVoteModalOpen(); }}
+                onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
               >
                 {hasUserVoted() ? "Already Voted!" : "Vote"}
               </Button>
-              <CastVoteModal
+              { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
-                onClose={onVoteModalClose}
+                onClose={ () => {onVoteModalClose; setModalClose(true)}}
                 onOpen={onVoteModalOpen}
                 campaign={campaign}
                 profileData={profileData}
                 uid={uid}
                 investments={investments}
                 slug={slug}
-              /> </>) 
+              /> } </>)
               : 
               (<Button
                 bg="rgb(100, 43, 115)"

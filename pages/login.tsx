@@ -109,7 +109,7 @@ const Login: NextPageWithLayout = () => {
                   <Button
                     type="submit"
                     bg='rgb(164,191,217)'
-                  >Login</Button>
+                  >Log in</Button>
 
                 </Flex>
                 <Link href='/register'>Create A New Account</Link>
