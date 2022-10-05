@@ -13,6 +13,15 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { Configuration, LinkTokenCreateRequest, PlaidApi, PlaidEnvironments, InvestmentsHoldingsGetResponse } from 'plaid';
+import {
+  PlaidLink,
+  PlaidLinkOnSuccess,
+  PlaidLinkOnEvent,
+  PlaidLinkOnExit,
+  usePlaidLink,
+  PlaidLinkOptionsWithLinkToken,
+} from 'react-plaid-link';
 import useWindowSize from 'react-use/lib/useWindowSize'
 import { BiWrench, BiChevronRight } from "react-icons/bi";
 import { BsPersonCheck } from "react-icons/bs";
@@ -21,8 +30,57 @@ import propTypes from 'prop-types';
 import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOrAddProfileData } from "../lib/firebaseClient";
 import { arrayUnion, Timestamp, increment } from "firebase/firestore";
 import Confetti from 'react-confetti'
-import PlaidLink from './plaidLinkButtonNoRedirect'
+import LinkAccount from './plaidLinkButtonNoRedirect'
 
+
+interface Categories {
+  title: string;
+  field: string;
+}
+
+interface InvestmentData {
+  error: null;
+  holdings: InvestmentsHoldingsGetResponse;
+}
+
+const formatCurrency = (
+  number: number | null | undefined,
+  code: string | null | undefined
+) => {
+  if (number != null && number !== undefined) {
+    return ` ${parseFloat(number.toFixed(2)).toLocaleString("en")} ${code}`;
+  }
+  return "no data";
+};
+
+const transformInvestmentsData = (data: InvestmentData) => {
+  const holdingsData = data.holdings.holdings!.sort(function (a, b) {
+    if (a.account_id > b.account_id) return 1;
+    return -1;
+  });
+  return holdingsData.map((holding) => {
+    const account = data.holdings.accounts!.filter(
+      (acc) => acc.account_id === holding.account_id
+    )[0];
+    const security = data.holdings.securities!.filter(
+      (sec) => sec.security_id === holding.security_id
+    )[0];
+    const value = holding.quantity * security.close_price!;
+
+    const obj = {
+      mask: account.mask!,
+      name: security.name!,
+      ticker: security.ticker_symbol!,
+      quantity: formatCurrency(holding.quantity, ""),
+      price: formatCurrency(
+        security.close_price!,
+        account.balances.iso_currency_code
+      ),
+      value: formatCurrency(value, account.balances.iso_currency_code),
+    };
+    return obj;
+  });
+};
 
 export default function CastVoteModal({
   onOpen,
@@ -46,16 +104,12 @@ export default function CastVoteModal({
 
   const { width, height } = useWindowSize()
   const [showConfetti, setShowConfetti] = useState(false);
-  const [showForAgainst, setShowForAgainst] = useState(true);
+  const [showForAgainst, setShowForAgainst] = useState(profileData.investments ? false : true);
   const theConfetti: any = async () => {
     setShowConfetti(true);
     await sleep(7000);
     setShowConfetti(false);
 
-  }
-
-  if(profileData.investments) {
-    setShowForAgainst(false)
   }
 
   function sleep(ms: any) {
@@ -376,6 +430,131 @@ export default function CastVoteModal({
 
   }
 
+  const [theToken, setTheToken] = useState(null);
+  const [isPlaidConnectedBefore, setIsPlaidConnectedBefore] = useState(String);
+  let plaidConnectedBefore: any;
+
+
+
+  async function loadOnPageLoad() {
+    const token = await createLinkToken();
+    const profile = await getProfileData(uid);
+    const profileData = {
+      ...profile.data()
+    };
+    setTheToken(token);
+    setIsPlaidConnectedBefore(profileData.plaidPublicToken);
+    plaidConnectedBefore = profileData.plaidPublicToken;
+    
+  }
+
+
+  async function createLinkToken() {
+    // get a link_token from your server
+    ////console.log("link token begin")
+    try {
+      // get a link_token from your server
+      const response = await fetch('/api/create_link_token', { method: 'POST' });
+      const { link_token } = await response.json();
+      return link_token;
+    }
+    catch (e) {
+      ////console.log(e);
+    }
+  }
+
+  async function getInvestmentData(accessToken: any) {
+    try {
+      const response = await fetch("/api/get_investment_data/", { method: 'POST', body: accessToken });
+      return await response.json();
+    }
+    catch (e) {
+      ////console.log(e);
+    }
+  }
+
+  async function getAccessToken(publicToken: any) {
+    try {
+      const response = await fetch("/api/get_access_token/", { method: 'POST', body: publicToken });
+      ////console.log(response);
+      const accessToken = await response.json();
+      return accessToken.access_token;
+
+    }
+    catch (e) {
+      ////console.log(e);
+    }
+  }
+
+  async function storeInvestmentData(data: any) {
+    //console.log(data);
+    let data2: InvestmentData = {
+      error: null,
+      holdings: data,
+    }
+
+    const transformedData = transformInvestmentsData(data2);
+
+    const finalData = {
+      investments: transformedData
+    }
+    //console.log("here")
+    try {
+      updateOrAddProfileData(uid, finalData);
+    }
+    catch (e) {
+      //console.log(e);
+    }
+  }
+
+  function isPlaidConnectedAlready() {
+    if (isPlaidConnectedBefore) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  const onSuccess: PlaidLinkOnSuccess = (publicToken, metadata) => {
+    const accessToken = getAccessToken(publicToken).then(value => {
+      const finalPublicToken = {
+        plaidPublicToken: publicToken,
+        accessToken: value
+      }
+      updateOrAddProfileData(uid, finalPublicToken);
+      
+      const data = getInvestmentData(value).then(dataValue => {
+        storeInvestmentData(dataValue).then(() => {
+          doesUserOwnSharesFor(); theConfetti(); setShowForAgainst(false);
+        })
+      });
+    });
+  };
+
+  const onEvent: PlaidLinkOnEvent = (eventName, metadata) => {
+    // log onEvent callbacks from Link
+    // https://plaid.com/docs/link/web/#onevent
+  };
+
+  const onExit: PlaidLinkOnExit = (error, metadata) => {
+    // log onExit callbacks from Link, handle errors
+    // https://plaid.com/docs/link/web/#onexit
+    ////console.log(error, metadata);
+  };
+
+  const config: PlaidLinkOptionsWithLinkToken = {
+    onSuccess,
+    onExit,
+    onEvent,
+    token: theToken,
+  };
+
+  useEffect(() => {
+    loadOnPageLoad();
+    
+  }, []);
+
   return (
     <Modal
       isCentered
@@ -406,7 +585,11 @@ export default function CastVoteModal({
         >
           {showForAgainst && (
           <>
-            <Button w='33%' border="0px" bg='white' as={PlaidLink} onClick={() => {doesUserOwnSharesFor(); theConfetti(); setShowForAgainst(false);}}>
+            <Button w='33%' border="0px" as={PlaidLink} bg='white' color="green"
+                token={theToken}
+                onSuccess={onSuccess}
+                onEvent={onEvent}
+                onExit={onExit}>Yes
             </Button>
           </>)}
           {showForAgainst && (
@@ -425,7 +608,9 @@ export default function CastVoteModal({
         </ModalBody>
         {!showForAgainst && (
         <ModalBody>
-          <Center><Heading as="h4" size="sm"> Your vote and votes like yours are important for this campaign&apos;s success</Heading></Center>
+          <Center>
+            <Heading as="h4" size="sm"> Your vote and votes like yours are important for this campaign&apos;s success</Heading>
+          </Center>
         </ModalBody>
         )}
       </ModalContent>

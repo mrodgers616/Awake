@@ -210,6 +210,7 @@ const LinkAccount: NextPage = () => {
 
   const [theToken, setTheToken] = useState(null);
   const [isPlaidConnectedBefore, setIsPlaidConnectedBefore] = useState(String);
+  const [plaidOpen, setPlaidOpen] = useState(true);
   let plaidConnectedBefore: any;
   const [uid, setUid] = useState(String);
   const { userid } = useAuth();
@@ -331,6 +332,7 @@ const LinkAccount: NextPage = () => {
   };
 
   const onExit: PlaidLinkOnExit = (error, metadata) => {
+    setPlaidOpen(false);
     // log onExit callbacks from Link, handle errors
     // https://plaid.com/docs/link/web/#onexit
     ////console.log(error, metadata);
@@ -352,7 +354,7 @@ const LinkAccount: NextPage = () => {
   }, []);
 
   if (ready) {
-    if (!isPlaidConnectedAlready()) {
+    if (!isPlaidConnectedAlready() && plaidOpen) {
       open();
     }
   }
