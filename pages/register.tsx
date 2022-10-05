@@ -130,7 +130,7 @@ const Register: NextPage = () => {
                 <Flex>
                   <Button
                     type="submit"
-                    bg="seafoam.500"
+                    bg="rgb(164,191,217)"
                     mr='16px'
                   >
                     Register

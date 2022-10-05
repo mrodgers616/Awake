@@ -62,9 +62,9 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
     bg: "grey",
   };
 
-  const ProfileImage = () => profileImageUrl ? (<Image src={profileImageUrl} {...ProfileImageStyles} objectFit='cover'/>) : (<Box {...ProfileImageStyles} />);
+  const ProfileImage = () => profileImageUrl ? (<Image src={profileImageUrl} {...ProfileImageStyles} objectFit='cover' />) : (<Box {...ProfileImageStyles} />);
 
-  const ProfileBackground = () => bgImageUrl ? (<Image src={bgImageUrl} {...ProfileBackgroundStyles} objectFit='cover'/> ) : (<Box {...ProfileBackgroundStyles} />);
+  const ProfileBackground = () => bgImageUrl ? (<Image src={bgImageUrl} {...ProfileBackgroundStyles} objectFit='cover' />) : (<Box {...ProfileBackgroundStyles} />);
 
   const onProfileImageChange = (e: ChangeEvent) => {
     const [file] = (e.target as any).files;
@@ -84,11 +84,11 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
       let bgp;
       console.log(data);
 
-      if(data.profileImage.length) {
+      if (data.profileImage.length) {
         console.log("here")
       }
 
-      if(data.profileImage) {
+      if (data.profileImage) {
         console.log("here2")
       }
 
@@ -103,23 +103,23 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
       else {
         profileImageUrl ? data.profileImage = profileImageUrl : data.profileImage = "";
       }
-      
+
       if (data.backgroundImage.length) {
         bgp = await addImageToStorage(userid!, data.backgroundImage[0]);
         //console.log('bgp: ', bgp);
         data.backgroundImage = bgp.fullPath;
       }
       else {
-        bgImageUrl ? data.backgroundImage = bgImageUrl : data.backgroundImage =  "";
+        bgImageUrl ? data.backgroundImage = bgImageUrl : data.backgroundImage = "";
       }
 
       const result = await updateOrAddProfileData(id, data);
 
       const profileBeforeData = await getProfileData(userid!);
       const profileData = profileBeforeData.data();
-      
+
       reset();
-      if(profileData.loginCounter == 1) {
+      if (profileData.loginCounter == 1) {
         router.push("/campaigns");
       }
       else {
@@ -145,8 +145,8 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
           <Flex justifyContent={"center"} flexGrow={2}>
             <Box position="relative">
               <ProfileImage />
-              <CustomFileInput name='profileImage' register={register} handler={onProfileImageChange}/>
-              { errors.profileImage && <FormErrorMessage>{errors.profileImage.message}</FormErrorMessage>}
+              <CustomFileInput name='profileImage' register={register} handler={onProfileImageChange} />
+              {errors.profileImage && <FormErrorMessage>{errors.profileImage.message}</FormErrorMessage>}
             </Box>
           </Flex>
         </Flex>
@@ -156,12 +156,12 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
             <Text>
               Upload a PNG or JPG file with resolution recommendation of 1400px x 400px
             </Text>
-            { errors.backgroundImage && <FormErrorMessage>{errors.backgroundImage.message}</FormErrorMessage>}
+            {errors.backgroundImage && <FormErrorMessage>{errors.backgroundImage.message}</FormErrorMessage>}
           </Flex>
           <Flex justifyContent={"center"} flexGrow={2}>
             <Box position="relative">
               <ProfileBackground />
-              <CustomFileInput 
+              <CustomFileInput
                 handler={onBgImageChange}
                 top="-16px"
                 right="-16px"
@@ -176,7 +176,7 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Name
             </FormLabel>
-            <Input { ...register('name', {
+            <Input {...register('name', {
               value: profile?.name,
             })} bg="#EFEFEF" h="48px" />
           </FormControl>
@@ -186,7 +186,7 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Username
             </FormLabel>
-            <Input { ...register('username', {
+            <Input {...register('username', {
               value: profile?.username,
             })} bg="#EFEFEF" h="48px" />
           </FormControl>
@@ -196,7 +196,7 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Biography
             </FormLabel>
-            <Textarea { ...register('biography', {
+            <Textarea {...register('biography', {
               value: profile?.biography,
             })} bg="#EFEFEF" rows={10} resize="none" />
           </FormControl>
@@ -206,7 +206,7 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Email
             </FormLabel>
-            <Input { ...register('email', {
+            <Input {...register('email', {
               value: profile?.email,
             })} bg="#EFEFEF" h="48px" />
           </FormControl>
@@ -216,7 +216,7 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               LinkedIn
             </FormLabel>
-            <Input { ...register('linkedIn', {
+            <Input {...register('linkedIn', {
               value: profile?.linkedIn,
             })} bg="#EFEFEF" h="48px" />
           </FormControl>
@@ -226,7 +226,7 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Facebook
             </FormLabel>
-            <Input { ...register('facebook', {
+            <Input {...register('facebook', {
               value: profile?.facebook,
             })} bg="#EFEFEF" h="48px" />
           </FormControl>
@@ -236,14 +236,14 @@ export default function ProfileEditForm({ id, profile, profileImage, backgroundI
             <FormLabel mb="0" fontSize="1.2em" fontWeight={800}>
               Twitter
             </FormLabel>
-            <Input { ...register('twitter', {
+            <Input {...register('twitter', {
               value: profile?.twitter,
             })} bg="#EFEFEF" h="48px" />
           </FormControl>
         </Flex>
         <Flex justifyContent={"center"}>
           <Button bg='transparent' border='2px solid' borderColor='#EFEFEF' mr='16px'>Cancel</Button>
-          <Button bg='sage.500' color='white' type='submit' loadingText="loading" isLoading={isSubmitting}>Save Changes</Button>
+          <Button bg='#9EAD7' color='#9EAD7' type='submit' loadingText="loading" isLoading={isSubmitting}>Save Changes</Button>
         </Flex>
       </chakra.form>
     </>

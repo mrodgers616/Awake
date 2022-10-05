@@ -92,7 +92,7 @@ import featureIcon4 from '../../assets/image/appModern/icon4.svg';
 
 export const features = {
   slogan: 'How Does it Work',
-  title: 'Login, Link an Investment Account, and Vote!',
+  title: 'Log in, Link an Investment Account, and Vote!',
   items: [
     {
       id: 1,
@@ -427,9 +427,9 @@ export const testimonial = {
       id: 1,
       title: 'LOVE it!!',
       description:
-      'I have only dabbled in shareholder activism, but I am excited to start advocatinng for changes at the companies in my portfolio.',
+        'I have only dabbled in shareholder activism, but I am excited to start advocatinng for changes at the companies in my portfolio.',
       avatar:
-      'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg',
+        'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg',
       name: 'Raul Quintero',
       review: 4,
     },
@@ -437,7 +437,7 @@ export const testimonial = {
       id: 2,
       title: 'Finally having an impact!',
       description:
-      'I spent years flirting with sustainable finance, divesting from oil companies and investing in clean tech, but still did not feel like I was moving the dial, then finally I started using Awake.',
+        'I spent years flirting with sustainable finance, divesting from oil companies and investing in clean tech, but still did not feel like I was moving the dial, then finally I started using Awake.',
       avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
       name: 'Maggie Paruta',
       review: 5,
@@ -446,7 +446,7 @@ export const testimonial = {
       id: 3,
       title: 'The finance app I didnt know I needed',
       description:
-      'I was curious about sustainable finance and how I can have an impact; a friend recommended Awake to me and I have backed so many impactful campaigns!',
+        'I was curious about sustainable finance and how I can have an impact; a friend recommended Awake to me and I have backed so many impactful campaigns!',
       avatar: 'https://randomuser.me/api/portraits/men/44.jpg',
       name: 'Alex Rodgers',
       review: 5,

@@ -46,7 +46,7 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
 
   const { userid, user, logout } = useAuth();
 
-  const [ memberSince, setMemberSince ] = useState(user?.metadata.creationTime);
+  const [memberSince, setMemberSince] = useState(user?.metadata.creationTime);
 
   const ProfileImageStyles = {
     width: "250px",
@@ -76,42 +76,42 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
     fontSize: 'md',
   }
 
-  const ProfileImage = () => profileImage ? (<Image 
-    src={profileImage} 
-    { ...ProfileImageStyles }
+  const ProfileImage = () => profileImage ? (<Image
+    src={profileImage}
+    {...ProfileImageStyles}
     objectFit="cover"
     objectPosition={'center'}
-  />) : (<Box {...ProfileImageStyles}/>)
+  />) : (<Box {...ProfileImageStyles} />)
 
-  const Investments = () => (!investments ? 
+  const Investments = () => (!investments ?
     (<Text sx={placeholderStyles}>You haven&apos;t <Link href="/linkAccount" color="blue">linked an account </Link>yet!</Text>) :
     (<
-      Text sx={placeholderStyles}> 
-         Here are your holdings:<br/>
-        {investments.map((investment: any) => (
-          <Text sx={placeholderStylesInvestments} 
-          key={investment} 
-          paddingLeft="3%" 
+      Text sx={placeholderStyles}>
+      Here are your holdings:<br />
+      {investments.map((investment: any) => (
+        <Text sx={placeholderStylesInvestments}
+          key={investment}
+          paddingLeft="3%"
           paddingTop="2%"
           paddingBottom="2%"
-          border='3px solid black' 
-          borderRadius='8px'> 
-            <b>{investment} </b> <br/>
-          </Text>
-        ))}
-      </Text>
+          border='3px solid black'
+          borderRadius='8px'>
+          <b>{investment} </b> <br />
+        </Text>
+      ))}
+    </Text>
     ));
-  
-  const Badges = () => (!badges ? 
+
+  const Badges = () => (!badges ?
     (<Text sx={placeholderStyles}>You haven&apos;t earned any badges</Text>) :
     (<Box></Box>));
 
-  const Proposals = () => (!proposals ? 
+  const Proposals = () => (!proposals ?
     (<Text sx={placeholderStyles}>You haven&apos;t created any proposals</Text>) :
     (<Box></Box>));
 
-  const Activity = () => (!activity ? 
-    (<Text sx={placeholderStyles}>You haven&apos;t been active yet. Check out <Link href='/campaigns' color='seafoam.500'>campaigns</Link> to get involved!</Text>) : 
+  const Activity = () => (!activity ?
+    (<Text sx={placeholderStyles}>You haven&apos;t been active yet. Check out <Link href='/campaigns' color='blue'>campaigns</Link> to get involved!</Text>) :
     (<Box></Box>));
 
   return (
@@ -130,7 +130,7 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
         backgroundPosition={`center`}
         backgroundSize='cover'
       >
-        <Image src={backgroundImage} w="100%" h="100%"/>
+        <Image src={backgroundImage} w="100%" h="100%" />
       </Box>
       <Container mt='-120px'>
         <Box
@@ -145,13 +145,13 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
           <Button
             as={Link}
             href={`/user/${userid}/edit`}
-            bg='seafoam.500'
+            bg='#9EAED7'
             position={'absolute'}
             bottom={'32px'}
             right={'32px'}
           >Edit</Button>
           <ProfileImage />
-          <ProfileInfo profile={profile}/>
+          <ProfileInfo profile={profile} />
           <Text position='absolute' top='32px' right='32px'>Member since Feb 2022</Text>
         </Box>
         <Box
@@ -225,13 +225,13 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     }
 
     if (data.investments) {
-       let unformattedInvestments = data.investments;
-       let investmentsAsArray = new Array();
-       for(let i = 0; i < unformattedInvestments.length; i++) {
-          investmentsAsArray.push(unformattedInvestments[i].name);
-       }
+      let unformattedInvestments = data.investments;
+      let investmentsAsArray = new Array();
+      for (let i = 0; i < unformattedInvestments.length; i++) {
+        investmentsAsArray.push(unformattedInvestments[i].name);
+      }
 
-       investmentsFromDatabase = investmentsAsArray;
+      investmentsFromDatabase = investmentsAsArray;
 
     }
 

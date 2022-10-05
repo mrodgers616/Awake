@@ -158,7 +158,7 @@ export default function Navbar(): JSX.Element {
         className={activeLink('/campaigns')}
         mt="2%"
       >
-        Campaigns
+        Campaign
       </Link>
       <Link
         href="/blog"
@@ -178,7 +178,7 @@ export default function Navbar(): JSX.Element {
           lg: '0'
         }}
         onClick={() => { router.push("/login"); onClose(); }}>
-        Login
+        Log in
       </Button>
       <Button
         onClick={() => { router.push("/register"); onClose(); }}>
@@ -258,7 +258,7 @@ export default function Navbar(): JSX.Element {
               {...LinkProps}
               className={activeLink('/campaigns')}
             >
-              Campaigns
+              Campaign
             </Link>
               <Link
                 href="/blog"
