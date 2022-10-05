@@ -29,10 +29,10 @@ const Footer = () => {
         <WidgetArea>
           {widgets.map((item) => (
             <Box className="col" key={`footer-widget--key${item.id}`}>
-              <a href={item.link} isExternal target="_blank" rel="noopener noreferrer">
+              <a href={item.link} target="_blank" rel="noopener noreferrer">
                 <Image src={item.icon?.src} alt={item.title} />
               </a>
-              <a href={item.link} isExternal target="_blank" rel="noopener noreferrer">
+              <a href={item.link} target="_blank" rel="noopener noreferrer">
                 <Heading as="h3" content={item.title} />
               </a>
               <Text content={item.description} />
