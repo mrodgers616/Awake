@@ -31,6 +31,8 @@ const Footer = () => {
             <Box className="col" key={`footer-widget--key${item.id}`}>
               <Link href={item.link}>
                 <Image src={item.icon?.src} alt={item.title} />
+              </Link>
+              <Link href={item.link}>
                 <a><Heading as="h3" content={item.title} /></a>
               </Link>
               <Text content={item.description} />
