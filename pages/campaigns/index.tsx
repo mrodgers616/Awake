@@ -95,8 +95,8 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
 
   useEffect(() => {
     let verifiedCampaigns = [];
-    for(let i = 0; i < campaigns.length; i++) {
-      if(campaigns[i].verified) {
+    for (let i = 0; i < campaigns.length; i++) {
+      if (campaigns[i].verified) {
         verifiedCampaigns.push(campaigns[i])
       }
       else {
@@ -139,13 +139,13 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
         >
           <Flex justifyContent="center" alignItems="center" h="100%" paddingTop="80px">
             <Stack>
-            <Heading color="white" textAlign="center" fontSize={{ base: "2em", lg: "3em" }}>
-              <Text fontSize='3xl'>
-                Vote With Your Investments
-              </Text>
-            </Heading>
+              <Heading color="white" textAlign="center" fontSize={{ base: "2em", lg: "3em" }}>
+                <Text fontSize='3xl'>
+                  Vote With Your Investments
+                </Text>
+              </Heading>
 
-            <Button
+              <Button
                 color="white"
                 // bg="rgb(100, 43, 115)"
                 bg="#000000"
@@ -166,7 +166,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
               >
                 Featured Campaign (Coming Soon)
               </Button>
-              </Stack>
+            </Stack>
           </Flex>
         </Container>
       </Box>
@@ -215,9 +215,13 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
             >
             </Tooltip> 
           </Flex> */}
-          <Box title="">
+
+
+          {/* ADD BACK AFTER THE FIRST CAMPAIGN IS DECIDED */}
+
+          {/* <Box title="">
             <Flex title="" justifyContent="space-between">
-              {/* <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }}>Proposals</Heading> */}
+              <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }}>Proposals</Heading>
             </Flex>
             <Grid
               title=""
@@ -280,7 +284,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 </PaginatorContainer>
               </Flex>
             </Paginator>
-          </Box>
+          </Box> */}
         </Container>
       </Box>
     </>
@@ -288,7 +292,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  
+
   let campaigns: any[] = [];
   try {
     const data = await getAllProposals();
