@@ -164,7 +164,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
           {title?.substring(0, 100)}
         </Heading>
         {/* TESTING TAKING THE DESCRIPTION OUT TO OPTIMZE FOR CAMPAIGN VISIBILITY */}
-        <Text
+        {/* <Text
           h="3em"
           //overflow="hidden"
           _after={{
@@ -172,7 +172,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
           }}
         >
           {description?.substring(0, 120)}
-        </Text>
+        </Text> */}
       </Box>
       <Box>
         <Tooltip
