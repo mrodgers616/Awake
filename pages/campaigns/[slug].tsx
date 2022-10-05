@@ -61,10 +61,10 @@ export default function Proposal({
   uid: any;
   profileData: any;
 }): JSX.Element {
-  const [_votes, setVotes] = useState<string>();
+  const [modalClose, setModalClose] = useState(false);
   const [currentState, setCurrentState] = useState<string>();
   const [historicalStockPrice, setHistoricalStockPrice] = useState<any>();
-
+  const [_votes, setVotes] = useState<string>();
 
   const toast = useToast();
 
@@ -145,6 +145,21 @@ export default function Proposal({
 
   function goBack() {
     router.push("/campaigns");
+  }
+
+  function howManyUsers() {
+    if(campaign.unverifiedUsers && campaign.users) {
+      return (campaign.unverifiedUsers.length + campaign.users.length)
+    }
+    else if(campaign.unverifiedUsers) {
+      return campaign.unverifiedUsers.length;
+    }
+    else if(campaign.users) {
+      return campaign.users.length;
+    }
+    else {
+      return 0;
+    }
   }
 
   const socialMedia = [
@@ -281,7 +296,7 @@ export default function Proposal({
               <Heading textAlign={"center"}
                 fontSize={{ base: "24px", sm: "24px", lg: "48px" }}
                 color="White">
-                {String(campaign.unverifiedUsers.length + campaign.users.length)}
+                {String(howManyUsers())}
               </Heading>
               <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
                 Supporters
@@ -330,20 +345,20 @@ export default function Proposal({
                 // }}
                 // What is the 
                 // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
-                onClick={() => { onVoteModalOpen(); }}
+                onClick={() => { onVoteModalOpen(); setModalClose(false)}}
               >
                 {hasUserVoted() ? "Already Voted!" : "Vote"}
               </Button>
-              <CastVoteModal
+              { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
-                onClose={onVoteModalClose}
+                onClose={ () => {onVoteModalClose; setModalClose(true)}}
                 onOpen={onVoteModalOpen}
                 campaign={campaign}
                 profileData={profileData}
                 uid={uid}
                 investments={investments}
                 slug={slug}
-              /> </>) 
+              /> } </>)
               : 
               (<Button
                 bg="rgb(100, 43, 115)"

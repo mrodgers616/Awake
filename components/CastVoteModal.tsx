@@ -20,6 +20,7 @@ import propTypes from 'prop-types';
 import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOrAddProfileData } from "../lib/firebaseClient";
 import { arrayUnion, Timestamp, increment } from "firebase/firestore";
 import Confetti from 'react-confetti'
+import PlaidLink from './plaidLinkButtonNoRedirect'
 
 
 export default function CastVoteModal({
@@ -50,6 +51,10 @@ export default function CastVoteModal({
     await sleep(7000);
     setShowConfetti(false);
 
+  }
+
+  if(profileData.investments) {
+    setShowForAgainst(false)
   }
 
   function sleep(ms: any) {
@@ -384,7 +389,7 @@ export default function CastVoteModal({
           {showForAgainst && (
           <Heading as="h2" size="lg" textAlign={"center"}>
             {/*Choose Delegation Type*/}
-            How do you want to vote?
+            Do you own shares in {`${campaign.companyName}`}?
           </Heading>
           )}
           {!showForAgainst && (
@@ -399,20 +404,17 @@ export default function CastVoteModal({
           justifyContent={"center"}
         >
           {showForAgainst && (
-          <Button
-            w='33%'
-            bg={'seafoam.500'}
-            color='white'
-            mr='16px'
-            onClick={() => { doesUserOwnSharesFor(); theConfetti(); setShowForAgainst(false);}}
-          >For</Button>)}
+          <>
+            <Button w='33%' border="0px" bg='white' as={PlaidLink} onClick={() => {doesUserOwnSharesFor(); theConfetti(); setShowForAgainst(false);}}>
+            </Button>
+          </>)}
           {showForAgainst && (
           <Button
             w='33%'
-            bg='red'
-            color='white'
-            onClick={() => { doesUserOwnSharesAgainst(); theConfetti(); setShowForAgainst(false); }}
-          >Against</Button>)}
+            bg='white'
+            color='red' border="2px solid #F1F1F1"
+            onClick={() => { doesUserOwnSharesFor(); theConfetti(); setShowForAgainst(false); }}
+          >No</Button>)}
           {/*<Button
             w='33%'
             bg='purple'
@@ -422,7 +424,7 @@ export default function CastVoteModal({
         </ModalBody>
         {!showForAgainst && (
         <ModalBody>
-          <Heading as="h4" size="sm"> Find out more about what your vote does below </Heading>
+          <Heading as="h4" size="sm"> Your vote and votes like yours are important for this campaign&apos;s success</Heading>
         </ModalBody>
         )}
       </ModalContent>
