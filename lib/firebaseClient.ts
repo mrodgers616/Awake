@@ -27,13 +27,16 @@ import {
 import * as fb from 'firebase/app';
 import { getAuth, setPersistence, browserSessionPersistence } from "firebase/auth";
 
-let app
+let app: any;
 try {
   app = initializeApp({
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API,
     projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+    messagingSenderId: process.env.NEXT_PUBLIC_SENDER_ID
   });
 
   const authentication = getAuth();

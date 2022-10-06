@@ -34,7 +34,7 @@
     "debug": "^4.3.4",
     "email-validator": "^2.0.4",
     "ethers": "^5.5.4",
-    "firebase": "^9.9.1",
+    "firebase": "^9.10.0",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.18.1",
     "firebaseui": "^6.0.1",
