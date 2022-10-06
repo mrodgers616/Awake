@@ -148,14 +148,14 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
       </Heading> */}
       <Progress
         colorScheme={isTimeUp ? "purple" : "green"}
-        value={isTimeUp ? progress : 80}
+        value={!isTimeUp ? progress : 100}
         w="100%"
         h="32px"
         borderRadius="8px"
         mb="18px"
         mt="9px"
       >
-        <ProgressLabel fontSize="sm" color={isTimeUp ? "#BAC7BE" : "white"} w="fit-content">
+        <ProgressLabel fontSize="sm" color={isTimeUp ? "#BAC7BE" : "black"} w="fit-content">
           {timerText}
         </ProgressLabel>
       </Progress>

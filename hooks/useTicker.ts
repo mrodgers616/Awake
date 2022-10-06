@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { intervalToDuration, isBefore } from "date-fns";
 import { number } from "yup";
+import { any } from "prop-types";
 
 export const useTicker = (deadline: Date) => {
   const [now, setNow] = useState(new Date());
@@ -34,6 +35,6 @@ export const useTicker = (deadline: Date) => {
     minutes,
     seconds,
     isTimeUp,
-    now: number
+    now
   };
 }
