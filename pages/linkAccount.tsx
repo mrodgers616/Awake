@@ -353,7 +353,7 @@ const LinkAccount: NextPage = () => {
 
   }, []);
 
-  // if (ready) {
+  // if (ready) { 
   //   if (!isPlaidConnectedAlready() && plaidOpen) {
   //     open();
   //   }
