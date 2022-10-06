@@ -105,7 +105,7 @@ const ProductSlide = () => {
           </BannerContentCamp>
         </Container>
         <Container>
-          <iframe mr="auto" ml="auto" width="620" height="305" src="https://www.youtube.com/embed/J_oAuiVSW-U" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe width="620" height="305" src="https://www.youtube.com/embed/J_oAuiVSW-U" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </Container>
       </Flex>
       {/* End of carousel section */}
