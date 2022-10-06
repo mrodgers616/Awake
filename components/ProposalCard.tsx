@@ -164,17 +164,17 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
           {title?.substring(0, 100)}
         </Heading>
         {/* TESTING TAKING THE DESCRIPTION OUT TO OPTIMZE FOR CAMPAIGN VISIBILITY */}
-        {/* <Text
+        <Text
           h="3em"
           //overflow="hidden"
           _after={{
             content: description ? "'...'" : '""',
           }}
         >
-          {description?.substring(0, 120)}
-        </Text> */}
+          {description?.substring(0, 100)}
+        </Text>
       </Box>
-      <Box>
+      {/* <Box>
         <Tooltip
           hasArrow
           shouldWrapChildren
@@ -198,7 +198,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
             View Campaign
           </Button>
         </Tooltip>
-      </Box>
+      </Box> */}
     </Flex>
   );
 }
