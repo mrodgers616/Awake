@@ -60,7 +60,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const router = useRouter();
   const toast = useToast();
   const provider = new GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/user.phonenumbers.read');
+  //provider.addScope('https://www.googleapis.com/auth/user.phonenumbers.read');
   provider.addScope('https://www.googleapis.com/auth/userinfo.profile');
 
   const facebookProvider = new FacebookAuthProvider();
