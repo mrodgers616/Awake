@@ -504,7 +504,7 @@ export const footer = {
     {
       id: 3,
       text: 'Contact',
-      link: 'mailto:inquiries@climatedao.xyz',
+      link: 'mailto:Info@awakeinvest.com',
     },
     {
       id: 4,
