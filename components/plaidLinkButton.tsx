@@ -306,7 +306,7 @@ const LinkAccount: NextPage = () => {
       });
       const data = getInvestmentData(value).then(dataValue => {
         storeInvestmentData(dataValue).then(() => {
-          router.push(`/campaigns/PVQFakOIwa7jgQRLeXWo`);
+          router.push(`/campaigns/81jDobBiu6t4OlCZljQh`);
         })
       });
     });
@@ -339,7 +339,7 @@ const LinkAccount: NextPage = () => {
         <>
             {isPlaidConnectedBefore ? (
                 //@ts-ignore
-                <Button className="primary" title="Click Here to Vote!" onClick={() => {router.push(`/campaigns/PVQFakOIwa7jgQRLeXWo`);}} />
+                <Button className="primary" title="Click Here to Vote!" onClick={() => {router.push(`/campaigns/81jDobBiu6t4OlCZljQh`);}} />
             ) : (
                 //@ts-ignore
                 <Button className="primary" title="Connect Your Brokerage Account" as={PlaidLink} 

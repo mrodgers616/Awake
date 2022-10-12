@@ -30,7 +30,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import MasterCommentThread from "../../components/comments/masterCommentThread";
 import plaidLink from "../../components/plaidLinkButton"
 import Confetti from 'react-confetti'
-import ewaste from '../../public/illustrations/ewaste2.jpeg'
+import LoginModal from '../../components/LoginModal'
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -70,6 +70,7 @@ export default function Proposal({
   const [historicalStockPrice, setHistoricalStockPrice] = useState<any>();
   const [_votes, setVotes] = useState<string>();
   const [showConfetti, setShowConfetti] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
 
   const toast = useToast();
 
@@ -322,6 +323,10 @@ export default function Proposal({
     }
   }
 
+  function test() {
+    console.log("hereewe")
+  }
+
   const socialMedia = [
     {
       name: "twitter",
@@ -462,7 +467,7 @@ export default function Proposal({
                 h="64px"
                 onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
               >
-                {hasUserVoted() ? "Already Voted!" : "Support Campaign"}
+                {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
               </Button>
               { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
@@ -475,7 +480,8 @@ export default function Proposal({
                 slug={slug}
               /> } </>)
               : 
-              (<Button
+              (<>
+              <Button
                 bg="rgb(100, 43, 115)"
                 color="white"
                 fontSize="1.4em"
@@ -488,20 +494,20 @@ export default function Proposal({
                   md: '0'
                 }}
                 h="64px"
-                // enabling users to support the campaign if they have enough balance
-                // change made in the "testing waters" commit
-                // disabled={!hasEnoughBalance}
-                // textDecoration="none"
-                // _hover={{
-                //   textDecoration: "none",
-                //   bg: lighten("seafoam.500", 0.8),
-                // }}
-                // What is the 
-                // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
-                onClick={() => { router.push('/login'); }}
-              >
-               {"Support Campaign"}
-              </Button>) 
+                onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
+                >
+                {"Support Campaign"}
+                </Button>
+              
+                {loginModal && 
+                  <LoginModal 
+                    isOpen={voteModalIsOpen}
+                    onClose={ () => {onVoteModalClose; setLoginModal(false);}}
+                    onOpen={onVoteModalOpen}
+                  />
+                }
+                </>
+              )
             }
             
             
