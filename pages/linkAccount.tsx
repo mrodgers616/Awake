@@ -320,7 +320,7 @@ const LinkAccount: NextPage = () => {
       });
       const data = getInvestmentData(value).then(dataValue => {
         storeInvestmentData(dataValue).then(() => {
-          router.push(`/campaigns/PVQFakOIwa7jgQRLeXWo`);
+          router.push(`/campaigns/81jDobBiu6t4OlCZljQh`);
         })
       });
     });

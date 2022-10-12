@@ -30,6 +30,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import MasterCommentThread from "../../components/comments/masterCommentThread";
 import plaidLink from "../../components/plaidLinkButton"
 import Confetti from 'react-confetti'
+import LoginModal from '../../components/LoginModal'
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -69,6 +70,7 @@ export default function Proposal({
   const [historicalStockPrice, setHistoricalStockPrice] = useState<any>();
   const [_votes, setVotes] = useState<string>();
   const [showConfetti, setShowConfetti] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
 
   const toast = useToast();
 
@@ -321,6 +323,10 @@ export default function Proposal({
     }
   }
 
+  function test() {
+    console.log("hereewe")
+  }
+
   const socialMedia = [
     {
       name: "twitter",
@@ -373,38 +379,13 @@ export default function Proposal({
           </Button>
           <Flex
             position="relative"
-            minH="400px"
+            minH="300px"
             alignItems="center"
             justifyContent="center"
             flexDir="column"
             zIndex={250}
           >
-            {/* <Flex w="100%" alignItems={["flex-start", "center"]}>
-              <Badge
-                title="Status"
-                p="8px 48px"
-                fontSize="16px"
-                color="black"
-                bg="blue.500"
-                mr="16px"
-                borderRadius="32px"
-                marginBottom={3}
-              >
-                {currentState ?? "Pending"}
-              </Badge>
-              <Badge
-                title="Category"
-                p="8px 48px"
-                fontSize="16px"
-                color="black"
-                bg="seafoam.500"
-                borderRadius="32px"
-                marginBottom={3}
-              >
-                Say on Climate
-              </Badge>
-            </Flex> */}
-            <Heading color="white" w="100%">
+            <Heading fontSize="42px" mt="20" color="white" w="100%">
               {campaign?.title ?? "TITLE!"}
             </Heading>
           </Flex>
@@ -417,7 +398,7 @@ export default function Proposal({
           bg='#08152E'
           height={{
             base: 'fit-content',
-            lg: "175px"
+            lg: "120px"
           }}
           borderRadius="16px"
           justifyContent="center"
@@ -445,20 +426,20 @@ export default function Proposal({
             m='16px'
           >
             <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
-              <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "48px" }} color="White">
+              <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "36px" }} color="White">
                 {campaign.verifiedVotes ? String(Math.round(campaign.verifiedVotes * 100) /100) : "0"}
               </Heading>
-              <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
+              <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                 Shares Commited
               </Text>
             </Box>
             <Box color="white" p={{ base: '4', lg: "16px 24px" }}>
               <Heading textAlign={"center"}
-                fontSize={{ base: "24px", sm: "24px", lg: "48px" }}
+                fontSize={{ base: "24px", sm: "24px", lg: "36px" }}
                 color="White">
                 {String(howManyUsers())}
               </Heading>
-              <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
+              <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                 Supporters
               </Text>
             </Box>
@@ -469,17 +450,6 @@ export default function Proposal({
             justifyContent="center"
             alignItems="center"
           >
-            {/* -------Disabled Tooltip---------------------- */}
-            {/* <Tooltip
-              hasArrow
-              isDisabled={hasEnoughBalance || !isConnected}
-              label={
-                !isConnected
-                  ? "You need to connect to MetaMask to vote"
-                  : "You do not have enough CLIMATE to vote"
-              }
-              shouldWrapChildren
-            > */}
             {userid ? ( <>
               <Button
                 {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
@@ -495,19 +465,9 @@ export default function Proposal({
                   md: '0'
                 }}
                 h="64px"
-                // enabling users to support the campaign if they have enough balance
-                // change made in the "testing waters" commit
-                // disabled={!hasEnoughBalance}
-                // textDecoration="none"
-                // _hover={{
-                //   textDecoration: "none",
-                //   bg: lighten("seafoam.500", 0.8),
-                // }}
-                // What is the 
-                // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
                 onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
               >
-                {hasUserVoted() ? "Already Voted!" : "Vote"}
+                {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
               </Button>
               { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
@@ -520,7 +480,8 @@ export default function Proposal({
                 slug={slug}
               /> } </>)
               : 
-              (<Button
+              (<>
+              <Button
                 bg="rgb(100, 43, 115)"
                 color="white"
                 fontSize="1.4em"
@@ -533,93 +494,54 @@ export default function Proposal({
                   md: '0'
                 }}
                 h="64px"
-                // enabling users to support the campaign if they have enough balance
-                // change made in the "testing waters" commit
-                // disabled={!hasEnoughBalance}
-                // textDecoration="none"
-                // _hover={{
-                //   textDecoration: "none",
-                //   bg: lighten("seafoam.500", 0.8),
-                // }}
-                // What is the 
-                // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
-                onClick={() => { router.push('/login'); }}
-              >
-               {"Login to vote"}
-              </Button>) 
+                onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
+                >
+                {"Support Campaign"}
+                </Button>
+              
+                {loginModal && 
+                  <LoginModal 
+                    isOpen={voteModalIsOpen}
+                    onClose={ () => {onVoteModalClose; setLoginModal(false);}}
+                    onOpen={onVoteModalOpen}
+                  />
+                }
+                </>
+              )
             }
             
             
           </Flex>
         </Flex>
-        {/* -------------Deleting camapaing Carousel-------------------- */}
-        {/* <CampaignCarousel
-          w="100%"
-          h={{
-            base: 'fit-content',
-            md: "400px"
-          }}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-          my="64px"
-          images={images}
-        />
-        <Flex mt="64px" w="100%"
-          flexDir={{
-            base: 'column-reverse',
-            md: 'row'
-          }}
-        >
-          <Flex mb="64px" flexDir={"column"} w={{ base: '100%', md:"55%" }}mr="32px">
-        /> */}
-        {/*Adding the about campaign content on the left*/}
         <Flex mt="64px" w="100%">
           <Flex mb="64px" flexDir={"column"} w={{ base: "100%", sm: "100%", md: "60%", lg: "60 %" }} mr="32px">
             <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 About Campaign
               </Heading>
-              {/* TESTING TO SEE WHAT THIS DOES */}
-              {/* <Box mb="32px">
-                <Box
-                  title="company graph"
-                  w="100%"
-                  mb="8px"
-                  bg="#313341"
-                  p="16px"
-                  borderRadius="10px"
-                  position="relative"
-                >
-                  <Box position="absolute" color="white">
-                    <Text>{campaign.companyName}</Text>
-                  </Box>
-                  <ResponsiveContainer width="100%" height={200}>
-                    <LineChart data={historicalStockPrice}>
-                      <Line
-                        type="monotone"
-                        dataKey="price"
-                        stroke="#1CD0A7"
-                        dot={false}
-                      />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </Box>
-              </Box> */}
+              {campaign?.companyName == "Apple" ? 
 
-              {/* TESTING TO SEE WHAT THIS DOES */}
-              {/* <Box
-                title="company graph"
-                w="100%"
-                bg="grey"
-                h="430px"
-                borderRadius="16px"
-                mb="8px"
-              >
-                <Image w="100%" height="100%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" />
-              </Box> */}
-              {campaign?.description && (<Text>
-                {campaign?.description}
-              </Text>)}
+
+                campaign?.description && (<Text>
+                  {String(campaign?.description).substring(0,332)}
+                  <br/>
+                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://cdn.who.int/media/images/default-source/children-s-environmental-health/dangerous-methods-are-used-to-recycle-e-waste.jpg?sfvrsn=1bbd20b5_23"></Image>
+                  <br/>
+                  {String(campaign?.description).substring(332,1333)}
+                  <br/>
+                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbroken%20iphone.jpeg?alt=media&token=0aed32c1-f79f-47f7-857b-4458a488aec0"></Image>
+                  <br/>
+                  {String(campaign?.description).substring(1333)}
+                </Text>) 
+
+
+                : 
+
+
+                campaign?.description && (<Text>
+                  {campaign?.description}
+                </Text>)}
+              
             </Box>
 
             <Box display={{ base: "none", sm: "none", lg: "block" }}>
@@ -632,76 +554,6 @@ export default function Proposal({
               <Box mt="2%" mb="2%">
                 <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread>
               </Box>
-              {/* <Flex
-                as={Link}
-                target="_blank"
-                position="relative"
-                borderRadius="16px"
-                boxShadow="4px 4px 62px -9px rgba(0, 0, 0, 0.15)"
-                flexDir={"column"}
-                overflow="hidden"
-                textDecoration="none !important"
-                marginBottom={16}
-                _hover={{
-                  "& .join-discussion": {
-                    transition: "opacity 0.2s ease-in-out",
-                    opacity: 1,
-                  },
-                }}
-                p="16px"
-              >
-                <Flex
-                  className="join-discussion"
-                  width="100%"
-                  height="100%"
-                  position="absolute"
-                  justifyContent="center"
-                  alignItems="center"
-                  top="0"
-                  left="0"
-                  bg="rgb(0,0,0,.8)"
-                  color="white"
-                  zIndex={200}
-                  opacity="0"
-                  transition="opacity 0.2s ease-in-out"
-                >
-                  <Text fontSize="1.8em">Join the Discussion</Text>
-                </Flex>
-                {discussion &&
-                  discussion.map((post: any, index: number) => {
-                    if (index < 10) {
-                      return (
-                        <Flex key={index} m="16px">
-                          <Image
-                            w="auto"
-                            h="64px"
-                            mr="32px"
-                            borderRadius={"100%"}
-                            src={post.avatar_template.replace("{size}", "45")}
-                            alt={`${post.username}'s discourse avatar`}
-                          />
-                          <Flex
-                            flexDir={"column"}
-                            position="relative"
-                            __css={{
-                              "& h2": {
-                                fontSize: "1.2em",
-                                fontWeight: "600",
-                                textDecoration: "none",
-                              },
-                              "& ol li": {
-                                position: "relative",
-                                left: "16px",
-                              },
-                            }}
-                          >
-                            {ReactHtmlParser(post.cooked)}
-                          </Flex>
-                        </Flex>
-                      );
-                    }
-                  })}
-              </Flex> */}
             </Box>
           </Flex>
           <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }} display={{ base: "none", sm: "none", lg: "block" }}>
@@ -712,9 +564,9 @@ export default function Proposal({
                 justifyContent="center"
                 flexDirection="column"
                 alignItems="center"
-                // width={60}
+                width={484}
                 backgroundColor="FFFFFF"
-                boxShadow='2xl' p='6'
+                boxShadow='2xl' p='0'
                 borderRadius="16px"
                 mt='12px'
                 mb="50%"
@@ -722,21 +574,12 @@ export default function Proposal({
                 border="3px solid gray"
               >
                 {/* <Image height="125px" width="250px" /> */}
-                <Image w="50%" height="70%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" />
-                <Text fontSize="xl" fontWeight="bold" mb={4} mt={4}>
-                  {campaign?.title}
+                {/* <Image w="50%" height="70%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" /> */}
+                <iframe width="480" height="270" src="https://www.youtube.com/embed/ZzS2vwDUO9U?start=18" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <Text fontSize="xl" fontWeight="bold" mb={0} mt={4}>
+                  {/* {campaign?.title} */}
+                  {"Share this campaign with a friend"}
                 </Text>
-                <Button
-                  {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
-                  variant="solid"
-                  size={{ base: "sm", sm: "sm", lg: "lg" }}
-                  width={48}
-                  backgroundColor="rgb(164,191,217)"
-                  mb='10px'
-                  onClick={() => { onVoteModalOpen(); }}
-                >
-                  {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
-                </Button>
                 <Flex justifyContent="center" alignItems="space-around" width={48}>
                   <Box>
                     <Flex alignItems={"center"} justifyContent={"flex-start"}>

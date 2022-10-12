@@ -31,8 +31,8 @@ const DashboardSection = ({ row, col, title, btnStyle, description }) => {
 
   let uid = userid;
   let investments = null;
-  // Need to change slug here and in OnSuccess method in link account page and button
-  const slug = "PVQFakOIwa7jgQRLeXWo"
+  // Need to change slug here and in OnSuccess method in link account page and button and in authcontext login and banner click here
+  const slug = "81jDobBiu6t4OlCZljQh"
   const {
     isOpen: voteModalIsOpen,
     onOpen: onVoteModalOpen,

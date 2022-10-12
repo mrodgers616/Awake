@@ -66,7 +66,7 @@ const About: NextPageWithLayout = () => {
               mt={{ base: "60px", lg: "60" }}
               zIndex={250}
             >
-              About and FAQs
+              About Us
             </Heading>
             <Box>
               {/* <Button

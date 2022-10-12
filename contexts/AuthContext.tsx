@@ -23,7 +23,7 @@ type State = {
 };
 
 //Need to add slug of first campaign here
-const slug = ""
+const slug = "81jDobBiu6t4OlCZljQh"
 
 interface ContextValue extends State {
   login: (data: LoginAndRegisterProps) => Promise<void>;
@@ -140,11 +140,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
         router.push(`${campaignID}`);
         localStorage.removeItem('campaignID');
       }
-      else if(profileData.plaidPublicToken) {
-        router.push(`/campaigns/${slug}`)
-      }
       else {
-        router.push("/linkAccount");
+        router.push(`/campaigns/${slug}`)
       }
     } catch (error) {
       toast({
@@ -200,11 +197,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
           router.push(`${campaignID}`);
           localStorage.removeItem('campaignID');
         }
-        else if(profileData.plaidPublicToken) {
-          router.push(`/campaigns/${slug}`)
-        }
         else {
-          router.push("/linkAccount");
+          router.push(`/campaigns/${slug}`)
         }
       }
 
