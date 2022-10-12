@@ -374,38 +374,13 @@ export default function Proposal({
           </Button>
           <Flex
             position="relative"
-            minH="400px"
+            minH="300px"
             alignItems="center"
             justifyContent="center"
             flexDir="column"
             zIndex={250}
           >
-            {/* <Flex w="100%" alignItems={["flex-start", "center"]}>
-              <Badge
-                title="Status"
-                p="8px 48px"
-                fontSize="16px"
-                color="black"
-                bg="blue.500"
-                mr="16px"
-                borderRadius="32px"
-                marginBottom={3}
-              >
-                {currentState ?? "Pending"}
-              </Badge>
-              <Badge
-                title="Category"
-                p="8px 48px"
-                fontSize="16px"
-                color="black"
-                bg="seafoam.500"
-                borderRadius="32px"
-                marginBottom={3}
-              >
-                Say on Climate
-              </Badge>
-            </Flex> */}
-            <Heading color="white" w="100%">
+            <Heading fontSize="42px" mt="20" color="white" w="100%">
               {campaign?.title ?? "TITLE!"}
             </Heading>
           </Flex>
@@ -418,7 +393,7 @@ export default function Proposal({
           bg='#08152E'
           height={{
             base: 'fit-content',
-            lg: "175px"
+            lg: "120px"
           }}
           borderRadius="16px"
           justifyContent="center"
@@ -470,17 +445,6 @@ export default function Proposal({
             justifyContent="center"
             alignItems="center"
           >
-            {/* -------Disabled Tooltip---------------------- */}
-            {/* <Tooltip
-              hasArrow
-              isDisabled={hasEnoughBalance || !isConnected}
-              label={
-                !isConnected
-                  ? "You need to connect to MetaMask to vote"
-                  : "You do not have enough CLIMATE to vote"
-              }
-              shouldWrapChildren
-            > */}
             {userid ? ( <>
               <Button
                 {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
@@ -496,16 +460,6 @@ export default function Proposal({
                   md: '0'
                 }}
                 h="64px"
-                // enabling users to support the campaign if they have enough balance
-                // change made in the "testing waters" commit
-                // disabled={!hasEnoughBalance}
-                // textDecoration="none"
-                // _hover={{
-                //   textDecoration: "none",
-                //   bg: lighten("seafoam.500", 0.8),
-                // }}
-                // What is the 
-                // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
                 onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
               >
                 {hasUserVoted() ? "Already Voted!" : "Vote"}
@@ -546,7 +500,7 @@ export default function Proposal({
                 // onClick={() => {/*onVoteModalOpen(); doesUserOwnShares();*/}}
                 onClick={() => { router.push('/login'); }}
               >
-               {"Login to vote"}
+               {"Support Campaign"}
               </Button>) 
             }
             

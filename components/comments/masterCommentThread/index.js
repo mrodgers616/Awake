@@ -13,6 +13,7 @@ import {
 	Text,
 	Flex,
 	Box,
+    Link,
 	Center
   } from "@chakra-ui/react";
 
@@ -38,7 +39,7 @@ const MasterCommentThread = ({ slug, type, parentId, maxThreadDepth }) => {
         <Container width="175%">
                 <Box bgColor="#F7FAFC" width="50%">
                     <div >
-                        {firebaseUser ? <ReplyForm newCommentButtonText="New Comment" postComment={addCommentToMasterThread} /> : <p>Login to comment</p>}
+                        {firebaseUser ? <ReplyForm newCommentButtonText="New Comment" postComment={addCommentToMasterThread} /> : <Link href="https://awakeinvest.com/login/" color="#32006B">Log in to comment</Link>}
                     </div>
                 </Box>
             <div className="row">
