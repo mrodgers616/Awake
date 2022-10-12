@@ -30,6 +30,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import MasterCommentThread from "../../components/comments/masterCommentThread";
 import plaidLink from "../../components/plaidLinkButton"
 import Confetti from 'react-confetti'
+import ewaste from '../../public/illustrations/ewaste2.jpeg'
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -552,74 +553,34 @@ export default function Proposal({
             
           </Flex>
         </Flex>
-        {/* -------------Deleting camapaing Carousel-------------------- */}
-        {/* <CampaignCarousel
-          w="100%"
-          h={{
-            base: 'fit-content',
-            md: "400px"
-          }}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-          my="64px"
-          images={images}
-        />
-        <Flex mt="64px" w="100%"
-          flexDir={{
-            base: 'column-reverse',
-            md: 'row'
-          }}
-        >
-          <Flex mb="64px" flexDir={"column"} w={{ base: '100%', md:"55%" }}mr="32px">
-        /> */}
-        {/*Adding the about campaign content on the left*/}
         <Flex mt="64px" w="100%">
           <Flex mb="64px" flexDir={"column"} w={{ base: "100%", sm: "100%", md: "60%", lg: "60 %" }} mr="32px">
             <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                 About Campaign
               </Heading>
-              {/* TESTING TO SEE WHAT THIS DOES */}
-              {/* <Box mb="32px">
-                <Box
-                  title="company graph"
-                  w="100%"
-                  mb="8px"
-                  bg="#313341"
-                  p="16px"
-                  borderRadius="10px"
-                  position="relative"
-                >
-                  <Box position="absolute" color="white">
-                    <Text>{campaign.companyName}</Text>
-                  </Box>
-                  <ResponsiveContainer width="100%" height={200}>
-                    <LineChart data={historicalStockPrice}>
-                      <Line
-                        type="monotone"
-                        dataKey="price"
-                        stroke="#1CD0A7"
-                        dot={false}
-                      />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </Box>
-              </Box> */}
+              {campaign?.companyName == "Apple" ? 
 
-              {/* TESTING TO SEE WHAT THIS DOES */}
-              {/* <Box
-                title="company graph"
-                w="100%"
-                bg="grey"
-                h="430px"
-                borderRadius="16px"
-                mb="8px"
-              >
-                <Image w="100%" height="100%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" />
-              </Box> */}
-              {campaign?.description && (<Text>
-                {campaign?.description}
-              </Text>)}
+
+                campaign?.description && (<Text>
+                  {String(campaign?.description).substring(0,268)}
+                  <br/>
+                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://cdn.who.int/media/images/default-source/children-s-environmental-health/dangerous-methods-are-used-to-recycle-e-waste.jpg?sfvrsn=1bbd20b5_23"></Image>
+                  <br/>
+                  {String(campaign?.description).substring(268,1385)}
+                  <br/>
+                  <br/>
+                  {String(campaign?.description).substring(1385)}
+                </Text>) 
+
+
+                : 
+
+
+                campaign?.description && (<Text>
+                  {campaign?.description}
+                </Text>)}
+              
             </Box>
 
             <Box display={{ base: "none", sm: "none", lg: "block" }}>
@@ -632,76 +593,6 @@ export default function Proposal({
               <Box mt="2%" mb="2%">
                 <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread>
               </Box>
-              {/* <Flex
-                as={Link}
-                target="_blank"
-                position="relative"
-                borderRadius="16px"
-                boxShadow="4px 4px 62px -9px rgba(0, 0, 0, 0.15)"
-                flexDir={"column"}
-                overflow="hidden"
-                textDecoration="none !important"
-                marginBottom={16}
-                _hover={{
-                  "& .join-discussion": {
-                    transition: "opacity 0.2s ease-in-out",
-                    opacity: 1,
-                  },
-                }}
-                p="16px"
-              >
-                <Flex
-                  className="join-discussion"
-                  width="100%"
-                  height="100%"
-                  position="absolute"
-                  justifyContent="center"
-                  alignItems="center"
-                  top="0"
-                  left="0"
-                  bg="rgb(0,0,0,.8)"
-                  color="white"
-                  zIndex={200}
-                  opacity="0"
-                  transition="opacity 0.2s ease-in-out"
-                >
-                  <Text fontSize="1.8em">Join the Discussion</Text>
-                </Flex>
-                {discussion &&
-                  discussion.map((post: any, index: number) => {
-                    if (index < 10) {
-                      return (
-                        <Flex key={index} m="16px">
-                          <Image
-                            w="auto"
-                            h="64px"
-                            mr="32px"
-                            borderRadius={"100%"}
-                            src={post.avatar_template.replace("{size}", "45")}
-                            alt={`${post.username}'s discourse avatar`}
-                          />
-                          <Flex
-                            flexDir={"column"}
-                            position="relative"
-                            __css={{
-                              "& h2": {
-                                fontSize: "1.2em",
-                                fontWeight: "600",
-                                textDecoration: "none",
-                              },
-                              "& ol li": {
-                                position: "relative",
-                                left: "16px",
-                              },
-                            }}
-                          >
-                            {ReactHtmlParser(post.cooked)}
-                          </Flex>
-                        </Flex>
-                      );
-                    }
-                  })}
-              </Flex> */}
             </Box>
           </Flex>
           <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }} display={{ base: "none", sm: "none", lg: "block" }}>
