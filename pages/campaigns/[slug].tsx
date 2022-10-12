@@ -421,20 +421,20 @@ export default function Proposal({
             m='16px'
           >
             <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
-              <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "48px" }} color="White">
+              <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "36px" }} color="White">
                 {campaign.verifiedVotes ? String(Math.round(campaign.verifiedVotes * 100) /100) : "0"}
               </Heading>
-              <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
+              <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                 Shares Commited
               </Text>
             </Box>
             <Box color="white" p={{ base: '4', lg: "16px 24px" }}>
               <Heading textAlign={"center"}
-                fontSize={{ base: "24px", sm: "24px", lg: "48px" }}
+                fontSize={{ base: "24px", sm: "24px", lg: "36px" }}
                 color="White">
                 {String(howManyUsers())}
               </Heading>
-              <Text fontWeight={500} fontSize={{ base: "16px", lg: "24px" }}>
+              <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                 Supporters
               </Text>
             </Box>
@@ -517,11 +517,11 @@ export default function Proposal({
 
 
                 campaign?.description && (<Text>
-                  {String(campaign?.description).substring(0,268)}
+                  {String(campaign?.description).substring(0,332)}
                   <br/>
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://cdn.who.int/media/images/default-source/children-s-environmental-health/dangerous-methods-are-used-to-recycle-e-waste.jpg?sfvrsn=1bbd20b5_23"></Image>
                   <br/>
-                  {String(campaign?.description).substring(268,1385)}
+                  {String(campaign?.description).substring(332,1385)}
                   <br/>
                   <br/>
                   {String(campaign?.description).substring(1385)}
