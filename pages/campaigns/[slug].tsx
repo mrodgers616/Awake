@@ -558,7 +558,7 @@ export default function Proposal({
                 justifyContent="center"
                 flexDirection="column"
                 alignItems="center"
-                // width={60}
+                width={484}
                 backgroundColor="FFFFFF"
                 boxShadow='2xl' p='0'
                 borderRadius="16px"
@@ -569,9 +569,10 @@ export default function Proposal({
               >
                 {/* <Image height="125px" width="250px" /> */}
                 {/* <Image w="50%" height="70%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" /> */}
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/ZzS2vwDUO9U?start=18" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                <Text fontSize="xl" fontWeight="bold" mb={4} mt={4}>
-                  {campaign?.title}
+                <iframe width="480" height="270" src="https://www.youtube.com/embed/ZzS2vwDUO9U?start=18" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <Text fontSize="xl" fontWeight="bold" mb={0} mt={4}>
+                  {/* {campaign?.title} */}
+                  {"Share this campaign with a friend"}
                 </Text>
                 <Flex justifyContent="center" alignItems="space-around" width={48}>
                   <Box>

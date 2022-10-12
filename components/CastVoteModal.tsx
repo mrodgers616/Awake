@@ -588,7 +588,7 @@ export default function CastVoteModal({
           {!showForAgainst && (
           <Heading as="h2" size="lg" textAlign={"center"}>
             {/*Choose Delegation Type*/}
-            Thanks for Voting!
+            Thanks for supporting this campaign!
           </Heading>
           )}
         </ModalHeader>
