@@ -462,7 +462,7 @@ export default function Proposal({
                 h="64px"
                 onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
               >
-                {hasUserVoted() ? "Already Voted!" : "Vote"}
+                {hasUserVoted() ? "Already Voted!" : "Support Campaign"}
               </Button>
               { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
@@ -521,10 +521,11 @@ export default function Proposal({
                   <br/>
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://cdn.who.int/media/images/default-source/children-s-environmental-health/dangerous-methods-are-used-to-recycle-e-waste.jpg?sfvrsn=1bbd20b5_23"></Image>
                   <br/>
-                  {String(campaign?.description).substring(332,1385)}
+                  {String(campaign?.description).substring(332,1333)}
                   <br/>
+                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbroken%20iphone.jpeg?alt=media&token=0aed32c1-f79f-47f7-857b-4458a488aec0"></Image>
                   <br/>
-                  {String(campaign?.description).substring(1385)}
+                  {String(campaign?.description).substring(1333)}
                 </Text>) 
 
 
@@ -559,7 +560,7 @@ export default function Proposal({
                 alignItems="center"
                 // width={60}
                 backgroundColor="FFFFFF"
-                boxShadow='2xl' p='6'
+                boxShadow='2xl' p='0'
                 borderRadius="16px"
                 mt='12px'
                 mb="50%"
@@ -567,21 +568,11 @@ export default function Proposal({
                 border="3px solid gray"
               >
                 {/* <Image height="125px" width="250px" /> */}
-                <Image w="50%" height="70%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" />
+                {/* <Image w="50%" height="70%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" /> */}
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ZzS2vwDUO9U?start=18" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 <Text fontSize="xl" fontWeight="bold" mb={4} mt={4}>
                   {campaign?.title}
                 </Text>
-                <Button
-                  {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
-                  variant="solid"
-                  size={{ base: "sm", sm: "sm", lg: "lg" }}
-                  width={48}
-                  backgroundColor="rgb(164,191,217)"
-                  mb='10px'
-                  onClick={() => { onVoteModalOpen(); }}
-                >
-                  {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
-                </Button>
                 <Flex justifyContent="center" alignItems="space-around" width={48}>
                   <Box>
                     <Flex alignItems={"center"} justifyContent={"flex-start"}>
