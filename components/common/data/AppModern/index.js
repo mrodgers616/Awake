@@ -132,7 +132,9 @@ export const features = {
 /* ------------------------------------ */
 // App slider data section
 /* ------------------------------------ */
+
 import appSlide1 from '../../assets/image/appModern/giphy.gif';
+// import appSlide1 from '../../assets/image/appModern/plaidlink.mp4';
 import appSlide2 from '../../assets/image/appModern/gif2.gif';
 import appSlide3 from '../../assets/image/appModern/giphy3.gif';
 // import appIcon from '../../assets/image/appModern/icon1.svg';
@@ -171,7 +173,7 @@ export const appSlider = {
     {
       id: 2,
       icon: appIcon2,
-      title: 'Vote On Campaigns',
+      title: 'Support Campaigns',
       description: "Supporting initiatives to change companies in your portfolio is a click away.",
     },
     {
@@ -378,7 +380,7 @@ import member6 from '../../assets/image/appModern/TOM.png';
 import member7 from '../../assets/image/appModern/SIGAL.png';
 
 export const teamportfolio = {
-  title: 'The humans behind the movement',
+  title: 'The humans behind the Awake',
   description:
     "We've come quite a long way as a team. Click below to learn more about our journey.",
 

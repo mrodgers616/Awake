@@ -97,17 +97,19 @@ const Banner = () => {
     <BannerWrapper id="home">
       <Container>
         <BannerContent>
-          <RatingInfo>
-            {/* <Image src={aLogo?.src} alt="Awake Logo" style={imageStyle} /> */}
-          </RatingInfo>
           <Heading
-            as="h1"
-            content="Vote With Your Investments"
+            fontSize={{sm:" ",md:" ",lg:"44px"}}
+            color="white"
+            width={{sm:"300px",md:"400px",lg:"500px"}}
+            content="Sustainable Investing; No Bullsh*t"
+            // content="Don't Sacrifice Returns for Impact"
+            // content="Most 'sustainable' investing is BULLSH*T"
+            
           />
           <Text
             as="h3"
             color="white"
-            content="Make an impact with stocks you already own"
+            content="Make change with the stocks you already own"
           />
           <ButtonGroup>
             {userid ? (
