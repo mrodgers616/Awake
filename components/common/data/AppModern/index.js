@@ -133,8 +133,8 @@ export const features = {
 // App slider data section
 /* ------------------------------------ */
 
-import appSlide1 from '../../assets/image/appModern/giphy.gif';
-// import appSlide1 from '../../assets/image/appModern/plaidlink.mp4';
+// import appSlide1 from '../../assets/image/appModern/giphy.gif';
+import appSlide1 from '../../assets/image/appModern/plaidlink.gif';
 import appSlide2 from '../../assets/image/appModern/gif2.gif';
 import appSlide3 from '../../assets/image/appModern/giphy3.gif';
 // import appIcon from '../../assets/image/appModern/icon1.svg';
