@@ -3,7 +3,7 @@ import type { NextPageWithLayout } from './_app'
 import Banner from '../components/AppModern/Banner';
 import AppSlider from '../components/AppModern/AppSlider';
 import Features from '../components/AppModern/Features';
-import DashboardFeatures from '../components/AppModern/Dashboard';
+// import DashboardFeatures from '../components/AppModern/Dashboard';
 import ProductSlide from '../components/AppModern/ProductSlide';
 import TeamPortfolio from '../components/AppModern/TeamPortfoilo';
 import Testimonial from '../components/AppModern/Testimonial';
@@ -17,7 +17,7 @@ const Home: NextPageWithLayout = () => {
   return (
     <>
       <Banner />
-      <DashboardFeatures />
+      {/* <DashboardFeatures /> */}
       <Features />
       <AppSlider />
       {/* <ProductSlide /> */}

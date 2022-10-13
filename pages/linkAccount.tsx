@@ -50,6 +50,19 @@ import { Box, ChakraProvider, Flex, Stack, } from "@chakra-ui/react";
 //   maxWidth: "25%",
 //   marginLeft: "8%"
 // }
+const loomStyle = {
+  position: "absolute",
+  top: "0", 
+  left: "0", 
+  width: "100%",
+  height: "100%"
+}
+
+const loomDiv = {
+  position: "relative",
+  paddingBottom: "169.01408450704224%",
+  height: "0"
+}
 
 const copstyle = {
   p: "30px"
@@ -456,6 +469,7 @@ const LinkAccount: NextPage = () => {
             m="64px"
             src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Plaid_logo.svg?alt=media&token=380cdb7c-d0c1-41e1-bfa5-5af0bc2e9f46" alt={undefined} />
         </Block>
+        <div style={loomDiv}><iframe src="https://www.loom.com/embed/9cd0be71f35e4d169b98b4547db26e86" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={loomStyle}></iframe></div>
       </Box >
     </>)
 }
