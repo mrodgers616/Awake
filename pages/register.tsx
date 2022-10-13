@@ -139,7 +139,7 @@ const Register: NextPage = () => {
                 <Link href="/login">Already Registered?</Link>
               </HStack>
               <Flex>
-                <Container mt="3%" ml="-1.75%">
+                <Container mt={{base: "40%",md: "3%", lg: "3%"}} ml={{base: "-35.75%", md: "-1.75%", lg: "-1.75%"}} w={{base: '50%', md:"100%", lg:"100%"}}>
                   <GoogleButton onClick={() => { googleRegister() }}></GoogleButton>
                 </Container>
                 <Container mt="3%" ml="-1.75%">

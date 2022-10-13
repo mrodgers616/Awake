@@ -26,6 +26,11 @@ import { ReactElement } from "react";
 import { Protected } from '../contexts/Protected';
 import GoogleButton from 'react-google-button'
 
+const googleButtonStyle = {
+  marignRight: "auto",
+  marignLeft: "auto",
+}
+
 
 const Login: NextPageWithLayout = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -112,9 +117,9 @@ const Login: NextPageWithLayout = () => {
                   >Log in</Button>
 
                 </Flex>
-                <Link href='/register'>Create A New Account</Link>
+                <Link href='/register' fontSize={{base: "sm", md: "lg",  lg:"lg"}} w={{base: '150%', md:"100%", lg:"100%"}}>Create A New Account</Link>
               </HStack>
-              <Container mt="3%" ml="-1.75%">
+              <Container mt={{base: "40%",md: "3%", lg: "3%"}} ml={{base: "-35.75%", md: "-1.75%", lg: "-1.75%"}} w={{base: '50%', md:"100%", lg:"100%"}}>
                 <GoogleButton onClick={() => { googleRegister() }}></GoogleButton>
               </Container>
             </chakra.form>

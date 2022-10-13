@@ -684,7 +684,7 @@ export default function Proposal({
           >
             <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
               <Text fontWeight={500} fontSize={{ base: "16px", lg: "32px" }}>
-                Want to create your own campaign?
+                Back the Campaign
               </Text>
             </Box>
           </Flex>
@@ -694,24 +694,65 @@ export default function Proposal({
             justifyContent="center"
             alignItems="center"
           >
-            <Button
-              bg="rgb(100, 43, 115)"
-              color="white"
-              fontSize="1.4em"
-              w={{ lg: "350px" }}
-              mr={{
-                base: "0px", sm: "0", lg: "16px"
-              }}
-              mb={{
-                base: '32px',
-                md: '0'
-              }}
-              h="64px"
-              // href={"/campaigns/create"}
-              onClick={() => { router.push("/campaigns/create"); }}
-            >
-              Start Your Own
-            </Button>
+            {userid ? ( <>
+              <Button
+                {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
+                bg="rgb(100, 43, 115)"
+                color="white"
+                fontSize="1.4em"
+                w={{ lg: "350px" }}
+                mr={{
+                  base: "0px", sm: "0", lg: "16px"
+                }}
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
+                h="64px"
+                onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
+              >
+                {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
+              </Button>
+              { !modalClose && <CastVoteModal
+                isOpen={voteModalIsOpen}
+                onClose={ () => {onVoteModalClose; setModalClose(true)}}
+                onOpen={onVoteModalOpen}
+                campaign={campaign}
+                profileData={profileData}
+                uid={uid}
+                investments={investments}
+                slug={slug}
+              /> } </>)
+              : 
+              (<>
+              <Button
+                bg="rgb(100, 43, 115)"
+                color="white"
+                fontSize="1.4em"
+                w={{ lg: "350px" }}
+                mr={{
+                  base: "0px", sm: "0", lg: "16px"
+                }}
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
+                h="64px"
+                onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
+                >
+                {"Support Campaign"}
+                </Button>
+              
+                {loginModal && 
+                  <LoginModal 
+                    isOpen={voteModalIsOpen}
+                    onClose={ () => {onVoteModalClose; setLoginModal(false);}}
+                    onOpen={onVoteModalOpen}
+                  />
+                }
+                </>
+              )
+            }
           </Flex>
         </Flex>
       </Container>

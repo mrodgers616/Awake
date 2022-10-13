@@ -431,7 +431,7 @@ const LinkAccount: NextPage = () => {
         />
       </BannerWrapper2>
 
-      <Box ml="15%" mr="15%" mb="10%" height="100%">
+      <Box ml={{base: "5%", md: "15%", lg:"15%"}} mr={{base: "5%", md: "15%", lg:"15%"}} mb="10%" height="100%">
 
 
         <BlockClear>
@@ -439,14 +439,14 @@ const LinkAccount: NextPage = () => {
             src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/security-icon-encryption.webp?alt=media&token=b8046807-a840-4463-878e-8cb32fa134bd" alt={undefined} />
           <Stack>
             <Text
-              textAlign="left"
+              textAlign={{base: "center", md: "left", lg: "left"}}
               as="h1"
               mt="5%"
               display="block"
               fontWeight="bold"
               ml="15%" content="Data Encryption">
             </Text>
-            <Text display="block" fontSize="2xl" paddingLeft="15%" content="The combination of the Advanced Encryption Standard (AES-256) and Transport Layer Security (TLS) help keep your personal information safe. Plaid also uses multi-factor authentication for added security in its systems.">
+            <Text display="block" fontSize="2xl" textAlign={{base: "center", md: "center", lg: "left"}} paddingLeft="15%" content="The combination of the Advanced Encryption Standard (AES-256) and Transport Layer Security (TLS) help keep your personal information safe. Plaid also uses multi-factor authentication for added security in its systems.">
             </Text>
           </Stack>
         </BlockClear>
@@ -454,14 +454,14 @@ const LinkAccount: NextPage = () => {
         <Block>
           <Stack>
             <Text
-              textAlign="left"
+              textAlign={{base: "center", md: "left", lg: "left"}}
               as="h1"
               mt="5%"
               display="block"
               fontWeight="bold"
-              ml="15%" content="What happens to my data?">
+              ml={{base: "0%", md: '5%', lg: '15%'}} content="What happens to my data?" mr={{base: "15%", md: '0%', lg: '0%'}} paddingRight="20px">
             </Text>
-            <Text display="block" fontSize="2xl" paddingLeft="15%"
+            <Text display="block" fontSize="2xl" paddingLeft="15%" textAlign={{base: "center", md: "center", lg: "left"}}
               paddingRight="15%" paddingBottom="5%" content="Awake analyzes data about how many voters there are, how many shares were voted, and what campaigns were supported. This allows us to advocate for change without violating your privacy.">
             </Text>
           </Stack>
@@ -469,7 +469,6 @@ const LinkAccount: NextPage = () => {
             m="64px"
             src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Plaid_logo.svg?alt=media&token=380cdb7c-d0c1-41e1-bfa5-5af0bc2e9f46" alt={undefined} />
         </Block>
-        <div style={loomDiv}><iframe src="https://www.loom.com/embed/9cd0be71f35e4d169b98b4547db26e86" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={loomStyle}></iframe></div>
       </Box >
     </>)
 }
