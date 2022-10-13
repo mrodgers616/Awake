@@ -266,9 +266,11 @@ export const CustomerWrapper = styled.div`
   }
   @media only screen and (max-width: 991px) {
     padding: 0px % 55px;
+    padding-right: 400px
   }
   @media only screen and (max-width: 600px) {
     padding: 0px % 55px;
+    padding-right: 400px
   }
 
   p {
