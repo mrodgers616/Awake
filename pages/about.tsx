@@ -25,12 +25,11 @@ const About: NextPageWithLayout = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Box
-        bg="sage.500"
         bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
         // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
         bgSize="cover"
         zIndex={0}
-        h="300px"
+        h={{base:"150px", sm:"200px", md:"250",lg:"300px"}}
         position="relative"
       >
         <Box
@@ -59,11 +58,11 @@ const About: NextPageWithLayout = () => {
             <Heading
               as="h1"
               size="xl"
-              fontSize={{ base: "24px", sm: "24px", lg: "60px" }}
+              fontSize={{ base: "24px", sm: "32px", md:"48px", lg: "60px" }}
               color="white"
               ml="auto"
               mr="auto"
-              mt={{ base: "60px", lg: "60" }}
+              mt={{ base: "60px", sm:"180px", md:"200px", lg: "220px" }}
               zIndex={250}
             >
               About Us
