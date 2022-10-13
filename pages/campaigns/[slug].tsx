@@ -385,7 +385,7 @@ export default function Proposal({
             flexDir="column"
             zIndex={250}
           >
-            <Heading fontSize="42px" mt="20" color="white" w="100%">
+            <Heading fontSize={{sm:"28px",lg:"42px"}} mt="20" color="white" w="100%">
               {campaign?.title ?? "TITLE!"}
             </Heading>
           </Flex>

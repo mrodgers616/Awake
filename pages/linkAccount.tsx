@@ -378,7 +378,7 @@ const LinkAccount: NextPage = () => {
       <head>
         <title>Awake | Link Account</title>
       </head>
-      <BannerWrapper2 id="home">
+      <BannerWrapper2 id="home"> 
         {/*@ts-ignore*/}
         <Container>
           <BannerContent>
