@@ -385,7 +385,7 @@ export default function Proposal({
             flexDir="column"
             zIndex={250}
           >
-            <Heading fontSize={{sm:"28px",lg:"42px"}} mt="20" color="white" w="100%">
+            <Heading fontSize="42px" mt="20" color="white" w="100%">
               {campaign?.title ?? "TITLE!"}
             </Heading>
           </Flex>
@@ -526,13 +526,16 @@ export default function Proposal({
                   {String(campaign?.description).substring(0,332)}
                   <br/>
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://cdn.who.int/media/images/default-source/children-s-environmental-health/dangerous-methods-are-used-to-recycle-e-waste.jpg?sfvrsn=1bbd20b5_23"></Image>
+                  
                   <br/>
                   {String(campaign?.description).substring(332,1333)}
                   <br/>
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbroken%20iphone.jpeg?alt=media&token=0aed32c1-f79f-47f7-857b-4458a488aec0"></Image>
                   <br/>
                   {String(campaign?.description).substring(1333)}
+                  {/* <iframe width="480" height="270" src="https://www.youtube.com/embed/ZzS2vwDUO9U?start=18" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
                 </Text>) 
+                
 
 
                 : 
@@ -573,11 +576,8 @@ export default function Proposal({
                 ml="30px"
                 border="3px solid gray"
               >
-                {/* <Image height="125px" width="250px" /> */}
-                {/* <Image w="50%" height="70%" src={campaign.image ? campaign.image : "/nature/lakeside.png"} alt="campaign image" /> */}
-                <iframe width="480" height="270" src="https://www.youtube.com/embed/ZzS2vwDUO9U?start=18" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                
                 <Text fontSize="xl" fontWeight="bold" mb={0} mt={4}>
-                  {/* {campaign?.title} */}
                   {"Share this campaign with a friend"}
                 </Text>
                 <Flex justifyContent="center" alignItems="space-around" width={48}>
@@ -684,7 +684,7 @@ export default function Proposal({
           >
             <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
               <Text fontWeight={500} fontSize={{ base: "16px", lg: "32px" }}>
-                Back the Campaign
+                Support the campaign
               </Text>
             </Box>
           </Flex>
