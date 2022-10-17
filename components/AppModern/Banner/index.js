@@ -98,6 +98,7 @@ const Banner = () => {
       <Container>
         <BannerContent>
           <Heading
+            className="textSizing"
             fontSize={{sm:" ",md:" ",lg:"44px"}}
             color="white"
             width={{sm:"300px",md:"400px",lg:"500px"}}
