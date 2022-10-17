@@ -68,6 +68,11 @@ const BannerWrapper = styled.div`
     @media only screen and (max-width: 480px) {
       flex-wrap: wrap;
     }
+    .textSizing {
+      @media only screen and (max-width: 480px) {
+        font-size: 22px;
+    }
+    }
   }
   .bannerBottomShape {
     position: absolute;
@@ -266,11 +271,9 @@ export const CustomerWrapper = styled.div`
   }
   @media only screen and (max-width: 991px) {
     padding: 0px % 55px;
-    padding-right: 400px
   }
   @media only screen and (max-width: 600px) {
     padding: 0px % 55px;
-    padding-right: 400px
   }
 
   p {
