@@ -385,7 +385,7 @@ export default function Proposal({
             flexDir="column"
             zIndex={250}
           >
-            <Heading fontSize="42px" mt="20" color="white" w="100%">
+            <Heading fontSize={{base: "22px", md: "42", lg: "42px"}} mt="20" color="white" w="100%">
               {campaign?.title ?? "TITLE!"}
             </Heading>
           </Flex>
@@ -516,13 +516,13 @@ export default function Proposal({
         <Flex mt="64px" w="100%">
           <Flex mb="64px" flexDir={"column"} w={{ base: "100%", sm: "100%", md: "60%", lg: "60 %" }} mr="32px">
             <Box mb="32px">
-              <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
+              <Heading fontSize="18px" textTransform={"uppercase"} mb="16px" ml={{base:"20px"}}>
                 About Campaign
               </Heading>
               {campaign?.companyName == "Apple" ? 
 
 
-                campaign?.description && (<Text>
+                campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
                   {String(campaign?.description).substring(0,332)}
                   <br/>
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://cdn.who.int/media/images/default-source/children-s-environmental-health/dangerous-methods-are-used-to-recycle-e-waste.jpg?sfvrsn=1bbd20b5_23"></Image>

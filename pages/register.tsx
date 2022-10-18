@@ -62,7 +62,7 @@ const Register: NextPage = () => {
           pb='16px'
         >
           <Box
-            w='80%'
+            w={{base: '100%', md: '80%', lg: '80%'}}
             p={16}
             shadow='md'
             borderWidth={'1px'}
@@ -136,10 +136,10 @@ const Register: NextPage = () => {
                     Register
                   </Button>
                 </Flex>
-                <Link href="/login">Already Registered?</Link>
+                <Link href="/login">Already Have an Account?</Link>
               </HStack>
               <Flex>
-                <Container mt={{base: "40%",md: "3%", lg: "3%"}} ml={{base: "-35.75%", md: "-1.75%", lg: "-1.75%"}} w={{base: '50%', md:"100%", lg:"100%"}}>
+                <Container mt={{base: "40%",md: "3%", lg: "3%"}} ml={{base: "-9.75%", md: "-1.75%", lg: "-1.75%"}} w={{base: '50%', md:"100%", lg:"100%"}}>
                   <GoogleButton onClick={() => { googleRegister() }}></GoogleButton>
                 </Container>
                 <Container mt="3%" ml="-1.75%">
