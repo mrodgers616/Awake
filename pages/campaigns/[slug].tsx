@@ -538,7 +538,7 @@ export default function Proposal({
                   <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
                   <text> Across almost all product lines, Apple’s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
 
-                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbroken%20iphone.jpeg?alt=media&token=0aed32c1-f79f-47f7-857b-4458a488aec0"></Image>
+                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbreakdifferent.png?alt=media&token=5b79a1b1-b1fc-4fad-a7b0-ea81e8b252c2"></Image>
                   <br/>
                   {/* {String(campaign?.description).substring(1333)} */}
                   <text>As it stands, the company’s </text>
@@ -825,7 +825,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
   catch (e) {
     //console.log(e);
-  }
+  } 
 
   if (campaign.createdAt instanceof Timestamp) {
     campaign.createdAt = new Date(campaign.createdAt.seconds).toString();
