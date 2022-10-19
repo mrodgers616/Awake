@@ -232,7 +232,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             isClosable: true,
           });
           let routerPushAfterRegister = "user/" + user.uid + "/edit";
-          router.push(routerPushAfterRegister);
+          router.push(`/campaigns/${slug}`);
         }
       }
       
