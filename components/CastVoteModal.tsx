@@ -11,6 +11,7 @@ import {
   Button,
   Icon,
   Center,
+  Text
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Configuration, LinkTokenCreateRequest, PlaidApi, PlaidEnvironments, InvestmentsHoldingsGetResponse } from 'plaid';
@@ -89,7 +90,7 @@ export default function CastVoteModal({
   campaign,
   profileData,
   uid,
-  investments,
+  investmentsOld,
   slug
 }: {
   onOpen?: () => void;
@@ -98,7 +99,7 @@ export default function CastVoteModal({
   campaign: any;
   profileData: any;
   uid: any;
-  investments: any;
+  investmentsOld: any;
   slug: any;
 }): JSX.Element {
 
@@ -106,6 +107,8 @@ export default function CastVoteModal({
   const [showConfetti, setShowConfetti] = useState(false);
   const [showForAgainst, setShowForAgainst] = useState(profileData.investments ? false : true);
   const [showModal, setShowModal] = useState(true);
+  const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [investments, setInvestments] = useState(investmentsOld);
   const theConfetti: any = async () => {
     setShowConfetti(true);
     await sleep(7000);
@@ -121,15 +124,26 @@ export default function CastVoteModal({
 
   let userInvestmentQuantity: number;
 
-  function doesUserOwnSharesFor() {
+  async function doesUserOwnSharesFor() {
     let campaignTicker = campaign.symbol;
 
-    if (investments) {
-      for (let i = 0; i < investments.length; i++) {
-        let userInvestmentTicker = investments[i].ticker;
+    let profile = await getProfileData(uid);
+    const profileData = {
+      ...profile.data()
+    };
+
+    const pullNewInvestments = profileData.investments ? profileData.investments : null;
+    setInvestments(pullNewInvestments);
+
+
+    if (pullNewInvestments) {
+      console.log("here");
+      for (let i = 0; i < pullNewInvestments.length; i++) {
+        let userInvestmentTicker = pullNewInvestments[i].ticker;
         if (userInvestmentTicker == campaignTicker) {
-          userInvestmentQuantity = investments[i].quantity;
-          userOwnSharesFor(i);
+          console.log("here2");
+          userInvestmentQuantity = pullNewInvestments[i].quantity;
+          userOwnSharesFor(i, pullNewInvestments);
           return true;
         }
       }
@@ -143,7 +157,8 @@ export default function CastVoteModal({
 
   }
 
-  function userOwnSharesFor(i: number) {
+  function userOwnSharesFor(i: number, invest: any) {
+    console.log("here3");
     let currentVotes = campaign.verifiedVotes
     let users = campaign.users
 
@@ -165,10 +180,11 @@ export default function CastVoteModal({
     }
 
     if (currentVotes && users) {
-      const totalVotes = currentVotes + investments[i].quantity;
+      console.log("here4");
+      const totalVotes = currentVotes + invest[i].quantity;
       users.push(uid);
       const dataToUpload = {
-        verifiedVotes: increment(Number(investments[i].quantity)),
+        verifiedVotes: increment(Number(invest[i].quantity)),
         users: arrayUnion(uid),
         verifiedVote:{
           for: forVotes,
@@ -180,7 +196,7 @@ export default function CastVoteModal({
     }
     else {
       const dataToUpload = {
-        verifiedVotes: Number(investments[i].quantity),
+        verifiedVotes: Number(invest[i].quantity),
         users: [uid],
         verifiedVote:{
           for: 1,
@@ -501,7 +517,7 @@ export default function CastVoteModal({
     }
     //console.log("here")
     try {
-      updateOrAddProfileData(uid, finalData);
+      await updateOrAddProfileData(uid, finalData);
     }
     catch (e) {
       //console.log(e);
@@ -561,6 +577,10 @@ export default function CastVoteModal({
 
   }
 
+  const handleYesClick = () => {
+    setShowDisclaimer(true);
+  }
+
   useEffect(() => {
     loadOnPageLoad();
     
@@ -580,10 +600,26 @@ export default function CastVoteModal({
         <ModalHeader>
           <ModalCloseButton />
           {showForAgainst && (
-          <Heading as="h2" size="lg" textAlign={"center"}>
-            {/*Choose Delegation Type*/}
-            Do you own shares in {`${campaign.companyName}`}?
-          </Heading>
+            <>
+            {showDisclaimer ? 
+              (<>
+              
+              <Heading as="h2" size="lg" textAlign={"center"}>
+              Link Your Investment Account
+              </Heading>
+              <ModalBody>
+                <Text fontSize="md">
+                  Linking a brokerage account and proving you own shares gives us, as a community, much more leverage and increases the likelihood of this campaign succeeding
+                </Text>
+              </ModalBody>
+              
+              </>)
+              :
+              (<Heading as="h2" size="lg" textAlign={"center"}>
+                Do you own shares in {`${campaign.companyName}`}?
+              </Heading>)
+            }
+          </>
           )}
           {!showForAgainst && (
           <Heading as="h2" size="lg" textAlign={"center"}>
@@ -598,22 +634,31 @@ export default function CastVoteModal({
         >
           {showForAgainst && (
           <>
-            <Button w='33%' mr="5%" border="0px" as={PlaidLink} bg='white' color="green"
-                onClick={handleOnClick}
-                token={theToken}
-                onSuccess={onSuccess}
-                onEvent={onEvent}
-                onExit={onExit}
+            {showDisclaimer ? (<>
+              <Button w='33%' mr="5%" border="0px" as={PlaidLink} bg='white' color="green"
+              onClick={handleOnClick}
+              token={theToken}
+              onSuccess={onSuccess}
+              onEvent={onEvent}
+              onExit={onExit}
+              >Continue
+              </Button>
+            </>) :
+            (<>
+            <Button w='33%' mr="5%" border="2px solid #F1F1F1" bg='white' color="green"
+                onClick={handleYesClick}
                 >Yes
             </Button>
-          </>)}
-          {showForAgainst && (
-          <Button
-            w='33%'
-            bg='white'
-            color='red' border="2px solid #F1F1F1"
-            onClick={() => { doesUserOwnSharesFor(); theConfetti(); setShowForAgainst(false); }}
-          >No</Button>)}
+            <Button
+              w='33%'
+              bg='white'
+              color='red' border="2px solid #F1F1F1"
+              onClick={() => { doesUserOwnSharesFor(); theConfetti(); setShowForAgainst(false); }}
+            >No
+            </Button></>
+            )}
+          </>
+          )}
           {/*<Button
             w='33%'
             bg='purple'
@@ -637,6 +682,6 @@ CastVoteModal.propTypes = {
   campaign: propTypes.any.isRequired,
   profileData: propTypes.any.isRequired,
   uid: propTypes.any.isRequired,
-  investments: propTypes.any.isRequired,
+  investmentsOld: propTypes.any.isRequired,
   slug: propTypes.any.isRequired,
 };
