@@ -525,32 +525,54 @@ export default function Proposal({
                 campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
                   {/* Taking out the substring below to edit easier */}
                   {/* {String(campaign?.description).substring(0,332)} */}
-                  {String("We’re calling for Apple to address its contribution to the fastest growing waste stream on the planet. Specifically, we want Apple to publicly disclose figures in future sustainability reports and address how it plans to mitigate it.")}
+                  <text><b>We’re calling for Apple to address its contribution to the fastest growing waste stream on the planet. We want Apple to disclose electronic waste figures and address how it plans to mitigate waste in future sustainability reports.</b></text>
                   <br/>
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
                   <br/>
                   <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                     WHY IT'S IMPORTANT
                   </Heading>
-                  {String("Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. In 2019, approximately 53.6 million metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.")}
+                  <text>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. In 2019, approximately </text>
+                  <b><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
+                   53.6 million 
+                  </Link></b>
+                  <text> metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.</text>
                   {/* {String(campaign?.description).substring(332,1333)} */}
                   <br/>
                   <br/>
-                  {String("Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world’s E-waste. But how much? That’s the thing, we don’t know. Apple's hardware produced 1.65 billion devices by the end of 2020. Figures on hardware recycling, outlining how much materials are recovered.")}
+                  
+                  <text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world’s E-waste. But how much? That’s the thing, we don’t know. Apple's hardware produced </text>
+                   <b><Link href="https://www.zdnet.com/article/apples-colossal-e-waste-timebomb/" isExternal>1.65 billion</Link></b>
+                  <text> devices by the end of 2020. Apple doesn't publish figures on hardware recycling, outlining how much materials are recovered.</text>
                   <br/>
                   <br/>
-                  {String("A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up 30 cubic meters.")}
+                  <text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </text>
                   <br/>
                   <br/>
-                  {String("But Apple doesn't sell rice. It sells iPhones and iPads and Macs.")}
+                  <text>But Apple doesn't sell rice. It sells iPhones and iPads and Macs.</text>
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Frice.png?alt=media&token=f8dcf69f-69cf-4425-a0fc-9bbfb323f7d2"></Image>
                   <br/>
-                  {String("“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a case study. Across almost all product lines, Apple’s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).")}
+                  <text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a </text>
+                  
+                  <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
+                  <text> Across almost all product lines, Apple’s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
 
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbroken%20iphone.jpeg?alt=media&token=0aed32c1-f79f-47f7-857b-4458a488aec0"></Image>
                   <br/>
                   {/* {String(campaign?.description).substring(1333)} */}
-                  {String("As it stands, the company’s Independent Repair Program only allows approved technicians to repair Apple products. We want to see Apple expand access, so that we can keep millions of tons of E-waste from being generated. At the very least, we’d like to see Apple commit to publishing a report, at reasonable cost, on how it intends to mitigate its contribution to E-Waste.")}
+                  <text>As it stands, the company’s </text>
+                  <b><Link href="https://support.apple.com/irp-program"isExternal>Independent Repair Program</Link></b>
+                  <text> only allows approved technicians to repair Apple products. We want to see Apple expand access, so that we can keep millions of tons of E-waste from being generated. At the very least, we’d like to see Apple commit to publishing a report, at reasonable cost, on how it intends to mitigate its contribution to E-Waste.</text>
+                  <br/>
+                  <br/>
+                  <u><Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
+                    More Information
+                  </Heading></u>
+                  <b><Link href="https://ewastemonitor.info/wp-content/uploads/2020/11/GEM_2020_def_july1_low.pdf"isExternal> - E-waste Monitor Report 2020</Link></b>
+                  <br/>
+                  <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/"isExternal> - Apple Case Study</Link></b>
+                  <br/>
+                  <b><Link href="https://www.apple.com/environment/pdf/Apple_Environmental_Progress_Report_2022.pdf"isExternal> - Apple Sustainability Report 2022</Link></b>
 
 
                   {/* <iframe width="480" height="270" src="https://www.youtube.com/embed/ZzS2vwDUO9U?start=18" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
