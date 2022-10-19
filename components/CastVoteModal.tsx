@@ -137,11 +137,9 @@ export default function CastVoteModal({
 
 
     if (pullNewInvestments) {
-      console.log("here");
       for (let i = 0; i < pullNewInvestments.length; i++) {
         let userInvestmentTicker = pullNewInvestments[i].ticker;
         if (userInvestmentTicker == campaignTicker) {
-          console.log("here2");
           userInvestmentQuantity = pullNewInvestments[i].quantity;
           userOwnSharesFor(i, pullNewInvestments);
           return true;
@@ -158,7 +156,6 @@ export default function CastVoteModal({
   }
 
   function userOwnSharesFor(i: number, invest: any) {
-    console.log("here3");
     let currentVotes = campaign.verifiedVotes
     let users = campaign.users
 
@@ -180,7 +177,6 @@ export default function CastVoteModal({
     }
 
     if (currentVotes && users) {
-      console.log("here4");
       const totalVotes = currentVotes + invest[i].quantity;
       users.push(uid);
       const dataToUpload = {
