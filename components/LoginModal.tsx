@@ -53,7 +53,7 @@ export default function LoginModal({
   const handleOnClick = () => {
     console.log("here")
     setShowModal(false)
-    router.push('/login')
+    router.push('/register')
 
   }
 
