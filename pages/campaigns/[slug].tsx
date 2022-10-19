@@ -541,15 +541,15 @@ export default function Proposal({
                   <br/>
                   <br/>
                   
-                  <text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world’s E-waste. But how much? That’s the thing, we don’t know. Apple's hardware produced </text>
+                  <text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world’s E-waste. But how much? That’s the thing, we don’t know. Apple&apos;s hardware produced </text>
                    <b><Link href="https://www.zdnet.com/article/apples-colossal-e-waste-timebomb/" isExternal>1.65 billion</Link></b>
-                  <text> devices by the end of 2020. Apple doesn't publish figures on hardware recycling, outlining how much materials are recovered.</text>
+                  <text> devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how much materials are recovered.</text>
                   <br/>
                   <br/>
                   <text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </text>
                   <br/>
                   <br/>
-                  <text>But Apple doesn't sell rice. It sells iPhones and iPads and Macs.</text>
+                  <text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</text>
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Frice.png?alt=media&token=f8dcf69f-69cf-4425-a0fc-9bbfb323f7d2"></Image>
                   <br/>
                   <text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a </text>
@@ -568,11 +568,11 @@ export default function Proposal({
                   <u><Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                     More Information
                   </Heading></u>
-                  <b><Link href="https://ewastemonitor.info/wp-content/uploads/2020/11/GEM_2020_def_july1_low.pdf"isExternal> - E-waste Monitor Report 2020</Link></b>
+                  <b><Link href="https://ewastemonitor.info/wp-content/uploads/2020/11/GEM_2020_def_july1_low.pdf"isExternal textColor="blue"> E-waste Monitor Report 2020</Link></b>
                   <br/>
-                  <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/"isExternal> - Apple Case Study</Link></b>
+                  <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/"isExternal textColor="blue"> Apple Case Study</Link></b>
                   <br/>
-                  <b><Link href="https://www.apple.com/environment/pdf/Apple_Environmental_Progress_Report_2022.pdf"isExternal> - Apple Sustainability Report 2022</Link></b>
+                  <b><Link href="https://www.apple.com/environment/pdf/Apple_Environmental_Progress_Report_2022.pdf"isExternal textColor="blue"> Apple Sustainability Report 2022</Link></b>
 
 
                   {/* <iframe width="480" height="270" src="https://www.youtube.com/embed/ZzS2vwDUO9U?start=18" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
