@@ -825,7 +825,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
   catch (e) {
     //console.log(e);
-  }
+  } 
 
   if (campaign.createdAt instanceof Timestamp) {
     campaign.createdAt = new Date(campaign.createdAt.seconds).toString();
