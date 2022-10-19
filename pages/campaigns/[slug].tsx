@@ -261,25 +261,6 @@ export default function Proposal({
     }
   }
 
-  useEffect(() => {
-
-    if (stockData !== null) {
-      const lineData = [];
-      const timeSeriesDaily = stockData["Time Series (Daily)"];
-      for (const series in timeSeriesDaily) {
-        for (const data in timeSeriesDaily[series]) {
-          if (data === "1. open") {
-            lineData.push({
-              date: series,
-              price: parseFloat(timeSeriesDaily[series][data]),
-            });
-          }
-        }
-      }
-      setHistoricalStockPrice(lineData);
-    }
-  }, []);
-
   const pageUri = `https://awakeinvest.com${router.basePath}${router.asPath}`;
 
   function hasUserVoted() {
@@ -810,11 +791,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     ...campaignDoc!.data(),
   };
 
-  const options = {
-    method: "GET",
-    url: `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${campaign.symbol}&apikey=${process.env.NEXT_PUBLIC_ALPHAVANTAGE_KEY}&outputsize=compact`,
-  };
-
   let stockData  = null;
   let investments = null;
   let uid  = null;
@@ -849,13 +825,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
   catch (e) {
     //console.log(e);
-  }
-
-  try {
-    stockData = (await axios.request(options as any)).data;
-  } catch (err) {
-    console.error(err as Error);
-    stockData = null;
   }
 
   if (campaign.createdAt instanceof Timestamp) {
