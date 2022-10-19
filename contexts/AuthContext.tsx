@@ -398,7 +398,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           isClosable: true,
         });
         let routerPushAfterRegister = "user/" + response.user.uid + "/edit";
-        router.push("/linkAccount");
+        router.push(`/campaigns/${slug}`);
       }
     } catch (error) {
       toast({

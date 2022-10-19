@@ -530,7 +530,7 @@ export default function Proposal({
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
                   <br/>
                   <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                    WHY IT'S IMPORTANT
+                    WHY IT&apos;S IMPORTANT
                   </Heading>
                   {String("Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. In 2019, approximately 53.6 million metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.")}
                   {/* {String(campaign?.description).substring(332,1333)} */}
