@@ -517,22 +517,42 @@ export default function Proposal({
           <Flex mb="64px" flexDir={"column"} w={{ base: "100%", sm: "100%", md: "60%", lg: "60 %" }} mr="32px">
             <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px" ml={{base:"20px"}}>
-                About Campaign
+                OUR ASK
               </Heading>
               {campaign?.companyName == "Apple" ? 
 
 
                 campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
-                  {String(campaign?.description).substring(0,332)}
+                  {/* Taking out the substring below to edit easier */}
+                  {/* {String(campaign?.description).substring(0,332)} */}
+                  {String("We’re calling for Apple to address its contribution to the fastest growing waste stream on the planet. Specifically, we want Apple to publicly disclose figures in future sustainability reports and address how it plans to mitigate it.")}
                   <br/>
-                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://cdn.who.int/media/images/default-source/children-s-environmental-health/dangerous-methods-are-used-to-recycle-e-waste.jpg?sfvrsn=1bbd20b5_23"></Image>
-                  
+                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
                   <br/>
-                  {String(campaign?.description).substring(332,1333)}
+                  <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
+                    WHY IT'S IMPORTANT
+                  </Heading>
+                  {String("Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. In 2019, approximately 53.6 million metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.")}
+                  {/* {String(campaign?.description).substring(332,1333)} */}
                   <br/>
+                  <br/>
+                  {String("Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world’s E-waste. But how much? That’s the thing, we don’t know. Apple's hardware produced 1.65 billion devices by the end of 2020. Figures on hardware recycling, outlining how much materials are recovered.")}
+                  <br/>
+                  <br/>
+                  {String("A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up 30 cubic meters.")}
+                  <br/>
+                  <br/>
+                  {String("But Apple doesn't sell rice. It sells iPhones and iPads and Macs.")}
+                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Frice.png?alt=media&token=f8dcf69f-69cf-4425-a0fc-9bbfb323f7d2"></Image>
+                  <br/>
+                  {String("“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a case study. Across almost all product lines, Apple’s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).")}
+
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbroken%20iphone.jpeg?alt=media&token=0aed32c1-f79f-47f7-857b-4458a488aec0"></Image>
                   <br/>
-                  {String(campaign?.description).substring(1333)}
+                  {/* {String(campaign?.description).substring(1333)} */}
+                  {String("As it stands, the company’s Independent Repair Program only allows approved technicians to repair Apple products. We want to see Apple expand access, so that we can keep millions of tons of E-waste from being generated. At the very least, we’d like to see Apple commit to publishing a report, at reasonable cost, on how it intends to mitigate its contribution to E-Waste.")}
+
+
                   {/* <iframe width="480" height="270" src="https://www.youtube.com/embed/ZzS2vwDUO9U?start=18" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
                 </Text>) 
                 
@@ -601,7 +621,7 @@ export default function Proposal({
                               <Icon
                                 w={8}
                                 h={8}
-                                _hover={{ color: "seafoam.500" }}
+                                _hover={{ color: "purple" }}
                                 as={social.icon}
                               />
                             </Button>
@@ -628,7 +648,7 @@ export default function Proposal({
                               <Icon
                                 w={8}
                                 h={8}
-                                _hover={{ color: "seafoam.500" }}
+                                _hover={{ color: "purple" }}
                                 as={social.icon}
                               />
                             </Link>
@@ -684,7 +704,7 @@ export default function Proposal({
           >
             <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
               <Text fontWeight={500} fontSize={{ base: "16px", lg: "32px" }}>
-                Support the campaign
+                Help us hold Apple Accountable
               </Text>
             </Box>
           </Flex>
