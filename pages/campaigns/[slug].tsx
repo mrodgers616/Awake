@@ -476,7 +476,7 @@ export default function Proposal({
                 campaign={campaign}
                 profileData={profileData}
                 uid={uid}
-                investments={investments}
+                investmentsOld={investments}
                 slug={slug}
               /> } </>)
               : 
@@ -762,7 +762,7 @@ export default function Proposal({
                 campaign={campaign}
                 profileData={profileData}
                 uid={uid}
-                investments={investments}
+                investmentsOld={investments}
                 slug={slug}
               /> } </>)
               : 
