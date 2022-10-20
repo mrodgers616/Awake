@@ -31,6 +31,9 @@ import MasterCommentThread from "../../components/comments/masterCommentThread";
 import plaidLink from "../../components/plaidLinkButton"
 import Confetti from 'react-confetti'
 import LoginModal from '../../components/LoginModal'
+import Faq from "../../components/FaqSlug";
+import faqs from "../../data/slugFAQ.json";
+
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -570,14 +573,15 @@ export default function Proposal({
               
             </Box>
 
-            <Box display={{ base: "none", sm: "none", lg: "block" }}>
+            <Box display={{ base: "block", sm: "block", lg: "block" }} ml="3.2%">
+            <Faq faqs={faqs}></Faq>
               <Flex justifyContent="space-between">
                 <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                  discussion
+                  Discussion
                 </Heading>
               </Flex>
               <br></br>
-              <Box mt="2%" mb="2%">
+              <Box mb="2%">
                 <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread>
               </Box>
             </Box>
