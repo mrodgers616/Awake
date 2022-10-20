@@ -22,19 +22,19 @@ export default function Faq({
   return (
     <Box
       id="questions"
-      p={{ base: "0px 0 180px", sm: "0px 0 180px", lg: "50px 0 180px" }}
+      p={{ base: "0px 0 180px", sm: "0px 0 180px", lg: "10px 0 0px" }}
       mb="0px"
     >
       <Box
         m="0 auto"
       >
-        <Heading
+        {/* <Heading
           fontSize={{ base: "18px", sm: "18px", lg: "18px" }}
           mb="36px"
           textTransform='uppercase'
         >
           {title ?? 'Frequently Asked Questions'}
-        </Heading>
+        </Heading> */}
         <Accordion
           allowToggle
         >
@@ -42,7 +42,7 @@ export default function Faq({
             <AccordionItem
               key={index}
               borderRadius="12px"
-              p={{ base: "12px 12px 12px 12px", sm: "12px 12px 12px 12px", lg: "42px 46px 42px 12px" }}
+              p={{ base: "12px 12px 12px 12px", sm: "12px 12px 12px 12px", lg: "1px 1px 1px 1px" }}
               mb="12px"
               bg='lightblue.500'
               boxShadow='0px 2px 8px 0px rgba(0,0,0,0.1)'
