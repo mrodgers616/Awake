@@ -76,10 +76,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
           } else {
             const token = await user.getIdToken();
             setState({ ...state, user: user, userid: user.uid });
-            nookies.set(undefined, '_session', token, { path: '/'});
-            nookies.set(undefined, 'session', token, { path: '/'});
-            nookies.set(undefined, '__session', token, { path: '/'});
-            nookies.set(null, "userUID", user.uid, {path: '/', maxAge: 60*60*24*14});
+            nookies.set(undefined, '_session', token, { path: '/', maxAge: 60*60*24*30});
+            nookies.set(undefined, 'session', token, { path: '/', maxAge: 60*60*24*30});
+            nookies.set(undefined, '__session', token, { path: '/', maxAge: 60*60*24*30});
+            nookies.set(null, "userUID", user.uid, {path: '/', maxAge: 60*60*24*30});
           }
     })
   }, []);

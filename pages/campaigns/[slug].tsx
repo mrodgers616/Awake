@@ -506,7 +506,7 @@ export default function Proposal({
                 campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
                   {/* Taking out the substring below to edit easier */}
                   {/* {String(campaign?.description).substring(0,332)} */}
-                  <text><b>We’re calling for Apple to address its contribution to the fastest growing waste stream on the planet. We want Apple to disclose electronic waste figures and address how it plans to mitigate waste in future sustainability reports.</b></text>
+                  <text><b>We’re calling for Apple to address its contribution to the fastest growing waste stream on the planet. We want Apple to disclose electronic waste figures and provide additional information on their plans to mitigate waste.</b></text>
                   <br/>
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
                   <br/>
@@ -522,9 +522,9 @@ export default function Proposal({
                   <br/>
                   <br/>
                   
-                  <text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world’s E-waste. But how much? That’s the thing, we don’t know. Apple&apos;s hardware produced </text>
+                  <text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world&apos;s E-waste. But how much? That&apos;s the thing, we don&apos;t know. Apple&apos;s hardware produced </text>
                    <b><Link href="https://www.zdnet.com/article/apples-colossal-e-waste-timebomb/" isExternal>1.65 billion</Link></b>
-                  <text> devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how much materials are recovered.</text>
+                  <text> devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how many materials are <b>not</b> recovered.</text>
                   <br/>
                   <br/>
                   <text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </text>
@@ -536,14 +536,14 @@ export default function Proposal({
                   <text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a </text>
                   
                   <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
-                  <text> Across almost all product lines, Apple’s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
+                  <text> Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
 
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbreakdifferent.png?alt=media&token=5b79a1b1-b1fc-4fad-a7b0-ea81e8b252c2"></Image>
                   <br/>
                   {/* {String(campaign?.description).substring(1333)} */}
-                  <text>As it stands, the company’s </text>
+                  <text>As it stands, the company&apos;s</text>
                   <b><Link href="https://support.apple.com/irp-program"isExternal>Independent Repair Program</Link></b>
-                  <text> only allows approved technicians to repair Apple products. We want to see Apple expand access, so that we can keep millions of tons of E-waste from being generated. At the very least, we’d like to see Apple commit to publishing a report, at reasonable cost, on how it intends to mitigate its contribution to E-Waste.</text>
+                  <text> only allows approved technicians to repair Apple products. We want to see Apple expand access, so that we can keep millions of tons of E-waste from being generated. At the very least, we&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste and how it intends to account for it. </text>
                   <br/>
                   <br/>
                   <u><Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
