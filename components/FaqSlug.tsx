@@ -7,6 +7,7 @@ import {
   Heading,
   Flex,
   Text,
+  Link,
   Box,
 } from '@chakra-ui/react';
 
@@ -67,8 +68,40 @@ export default function Faq({
               </AccordionPanel>
             </AccordionItem>
           ))}
+          <AccordionItem
+              
+              borderRadius="12px"
+              p={{ base: "12px 12px 12px 12px", sm: "12px 12px 12px 12px", lg: "1px 1px 1px 1px" }}
+              mb="12px"
+              bg='lightblue.500'
+              boxShadow='0px 2px 8px 0px rgba(0,0,0,0.1)'
+            >
+              <Flex>
+                <AccordionButton
+                  border="none"
+                  _active={{
+                    border: "none",
+                  }}
+                >
+                  <Heading flex="1" textAlign="left" fontSize={{ base: "18px", sm: "18px", lg: "18px" }}>
+                    {"Where Can I Find More Info About the Campaign?"}
+                  </Heading>
+                </AccordionButton> 
+                <AccordionIcon />
+              </Flex>
+              <AccordionPanel pb={4}>
+                <Text fontSize={"16px"} fontWeight={400} lineHeight={"31px"}>
+                <b><Link href="https://ewastemonitor.info/wp-content/uploads/2020/11/GEM_2020_def_july1_low.pdf"isExternal textColor="blue"> E-waste Monitor Report 2020</Link></b>
+                  <br/>
+                  <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/"isExternal textColor="blue"> Apple Case Study</Link></b>
+                  <br/>
+                  <b><Link href="https://www.apple.com/environment/pdf/Apple_Environmental_Progress_Report_2022.pdf"isExternal textColor="blue"> Apple Sustainability Report 2022</Link></b>
+                </Text>
+              </AccordionPanel>
+            </AccordionItem>
         </Accordion>
       </Box>
     </Box>
   );
 }
+                  
