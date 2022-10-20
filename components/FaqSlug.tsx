@@ -29,13 +29,13 @@ export default function Faq({
       <Box
         m="0 auto"
       >
-        {/* <Heading
+        <Heading
           fontSize={{ base: "18px", sm: "18px", lg: "18px" }}
           mb="36px"
           textTransform='uppercase'
         >
           {title ?? 'Frequently Asked Questions'}
-        </Heading> */}
+        </Heading>
         <Accordion
           allowToggle
         >
