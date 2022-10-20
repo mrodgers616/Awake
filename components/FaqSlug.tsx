@@ -57,7 +57,7 @@ export default function Faq({
                   <Heading flex="1" textAlign="left" fontSize={{ base: "18px", sm: "18px", lg: "18px" }}>
                     {faq.question}
                   </Heading>
-                </AccordionButton>
+                </AccordionButton> 
                 <AccordionIcon />
               </Flex>
               <AccordionPanel pb={4}>
