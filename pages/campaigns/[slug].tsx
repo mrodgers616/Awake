@@ -31,6 +31,9 @@ import MasterCommentThread from "../../components/comments/masterCommentThread";
 import plaidLink from "../../components/plaidLinkButton"
 import Confetti from 'react-confetti'
 import LoginModal from '../../components/LoginModal'
+import Faq from "../../components/FaqSlug";
+import faqs from "../../data/slugFAQ.json";
+
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -498,7 +501,7 @@ export default function Proposal({
           <Flex mb="64px" flexDir={"column"} w={{ base: "100%", sm: "100%", md: "60%", lg: "60 %" }} mr="32px">
             <Box mb="32px">
               <Heading fontSize="18px" textTransform={"uppercase"} mb="16px" ml={{base:"20px"}}>
-                OUR ASK
+              WHY IT&apos;S IMPORTANT
               </Heading>
               {campaign?.companyName == "Apple" ? 
 
@@ -506,14 +509,15 @@ export default function Proposal({
                 campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
                   {/* Taking out the substring below to edit easier */}
                   {/* {String(campaign?.description).substring(0,332)} */}
-                  <text><b>We’re calling for Apple to address its contribution to the fastest growing waste stream on the planet. We want Apple to disclose electronic waste figures and provide additional information on their plans to mitigate waste.</b></text>
+                  <text><b>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. With your help, we can get Apple to take a stronger stance.</b></text>
                   <br/>
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
                   <br/>
                   <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                    WHY IT&apos;S IMPORTANT
+                    
+                    WHAT WE WANT
                   </Heading>
-                  <text>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. In 2019, approximately </text>
+                  <text>We want Apple to disclose total electronic waste figures* and provide additional information on their plans to mitigate waste. In 2019, approximately </text>
                   <b><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
                    53.6 million 
                   </Link></b>
@@ -541,10 +545,12 @@ export default function Proposal({
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbreakdifferent.png?alt=media&token=5b79a1b1-b1fc-4fad-a7b0-ea81e8b252c2"></Image>
                   <br/>
                   {/* {String(campaign?.description).substring(1333)} */}
-                  <text>As it stands, the company&apos;s</text>
+                  <text>As it stands, the company&apos;s </text>
                   <b><Link href="https://support.apple.com/irp-program"isExternal>Independent Repair Program</Link></b>
                   <text> only allows approved technicians to repair Apple products. We want to see Apple expand access, so that we can keep millions of tons of E-waste from being generated. At the very least, we&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste and how it intends to account for it. </text>
                   <br/>
+                  <br/>
+                  <Faq faqs={faqs}></Faq>
                   <br/>
                   <u><Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                     More Information
@@ -570,14 +576,15 @@ export default function Proposal({
               
             </Box>
 
-            <Box display={{ base: "none", sm: "none", lg: "block" }}>
+            <Box display={{ base: "block", sm: "block", lg: "block" }} ml="3.2%">
+            
               <Flex justifyContent="space-between">
                 <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                  discussion
+                  Discussion
                 </Heading>
               </Flex>
               <br></br>
-              <Box mt="2%" mb="2%">
+              <Box mb="2%">
                 <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread>
               </Box>
             </Box>
