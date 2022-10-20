@@ -333,7 +333,7 @@ export default function Proposal({
   return (
     <>
       <Head>
-        {/* <title>Proposal {campaign?.id} | Awake</title> */}
+        <title>Proposal {campaign?.symbol} | Awake</title>
       </Head>
       {showConfetti && (<Confetti width={width} height={height}/>)}
       <Box
