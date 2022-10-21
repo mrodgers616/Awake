@@ -11,7 +11,8 @@ import {
   Icon,
   Container,
   useDisclosure,
-  useToast
+  useToast,
+  Stack
 } from "@chakra-ui/react";
 import useWindowSize from 'react-use/lib/useWindowSize'
 import { FaClipboard, FaTwitter, FaFacebook } from "react-icons/fa";
@@ -358,20 +359,17 @@ export default function Proposal({
           left="0"
         />
         <Container p="0 25px" m="0 auto" width={"100%"}>
-          <Button leftIcon={<IoArrowBackOutline />} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px" display={{ base: "none", sm: "none" }}>
+          {/* <Button leftIcon={<IoArrowBackOutline />} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px" display={{ base: "none", sm: "none" }}>
             All Campaigns
-          </Button>
+          </Button> */}
           <Flex
             position="relative"
-            minH="300px"
+            minH="80px"
             alignItems="center"
             justifyContent="center"
             flexDir="column"
             zIndex={250}
           >
-            <Heading fontSize={{base: "22px", md: "42", lg: "42px"}} mt="20" color="white" w="100%">
-              {campaign?.title ?? "TITLE!"}
-            </Heading>
           </Flex>
         </Container>
       </Box>
@@ -379,6 +377,7 @@ export default function Proposal({
         <Flex
           w="100%"
           mb="32px"
+          mt="100px"
           bg='#08152E'
           height={{
             base: 'fit-content',
@@ -451,7 +450,7 @@ export default function Proposal({
                 h="64px"
                 onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
               >
-                {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
+                {hasUserVoted() ? "Already Supported!" : "Sign Petition"}
               </Button>
               { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
@@ -480,7 +479,7 @@ export default function Proposal({
                 h="64px"
                 onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
                 >
-                {"Support Campaign"}
+                {"Sign Petition"}
                 </Button>
               
                 {loginModal && 
@@ -497,6 +496,12 @@ export default function Proposal({
             
           </Flex>
         </Flex>
+
+        <Container paddingTop="50px" paddingBottom={{base: "0px", md: "20px", lg: "20px"}}>
+          <Heading fontSize={{base: "22px", md: "42", lg: "42px"}} as='u'mt="40px" color="black" w="100%" paddingLeft={{base: "0px", md: "155px", lg: "155px"}} fontWeight="medium">
+            {campaign?.title ?? "TITLE!"}
+          </Heading>
+        </Container>
         <Flex mt="64px" w="100%">
           <Flex mb="64px" flexDir={"column"} w={{ base: "100%", sm: "100%", md: "60%", lg: "60 %" }} mr="32px">
             <Box mb="32px">
@@ -550,7 +555,9 @@ export default function Proposal({
                   <text> only allows approved technicians to repair Apple products. We want to see Apple expand access, so that we can keep millions of tons of E-waste from being generated. At the very least, we&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste and how it intends to account for it. </text>
                   <br/>
                   <br/>
-                  <Faq faqs={faqs}></Faq>
+                  <Container display={{ base: "block", sm: "none", lg: "none" }}>
+                    <Faq faqs={faqs}></Faq>
+                  </Container>
                   <br/>
                   
 
@@ -585,6 +592,7 @@ export default function Proposal({
           <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }} display={{ base: "none", sm: "none", lg: "block" }}>
 
             <Flex mb="63px" flexDir={"column"} w="25%">
+            <Stack>
               <Flex
                 position="absolute"
                 justifyContent="center"
@@ -658,10 +666,16 @@ export default function Proposal({
                           );
                         }
                       })}
+
+                      
                     </Flex>
                   </Box>
                 </Flex>
               </Flex>
+              <Container paddingTop="150px" w="400%" paddingLeft="50px">
+                <Faq faqs={faqs}></Faq>
+              </Container>
+              </Stack>
 
             </Flex>
 
@@ -734,7 +748,7 @@ export default function Proposal({
                 h="64px"
                 onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
               >
-                {hasUserVoted() ? "Already Supported!" : "Support Campaign"}
+                {hasUserVoted() ? "Already Supported!" : "Sign Petition"}
               </Button>
               { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
@@ -763,7 +777,7 @@ export default function Proposal({
                 h="64px"
                 onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
                 >
-                {"Support Campaign"}
+                {"Sign Petition"}
                 </Button>
               
                 {loginModal && 
