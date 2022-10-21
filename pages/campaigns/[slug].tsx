@@ -339,7 +339,7 @@ export default function Proposal({
       <Head>
         <title>Proposal {campaign?.symbol} | Awake</title>
         <meta property="og:title" content="Awake: Hold Apple Accountable" />
-        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Frice.png?alt=media&token=f8dcf69f-69cf-4425-a0fc-9bbfb323f7d2" />
+        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a" />
       </Head>
       {showConfetti && (<Confetti width={width} height={height}/>)}
       <Box
