@@ -338,8 +338,8 @@ export default function Proposal({
     <>
       <Head>
         <title>Proposal {campaign?.symbol} | Awake</title>
-        <meta property="og:title" content="Awake: Hold Apple Accountable" />
-        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a" />
+        <meta property="og:title" content="Hold Apple Accountable: Awake" />
+        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Frice.png?alt=media&token=f8dcf69f-69cf-4425-a0fc-9bbfb323f7d2" />
       </Head>
       {showConfetti && (<Confetti width={width} height={height}/>)}
       <Box
@@ -360,6 +360,7 @@ export default function Proposal({
           top="0"
           left="0"
         />
+
         <Container p="0 25px" m="0 auto" width={"100%"}>
           {/* <Button leftIcon={<IoArrowBackOutline />} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px" display={{ base: "none", sm: "none" }}>
             All Campaigns
@@ -375,6 +376,11 @@ export default function Proposal({
           </Flex>
         </Container>
       </Box>
+      <Container paddingTop="50px" paddingBottom={{base: "0px", md: "20px", lg: "20px"}}>
+          <Heading fontSize={{base: "22px", md: "42", lg: "42px"}} mt="40px" color="#08152E" w="100%" paddingLeft={{base: "0px", md: "155px", lg: "155px"}} fontWeight="bold">
+            {campaign?.title ?? "TITLE!"}
+          </Heading>
+        </Container>
       <Container position="relative" mt="-60px" zIndex={1}>
         <Flex
           w="100%"
@@ -499,11 +505,6 @@ export default function Proposal({
           </Flex>
         </Flex>
 
-        <Container paddingTop="50px" paddingBottom={{base: "0px", md: "20px", lg: "20px"}}>
-          <Heading fontSize={{base: "22px", md: "42", lg: "42px"}} as='u'mt="40px" color="black" w="100%" paddingLeft={{base: "0px", md: "155px", lg: "155px"}} fontWeight="medium">
-            {campaign?.title ?? "TITLE!"}
-          </Heading>
-        </Container>
         <Flex mt="64px" w="100%">
           <Flex mb="64px" flexDir={"column"} w={{ base: "100%", sm: "100%", md: "60%", lg: "60 %" }} mr="32px">
             <Box mb="32px">
@@ -594,9 +595,55 @@ export default function Proposal({
           <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }} display={{ base: "none", sm: "none", lg: "block" }}>
 
             <Flex mb="63px" flexDir={"column"} w="25%">
+            <Container paddingTop="20px" w="400%" paddingLeft="50px">
+                <Faq faqs={faqs}></Faq>
+              </Container>
+            </Flex>
+
+          </Flex>
+        </Flex>
+        {/* I've commented out the steps section and the latest articles section for simplicity */}
+        {/* <StepsSection steps={Steps} />
+        <Flex flexDir={"column"}>
+          <LatestArticles title="latest news" climateDAOArticles={articles} />
+        </Flex> */}
+        <Flex
+          w="100%"
+          mb="32px"
+          bg='#08152E'
+          height={{
+            base: 'fit-content',
+            lg: "175px"
+          }}
+          borderRadius="16px"
+          justifyContent="center"
+          alignItems="center"
+          boxShadow="4px 4px 62px -9px rgba(0, 0, 0, 0.15)"
+          zIndex={500}
+          flexDir={{
+            base: "column",
+            md: "row"
+          }}
+        >
+          <Flex
+            alignItems={"center"}
+            justifyContent={"center"}
+            flexBasis="50%"
+            borderRight={{
+              base: 'none',
+              md: "1px solid #eaeaea"
+            }}
+            flexDirection={{
+              base: 'row',
+              sm: "row",
+              lg: 'row'
+            }}
+            m='16px'
+          >
+            <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
             <Stack>
               <Flex
-                position="absolute"
+                position="relative"
                 justifyContent="center"
                 flexDirection="column"
                 alignItems="center"
@@ -604,10 +651,10 @@ export default function Proposal({
                 backgroundColor="FFFFFF"
                 boxShadow='2xl' p='0'
                 borderRadius="16px"
-                mt='12px'
-                mb="50%"
+                mt='auto'
+                mb="auto"
                 ml="30px"
-                border="3px solid gray"
+                border="0px solid gray"
               >
                 
                 <Text fontSize="xl" fontWeight="bold" mb={0} mt={4}>
@@ -674,57 +721,7 @@ export default function Proposal({
                   </Box>
                 </Flex>
               </Flex>
-              <Container paddingTop="150px" w="400%" paddingLeft="50px">
-                <Faq faqs={faqs}></Faq>
-              </Container>
-              </Stack>
-
-            </Flex>
-
-          </Flex>
-        </Flex>
-        {/* I've commented out the steps section and the latest articles section for simplicity */}
-        {/* <StepsSection steps={Steps} />
-        <Flex flexDir={"column"}>
-          <LatestArticles title="latest news" climateDAOArticles={articles} />
-        </Flex> */}
-        <Flex
-          w="100%"
-          mb="32px"
-          bg='#08152E'
-          height={{
-            base: 'fit-content',
-            lg: "175px"
-          }}
-          borderRadius="16px"
-          justifyContent="center"
-          alignItems="center"
-          boxShadow="4px 4px 62px -9px rgba(0, 0, 0, 0.15)"
-          zIndex={500}
-          flexDir={{
-            base: "column",
-            md: "row"
-          }}
-        >
-          <Flex
-            alignItems={"center"}
-            justifyContent={"center"}
-            flexBasis="50%"
-            borderRight={{
-              base: 'none',
-              md: "1px solid #eaeaea"
-            }}
-            flexDirection={{
-              base: 'row',
-              sm: "row",
-              lg: 'row'
-            }}
-            m='16px'
-          >
-            <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
-              <Text fontWeight={500} fontSize={{ base: "16px", lg: "32px" }}>
-                Help us hold Apple Accountable
-              </Text>
+            </Stack>
             </Box>
           </Flex>
           <Flex
