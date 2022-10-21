@@ -552,14 +552,7 @@ export default function Proposal({
                   <br/>
                   <Faq faqs={faqs}></Faq>
                   <br/>
-                  <u><Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                    More Information
-                  </Heading></u>
-                  <b><Link href="https://ewastemonitor.info/wp-content/uploads/2020/11/GEM_2020_def_july1_low.pdf"isExternal textColor="blue"> E-waste Monitor Report 2020</Link></b>
-                  <br/>
-                  <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/"isExternal textColor="blue"> Apple Case Study</Link></b>
-                  <br/>
-                  <b><Link href="https://www.apple.com/environment/pdf/Apple_Environmental_Progress_Report_2022.pdf"isExternal textColor="blue"> Apple Sustainability Report 2022</Link></b>
+                  
 
 
                   {/* <iframe width="480" height="270" src="https://www.youtube.com/embed/ZzS2vwDUO9U?start=18" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
@@ -576,7 +569,7 @@ export default function Proposal({
               
             </Box>
 
-            <Box display={{ base: "block", sm: "block", lg: "block" }} ml="3.2%">
+            <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
             
               <Flex justifyContent="space-between">
                 <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
