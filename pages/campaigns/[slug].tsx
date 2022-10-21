@@ -569,7 +569,7 @@ export default function Proposal({
               
             </Box>
 
-            <Box display={{ base: "block", sm: "block", lg: "block" }} ml="3.2%">
+            <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
             
               <Flex justifyContent="space-between">
                 <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
