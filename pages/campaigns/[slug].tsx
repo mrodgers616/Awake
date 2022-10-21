@@ -647,7 +647,7 @@ export default function Proposal({
                 justifyContent="center"
                 flexDirection="column"
                 alignItems="center"
-                width={484}
+                width={{base: 284, md: 484, lg: 484}}
                 backgroundColor="FFFFFF"
                 boxShadow='2xl' p='0'
                 borderRadius="16px"
@@ -655,10 +655,11 @@ export default function Proposal({
                 mb="auto"
                 ml="30px"
                 border="0px solid gray"
+                mr={{base: "30px"}}
               >
                 
                 <Text fontSize="xl" fontWeight="bold" mb={0} mt={4}>
-                  {"Share this campaign with a friend"}
+                  {"Share this campaign"}
                 </Text>
                 <Flex justifyContent="center" alignItems="space-around" width={48}>
                   <Box>
