@@ -11,7 +11,9 @@ import {
   Button,
   Icon,
   Center,
-  Text
+  Text,
+  Stack,
+  Link
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Configuration, LinkTokenCreateRequest, PlaidApi, PlaidEnvironments, InvestmentsHoldingsGetResponse } from 'plaid';
@@ -23,12 +25,13 @@ import {
   usePlaidLink,
   PlaidLinkOptionsWithLinkToken,
 } from 'react-plaid-link';
+import { useToast } from "@chakra-ui/react";
 import useWindowSize from 'react-use/lib/useWindowSize'
 import { BiWrench, BiChevronRight } from "react-icons/bi";
 import { BsPersonCheck } from "react-icons/bs";
 import { lighten } from '@chakra-ui/theme-tools';
 import propTypes from 'prop-types';
-import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOrAddProfileData } from "../lib/firebaseClient";
+import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOrAddProfileData, addNewsletterSubscriberToStore } from "../lib/firebaseClient";
 import { arrayUnion, Timestamp, increment } from "firebase/firestore";
 import Confetti from 'react-confetti'
 import LinkAccount from './plaidLinkButtonNoRedirect'
@@ -91,7 +94,7 @@ export default function CastVoteModal({
   profileData,
   uid,
   investmentsOld,
-  slug
+  slug,
 }: {
   onOpen?: () => void;
   onClose: () => void;
@@ -109,6 +112,7 @@ export default function CastVoteModal({
   const [showModal, setShowModal] = useState(true);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [investments, setInvestments] = useState(investmentsOld);
+  const toast = useToast();
   const theConfetti: any = async () => {
     setShowConfetti(true);
     await sleep(7000);
@@ -577,6 +581,28 @@ export default function CastVoteModal({
     setShowDisclaimer(true);
   }
 
+  const handleNewsLetter = async () => {
+    let profile = await getProfileData(uid);
+    const profileData = {
+      ...profile.data()
+    };
+
+    const email = profileData.email
+    let data = {
+      email: email
+    }
+    addNewsletterSubscriberToStore(data);
+
+    toast({
+      title: "Success",
+      description:
+        "Thanks for signing up for the newsletter!",
+      status: "success",
+      duration: 6000,
+      isClosable: true,
+    });
+  }
+
   useEffect(() => {
     loadOnPageLoad();
     
@@ -665,7 +691,17 @@ export default function CastVoteModal({
         {!showForAgainst && (
         <ModalBody>
           <Center>
-            <Heading as="h4" size="sm"> Your vote and votes like yours are important for this campaign&apos;s success</Heading>
+            <Stack>
+            <Heading as="h4" size="sm"> Your vote and votes like yours are important for this campaign&apos;s success.</Heading>
+            <br></br>
+            <Heading as="h4" size="sm"> Check out what happens next below:</Heading>
+            <br></br>
+            <Text><b>1.</b> <Button variant='link' colorScheme='blue' onClick={handleNewsLetter}>Sign up for our newsletter</Button> (We promise we won&apos;t spam you) and <Link textColor="blue" href="https://twitter.com/Climate_DAO" colorScheme='blue' isExternal >follow us on Twitter</Link> to get updates on the Campaign&apos;s progress</Text>
+            <br></br>
+            <Text><b>2.</b> Once the campaign has finished we will approach the target company with the data we have collected from the campaign to make the changes requested</Text>
+            <br></br>
+            <Text><b>3.</b> We will publish the results of the campaign and any actions the target company has taken.</Text>
+            </Stack>
           </Center>
         </ModalBody>
         )}

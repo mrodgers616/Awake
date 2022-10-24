@@ -63,6 +63,7 @@ export default function Proposal({
   slug,
   uid,
   profileData,
+  email,
 }: {
   campaign: any;
   stockData: any;
@@ -70,6 +71,7 @@ export default function Proposal({
   slug: string;
   uid: any;
   profileData: any;
+  email: any;
 }): JSX.Element {
   const [modalClose, setModalClose] = useState(false);
   const [currentState, setCurrentState] = useState<string>();
@@ -460,7 +462,7 @@ export default function Proposal({
                 h="64px"
                 onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
               >
-                {hasUserVoted() ? "Already Supported!" : "Sign Petition"}
+                {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
               </Button>
               { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
@@ -556,7 +558,7 @@ export default function Proposal({
                   <br/>
                   {/* {String(campaign?.description).substring(1333)} */}
                   <text> 
-                  W&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
+                  We&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
                   </text>
                   <br/>
                   <br/>
@@ -750,7 +752,7 @@ export default function Proposal({
                 h="64px"
                 onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
               >
-                {hasUserVoted() ? "Already Supported!" : "Sign Petition"}
+                {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
               </Button>
               { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
@@ -811,6 +813,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   let investments = null;
   let uid  = null;
   let profileData  = null;
+  let email = null;
 
   context.res.setHeader(
     "Cache-Control",
@@ -859,6 +862,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       slug: slug as string,
       uid: uid,
       profileData: profileData,
+      email: email,
     },
   };
 }
