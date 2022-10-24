@@ -553,9 +553,9 @@ export default function Proposal({
                   <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbreakdifferent.png?alt=media&token=5b79a1b1-b1fc-4fad-a7b0-ea81e8b252c2"></Image>
                   <br/>
                   {/* {String(campaign?.description).substring(1333)} */}
-                  <text>As it stands, the company&apos;s </text>
-                  <b><Link href="https://support.apple.com/irp-program"isExternal>Independent Repair Program</Link></b>
-                  <text> only allows approved technicians to repair Apple products. We want to see Apple expand access, so that we can keep millions of tons of E-waste from being generated. At the very least, we&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste and how it intends to account for it. </text>
+                  <text> 
+                  W&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
+                  </text>
                   <br/>
                   <br/>
                   <Container display={{ base: "block", sm: "none", lg: "none" }}>
