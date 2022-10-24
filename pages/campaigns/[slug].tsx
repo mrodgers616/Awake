@@ -12,8 +12,10 @@ import {
   Container,
   useDisclosure,
   useToast,
-  Stack
+  Stack,
+  Tooltip
 } from "@chakra-ui/react";
+import { QuestionOutlineIcon } from '@chakra-ui/icons'
 import useWindowSize from 'react-use/lib/useWindowSize'
 import { FaClipboard, FaTwitter, FaFacebook } from "react-icons/fa";
 import { useEffect, useState } from "react";
@@ -61,6 +63,7 @@ export default function Proposal({
   slug,
   uid,
   profileData,
+  email,
 }: {
   campaign: any;
   stockData: any;
@@ -68,6 +71,7 @@ export default function Proposal({
   slug: string;
   uid: any;
   profileData: any;
+  email: any;
 }): JSX.Element {
   const [modalClose, setModalClose] = useState(false);
   const [currentState, setCurrentState] = useState<string>();
@@ -421,7 +425,7 @@ export default function Proposal({
                 {campaign.verifiedVotes ? String(Math.round(campaign.verifiedVotes * 100) /100) : "0"}
               </Heading>
               <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
-                Shares Commited
+                Shares Commited &nbsp; <Tooltip label="This number tracks the collective number of shares in the company petition signers own"><QuestionOutlineIcon/></Tooltip>
               </Text>
             </Box>
             <Box color="white" p={{ base: '4', lg: "16px 24px" }}>
@@ -431,7 +435,7 @@ export default function Proposal({
                 {String(howManyUsers())}
               </Heading>
               <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
-                Supporters
+                Petition Signers
               </Text>
             </Box>
           </Flex>
@@ -458,7 +462,7 @@ export default function Proposal({
                 h="64px"
                 onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
               >
-                {hasUserVoted() ? "Already Supported!" : "Sign Petition"}
+                {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
               </Button>
               { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
@@ -519,7 +523,7 @@ export default function Proposal({
                   {/* {String(campaign?.description).substring(0,332)} */}
                   <text><b>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. With your help, we can get Apple to take a stronger stance.</b></text>
                   <br/>
-                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
+                  <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
                   <br/>
                   <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                     
@@ -543,18 +547,18 @@ export default function Proposal({
                   <br/>
                   <br/>
                   <text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</text>
-                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Frice.png?alt=media&token=f8dcf69f-69cf-4425-a0fc-9bbfb323f7d2"></Image>
+                  <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Frice.png?alt=media&token=f8dcf69f-69cf-4425-a0fc-9bbfb323f7d2"></Image>
                   <br/>
                   <text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a </text>
                   
                   <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
                   <text> Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
 
-                  <Image mt="20px" mb="10px" alt="Image of e-waste" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbreakdifferent.png?alt=media&token=5b79a1b1-b1fc-4fad-a7b0-ea81e8b252c2"></Image>
+                  <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbreakdifferent.png?alt=media&token=5b79a1b1-b1fc-4fad-a7b0-ea81e8b252c2"></Image>
                   <br/>
                   {/* {String(campaign?.description).substring(1333)} */}
                   <text> 
-                  W&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
+                  We&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
                   </text>
                   <br/>
                   <br/>
@@ -748,7 +752,7 @@ export default function Proposal({
                 h="64px"
                 onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
               >
-                {hasUserVoted() ? "Already Supported!" : "Sign Petition"}
+                {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
               </Button>
               { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
@@ -809,6 +813,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   let investments = null;
   let uid  = null;
   let profileData  = null;
+  let email = null;
 
   context.res.setHeader(
     "Cache-Control",
@@ -857,6 +862,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       slug: slug as string,
       uid: uid,
       profileData: profileData,
+      email: email,
     },
   };
 }
