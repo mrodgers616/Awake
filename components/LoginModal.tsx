@@ -79,7 +79,7 @@ export default function LoginModal({
         >
           <Center>
             <Stack>
-              <Text align="center">Creating an account and linking a brokerage account differentiates your vote from other platforms and helps to make an acutal impact</Text>
+              <Text align="center">Creating an account and linking a brokerage account differentiates your vote from other platforms and helps to make an actual impact</Text>
               <Center>
               <Button w='50%' border="0px" bg='white' color="purple" onClick={() => {handleOnClick()}}>
                 Continue
