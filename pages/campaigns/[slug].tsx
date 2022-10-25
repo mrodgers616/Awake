@@ -600,7 +600,7 @@ export default function Proposal({
               </Flex>
               <br></br>
               <Box mb="2%">
-                <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread>
+                <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread> 
               </Box>
             </Box>
           </Flex>
