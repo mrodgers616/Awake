@@ -580,6 +580,11 @@ export default function Proposal({
                 campaign?.description && (<Text>
                   {campaign?.description}
                 </Text>)}
+
+                <Heading paddingLeft={{base: "30px", md: "25px", lg: "25px"}} fontSize="18px" textTransform={"uppercase"} mb="16px">
+                    How It Works
+                </Heading>
+                <Image paddingLeft={{base: "30px", md: "25px", lg: "25px"}} w={{base: "125%"}} src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Group%20359.png?alt=media&token=01a6ab90-a663-4412-a899-169e250de315" alt="How it works"></Image>
               
             </Box>
 

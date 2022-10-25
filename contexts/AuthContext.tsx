@@ -157,11 +157,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
   async function logout(): Promise<void> {
     await getAuth().signOut();
     setState({ ...state, user: null, loggedIn: false, userid: null });
-    nookies.destroy(undefined, 'token', { path: '/'});
-    nookies.destroy(undefined, '_session', { path: '/'});
-    nookies.destroy(undefined, 'session', { path: '/'});
-    nookies.destroy(undefined, '__session', { path: '/'});
-    nookies.destroy(null, "userUID", {path: '/', maxAge: 60*60*24*14});
+    nookies.destroy(undefined, 'token', { path: '/', maxAge: 60*60*24*30});
+    nookies.destroy(undefined, '_session', { path: '/', maxAge: 60*60*24*30});
+    nookies.destroy(undefined, 'session', { path: '/', maxAge: 60*60*24*30});
+    nookies.destroy(undefined, '__session', { path: '/', maxAge: 60*60*24*30});
+    nookies.destroy(null, "userUID", {path: '/', maxAge: 60*60*24*30});
     router.push("/");
   }
 
@@ -240,7 +240,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     } catch (error) {
       toast({
         title: "Error",
-        description: (error as FirebaseError).message,
+        description: "",
         status: "error",
         duration: 9000,
         isClosable: true,
@@ -403,7 +403,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     } catch (error) {
       toast({
         title: "Error",
-        description: (error as FirebaseError).message,
+        description: "There was a problem with registration, try again.",
         status: "error",
         duration: 9000,
         isClosable: true,
