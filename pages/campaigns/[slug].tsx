@@ -523,16 +523,21 @@ export default function Proposal({
                   {/* {String(campaign?.description).substring(0,332)} */}
                   <text><b>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. With your help, we can get Apple to take a stronger stance.</b></text>
                   <br/>
-                  <Heading paddingLeft={{base: "30px", md: "25px", lg: "25px"}} fontSize="18px" textTransform={"uppercase"} mb="16px">
+                  <br/>
+                  <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                     How It Works
                 </Heading>
-                <Image paddingLeft={{base: "30px", md: "25px", lg: "25px"}} w={{base: "125%"}} src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Group%20359.png?alt=media&token=01a6ab90-a663-4412-a899-169e250de315" alt="How it works"></Image>
+                <Image w={{base: "125%"}} src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Group%20359.png?alt=media&token=01a6ab90-a663-4412-a899-169e250de315" alt="How it works"></Image>
                   <br/>
                   <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
                     WHAT WE WANT
                   </Heading>
                   <text>We want Apple to disclose total electronic waste figures* and provide additional information on their plans to mitigate waste.</text> 
                   <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
+                  <br/>
+                  <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
+                    Back Story
+                  </Heading>
                   <text>In 2019, approximately </text>
                   <b><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
                    53.6 million 
@@ -551,7 +556,7 @@ export default function Proposal({
                   <br/>
                   <br/>
                   <text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</text>
-                  <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Frice.png?alt=media&token=f8dcf69f-69cf-4425-a0fc-9bbfb323f7d2"></Image>
+                  {/* <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Frice.png?alt=media&token=f8dcf69f-69cf-4425-a0fc-9bbfb323f7d2"></Image> */}
                   <br/>
                   <text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a </text>
                   
