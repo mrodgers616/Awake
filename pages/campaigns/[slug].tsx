@@ -523,13 +523,17 @@ export default function Proposal({
                   {/* {String(campaign?.description).substring(0,332)} */}
                   <text><b>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. With your help, we can get Apple to take a stronger stance.</b></text>
                   <br/>
-                  <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
+                  <Heading paddingLeft={{base: "30px", md: "25px", lg: "25px"}} fontSize="18px" textTransform={"uppercase"} mb="16px">
+                    How It Works
+                </Heading>
+                <Image paddingLeft={{base: "30px", md: "25px", lg: "25px"}} w={{base: "125%"}} src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Group%20359.png?alt=media&token=01a6ab90-a663-4412-a899-169e250de315" alt="How it works"></Image>
                   <br/>
                   <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                    
                     WHAT WE WANT
                   </Heading>
-                  <text>We want Apple to disclose total electronic waste figures* and provide additional information on their plans to mitigate waste. In 2019, approximately </text>
+                  <text>We want Apple to disclose total electronic waste figures* and provide additional information on their plans to mitigate waste.</text> 
+                  <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
+                  <text>In 2019, approximately </text>
                   <b><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
                    53.6 million 
                   </Link></b>
@@ -580,12 +584,6 @@ export default function Proposal({
                 campaign?.description && (<Text>
                   {campaign?.description}
                 </Text>)}
-
-                <Heading paddingLeft={{base: "30px", md: "25px", lg: "25px"}} fontSize="18px" textTransform={"uppercase"} mb="16px">
-                    How It Works
-                </Heading>
-                <Image paddingLeft={{base: "30px", md: "25px", lg: "25px"}} w={{base: "125%"}} src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Group%20359.png?alt=media&token=01a6ab90-a663-4412-a899-169e250de315" alt="How it works"></Image>
-              
             </Box>
 
             <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
