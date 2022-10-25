@@ -591,7 +591,7 @@ export default function Proposal({
             <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
             
               <Flex justifyContent="space-between">
-                <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
+                <Heading fontSize="18px" textTransform={"uppercase"} mb="16px"> 
                   Discussion
                 </Heading>
               </Flex>
