@@ -406,11 +406,6 @@ export const teamportfolio = {
       text: 'Eli Danziger',
     },
     {
-      id: 5,
-      img: member5,
-      text: 'Fahima Gibrel',
-    },
-    {
       id: 7,
       img: member7,
       text: 'Sigal Shemesh'
