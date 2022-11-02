@@ -401,7 +401,7 @@ export const teamportfolio = {
       text: "Johnny Gabrielle",
     },
     {
-      id: 4,
+      id: 6,
       img: member4,
       text: 'Eli Danziger',
     },
