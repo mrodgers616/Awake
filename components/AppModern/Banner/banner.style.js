@@ -8,26 +8,6 @@ const BannerWrapper = styled.div`
   position: relative;
   background: linear-gradient(131deg, #75518c, #9fb1ce);
   background-size: 400% 400%;
-
-  -webkit-animation: AnimationName 45s ease infinite;
-  -moz-animation: AnimationName 45s ease infinite;
-  animation: AnimationName 45s ease infinite;
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 25%}
-    50%{background-position:100% 76%}
-    100%{background-position:0% 25%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:0% 25%}
-    50%{background-position:100% 76%}
-    100%{background-position:0% 25%}
-}
-@keyframes AnimationName {
-    0%{background-position:0% 25%}
-    50%{background-position:100% 76%}
-    100%{background-position:0% 25%}
-}
   // background-image: -moz-linear-gradient(
   //   41deg,
   //   rgb(100, 43, 115) 0%,
