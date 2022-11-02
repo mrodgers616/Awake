@@ -3,13 +3,14 @@ import {
   ChakraProvider,
   Container,
   Flex,
+  Highlight,
   Image,
   Heading
 } from '@chakra-ui/react'
 
 const NewContent = () => (
   <ChakraProvider resetCSS>
-      <Flex justifyContent="space-between" alignItems="center" width="100%" mt={20}>
+    <Flex justifyContent="space-between" alignItems="center" width="100%" mt={20}>
         <Image
           height="400px"
           width="400px"
@@ -27,21 +28,29 @@ const NewContent = () => (
           textAlign="right" 
           size="2xl"
         >
-          "If You Want to Go Fast, Go Alone. If you Want to Go Far, Go
-          Together."
+          <Highlight
+            query='profit AND purpose.'
+            styles={{ px: '1', py: '.5', bg: 'yellow.200' }}>
+            Join a community of like-minded investors in profit AND purpose.
+          </Highlight>
         </Heading>
       </Flex>
+
       <Flex justifyContent="space-between" alignItems="center" width="100%" mt={20}>
       <Heading 
           ml="10%" 
           as="h1"
           maxWidth={"600px"} 
           display="inline-block" 
-          textAlign="right" 
+          textAlign="left" 
           size="2xl"
-        >
-          "If You Want to Go Fast, Go Alone. If you Want to Go Far, Go
-          Together."
+        ><Highlight
+        query='change.'
+        styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+      >
+        Vote on campaigns for companies in your portfolio to change.
+      </Highlight>
+          
         </Heading>
         <Image
           height="400px"
@@ -53,6 +62,7 @@ const NewContent = () => (
           src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg"
         />
       </Flex>
+      
       <Flex justifyContent="space-between" alignItems="center" width="100%" mt={20}>
         <Image
           height="400px"
@@ -71,8 +81,12 @@ const NewContent = () => (
           textAlign="right" 
           size="2xl"
         >
-          "If You Want to Go Fast, Go Alone. If you Want to Go Far, Go
-          Together."
+          <Highlight
+            query='real impact'
+            styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+          >
+            Join forces with other investors to have real impact
+          </Highlight>
         </Heading>
       </Flex>
   </ChakraProvider>
