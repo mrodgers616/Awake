@@ -481,7 +481,7 @@ export const footer = {
       id: 3,
       icon: twitter,
       title: 'Follow Us On Twitter',
-      link: 'https://twitter.com/Climate_DAO?s=20&t=7kfsw7yZBFaki0n8p6Qg7w',
+      link: 'https://twitter.com/AwakeInvest?s=20&t=raDm4L96BsHsT5ffrgLDsg',
       description:
         'Get updates and insights about popular campaigns',
     },
