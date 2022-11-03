@@ -98,13 +98,22 @@ const Banner = () => {
     <BannerWrapper id="home">
       <Container>
         <BannerContent>
+          <wbr/>
           <Heading
             className="textSizing"
             fontSize={{sm:" ",md:" ",lg:"44px"}}
             color="white"
             width={{sm:"300px",md:"400px",lg:"500px"}}
             
-            content="Sustainable Investing is Bullsh*t; We&#39;re Fixing It."
+            content="Sustainable Investing is Bullsh*t"
+          />
+          <Heading
+            className="textSizing"
+            fontSize={{sm:" ",md:" ",lg:"44px"}}
+            color="white"
+            width={{sm:"300px",md:"400px",lg:"500px"}}
+            
+            content="We&#39;re Fixing It."
           />
           <Text
             as="h3"
