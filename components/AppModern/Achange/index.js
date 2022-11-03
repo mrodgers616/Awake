@@ -13,12 +13,12 @@ const NewContent = () => (
     <Flex justifyContent="space-between" alignItems="center" width="100%" mt={20}>
         <Image
           height="400px"
-          width="400px"
+          // width="400px"
           display="inline-block"
           minWidth="100px"
           minHeight="100px"
           ml="10%"
-          src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg"
+          src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FFriends.png?alt=media&token=7db49963-3527-4ce9-a2a6-079a096d6566"
         />
         <Heading 
           mr="10%" 
@@ -59,7 +59,7 @@ const NewContent = () => (
           minWidth="100px"
           minHeight="100px"
           mr="10%"
-          src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg"
+          src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGroup%20365.png?alt=media&token=e671bf28-36d8-477e-b377-52c52a4aa561"
         />
       </Flex>
       
