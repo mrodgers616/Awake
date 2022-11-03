@@ -9,6 +9,7 @@ import Container from '../../common/components/UI/Container';
 import { addNewsletterSubscriberToStore } from "../../../lib/firebaseClient";
 import * as EmailValidator from 'email-validator';
 import Alert from '../../common/components/Alert';
+import { useToast } from "@chakra-ui/react";
 
 import NewsletterWrapper, { ContactFormWrapper } from './newsletter.style';
 
@@ -28,6 +29,7 @@ const Newsletter = ({
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState(false);
   const [color, setColor] = useState("green");
+  const toast = useToast();
 
   const controlref = useRef();
 
@@ -44,15 +46,24 @@ const Newsletter = ({
       }
 
       await addNewsletterSubscriberToStore(data);
-      setState({ email: "" });
-      setAlertMessage("Success");
-      setAlert(true);
-      setColor("green")
+      toast({
+        title: "Success",
+        description:
+          "Thanks for signing up for the newsletter!",
+        status: "success",
+        duration: 6000,
+        isClosable: true,
+      });
     }
     else {
-      setAlertMessage("Invalid Email");
-      setAlert(true);
-      setColor("red")
+      toast({
+        title: "Error",
+        description:
+          "Check if your email address is valid",
+        status: "error",
+        duration: 6000,
+        isClosable: true,
+      });
     }
 
     const alertstyle = {
