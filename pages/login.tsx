@@ -76,7 +76,7 @@ const Login: NextPageWithLayout = () => {
             bg='white'
           >
             <Heading mb='32px' textTransform='capitalize' textAlign="center">
-              Login to your account
+              Log In to your account
             </Heading>
             <chakra.form onSubmit={handleSubmit(onSubmit)}>
               <FormControl mb='16px'>
