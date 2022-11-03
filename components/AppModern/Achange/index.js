@@ -64,7 +64,7 @@ const NewContent = () => (
       </Flex>
       
       <Flex justifyContent="space-between" alignItems="center" width="100%" mt={20}>
-        <Image
+        {/* <Image
           height="400px"
           width="400px"
           display="inline-block"
@@ -72,14 +72,16 @@ const NewContent = () => (
           minHeight="100px"
           ml="10%"
           src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg"
-        />
+        /> */}
         <Heading 
           mr="10%" 
           as="h1"
-          maxWidth={"600px"} 
+          maxWidth={"800px"} 
           display="inline-block" 
-          textAlign="right" 
-          size="2xl"
+          textAlign="center" 
+          size="3xl"
+          mx={"auto"}
+          mt="20px"
         >
           <Highlight
             query='real impact'
