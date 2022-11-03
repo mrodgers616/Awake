@@ -698,7 +698,7 @@ export default function CastVoteModal({
                   <Text><b>1.</b> Awake will write to Apple&apos;s Corporate Sectretary once we reach 5,000 signatures to push for change!</Text>
                   <br></br>
                   
-                  <Text><b>2.</b><Button variant='link' colorScheme='blue' onClick={handleNewsLetter}>Opt-in here</Button> for campaign updates (no spam)</Text>
+                  <Text><b>2.</b><Button variant='link' colorScheme='blue' onClick={handleNewsLetter}> Opt-in here</Button> for campaign updates (no spam)</Text>
                   <br></br>
                   <Text><b>3.</b> Follow us on <Link textColor="blue" href="https://twitter.com/awakeinvest" colorScheme='blue' isExternal > Twitter</Link> for the memes.</Text>
                 </ol>
