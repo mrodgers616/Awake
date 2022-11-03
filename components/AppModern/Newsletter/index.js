@@ -80,7 +80,7 @@ const Newsletter = ({
           <Box {...textArea}>
             <Heading content="Subscribe to our newsletter" {...title} />
             <Text
-              content="Sign up to be the first to know about updates and new features"
+              content="Sign up to stay in the loop about the latest with us (we will not spam you)."
               {...description}
             />
           </Box>
