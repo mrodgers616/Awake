@@ -16,7 +16,7 @@ const NewContent = () => (
     <Flex justifyContent="space-between" alignItems="center" width="100%" mt={"80px"}>
         <Image
           //height={{base: "15px", base: "400px", base: "400px"}}
-          boxSize={{base: "150px", md: "450px", lg: "450px"}}
+          width={{base: "150px", md: "450px", lg: "500px"}}
           alt="group of investors"
           // width="400px"
           display="inline-block"
@@ -63,7 +63,7 @@ const NewContent = () => (
           
         </Heading>
         <Image
-          boxSize={{base: "150px", md: "450px", lg: "450px"}}
+          boxSize={{base: "150px", md: "400px", lg: "400px"}}
           alt="a picture of an apple campaign on the platform"
           // height="400px"
           // width="400px"
