@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon } from 'react-icons-kit';
 import { playCircle } from 'react-icons-kit/fa/playCircle';
+import { Highlight } from '@chakra-ui/react'
 // import { openModal, closeModal } from '@redq/reuse-modal';
 import Text from '../../common/components/Text';
 import Image from '../../common/components/Image';
@@ -60,7 +61,7 @@ const Banner = () => {
   // // modal handler
   // const handleVideoModal = () => {
   //   openModal({
-  //     config: {
+  //     config: 
   //       className: 'video-modal',
   //       disableDragging: true,
   //       default: {
@@ -97,15 +98,22 @@ const Banner = () => {
     <BannerWrapper id="home">
       <Container>
         <BannerContent>
+          <wbr/>
           <Heading
             className="textSizing"
             fontSize={{sm:" ",md:" ",lg:"44px"}}
             color="white"
             width={{sm:"300px",md:"400px",lg:"500px"}}
-            content="Sustainable Investing; No Bullsh*t"
-            // content="Don't Sacrifice Returns for Impact"
-            // content="Most 'sustainable' investing is BULLSH*T"
             
+            content="Sustainable Investing is Bullshit."
+          />
+          <Heading
+            className="textSizing"
+            fontSize={{sm:" ",md:" ",lg:"52px"}}
+            color="white"
+            width={{sm:"300px",md:"400px",lg:"500px"}}
+            
+            content="We&#39;re Fixing It."
           />
           <Text
             as="h3"
@@ -117,7 +125,7 @@ const Banner = () => {
               <LinkAccount className="primary" title="Activate Your Investments" onClick={() => { }} />
             ) : (
               <>
-                <Button className="primary" title="Get Started" onClick={() => { router.push("/login") }} />
+                <Button className="primary" title="Get Started" onClick={() => { router.push("/campaigns/81jDobBiu6t4OlCZljQh") }} />
               </>
             )}
 
@@ -134,7 +142,7 @@ const Banner = () => {
           <Image src={bannerImg?.src} style={popStyle} alt="Banner" />
         </BannerImage>
       </Container>
-      <CustomerWrapper>
+      {/* <CustomerWrapper>
         <Text content="Trusted by companies like:" />
         <ImageWrapper style={small}>
           {client.map((item) => (
@@ -145,7 +153,7 @@ const Banner = () => {
             />
           ))}
         </ImageWrapper>
-      </CustomerWrapper>
+      </CustomerWrapper> */}
       <img
         className="bannerBottomShape"
         src={circleBorder?.src}

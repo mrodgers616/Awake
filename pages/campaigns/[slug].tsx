@@ -607,7 +607,7 @@ export default function Proposal({
           <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }} display={{ base: "none", sm: "none", lg: "block" }}>
 
             <Flex mb="63px" flexDir={"column"} w="25%">
-            <Container paddingTop="20px" w="400%" paddingLeft="50px">
+            <Container w="400%" paddingLeft="50px">
                 <Faq faqs={faqs}></Faq>
               </Container>
             </Flex>

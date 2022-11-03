@@ -16,7 +16,7 @@ export const navbar = {
     // },
     {
       id: 1,
-      label: 'Campaigns',
+      label: 'Campaign',
       path: '/campaigns/81jDobBiu6t4OlCZljQh',
       offset: '81',
       staticLink: true,

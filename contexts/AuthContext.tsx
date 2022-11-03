@@ -101,6 +101,27 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return () => clearInterval(handle);
   }, []);
 
+  function mapAuthCodeToMessage(authCode: any) {
+    switch (authCode) {
+      case "auth/invalid-password":
+        return "Password provided is not corrected";
+  
+      case "auth/invalid-email":
+        return "Email provided is invalid";
+
+      case "Firebase: Error (auth/email-already-in-use).":
+        return "The provided email is already in use by an existing user";
+
+      case "Firebase: Password should be at least 6 characters (auth/weak-password).":
+        return "Password should be at least 6 characters";
+  
+      // Many more authCode mapping here...
+  
+      default:
+        return "There was a problem with registraion try again";
+    }
+  }
+
 
   async function login({
     email,
@@ -403,7 +424,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     } catch (error) {
       toast({
         title: "Error",
-        description: "There was a problem with registration, try again.",
+        description: mapAuthCodeToMessage((error as FirebaseError).message),
         status: "error",
         duration: 9000,
         isClosable: true,

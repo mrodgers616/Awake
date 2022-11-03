@@ -116,7 +116,7 @@ export default function CastVoteModal({
   const theConfetti: any = async () => {
     setShowConfetti(true);
     await sleep(7000);
-    setShowConfetti(false);
+    setShowConfetti(false); 
 
   }
 
@@ -644,9 +644,9 @@ export default function CastVoteModal({
           </>
           )}
           {!showForAgainst && (
-          <Heading as="h2" size="lg" textAlign={"center"}>
+          <Heading as="h2" size="lg" textAlign={"center"} color="green" mt="20px">
             {/*Choose Delegation Type*/}
-            Thanks for supporting this campaign!
+            You&apos;re the Absolute Best!
           </Heading>
           )}
         </ModalHeader>
@@ -689,18 +689,19 @@ export default function CastVoteModal({
   >Abstain</Button>*/}
         </ModalBody>
         {!showForAgainst && (
-        <ModalBody>
+        <ModalBody mx="20px" mb="20px">
           <Center>
             <Stack>
-            <Heading as="h4" size="sm"> Your vote and votes like yours are important for this campaign&apos;s success.</Heading>
+            <Heading as="h4" size="sm" color='black'> Your vote helps us fight for corporate accountability! What happens next:</Heading>
             <br></br>
-            <Heading as="h4" size="sm"> Check out what happens next below:</Heading>
-            <br></br>
-            <Text><b>1.</b> <Button variant='link' colorScheme='blue' onClick={handleNewsLetter}>Sign up for our newsletter</Button> (We promise we won&apos;t spam you) and <Link textColor="blue" href="https://twitter.com/Climate_DAO" colorScheme='blue' isExternal >follow us on Twitter</Link> to get updates on the Campaign&apos;s progress</Text>
-            <br></br>
-            <Text><b>2.</b> Once the campaign has finished we will approach the target company with the data we have collected from the campaign to make the changes requested</Text>
-            <br></br>
-            <Text><b>3.</b> We will publish the results of the campaign and any actions the target company has taken.</Text>
+                <ol>
+                  <Text><b>1.</b> Awake will write to Apple&apos;s Corporate Sectretary once we reach 5,000 signatures to push for change!</Text>
+                  <br></br>
+                  
+                  <Text><b>2.</b><Button variant='link' colorScheme='blue' onClick={handleNewsLetter}> Opt-in here</Button> for campaign updates (no spam)</Text>
+                  <br></br>
+                  <Text><b>3.</b> Follow us on <Link textColor="blue" href="https://twitter.com/awakeinvest" colorScheme='blue' isExternal > Twitter</Link> for the memes.</Text>
+                </ol>
             </Stack>
           </Center>
         </ModalBody>

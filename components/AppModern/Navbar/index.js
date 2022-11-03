@@ -145,10 +145,12 @@ const Navbar = () => {
             <div href="#trail" offset={84}>
               <Button className="trail" title="Profile" onClick={() => { router.push(`/user/${userid}/profile`); }} /> <span> </span>
             </div>
-          ) : (
-            <div href="#trail" offset={84}>
-              <Button className="trail" title="Login" onClick={() => { router.push("/login"); }} />
-            </div>
+          ) : (<>
+              <div href="#trail" offset={84}>
+                <Button colors="primaryWithBg" className="trail" title="Log In" onClick={() => { router.push("/login"); }} /> <span></span>
+                <Button title="Sign Up" onClick={() => { router.push("/register"); }} />
+              </div>
+              </>
           )}
 
 

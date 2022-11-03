@@ -51,6 +51,7 @@ const BannerWrapper = styled.div`
     .textSizing {
       @media only screen and (max-width: 480px) {
         font-size: 22px;
+        overflow-wrap: break-word;
     }
     }
   }

@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import type { NextPageWithLayout } from './_app'
 import Banner from '../components/AppModern/Banner';
+import NewContent from '../components/AppModern/Achange';
 import AppSlider from '../components/AppModern/AppSlider';
 import Features from '../components/AppModern/Features';
 // import DashboardFeatures from '../components/AppModern/Dashboard';
@@ -17,9 +18,10 @@ const Home: NextPageWithLayout = () => {
   return (
     <>
       <Banner />
+      <NewContent/>
       {/* <DashboardFeatures /> */}
-      <Features />
-      <AppSlider />
+      {/* <Features /> */}
+      {/* <AppSlider /> */}
       {/* <ProductSlide /> */}
       {/* <Testimonial /> */}
       {/* <DesignedAndBuilt /> */}
