@@ -116,7 +116,7 @@ export default function CastVoteModal({
   const theConfetti: any = async () => {
     setShowConfetti(true);
     await sleep(7000);
-    setShowConfetti(false);
+    setShowConfetti(false); 
 
   }
 
