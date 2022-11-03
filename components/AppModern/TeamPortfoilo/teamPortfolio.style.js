@@ -142,7 +142,7 @@ export const ContentWrapper = styled.div`
       }
       .author_name {
         position: absolute;
-        padding: 20px;
+        padding: 10px;
         top: -80px;
         left: 34px;
         width:30px;
@@ -157,7 +157,7 @@ export const ContentWrapper = styled.div`
         font-size: 16px;
         color: #fff;
         letter-spacing: -0.25px;
-        font-weight: 500;
+        font-weight: 400;
         @media only screen and (max-width: 1099px) {
           width: auto;
         }
