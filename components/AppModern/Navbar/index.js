@@ -103,11 +103,13 @@ const Navbar = () => {
   };
 
   return (
-    <NavbarWrapper className="navbar">
+    <NavbarWrapper className="navbar"
+    box-shadow="0px 21px 29px -5px"
+    >
       <Container>
         <Logo
           href="/"
-          logoSrc={LogoImageLight}
+          logoSrc={LogoImageAlt}
           title="ClimateDAO"
           className="main-logo"
         />
@@ -119,8 +121,8 @@ const Navbar = () => {
         />
         {/* end of logo */}
 
-        <MenuArea className={state.searchToggle ? 'active' : ''}>
-          <ScrollSpyMenu className="menu" menuItems={navMenu} offset={-84} />
+        <MenuArea className={state.searchToggle ? 'active' : ''} >
+          <ScrollSpyMenu className="menu" menuItems={navMenu} offset={-84}  />
           {/* end of main menu */}
 
           {/* <Search className="search" ref={searchRef}>

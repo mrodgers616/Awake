@@ -13,7 +13,7 @@ import {
 
 const NewContent = () => (
   <ChakraProvider resetCSS>
-    <Flex justifyContent="space-between" alignItems="center" width="100%" mt={"80px"}>
+      <Flex justifyContent="space-between" alignItems="center" width="100%" mt={"80px"}>
         <Image
           //height={{base: "15px", base: "400px", base: "400px"}}
           width={{base: "150px", md: "450px", lg: "500px"}}
@@ -76,15 +76,7 @@ const NewContent = () => (
       </Flex>
       
       <Flex justifyContent="space-between" alignItems="center" width="100%" mt={20}>
-        {/* <Image
-          height="400px"
-          width="400px"
-          display="inline-block"
-          minWidth="100px"
-          minHeight="100px"
-          ml="10%"
-          src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg"
-        /> */}
+      
         <Heading 
           mr="10%" 
           as="h1"
