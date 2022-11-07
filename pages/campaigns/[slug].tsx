@@ -522,6 +522,7 @@ export default function Proposal({
           alignItems={"center"}
           display="inline-block" flexDir={"row"} w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}>
             <Image
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste1.png?alt=media&token=b7964255-2134-49dd-b88e-19aa067d770a"
               height="350px"
               width="300px"
               display="inline-block"
@@ -529,12 +530,14 @@ export default function Proposal({
               p={2}
             />
             <Image 
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste2.png?alt=media&token=29d93a02-5b0c-41da-aeda-27e099ca1054"
               height="350px" 
               width="300px" 
               display="inline-block" 
               p={2} 
               />
             <Image
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste3.png?alt=media&token=e9075046-c9fe-456c-b5bd-c9656f517711"
               height="350px"
               width="300px"
               display="inline-block"
@@ -542,6 +545,7 @@ export default function Proposal({
               p={2}
             />
             <Image 
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste4.png?alt=media&token=89bc7ddb-d199-45ea-b859-18626f43a469"
               height="350px" 
               width="300px" 
               display="inline-block" 
@@ -572,7 +576,7 @@ export default function Proposal({
                   <br/>
                     <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" >
                       <Highlight
-                        query='IMPORTANT'
+                        query='Want'
                         styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
                         >
                         What we want
