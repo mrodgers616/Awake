@@ -550,9 +550,10 @@ export default function Proposal({
           </Flex>   
       
       
-      <Container position="relative" mt="0" zIndex={1}>
-        <Flex mt="128px" w="100%">
-          <Flex mb="64px" flexDir={"column"} w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
+      <Container position="relative" mt="0" zIndex={1} w={"65%"}>
+        <Flex mt="128px" w="100%" justifyContent="space-between" alignItems="center">
+          <Flex mb="0px" flexDir={"column"} 
+            w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
             <Box mb="32px">
               <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" ml={{base:"20px"}}>
                     <Highlight
@@ -566,56 +567,18 @@ export default function Proposal({
 
 
                 campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
-                  {/* Taking out the substring below to edit easier */}
-                  {/* {String(campaign?.description).substring(0,332)} */}
                   <text><b>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. With your help, we can get Apple to take a stronger stance.</b></text>
                   <br/>
                   <br/>
-                  <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" >
-                    <Highlight
-                      query='IMPORTANT'
-                      styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
-                      >
-                      What we want
-                    </Highlight>
-              </Heading>
+                    <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" >
+                      <Highlight
+                        query='IMPORTANT'
+                        styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                        >
+                        What we want
+                      </Highlight>
+                    </Heading>  
                   <text>We want Apple to disclose total electronic waste figures* and provide additional information on their plans to mitigate waste.</text> 
-                  <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
-                  <br/>
-                  <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                    Back Story
-                  </Heading>
-                  <text>In 2019, approximately </text>
-                  <b><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
-                   53.6 million 
-                  </Link></b>
-                  <text> metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.</text>
-                  {/* {String(campaign?.description).substring(332,1333)} */}
-                  <br/>
-                  <br/>
-                  
-                  <text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world&apos;s E-waste. But how much? That&apos;s the thing, we don&apos;t know. Apple&apos;s hardware produced </text>
-                   <b><Link href="https://www.zdnet.com/article/apples-colossal-e-waste-timebomb/" isExternal>1.65 billion</Link></b>
-                  <text> devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how many materials are <b>not</b> recovered.</text>
-                  <br/>
-                  <br/>
-                  <text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </text>
-                  <br/>
-                  <br/>
-                  <text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</text>
-                  {/* <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Frice.png?alt=media&token=f8dcf69f-69cf-4425-a0fc-9bbfb323f7d2"></Image> */}
-                  <br/>
-                  <text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a </text>
-                  
-                  <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
-                  <text> Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
-
-                  <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbreakdifferent.png?alt=media&token=5b79a1b1-b1fc-4fad-a7b0-ea81e8b252c2"></Image>
-                  <br/>
-                  {/* {String(campaign?.description).substring(1333)} */}
-                  <text> 
-                  We&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
-                  </text>
                   <br/>
                   <br/>
                   <Container display={{ base: "block", sm: "none", lg: "none" }}>
@@ -628,6 +591,62 @@ export default function Proposal({
                   {campaign?.description}
                 </Text>)}
             </Box>
+          
+            </Flex>
+              {/* START OF THE FAQ SECTION */}
+              <Flex mb="20px" flexDir={"column"} 
+                w={{ base: '100%', md: "45%", lg:"50%" }} 
+                display=   {{   base: "none", sm: "none", lg: "block" }}>
+                <Flex mb="20px" flexDir={"column"} w="25%">
+                  <Container paddingTop="20px" w="400%" paddingLeft="50px">
+                    <Faq faqs={faqs}></Faq>
+                  </Container>
+                </Flex>
+              </Flex>
+        </Flex>
+
+{/* ATTEMPT TO ADD BACK STORY */}
+    {/* BACK STORY */}
+    <Container w={"100%"}>
+      <Heading fontSize="28px" textTransform={"uppercase"} mb="16px">
+        Back Story
+      </Heading>
+      <text>In 2019, approximately </text>
+      <b><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
+      53.6 million 
+      </Link></b>
+      <text> metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.</text>
+      {/* {String(campaign?.description).substring(332,1333)} */}
+      <br/>
+      <br/>      
+      <text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world&apos;s E-waste. But how much? That&apos;s the thing, we don&apos;t know. Apple&apos;s hardware produced </text>
+      <b><Link href="https://www.zdnet.com/article/apples-colossal-e-waste-timebomb/" isExternal>1.65 billion</Link></b>
+      <text> devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how many materials are <b>not</b> recovered.</text>
+      <br/>
+      <br/>
+      <text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </text>
+      <br/>
+      <br/>
+      <text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</text>
+      <br/>
+      <text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a </text>
+      
+      <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
+      <text> Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
+
+      <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbreakdifferent.png?alt=media&token=5b79a1b1-b1fc-4fad-a7b0-ea81e8b252c2"></Image>
+      <br/>
+
+      <text> 
+      We&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
+      </text>
+      <br/>
+      <br/>
+    </Container>
+    {/* END OF BACKSTORY */}
+    <Flex mb="64px" flexDir={"column"} 
+            w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
+
             <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
               <Flex justifyContent="space-between">
                 <Heading fontSize="18px" textTransform={"uppercase"} mb="16px"> 
@@ -639,17 +658,8 @@ export default function Proposal({
                 <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread>
               </Box>
             </Box>
-          </Flex>
-          <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }} display={{ base: "none", sm: "none", lg: "block" }}>
-
-            <Flex mb="63px" flexDir={"column"} w="25%">
-            <Container paddingTop="20px" w="400%" paddingLeft="50px">
-                <Faq faqs={faqs}></Faq>
-              </Container>
-            </Flex>
-          </Flex>
-        </Flex>
-{/* ADDING THE HOW IT WORKS SECTION BEFORE THE DISCUSSION */}
+    </Flex> 
+{/* ADDING THE HOW IT WORKS SECTION AFTER THE DISCUSSION */}
     <Flex justifyContent="space-between" alignItems="center" width="100%" mb={'20px'}>
           <Heading 
             mr="10%" 
