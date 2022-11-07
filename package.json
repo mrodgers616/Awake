@@ -13,6 +13,7 @@
   "dependencies": {
     "@ajna/pagination": "^1.4.19",
     "@bradgarropy/next-google-analytics": "^1.0.2",
+    "@chakra-ui/accordion": "^2.1.2",
     "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^2.2.1",
     "@chakra-ui/theme-tools": "^1.3.6",

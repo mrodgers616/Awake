@@ -633,8 +633,6 @@ export default function Proposal({
       
       <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
       <text> Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
-
-      <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbreakdifferent.png?alt=media&token=5b79a1b1-b1fc-4fad-a7b0-ea81e8b252c2"></Image>
       <br/>
 
       <text> 
@@ -649,7 +647,7 @@ export default function Proposal({
 
             <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
               <Flex justifyContent="space-between">
-                <Heading fontSize="18px" textTransform={"uppercase"} mb="16px"> 
+                <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" mt="32px"> 
                   Discussion
                 </Heading>
               </Flex>
@@ -667,10 +665,9 @@ export default function Proposal({
             maxWidth={"900px"} 
             display="inline-block" 
             textAlign="center" 
-            size="3xl"
+            size="4xl"
             mx={"auto"}
-            mt="20px"
-            fontSize={{base: "20px", md: "6xl", lg: "6xl"}}
+            fontSize={{base: "20px", md: "4xl", lg: "4xl"}}
           >
             <Highlight
               query='real impact'
@@ -683,7 +680,7 @@ export default function Proposal({
         <Box textAlign="center" ml="5%" mr="5%" mt="75px">
         <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
                 <Box
-                  width="25%"
+                  width="32%"
                   fontSize="xl"
                   backgroundColor="whiteAlpha.500"
                   m={1}
@@ -695,7 +692,7 @@ export default function Proposal({
                     mr="auto"
                     src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Flock.png?alt=media&token=1515b250-2374-4d95-85be-26d91fc95f43"
                   />
-                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "30px"}}>
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
                     Link your Broker
                   </Text>
                   <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
@@ -703,7 +700,7 @@ export default function Proposal({
                   </Text>
                 </Box>
                 <Box
-                  width="25%"
+                  width="32%"
                   fontSize="xl"
                   backgroundColor="whiteAlpha.500"
                   m={1}
@@ -715,7 +712,7 @@ export default function Proposal({
                     mr="auto"
                     src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Green%20Papers.png?alt=media&token=7c813e0b-964c-4b78-81cf-4e9a35d97e6b"
                   />
-                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "30px"}}>
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
                     Sign a Petition
                   </Text>
                   <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
@@ -723,7 +720,7 @@ export default function Proposal({
                   </Text>
                 </Box>
                 <Box
-                  width="25%"
+                  width="32%"
                   fontSize="xl"
                   backgroundColor="whiteAlpha.500"
                   m={1}
@@ -735,7 +732,7 @@ export default function Proposal({
                     mr="auto"
                     src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Megaphone.png?alt=media&token=d71c6a33-e24b-406c-b99e-487f5360932a"
                   />
-                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "30px"}}>
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
                     We Do the Rest
                   </Text>
                   <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
@@ -785,15 +782,16 @@ export default function Proposal({
                 justifyContent="center"
                 flexDirection="column"
                 alignItems="center"
-                width={{base: 284, md: 484, lg: 484}}
+                width={{base: 284, md: 400, lg: 400}}
                 backgroundColor="FFFFFF"
                 boxShadow='2xl' p='0'
                 borderRadius="16px"
                 mt='auto'
                 mb="auto"
-                ml="30px"
+                ml="auto"
+                mr='auto'
                 border="0px solid gray"
-                mr={{base: "30px"}}
+                
               >
                 
                 <Text fontSize="xl" fontWeight="bold" mb={0} mt={4}>
@@ -874,8 +872,9 @@ export default function Proposal({
                 {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
                 bg="rgb(100, 43, 115)"
                 color="white"
+                borderRadius="3xl"
                 fontSize="1.4em"
-                w={{ lg: "350px" }}
+                w={{ lg: "150px" }}
                 mr={{
                   base: "0px", sm: "0", lg: "16px"
                 }}
@@ -903,6 +902,7 @@ export default function Proposal({
               <Button
                 bg="rgb(100, 43, 115)"
                 color="white"
+                borderRadius="3xl"
                 fontSize="1.4em"
                 w={{ lg: "350px" }}
                 mr={{

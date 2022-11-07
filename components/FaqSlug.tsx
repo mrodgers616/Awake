@@ -1,3 +1,4 @@
+import { AddIcon, MinusIcon } from '@chakra-ui/icons';
 import {
   Accordion,
   AccordionItem,
@@ -28,6 +29,7 @@ export default function Faq({
     >
       <Box
         m="0 auto"
+        boxShadow='2xl' p='5'
       >
         <Heading
           fontSize={{ base: "18px", sm: "18px", lg: "18px" }}
@@ -36,7 +38,99 @@ export default function Faq({
         >
           {title ?? 'Frequently Asked Questions'}
         </Heading>
-        <Accordion
+        <Accordion allowMultiple>
+          <AccordionItem>
+            {({ isExpanded }) => (
+              <>
+                <h2>
+                  <AccordionButton>
+                    <Box flex='1' textAlign='left'>
+                    Does this cost money?
+                    </Box>
+                    {isExpanded ? (
+                      <MinusIcon fontSize='12px' />
+                    ) : (
+                      <AddIcon fontSize='12px' />
+                    )}
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                It costs nothing to use Awake and we will never ask for payment information. You can think of us like an online polling platform with more influence because we're real shareholders.
+                </AccordionPanel>
+              </>
+            )}
+          </AccordionItem>
+          <AccordionItem>
+            {({ isExpanded }) => (
+              <>
+                <h2>
+                  <AccordionButton>
+                    <Box flex='1' textAlign='left'>
+                    How do we have an impact?
+                    </Box>
+                    {isExpanded ? (
+                      <MinusIcon fontSize='12px' />
+                    ) : (
+                      <AddIcon fontSize='12px' />
+                    )}
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                By linking your account, you're proving you own shares. We're proving to companies like Apple that their OWNERS care about the issues we're raising. This gives us more leverage at no cost to you.
+                </AccordionPanel>
+              </>
+            )}
+          </AccordionItem>
+          <AccordionItem>
+            {({ isExpanded }) => (
+              <>
+                <h2>
+                  <AccordionButton>
+                    <Box flex='1' textAlign='left'>
+                      Do I have to own shares to help?
+                    </Box>
+                    {isExpanded ? (
+                      <MinusIcon fontSize='12px' />
+                    ) : (
+                      <AddIcon fontSize='12px' />
+                    )}
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  There are lots of sites out there with petitions. What gives us our secret sauce is that people who join our campaigns are verified shareholders. You can still help by just signing the petition, but the bulk of the impact will be driven by verified shareholders. 
+                </AccordionPanel>
+              </>
+            )}
+          </AccordionItem>
+          <AccordionItem>
+            {({ isExpanded }) => (
+              <>
+                <h2>
+                  <AccordionButton>
+                    <Box flex='1' textAlign='left'>
+                    Where can I learn more?
+                    </Box>
+                    {isExpanded ? (
+                      <MinusIcon fontSize='12px' />
+                    ) : (
+                      <AddIcon fontSize='12px' />
+                    )}
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                <Text fontSize={"16px"} fontWeight={400} lineHeight={"31px"}>
+                <b><Link href="https://ewastemonitor.info/wp-content/uploads/2020/11/GEM_2020_def_july1_low.pdf"isExternal textColor="blue"> E-waste Monitor Report 2020</Link></b>
+                  <br/>
+                  <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/"isExternal textColor="blue"> Apple Case Study</Link></b>
+                  <br/>
+                  <b><Link href="https://www.apple.com/environment/pdf/Apple_Environmental_Progress_Report_2022.pdf"isExternal textColor="blue"> Apple Sustainability Report 2022</Link></b>
+                </Text>
+                </AccordionPanel>
+              </>
+            )}
+          </AccordionItem>
+        </Accordion>
+        {/* <Accordion
           allowToggle
         >
           {faqs.map((faq, index) => (
@@ -99,7 +193,7 @@ export default function Faq({
                 </Text>
               </AccordionPanel>
             </AccordionItem>
-        </Accordion>
+        </Accordion> */}
       </Box>
     </Box>
   );
