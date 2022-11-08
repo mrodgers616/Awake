@@ -24,16 +24,16 @@ export default function Faq({
   return (
     <Box
       id="questions"
-      p={{ base: "0px 0 180px", sm: "0px 0 180px", lg: "10px 0 0px" }}
+      p={{ base: "0px 0 0 0px", sm: "0px 0 0px", lg: "10px 0 0px" }}
       mb="0px"
     >
       <Box
-        m="0 auto"
+        m={{base:"0",lg:"0 auto"}}
         boxShadow='2xl' p='5'
       >
         <Heading
           fontSize={{ base: "18px", sm: "18px", lg: "18px" }}
-          mb="36px"
+          mb={{base:"18px",lg:"36px"}}
           textTransform='uppercase'
         >
           {title ?? 'Frequently Asked Questions'}

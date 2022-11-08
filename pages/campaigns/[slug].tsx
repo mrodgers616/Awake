@@ -397,7 +397,7 @@ export default function Proposal({
         </Container>
       </Box>
 
-        <Flex justifyContent="space-between" alignItems="center" width="100%" mt={20}>
+        <Flex justifyContent="space-between" alignItems="center" width="100%" flexDir={{base:"column",lg:"row"}} mt={{base:"12px",lg:"20px"}}>
           <Flex flexDir="column">
                   <Heading 
                       ml={{base: "3%", md: "10%", lg: "20%"}}
@@ -407,7 +407,7 @@ export default function Proposal({
                       display="inline-block" 
                       textAlign="left" 
                       size="2xl"
-                      fontSize={{base: "20px", md: "5xl", lg: "5xl"}}
+                      fontSize={{base: "3xl", md: "5xl", lg: "5xl"}}
                   >
                     <Highlight
                       query='Toxic Electronic Waste'
@@ -422,7 +422,7 @@ export default function Proposal({
                         bg="rgb(100, 43, 115)"
                         color="white"
                         fontSize="1.4em"
-                        w={{ lg: "200px" }}
+                        w={{ base:"100px",lg: "200px" }}
                         mr={{
                           base: "0px", sm: "0", lg: "0px"
                         }}
@@ -431,8 +431,8 @@ export default function Proposal({
                           md: '0'
                         }}
                         mt={{
-                          base: '32px',
-                          md: '0'
+                          base: '16px',
+                          md: '32px'
                         }}
                         h="64px"
                         onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
@@ -456,13 +456,13 @@ export default function Proposal({
                         color="white"
                         fontSize="1.4em"
                         w={{ lg: "200px" }}
-                        ml={{base: "3%", md: "10%", lg: "25%"}}
+                        mx={{base: "3%", md: "10%", lg: "25%"}}
                         mb={{
-                          base: '32px',
+                          base: '0px',
                           md: '0'
                         }}
                         mt={{
-                          base: '32px',
+                          base: '16px',
                           md: '20px',
                           lg: '40px'
                         }}
@@ -486,7 +486,7 @@ export default function Proposal({
                 </Flex>
                 
                 <Flex
-                    w={{base:"90%",lg:"25%"}}
+                    w={{base:"100%",lg:"25%"}}
                     boxShadow='2xl' p='1'
                     mb="32px"
                     mt="50px"
@@ -540,7 +540,7 @@ export default function Proposal({
               src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste1.png?alt=media&token=b7964255-2134-49dd-b88e-19aa067d770a"
               height="350px"
               width="300px"
-              display="inline-block"
+              display={{base:"none",lg:"inline-block"}}
               mb={16}
               p={2}
             />
@@ -548,14 +548,14 @@ export default function Proposal({
               src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste2.png?alt=media&token=29d93a02-5b0c-41da-aeda-27e099ca1054"
               height="350px" 
               width="300px" 
-              display="inline-block" 
+              display={{base:"none",lg:"inline-block"}}
               p={2} 
               />
             <Image
               src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste3.png?alt=media&token=e9075046-c9fe-456c-b5bd-c9656f517711"
               height="350px"
               width="300px"
-              display="inline-block"
+              display={{base:"none",lg:"inline-block"}}
               mb={16}
               p={2}
             />
@@ -563,14 +563,14 @@ export default function Proposal({
               src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste4.png?alt=media&token=89bc7ddb-d199-45ea-b859-18626f43a469"
               height="350px" 
               width="300px" 
-              display="inline-block" 
+              display={{base:"none",lg:"inline-block"}} 
               p={2} 
               />
           </Flex>   
       
       
-      <Container position="relative" mt="0" zIndex={1} w={"65%"}>
-        <Flex mt="128px" w="100%" justifyContent="space-between" alignItems="center">
+      <Container position="relative" mt="0" zIndex={1} w={{base:"95%",lg:"65%"}}>
+        <Flex mt={{base:"0px",lg:"128px"}} w="100%" justifyContent="space-between" alignItems="center">
           <Flex mb="0px" flexDir={"column"} 
             w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
             <Box mb="32px">
@@ -613,11 +613,13 @@ export default function Proposal({
           
             </Flex>
               {/* START OF THE FAQ SECTION */}
-              <Flex mb="20px" flexDir={"column"} 
-                w={{ base: '100%', md: "45%", lg:"50%" }} 
-                display=   {{   base: "none", sm: "none", lg: "block" }}>
+              <Flex mb={{base:"0px",lg:"20px"}} flexDir={"column"} 
+                w={{ base: '100%', lg:"50%" }} 
+                display=   {{  base: "none", sm: "none", lg: "block" }}>
                 <Flex mb="20px" flexDir={"column"} w="25%">
-                  <Container paddingTop="20px" w="400%" paddingLeft="50px">
+                  <Container 
+                  paddingTop="20px" w="400%" paddingLeft={{base:"0px",lg:"50px"}}
+                  >
                     <Faq faqs={faqs}></Faq>
                   </Container>
                 </Flex>
@@ -652,6 +654,7 @@ export default function Proposal({
       
       <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
       <text> Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
+      <br/>
       <br/>
 
       <text> 
