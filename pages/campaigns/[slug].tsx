@@ -7,6 +7,8 @@ import {
   Heading,
   Button,
   Badge,
+  HStack,
+  useColorModeValue,
   Box,
   Icon,
   Container,
@@ -34,10 +36,10 @@ import { useAuth } from "../../contexts/AuthContext";
 import MasterCommentThread from "../../components/comments/masterCommentThread";
 import plaidLink from "../../components/plaidLinkButton"
 import Confetti from 'react-confetti'
-import LoginModal from '../../components/LoginModal'
+import LoginModal from '../../components/LoginModal';
 import Faq from "../../components/FaqSlug";
 import faqs from "../../data/slugFAQ.json";
-
+import HIW from "../../components/AppModern/HowItWorksMobile/test";
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -422,18 +424,18 @@ export default function Proposal({
                         bg="rgb(100, 43, 115)"
                         color="white"
                         fontSize="1.4em"
-                        w={{ base:"100px",lg: "200px" }}
-                        mr={{
-                          base: "0px", sm: "0", lg: "0px"
-                        }}
+                        w={{ lg: "200px" }}
+                        mx={{base: "3%", md: "10%", lg: "25%"}}
                         mb={{
-                          base: '32px',
+                          base: '0px',
                           md: '0'
                         }}
                         mt={{
                           base: '16px',
-                          md: '32px'
+                          md: '20px',
+                          lg: '40px'
                         }}
+                        borderRadius="3xl"
                         h="64px"
                         onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
                       >
