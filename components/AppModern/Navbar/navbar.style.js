@@ -5,7 +5,6 @@ import searchIcon from '../../common/assets/image/appModern/search.svg';
 const NavbarWrapper = styled.nav`
   width: 100%;
   padding: 25px 0 26px;
-  background-color: ${themeGet('colors.white', '#ffffff')};
   border-bottom: 1px solid rgba(255, 255, 255, 0.102);
   position: fixed;
   z-index: 9999;
@@ -33,7 +32,7 @@ const NavbarWrapper = styled.nav`
   ul {
     li {
       a {
-        color: ${themeGet('colors.menu', '#fff')};
+        color: #000;
         font-size: 16px;
         font-weight: 400;
         transition: all 0.3s ease;

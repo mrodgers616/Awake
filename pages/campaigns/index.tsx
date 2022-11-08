@@ -114,7 +114,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
       </Head>
       <Box
         bg="sage.500"
-        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+        //bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
         // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
         bgSize="cover"
         zIndex={0}
