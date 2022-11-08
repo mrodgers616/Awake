@@ -76,7 +76,7 @@ export default function Faq({
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                By linking your account, you&apos;re proving you own shares. We&apos;re proving to companies like Apple that their OWNERS care about the issues we&apos;re raising. This gives us more leverage at no cost to you.
+                By linking your account, you&apos;re proving you own shares. We&apos;re proving to companies like Apple that their OWNERS care about the issues we&apos;re raising. This gives us more leverage at no cost to you. 
                 </AccordionPanel>
               </>
             )}
