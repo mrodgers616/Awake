@@ -154,16 +154,31 @@ export default function Proposal({
     if (currentVotes && users) {
       const totalVotes = currentVotes + investments[i].quantity;
       users.push(uid);
-      const dataToUpload = {
-        verifiedVotes: increment(Number(investments[i].quantity)),
-        users: arrayUnion(uid),
-        verifiedVote:{
-          for: forVotes,
-          against: againstVotes
-        }
+      if(isNaN(Number(investments[i].quantity))) {
+        const dataToUpload = {
+          verifiedVotes: Number(investments[i].quantity),
+          users: arrayUnion(uid),
+          verifiedVote:{
+            for: forVotes,
+            against: againstVotes
+          }
+      }
+      updateProposalInStore(slug, dataToUpload);
+      }
+      else {
+        const dataToUpload = {
+          verifiedVotes: increment(Number(investments[i].quantity)),
+          users: arrayUnion(uid),
+          verifiedVote:{
+            for: forVotes,
+            against: againstVotes
+          }
+      }
+      updateProposalInStore(slug, dataToUpload);
+      
       }
 
-      updateProposalInStore(slug, dataToUpload);
+      
     }
     else {
       const dataToUpload = {
@@ -495,7 +510,7 @@ export default function Proposal({
                         md: "2px solid #eaeaea"
                       }}>
                         <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "42px" }} color="black">
-                          {campaign.verifiedVotes ? String(Math.round(campaign.verifiedVotes * 100) /100) : "0"}
+                          {campaign.verifiedVotes ? String(Math.round(Number(campaign.verifiedVotes) * 100) /100) : "0"}
                         </Heading>
                         <Text color="black" fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                           Our Holdings &nbsp; <Tooltip label="This number tracks the collective number of shares in the company petition signers own"><QuestionOutlineIcon/></Tooltip>
