@@ -12,6 +12,7 @@ import {
   Container,
   useDisclosure,
   useToast,
+  Highlight,
   Stack,
   Tooltip
 } from "@chakra-ui/react";
@@ -153,16 +154,31 @@ export default function Proposal({
     if (currentVotes && users) {
       const totalVotes = currentVotes + investments[i].quantity;
       users.push(uid);
-      const dataToUpload = {
-        verifiedVotes: increment(Number(investments[i].quantity)),
-        users: arrayUnion(uid),
-        verifiedVote:{
-          for: forVotes,
-          against: againstVotes
-        }
+      if(isNaN(Number(investments[i].quantity))) {
+        const dataToUpload = {
+          verifiedVotes: campaign.verifiedVotes,
+          users: arrayUnion(uid),
+          verifiedVote:{
+            for: forVotes,
+            against: againstVotes
+          }
+      }
+      updateProposalInStore(slug, dataToUpload);
+      }
+      else {
+        const dataToUpload = {
+          verifiedVotes: increment(Number(investments[i].quantity)),
+          users: arrayUnion(uid),
+          verifiedVote:{
+            for: forVotes,
+            against: againstVotes
+          }
+      }
+      updateProposalInStore(slug, dataToUpload);
+      
       }
 
-      updateProposalInStore(slug, dataToUpload);
+      
     }
     else {
       const dataToUpload = {
@@ -321,7 +337,7 @@ export default function Proposal({
       name: "twitter",
       icon: FaTwitter,
       link: encodeURI(
-        `https://twitter.com/intent/tweet?text=I just backed the ${campaign.title} campaign on Awake. learn more here:\n&url=${pageUri}`
+        `https://twitter.com/intent/tweet?text=I just backed the ${campaign.title} campaign on @Awake. learn more here:\n&url=${pageUri}`
       ),
     },
     {
@@ -348,8 +364,8 @@ export default function Proposal({
       {showConfetti && (<Confetti width={width} height={height}/>)}
       <Box
         mt="0px"
-        bg="rgb(164,191,217)"
-        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+        //bg="rgb(164,191,217)"
+        //bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
         //bgImage="url('https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1259&q=80')"
         bgSize="cover"
         position="relative"
@@ -380,248 +396,377 @@ export default function Proposal({
           </Flex>
         </Container>
       </Box>
-      <Container paddingTop="50px" paddingBottom={{base: "0px", md: "20px", lg: "20px"}}>
-          <Heading fontSize={{base: "22px", md: "42", lg: "42px"}} mt="40px" color="#08152E" w="100%" paddingLeft={{base: "0px", md: "155px", lg: "155px"}} fontWeight="bold">
-            {campaign?.title ?? "TITLE!"}
-          </Heading>
-        </Container>
-      <Container position="relative" mt="-60px" zIndex={1}>
-        <Flex
-          w="100%"
-          mb="32px"
-          mt="100px"
-          bg='#08152E'
-          height={{
-            base: 'fit-content',
-            lg: "120px"
-          }}
-          borderRadius="16px"
-          justifyContent="center"
-          alignItems="center"
-          boxShadow="4px 4px 62px -9px rgba(0, 0, 0, 0.15)"
-          zIndex={500}
-          flexDir={{
-            base: "column",
-            md: "row"
-          }}
-        >
-          <Flex
-            alignItems={"center"}
-            justifyContent={"center"}
-            flexBasis="50%"
-            borderRight={{
-              base: 'none',
-              md: "1px solid #eaeaea"
-            }}
-            flexDirection={{
-              base: 'row',
-              sm: "row",
-              lg: 'row'
-            }}
-            m='16px'
-          >
-            <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
-              <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "36px" }} color="White">
-                {campaign.verifiedVotes ? String(Math.round(campaign.verifiedVotes * 100) /100) : "0"}
-              </Heading>
-              <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
-                Shares Commited &nbsp; <Tooltip label="This number tracks the collective number of shares in the company petition signers own"><QuestionOutlineIcon/></Tooltip>
-              </Text>
-            </Box>
-            <Box color="white" p={{ base: '4', lg: "16px 24px" }}>
-              <Heading textAlign={"center"}
-                fontSize={{ base: "24px", sm: "24px", lg: "36px" }}
-                color="White">
-                {String(howManyUsers())}
-              </Heading>
-              <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
-                Petition Signers
-              </Text>
-            </Box>
-          </Flex>
-          <Flex
-            h="100%"
-            flexBasis={"50%"}
-            justifyContent="center"
-            alignItems="center"
-          >
-            {userid ? ( <>
-              <Button
-                {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
-                bg="rgb(100, 43, 115)"
-                color="white"
-                fontSize="1.4em"
-                w={{ lg: "350px" }}
-                mr={{
-                  base: "0px", sm: "0", lg: "16px"
-                }}
-                mb={{
-                  base: '32px',
-                  md: '0'
-                }}
-                h="64px"
-                onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
-              >
-                {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
-              </Button>
-              { !modalClose && <CastVoteModal
-                isOpen={voteModalIsOpen}
-                onClose={ () => {onVoteModalClose; setModalClose(true)}}
-                onOpen={onVoteModalOpen}
-                campaign={campaign}
-                profileData={profileData}
-                uid={uid}
-                investmentsOld={investments}
-                slug={slug}
-              /> } </>)
-              : 
-              (<>
-              <Button
-                bg="rgb(100, 43, 115)"
-                color="white"
-                fontSize="1.4em"
-                w={{ lg: "350px" }}
-                mr={{
-                  base: "0px", sm: "0", lg: "16px"
-                }}
-                mb={{
-                  base: '32px',
-                  md: '0'
-                }}
-                h="64px"
-                onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
-                >
-                {"Sign Petition"}
-                </Button>
-              
-                {loginModal && 
-                  <LoginModal 
-                    isOpen={voteModalIsOpen}
-                    onClose={ () => {onVoteModalClose; setLoginModal(false);}}
-                    onOpen={onVoteModalOpen}
-                  />
-                }
-                </>
-              )
-            }
-            
-            
-          </Flex>
-        </Flex>
 
-        <Flex mt="64px" w="100%">
-          <Flex mb="64px" flexDir={"column"} w={{ base: "100%", sm: "100%", md: "60%", lg: "60 %" }} mr="32px">
+        <Flex justifyContent="space-between" alignItems="center" width="100%" flexDir={{base:"column",lg:"row"}} mt={{base:"12px",lg:"20px"}}>
+          <Flex flexDir="column">
+                  <Heading 
+                      ml={{base: "3%", md: "10%", lg: "20%"}}
+                      mr={{base: "3%", md: "10%", lg: "10%"}}
+                      as="h1"
+                      maxWidth={"900px"} 
+                      display="inline-block" 
+                      textAlign="left" 
+                      size="2xl"
+                      fontSize={{base: "3xl", md: "5xl", lg: "5xl"}}
+                  >
+                    <Highlight
+                      query='Toxic Electronic Waste'
+                      styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                      >
+                      Hold Apple Accountable for Toxic Electronic Waste
+                    </Highlight>
+                  </Heading>
+                          {userid ? ( <>
+                      <Button
+                        {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
+                        bg="rgb(100, 43, 115)"
+                        color="white"
+                        fontSize="1.4em"
+                        w={{ base:"100px",lg: "200px" }}
+                        mr={{
+                          base: "0px", sm: "0", lg: "0px"
+                        }}
+                        mb={{
+                          base: '32px',
+                          md: '0'
+                        }}
+                        mt={{
+                          base: '16px',
+                          md: '32px'
+                        }}
+                        h="64px"
+                        onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
+                      >
+                        {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
+                      </Button>
+                      { !modalClose && <CastVoteModal
+                        isOpen={voteModalIsOpen}
+                        onClose={ () => {onVoteModalClose; setModalClose(true)}}
+                        onOpen={onVoteModalOpen}
+                        campaign={campaign}
+                        profileData={profileData}
+                        uid={uid}
+                        investmentsOld={investments}
+                        slug={slug}
+                      /> } </>)
+                      : 
+                      (<>
+                      <Button
+                        bg="#32006b"
+                        color="white"
+                        fontSize="1.4em"
+                        w={{ lg: "200px" }}
+                        mx={{base: "3%", md: "10%", lg: "25%"}}
+                        mb={{
+                          base: '0px',
+                          md: '0'
+                        }}
+                        mt={{
+                          base: '16px',
+                          md: '20px',
+                          lg: '40px'
+                        }}
+                        borderRadius="3xl"
+                        h="64px"
+                        onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
+                        >
+                        {"Sign Petition"}
+                        </Button>
+                      
+                        {loginModal && 
+                          <LoginModal 
+                            isOpen={voteModalIsOpen}
+                            onClose={ () => {onVoteModalClose; setLoginModal(false);}}
+                            onOpen={onVoteModalOpen}
+                          />
+                        }
+                        </>
+                      )
+                    }
+                </Flex>
+                
+                <Flex
+                    w={{base:"100%",lg:"25%"}}
+                    boxShadow='2xl' p='1'
+                    mb="32px"
+                    mt="50px"
+                    mr={{lg:"15%"}}
+                    bg='#FFFFF'
+                    height={{
+                      base: 'fit-content',
+                      lg: "200px"
+                    }}
+                    // borderRadius="16px"
+                    justifyContent="center"
+                    alignItems="center"
+                    zIndex={500}
+                    flexDir={{
+                      base: "row",
+                      md: "row"
+                    }}
+                  > 
+                      <Box color="white" p={{ base: '6', lg: "16px 24px" }} borderRight={{
+                        base: 'none',
+                        md: "2px solid #eaeaea"
+                      }}>
+                        <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "42px" }} color="black">
+                          {campaign.verifiedVotes ? String(Math.round(Number(campaign.verifiedVotes) * 100) /100) : "0"}
+                        </Heading>
+                        <Text color="black" fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
+                          Our Holdings &nbsp; <Tooltip label="This number tracks the collective number of shares in the company petition signers own"><QuestionOutlineIcon/></Tooltip>
+                        </Text>
+                      </Box>
+                      <Box color="black" p={{ base: '4', lg: "16px 24px" }}>
+                        <Heading textAlign={"center"}
+                          fontSize={{ base: "24px", sm: "24px", lg: "42px" }}
+                          color="black">
+                          {String(howManyUsers())}
+                        </Heading>
+                        <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
+                          Petition Signers
+                        </Text>
+                      </Box>
+                    </Flex>   
+          </Flex>
+
+{/* THIS IS THE IMAGES SECTION THAT COMES AFTER THE BANNER */}
+          <Flex 
+          mx={{lg:"10%"}}
+          mt={{lg:"10%"}}
+          justifyContent='space-between'
+          alignItems={"center"}
+          display="inline-block" flexDir={"row"} w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}>
+            <Image
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste1.png?alt=media&token=b7964255-2134-49dd-b88e-19aa067d770a"
+              height="350px"
+              width="300px"
+              display={{base:"none",lg:"inline-block"}}
+              mb={16}
+              p={2}
+            />
+            <Image 
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste2.png?alt=media&token=29d93a02-5b0c-41da-aeda-27e099ca1054"
+              height="350px" 
+              width="300px" 
+              display={{base:"none",lg:"inline-block"}}
+              p={2} 
+              />
+            <Image
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste3.png?alt=media&token=e9075046-c9fe-456c-b5bd-c9656f517711"
+              height="350px"
+              width="300px"
+              display={{base:"none",lg:"inline-block"}}
+              mb={16}
+              p={2}
+            />
+            <Image 
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste4.png?alt=media&token=89bc7ddb-d199-45ea-b859-18626f43a469"
+              height="350px" 
+              width="300px" 
+              display={{base:"none",lg:"inline-block"}} 
+              p={2} 
+              />
+          </Flex>   
+      
+      
+      <Container position="relative" mt="0" zIndex={1} w={{base:"95%",lg:"65%"}}>
+        <Flex mt={{base:"0px",lg:"128px"}} w="100%" justifyContent="space-between" alignItems="center">
+          <Flex mb="0px" flexDir={"column"} 
+            w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
             <Box mb="32px">
-              <Heading fontSize="18px" textTransform={"uppercase"} mb="16px" ml={{base:"20px"}}>
-              WHY IT&apos;S IMPORTANT
+              <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" ml={{base:"20px"}}>
+                    <Highlight
+                      query='IMPORTANT'
+                      styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                      >
+                      WHY IT&apos;S IMPORTANT
+                    </Highlight>
               </Heading>
               {campaign?.companyName == "Apple" ? 
 
 
                 campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
-                  {/* Taking out the substring below to edit easier */}
-                  {/* {String(campaign?.description).substring(0,332)} */}
                   <text><b>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. With your help, we can get Apple to take a stronger stance.</b></text>
                   <br/>
                   <br/>
-                  <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                    How It Works
-                </Heading>
-                <Image w={{base: "125%"}} src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Group%20359.png?alt=media&token=01a6ab90-a663-4412-a899-169e250de315" alt="How it works"></Image>
-                  <br/>
-                  <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                    WHAT WE WANT
-                  </Heading>
+                    <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" >
+                      <Highlight
+                        query='Want'
+                        styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                        >
+                        What we want
+                      </Highlight>
+                    </Heading>  
                   <text>We want Apple to disclose total electronic waste figures* and provide additional information on their plans to mitigate waste.</text> 
-                  <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a"></Image>
-                  <br/>
-                  <Heading fontSize="18px" textTransform={"uppercase"} mb="16px">
-                    Back Story
-                  </Heading>
-                  <text>In 2019, approximately </text>
-                  <b><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
-                   53.6 million 
-                  </Link></b>
-                  <text> metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.</text>
-                  {/* {String(campaign?.description).substring(332,1333)} */}
-                  <br/>
-                  <br/>
-                  
-                  <text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world&apos;s E-waste. But how much? That&apos;s the thing, we don&apos;t know. Apple&apos;s hardware produced </text>
-                   <b><Link href="https://www.zdnet.com/article/apples-colossal-e-waste-timebomb/" isExternal>1.65 billion</Link></b>
-                  <text> devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how many materials are <b>not</b> recovered.</text>
-                  <br/>
-                  <br/>
-                  <text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </text>
-                  <br/>
-                  <br/>
-                  <text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</text>
-                  {/* <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Frice.png?alt=media&token=f8dcf69f-69cf-4425-a0fc-9bbfb323f7d2"></Image> */}
-                  <br/>
-                  <text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a </text>
-                  
-                  <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
-                  <text> Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
-
-                  <Image mt="20px" mb="10px" alt="Image of e-waste" boxSize="300px" src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fbreakdifferent.png?alt=media&token=5b79a1b1-b1fc-4fad-a7b0-ea81e8b252c2"></Image>
-                  <br/>
-                  {/* {String(campaign?.description).substring(1333)} */}
-                  <text> 
-                  We&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
-                  </text>
                   <br/>
                   <br/>
                   <Container display={{ base: "block", sm: "none", lg: "none" }}>
                     <Faq faqs={faqs}></Faq>
                   </Container>
                   <br/>
-                  
-
-
-                  {/* <iframe width="480" height="270" src="https://www.youtube.com/embed/ZzS2vwDUO9U?start=18" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
                 </Text>) 
-                
-
-
                 : 
-
-
                 campaign?.description && (<Text>
                   {campaign?.description}
                 </Text>)}
             </Box>
+          
+            </Flex>
+              {/* START OF THE FAQ SECTION */}
+              <Flex mb={{base:"0px",lg:"20px"}} flexDir={"column"} 
+                w={{ base: '100%', lg:"50%" }} 
+                display=   {{  base: "none", sm: "none", lg: "block" }}>
+                <Flex mb="20px" flexDir={"column"} w="25%">
+                  <Container 
+                  paddingTop="20px" w="400%" paddingLeft={{base:"0px",lg:"50px"}}
+                  >
+                    <Faq faqs={faqs}></Faq>
+                  </Container>
+                </Flex>
+              </Flex>
+        </Flex>
+
+{/* ATTEMPT TO ADD BACK STORY */}
+    {/* BACK STORY */}
+    <Container w={"100%"}>
+      <Heading fontSize="28px" textTransform={"uppercase"} mb="16px">
+        Back Story
+      </Heading>
+      <text>In 2019, approximately </text>
+      <b><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
+      53.6 million 
+      </Link></b>
+      <text> metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.</text>
+      {/* {String(campaign?.description).substring(332,1333)} */}
+      <br/>
+      <br/>      
+      <text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world&apos;s E-waste. But how much? That&apos;s the thing, we don&apos;t know. Apple&apos;s hardware produced </text>
+      <b><Link href="https://www.zdnet.com/article/apples-colossal-e-waste-timebomb/" isExternal>1.65 billion</Link></b>
+      <text> devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how many materials are <b>not</b> recovered.</text>
+      <br/>
+      <br/>
+      <text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </text>
+      <br/>
+      <br/>
+      <text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</text>
+      <br/>
+      <text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a </text>
+      
+      <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
+      <text> Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
+      <br/>
+      <br/>
+
+      <text> 
+      We&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
+      </text>
+      <br/>
+      <br/>
+    </Container>
+    {/* END OF BACKSTORY */}
+    <Flex mb="64px" flexDir={"column"} 
+            w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
 
             <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
-            
               <Flex justifyContent="space-between">
-                <Heading fontSize="18px" textTransform={"uppercase"} mb="16px"> 
+                <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" mt="32px"> 
                   Discussion
                 </Heading>
               </Flex>
               <br></br>
               <Box mb="2%">
-                <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread> 
+                <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread>
               </Box>
             </Box>
-          </Flex>
-          <Flex mb="63px" flexDir={"column"} w={{ base: '100%', md: "45%" }} display={{ base: "none", sm: "none", lg: "block" }}>
-
-            <Flex mb="63px" flexDir={"column"} w="25%">
-            <Container w="400%" paddingLeft="50px">
-                <Faq faqs={faqs}></Faq>
-              </Container>
-            </Flex>
-
-          </Flex>
+    </Flex> 
+{/* ADDING THE HOW IT WORKS SECTION AFTER THE DISCUSSION */}
+    <Flex justifyContent="space-between" alignItems="center" width="100%" mb={'20px'}>
+          <Heading 
+            mr="10%" 
+            as="h1"
+            maxWidth={"900px"} 
+            display="inline-block" 
+            textAlign="center" 
+            size="4xl"
+            mx={"auto"}
+            fontSize={{base: "20px", md: "4xl", lg: "4xl"}}
+          >
+            <Highlight
+              query='real impact'
+              styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+            >
+              Join forces with other investors to have real impact
+            </Highlight>
+          </Heading>
         </Flex>
-        {/* I've commented out the steps section and the latest articles section for simplicity */}
-        {/* <StepsSection steps={Steps} />
-        <Flex flexDir={"column"}>
-          <LatestArticles title="latest news" climateDAOArticles={articles} />
-        </Flex> */}
+        <Box textAlign="center" ml="5%" mr="5%" mt="75px">
+        <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Flock.png?alt=media&token=1515b250-2374-4d95-85be-26d91fc95f43"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    Link your Broker
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    In order to prove you own shares, we ask that you link your broker after making an account.
+                  </Text>
+                </Box>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Green%20Papers.png?alt=media&token=7c813e0b-964c-4b78-81cf-4e9a35d97e6b"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    Sign a Petition
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    Sign a petition for a company in your portfolio to take action on an issue you care about. 
+                  </Text>
+                </Box>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Megaphone.png?alt=media&token=d71c6a33-e24b-406c-b99e-487f5360932a"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    We Do the Rest
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    We&#39;ll advocate for change at the target companies on behalf of you and other investors.
+                  </Text>
+                </Box>
+              </Flex>
+            </Box>
+{/* BULK BLOCK WITH SHARE THIS CAMPAIGN AND SIGN PETITION STARTS HERE */}
         <Flex
           w="100%"
-          mb="32px"
+          my="32px"
           bg='#08152E'
           height={{
             base: 'fit-content',
@@ -659,15 +804,16 @@ export default function Proposal({
                 justifyContent="center"
                 flexDirection="column"
                 alignItems="center"
-                width={{base: 284, md: 484, lg: 484}}
+                width={{base: 284, md: 400, lg: 400}}
                 backgroundColor="FFFFFF"
                 boxShadow='2xl' p='0'
                 borderRadius="16px"
                 mt='auto'
                 mb="auto"
-                ml="30px"
+                ml="auto"
+                mr='auto'
                 border="0px solid gray"
-                mr={{base: "30px"}}
+                
               >
                 
                 <Text fontSize="xl" fontWeight="bold" mb={0} mt={4}>
@@ -748,8 +894,9 @@ export default function Proposal({
                 {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
                 bg="rgb(100, 43, 115)"
                 color="white"
+                borderRadius="3xl"
                 fontSize="1.4em"
-                w={{ lg: "350px" }}
+                w={{ lg: "150px" }}
                 mr={{
                   base: "0px", sm: "0", lg: "16px"
                 }}
@@ -777,6 +924,7 @@ export default function Proposal({
               <Button
                 bg="rgb(100, 43, 115)"
                 color="white"
+                borderRadius="3xl"
                 fontSize="1.4em"
                 w={{ lg: "350px" }}
                 mr={{

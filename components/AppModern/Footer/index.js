@@ -26,7 +26,7 @@ const Footer = () => {
   return (
     <FooterArea>
       <Container>
-        <WidgetArea>
+        {/* <WidgetArea>
           {widgets.map((item) => (
             <Box className="col" key={`footer-widget--key${item.id}`}>
               <a href={item.link} target="_blank" rel="noopener noreferrer">
@@ -38,7 +38,7 @@ const Footer = () => {
               <Text content={item.description} />
             </Box>
           ))}
-        </WidgetArea>
+        </WidgetArea> */}
         {/* End of footer widgets area */}
         <MenuArea>
           <Logo
