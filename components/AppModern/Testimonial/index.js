@@ -19,7 +19,7 @@ const Testimonial = () => {
     type: 'carousel',
     gap: 0,
     autoplay: 5000,
-    perView: 2,
+    perView: 3,
     animationDuration: 700,
     breakpoints: {
       991: {
@@ -31,42 +31,48 @@ const Testimonial = () => {
   return (
     <SectionWrapper id="testimonial">
       <Container>
-        <SectionHeader>
+        {/* <SectionHeader>
             <Heading as="h5" content={slogan} />
             <Heading content={title} />
-        </SectionHeader>
+        </SectionHeader> */}
 
         <CarouselWrapper>
             <GlideCarousel
-              options={glideOptions}
-              nextButton={
-                <Button
-                  icon={<i className="flaticon-next" />}
-                  aria-label="Next"
-                  variant="fab"
-                />
-              }
-              prevButton={
-                <Button
-                  icon={<i className="flaticon-left-arrow" />}
-                  aria-label="Prev"
-                  variant="fab"
-                />
-              }
+            
+              // options={glideOptions}
+              // nextButton={
+              //   <Button
+              //     icon={<i className="flaticon-next" />}
+              //     aria-label="Next"
+              //     variant="fab"
+              //   />
+              // }
+              // prevButton={
+              //   <Button
+              //     icon={<i className="flaticon-left-arrow" />}
+              //     aria-label="Prev"
+              //     variant="fab"
+              //   />
+              // }
             >
-              <Fragment>
+              <Fragment display={{ base: "none", sm: "block", lg:"none"}}>
                 {reviews.map((item) => (
                   <GlideSlide key={`testimonial--key${item.id}`}>
                     <div className="review-card">
+                      <div className="image">
+                          <Image
+                            boxSize={{base: "25px", md: "150px", lg: "150px"}}
+                            ml="auto"
+                            mr="auto"
+                            src={item.avatar} alt="Step Image" />
+                      </div>  
                       <Heading as="h3" content={item.title} />
                       <Text content={item.description} />
                       <div className="card-footer">
-                        <div className="image">
-                          <Image src={item.avatar} alt="Client Image" />
-                        </div>
+                        
                         <div className="reviewer-info">
                           <div className="content">
-                            <Heading as="h4" content={item.name} />
+                            {/* <Heading as="h4" content={item.name} /> */}
                             <Text content={item.designation} />
                           </div>
                           {/* <Rating rating={item.review} /> */}

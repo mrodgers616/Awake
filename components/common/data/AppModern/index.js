@@ -422,31 +422,24 @@ export const testimonial = {
   reviews: [
     {
       id: 1,
-      title: 'LOVE it!!',
+      title: 'Link your Broker',
       description:
-        'I have only dabbled in shareholder activism, but I am excited to start advocatinng for changes at the companies in my portfolio.',
-      avatar:
-        'https://pbs.twimg.com/profile_images/974736784906248192/gPZwCbdS.jpg',
-      name: 'Raul Quintero',
-      review: 4,
+        'In order to prove you own shares, we ask that you link your broker after making an account.',
+      avatar: "https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Flock.png?alt=media&token=1515b250-2374-4d95-85be-26d91fc95f43",
     },
     {
       id: 2,
-      title: 'Finally having an impact!',
+      title: 'Sign a Petition',
       description:
-        'I spent years flirting with sustainable finance, divesting from oil companies and investing in clean tech, but still did not feel like I was moving the dial, then finally I started using Awake.',
-      avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-      name: 'Maggie Paruta',
-      review: 5,
+        'Sign a petition for a company in your portfolio to take action on an issue you care about.',
+      avatar: "https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Green%20Papers.png?alt=media&token=7c813e0b-964c-4b78-81cf-4e9a35d97e6b",
     },
     {
       id: 3,
-      title: 'The finance app I didnt know I needed',
+      title: 'We Do the Rest',
       description:
-        'I was curious about sustainable finance and how I can have an impact; a friend recommended Awake to me and I have backed so many impactful campaigns!',
-      avatar: 'https://randomuser.me/api/portraits/men/44.jpg',
-      name: 'Alex Rodgers',
-      review: 5,
+        "We'll advocate for change at the target companies on behalf of you and other investors.",
+      avatar: 'https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Megaphone.png?alt=media&token=d71c6a33-e24b-406c-b99e-487f5360932a',
     },
   ],
 };

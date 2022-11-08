@@ -39,7 +39,14 @@ import Confetti from 'react-confetti'
 import LoginModal from '../../components/LoginModal';
 import Faq from "../../components/FaqSlug";
 import faqs from "../../data/slugFAQ.json";
-import HIW from "../../components/AppModern/HowItWorksMobile/test";
+import GlideCarousel from '../../components/common/components/GlideCarousel';
+import GlideSlide from '../../components/common/components/GlideCarousel/glideSlide';
+import { SectionHeader } from '../../components/AppModern/appModern.style';
+import { testimonial } from '../../components/common/data/AppModern';
+import SectionWrapper, { CarouselWrapper } from '../../components/AppModern/Testimonial/testimonial.style';
+import Testimonial from "../../components/AppModern/Testimonial";
+
+
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -701,7 +708,7 @@ export default function Proposal({
             </Highlight>
           </Heading>
         </Flex>
-        <Box textAlign="center" ml="5%" mr="5%" mt="75px">
+        <Box textAlign="center" ml="5%" mr="5%" mt="75px" display={{ base: "none", sm: "none", md:"block", lg: "block" }}>
         <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
                 <Box
                   width="32%"
@@ -765,7 +772,13 @@ export default function Proposal({
                 </Box>
               </Flex>
             </Box>
+{/* EXPERIMENTING WITH SWIPER HERE */}
+      <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }}>
+        <Testimonial ></Testimonial>
+      </Container>
+
 {/* BULK BLOCK WITH SHARE THIS CAMPAIGN AND SIGN PETITION STARTS HERE */}
+          
         <Flex
           w="100%"
           my="32px"
