@@ -34,7 +34,7 @@ const NavbarWrapper = styled.nav`
       a {
         color: #000;
         font-size: 16px;
-        font-weight: 400;
+        font-weight: 400; 
         transition: all 0.3s ease;
         &:hover {
           font-weight: 700;
