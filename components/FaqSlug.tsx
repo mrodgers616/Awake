@@ -55,7 +55,7 @@ export default function Faq({
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                It costs nothing to use Awake and we will never ask for payment information. You can think of us like an online polling platform with more influence because we're real shareholders.
+                It costs nothing to use Awake and we will never ask for payment information. You can think of us like an online polling platform with more influence because we&apos;re real shareholders.
                 </AccordionPanel>
               </>
             )}
@@ -76,7 +76,7 @@ export default function Faq({
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                By linking your account, you're proving you own shares. We're proving to companies like Apple that their OWNERS care about the issues we're raising. This gives us more leverage at no cost to you.
+                By linking your account, you&apos;re proving you own shares. We&apos;re proving to companies like Apple that their OWNERS care about the issues we&apos;re raising. This gives us more leverage at no cost to you.
                 </AccordionPanel>
               </>
             )}
