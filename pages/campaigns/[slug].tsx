@@ -156,7 +156,7 @@ export default function Proposal({
       users.push(uid);
       if(isNaN(Number(investments[i].quantity))) {
         const dataToUpload = {
-          verifiedVotes: Number(investments[i].quantity),
+          verifiedVotes: campaign.verifiedVotes,
           users: arrayUnion(uid),
           verifiedVote:{
             for: forVotes,
