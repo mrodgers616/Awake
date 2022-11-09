@@ -7,6 +7,8 @@ import {
   Heading,
   Button,
   Badge,
+  HStack,
+  useColorModeValue,
   Box,
   Icon,
   Container,
@@ -34,9 +36,16 @@ import { useAuth } from "../../contexts/AuthContext";
 import MasterCommentThread from "../../components/comments/masterCommentThread";
 import plaidLink from "../../components/plaidLinkButton"
 import Confetti from 'react-confetti'
-import LoginModal from '../../components/LoginModal'
+import LoginModal from '../../components/LoginModal';
 import Faq from "../../components/FaqSlug";
 import faqs from "../../data/slugFAQ.json";
+import GlideCarousel from '../../components/common/components/GlideCarousel';
+import GlideSlide from '../../components/common/components/GlideCarousel/glideSlide';
+import { SectionHeader } from '../../components/AppModern/appModern.style';
+import { testimonial } from '../../components/common/data/AppModern';
+import SectionWrapper, { CarouselWrapper } from '../../components/AppModern/Testimonial/testimonial.style';
+import Testimonial from "../../components/AppModern/Testimonial";
+
 
 
 const images = [
@@ -422,18 +431,18 @@ export default function Proposal({
                         bg="rgb(100, 43, 115)"
                         color="white"
                         fontSize="1.4em"
-                        w={{ base:"100px",lg: "200px" }}
-                        mr={{
-                          base: "0px", sm: "0", lg: "0px"
-                        }}
+                        w={{ lg: "200px" }}
+                        mx={{base: "3%", md: "10%", lg: "25%"}}
                         mb={{
-                          base: '32px',
+                          base: '0px',
                           md: '0'
                         }}
                         mt={{
                           base: '16px',
-                          md: '32px'
+                          md: '20px',
+                          lg: '40px'
                         }}
+                        borderRadius="3xl"
                         h="64px"
                         onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
                       >
@@ -699,7 +708,7 @@ export default function Proposal({
             </Highlight>
           </Heading>
         </Flex>
-        <Box textAlign="center" ml="5%" mr="5%" mt="75px">
+        <Box textAlign="center" ml="5%" mr="5%" mt="75px" display={{ base: "none", sm: "none", md:"block", lg: "block" }}>
         <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
                 <Box
                   width="32%"
@@ -763,7 +772,13 @@ export default function Proposal({
                 </Box>
               </Flex>
             </Box>
+{/* EXPERIMENTING WITH SWIPER HERE */}
+      <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }}>
+        <Testimonial ></Testimonial>
+      </Container>
+
 {/* BULK BLOCK WITH SHARE THIS CAMPAIGN AND SIGN PETITION STARTS HERE */}
+          
         <Flex
           w="100%"
           my="32px"

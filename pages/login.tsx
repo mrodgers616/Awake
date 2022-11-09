@@ -17,6 +17,18 @@ import {
   Icon,
   Text,
   Box,
+  Checkbox,
+  Divider,
+  Stack,
+  useBreakpointValue,
+  useColorModeValue,
+  InputGroup,
+  InputRightElement,
+  IconButton,
+  useDisclosure,
+  useMergeRefs,
+  ButtonGroup, 
+  VisuallyHidden,
 } from "@chakra-ui/react";
 import Link from '../components/Link';
 import Layout from '../components/layout';
@@ -25,6 +37,15 @@ import { useForm } from "react-hook-form";
 import { ReactElement } from "react";
 import { Protected } from '../contexts/Protected';
 import GoogleButton from 'react-google-button'
+import { Logo } from '../components/login/Logo'
+import { OAuthButtonGroup } from '../components/login/OAuthButtonGroup'
+import { PasswordField } from '../components/login/PasswordField'
+import { GoogleIcon } from '../components/login/ProviderIcons'
+import { useRouter } from "next/router";
+import { HiEye, HiEyeOff } from 'react-icons/hi'
+import * as React from 'react'
+import LogoImageAlt from '../public/illustrations/Awake Logo dark (new).png';
+
 
 const googleButtonStyle = {
   marignRight: "auto",
@@ -43,13 +64,30 @@ const Login: NextPageWithLayout = () => {
     login(data);
   };
 
+  const providers = [
+    { name: 'Google', icon: <GoogleIcon boxSize="5" /> },
+  ]
+
+  const router = useRouter();
+
+  const { isOpen, onToggle } = useDisclosure()
+    const inputRef = React.useRef<HTMLInputElement>(null)
+  
+    const onClickReveal = () => {
+      onToggle()
+      if (inputRef.current) {
+        inputRef.current.focus({ preventScroll: true })
+      }
+    }
+
+
 
   return (
     <>
       <Head>
-        <title>Awake | Proposals</title>
+        <title>Awake | Login</title>
       </Head>
-      <Box
+      {/* <Box
         bg="sage.500"
         bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
         // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
@@ -125,7 +163,93 @@ const Login: NextPageWithLayout = () => {
             </chakra.form>
           </Box>
         </Container>
+      </Box> */}
+      <Container maxW="lg" py={{ base: '12', md: '24' }} px={{ base: '0', sm: '8' }} mt="30px">
+    <Stack spacing="8">
+      <Stack spacing="6">
+        <Logo />
+        <Stack spacing={{ base: '2', md: '3' }} textAlign="center">
+          <Heading size={useBreakpointValue({ base: 'xs', md: 'sm' })}>
+            Log in to your account
+          </Heading>
+          <HStack spacing="1" justify="center">
+            <Text color="muted">Don&apos;t have an account?</Text>
+            <Button variant="link" colorScheme="blue" onClick={() => {router.push(`/register`);}}>
+              Sign up
+            </Button>
+          </HStack>
+        </Stack>
+      </Stack>
+      <Box
+        py={{ base: '0', sm: '8' }}
+        px={{ base: '4', sm: '10' }}
+        bg={useBreakpointValue({ base: 'transparent', sm: 'bg-surface' })}
+        boxShadow={{ base: 'none', sm: useColorModeValue('md', 'md-dark') }}
+        borderRadius={{ base: 'none', sm: 'xl' }}
+      >
+        <chakra.form onSubmit={handleSubmit(onSubmit)}>
+        <Stack spacing="6">
+          <Stack spacing="5">
+            <FormControl>
+              <FormLabel htmlFor="email">Email</FormLabel>
+              <Input
+                  id='email'
+                  type='email'
+                  {...register('email', {
+                    required: 'Please enter your email',
+                  })}
+                />
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="password">Password</FormLabel>
+              <InputGroup>
+                <InputRightElement>
+                  {/* <IconButton
+                    variant="link"
+                    aria-label={isOpen ? 'Mask password' : 'Reveal password'}
+                    icon={isOpen ? <HiEyeOff /> : <HiEye />}
+                    onClick={onClickReveal}
+                  /> */}
+                </InputRightElement>
+                <Input
+                  id='password'
+                  type='password'
+                  {...register('password', {
+                    required: 'Please enter your password',
+                  })}
+                />
+              </InputGroup>
+          </FormControl>
+          </Stack>
+          <HStack justify="space-between">
+            <Checkbox defaultChecked>Remember me</Checkbox>
+            {/* <Button variant="link" colorScheme="blue" size="sm">
+              Forgot password?
+            </Button> */}
+          </HStack>
+          <Stack spacing="6">
+            <Button variant="primary" type="submit" border="2px" borderColor="#32006B" _hover={{ bg: '#ebedf0' }}>Sign in</Button>
+            <HStack>
+              <Divider />
+              <Text fontSize="sm" whiteSpace="nowrap" color="muted">
+                or continue with
+              </Text>
+              <Divider />
+            </HStack>
+            <ButtonGroup variant="outline" spacing="4" width="full">
+              {providers.map(({ name, icon }) => (
+                <Button key={name} width="full" onClick={() => { googleRegister() }}>
+                  <VisuallyHidden>Sign in with {name}</VisuallyHidden>
+                  {icon}
+                </Button>
+              ))}
+            </ButtonGroup>
+          </Stack>
+        </Stack>
+        </chakra.form>
       </Box>
+    </Stack>
+  </Container>
     </>
   );
 };
