@@ -44,6 +44,7 @@ import { GoogleIcon } from '../components/login/ProviderIcons'
 import { useRouter } from "next/router";
 import { HiEye, HiEyeOff } from 'react-icons/hi'
 import * as React from 'react'
+import LogoImageAlt from '../public/illustrations/Awake Logo dark (new).png';
 
 
 const googleButtonStyle = {
@@ -227,7 +228,7 @@ const Login: NextPageWithLayout = () => {
             </Button> */}
           </HStack>
           <Stack spacing="6">
-            <Button variant="primary" type="submit">Sign in</Button>
+            <Button variant="primary" type="submit" border="2px" borderColor="#32006B" _hover={{ bg: '#ebedf0' }}>Sign in</Button>
             <HStack>
               <Divider />
               <Text fontSize="sm" whiteSpace="nowrap" color="muted">

@@ -179,7 +179,7 @@ const Register: NextPage = () => {
           </Heading>
           <HStack spacing="1" justify="center">
             <Text color="muted">Already have an account?</Text>
-            <Button variant="link" colorScheme="blue" onClick={() => {router.push(`/register`);}}>
+            <Button variant="link" colorScheme="blue" onClick={() => {router.push(`/login`);}}>
               Sign In
             </Button>
           </HStack>
@@ -242,7 +242,7 @@ const Register: NextPage = () => {
             </Button> */}
           </HStack>
           <Stack spacing="6">
-            <Button variant="primary" type="submit">Create An Account</Button>
+            <Button variant="primary" type="submit" border="2px" borderColor="#32006B" _hover={{ bg: '#ebedf0' }}>Create An Account</Button>
             <HStack>
               <Divider />
               <Text fontSize="sm" whiteSpace="nowrap" color="muted">
