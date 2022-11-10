@@ -10,27 +10,27 @@ import {
   Text,
   Heading
 } from '@chakra-ui/react'
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, easeIn } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
 const boxVariant = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
   hidden: { opacity: 0, scale: 0 }
 };
 
 const boxVariant2 = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
   hidden: { opacity: 0, scale: 0 }
 };
 
 const boxVariant3 = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
   hidden: { opacity: 0, scale: 0 }
 };
 
 const boxVariant4 = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+  visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
   hidden: { opacity: 0, scale: 0 }
 };
 
