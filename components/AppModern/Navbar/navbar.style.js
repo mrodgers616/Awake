@@ -8,6 +8,7 @@ const NavbarWrapper = styled.nav`
   border-bottom: 1px solid rgba(255, 255, 255, 0.102);
   position: fixed;
   z-index: 9999;
+  background-color: #fff;
   transition: all 0.3s ease;
   @media only screen and (max-width: 1366px) {
     padding: 20px 0 21px;
