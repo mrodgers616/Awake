@@ -162,7 +162,6 @@ export default function CastVoteModal({
   function userOwnSharesFor(i: number, invest: any) {
     let currentVotes = campaign.verifiedVotes
     let users = campaign.users
-
     let forVotes = 1;
     let againstVotes = 0;
 
@@ -181,18 +180,31 @@ export default function CastVoteModal({
     }
 
     if (currentVotes && users) {
-      const totalVotes = currentVotes + invest[i].quantity;
+      //const totalVotes = currentVotes + invest[i].quantity;
       users.push(uid);
-      const dataToUpload = {
-        verifiedVotes: increment(Number(invest[i].quantity)),
-        users: arrayUnion(uid),
-        verifiedVote:{
-          for: forVotes,
-          against: againstVotes
-        }
+      if(Number.isNaN(Number(invest[i].quantity))) {
+        const dataToUpload = {
+          verifiedVotes: campaign.verifiedVotes,
+          users: arrayUnion(uid),
+          verifiedVote:{
+            for: forVotes,
+            against: againstVotes
+          }
       }
-
       updateProposalInStore(slug, dataToUpload);
+      }
+      else {
+        const dataToUpload = {
+          verifiedVotes: increment(Number(invest[i].quantity)),
+          users: arrayUnion(uid),
+          verifiedVote:{
+            for: forVotes,
+            against: againstVotes
+          }
+      }
+      updateProposalInStore(slug, dataToUpload);
+      
+      }
     }
     else {
       const dataToUpload = {

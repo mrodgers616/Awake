@@ -68,18 +68,14 @@ enum State {
 
 export default function Proposal({
   campaign,
-  stockData,
   investments,
   slug,
-  uid,
   profileData,
   email,
 }: {
   campaign: any;
-  stockData: any;
   investments: any;
   slug: string;
-  uid: any;
   profileData: any;
   email: any;
 }): JSX.Element {
@@ -93,7 +89,7 @@ export default function Proposal({
   const toast = useToast();
 
   const router = useRouter();
-  const { userid } = useAuth();
+  const { userid }: any= useAuth();
   const { width, height } = useWindowSize()
 
   let userInvestmentQuantity: number;
@@ -118,13 +114,13 @@ export default function Proposal({
   }
 
   function doesUserOwnSharesFor() { 
-    let campaignTicker = campaign.symbol;
+    let campaignTicker = campaign?.symbol;
 
     if (investments) {
-      for (let i = 0; i < investments.length; i++) {
-        let userInvestmentTicker = investments[i].ticker;
+      for (let i = 0; i < investments?.length; i++) {
+        let userInvestmentTicker = investments[i]?.ticker;
         if (userInvestmentTicker == campaignTicker) {
-          userInvestmentQuantity = investments[i].quantity;
+          userInvestmentQuantity = investments[i]?.quantity;
           userOwnSharesFor(i);
           return true;
         }
@@ -140,21 +136,21 @@ export default function Proposal({
   }
 
   function userOwnSharesFor(i: number) {
-    let currentVotes = campaign.verifiedVotes
-    let users = campaign.users
+    let currentVotes = campaign?.verifiedVotes
+    let users = campaign?.users
 
     let forVotes = 1;
     let againstVotes = 0;
 
-    if(campaign.verifiedVote) {
-      againstVotes = campaign.verifiedVote.against
+    if(campaign?.verifiedVote) {
+      againstVotes = campaign?.verifiedVote.against
     }
     else {
       againstVotes = 0;
     }
 
     if(campaign.verifiedVote) {
-      forVotes = Number(campaign.verifiedVote.for) + 1
+      forVotes = Number(campaign?.verifiedVote.for) + 1
     }
     else {
       forVotes = 1;
@@ -162,11 +158,11 @@ export default function Proposal({
 
     if (currentVotes && users) {
       const totalVotes = currentVotes + investments[i].quantity;
-      users.push(uid);
-      if(isNaN(Number(investments[i].quantity))) {
+      users?.push(userid);
+      if(Number.isNaN(Number(investments[i].quantity))) {
         const dataToUpload = {
           verifiedVotes: campaign.verifiedVotes,
-          users: arrayUnion(uid),
+          users: arrayUnion(userid),
           verifiedVote:{
             for: forVotes,
             against: againstVotes
@@ -177,7 +173,7 @@ export default function Proposal({
       else {
         const dataToUpload = {
           verifiedVotes: increment(Number(investments[i].quantity)),
-          users: arrayUnion(uid),
+          users: arrayUnion(userid),
           verifiedVote:{
             for: forVotes,
             against: againstVotes
@@ -192,7 +188,7 @@ export default function Proposal({
     else {
       const dataToUpload = {
         verifiedVotes: Number(investments[i].quantity),
-        users: [uid],
+        users: [userid],
         verifiedVote:{
           for: 1,
           against: 0
@@ -209,14 +205,14 @@ export default function Proposal({
         proposalsVotedOn: arrayUnion(slug),
       }
 
-      updateOrAddProfileData(uid, slugs)
+      updateOrAddProfileData(userid, slugs)
     }
     else {
       let slugs = {
         proposalsVotedOn: [slug],
       }
 
-      updateOrAddProfileData(uid, slugs)
+      updateOrAddProfileData(userid, slugs)
     }
 
   }
@@ -243,10 +239,10 @@ export default function Proposal({
 
     if (currentVotes && users) {
       const totalVotes = currentVotes + 1;
-      users.push(uid);
+      users.push(userid);
       const dataToUpload = {
         unverifiedVotes: increment(1),
-        unverifiedUsers: arrayUnion(uid),
+        unverifiedUsers: arrayUnion(userid),
         unverifiedVote:{
           for: forVotes,
           against: againstVotes
@@ -258,7 +254,7 @@ export default function Proposal({
     else {
       const dataToUpload = {
         unverifiedVotes: 1,
-        unverifiedUsers: [uid],
+        unverifiedUsers: [userid],
         unverifiedVote:{
           for: 1,
           against: 0
@@ -275,14 +271,14 @@ export default function Proposal({
         proposalsVotedOn: arrayUnion(slug)
       }
 
-      updateOrAddProfileData(uid, slugs)
+      updateOrAddProfileData(userid, slugs)
     }
     else {
       let slugs = {
         proposalsVotedOn: [slug],
       }
 
-      updateOrAddProfileData(uid, slugs)
+      updateOrAddProfileData(userid, slugs)
     }
 
   }
@@ -298,7 +294,7 @@ export default function Proposal({
 
   function hasUserVoted() {
     try {
-      const votedproposals = profileData.proposalsVotedOn
+      const votedproposals = profileData?.proposalsVotedOn
       if (votedproposals) {
         for (let i = 0; i < votedproposals.length; i++) {
           if (votedproposals[i] === slug) {
@@ -454,7 +450,7 @@ export default function Proposal({
                         onOpen={onVoteModalOpen}
                         campaign={campaign}
                         profileData={profileData}
-                        uid={uid}
+                        uid={userid}
                         investmentsOld={investments}
                         slug={slug}
                       /> } </>)
@@ -519,7 +515,7 @@ export default function Proposal({
                         md: "2px solid #eaeaea"
                       }}>
                         <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "42px" }} color="black">
-                          {campaign.verifiedVotes ? String(Math.round(Number(campaign.verifiedVotes) * 100) /100) : "0"}
+                          {campaign?.verifiedVotes ? String(Math.round(Number(campaign?.verifiedVotes) * 100) /100) : "0"}
                         </Heading>
                         <Text color="black" fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                           Our Holdings &nbsp; <Tooltip label="This number tracks the collective number of shares in the company petition signers own"><QuestionOutlineIcon/></Tooltip>
@@ -552,6 +548,7 @@ export default function Proposal({
               display={{base:"none",lg:"inline-block"}}
               mb={16}
               p={2}
+              alt="campaign image"
             />
             <Image 
               src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste2.png?alt=media&token=29d93a02-5b0c-41da-aeda-27e099ca1054"
@@ -559,6 +556,7 @@ export default function Proposal({
               width="300px" 
               display={{base:"none",lg:"inline-block"}}
               p={2} 
+              alt="campaign image"
               />
             <Image
               src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste3.png?alt=media&token=e9075046-c9fe-456c-b5bd-c9656f517711"
@@ -567,6 +565,7 @@ export default function Proposal({
               display={{base:"none",lg:"inline-block"}}
               mb={16}
               p={2}
+              alt="campaign image"
             />
             <Image 
               src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste4.png?alt=media&token=89bc7ddb-d199-45ea-b859-18626f43a469"
@@ -574,6 +573,7 @@ export default function Proposal({
               width="300px" 
               display={{base:"none",lg:"inline-block"}} 
               p={2} 
+              alt="campaign image"
               />
           </Flex>   
       
@@ -684,7 +684,7 @@ export default function Proposal({
               </Flex>
               <br></br>
               <Box mb="2%">
-                <MasterCommentThread type="deal" slug={slug} userIdForComment={uid} maxThreadDepth={3}></MasterCommentThread>
+                <MasterCommentThread type="deal" slug={slug} userIdForComment={userid} maxThreadDepth={3}></MasterCommentThread>
               </Box>
             </Box>
     </Flex> 
@@ -718,6 +718,7 @@ export default function Proposal({
                   padding="4px"
                 >
                   <Image
+                    alt="campaign image"
                     boxSize={{base: "50px", md: "150px", lg: "150px"}}
                     ml="auto"
                     mr="auto"
@@ -738,6 +739,7 @@ export default function Proposal({
                   padding="4px"
                 >
                   <Image
+                    alt="campaign image"
                     boxSize={{base: "50px", md: "150px", lg: "150px"}}
                     ml="auto"
                     mr="auto"
@@ -758,6 +760,7 @@ export default function Proposal({
                   padding="4px"
                 >
                   <Image
+                    alt="campaign image"
                     boxSize={{base: "50px", md: "150px", lg: "150px"}}
                     ml="auto"
                     mr="auto"
@@ -837,15 +840,15 @@ export default function Proposal({
                 <Flex justifyContent="center" alignItems="space-around" width={48}>
                   <Box>
                     <Flex alignItems={"center"} justifyContent={"flex-start"}>
-                      {socialMedia.map((social: any, index: number) => {
-                        if (social.name === "clipboard") {
+                      {socialMedia?.map((social: any, index: number) => {
+                        if (social?.name === "clipboard") {
                           return (
                             <Button
                               key={index}
                               name={social.name}
                               w="48px"
                               h="48px"
-                              onClick={() => copy(social.link)}
+                              onClick={() => copy(social?.link)}
                               background="transparent"
                               _hover={{
                                 background: "transparent",
@@ -873,7 +876,7 @@ export default function Proposal({
                               w="48px"
                               h="48px"
                               onClick={() => {
-                                copy(social.link, {
+                                copy(social?.link, {
                                   message: "Copied to clipboard",
                                 });
                               }}
@@ -883,7 +886,7 @@ export default function Proposal({
                                 w={8}
                                 h={8}
                                 _hover={{ color: "purple" }}
-                                as={social.icon}
+                                as={social?.icon}
                               />
                             </Link>
                           );
@@ -930,7 +933,7 @@ export default function Proposal({
                 onOpen={onVoteModalOpen}
                 campaign={campaign}
                 profileData={profileData}
-                uid={uid}
+                uid={userid}
                 investmentsOld={investments}
                 slug={slug}
               /> } </>)
@@ -973,7 +976,7 @@ export default function Proposal({
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { slug } = context.query;
+  const { slug } = context?.query;
   const campaignDoc = await fetchProposalFromStore(slug as string);
 
   const campaign = {
@@ -992,15 +995,15 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   );
 
   try {
-    const cookies = nookies.get(context);
-    const token = await admin.auth().verifyIdToken(cookies.__session);
+    const cookies = nookies?.get(context);
+    const token = await admin?.auth().verifyIdToken(cookies.__session);
 
-    uid = token.uid;
+    uid = token?.uid;
 
     const profile: any = await getProfileData(uid);
 
     profileData = {
-      ...profile.data()
+      ...profile!.data()
     };
 
 
@@ -1031,7 +1034,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       stockData,
       investments: investments,
       slug: slug as string,
-      uid: uid,
       profileData: profileData,
       email: email,
     },
