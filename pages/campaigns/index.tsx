@@ -135,7 +135,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
           </video>
           <Center>
-            <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-350px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
+            <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
               <Center>
                 <Heading size="2xl">By collectivizing our voices as shareholders we can demand change at the companies we own. Sign the petitions below to make history with us.</Heading>
               </Center>

@@ -53,6 +53,11 @@ const NavbarWrapper = styled.nav`
 export const MenuArea = styled.div`
   display: flex;
   align-items: center;
+  .mobileView {
+    @media only screen and (max-width: 991px) {
+      display: none;
+    }
+  }
   .menu {
     display: flex;
     align-items: center;
@@ -145,7 +150,7 @@ export const MenuArea = styled.div`
         padding: 0;
         justify-content: flex-end;
         min-width: 35px;
-        color: #fff;
+        color: #000;
         svg {
           width: 27px;
           height: auto;

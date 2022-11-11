@@ -93,6 +93,8 @@ export default function Proposal({
   const { userid }: any= useAuth();
   const { width, height } = useWindowSize()
 
+  const currencyFormatter = new Intl.NumberFormat();
+
   let userInvestmentQuantity: number;
 
   const {
@@ -492,7 +494,7 @@ export default function Proposal({
                 </Flex>
                 
                 <Flex
-                    w={{base:"100%",lg:"25%"}}
+                    w={{base:"100%",lg:"30%"}}
                     boxShadow='2xl' p='1'
                     mb="32px"
                     mt="50px"
@@ -516,7 +518,7 @@ export default function Proposal({
                         md: "2px solid #eaeaea"
                       }}>
                         <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "42px" }} color="black">
-                          {campaign?.verifiedVotes ? "$" + String((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 146) : "0"}
+                          {campaign?.verifiedVotes ? "$" + String(currencyFormatter.format((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 146)) : "0"}
                         </Heading>
                         <Text color="black" fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                           <Center>
