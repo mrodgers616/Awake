@@ -10,72 +10,65 @@ import {
   Text,
   Heading
 } from '@chakra-ui/react'
-import { motion, useAnimation, easeIn } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+// import { motion, useAnimation, easeIn } from "framer-motion";
+// import { useInView } from "react-intersection-observer";
+// import { useEffect } from "react";
 
-const boxVariant = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
-  hidden: { opacity: 0, scale: 0 }
-};
+// const boxVariant = {
+//   visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
+//   hidden: { opacity: 0, scale: 0 }
+// };
 
-const boxVariant2 = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
-  hidden: { opacity: 0, scale: 0 }
-};
+// const boxVariant2 = {
+//   visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
+//   hidden: { opacity: 0, scale: 0 }
+// };
 
-const boxVariant3 = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
-  hidden: { opacity: 0, scale: 0 }
-};
+// const boxVariant3 = {
+//   visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
+//   hidden: { opacity: 0, scale: 0 }
+// };
 
-const boxVariant4 = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
-  hidden: { opacity: 0, scale: 0 }
-};
+// const boxVariant4 = {
+//   visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
+//   hidden: { opacity: 0, scale: 0 }
+// };
 
 const NewContent = () => {
 
-  const control = useAnimation();
-  const [ref, inView] = useInView();
+  // const control = useAnimation();
+  // const [ref, inView] = useInView();
 
-  const control2 = useAnimation();
-  const [ref2, inView2] = useInView();
+  // const control2 = useAnimation();
+  // const [ref2, inView2] = useInView();
 
-  const control3 = useAnimation();
-  const [ref3, inView3] = useInView();
+  // const control3 = useAnimation();
+  // const [ref3, inView3] = useInView();
 
-  const control4 = useAnimation();
-  const [ref4, inView4] = useInView();
+  // const control4 = useAnimation();
+  // const [ref4, inView4] = useInView();
 
-  useEffect(() => {
-    if (inView) {
-      control.start("visible");
-    }
+  // useEffect(() => {
+  //   if (inView) {
+  //     control.start("visible");
+  //   }
 
-    if (inView2) {
-      control2.start("visible");
-    }
+  //   if (inView2) {
+  //     control2.start("visible");
+  //   }
 
-    if (inView3) {
-      control3.start("visible");
-    }
+  //   if (inView3) {
+  //     control3.start("visible");
+  //   }
 
-    if (inView4) {
-      control4.start("visible");
-    }
-  }, [control, inView, control2, inView2, control3, inView3, control4, inView4]);
+  //   if (inView4) {
+  //     control4.start("visible");
+  //   }
+  // }, [control, inView, control2, inView2, control3, inView3, control4, inView4]);
 
   return (
 
   <ChakraProvider resetCSS>
-    <motion.div
-      className="box"
-      ref={ref}
-      variants={boxVariant}
-      initial="hidden"
-      animate={control}
-    >
       <Flex justifyContent="space-between" alignItems="center" width="100%" mt={"80px"}>
         <Image
           //height={{base: "15px", base: "400px", base: "400px"}}
@@ -106,15 +99,7 @@ const NewContent = () => {
           </Highlight>
         </Heading>
       </Flex>
-      </motion.div>
 
-      <motion.div
-      className="box"
-      ref={ref2}
-      variants={boxVariant2}
-      initial="hidden"
-      animate={control2}
-      >
       <Flex justifyContent="space-between" alignItems="center" width="100%" mt={20}>
       <Heading 
           ml={{base: "3%", md: "10%", lg: "10%"}}
@@ -145,16 +130,8 @@ const NewContent = () => {
           src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGroup%20366.png?alt=media&token=5be820fa-fa97-470f-9cca-0fa936e076dc"
         />
       </Flex>
-      </motion.div>
       
 
-      <motion.div
-      className="box"
-      ref={ref3}
-      variants={boxVariant3}
-      initial="hidden"
-      animate={control3}
-      >
       <Flex justifyContent="space-between" alignItems="center" width="100%" mt={20}>
       
         <Heading 
@@ -176,15 +153,7 @@ const NewContent = () => {
           </Highlight>
         </Heading>
       </Flex>
-      </motion.div>
 
-      <motion.div
-      className="box"
-      ref={ref4}
-      variants={boxVariant4}
-      initial="hidden"
-      animate={control4}
-      >
       <Box textAlign="center" ml="5%" mr="5%" mt="75px">
       <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
               <Box
@@ -258,7 +227,6 @@ const NewContent = () => {
               </Box>
             </Flex>
           </Box>
-    </motion.div>
   </ChakraProvider>
 )}
 
