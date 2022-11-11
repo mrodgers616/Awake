@@ -13,7 +13,8 @@ import {
   Box,
   Tooltip,
   Stack,
-  Text
+  Text,
+  Center
 } from "@chakra-ui/react";
 import {
   Pagination as Paginator,
@@ -131,6 +132,9 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
             <video autoPlay loop muted width={"100%"}>
                 <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
           </video>
+          <Center>
+            <Heading zIndex="9000" mt="-350px" mb="250px" size="2xl">Change this text</Heading>
+          </Center>
             <Box
               bg="rgba(0,0,0,.7)"
               position="absolute"
