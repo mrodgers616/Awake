@@ -16,7 +16,8 @@ import {
   useToast,
   Highlight,
   Stack,
-  Tooltip
+  Tooltip,
+  Center
 } from "@chakra-ui/react";
 import { QuestionOutlineIcon } from '@chakra-ui/icons'
 import useWindowSize from 'react-use/lib/useWindowSize'
@@ -515,10 +516,12 @@ export default function Proposal({
                         md: "2px solid #eaeaea"
                       }}>
                         <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "42px" }} color="black">
-                          {campaign?.verifiedVotes ? String(Math.round(Number(campaign?.verifiedVotes) * 100) /100) : "0"}
+                          {campaign?.verifiedVotes ? "$" + String((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 146) : "0"}
                         </Heading>
                         <Text color="black" fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
+                          <Center>
                           Our Holdings &nbsp; <Tooltip label="This number tracks the collective number of shares in the company petition signers own"><QuestionOutlineIcon/></Tooltip>
+                          </Center>
                         </Text>
                       </Box>
                       <Box color="black" p={{ base: '4', lg: "16px 24px" }}>

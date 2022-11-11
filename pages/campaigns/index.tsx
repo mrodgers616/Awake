@@ -14,7 +14,8 @@ import {
   Tooltip,
   Stack,
   Text,
-  Center
+  Center,
+  Divider
 } from "@chakra-ui/react";
 import {
   Pagination as Paginator,
@@ -129,11 +130,12 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
             <Heading fontFamily={{ base: "28px", sm: "28px", lg: "3em" }} mb="2%" zIndex={1000}>
               Vision
             </Heading>
+            <Container display={{base: "inline-flex", md: "none", lg: "none"}} mb="30px"></Container>
             <video autoPlay loop muted width={"100%"}>
                 <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
           </video>
           <Center>
-            <Container zIndex="9000" mt="-350px" mb="250px" >
+            <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-350px"}} mb={{base: "50px", md: "250px", lg: "250px"}} >
               <Center>
                 <Heading size="2xl">Change this text</Heading>
               </Center>
@@ -155,7 +157,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
 
           <Box title="">
             <Flex title="" justifyContent="space-between">
-              <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }}>Campaigns</Heading>
+              <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }} mr="auto" ml="auto">Campaigns</Heading>
             </Flex>
             <Grid
               title=""

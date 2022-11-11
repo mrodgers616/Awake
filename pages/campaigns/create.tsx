@@ -143,6 +143,7 @@ const CreateCampaign: NextPage = (_props: any) => {
               : values.governanceDescription,
           status: 0,
           verified: false,
+          canClick: false,
         };
         // // create a thread.
         // const response = await fetch(`/api/discourse/thread`, {
