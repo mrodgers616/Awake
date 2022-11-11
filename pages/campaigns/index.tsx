@@ -15,6 +15,7 @@ import {
   Stack,
   Text,
   Center,
+  extendTheme,
   Divider
 } from "@chakra-ui/react";
 import {
@@ -33,7 +34,25 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Timestamp } from "firebase/firestore";
 import { useAuth } from "../../contexts/AuthContext";
 import { forEach } from "lodash";
-// import DemoFootage from "../../pages/campaigns/assets/DemoFootage.mp4";
+
+// 2. Define the new text styles
+const theme = extendTheme({
+  textStyles: {
+    beep: {
+      // you can also use responsive styles
+      fontSize: ['48px', '72px'],
+      fontWeight: 'bold',
+      lineHeight: '110%',
+      letterSpacing: '-2%',
+    },
+  },
+})
+
+// 3. Consume the text styles in your component
+function Example() {
+  return <Box textStyle='h1'>This is a box</Box>
+}
+
 
 
 type Props = {
@@ -120,25 +139,22 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
       <Flex
             flexDir="column"
             color="white"
-            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+            bgColor={"white"}
             p={{ base: "0px", sm: "0px", lg: "0px" }}
             h={{ base: "fit-content", lg: "fit-content" }}
             justifyContent={"center"}
             bgPosition={"center"}
             position="relative"
           >
-            <Heading fontFamily={{ base: "28px", sm: "28px", lg: "3em" }} mb="2%" zIndex={1000}>
-              Vision
-            </Heading>
-            <Container display={{base: "inline-flex", md: "none", lg: "none"}} mb="30px"></Container>
+            
+            <Container display={{base: "inline-flex", md: "none", lg: "none"}} mb="0px"></Container>
             <video autoPlay loop muted width={"100%"}>
                 <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
           </video>
           <Center>
-            <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-350px"}} mb={{base: "50px", md: "250px", lg: "250px"}} >
-              <Center>
-                <Heading size="2xl">Change this text</Heading>
-              </Center>
+            <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-350px"}} mb={{base: "50px", md: "250px", lg: "210px"}} >
+              
+            <Heading size="2xl" alignContent={"left"}> By collectivizing our voices as shareholders we can demand change at the companies we own. Sign the petitions below to make history with us.</Heading>
             </Container>
           </Center>
             <Box
@@ -157,7 +173,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
 
           <Box title="">
             <Flex title="" justifyContent="space-between">
-              <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }} mr="auto" ml="auto">Campaigns</Heading>
+              {/* <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }} mr="auto" ml="auto">Campaigns</Heading> */}
             </Flex>
             <Grid
               title=""
@@ -192,7 +208,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
               })}
             </Grid>
             <Paginator {...PaginatorProps}>
-              <Flex justifyContent="flex-end" mb="120px">
+              <Flex justifyContent="flex-end" mb="60px">
                 <PaginatorContainer
                   justify="space-between"
                   w="fit-content"
