@@ -55,7 +55,7 @@ const Testimonial = () => {
               //   />
               // }
             >
-              <Fragment display={{ base: "none", sm: "block", lg:"none"}}>
+              <Fragment>
                 {reviews.map((item) => (
                   <GlideSlide key={`testimonial--key${item.id}`}>
                     <div className="review-card">

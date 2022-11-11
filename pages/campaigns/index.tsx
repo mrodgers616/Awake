@@ -24,12 +24,15 @@ import {
   PaginationPageGroup as PageGroup,
 } from "@ajna/pagination";
 import { useState, useEffect, useMemo } from "react";
+// import {Player} from 'video-react';
 import ProposalCard from "../../components/ProposalCard";
 import { getAllProposals } from "../../lib/firebaseClient";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Timestamp } from "firebase/firestore";
 import { useAuth } from "../../contexts/AuthContext";
 import { forEach } from "lodash";
+// import DemoFootage from "../../pages/campaigns/assets/DemoFootage.mp4";
+
 
 type Props = {
   campaigns: any;
@@ -110,7 +113,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
   return (
     <>
       <Head>
-        <title>Awake | Proposals</title>
+        <title>Awake | Campaigns</title>
       </Head>
       <Box
         bg="sage.500"
@@ -144,6 +147,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                   Back a Campaign for Action
                 </Text>
               </Heading>
+              
               {/* COMMENTED OUT THE  */}
               {/* <Button
                 color="white"
@@ -172,6 +176,11 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
       </Box>
       <Box title="page-content" position="relative" zIndex={0}>
         <Container width="100%" mt="2%">
+              <video autoPlay loop muted>
+                <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/DemoFootage.mp4?alt=media&token=2bc68e22-a1ca-4b4c-855b-818cb43d6910" type="video/mp4"/>
+              </video>
+        {/* <video src={DemoFootage} width="600" height="300" controls="controls" autoplay="true" /> */}
+        
           {/* <Flex
             title=""
             bg="#08152E"
