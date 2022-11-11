@@ -10,61 +10,10 @@ import {
   Text,
   Heading
 } from '@chakra-ui/react'
-// import { motion, useAnimation, easeIn } from "framer-motion";
-// import { useInView } from "react-intersection-observer";
-// import { useEffect } from "react";
 
-// const boxVariant = {
-//   visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
-//   hidden: { opacity: 0, scale: 0 }
-// };
-
-// const boxVariant2 = {
-//   visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
-//   hidden: { opacity: 0, scale: 0 }
-// };
-
-// const boxVariant3 = {
-//   visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
-//   hidden: { opacity: 0, scale: 0 }
-// };
-
-// const boxVariant4 = {
-//   visible: { opacity: 1, scale: 1, transition: { duration: 2, easeIn } },
-//   hidden: { opacity: 0, scale: 0 }
-// };
 
 const NewContent = () => {
 
-  // const control = useAnimation();
-  // const [ref, inView] = useInView();
-
-  // const control2 = useAnimation();
-  // const [ref2, inView2] = useInView();
-
-  // const control3 = useAnimation();
-  // const [ref3, inView3] = useInView();
-
-  // const control4 = useAnimation();
-  // const [ref4, inView4] = useInView();
-
-  // useEffect(() => {
-  //   if (inView) {
-  //     control.start("visible");
-  //   }
-
-  //   if (inView2) {
-  //     control2.start("visible");
-  //   }
-
-  //   if (inView3) {
-  //     control3.start("visible");
-  //   }
-
-  //   if (inView4) {
-  //     control4.start("visible");
-  //   }
-  // }, [control, inView, control2, inView2, control3, inView3, control4, inView4]);
 
   return (
 

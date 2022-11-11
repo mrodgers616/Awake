@@ -13,7 +13,9 @@ import {
   Box,
   Tooltip,
   Stack,
-  Text
+  Text,
+  Center,
+  Divider
 } from "@chakra-ui/react";
 import {
   Pagination as Paginator,
@@ -24,12 +26,15 @@ import {
   PaginationPageGroup as PageGroup,
 } from "@ajna/pagination";
 import { useState, useEffect, useMemo } from "react";
+// import {Player} from 'video-react';
 import ProposalCard from "../../components/ProposalCard";
 import { getAllProposals } from "../../lib/firebaseClient";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Timestamp } from "firebase/firestore";
 import { useAuth } from "../../contexts/AuthContext";
 import { forEach } from "lodash";
+// import DemoFootage from "../../pages/campaigns/assets/DemoFootage.mp4";
+
 
 type Props = {
   campaigns: any;
@@ -110,118 +115,49 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
   return (
     <>
       <Head>
-        <title>Awake | Proposals</title>
+        <title>Awake | Campaigns</title>
       </Head>
-      <Box
-        bg="sage.500"
-        //bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
-        // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
-        bgSize="cover"
-        zIndex={0}
-        position="relative"
-      >
-        <Box
-          // bg="rgba(0,0,0,.4)"
-          position="absolute"
-          w="100%"
-          h="100%"
-          zIndex={0}
-          top="0"
-          left="0"
-        />
-        <Container
-          position="relative"
-          width="100%"
-          h="300px"
-          overflow="auto"
-          marginX="auto"
-          zIndex={200}
-        >
-          <Flex justifyContent="center" alignItems="center" h="100%" paddingTop="80px">
-            <Stack>
-              <Heading color="white" textAlign="center" fontSize={{ base: "2em", lg: "3em" }}>
-                <Text fontSize='5xl'>
-                  Back a Campaign for Action
-                </Text>
-              </Heading>
-              {/* COMMENTED OUT THE  */}
-              {/* <Button
-                color="white"
-                // bg="rgb(100, 43, 115)"
-                bg="#000000"
-                as={Link}
-                // href={userid ? "campaigns/" : "/login"}
-                p="32px 64px"
-                borderRadius="16px"
-                fontSize="1.3em"
-                // Enabling Button regardless of connect wallet status------------------------
-                // disabled={!isConnected || !hasEnoughBalance}
-                _hover={{
-                  textDecoration: "none",
-                }}
-                // _disabled={{
-                //   pointerEvents: 'none'
-                // }}
-                disabled={true}
-              >
-                Featured Campaign (Coming Soon)
-              </Button> */}
-            </Stack>
-          </Flex>
-        </Container>
-      </Box>
-      <Box title="page-content" position="relative" zIndex={0}>
-        <Container width="100%" mt="2%">
-          {/* <Flex
-            title=""
-            bg="#08152E"
-            w="100%"
-            h={{
-              base: "fit-content",
-              md: '200px'
-            }}
-            mt="-100px"
-            borderRadius="20px"
-            alignItems="center"
-            justifyContent="space-between"
+      <Flex
+            flexDir="column"
             color="white"
-            p={{ base: "28px", sm: "28px", lg: "64px" }}
-            mb={{ base: "40px", sm: "40px", lg: "80px" }}
-            flexDirection={{
-              base: 'column',
-              md: 'row'
-            }}
+            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+            p={{ base: "0px", sm: "0px", lg: "0px" }}
+            h={{ base: "fit-content", lg: "fit-content" }}
+            justifyContent={"center"}
+            bgPosition={"center"}
+            position="relative"
           >
-            <Heading
-              fontSize={{
-                base: "22px",
-                sm: "22px",
-                lg: "36px"
-              }}
-              mb={{
-                base: '16px',
-                md: '0px'
-              }}
-              textAlign={{
-                base: 'center',
-                md: 'left'
-              }}
-            >
-              Check out our featured campaign
+            <Heading fontFamily={{ base: "28px", sm: "28px", lg: "3em" }} mb="2%" zIndex={1000}>
+              Vision
             </Heading>
-            <Tooltip
-            // label={ !isConnected ? 'Connect to Metamask' : !hasEnoughBalance ? 'You do not have enough CLIMATE tokens.' : 'Create a new campaign'}
-            // shouldWrapChildren
-            >
-            </Tooltip> 
-          </Flex> */}
-
-
-          {/* ADD BACK AFTER THE FIRST CAMPAIGN IS DECIDED */}
+            <Container display={{base: "inline-flex", md: "none", lg: "none"}} mb="30px"></Container>
+            <video autoPlay loop muted width={"100%"}>
+                <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
+          </video>
+          <Center>
+            <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
+              <Center>
+                <Heading size="2xl">By collectivizing our voices as shareholders we can demand change at the companies we own. Sign the petitions below to make history with us.</Heading>
+              </Center>
+            </Container>
+          </Center>
+            <Box
+              bg="rgba(0,0,0,.7)"
+              position="absolute"
+              w="100%"
+              h="100%"
+              top="0"
+              left="0"
+              zIndex={0}
+            />
+          </Flex>
+        
+      <Box title="page-content" position="relative" zIndex={0}>
+        <Container width="100%" mt="2%"> 
 
           <Box title="">
             <Flex title="" justifyContent="space-between">
-              <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }}>Campaigns</Heading>
+              {/* <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }} mr="auto" ml="auto">Campaigns</Heading> */}
             </Flex>
             <Grid
               title=""
@@ -256,7 +192,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
               })}
             </Grid>
             <Paginator {...PaginatorProps}>
-              <Flex justifyContent="flex-end" mb="120px">
+              <Flex justifyContent="flex-end" mb="60px">
                 <PaginatorContainer
                   justify="space-between"
                   w="fit-content"

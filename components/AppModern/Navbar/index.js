@@ -149,7 +149,7 @@ const Navbar = () => {
             </div>
           ) : (<>
               <div href="#trail" offset={84}>
-                <Button backgroundColor="white" color="black" title="Log In" onClick={() => { router.push("/login"); }} /> <span></span>
+                <Button className="mobileView" backgroundColor="white" color="black" title="Log In" onClick={() => { router.push("/login"); }} /> <span></span>
                 <Button title="Sign Up" onClick={() => { router.push("/register"); }} />
               </div>
               </>

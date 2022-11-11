@@ -42,6 +42,7 @@ interface ProposalProps extends StyleProps {
   datePosted?: Date | null;
   deadline: Date;
   createdAt: Date;
+  canClick: boolean;
 }
 
 export default function ProposalCard(props: ProposalProps): JSX.Element {
@@ -60,6 +61,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
     image,
     createdAt,
     deadline,
+    canClick,
     ...rest
   } = props;
 
@@ -78,17 +80,32 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
   const { days, hours, minutes, seconds, isTimeUp, now } = useTicker(dl);
 
   const { userid } = useAuth();
+  const toast = useToast();
 
   function handleLinkClick(campaignID: string) {
 
-    localStorage.setItem('campaignID', campaignID);
-    Router.push(`${campaignID}`);
-    // if (userid) {
-    //   Router.push(`${campaignID}`);
-    // }
-    // else {
-    //   pushLoginAndCampaignId(campaignID);
-    // }
+    if(canClick) {
+      localStorage.setItem('campaignID', campaignID);
+      Router.push(`${campaignID}`);
+      // if (userid) {
+      //   Router.push(`${campaignID}`);
+      // }
+      // else {
+      //   pushLoginAndCampaignId(campaignID);
+      // }
+    }
+    else {
+      toast({
+        title: "",
+        description:
+          "The campaign has already concluded",
+        status: "error",
+        duration: 6000,
+        isClosable: true,
+      });
+    }
+
+    
   }
 
   useEffect(() => {
