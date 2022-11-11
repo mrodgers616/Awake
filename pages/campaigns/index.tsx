@@ -133,7 +133,11 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
           </video>
           <Center>
-            <Heading zIndex="9000" mt="-350px" mb="250px" size="2xl">Change this text</Heading>
+            <Container zIndex="9000" mt="-350px" mb="250px" >
+              <Center>
+                <Heading size="2xl">Change this text</Heading>
+              </Center>
+            </Container>
           </Center>
             <Box
               bg="rgba(0,0,0,.7)"
