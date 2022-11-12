@@ -16,7 +16,7 @@ import { parseCookies } from 'nookies';
 let theLinkToken: any;
 
 const configuration = new Configuration({
-    basePath: PlaidEnvironments.development,
+    basePath: PlaidEnvironments.production,
     baseOptions: {
       headers: {
         'PLAID-CLIENT-ID': process.env.PLAID_CLIENT_ID,

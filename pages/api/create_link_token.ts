@@ -15,11 +15,14 @@ export default async function handler(
       case 'GET':
         return res.status(200).json({ name: 'John Doe' })
       case 'POST':
-        const response = await fetchLinkToken();
-        if (response.status === 200) {
+        const response = await fetchLinkToken(req.body);
+        if (response?.status === 200) {
           return res.status(200).json(response.data);
-        } else if (response.status === 422) {
+        } else if (response?.status === 422) {
           return res.status(422).json(response.data);
+        } 
+        else if (response?.status === 500) {
+          console.log(response.data)
         } else {
           return res.status(400).send({
             error: 'There was an error connecting to Plaid.',

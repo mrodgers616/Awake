@@ -4,7 +4,7 @@ const util = require('util');
 const moment = require('moment');
 
 const configuration = new Configuration({
-    basePath: PlaidEnvironments.development,
+    basePath: PlaidEnvironments.production,
     baseOptions: {
       headers: {
         'PLAID-CLIENT-ID': process.env.PLAID_CLIENT_ID,
@@ -31,9 +31,28 @@ const configs = {
     language: 'en',
 };
 
-export async function fetchLinkToken () { 
+export async function fetchLinkToken (userid: any) { 
     // @ts-ignore
-    const response = await plaidClient.linkTokenCreate(configs);
+    console.log(userid)
+    let response;
+    try {
+    response = await plaidClient.linkTokenCreate({
+      user: {
+      // This should correspond to a unique id for the current user.
+      //remember to fix this id when the trad login and user data structure are complete
+      client_user_id: userid ? userid : "userid",
+      },
+      client_name: 'Awake',
+      // @ts-ignore
+      products: plaidProducts,
+      // @ts-ignore
+      country_codes: plaidCountryCodes,
+      language: 'en',
+    });
+    }
+    catch(e) {
+      console.log(e)
+    }
     const linkToken = response;
     return linkToken;
 }

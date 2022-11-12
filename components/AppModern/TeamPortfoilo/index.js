@@ -28,7 +28,7 @@ const TeamPortfolioSection = () => {
   const router = useRouter();
 
   return (
-    <SectionWrapper id="team">
+    <SectionWrapper id="team" >
       <Container>
         <ContentWrapper>
           <div className="image">
