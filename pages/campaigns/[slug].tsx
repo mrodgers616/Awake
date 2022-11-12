@@ -160,9 +160,9 @@ export default function Proposal({
     }
 
     if (currentVotes && users) {
-      const totalVotes = currentVotes + investments[i].quantity;
+      const totalVotes = currentVotes + investments[i]?.quantity;
       users?.push(userid);
-      if(Number.isNaN(Number(investments[i].quantity))) {
+      if(Number.isNaN(Number(investments[i]?.quantity))) {
         const dataToUpload = {
           verifiedVotes: campaign.verifiedVotes,
           users: arrayUnion(userid),
@@ -175,7 +175,7 @@ export default function Proposal({
       }
       else {
         const dataToUpload = {
-          verifiedVotes: increment(Number(investments[i].quantity)),
+          verifiedVotes: increment(Number(investments[i]?.quantity)),
           users: arrayUnion(userid),
           verifiedVote:{
             for: forVotes,
@@ -190,7 +190,7 @@ export default function Proposal({
     }
     else {
       const dataToUpload = {
-        verifiedVotes: Number(investments[i].quantity),
+        verifiedVotes: Number(investments[i]?.quantity),
         users: [userid],
         verifiedVote:{
           for: 1,
@@ -267,7 +267,7 @@ export default function Proposal({
       updateProposalInStore(slug, dataToUpload);
     }
 
-    const proposals = profileData.proposalsVotedOn
+    const proposals = profileData?.proposalsVotedOn
     if (proposals) {
       let newArrayofSlugs = proposals.push(slug)
       let slugs = {
@@ -287,7 +287,7 @@ export default function Proposal({
   }
 
   function checkAndVote() {
-    if(profileData.investments) {
+    if(profileData?.investments) {
       doesUserOwnSharesFor();
       theConfetti();
     }
@@ -1012,8 +1012,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
 
 
-    if (profileData.investments) {
-      investments = await profileData.investments;
+    if (profileData?.investments) {
+      investments = profileData?.investments;
 
     }
     else {

@@ -136,7 +136,7 @@ export default function CastVoteModal({
       ...profile.data()
     };
 
-    const pullNewInvestments = profileData.investments ? profileData.investments : null;
+    const pullNewInvestments = profileData?.investments ? profileData.investments : null;
     setInvestments(pullNewInvestments);
 
 
@@ -308,10 +308,10 @@ export default function CastVoteModal({
     let campaignTicker = campaign.symbol;
 
     if (investments) {
-      for (let i = 0; i < investments.length; i++) {
-        let userInvestmentTicker = investments[i].ticker;
+      for (let i = 0; i < investments?.length; i++) {
+        let userInvestmentTicker = investments[i]?.ticker;
         if (userInvestmentTicker == campaignTicker) {
-          userInvestmentQuantity = investments[i].quantity;
+          userInvestmentQuantity = investments[i]?.quantity;
           userOwnSharesAgainst(i);
           return true;
         }
@@ -327,30 +327,30 @@ export default function CastVoteModal({
   }
 
   function userOwnSharesAgainst(i: number) {
-    let currentVotes = campaign.verifiedVotes
-    let users = campaign.users
+    let currentVotes = campaign?.verifiedVotes
+    let users = campaign?.users
     let forVotes = 0;
     let againstVotes = 1;
 
-    if(campaign.verifiedVote) {
-      forVotes = Number(campaign.verifiedVote.for) + 1
+    if(campaign?.verifiedVote) {
+      forVotes = Number(campaign?.verifiedVote.for) + 1
     }
     else {
       forVotes = 0;
     }
 
     if(campaign.verifiedVote) {
-      againstVotes = Number(campaign.verifiedVote.against) + 1
+      againstVotes = Number(campaign?.verifiedVote.against) + 1
     }
     else {
       againstVotes = 1;
     }
 
     if (currentVotes && users) {
-      const totalVotes = currentVotes + investments[i].quantity;
+      const totalVotes = currentVotes + investments[i]?.quantity;
       users.push(uid);
       const dataToUpload = {
-        verifiedVotes: increment(Number(investments[i].quantity)),
+        verifiedVotes: increment(Number(investments[i]?.quantity)),
         users: arrayUnion(uid),
         verifiedVote:{
           for: forVotes,
@@ -362,7 +362,7 @@ export default function CastVoteModal({
     }
     else {
       const dataToUpload = {
-        verifiedVotes: Number(investments[i].quantity),
+        verifiedVotes: Number(investments[i]?.quantity),
         users: [uid],
         verifiedVote:{
           for: 0,
