@@ -10,7 +10,8 @@ import {
   Text,
   Heading
 } from '@chakra-ui/react'
-
+// import Testimonial from "../../components/AppModern/Testimonial";
+import Testimonial from "../../AppModern/Testimonial";
 
 const NewContent = () => {
 
@@ -103,8 +104,8 @@ const NewContent = () => {
         </Heading>
       </Flex>
 
-      <Box textAlign="center" ml="5%" mr="5%" mt="75px">
-      <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
+      <Box textAlign="center" ml="5%" mr="5%" mt="75px" display={{ base: "none", sm: "none", md:"block", lg: "block" }}>
+        <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
               <Box
                 width="25%"
                 fontSize="xl"
@@ -173,9 +174,15 @@ const NewContent = () => {
                 <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
                   We&#39;ll advocate for change at the target companies on behalf of you and other investors.
                 </Text>
+                
               </Box>
+              
             </Flex>
           </Box>
+          {/* EXPERIMENTING WITH SWIPER HERE */}
+          <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }}>
+                 <Testimonial ></Testimonial>
+                </Container>
   </ChakraProvider>
 )}
 
