@@ -483,12 +483,12 @@ export default function CastVoteModal({
     ////console.log("link token begin")
     try {
       // get a link_token from your server
-      const response = await fetch('/api/create_link_token', { method: 'POST' });
+      const response = await fetch('/api/create_link_token', { method: 'POST', body: uid });
       const { link_token } = await response.json();
       return link_token;
     }
     catch (e) {
-      ////console.log(e);
+      console.log(e);
     }
   }
 

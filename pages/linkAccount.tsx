@@ -95,7 +95,7 @@ const Banner = () => {
 }
 
 const configuration = new Configuration({
-  basePath: PlaidEnvironments.development,
+  basePath: PlaidEnvironments.production,
   baseOptions: {
     headers: {
       'PLAID-CLIENT-ID': process.env.PLAID_CLIENT_ID,
@@ -251,7 +251,7 @@ const LinkAccount: NextPage = () => {
     ////console.log("link token begin")
     try {
       // get a link_token from your server
-      const response = await fetch('/api/create_link_token', { method: 'POST' });
+      const response = await fetch('/api/create_link_token', { method: 'POST', body: userid });
       const { link_token } = await response.json();
       return link_token;
     }
