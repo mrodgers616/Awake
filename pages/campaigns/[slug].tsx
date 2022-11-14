@@ -345,7 +345,7 @@ export default function Proposal({
       name: "twitter",
       icon: FaTwitter,
       link: encodeURI(
-        `https://twitter.com/intent/tweet?text=I just backed the ${campaign.title} campaign on @Awake. learn more here:\n&url=${pageUri}`
+        `https://twitter.com/intent/tweet?text=I just backed the ${campaign.title} campaign on @AwakeInvest. learn more here:\n&url=${pageUri}`
       ),
     },
     {
