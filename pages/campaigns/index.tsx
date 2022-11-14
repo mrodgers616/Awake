@@ -126,39 +126,66 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
             justifyContent={"center"}
             bgPosition={"center"}
             position="relative"
+            display={{base:"none", sm:"none", md:"inline-block", lg:"inline-block"}}
           >
-            <Heading fontFamily={{ base: "28px", sm: "28px", lg: "3em" }} mb="2%" zIndex={1000}>
-              Vision
-            </Heading>
-            <Container display={{base: "inline-flex", md: "none", lg: "none"}} mb="30px"></Container>
             <video autoPlay loop muted width={"100%"}>
                 <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
-          </video>
-          <Center>
-            <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
-              <Center>
-                <Heading size="2xl">By collectivizing our voices as shareholders we can demand change at the companies we own. Sign the petitions below to make history with us.</Heading>
-              </Center>
-            </Container>
-          </Center>
-            <Box
-              bg="rgba(0,0,0,.7)"
-              position="absolute"
-              w="100%"
-              h="100%"
-              top="0"
-              left="0"
-              zIndex={0}
-            />
+            </video>
+                <Center>
+                  <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
+                    <Center>
+                      <Heading size="2xl">By collectivizing our voices as shareholders we can demand change at the companies we own. Sign the petitions below to make history with us.</Heading>
+                    </Center>
+                  </Container>
+                </Center>
+              <Box
+                bg="rgba(0,0,0,.7)"
+                position="absolute"
+                w="100%"
+                h="100%"
+                top="0"
+                left="0"
+                zIndex={0}
+              />
           </Flex>
+        {/* TRYING TO GET THE MOBILE VIEW FOR BANNER       */}
+        <Flex
+            flexDir="column"
+            color="white"
+            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+            p={{ base: "0px", sm: "0px", lg: "0px" }}
+            h={{ base: "fit-content", lg: "fit-content" }}
+            justifyContent={"center"}
+            bgPosition={"center"}
+            position="relative"
+            display={{base:"inline-block", sm:"inline-block", md:"none", lg:"none"}}
+          >
+            <video autoPlay loop muted width={"100%"}>
+                <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/d67b3e2f-0d36-4e06-9b48-01e788b6d081.mp4?alt=media&token=d4da57fc-1d04-445a-9ddb-c55094125a20" type="video/mp4"/>
+            </video>
+                <Center>
+                  <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-600px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
+                    <Center>
+                      <Heading size="xl">By collectivizing our voices as shareholders we can demand change at the companies we own. Sign the petitions below to make history with us.</Heading>
+                    </Center>
+                  </Container>
+                </Center>
+              <Box
+                bg="rgba(0,0,0,.7)"
+                position="absolute"
+                w="100%"
+                h="100%"
+                top="0"
+                left="0"
+                zIndex={0}
+              />
+          </Flex>
+                
         
       <Box title="page-content" position="relative" zIndex={0}>
-        <Container width="100%" mt="2%"> 
+        <Container width="100%" mt="8%"> 
 
           <Box title="">
-            <Flex title="" justifyContent="space-between">
-              {/* <Heading mb={{ base: "40px", sm: "40px", lg: "64px" }} mr="auto" ml="auto">Campaigns</Heading> */}
-            </Flex>
             <Grid
               title=""
               templateColumns={{
