@@ -108,7 +108,7 @@ export default function CastVoteModal({
 
   const { width, height } = useWindowSize()
   const [showConfetti, setShowConfetti] = useState(false);
-  const [showForAgainst, setShowForAgainst] = useState(profileData.investments ? false : true);
+  const [showForAgainst, setShowForAgainst] = useState(profileData?.investments ? false : true);
   const [showModal, setShowModal] = useState(true);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [investments, setInvestments] = useState(investmentsOld);
