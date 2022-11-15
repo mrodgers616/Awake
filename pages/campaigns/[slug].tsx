@@ -345,7 +345,7 @@ export default function Proposal({
       name: "twitter",
       icon: FaTwitter,
       link: encodeURI(
-        `https://twitter.com/intent/tweet?text=I just backed the ${campaign.title} campaign on @Awake. learn more here:\n&url=${pageUri}`
+        `https://twitter.com/intent/tweet?text=I just backed the ${campaign.title} campaign on @AwakeInvest. learn more here:\n&url=${pageUri}`
       ),
     },
     {
@@ -454,7 +454,7 @@ export default function Proposal({
                         campaign={campaign}
                         profileData={profileData}
                         uid={userid}
-                        investmentsOld={investments}
+                        investmentsOld={investments || undefined}
                         slug={slug}
                       /> } </>)
                       : 
@@ -600,7 +600,7 @@ export default function Proposal({
 
 
                 campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
-                  <text><b>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. With your help, we can get Apple to take a stronger stance.</b></text>
+                  <Text as='b'>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. With your help, we can get Apple to take a stronger stance.</Text>
                   <br/>
                   <br/>
                     <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" >
@@ -611,7 +611,7 @@ export default function Proposal({
                         What we want
                       </Highlight>
                     </Heading>  
-                  <text>We want Apple to disclose total electronic waste figures* and provide additional information on their plans to mitigate waste.</text> 
+                  <Text>We want Apple to disclose total electronic waste figures* and provide additional information on their plans to mitigate waste.</Text> 
                   <br/>
                   <br/>
                   <Container display={{ base: "block", sm: "none", lg: "none" }}>
@@ -646,34 +646,34 @@ export default function Proposal({
       <Heading fontSize="28px" textTransform={"uppercase"} mb="16px">
         Back Story
       </Heading>
-      <text>In 2019, approximately </text>
-      <b><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
-      53.6 million 
-      </Link></b>
-      <text> metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.</text>
+      <Text>In 2019, approximately ‎
+      <Text  as='b'><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
+      53.6 million ‎
+      </Link></Text>
+      metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.</Text>
       {/* {String(campaign?.description).substring(332,1333)} */}
       <br/>
       <br/>      
-      <text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world&apos;s E-waste. But how much? That&apos;s the thing, we don&apos;t know. Apple&apos;s hardware produced </text>
+      <Text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world&apos;s E-waste. But how much? That&apos;s the thing, we don&apos;t know. Apple&apos;s hardware produced ‎
       <b><Link href="https://www.zdnet.com/article/apples-colossal-e-waste-timebomb/" isExternal>1.65 billion</Link></b>
-      <text> devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how many materials are <b>not</b> recovered.</text>
+      ‎ devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how many materials are <b>not</b> recovered.</Text>
       <br/>
       <br/>
-      <text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </text>
+      <Text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </Text>
       <br/>
       <br/>
-      <text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</text>
+      <Text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</Text>
       <br/>
-      <text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a </text>
+      <Text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a ‎
       
       <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
-      <text> Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</text>
+      ‎ Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</Text>
       <br/>
       <br/>
 
-      <text> 
+      <Text> 
       We&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
-      </text>
+      </Text>
       <br/>
       <br/>
     </Container>
@@ -985,7 +985,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const campaignDoc = await fetchProposalFromStore(slug as string);
 
   const campaign = {
-    ...campaignDoc!.data(),
+    ...campaignDoc?.data(),
   };
 
   let stockData  = null;
@@ -1025,11 +1025,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     //console.log(e);
   } 
 
-  if (campaign.createdAt instanceof Timestamp) {
+  if (campaign?.createdAt instanceof Timestamp) {
     campaign.createdAt = new Date(campaign.createdAt.seconds).toString();
   }
 
-  if (campaign.deadline instanceof Timestamp) {
+  if (campaign?.deadline instanceof Timestamp) {
     campaign.deadline = new Date(campaign.deadline.seconds).toString();
   }
 
@@ -1037,7 +1037,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     props: {
       campaign,
       stockData,
-      investments: investments,
+      investments,
       slug: slug as string,
       profileData: profileData,
       email: email,
