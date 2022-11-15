@@ -727,6 +727,6 @@ CastVoteModal.propTypes = {
   campaign: propTypes.any.isRequired,
   profileData: propTypes.any.isRequired,
   uid: propTypes.any.isRequired,
-  investmentsOld: propTypes.any.isRequired,
+  investmentsOld: propTypes.any,
   slug: propTypes.any.isRequired,
 };
