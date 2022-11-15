@@ -724,7 +724,7 @@ export default function CastVoteModal({
 }
 
 CastVoteModal.propTypes = {
-  campaign: propTypes.any.isRequired,
+  campaign: propTypes.any,
   profileData: propTypes.any.isRequired,
   uid: propTypes.any.isRequired,
   investmentsOld: propTypes.any,

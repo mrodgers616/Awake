@@ -152,7 +152,7 @@ export default function Proposal({
       againstVotes = 0;
     }
 
-    if(campaign.verifiedVote) {
+    if(campaign?.verifiedVote) {
       forVotes = Number(campaign?.verifiedVote.for) + 1
     }
     else {
@@ -164,7 +164,7 @@ export default function Proposal({
       users?.push(userid);
       if(Number.isNaN(Number(investments[i]?.quantity))) {
         const dataToUpload = {
-          verifiedVotes: campaign.verifiedVotes,
+          verifiedVotes: campaign?.verifiedVotes,
           users: arrayUnion(userid),
           verifiedVote:{
             for: forVotes,
@@ -322,13 +322,13 @@ export default function Proposal({
   }
 
   function howManyUsers() {
-    if(campaign.unverifiedUsers && campaign.users) {
+    if(campaign?.unverifiedUsers && campaign?.users) {
       return (campaign.unverifiedUsers.length + campaign.users.length)
     }
-    else if(campaign.unverifiedUsers) {
+    else if(campaign?.unverifiedUsers) {
       return campaign.unverifiedUsers.length;
     }
-    else if(campaign.users) {
+    else if(campaign?.users) {
       return campaign.users.length;
     }
     else {
@@ -345,14 +345,14 @@ export default function Proposal({
       name: "twitter",
       icon: FaTwitter,
       link: encodeURI(
-        `https://twitter.com/intent/tweet?text=I just backed the ${campaign.title} campaign on @AwakeInvest. learn more here:\n&url=${pageUri}`
+        `https://twitter.com/intent/tweet?text=I just backed the ${campaign?.title} campaign on @AwakeInvest. learn more here:\n&url=${pageUri}`
       ),
     },
     {
       name: "facebook",
       icon: FaFacebook,
       link: encodeURI(
-        `https://www.facebook.com/sharer/sharer.php?u=https://www.awakeinvest.com/campaigns/${campaign.slug}`
+        `https://www.facebook.com/sharer/sharer.php?u=https://www.awakeinvest.com/campaigns/${campaign?.slug}`
       ),
     },
     {
@@ -983,10 +983,16 @@ export default function Proposal({
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { slug } = context?.query;
   const campaignDoc = await fetchProposalFromStore(slug as string);
+  let campaign = null;
 
-  const campaign = {
-    ...campaignDoc?.data(),
-  };
+  try {
+    campaign = {
+      ...campaignDoc?.data(),
+    };
+  }
+  catch(e) {
+    console.log(e)
+  }
 
   let stockData  = null;
   let investments = null;
