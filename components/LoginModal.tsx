@@ -12,29 +12,15 @@ import {
   Icon,
   Center,
   Text,
-  Stack
+  Stack,
+  Input
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { Configuration, LinkTokenCreateRequest, PlaidApi, PlaidEnvironments, InvestmentsHoldingsGetResponse } from 'plaid';
-import {
-  PlaidLink,
-  PlaidLinkOnSuccess,
-  PlaidLinkOnEvent,
-  PlaidLinkOnExit,
-  usePlaidLink,
-  PlaidLinkOptionsWithLinkToken,
-} from 'react-plaid-link';
-import useWindowSize from 'react-use/lib/useWindowSize'
-import { BiWrench, BiChevronRight } from "react-icons/bi";
-import { BsPersonCheck } from "react-icons/bs";
-import { lighten } from '@chakra-ui/theme-tools';
-import propTypes from 'prop-types';
-import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOrAddProfileData } from "../lib/firebaseClient";
-import { arrayUnion, Timestamp, increment } from "firebase/firestore";
-import Confetti from 'react-confetti'
-import LinkAccount from './plaidLinkButtonNoRedirect'
 import { useRouter } from "next/router";
-
+import * as EmailValidator from 'email-validator';
+import { useToast } from "@chakra-ui/react";
+import { useAuth } from "../contexts/AuthContext";
+import { generate } from "generate-password"
 
 export default function LoginModal({
   onOpen,
@@ -47,13 +33,64 @@ export default function LoginModal({
 }): JSX.Element {
 
   const [showModal, setShowModal] = useState(true);
+  const [emailValue, setEmailValue] = React.useState('')
+  const handleEmailChange = (event: any) => setEmailValue(event.target.value)
+
+  const [passwordValue, setPasswordValue] = React.useState('')
+  const handlePasswordChange = (event: any) => setPasswordValue(event.target.value)
+
+  const [nameValue, setNameValue] = React.useState('')
+  const handleNameChange = (event: any) => setNameValue(event.target.value)
 
   const router = useRouter();
+  const toast = useToast();
+  const { modalRegister: modalRegister } = useAuth();
+
+  // const transporter = nodemailer.createTransport({
+  //   service: 'gmail',
+  //   auth: {
+  //     user: 'matthew@awakeinvest.com',
+  //     pass: 'Wehttam123@'
+  //   }
+  // });
+
+  // const mailOptions = (email: any, password: any) => {
+
+  //   return {
+  //     from: 'donotreply@awakeinvest.com',
+  //     to: email,
+  //     subject: 'Thanks for signing the Petition',
+  //     text: "Thanks for signing the Petition! Here are your account credentials: email: " + email + " password: " + password
+  //   }
+  // };
 
   const handleOnClick = () => {
-    console.log("here")
-    setShowModal(false)
-    router.push('/register')
+    if(EmailValidator.validate(emailValue)) {
+      const username = emailValue.split("@")[0] + String(Math.floor(Math.random() * 10)) + String(Math.floor(Math.random() * 10)) + String(Math.floor(Math.random() * 10));
+      const pass = generate({
+        length: 10,
+	      numbers: true
+      })
+      modalRegister(nameValue, username, emailValue, pass)
+      // transporter.sendMail(mailOptions(emailValue, pass), function(error: any, info:any){
+      //   if (error) {
+      //     console.log(error);
+      //   } else {
+      //     console.log('Email sent: ' + info.response);
+      //   }
+      // });
+      //router.push('/register')
+    }
+    else {
+      toast({
+        title: "Error",
+        description:
+          "Invalid Email. Please check it and try again",
+        status: "error",
+        duration: 6000,
+        isClosable: true,
+      });
+    }
 
   }
 
@@ -64,13 +101,14 @@ export default function LoginModal({
       onClose={onClose}
       motionPreset='slideInBottom'
       trapFocus={false}
+      size="md"
     >
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>
           <ModalCloseButton />
           <Heading as="h2" size="lg" textAlign={"center"}>
-            Create an account
+            Sign The Petition
           </Heading>
         </ModalHeader>
         <ModalBody 
@@ -78,12 +116,23 @@ export default function LoginModal({
           justifyContent={"center"}
         >
           <Center>
-            <Stack>
-              <Text align="left">Create an account and link an investment account to have a real impact</Text>
+            <Stack spacing="6">
+              <Input
+                value={nameValue}
+                onChange={handleNameChange}
+                placeholder='First Name'
+                size='md'
+              />
+              <Input
+                value={emailValue}
+                onChange={handleEmailChange}
+                placeholder='Email'
+                size='md'
+              />
               <Center>
-              <Button w='50%' border="0px" bg='white' color="purple" onClick={() => {handleOnClick()}}>
-                Continue
-              </Button>
+                <Button w='50%' border="0px" bg='white' color="purple" onClick={() => {handleOnClick()}}>
+                  Continue
+                </Button>
               </Center>
             </Stack>
           </Center>
