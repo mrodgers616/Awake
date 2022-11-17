@@ -28,6 +28,7 @@ const slug = "81jDobBiu6t4OlCZljQh"
 interface ContextValue extends State {
   login: (data: LoginAndRegisterProps) => Promise<void>;
   register: (data: LoginAndRegisterProps) => Promise<void>;
+  modalRegister: (firstname: any, username: any, email: any, password: any) => Promise<void>;
   logout: () => Promise<void>;
   googleSignIn: () => Promise<void>;
   facebookSignIn: () => Promise<void>;
@@ -338,7 +339,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
         setState({ ...state, loggedIn: true, user: user, userid: user.uid });
       
-        console.log(user);
         if (window.sessionStorage) {
           toast({
             title: "Registration Successful",
@@ -432,10 +432,53 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }
 
+  async function modalRegister(
+    firstName: any,
+    username: any,
+    email: any,
+    password: any,): Promise<void> {
+    try {
+      const authentication = getAuth();
+      const response = await createUserWithEmailAndPassword(
+        authentication,
+        email,
+        password
+      );
+
+      const user = response.user
+      // construct new user profile obj.
+      const newUser = {
+        backgroundImage: "",
+        profileImage: "",
+        biography: "",
+        username,
+        email,
+        facebook: "",
+        linkedIn: "",
+        twitter: "",
+        name: firstName,
+        loginCounter: 1,
+      }
+
+      await updateOrAddProfileData(response.user.uid, newUser);
+      setState({ ...state, loggedIn: true, user: user, userid: user.uid });
+
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: mapAuthCodeToMessage((error as FirebaseError).message),
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+  }
+
   const value: ContextValue = {
     login,
     logout,
     register,
+    modalRegister,
     googleSignIn,
     facebookSignIn,
     ...state,
