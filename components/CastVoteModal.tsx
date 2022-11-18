@@ -35,6 +35,7 @@ import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOr
 import { arrayUnion, Timestamp, increment } from "firebase/firestore";
 import Confetti from 'react-confetti'
 import LinkAccount from './plaidLinkButtonNoRedirect'
+import { event } from "nextjs-google-analytics"
 
 
 interface Categories {
@@ -285,7 +286,7 @@ export default function CastVoteModal({
       updateProposalInStore(slug, dataToUpload);
     }
 
-    const proposals = profileData.proposalsVotedOn
+    const proposals = profileData?.proposalsVotedOn
     if (proposals) {
       let newArrayofSlugs = proposals.push(slug)
       let slugs = {
@@ -559,18 +560,48 @@ export default function CastVoteModal({
           theConfetti(); 
           setShowForAgainst(false); 
           setShowModal(true);
+          try {
+            event("Plaid_Success", {
+              category: "Plaid",
+              label: "User successfully linked Plaid",
+              uid: uid,
+            });
+          }
+          catch(e) {
+
+          }
         })
       });
     });
   };
 
   const onEvent: PlaidLinkOnEvent = (eventName, metadata) => {
+    try {
+      event("Plaid_Usage", {
+        category: "Plaid",
+        label: "User used Plaid",
+        uid: uid,
+      });
+    }
+    catch(e) {
+
+    }
     // log onEvent callbacks from Link
     // https://plaid.com/docs/link/web/#onevent
   };
 
   const onExit: PlaidLinkOnExit = (error, metadata) => {
     setShowModal(true);
+    try {
+      event("Plaid_Connect_Click_Out", {
+        category: "Plaid",
+        label: "Closed Plaid without linking",
+        uid: uid,
+      });
+    }
+    catch(e) {
+      
+    }
     // log onExit callbacks from Link, handle errors
     // https://plaid.com/docs/link/web/#onexit
     ////console.log(error, metadata);
