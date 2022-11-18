@@ -13,7 +13,8 @@ import {
   Center,
   Text,
   Stack,
-  Input
+  Input,
+  InputGroup,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -83,11 +84,11 @@ export default function LoginModal({
     }
     else {
       toast({
-        title: "Error",
+        title: "Invalid Email",
         description:
-          "Invalid Email. Please check it and try again",
+          "Please check and try again",
         status: "error",
-        duration: 6000,
+        duration: 8000,
         isClosable: true,
       });
     }
@@ -117,18 +118,26 @@ export default function LoginModal({
         >
           <Center>
             <Stack spacing="6">
-              <Input
-                value={nameValue}
-                onChange={handleNameChange}
-                placeholder='First Name'
-                size='md'
-              />
-              <Input
-                value={emailValue}
-                onChange={handleEmailChange}
-                placeholder='Email'
-                size='md'
-              />
+              <InputGroup ml="-22.5%">
+              <Stack spacing="6">
+                <Input
+                  value={nameValue}
+                  onChange={handleNameChange}
+                  placeholder='First Name'
+                  size='lg'
+                  variant='flushed'
+                  w="150%"
+                />
+                <Input
+                  value={emailValue}
+                  onChange={handleEmailChange}
+                  placeholder='Email'
+                  size='lg'
+                  variant='flushed'
+                  w="150%"
+                />
+                </Stack>
+              </InputGroup>
               <Center>
                 <Button w='50%' border="0px" bg='white' color="purple" onClick={() => {handleOnClick()}}>
                   Continue

@@ -323,13 +323,13 @@ export default function Proposal({
 
   function howManyUsers() {
     if(campaign?.unverifiedUsers && campaign?.users) {
-      return (campaign.unverifiedUsers.length + campaign.users.length)
+      return (250 + campaign.unverifiedUsers.length + campaign.users.length)
     }
     else if(campaign?.unverifiedUsers) {
-      return campaign.unverifiedUsers.length;
+      return 250 + campaign.unverifiedUsers.length;
     }
     else if(campaign?.users) {
-      return campaign.users.length;
+      return 250 + campaign.users.length;
     }
     else {
       return 0;
