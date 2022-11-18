@@ -707,7 +707,7 @@ export default function Proposal({
     <Flex mb="64px" flexDir={"column"} 
             w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
 
-            <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
+            {/* <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
               <Flex justifyContent="space-between">
                 <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" mt="32px"> 
                   Discussion
@@ -717,7 +717,7 @@ export default function Proposal({
               <Box mb="2%">
                 <MasterCommentThread type="deal" slug={slug} userIdForComment={userid} maxThreadDepth={3}></MasterCommentThread>
               </Box>
-            </Box>
+            </Box> */}
     </Flex> 
 {/* ADDING THE HOW IT WORKS SECTION AFTER THE DISCUSSION */}
     <Flex justifyContent="space-between" alignItems="center" width="100%" mb={'20px'}>

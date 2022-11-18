@@ -24,69 +24,6 @@ const About: NextPageWithLayout = () => {
         <title>Awake | About us</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Box
-        bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
-        // bgImage="url(https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)"
-        bgSize="cover"
-        zIndex={0}
-        h={{base:"200px", sm:"200px", md:"350",lg:"300px"}}
-        position="relative"
-      >
-        <Box
-          // bg="rgba(0,0,0,.4)"
-          position="absolute"
-          w="100%"
-          h="50%"
-          zIndex={0}
-          top="0"
-          left="0"
-        />
-        <Container
-          position="relative"
-          width="100%"
-          h={{ base: "200px", sm: "200px", lg: "400px" }}
-          overflow="auto"
-          marginX="auto"
-          zIndex={200}
-        >
-          <Flex
-            flexDir="column"
-            h="100px"
-            justifyContent={"center"}
-            zIndex={200}
-          >
-            <Heading
-              as="h1"
-              size="xl"
-              fontSize={{ base: "24px", sm: "32px", md:"48px", lg: "60px" }}
-              color="white"
-              ml="auto"
-              mr="auto"
-              mt={{ base: "180px", sm:"180px", md:"200px", lg: "220px" }}
-              zIndex={250}
-            >
-              About Us
-            </Heading>
-            <Box>
-              {/* <Button
-                as={Link}
-                bg="rgb(164,191,217)"
-                color="white"
-                h="48px"
-                ml="6%"
-                mt="6%"
-                href="/campaigns"
-                _disabled={{
-                  pointerEvents: "none",
-                }}
-              >
-                Campaigns
-                <Icon as={FaArrowRight} ml="15px" />
-              </Button> */}
-            </Box>
-          </Flex>
-        </Container>
-      </Box>
       <Container>
         <Box title="values" my={{ base: "60px", sm: "60px", lg: "120px" }}>
 
