@@ -16,7 +16,7 @@ class privacyPolicy extends React.Component<Props, State> {
     return (
       <>
       <Box bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)" height="98px" width="100%"></Box>
-      <Container mt="5%">
+      <Container mt="8%">
         <h1>Privacy Policy for Awake</h1>
 
         <p>At awakeinvest.com, accessible from https://awakeinvest.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by awakeinvest.com and how we use it.</p>
