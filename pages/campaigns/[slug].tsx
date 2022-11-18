@@ -6,9 +6,6 @@ import {
   Flex,
   Heading,
   Button,
-  Badge,
-  HStack,
-  useColorModeValue,
   Box,
   Icon,
   Container,
@@ -22,32 +19,23 @@ import {
 import { QuestionOutlineIcon } from '@chakra-ui/icons'
 import useWindowSize from 'react-use/lib/useWindowSize'
 import { FaClipboard, FaTwitter, FaFacebook } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOrAddProfileData } from "../../lib/firebaseClient";
 import { GetServerSidePropsContext } from "next";
 import { arrayUnion, Timestamp, increment } from "firebase/firestore";
 import CastVoteModal from "../../components/CastVoteModal";
 import Link from "../../components/Link"; 
-import axios from "axios";
 import copy from "copy-to-clipboard";
 import nookies from 'nookies';
 import { admin } from '../../lib/firebaseAdmin';
-import { IoArrowBackOutline } from "react-icons/io5";
 import { useAuth } from "../../contexts/AuthContext";
 import MasterCommentThread from "../../components/comments/masterCommentThread";
-import plaidLink from "../../components/plaidLinkButton"
 import Confetti from 'react-confetti'
 import LoginModal from '../../components/LoginModal';
 import Faq from "../../components/FaqSlug";
 import faqs from "../../data/slugFAQ.json";
-import GlideCarousel from '../../components/common/components/GlideCarousel';
-import GlideSlide from '../../components/common/components/GlideCarousel/glideSlide';
-import { SectionHeader } from '../../components/AppModern/appModern.style';
-import { testimonial } from '../../components/common/data/AppModern';
-import SectionWrapper, { CarouselWrapper } from '../../components/AppModern/Testimonial/testimonial.style';
 import Testimonial from "../../components/AppModern/Testimonial";
-
-
+import { event } from "nextjs-google-analytics"
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -114,6 +102,44 @@ export default function Proposal({
     return new Promise((resolve) => {
       setTimeout(resolve, ms);
     });
+  }
+
+  function reportClickOutOfSignPetition() {
+    try {
+      event("Sign_Petition_Modal_Closed", {
+        category: "Petition_Modal",
+        label: "Closed Petition Modal",
+        uid: userid,
+      });
+    }
+    catch(e) {
+
+    }
+  }
+
+  function reportOpenSignPetitionModal() {
+    try {
+      event("Sign_Petition_Modal_Opened", {
+        category: "Petition_Modal",
+        label: "User Opened Petition Modal",
+        uid: userid,
+      });
+    }
+    catch(e) {
+
+    }
+  }
+
+  function reportOpenLoginModal() {
+    try {
+      event("Login_Petition_Modal_Opened", {
+        category: "Login_Modal",
+        label: "User Opened Login Modal",
+      });
+    }
+    catch(e) {
+
+    }
   }
 
   function doesUserOwnSharesFor() { 
@@ -449,8 +475,8 @@ export default function Proposal({
                       </Button>
                       { !modalClose && <CastVoteModal
                         isOpen={voteModalIsOpen}
-                        onClose={ () => {onVoteModalClose; setModalClose(true)}}
-                        onOpen={onVoteModalOpen}
+                        onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition;}}
+                        onOpen={() => {onVoteModalOpen; reportOpenSignPetitionModal}}
                         campaign={campaign}
                         profileData={profileData}
                         uid={userid}
@@ -484,8 +510,8 @@ export default function Proposal({
                         {loginModal && 
                           <LoginModal 
                             isOpen={voteModalIsOpen}
-                            onClose={ () => {onVoteModalClose; setLoginModal(false);}}
-                            onOpen={onVoteModalOpen}
+                            onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition;}}
+                            onOpen={() => {onVoteModalOpen; reportOpenLoginModal}}
                           />
                         }
                         </>
@@ -934,8 +960,8 @@ export default function Proposal({
               </Button>
               { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
-                onClose={ () => {onVoteModalClose; setModalClose(true)}}
-                onOpen={onVoteModalOpen}
+                onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition;}}
+                onOpen={() => {onVoteModalOpen; reportOpenSignPetitionModal}}
                 campaign={campaign}
                 profileData={profileData}
                 uid={userid}
@@ -966,8 +992,8 @@ export default function Proposal({
                 {loginModal && 
                   <LoginModal 
                     isOpen={voteModalIsOpen}
-                    onClose={ () => {onVoteModalClose; setLoginModal(false);}}
-                    onOpen={onVoteModalOpen}
+                    onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition;}}
+                    onOpen={() => {onVoteModalOpen; reportOpenLoginModal;}}
                   />
                 }
                 </>

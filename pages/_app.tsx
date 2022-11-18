@@ -5,6 +5,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { AuthProvider } from '../contexts/AuthContext'
 import { AppProps } from 'next/app'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
+import { GoogleAnalytics as GA } from "nextjs-google-analytics";
 
 
 import theme from '../theme'
@@ -76,6 +77,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
               <ContentWrapper>
                 <LayoutAppModern>
                   <GoogleAnalytics measurementId="G-E829D3LL4P" />
+                  <GA gaMeasurementId="G-E829D3LL4P" trackPageViews />
                   <Component {...pageProps} />
                 </LayoutAppModern>
               </ContentWrapper>
