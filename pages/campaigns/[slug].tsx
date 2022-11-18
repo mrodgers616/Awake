@@ -109,36 +109,41 @@ export default function Proposal({
       event("Sign_Petition_Modal_Closed", {
         category: "Petition_Modal",
         label: "Closed Petition Modal",
-        uid: userid,
+        uid: userid ? userid : "not logged in or before entered name and email",
       });
+      console.log("modal close")
     }
     catch(e) {
-
+      console.log(e)
     }
   }
 
   function reportOpenSignPetitionModal() {
+    console.log("tryy peition")
     try {
       event("Sign_Petition_Modal_Opened", {
         category: "Petition_Modal",
         label: "User Opened Petition Modal",
         uid: userid,
       });
+      console.log("openPetition")
     }
     catch(e) {
-
+      console.log(e)
     }
   }
 
   function reportOpenLoginModal() {
+    console.log("tryy Login")
     try {
       event("Login_Petition_Modal_Opened", {
         category: "Login_Modal",
         label: "User Opened Login Modal",
       });
+      console.log("open login modal")
     }
     catch(e) {
-
+      console.log(e)
     }
   }
 
@@ -475,8 +480,8 @@ export default function Proposal({
                       </Button>
                       { !modalClose && <CastVoteModal
                         isOpen={voteModalIsOpen}
-                        onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition;}}
-                        onOpen={() => {onVoteModalOpen; reportOpenSignPetitionModal}}
+                        onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition();}}
+                        onOpen={() => {reportOpenSignPetitionModal(); onVoteModalOpen; }}
                         campaign={campaign}
                         profileData={profileData}
                         uid={userid}
@@ -510,8 +515,8 @@ export default function Proposal({
                         {loginModal && 
                           <LoginModal 
                             isOpen={voteModalIsOpen}
-                            onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition;}}
-                            onOpen={() => {onVoteModalOpen; reportOpenLoginModal}}
+                            onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition();}}
+                            onOpen={() => {onVoteModalOpen; reportOpenLoginModal();}}
                           />
                         }
                         </>
@@ -707,7 +712,7 @@ export default function Proposal({
     <Flex mb="64px" flexDir={"column"} 
             w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
 
-            <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
+            {/* <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
               <Flex justifyContent="space-between">
                 <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" mt="32px"> 
                   Discussion
@@ -717,7 +722,7 @@ export default function Proposal({
               <Box mb="2%">
                 <MasterCommentThread type="deal" slug={slug} userIdForComment={userid} maxThreadDepth={3}></MasterCommentThread>
               </Box>
-            </Box>
+            </Box> */}
     </Flex> 
 {/* ADDING THE HOW IT WORKS SECTION AFTER THE DISCUSSION */}
     <Flex justifyContent="space-between" alignItems="center" width="100%" mb={'20px'}>
@@ -960,8 +965,8 @@ export default function Proposal({
               </Button>
               { !modalClose && <CastVoteModal
                 isOpen={voteModalIsOpen}
-                onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition;}}
-                onOpen={() => {onVoteModalOpen; reportOpenSignPetitionModal}}
+                onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition();}}
+                onOpen={() => {reportOpenSignPetitionModal(); onVoteModalOpen;}}
                 campaign={campaign}
                 profileData={profileData}
                 uid={userid}
@@ -992,8 +997,8 @@ export default function Proposal({
                 {loginModal && 
                   <LoginModal 
                     isOpen={voteModalIsOpen}
-                    onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition;}}
-                    onOpen={() => {onVoteModalOpen; reportOpenLoginModal;}}
+                    onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition();}}
+                    onOpen={() => {onVoteModalOpen; reportOpenLoginModal();}}
                   />
                 }
                 </>
