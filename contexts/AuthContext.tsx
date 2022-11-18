@@ -11,7 +11,7 @@ import {
 import { FirebaseError } from "firebase/app";
 import { getProfileData, updateOrAddProfileData } from "../lib/firebaseClient";
 import nookies from 'nookies';
-import { User, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from 'firebase/auth';
+import { User, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, sendPasswordResetEmail } from 'firebase/auth';
 import ProfileEditForm from "../components/profile/ProfileEditForm";
 
 type State = {
@@ -32,6 +32,7 @@ interface ContextValue extends State {
   logout: () => Promise<void>;
   googleSignIn: () => Promise<void>;
   facebookSignIn: () => Promise<void>;
+  resetPassword: (email: any) => Promise<void>;
 }
 
 interface LoginAndRegisterProps {
@@ -474,6 +475,27 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }
 
+  async function resetPassword(email:any): Promise<void> {
+    const auth = getAuth();
+    sendPasswordResetEmail(auth, email)
+    .then(() => {
+      toast({
+        title: "Reset Email Sent",
+        description: "If this email is valid you will receive an email with instructions shortly. Check your spam folder.",
+        status: "success",
+        duration: 10000,
+        isClosable: true,
+    });
+      // Password reset email sent!
+      // ..
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
+  }
+
   const value: ContextValue = {
     login,
     logout,
@@ -481,6 +503,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     modalRegister,
     googleSignIn,
     facebookSignIn,
+    resetPassword,
     ...state,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
