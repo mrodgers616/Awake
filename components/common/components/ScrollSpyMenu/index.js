@@ -30,7 +30,6 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
 
   function pageChange(to) {
     try {
-      console.log("Page_Change_From_" + window.location.href +"To_" + to)
       event("Page_Change_From_" + window.location.href +"To_" + to, {
         category: "Page_Change",
         label: "User changed pages",
