@@ -19,7 +19,7 @@ import {
 import { QuestionOutlineIcon } from '@chakra-ui/icons'
 import useWindowSize from 'react-use/lib/useWindowSize'
 import { FaClipboard, FaTwitter, FaFacebook } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { fetchProposalFromStore, getProfileData, updateProposalInStore, updateOrAddProfileData } from "../../lib/firebaseClient";
 import { GetServerSidePropsContext } from "next";
 import { arrayUnion, Timestamp, increment } from "firebase/firestore";
@@ -80,6 +80,36 @@ export default function Proposal({
   const router = useRouter();
   const { userid }: any= useAuth();
   const { width, height } = useWindowSize()
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+      let position = window.pageYOffset;
+      setScrollPosition(position);
+      if(position == 0) {
+        try {
+          event("Slug_Scroll_0%", {
+            category: "Slug_Page_Scroll",
+            label: "percentage of page scroll",
+            uid: userid ? userid : "not logged in or before entered name and email",
+          });
+        }
+        catch(e) {
+          console.log(e)
+        }
+      }
+      else {
+        try {
+          event("Slug_Scroll_" + String((position/2230) * 100).substring(0,4) +"%", {
+            category: "Slug_Page_Scroll",
+            label: "percentage of page scroll",
+            uid: userid ? userid : "not logged in or before entered name and email",
+          });
+        }
+        catch(e) {
+          console.log(e)
+        }
+      }
+  };
 
   const currencyFormatter = new Intl.NumberFormat();
 
@@ -111,7 +141,6 @@ export default function Proposal({
         label: "Closed Petition Modal",
         uid: userid ? userid : "not logged in or before entered name and email",
       });
-      console.log("modal close")
     }
     catch(e) {
       console.log(e)
@@ -119,14 +148,12 @@ export default function Proposal({
   }
 
   function reportOpenSignPetitionModal() {
-    console.log("tryy peition")
     try {
       event("Sign_Petition_Modal_Opened", {
         category: "Petition_Modal",
         label: "User Opened Petition Modal",
         uid: userid,
       });
-      console.log("openPetition")
     }
     catch(e) {
       console.log(e)
@@ -134,13 +161,11 @@ export default function Proposal({
   }
 
   function reportOpenLoginModal() {
-    console.log("tryy Login")
     try {
       event("Login_Petition_Modal_Opened", {
         category: "Login_Modal",
         label: "User Opened Login Modal",
       });
-      console.log("open login modal")
     }
     catch(e) {
       console.log(e)
@@ -393,6 +418,14 @@ export default function Proposal({
     },
   ];
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+}, []);
+
   return (
     <>
     {campaign?.symbol == "AAPL" && ( <> 
@@ -482,7 +515,7 @@ export default function Proposal({
                       { !modalClose && <CastVoteModal
                         isOpen={voteModalIsOpen}
                         onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition();}}
-                        onOpen={() => {reportOpenSignPetitionModal(); onVoteModalOpen; }}
+                        onOpen={() => {reportOpenSignPetitionModal(); onVoteModalOpen(); }}
                         campaign={campaign}
                         profileData={profileData}
                         uid={userid}
