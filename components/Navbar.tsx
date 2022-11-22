@@ -73,6 +73,7 @@ export default function Navbar(): JSX.Element {
     }
   ];
 
+
   const handleOnSearch = (string: any, results: any) => {
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.

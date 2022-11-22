@@ -129,6 +129,19 @@ export default function CastVoteModal({
 
   let userInvestmentQuantity: number;
 
+  function plaidOpened() {
+    try {
+      event("PlaidOpened", {
+        category: "Plaid",
+        label: "User successfully linked Plaid",
+        uid: uid ? uid : "not logged in",
+      });
+    }
+    catch(e) {
+
+    }
+  }
+
   async function doesUserOwnSharesFor() {
     let campaignTicker = campaign.symbol;
 
@@ -711,7 +724,7 @@ export default function CastVoteModal({
             </>) :
             (<>
             <Button w='33%' mr="5%" border="2px solid #F1F1F1" bg='white' color="green"
-                onClick={handleYesClick}
+                onClick={() => {handleYesClick(); plaidOpened()}}
                 >Yes
             </Button>
             <Button

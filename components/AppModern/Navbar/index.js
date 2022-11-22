@@ -24,7 +24,6 @@ import { useRouter } from "next/router";
 import { useAuth } from "../../../contexts/AuthContext";
 
 
-
 const Navbar = () => {
   const { navMenu } = navbar;
   const [state, setState] = useState({
@@ -188,7 +187,7 @@ const Navbar = () => {
                     <a
                       href={menu.path}
                       offset={menu.offset}
-                      onClick={handleRemoveMenu}
+                      onClick={() => {handleRemoveMenu; pageChange}}
                     >
                       {menu.label}
                     </a>

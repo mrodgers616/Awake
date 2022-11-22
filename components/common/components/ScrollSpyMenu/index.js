@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Scrollspy from 'react-scrollspy';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { useAuth } from "../../../../contexts/AuthContext";
-
+import { event } from "nextjs-google-analytics"
 
 import { DrawerContext } from '../../contexts/DrawerContext';
 
@@ -28,6 +28,20 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
     addAllClasses.push(className);
   }
 
+  function pageChange(to) {
+    try {
+      console.log("Page_Change_From_" + window.location.href +"To_" + to)
+      event("Page_Change_From_" + window.location.href +"To_" + to, {
+        category: "Page_Change",
+        label: "User changed pages",
+        uid: userid ? userid : "not logged in",
+      });
+    }
+    catch(e) {
+
+    }
+  }
+
   // Close drawer when click on menu item
   const toggleDrawer = () => {
     dispatch({
@@ -48,10 +62,10 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
             menu.needAuth ? 
             (
               userid ? ( 
-              <a href={menu.path}>{menu.label}</a> 
+              <a href={menu.path} onClick={() => {pageChange(menu.path)}}>{menu.label}</a> 
               ) : null
             
-            ) : (<a href={menu.path}>{menu.label}</a>)
+            ) : (<a href={menu.path} onClick={() => {pageChange(menu.path)}}>{menu.label} </a>)
             
           ) : (
             <>
