@@ -78,9 +78,9 @@ const Newsletter = ({
       <NewsletterWrapper>
         <Container>
           <Box {...textArea}>
-            <Heading content="Subscribe to our newsletter" {...title} />
-            <Text
-              content="Sign up to stay in the loop about the latest with us (we will not spam you)."
+            <Heading content="Stay in the Loop" {...title} />
+            <Text fontSize={{base:"12px", sm:"18px", md:"24px", lg:"40px"}}
+              content="Add your email to be notified when we add a new campaign!"
               {...description}
             />
           </Box>

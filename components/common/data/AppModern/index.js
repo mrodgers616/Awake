@@ -9,23 +9,23 @@ export const navbar = {
     // {
     //   id: 1,
     //   label: 'Home',
-    //   path: '/',
+    //   path: '/campaigns',
     //   offset: '84',
     //   staticLink: true,
     //   needAuth: false,
     // },
     {
       id: 1,
-      label: 'Campaigns',
-      path: '/campaigns',
+      label: 'About',
+      path: '/about',
       offset: '81',
       staticLink: true,
       needAuth: false,
     },
     {
       id: 2,
-      label: 'About',
-      path: '/about',
+      label: 'FAQs',
+      path: '/faqs',
       offset: '81',
       staticLink: true,
       needAuth: false,
@@ -489,7 +489,7 @@ export const footer = {
     {
       id: 2,
       text: 'Twitter',
-      link: 'https://twitter.com/Climate_DAO?s=20&t=7kfsw7yZBFaki0n8p6Qg7w',
+      link: 'https://twitter.com/awakeinvest',
     },
     {
       id: 3,
