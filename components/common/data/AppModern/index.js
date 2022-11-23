@@ -6,25 +6,25 @@ import logo from '../../../../public/illustrations/Awake Logo.png';
 export const navbar = {
   logo: logo,
   navMenu: [
-    // {
-    //   id: 1,
-    //   label: 'Home',
-    //   path: '/',
-    //   offset: '84',
-    //   staticLink: true,
-    //   needAuth: false,
-    // },
     {
       id: 1,
-      label: 'Campaigns',
+      label: 'Home',
       path: '/campaigns',
+      offset: '84',
+      staticLink: true,
+      needAuth: false,
+    },
+    {
+      id: 1,
+      label: 'About',
+      path: '/',
       offset: '81',
       staticLink: true,
       needAuth: false,
     },
     {
       id: 2,
-      label: 'About',
+      label: 'FAQs',
       path: '/about',
       offset: '81',
       staticLink: true,
@@ -489,7 +489,7 @@ export const footer = {
     {
       id: 2,
       text: 'Twitter',
-      link: 'https://twitter.com/Climate_DAO?s=20&t=7kfsw7yZBFaki0n8p6Qg7w',
+      link: 'https://twitter.com/awakeinvest',
     },
     {
       id: 3,

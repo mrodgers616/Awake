@@ -105,7 +105,7 @@ const Banner = () => {
             color="white"
             width={{sm:"300px",md:"400px",lg:"500px"}}
             
-            content="Sustainable Investing is Broken"
+            content="Sustainable Investing is Broken."
           />
           <Heading
             className="textSizing"
