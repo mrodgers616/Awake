@@ -686,8 +686,22 @@ export default function CastVoteModal({
               Link Your Investment Account
               </Heading>
               <ModalBody>
-                <Text fontSize="md">
+                <Text fontSize="md" textAlign={"left"}>
                   Linking a brokerage account and proving you own shares gives us, as a community, much more leverage and increases the likelihood of this campaign succeeding
+                </Text>
+                <br/>
+                <Heading as="h2" size="lg" textAlign={"center"} textColor="#8C74E7">Facts About Your Data:</Heading>
+                <br/>
+                <Text fontSize="md" textAlign={"left"}>
+                  1. Your Data is securely stored and is only used anonymously to calculate an aggregate number of shares committed to this campaign.
+                </Text>
+                <br/>
+                <Text fontSize="md" textAlign={"left"}>
+                  2. Awake only tracks basic information like how many shares you own. This data is not visible to anyone else including Awake employees.
+                </Text>
+                <br/>
+                <Text fontSize="md" textAlign={"left"}>
+                  3. Awake will never sell your data.
                 </Text>
               </ModalBody>
               
