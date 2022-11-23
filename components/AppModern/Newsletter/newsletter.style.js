@@ -3,11 +3,11 @@ import BannerBG from '../../common/assets/image/appModern/bottom.png';
 
 const NewsletterWrapper = styled.div`
   position: relative;
-  background-color: #9EAED7;
+  background-color: #8C74E7;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 60px 80px;
+  padding: 40px 80px;
 
   @media (max-width: 1220px) {
     padding: 35px 40px;

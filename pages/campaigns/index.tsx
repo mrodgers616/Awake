@@ -8,6 +8,8 @@ import {
   Button,
   Grid,
   Flex,
+  Image,
+  Highlight,
   Link,
   Icon,
   Box,
@@ -33,6 +35,9 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Timestamp } from "firebase/firestore";
 import { useAuth } from "../../contexts/AuthContext";
 import { forEach } from "lodash";
+import Newsletter from "../../components/AppModern/Newsletter";
+import Testimonial from "../../components/AppModern/Testimonial";
+import NewContent from "../../components/AppModern/Achange";
 // import DemoFootage from "../../pages/campaigns/assets/DemoFootage.mp4";
 
 
@@ -134,7 +139,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 <Center>
                   <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
                     <Center>
-                      <Heading size="2xl">By collectivizing our voices as shareholders we can demand change at the companies we own. Sign the petitions below to make history with us.</Heading>
+                      <Text fontSize="3em" mt="20%">By joining forces, we can demand change at the companies we own. Make history with us.</Text>
                     </Center>
                   </Container>
                 </Center>
@@ -166,7 +171,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 <Center>
                   <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-600px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
                     <Center>
-                      <Heading size="xl">By collectivizing our voices as shareholders we can demand change at the companies we own. Sign the petitions below to make history with us.</Heading>
+                      <Heading size="xl">By joining forces as shareholders we can demand change at the companies we own. Make history with us.</Heading>
                     </Center>
                   </Container>
                 </Center>
@@ -180,7 +185,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 zIndex={0}
               />
           </Flex>
-                
+      <Newsletter></Newsletter>
         
       <Box title="page-content" position="relative" zIndex={0}>
         <Container width="100%" mt="8%"> 
@@ -249,6 +254,100 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
             </Paginator>
           </Box>
         </Container>
+        <Box textAlign="center" ml="5%" mr="5%" mt="0px" mb="40px" display={{ base: "none", sm: "none", md:"block", lg: "block" }}>
+        <Flex justifyContent="space-between" alignItems="center" width="100%">
+          <Heading 
+            mr="10%" 
+            maxWidth={"800px"} 
+            display="inline-block" 
+            textAlign="center" 
+            mx={"auto"}
+            fontSize={{base: "xl", md: "2xl", lg: "5xl"}}
+          >
+            <Highlight
+              query='real impact'
+              styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+            >
+              Join forces with other investors to have real impact
+            </Highlight>
+          </Heading>
+        </Flex>
+        <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
+              <Box
+                width="28%"
+                fontSize="xl"
+                backgroundColor="whiteAlpha.500"
+                m={1}
+                padding="4px"
+              >
+                <Image
+                  alt='lock'
+                  boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                  // height="150px"
+                  // width="125px"
+                  ml="auto"
+                  mr="auto"
+                  src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Flock.png?alt=media&token=1515b250-2374-4d95-85be-26d91fc95f43"
+                />
+                <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "30px"}}>
+                  Link your Broker
+                </Text>
+                <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                  In order to prove you own shares, we ask that you link your broker after making an account.
+                </Text>
+              </Box>
+              <Box
+                width="28%"
+                fontSize="xl"
+                backgroundColor="whiteAlpha.500"
+                m={1}
+                padding="4px"
+              >
+                <Image
+                  alt='papers'
+                  boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                  // height="150px"
+                  // width="100px"
+                  ml="auto"
+                  mr="auto"
+                  src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Green%20Papers.png?alt=media&token=7c813e0b-964c-4b78-81cf-4e9a35d97e6b"
+                />
+                <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "30px"}}>
+                   Sign a Petition
+                </Text>
+                <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                  Sign a petition for a company in your portfolio to take action on an issue you care about. 
+                </Text>
+              </Box>
+              <Box
+                width="28%"
+                fontSize="xl"
+                backgroundColor="whiteAlpha.500"
+                m={1}
+                padding="4px"
+              >
+                <Image
+                  alt='megaphone'
+                  boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                  ml="auto"
+                  mr="auto"
+                  src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Megaphone.png?alt=media&token=d71c6a33-e24b-406c-b99e-487f5360932a"
+                />
+                <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "30px"}}>
+                  We Do the Rest
+                </Text>
+                <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                  We&#39;ll advocate for change at the target companies on behalf of you and other investors.
+                </Text>
+                
+              </Box>
+              
+            </Flex>
+          </Box>
+          {/* EXPERIMENTING WITH SWIPER HERE */}
+          <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }}>
+                 <Testimonial ></Testimonial>
+                </Container>
       </Box>
     </>
   );
