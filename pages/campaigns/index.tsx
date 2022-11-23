@@ -347,7 +347,103 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
           {/* EXPERIMENTING WITH SWIPER HERE */}
           <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }}>
                  <Testimonial ></Testimonial>
-                </Container>
+          </Container>
+          
+          <Flex
+            w="80%"
+            mx="10%"
+            my="32px"
+            bg='#08152E'
+            height={{
+              base: 'fit-content',
+              lg: "175px"
+            }}
+            borderRadius="16px"
+            justifyContent="center"
+            alignItems="center"
+            boxShadow="4px 4px 62px -9px rgba(0, 0, 0, 0.15)"
+            zIndex={500}
+            flexDir={{
+              base: "column",
+              md: "row"
+            }}
+          >
+          <Flex
+            alignItems={"center"}
+            justifyContent={"center"}
+            flexBasis="50%"
+            borderRight={{
+              base: 'none',
+              md: "1px solid #eaeaea"
+            }}
+            flexDirection={{
+              base: 'row',
+              sm: "row",
+              lg: 'row'
+            }}
+            m='16px'
+          >
+            <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
+            <Stack>
+              <Flex
+                position="relative"
+                justifyContent="center"
+                flexDirection="column"
+                alignItems="center"
+                width={{base: 284, md: 400, lg: 400}}
+                backgroundColor="FFFFFF"
+                boxShadow='2xl' p='0'
+                borderRadius="16px"
+                mt='auto'
+                mb="auto"
+                ml="auto"
+                mr='auto'
+                border="0px solid gray"
+                
+              >
+                
+                <Text fontSize="xl" fontWeight="bold" mb={0} mt={4}>
+                  {"Have an issue you care about not listed above? Create your own campaign to hold corporations to a higher standard."}
+                </Text>
+                <Flex justifyContent="center" alignItems="space-around" width={48}>
+                  <Box>
+                    <Flex alignItems={"center"} justifyContent={"flex-start"}>
+                      
+                    </Flex>
+                  </Box>
+                </Flex>
+              </Flex>
+            </Stack>
+            </Box>
+          </Flex>
+          <Flex
+            h="100%"
+            flexBasis={"50%"}
+            justifyContent="center"
+            alignItems="center"
+          >
+            
+              <Button
+                as={Link}
+                href="create"
+                bg="rgb(100, 43, 115)"
+                color="white"
+                borderRadius="3xl"
+                fontSize="1.4em"
+                w={{ lg: "fit-content" }}
+                mr={{
+                  base: "0px", sm: "0", lg: "16px"
+                }}
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
+                h="64px"
+              >
+                Create Your Own 
+              </Button>
+          </Flex>
+        </Flex>
       </Box>
     </>
   );
