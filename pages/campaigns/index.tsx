@@ -126,7 +126,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
             justifyContent={"center"}
             bgPosition={"center"}
             position="relative"
-            display={{base:"none", sm:"none", md:"inline-block", lg:"inline-block"}}
+            display={{base:"none", sm:"none", md:"inline-block", lg:"inline-block"}} 
           >
             <video autoPlay loop muted width={"100%"}>
                 <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
