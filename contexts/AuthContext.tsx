@@ -238,6 +238,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           twitter: "",
           name: "",
           loginCounter: 1,
+          referral: 0,
         }
   
         await updateOrAddProfileData(user.uid, newUser);
@@ -334,6 +335,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           twitter: "",
           name: "",
           loginCounter: 1,
+          referral: 0,
         }
   
         await updateOrAddProfileData(user.uid, newUser);
@@ -406,6 +408,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         twitter: "",
         name: "",
         loginCounter: 1,
+        referral: 0,
       }
 
       await updateOrAddProfileData(response.user.uid, newUser);
@@ -459,6 +462,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         twitter: "",
         name: firstName,
         loginCounter: 1,
+        referral: 0,
       }
 
       await updateOrAddProfileData(response.user.uid, newUser);

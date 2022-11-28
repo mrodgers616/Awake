@@ -27,6 +27,7 @@ import CastVoteModal from "../../components/CastVoteModal";
 import Link from "../../components/Link"; 
 import copy from "copy-to-clipboard";
 import nookies from 'nookies';
+import { parseCookies, setCookie, destroyCookie } from 'nookies'
 import { admin } from '../../lib/firebaseAdmin';
 import { useAuth } from "../../contexts/AuthContext";
 import MasterCommentThread from "../../components/comments/masterCommentThread";
@@ -35,7 +36,8 @@ import LoginModal from '../../components/LoginModal';
 import Faq from "../../components/FaqSlug";
 import faqs from "../../data/slugFAQ.json";
 import Testimonial from "../../components/AppModern/Testimonial";
-import { event } from "nextjs-google-analytics"
+import { event } from "nextjs-google-analytics";
+import url from 'url';
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -74,6 +76,7 @@ export default function Proposal({
   const [_votes, setVotes] = useState<string>();
   const [showConfetti, setShowConfetti] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const [referral, setReferral] = useState<string>()
 
   const toast = useToast();
 
@@ -81,6 +84,7 @@ export default function Proposal({
   const { userid }: any= useAuth();
   const { width, height } = useWindowSize()
   const [scrollPosition, setScrollPosition] = useState(0);
+  const pageUri = `https://awakeinvest.com${router.basePath}${router.asPath}`;
 
   const handleScroll = () => {
       let position = window.pageYOffset;
@@ -132,6 +136,19 @@ export default function Proposal({
     return new Promise((resolve) => {
       setTimeout(resolve, ms);
     });
+  }
+
+  async function checkForReferralURL() {
+    let parsedURL = url.parse(pageUri, true);
+
+    const query = parsedURL.query;
+
+    if(query?.ref) {
+      setCookie(null, 'referralCode', String(query?.ref), {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      })
+    }
   }
 
   function reportClickOutOfSignPetition() {
@@ -349,8 +366,6 @@ export default function Proposal({
     }
   }
 
-  const pageUri = `https://awakeinvest.com${router.basePath}${router.asPath}`;
-
   function hasUserVoted() {
     try {
       const votedproposals = profileData?.proposalsVotedOn
@@ -401,6 +416,9 @@ export default function Proposal({
       name: "twitter",
       icon: FaTwitter,
       link: encodeURI(
+        userid ?
+        `https://twitter.com/intent/tweet?text=I just backed the ${campaign?.title} campaign on @AwakeInvest. learn more here:\n&url=${pageUri}?ref=${userid}`
+        :
         `https://twitter.com/intent/tweet?text=I just backed the ${campaign?.title} campaign on @AwakeInvest. learn more here:\n&url=${pageUri}`
       ),
     },
@@ -408,18 +426,22 @@ export default function Proposal({
       name: "facebook",
       icon: FaFacebook,
       link: encodeURI(
+        userid ?
+        `https://www.facebook.com/sharer/sharer.php?u=https://www.awakeinvest.com/campaigns/${campaign?.slug}?ref=${userid}`
+        :
         `https://www.facebook.com/sharer/sharer.php?u=https://www.awakeinvest.com/campaigns/${campaign?.slug}`
       ),
     },
     {
       name: "clipboard",
       icon: FaClipboard,
-      link: encodeURI(pageUri),
+      link: userid ? encodeURI(pageUri + "?ref=" + String(userid)) : encodeURI(pageUri),
     },
   ];
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
+    checkForReferralURL()
 
     return () => {
         window.removeEventListener('scroll', handleScroll);
@@ -521,6 +543,7 @@ export default function Proposal({
                         uid={userid}
                         investmentsOld={investments || undefined}
                         slug={slug}
+                        referralLink={(pageUri + "?ref=" + String(userid))}
                       /> } </>)
                       : 
                       (<>
@@ -1006,6 +1029,7 @@ export default function Proposal({
                 uid={userid}
                 investmentsOld={investments}
                 slug={slug}
+                referralLink={(pageUri + "?ref=" + String(userid))}
               /> } </>)
               : 
               (<>
@@ -1145,6 +1169,7 @@ export default function Proposal({
                         uid={userid}
                         investmentsOld={investments || undefined}
                         slug={slug}
+                        referralLink={(pageUri + "?ref=" + String(userid))}
                       /> } </>)
                       : 
                       (<>
@@ -1630,6 +1655,7 @@ export default function Proposal({
                 uid={userid}
                 investmentsOld={investments}
                 slug={slug}
+                referralLink={(pageUri + "?ref=" + String(userid))}
               /> } </>)
               : 
               (<>
@@ -1769,6 +1795,7 @@ export default function Proposal({
                         uid={userid}
                         investmentsOld={investments || undefined}
                         slug={slug}
+                        referralLink={(pageUri + "?ref=" + String(userid))}
                       /> } </>)
                       : 
                       (<>
@@ -2254,6 +2281,7 @@ export default function Proposal({
                 uid={userid}
                 investmentsOld={investments}
                 slug={slug}
+                referralLink={(pageUri + "?ref=" + String(userid))}
               /> } </>)
               : 
               (<>
