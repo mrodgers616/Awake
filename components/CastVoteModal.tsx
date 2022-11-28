@@ -36,7 +36,8 @@ import { arrayUnion, Timestamp, increment } from "firebase/firestore";
 import Confetti from 'react-confetti'
 import LinkAccount from './plaidLinkButtonNoRedirect'
 import { event } from "nextjs-google-analytics"
-
+import { parseCookies, setCookie, destroyCookie } from 'nookies'
+import copy from "copy-to-clipboard";
 
 interface Categories {
   title: string;
@@ -96,6 +97,7 @@ export default function CastVoteModal({
   uid,
   investmentsOld,
   slug,
+  referralLink,
 }: {
   onOpen?: () => void;
   onClose: () => void;
@@ -105,6 +107,7 @@ export default function CastVoteModal({
   uid: any;
   investmentsOld: any;
   slug: any;
+  referralLink: any;
 }): JSX.Element {
 
   const { width, height } = useWindowSize()
@@ -143,7 +146,22 @@ export default function CastVoteModal({
   }
 
   async function doesUserOwnSharesFor() {
-    let campaignTicker = campaign.symbol;
+    let campaignTicker = campaign?.symbol;
+
+    const cookies = parseCookies();
+
+    if(cookies?.referralCode) {
+      let data = {
+        referral: increment(1)
+      };
+
+      await updateOrAddProfileData(cookies.referralCode, data);
+
+      destroyCookie(null, 'referralCode',{
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      });
+    }
 
     let profile = await getProfileData(uid);
     const profileData = {
@@ -659,6 +677,19 @@ export default function CastVoteModal({
     });
   }
 
+  const handleReferral = async () => {
+    copy(referralLink);
+
+    toast({
+      title: "",
+      description:
+        "Link Copied to Clipboard!",
+      status: "success",
+      duration: 6000,
+      isClosable: true,
+    });
+  }
+
   useEffect(() => {
     loadOnPageLoad();
     
@@ -767,10 +798,12 @@ export default function CastVoteModal({
                 <ol>
                   <Text><b>1.</b> Awake will write to Apple&apos;s Corporate Sectretary once we reach 5,000 signatures to push for change!</Text>
                   <br></br>
-                  
-                  <Text><b>2.</b><Button variant='link' colorScheme='blue' onClick={handleNewsLetter}> Opt-in here</Button> for campaign updates (no spam)</Text>
+                  <Text><b>2.</b><Button variant='link' colorScheme='blue' onClick={handleReferral}> Share this link</Button> to earn referral rewards.</Text>
                   <br></br>
-                  <Text><b>3.</b> Follow us on <Link textColor="blue" href="https://twitter.com/awakeinvest" colorScheme='blue' isExternal > Twitter</Link> for the memes.</Text>
+                  
+                  <Text><b>3.</b><Button variant='link' colorScheme='blue' onClick={handleNewsLetter}> Opt-in here</Button> for campaign updates (no spam)</Text>
+                  <br></br>
+                  <Text><b>4.</b> Follow us on <Link textColor="blue" href="https://twitter.com/awakeinvest" colorScheme='blue' isExternal > Twitter</Link> for the memes.</Text>
                 </ol>
             </Stack>
           </Center>
@@ -787,4 +820,5 @@ CastVoteModal.propTypes = {
   uid: propTypes.any,
   investmentsOld: propTypes.any,
   slug: propTypes.any.isRequired,
+  referralLink: propTypes.any,
 };

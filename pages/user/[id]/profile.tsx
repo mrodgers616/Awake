@@ -1,4 +1,5 @@
 import type { NextPage, GetServerSidePropsContext } from "next";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import Head from "next/head";
 import {
@@ -9,6 +10,7 @@ import {
   Text,
   Flex,
   Box,
+  Stack
 } from "@chakra-ui/react";
 import { useAuth } from '../../../contexts/AuthContext';
 import nookies from 'nookies';
@@ -17,6 +19,8 @@ import ProfileInfo from '../../../components/profile/ProfileInfo';
 import { admin } from '../../../lib/firebaseAdmin';
 import { getProfileData, getImageFromStorage } from "../../../lib/firebaseClient";
 import Debug from 'debug';
+import copy from "copy-to-clipboard";
+import { useToast } from "@chakra-ui/react";
 
 const debug = Debug('pages:user:profile');
 
@@ -40,12 +44,16 @@ type ProfilePageProps = {
   activity: any;
   proposals: any;
   investments: any;
+  referral: any;
 };
 
-const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, backgroundImage, investments, badges, activity, proposals }) => {
+const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, backgroundImage, investments, badges, activity, proposals, referral }) => {
 
   const { userid, user, logout } = useAuth();
+  const toast = useToast();
+  const router = useRouter();
 
+  const pageUri = `https://awakeinvest.com/campaigns/81jDobBiu6t4OlCZljQh`;
   const [memberSince, setMemberSince] = useState(user?.metadata.creationTime);
 
   const ProfileImageStyles = {
@@ -102,6 +110,20 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
     </Text>
     ));
 
+  const handleReferral = async () => {
+    let referralLink = pageUri + "?ref=" + userid;
+    copy(referralLink);
+
+    toast({
+      title: "",
+      description:
+        "Link Copied to Clipboard!",
+      status: "success",
+      duration: 6000,
+      isClosable: true,
+    });
+    }
+
   const Badges = () => (!badges ?
     (<Text sx={placeholderStyles}>You haven&apos;t earned any badges</Text>) :
     (<Box></Box>));
@@ -152,7 +174,8 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
           >Edit</Button>
           <ProfileImage />
           <ProfileInfo profile={profile} />
-          <Text position='absolute' top='32px' right='32px'>Member since Feb 2022</Text>
+            <Text position='absolute' top='32px' right='32px' as={Button} onClick={handleReferral}>Get Referral Link</Text>
+            <Text top='32px' right='32px' mt="20px">You have referred {referral} users!</Text>
         </Box>
         <Box
           bg='#fff'
@@ -213,18 +236,19 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     let pfp = null;
     let bg = null;
     let investmentsFromDatabase = null;
+    let referralNum = 0;
 
-    if (data.profileImage) {
+    if (data?.profileImage) {
       pfp = await getImageFromStorage(data.profileImage);
       //pfp = data.profileImage;
     }
 
-    if (data.backgroundImage) {
+    if (data?.backgroundImage) {
       bg = await getImageFromStorage(data.backgroundImage);
       //bg = data.backgroundImage;
     }
 
-    if (data.investments) {
+    if (data?.investments) {
       let unformattedInvestments = data.investments;
       let investmentsAsArray = new Array();
       for (let i = 0; i < unformattedInvestments.length; i++) {
@@ -235,6 +259,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     }
 
+    if(data?.referral) {
+      referralNum = data.referral;
+    }
+
     return {
       props: {
         profile: { ...profile.data() },
@@ -243,7 +271,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         activity: null,
         badges: null,
         proposals: null,
-        investments: investmentsFromDatabase
+        investments: investmentsFromDatabase,
+        referral: referralNum,
       }
     }
   } catch (error) {
