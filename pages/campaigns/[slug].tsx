@@ -1076,7 +1076,7 @@ export default function Proposal({
 
 
       {/* ///// CHANGE THIS SYMBOL ON THE NEXT LINE FROM "CHANGETHIS" TO THE NEW COMPANY TICKET      //////////// */}
-      {campaign?.symbol == "TM" && ( <> 
+      {campaign?.symbol == "CHANGETHIS" && ( <> 
       <Head>
         <title>Proposal {campaign?.symbol} | Awake</title>
         <meta property="og:title" content="Stop Toyota from Fueling Climate Change" />
@@ -1701,12 +1701,12 @@ export default function Proposal({
 
 
 
-      {/* ///// CHANGE THIS SYMBOL ON THE NEXT LINE FROM "CHANGETHIS" TO THE NEW COMPANY TICKET      //////////// */}
+      {/* ///// CHANGE THIS SYMBOL ON THE NEXT LINE FROM "CHANGETHIS" TO THE NEW COMPANY TICKER      //////////// */}
       {campaign?.symbol == "TM" && ( <> 
       <Head>
         <title>Proposal {campaign?.symbol} | Awake</title>
-        <meta property="og:title" content="Hold Apple Accountable: Awake" />
-        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a" />
+        <meta property="og:title" content="Stop Toyota from Fueling Climate Change" />
+        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Polutta.webp?alt=media&token=e681070b-15b2-4938-918c-6a5e28bdd2d5" />
       </Head>
       {showConfetti && (<Confetti width={width} height={height}/>)}
       <Box
@@ -1757,10 +1757,10 @@ export default function Proposal({
                       fontSize={{base: "3xl", md: "5xl", lg: "5xl"}}
                   >
                     <Highlight
-                      query='Toxic Electronic Waste'
+                      query='Fueling Climate Change'
                       styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
                       >
-                      Hold Apple Accountable for Toxic Electronic Waste
+                      Stop Toyota from Fueling Climate Change
                     </Highlight>
                   </Heading>
                           {userid ? ( <>
@@ -1936,7 +1936,7 @@ export default function Proposal({
                       WHY IT&apos;S IMPORTANT
                     </Highlight>
               </Heading>
-              {campaign?.companyName == "Toyota" ? 
+              {campaign?.companyName == "Toyota Motors" ? 
 
 
                 campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
@@ -1955,7 +1955,7 @@ export default function Proposal({
                   <br/>
                   <br/>
                   <Container display={{ base: "block", sm: "none", lg: "none" }}>
-                    {/* <Faq faqs={faqs}></Faq> */}
+                    <Faq faqs={faqs}></Faq>
                   </Container>
                   <br/>
                 </Text>) 
@@ -1974,7 +1974,7 @@ export default function Proposal({
                   <Container 
                   paddingTop="20px" w="400%" paddingLeft={{base:"0px",lg:"50px"}}
                   >
-                    {/* <Faq faqs={faqs}></Faq> */}
+                    <Faq faqs={faqs}></Faq>
                   </Container>
                 </Flex>
               </Flex>
@@ -1993,11 +1993,11 @@ export default function Proposal({
       Toyotas sold is powered by fossil fuels.</Text>
       <br/>
       <br/>      
-      <Text>It&apos;s ranked as the auto maker with the <b>worst</b> record on climate. "Not even factored into Toyota’s terrible ranking is its 
-      <Link href="https://www.citizen.org/news/toyotas-lobbying-hurts-our-health-and-climate/"><Text>cheating</Text></Link> on fuel emissions tests." For this, Toyota was fined <b>$180 million</b> last year by the EPA for violating regulations, which protect public health from pollution.</Text>
+      <Text>It&apos;s ranked as the auto maker with the <b>worst</b> record on climate. &quot;Not even factored into Toyota’s terrible ranking is its 
+      <Link href="https://www.citizen.org/news/toyotas-lobbying-hurts-our-health-and-climate/"><Text>cheating</Text></Link> on fuel emissions tests.&quot; For this, Toyota was fined <b>$180 million</b> last year by the EPA for violating regulations, which protect public health from pollution.</Text>
       <br/>
       <br/>
-      <Text>You may wonder why Toyota hasn&apos;t already shifted to electronic vehicles and phased out its aggressive lobbying. It comes down to ill-advised bets and competition. "Toyota bet its future on the development of hydrogen fuel cells — a costlier technology that has fallen far behind electric batteries — with greater use of hybrids in the near term.", the Times<Link href="https://www.nytimes.com/2021/07/25/climate/toyota-electric-hydrogen.html">reports.</Link></Text>
+      <Text>You may wonder why Toyota hasn&apos;t already shifted to electronic vehicles and phased out its aggressive lobbying. It comes down to ill-advised bets and competition. &quot;Toyota bet its future on the development of hydrogen fuel cells — a costlier technology that has fallen far behind electric batteries — with greater use of hybrids in the near term.&quot;, the Times<Link href="https://www.nytimes.com/2021/07/25/climate/toyota-electric-hydrogen.html">reports.</Link></Text>
       <br/>
       <br/>
       <Text>Toyota&apos;s Indian subsidiary criticized India’s target for 100 percent electric vehicle sales by 2030, and also sided with the Trump administration in a battle with California over the Clean Air Act.</Text>
