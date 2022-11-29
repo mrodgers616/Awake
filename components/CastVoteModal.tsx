@@ -145,14 +145,14 @@ export default function CastVoteModal({
     }
   }
 
-  async function doesUserOwnSharesFor() {
+  async function doesUserOwnSharesFor(inc: any) {
     let campaignTicker = campaign?.symbol;
 
     const cookies = parseCookies();
 
     if(cookies?.referralCode) {
       let data = {
-        referral: increment(1)
+        referral: increment(inc)
       };
 
       await updateOrAddProfileData(cookies.referralCode, data);
@@ -587,7 +587,7 @@ export default function CastVoteModal({
       
       const data = getInvestmentData(value).then(dataValue => {
         storeInvestmentData(dataValue).then(() => {
-          doesUserOwnSharesFor(); 
+          doesUserOwnSharesFor(100); 
           theConfetti(); 
           setShowForAgainst(false); 
           setShowModal(true);
@@ -776,7 +776,7 @@ export default function CastVoteModal({
               w='33%'
               bg='white'
               color='red' border="2px solid #F1F1F1"
-              onClick={() => { doesUserOwnSharesFor(); theConfetti(); setShowForAgainst(false); }}
+              onClick={() => { doesUserOwnSharesFor(1); theConfetti(); setShowForAgainst(false); }}
             >No
             </Button></>
             )}
@@ -793,17 +793,15 @@ export default function CastVoteModal({
         <ModalBody mx="20px" mb="20px">
           <Center>
             <Stack>
-            <Heading as="h4" size="sm" color='black'> Your vote helps us fight for corporate accountability! What happens next:</Heading>
+            <Heading as="h4" size="sm" color='black'> Your vote helps us fight for corporate accountability! Check out our <Text as='mark'><b>$2000 referral raffle</b></Text> and read what happens next:</Heading>
             <br></br>
                 <ol>
                   <Text><b>1.</b> Awake will write to Apple&apos;s Corporate Sectretary once we reach 5,000 signatures to push for change!</Text>
                   <br></br>
-                  <Text><b>2.</b><Button variant='link' colorScheme='blue' onClick={handleReferral}> Share this link</Button> to earn referral rewards.</Text>
+                  <Text><b>2. </b><Button variant='link' colorScheme='blue' onClick={handleReferral}> Here&apos;s your personal referral link.</Button> For every person who signs the petition with your link, you earn 1 raffle ticket. If that person connects a brokerage account through Plaid, you earn 100 tickets! </Text>
                   <br></br>
                   
-                  <Text><b>3.</b><Button variant='link' colorScheme='blue' onClick={handleNewsLetter}> Opt-in here</Button> for campaign updates (no spam)</Text>
-                  <br></br>
-                  <Text><b>4.</b> Follow us on <Link textColor="blue" href="https://twitter.com/awakeinvest" colorScheme='blue' isExternal > Twitter</Link> for the memes.</Text>
+                  <Text><b>3. </b> Link a brokerage account for 100 raffle tickets. If you linked your brokerage account before, don&apos;t worry you already earned the tickets</Text>
                 </ol>
             </Stack>
           </Center>
