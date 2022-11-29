@@ -606,7 +606,7 @@ export default function Proposal({
                         md: "2px solid #eaeaea"
                       }}>
                         <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "42px" }} color="black">
-                          {campaign?.verifiedVotes ? "$" + String(currencyFormatter.format((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 146)) : "0"}
+                          {campaign?.verifiedVotes ? "$" + String(currencyFormatter.format((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 151)) : "0"}
                         </Heading>
                         <Text color="black" fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                           <Center>
@@ -1076,11 +1076,11 @@ export default function Proposal({
 
 
       {/* ///// CHANGE THIS SYMBOL ON THE NEXT LINE FROM "CHANGETHIS" TO THE NEW COMPANY TICKET      //////////// */}
-      {campaign?.symbol == "CHANGETHIS" && ( <> 
+      {campaign?.symbol == "TM" && ( <> 
       <Head>
         <title>Proposal {campaign?.symbol} | Awake</title>
-        <meta property="og:title" content="Hold Apple Accountable: Awake" />
-        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a" />
+        <meta property="og:title" content="Stop Toyota from Fueling Climate Change" />
+        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Polutta.webp?alt=media&token=e681070b-15b2-4938-918c-6a5e28bdd2d5" />
       </Head>
       {showConfetti && (<Confetti width={width} height={height}/>)}
       <Box
@@ -1702,7 +1702,7 @@ export default function Proposal({
 
 
       {/* ///// CHANGE THIS SYMBOL ON THE NEXT LINE FROM "CHANGETHIS" TO THE NEW COMPANY TICKET      //////////// */}
-      {campaign?.symbol == "CHANGETHIS" && ( <> 
+      {campaign?.symbol == "TM" && ( <> 
       <Head>
         <title>Proposal {campaign?.symbol} | Awake</title>
         <meta property="og:title" content="Hold Apple Accountable: Awake" />
@@ -1887,7 +1887,7 @@ export default function Proposal({
           alignItems={"center"}
           display="inline-block" flexDir={"row"} w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}>
             <Image
-              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste1.png?alt=media&token=b7964255-2134-49dd-b88e-19aa067d770a"
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Ftoytota1.png?alt=media&token=fd186490-d796-4d4c-a0f3-2c1f495ebb8c"
               height="350px"
               width="300px"
               display={{base:"none",lg:"inline-block"}}
@@ -1896,7 +1896,7 @@ export default function Proposal({
               alt="campaign image"
             />
             <Image 
-              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste2.png?alt=media&token=29d93a02-5b0c-41da-aeda-27e099ca1054"
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Ftoytota2.png?alt=media&token=ed2e15b7-2750-4d28-8893-113b547a05a5"
               height="350px" 
               width="300px" 
               display={{base:"none",lg:"inline-block"}}
@@ -1904,7 +1904,7 @@ export default function Proposal({
               alt="campaign image"
               />
             <Image
-              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste3.png?alt=media&token=e9075046-c9fe-456c-b5bd-c9656f517711"
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Ftoytota3.png?alt=media&token=9da3c1d1-6139-4031-9176-c9d2146b9272"
               height="350px"
               width="300px"
               display={{base:"none",lg:"inline-block"}}
@@ -1913,7 +1913,7 @@ export default function Proposal({
               alt="campaign image"
             />
             <Image 
-              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste4.png?alt=media&token=89bc7ddb-d199-45ea-b859-18626f43a469"
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Ftoytota4.png?alt=media&token=57233505-27b7-49ff-b219-e484e8002b1f"
               height="350px" 
               width="300px" 
               display={{base:"none",lg:"inline-block"}} 
@@ -1936,11 +1936,11 @@ export default function Proposal({
                       WHY IT&apos;S IMPORTANT
                     </Highlight>
               </Heading>
-              {campaign?.companyName == "Apple" ? 
+              {campaign?.companyName == "Toyota" ? 
 
 
                 campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
-                  <Text as='b'>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. With your help, we can get Apple to take a stronger stance.</Text>
+                  <Text as='b'>Toyota lobbies againts climate policies more than any other auto company and is ranked the company with the third most negative impact in the world on climate policy, just behind oil giants ExxonMobil and Chevron.</Text>
                   <br/>
                   <br/>
                     <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" >
@@ -1951,11 +1951,11 @@ export default function Proposal({
                         What we want
                       </Highlight>
                     </Heading>  
-                  <Text>We want Apple to disclose total electronic waste figures* and provide additional information on their plans to mitigate waste.</Text> 
+                  <Text>We want Toyota Motors to stop lobbying against climate positive policies and publicly disclose its lobbying behavior.</Text> 
                   <br/>
                   <br/>
                   <Container display={{ base: "block", sm: "none", lg: "none" }}>
-                    <Faq faqs={faqs}></Faq>
+                    {/* <Faq faqs={faqs}></Faq> */}
                   </Container>
                   <br/>
                 </Text>) 
@@ -1974,7 +1974,7 @@ export default function Proposal({
                   <Container 
                   paddingTop="20px" w="400%" paddingLeft={{base:"0px",lg:"50px"}}
                   >
-                    <Faq faqs={faqs}></Faq>
+                    {/* <Faq faqs={faqs}></Faq> */}
                   </Container>
                 </Flex>
               </Flex>
@@ -1986,33 +1986,29 @@ export default function Proposal({
       <Heading fontSize="28px" textTransform={"uppercase"} mb="16px">
         Back Story
       </Heading>
-      <Text>In 2019, approximately ‎
-      <Text  as='b'><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
-      53.6 million ‎
+      <Text>Toyota earned an eco-friendly reputation for the first modern mass-market hybrid car in year 2000. Decades later,
+      <Text  as='b'><Link href="https://www.greenpeace.org.au/wp/wp-content/uploads/2022/09/GREENPEACE-Under-The-Hood_The-Truth-About-Toyota-v1.pdf" isExternal>
+      499 out of every 500 ‎
       </Link></Text>
-      metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.</Text>
-      {/* {String(campaign?.description).substring(332,1333)} */}
+      Toyotas sold is powered by fossil fuels.</Text>
       <br/>
       <br/>      
-      <Text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world&apos;s E-waste. But how much? That&apos;s the thing, we don&apos;t know. Apple&apos;s hardware produced ‎
-      <b><Link href="https://www.zdnet.com/article/apples-colossal-e-waste-timebomb/" isExternal>1.65 billion</Link></b>
-      ‎ devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how many materials are <b>not</b> recovered.</Text>
+      <Text>It&apos;s ranked as the auto maker with the <b>worst</b> record on climate. "Not even factored into Toyota’s terrible ranking is its 
+      <Link href="https://www.citizen.org/news/toyotas-lobbying-hurts-our-health-and-climate/"><Text>cheating</Text></Link> on fuel emissions tests." For this, Toyota was fined <b>$180 million</b> last year by the EPA for violating regulations, which protect public health from pollution.</Text>
       <br/>
       <br/>
-      <Text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </Text>
+      <Text>You may wonder why Toyota hasn&apos;t already shifted to electronic vehicles and phased out its aggressive lobbying. It comes down to ill-advised bets and competition. "Toyota bet its future on the development of hydrogen fuel cells — a costlier technology that has fallen far behind electric batteries — with greater use of hybrids in the near term.", the Times<Link href="https://www.nytimes.com/2021/07/25/climate/toyota-electric-hydrogen.html">reports.</Link></Text>
       <br/>
       <br/>
-      <Text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</Text>
-      <br/>
-      <Text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a ‎
-      
-      <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
-      ‎ Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</Text>
+      <Text>Toyota&apos;s Indian subsidiary criticized India’s target for 100 percent electric vehicle sales by 2030, and also sided with the Trump administration in a battle with California over the Clean Air Act.</Text>
       <br/>
       <br/>
 
+      <Text>In an attempt to undermine it&apos;s competition which bet on fully electric vehicles, it&apos;s come to undermine the energy transition.</Text>
+      <br/>
+
       <Text> 
-      We&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
+      We don&apos;t have time for companies like Toyota lobby for a competitive edge when our future is at stake. Sign the petition (especially if you own Toyota shares) to send a message to leadership that we won&apos;t stand for this!
       </Text>
       <br/>
       <br/>
