@@ -82,7 +82,7 @@ const NewTeamSec = () => {
                   Co-Founder & CEO
                 </Text>
                 <Text fontSize={".7em"} mb={"5px"} mx={"2px"}>
-                  Elliot has worked at the intersection of social impact and technology for years and was a member of KPMG's Innovation Lab before Awake. 
+                  Elliot has worked at the intersection of social impact and technology for years and was a member of KPMG&apos;s Innovation Lab before Awake. 
                 </Text>
                   <Link
                   w="48px"
@@ -146,7 +146,7 @@ const NewTeamSec = () => {
                   Co-Founder & CTO
                 </Text>
                 <Text fontSize={".7em"} mb={"5px"} mx={"2px"}>
-                  Matthew brings years of software engineering experience coming from Amazon's EC2 Core Platform team. 
+                  Matthew brings years of software engineering experience coming from Amazon Web Services&apos; EC2 Core Platform team. 
                 </Text>
                   <Link
                   w="48px"
@@ -272,7 +272,7 @@ const NewTeamSec = () => {
                   Brilliant Operator
                 </Text>
                 <Text fontSize={".7em"} mb={"5px"} mx={"2px"}>
-                  Johny joins the Awake team while running a political consulting firm. He is skilled in digital marketing and 'making stuff happen'.
+                  Johny joins the Awake team while running a political consulting firm. He is skilled in digital marketing and &apos;making stuff happen&apos;.
                 </Text>
                   <Link
                   w="48px"
