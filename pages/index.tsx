@@ -1,4 +1,5 @@
 import type { NextPage, GetServerSidePropsContext } from "next";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import {
   ButtonProps,
@@ -38,8 +39,8 @@ import { forEach } from "lodash";
 import Newsletter from "../components/AppModern/Newsletter";
 import Testimonial from "../components/AppModern/Testimonial";
 import NewContent from "../components/AppModern/Achange";
-// import DemoFootage from "../../pages/campaigns/assets/DemoFootage.mp4";
-
+import url from 'url';
+import { setCookie } from 'nookies'
 
 type Props = {
   campaigns: any;
@@ -54,6 +55,8 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
   const [totalProposals, setTotalProposals] = useState(0);
 
   const { userid } = useAuth();
+  const router = useRouter();
+
 
   const baseStyles: ButtonProps = {
     w: 7,
@@ -101,6 +104,21 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
     activeStyles: activeStyles,
     normalStyles: normalStyles,
     separatorStyles: separatorStyles
+  }
+
+  const pageUri = `https://awakeinvest.com${router.basePath}${router.asPath}`;
+
+  async function checkForReferralURL() {
+    let parsedURL = url.parse(pageUri, true);
+
+    const query = parsedURL.query;
+
+    if(query?.ref) {
+      setCookie(null, 'referralCode', String(query?.ref), {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      })
+    }
   }
 
   useEffect(() => {
