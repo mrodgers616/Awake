@@ -123,7 +123,7 @@ const NewContent = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Flock.png?alt=media&token=1515b250-2374-4d95-85be-26d91fc95f43"
                 />
                 <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "30px"}}>
-                  Link your Broker
+                  Link your Brokerage
                 </Text>
                 <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
                   In order to prove you own shares, we ask that you link your broker after making an account.
