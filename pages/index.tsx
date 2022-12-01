@@ -42,20 +42,56 @@ import NewContent from "../components/AppModern/Achange";
 import url from 'url';
 import { setCookie } from 'nookies'
 
-type Props = {
-  campaigns: any;
-  treasury: any;
-};
 
-const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
+const Campaigns: NextPage = () => {
   /**
    * display the form to create proposals.
    */
+   let campaigns: any[] = [];
   const [proposals, setProposals] = useState(campaigns);
   const [totalProposals, setTotalProposals] = useState(0);
+  const [proposalsToLoad, setProposalsToLoad] = useState(campaigns);
 
   const { userid } = useAuth();
   const router = useRouter();
+
+  let renderFlag: boolean = true;
+  
+
+  async function loadCampaign() {
+    
+    try {
+      const data = await getAllProposals();
+
+      // fetch all campaigns
+      data.forEach((datum: any) => {
+        campaigns.push({
+          id: datum.id,
+          ...datum.data(),
+        });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
+    campaigns.forEach((campaign: any) => {
+      if (campaign.createdAt instanceof Timestamp) {
+        campaign.createdAt = new Date(campaign.createdAt.seconds).toString();
+      }
+      if (campaign.deadline instanceof Timestamp) {
+        campaign.deadline = new Date(campaign.deadline.seconds).toString();
+      }
+    });
+
+    setProposals(campaigns);
+  }
+
+  function settingFinalCampaigns(campaigns: any) {
+    if (renderFlag) {
+      setProposalsToLoad(campaigns);
+      renderFlag = false;
+    }
+  }
 
 
   const baseStyles: ButtonProps = {
@@ -91,7 +127,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
       total: totalProposals,
       initialState: {
         pageSize: 3,
-        isDisabled: false,
+        isDisabled: true,
         currentPage: 1,
       },
     });
@@ -122,17 +158,23 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
   }
 
   useEffect(() => {
-    let verifiedCampaigns = [];
-    for (let i = 0; i < campaigns.length; i++) {
-      if (campaigns[i].verified) {
-        verifiedCampaigns.push(campaigns[i])
+    loadCampaign().then(() => {
+      let campaigns = proposals;
+      let verifiedCampaigns = [];
+      for (let i = 0; i < campaigns.length; i++) {
+        if (campaigns[i]?.verified) {
+          verifiedCampaigns.push(campaigns[i])
+        }
+        else {
+          continue;
+        }
       }
-      else {
-        continue;
-      }
-    }
-    setProposals(verifiedCampaigns.slice(offset, offset + pageSize));
-    setTotalProposals(campaigns.length);
+      settingFinalCampaigns(verifiedCampaigns.slice(offset, offset + pageSize));
+      setTotalProposals(campaigns.length);
+    });
+
+
+    
   }, [currentPage, pageSize, offset]);
 
   return (
@@ -219,7 +261,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
               gap={4}
             >
 
-              {proposals.map((proposal: any, index: number) => {
+              {proposalsToLoad.map((proposal: any, index: number) => {
                 const styles = {
                   borderRadius: "16px",
                   padding: "16px",
@@ -461,39 +503,5 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
     </>
   );
 };
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-
-  let campaigns: any[] = [];
-  try {
-    const data = await getAllProposals();
-
-    // fetch all campaigns
-    data.forEach((datum: any) => {
-      campaigns.push({
-        id: datum.id,
-        ...datum.data(),
-      });
-    });
-  } catch (error) {
-    console.error(error);
-  }
-
-  // normalize data. May not need this in the future.
-  campaigns.forEach((campaign: any) => {
-    if (campaign.createdAt instanceof Timestamp) {
-      campaign.createdAt = new Date(campaign.createdAt.seconds).toString();
-    }
-    if (campaign.deadline instanceof Timestamp) {
-      campaign.deadline = new Date(campaign.deadline.seconds).toString();
-    }
-  });
-
-  return {
-    props: {
-      campaigns,
-    },
-  };
-}
 
 export default Campaigns;
