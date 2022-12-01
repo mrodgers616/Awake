@@ -171,7 +171,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 <Center>
                   <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-600px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
                     <Center>
-                      <Heading size="xl">By joining forces as shareholders we can demand change at the companies we own. Make history with us.</Heading>
+                      <Text fontFamily={"Mabry-pro"} size="xl">By joining forces as shareholders we can demand change at the companies we own. Make history with us.</Text>
                     </Center>
                   </Container>
                 </Center>
@@ -264,12 +264,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
             mx={"auto"}
             fontSize={{base: "xl", md: "2xl", lg: "5xl"}}
           >
-            <Highlight
-              query='real impact'
-              styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
-            >
-              Join forces with other investors to have real impact
-            </Highlight>
+              Join forces with other investors to have <i> real impact </i>
           </Heading>
         </Flex>
         <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
