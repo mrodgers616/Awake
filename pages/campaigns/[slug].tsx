@@ -392,15 +392,15 @@ export default function Proposal({
     router.push("/campaigns");
   }
 
-  function howManyUsers() {
+  function howManyUsers(addition: any) {
     if(campaign?.unverifiedUsers && campaign?.users) {
-      return (250 + campaign.unverifiedUsers.length + campaign.users.length)
+      return (addition + campaign.unverifiedUsers.length + campaign.users.length)
     }
     else if(campaign?.unverifiedUsers) {
-      return 250 + campaign.unverifiedUsers.length;
+      return addition + campaign.unverifiedUsers.length;
     }
     else if(campaign?.users) {
-      return 250 + campaign.users.length;
+      return addition + campaign.users.length;
     }
     else {
       return 0;
@@ -618,7 +618,7 @@ export default function Proposal({
                         <Heading textAlign={"center"}
                           fontSize={{ base: "24px", sm: "24px", lg: "42px" }}
                           color="black">
-                          {String(howManyUsers())}
+                          {String(howManyUsers(250))}
                         </Heading>
                         <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                           Petition Signers
@@ -1244,7 +1244,7 @@ export default function Proposal({
                         <Heading textAlign={"center"}
                           fontSize={{ base: "24px", sm: "24px", lg: "42px" }}
                           color="black">
-                          {String(howManyUsers())}
+                          {String(howManyUsers(250))}
                         </Heading>
                         <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                           Petition Signers
@@ -1870,7 +1870,7 @@ export default function Proposal({
                         <Heading textAlign={"center"}
                           fontSize={{ base: "24px", sm: "24px", lg: "42px" }}
                           color="black">
-                          {String(howManyUsers())}
+                          {String(howManyUsers(141))}
                         </Heading>
                         <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                           Petition Signers

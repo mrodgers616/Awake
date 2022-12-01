@@ -1,4 +1,5 @@
 import type { NextPage, GetServerSidePropsContext } from "next";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import {
   ButtonProps,
@@ -38,22 +39,60 @@ import { forEach } from "lodash";
 import Newsletter from "../components/AppModern/Newsletter";
 import Testimonial from "../components/AppModern/Testimonial";
 import NewContent from "../components/AppModern/Achange";
-// import DemoFootage from "../../pages/campaigns/assets/DemoFootage.mp4";
+import url from 'url';
+import { setCookie } from 'nookies'
 
 
-type Props = {
-  campaigns: any;
-  treasury: any;
-};
-
-const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
+const Campaigns: NextPage = () => {
   /**
    * display the form to create proposals.
    */
+   let campaigns: any[] = [];
   const [proposals, setProposals] = useState(campaigns);
   const [totalProposals, setTotalProposals] = useState(0);
+  const [proposalsToLoad, setProposalsToLoad] = useState(campaigns);
 
   const { userid } = useAuth();
+  const router = useRouter();
+
+  let renderFlag: boolean = true;
+  
+
+  async function loadCampaign() {
+    
+    try {
+      const data = await getAllProposals();
+
+      // fetch all campaigns
+      data.forEach((datum: any) => {
+        campaigns.push({
+          id: datum.id,
+          ...datum.data(),
+        });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
+    campaigns.forEach((campaign: any) => {
+      if (campaign.createdAt instanceof Timestamp) {
+        campaign.createdAt = new Date(campaign.createdAt.seconds).toString();
+      }
+      if (campaign.deadline instanceof Timestamp) {
+        campaign.deadline = new Date(campaign.deadline.seconds).toString();
+      }
+    });
+
+    setProposals(campaigns);
+  }
+
+  function settingFinalCampaigns(campaigns: any) {
+    if (renderFlag) {
+      setProposalsToLoad(campaigns);
+      renderFlag = false;
+    }
+  }
+
 
   const baseStyles: ButtonProps = {
     w: 7,
@@ -88,7 +127,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
       total: totalProposals,
       initialState: {
         pageSize: 3,
-        isDisabled: false,
+        isDisabled: true,
         currentPage: 1,
       },
     });
@@ -103,18 +142,39 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
     separatorStyles: separatorStyles
   }
 
-  useEffect(() => {
-    let verifiedCampaigns = [];
-    for (let i = 0; i < campaigns.length; i++) {
-      if (campaigns[i].verified) {
-        verifiedCampaigns.push(campaigns[i])
-      }
-      else {
-        continue;
-      }
+  const pageUri = `https://awakeinvest.com${router.basePath}${router.asPath}`;
+
+  async function checkForReferralURL() {
+    let parsedURL = url.parse(pageUri, true);
+
+    const query = parsedURL.query;
+
+    if(query?.ref) {
+      setCookie(null, 'referralCode', String(query?.ref), {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      })
     }
-    setProposals(verifiedCampaigns.slice(offset, offset + pageSize));
-    setTotalProposals(campaigns.length);
+  }
+
+  useEffect(() => {
+    loadCampaign().then(() => {
+      let campaigns = proposals;
+      let verifiedCampaigns = [];
+      for (let i = 0; i < campaigns.length; i++) {
+        if (campaigns[i]?.verified) {
+          verifiedCampaigns.push(campaigns[i])
+        }
+        else {
+          continue;
+        }
+      }
+      settingFinalCampaigns(verifiedCampaigns.slice(offset, offset + pageSize));
+      setTotalProposals(campaigns.length);
+    });
+
+
+    
   }, [currentPage, pageSize, offset]);
 
   return (
@@ -171,7 +231,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
                 <Center>
                   <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-600px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
                     <Center>
-                      <Heading size="xl">By joining forces as shareholders we can demand change at the companies we own. Make history with us.</Heading>
+                      <Text fontFamily={"Mabry-pro"} size="xl">By joining forces as shareholders we can demand change at the companies we own. Make history with us.</Text>
                     </Center>
                   </Container>
                 </Center>
@@ -201,7 +261,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
               gap={4}
             >
 
-              {proposals.map((proposal: any, index: number) => {
+              {proposalsToLoad.map((proposal: any, index: number) => {
                 const styles = {
                   borderRadius: "16px",
                   padding: "16px",
@@ -264,12 +324,7 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
             mx={"auto"}
             fontSize={{base: "xl", md: "2xl", lg: "5xl"}}
           >
-            <Highlight
-              query='real impact'
-              styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
-            >
-              Join forces with other investors to have real impact
-            </Highlight>
+              Join forces with other investors to have <i> real impact </i>
           </Heading>
         </Flex>
         <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
@@ -448,39 +503,5 @@ const Campaigns: NextPage<Props> = ({ campaigns, treasury: test }) => {
     </>
   );
 };
-
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-
-  let campaigns: any[] = [];
-  try {
-    const data = await getAllProposals();
-
-    // fetch all campaigns
-    data.forEach((datum: any) => {
-      campaigns.push({
-        id: datum.id,
-        ...datum.data(),
-      });
-    });
-  } catch (error) {
-    console.error(error);
-  }
-
-  // normalize data. May not need this in the future.
-  campaigns.forEach((campaign: any) => {
-    if (campaign.createdAt instanceof Timestamp) {
-      campaign.createdAt = new Date(campaign.createdAt.seconds).toString();
-    }
-    if (campaign.deadline instanceof Timestamp) {
-      campaign.deadline = new Date(campaign.deadline.seconds).toString();
-    }
-  });
-
-  return {
-    props: {
-      campaigns,
-    },
-  };
-}
 
 export default Campaigns;
