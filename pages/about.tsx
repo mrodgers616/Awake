@@ -10,6 +10,7 @@ import TeamPortfolio from '../components/AppModern/TeamPortfoilo';
 import Testimonial from '../components/AppModern/Testimonial';
 import Newsletter from '../components/AppModern/Newsletter';
 import Footer from '../components/AppModern/Footer';
+import NewTeamSec from "../components/NewTeamSec";
 
 
 
@@ -25,7 +26,8 @@ const Home: NextPageWithLayout = () => {
       {/* <ProductSlide /> */}
       {/* <Testimonial /> */}
       {/* <DesignedAndBuilt /> */}
-      <TeamPortfolio />
+      {/* <TeamPortfolio /> */}
+      <NewTeamSec/>
       <Newsletter />
       <Footer />
       {/* end of app classic landing */}
