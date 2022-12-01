@@ -18,7 +18,7 @@ import {
   Stack,
   Text,
   Center,
-  Divider
+  Spinner
 } from "@chakra-ui/react";
 import {
   Pagination as Paginator,
@@ -246,7 +246,7 @@ const Campaigns: NextPage = () => {
               />
           </Flex>
       <Newsletter></Newsletter>
-        
+
       <Box title="page-content" position="relative" zIndex={0}>
         <Container width="100%" mt="8%"> 
 

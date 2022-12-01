@@ -13,6 +13,9 @@ import {
   Tooltip,
   Icon,
   AspectRatio,
+  Spinner,
+  Center,
+  Container,
 } from "@chakra-ui/react";
 import { useTicker } from "../hooks/useTicker";
 import { differenceInSeconds } from "date-fns";
@@ -76,11 +79,20 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
     createdAt ? new Date(createdAt) : new Date()
   );
   const [progress, setProgress] = useState(0);
+  const [spinner, setSpinner] = useState(false);
+
+
 
   const { days, hours, minutes, seconds, isTimeUp, now } = useTicker(dl);
 
   const { userid } = useAuth();
   const toast = useToast();
+
+  function handleSpinner(click: boolean) {
+    if(click) {
+      setSpinner(true);
+    }
+  }
 
   function handleLinkClick(campaignID: string) {
 
@@ -155,10 +167,28 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
   };
 
   return (
-    <Flex flexDir={"column"} {...rest} as={Link} onClick={() => handleLinkClick(`/campaigns/${id}`)}>
+    <Flex flexDir={"column"} {...rest} as={Link} onClick={() => {handleLinkClick(`/campaigns/${id}`); handleSpinner(canClick);}}>
+      
+      {spinner && canClick && (
+        <Container h="100%" w="100%" >
+
+      <Center>
+          <Spinner
+            thickness='6px'
+            speed='0.65s'
+            emptyColor='gray.200'
+            color='#8C74E7'
+            size='xl'
+          />
+
+      </Center>
+        </Container>
+      )}
+      {!spinner && (
       <AspectRatio maxW='475px' ratio={16 / 9}>
         <Image src={image!} alt="a campaign image" mb="15px" objectFit='cover'></Image>
       </AspectRatio>
+      )}
       {/* I'VE COMMENTED OUT THE HEADING FOR INDIVIDUAL CAMPAIGNS SO THAT IT EMPHASIZES THE IMAGES OVER THE TEXT */}
       {/* <Heading fontSize="1.2em" mb="8px">
         {companyName ?? "Company"} | {symbol ?? "SMBL"}
