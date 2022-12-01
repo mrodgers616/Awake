@@ -197,7 +197,7 @@ const Campaigns: NextPage = () => {
                 <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
             </video>
                 <Center>
-                  <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
+                  <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "50px", lg: "0"}} >
                     <Center>
                       <Text fontSize="3em" mt="20%">By joining forces, we can demand change at the companies we own. Make history with us.</Text>
                     </Center>
