@@ -170,7 +170,7 @@ const Campaigns: NextPage = () => {
         }
       }
       settingFinalCampaigns(verifiedCampaigns.slice(offset, offset + pageSize));
-      setTotalProposals(campaigns.length);
+      setTotalProposals(verifiedCampaigns.length);
     });
 
 
