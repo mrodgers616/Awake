@@ -49,7 +49,7 @@ const Campaigns: NextPage = () => {
    */
    let campaigns: any[] = [];
   const [proposals, setProposals] = useState(campaigns);
-  const [totalProposals, setTotalProposals] = useState(0);
+  const [totalProposals, setTotalProposals] = useState(3);
   const [proposalsToLoad, setProposalsToLoad] = useState(campaigns);
 
   const { userid } = useAuth();
@@ -170,7 +170,7 @@ const Campaigns: NextPage = () => {
         }
       }
       settingFinalCampaigns(verifiedCampaigns.slice(offset, offset + pageSize));
-      setTotalProposals(campaigns.length);
+      setTotalProposals(verifiedCampaigns.length);
     });
 
 

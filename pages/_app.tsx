@@ -25,7 +25,7 @@ import GlobalStyle, {
   AppWrapper,
   ContentWrapper,
 } from '../components/AppModern/appModern.style';
-
+import { Analytics } from '@vercel/analytics/react';
 
 
 
@@ -78,6 +78,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
                 <LayoutAppModern>
                   <GoogleAnalytics measurementId="G-E829D3LL4P" />
                   <GA gaMeasurementId="G-E829D3LL4P" trackPageViews />
+                  <Analytics />
                   <Component {...pageProps} />
                 </LayoutAppModern>
               </ContentWrapper>
@@ -93,6 +94,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <AuthProvider>
             <Layout>
               <GoogleAnalytics measurementId="G-E829D3LL4P" />
+              <GA gaMeasurementId="G-E829D3LL4P" trackPageViews />
+              <Analytics />
               <Component {...pageProps} />
             </Layout>
         </AuthProvider>
