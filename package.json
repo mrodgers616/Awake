@@ -20,6 +20,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@fontsource/dm-sans": "^4.5.2",
+    "@fullstory/browser": "^1.6.2",
     "@glidejs/glide": "^3.5.2",
     "@gnosis.pm/safe-apps-sdk": "^7.3.0",
     "@gnosis.pm/safe-ethers-lib": "^1.1.0",
