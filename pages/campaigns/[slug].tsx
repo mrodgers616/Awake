@@ -453,6 +453,10 @@ export default function Proposal({
     {campaign?.symbol == "AAPL" && ( <> 
       <Head>
         <title>Proposal {campaign?.symbol} | Awake</title>
+        <meta
+          name="keywords"
+          content="Awake, awake, AwakeInvest, awakeInvest, awakeinvest, awake invest, shareholder collective action, awake finance, shareholder proposals, petitions, climte change, democratizing shareholder acitivism, campaigns for corporate action, awake campaigns, advocate for change with stocks, awakeinvest.com "
+        />
         <meta property="og:title" content="Hold Apple Accountable: Awake" />
         <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FBroken%20mac.png?alt=media&token=de2b9751-253b-4f72-93fc-06ec230b542a" />
       </Head>
