@@ -102,7 +102,7 @@ export default function Faq({
               </>
             )}
           </AccordionItem>
-          <AccordionItem>
+          {/* <AccordionItem>
             {({ isExpanded }) => (
               <>
                 <h2>
@@ -128,7 +128,7 @@ export default function Faq({
                 </AccordionPanel>
               </>
             )}
-          </AccordionItem>
+          </AccordionItem> */}
         </Accordion>
         {/* <Accordion
           allowToggle
