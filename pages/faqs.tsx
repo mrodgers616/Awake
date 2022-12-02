@@ -38,11 +38,13 @@ const About: NextPageWithLayout = () => {
             justifyContent={"center"}
             bgPosition={"center"}
             position="relative"
+            width={"80%"}
+            mx={"auto"}
           >
-            <Heading zIndex={250} fontFamily={{ base: "28px", sm: "28px", lg: "3em" }} mb="2%">
+            <Heading zIndex={250} fontFamily={{ base: "28px", sm: "28px", lg: "2em" }} mb="2%">
               Mission
             </Heading>
-            <Text zIndex={250} fontSize={{ base: "16px", sm: "16px", lg: "1.6em" }}>
+            <Text zIndex={250} fontSize={{ base: "16px", sm: "16px", lg: "1em" }}>
               Our mission is to empower everyday investors to have their voices heard at the companies they own. Whether you own stock through a brokerage, a pension or a 401k, you should have a say. For too long, everyday shareholders have sat on the sidelines while the real decisions were being made behind closed doors. We are building a world where the actions of the most influential corporations are directed by us, the people who own them.
             </Text>
             <Box

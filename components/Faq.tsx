@@ -22,13 +22,13 @@ export default function Faq({
   return (
     <Box
       id="questions"
-      p={{ base: "0px 0 180px", sm: "0px 0 180px", lg: "50px 0 180px" }}
     >
       <Box
-        m="0 auto"
+        width={"70%"}
+        mx={"auto"}
       >
         <Heading
-          fontSize={{ base: "18px", sm: "18px", lg: "36px" }}
+          fontSize={{ base: "18px", sm: "18px", lg: "2em" }}
           mb="36px"
           textTransform='uppercase'
         >
@@ -41,7 +41,7 @@ export default function Faq({
             <AccordionItem
               key={index}
               borderRadius="24px"
-              p={{ base: "12px 12px 12px 12px", sm: "12px 12px 12px 12px", lg: "42px 46px 42px 12px" }}
+              p={{ base: "12px 12px 12px 12px", sm: "12px 12px 12px 12px", lg: "24px 24px 24px 12px" }}
               mb="24px"
               bg='lightblue.500'
               boxShadow='0px 2px 8px 0px rgba(0,0,0,0.1)'
