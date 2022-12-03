@@ -471,7 +471,7 @@ export default function Proposal({
         zIndex={0}
       >
 
-        <Box
+        <Box 
           position="absolute"
           w="100%"
           h="100%"

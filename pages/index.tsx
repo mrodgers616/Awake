@@ -183,6 +183,7 @@ const Campaigns: NextPage = () => {
         <title>Awake | Home</title>
         <meta property="og:title" content="Awake: A New Platform for Shareholder Engagement" />
         <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Awake%20Logo%20dark%20(background).png?alt=media&token=bfcbe784-ab8f-48de-aa2d-519af2358099" />
+        {/* <script src='fs.js'></script> */}
       </Head>
       <Flex
             flexDir="column"
@@ -267,7 +268,9 @@ const Campaigns: NextPage = () => {
                 const styles = {
                   borderRadius: "16px",
                   padding: "16px",
-                  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                  borderColor:"gray.200",
+                  borderWidth:"thin",
+                  // boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                   mx: "0px",
                   mb: "16px",
                   w: "100%",

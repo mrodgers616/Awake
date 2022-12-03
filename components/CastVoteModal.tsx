@@ -796,12 +796,12 @@ export default function CastVoteModal({
             <Heading as="h4" size="sm" color='black'> Your vote helps us fight for corporate accountability! Check out our <Text as='mark'><b>$2000 referral raffle</b></Text> and read what happens next:</Heading>
             <br></br>
                 <ol>
-                  <Text><b>1.</b> Awake will write to Apple&apos;s Corporate Sectretary once we reach 5,000 signatures to push for change!</Text>
+                  <Text><b>1.</b> Awake will write to the company&apos;s corporate sectretary once we reach 5,000 signatures to push for change!</Text>
                   <br></br>
-                  <Text><b>2. </b><Button variant='link' colorScheme='blue' onClick={handleReferral}> Here&apos;s your personal referral link.</Button> For every person who signs the petition with your link, you earn 1 raffle ticket. If that person connects a brokerage account through Plaid, you earn 100 tickets! </Text>
+                  <Text><b>2. </b><Button variant='link' colorScheme='blue' onClick={handleReferral}> Here&apos;s your personal referral link.</Button> You earn 1 raffle ticket for each person you refer, 100 If they connect a brokerage account through Plaid.</Text>
                   <br></br>
                   
-                  <Text><b>3. </b> Link a brokerage account for 100 raffle tickets. If you linked your brokerage account before, don&apos;t worry you already earned the tickets</Text>
+                  <Text><b>3. </b> We&apos;ll reach out to you to share major updates on the campaign and other ways to get involved.</Text>
                 </ol>
             </Stack>
           </Center>
