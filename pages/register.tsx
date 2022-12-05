@@ -38,6 +38,8 @@ import { getAuth } from "firebase/auth";
 import GoogleButton from 'react-google-button'
 import { Logo } from '../components/login/Logo'
 import { GoogleIcon } from '../components/login/ProviderIcons'
+import { useEffect } from "react";
+import * as FullStory from '@fullstory/browser';
 
 
 const Register: NextPage = () => {
@@ -56,6 +58,13 @@ const Register: NextPage = () => {
   const providers = [
     { name: 'Google', icon: <GoogleIcon boxSize="5" /> },
   ]
+
+  useEffect(() => {
+    FullStory.init({ orgId: 'o-1FCF9K-na1' });
+
+
+    
+  }, []);
 
   return (
     <>

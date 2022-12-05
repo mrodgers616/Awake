@@ -16,11 +16,19 @@ import ProfileEditForm from "../../../components/profile/ProfileEditForm";
 import { admin } from '../../../lib/firebaseAdmin';
 import { getImageFromStorage, getProfileData } from "../../../lib/firebaseClient";
 import { useAuth } from "../../../contexts/AuthContext";
+import { useEffect } from "react";
+import * as FullStory from '@fullstory/browser';
 
 const ProfileEdit: NextPage<any> = ({ profile: profileData, profileImage, backgroundImage }) => {
   const [profile, _setProfile] = useState(profileData);
 
   const { userid } = useAuth();
+  useEffect(() => {
+    FullStory.init({ orgId: 'o-1FCF9K-na1' });
+
+
+    
+  }, []);
 
   return (
     <>

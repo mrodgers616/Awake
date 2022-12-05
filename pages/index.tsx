@@ -41,12 +41,11 @@ import Testimonial from "../components/AppModern/Testimonial";
 import NewContent from "../components/AppModern/Achange";
 import url from 'url';
 import { setCookie } from 'nookies'
+import * as FullStory from '@fullstory/browser';
 
 
 const Campaigns: NextPage = () => {
-  /**
-   * display the form to create proposals.
-   */
+
    let campaigns: any[] = [];
   const [proposals, setProposals] = useState(campaigns);
   const [totalProposals, setTotalProposals] = useState(3);
@@ -57,7 +56,6 @@ const Campaigns: NextPage = () => {
 
   let renderFlag: boolean = true;
   
-
   async function loadCampaign() {
     
     try {
@@ -158,6 +156,7 @@ const Campaigns: NextPage = () => {
   }
 
   useEffect(() => {
+    FullStory.init({ orgId: 'o-1FCF9K-na1' });
     loadCampaign().then(() => {
       let campaigns = proposals;
       let verifiedCampaigns = [];

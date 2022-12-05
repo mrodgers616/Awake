@@ -21,6 +21,8 @@ import { getProfileData, getImageFromStorage } from "../../../lib/firebaseClient
 import Debug from 'debug';
 import copy from "copy-to-clipboard";
 import { useToast } from "@chakra-ui/react";
+import { useEffect } from "react";
+import * as FullStory from '@fullstory/browser';
 
 const debug = Debug('pages:user:profile');
 
@@ -135,6 +137,14 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
   const Activity = () => (!activity ?
     (<Text sx={placeholderStyles}>You haven&apos;t been active yet. Check out <Link href='/campaigns' color='blue'>campaigns</Link> to get involved!</Text>) :
     (<Box></Box>));
+
+  
+    useEffect(() => {
+      FullStory.init({ orgId: 'o-1FCF9K-na1' });
+  
+  
+      
+    }, []);
 
   return (
     <>
