@@ -6,16 +6,16 @@ import logo from '../../../../public/illustrations/Awake Logo.png';
 export const navbar = {
   logo: logo,
   navMenu: [
-    // {
-    //   id: 1,
-    //   label: 'Home',
-    //   path: '/campaigns',
-    //   offset: '84',
-    //   staticLink: true,
-    //   needAuth: false,
-    // },
     {
       id: 1,
+      label: 'Home',
+      path: '/',
+      offset: '84',
+      staticLink: true,
+      needAuth: false,
+    },
+    {
+      id: 2,
       label: 'About',
       path: '/about',
       offset: '81',
@@ -23,7 +23,7 @@ export const navbar = {
       needAuth: false,
     },
     {
-      id: 2,
+      id: 3,
       label: 'FAQs',
       path: '/faqs',
       offset: '81',
