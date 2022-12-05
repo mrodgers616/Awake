@@ -44,7 +44,8 @@ import { GoogleIcon } from '../components/login/ProviderIcons'
 import { useRouter } from "next/router";
 import { HiEye, HiEyeOff } from 'react-icons/hi'
 import LogoImageAlt from '../public/illustrations/Awake Logo dark (new).png';
-
+import { useEffect } from "react";
+import * as FullStory from '@fullstory/browser';
 
 const googleButtonStyle = {
   marignRight: "auto",
@@ -85,6 +86,13 @@ const Login: NextPageWithLayout = () => {
   const resetEmail = () => {
     resetPassword(emailValue)
   }
+
+  useEffect(() => {
+    FullStory.init({ orgId: 'o-1FCF9K-na1' });
+
+
+    
+  }, []);
 
 
 

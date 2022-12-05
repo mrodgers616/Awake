@@ -15,9 +15,18 @@ import Faq from "../components/Faq";
 import { FaArrowRight } from "react-icons/fa";
 import faqs from "../data/faqs.json";
 import type { NextPageWithLayout } from './_app'
+import { useEffect } from "react";
+import * as FullStory from '@fullstory/browser';
 
 
 const About: NextPageWithLayout = () => {
+
+  useEffect(() => {
+    FullStory.init({ orgId: 'o-1FCF9K-na1' });
+
+
+    
+  }, []);
   return (
     <>
       <Head>

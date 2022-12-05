@@ -11,11 +11,20 @@ import Testimonial from '../components/AppModern/Testimonial';
 import Newsletter from '../components/AppModern/Newsletter';
 import Footer from '../components/AppModern/Footer';
 import NewTeamSec from "../components/NewTeamSec";
-
+import { useState, useEffect, useMemo } from "react";
+import * as FullStory from '@fullstory/browser';
 
 
 
 const Home: NextPageWithLayout = () => {
+
+  useEffect(() => {
+    FullStory.init({ orgId: 'o-1FCF9K-na1' });
+
+
+    
+  }, []);
+
   return (
     <>
       <Banner />

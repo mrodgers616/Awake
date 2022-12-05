@@ -38,6 +38,7 @@ import faqs from "../../data/slugFAQ.json";
 import Testimonial from "../../components/AppModern/Testimonial";
 import { event } from "nextjs-google-analytics";
 import url from 'url';
+import * as FullStory from '@fullstory/browser';
 
 const images = [
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
@@ -440,6 +441,7 @@ export default function Proposal({
   ];
 
   useEffect(() => {
+    FullStory.init({ orgId: 'o-1FCF9K-na1' });
     window.addEventListener('scroll', handleScroll, { passive: true });
     checkForReferralURL()
 

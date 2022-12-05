@@ -34,11 +34,10 @@ import bannerImg from '../public/illustrations/yourdata2.png';
 import plaid from '../public/illustrations/Plaid_logo.svg';
 import circleBorder from '../components/common/assets/image/appModern/shape.svg';
 import { useAuth } from "../contexts/AuthContext";
-
-
 import { client } from '../components/common/data/AppModern';
 import { useRouter } from "next/router";
 import { Box, ChakraProvider, Flex, Stack, } from "@chakra-ui/react";
+import * as FullStory from '@fullstory/browser';
 
 // const popStyle = {
 //   minWidth: "55%",
@@ -361,6 +360,7 @@ const LinkAccount: NextPage = () => {
   const { open, exit, ready } = usePlaidLink(config);
 
   useEffect(() => {
+    FullStory.init({ orgId: 'o-1FCF9K-na1' });
     loadOnPageLoad();
     //open();
 

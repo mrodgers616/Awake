@@ -45,6 +45,8 @@ import { useRouter } from "next/router";
 import { HiEye, HiEyeOff } from 'react-icons/hi'
 import * as React from 'react'
 import LogoImageAlt from '../public/illustrations/Awake Logo dark (new).png';
+import { useEffect } from "react";
+import * as FullStory from '@fullstory/browser';
 
 
 const googleButtonStyle = {
@@ -83,6 +85,13 @@ const Login: NextPageWithLayout = () => {
   const forgotPass = () => {
     router.push(`/passreset`)
   }
+
+  useEffect(() => {
+    FullStory.init({ orgId: 'o-1FCF9K-na1' });
+
+
+    
+  }, []);
 
 
 
