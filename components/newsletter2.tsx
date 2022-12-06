@@ -14,7 +14,7 @@ const SUBMITTING = "SUBMITTING";
 const ERROR = "ERROR";
 const SUCCESS = "SUCCESS";
 const formStates = [INIT, SUBMITTING, ERROR, SUCCESS] as const;
-const formStyles = {
+const formStyles = { 
   "id": "clbb6urpz001kjn08serq763n",
   "name": "Default",
   "formStyle": "inline",
