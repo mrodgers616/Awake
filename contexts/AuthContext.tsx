@@ -244,7 +244,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         await updateOrAddProfileData(user.uid, newUser);
 
         setState({ ...state, loggedIn: true, user: user, userid: user.uid });
-        const response = await fetch('/api/loops_add', { method: 'POST', body: user.email });
+        // const response = await fetch('/api/loops_add', { method: 'POST', body: user.email });
       
         //console.log(user);
         if (window.sessionStorage) {
@@ -413,7 +413,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       }
 
       await updateOrAddProfileData(response.user.uid, newUser);
-      const loops = await fetch('/api/loops_add', { method: 'POST', body: email });
+      // const loops = await fetch('/api/loops_add', { method: 'POST', body: email });
 
       if (window.sessionStorage) {
         toast({
@@ -469,7 +469,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       await updateOrAddProfileData(response.user.uid, newUser);
       setState({ ...state, loggedIn: true, user: user, userid: user.uid });
-      const loops = await fetch('/api/loops_add', { method: 'POST', body: email });
+      // const loops = await fetch('/api/loops_add', { method: 'POST', body: email });
 
     } catch (error) {
       toast({
