@@ -98,7 +98,7 @@ export function userRegistration (body: any) {
     console.log(parsedBody);
     console.log(body.email)
 
-    const formBodyNewsletter = `userGroup=registered&registered=true&email=${encodeURIComponent(parsedBody.email)}`;
+    const formBodyNewsletter = `userGroup=registered&registered=true&email=${encodeURIComponent(parsedBody.email)}&eventName=Registration`;
     fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
         method: "POST",
         body: formBodyNewsletter,
