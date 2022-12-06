@@ -27,8 +27,35 @@ const formStyles = {
 }
 const domain = "app.loops.so"
 
-export function addOnlyEmail (email: any) { 
+export function newsletterWelcome (email: any) { 
     const formBody = `email=${encodeURIComponent(email)}&eventName=NewsletterWelcome`;
+
+    const send = fetch(`https://${domain}/api/v1/events/send`, {
+        method: "POST",
+        body: formBody,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": "Bearer 94ad43b06035026114a3f95309474a23"
+        },
+      })
+        .then((res: any) => [res.ok, res.json(), res])
+        .then(([ok, dataPromise, res]) => {
+            console.log(res)
+        })
+        .catch((error) => {
+        });
+
+    console.log(send)
+
+    return formBody;
+
+}
+
+export function petitionSigned (body: any) { 
+    let parsedBody = JSON.parse(body);
+    console.log(parsedBody);
+    console.log(body.email)
+    const formBody = `email=${encodeURIComponent(parsedBody.email)}&lastName=${encodeURIComponent(parsedBody.uid)}&eventName=petitionSigned`;
 
     const send = fetch(`https://${domain}/api/v1/events/send`, {
         method: "POST",

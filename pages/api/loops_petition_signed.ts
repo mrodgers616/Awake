@@ -15,13 +15,14 @@ export default async function handler(
       case 'GET':
         return res.status(200).json({ name: 'John Doe' })
       case 'POST':
-        const response = petitionSigned(req.body.email, req.body.uid);
+        const response = petitionSigned(req.body);
+        console.log(response);
       default:
         return res.status(200).json({ name: 'John Doe' })
     }  
   } catch (err) {
     return res.status(500).send({
-      errors: (err as any).response.data.errors,
+      errors: (err as any).response,
     });
   }
 }

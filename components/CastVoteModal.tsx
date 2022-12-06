@@ -179,6 +179,7 @@ export default function CastVoteModal({
     }
 
     const response = await fetch('/api/loops_petition_signed', { method: 'POST', body: JSON.stringify(dataForEmail) });
+    console.log(response);
 
     if (pullNewInvestments) {
       for (let i = 0; i < pullNewInvestments.length; i++) {
