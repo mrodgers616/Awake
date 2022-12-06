@@ -3,7 +3,7 @@ import BannerBG from '../../common/assets/image/appModern/bottom.png';
 
 const NewsletterWrapper = styled.div`
   position: relative;
-  background-color: #8C74E7;
+  background-color: #1C0051;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
