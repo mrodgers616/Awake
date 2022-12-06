@@ -98,7 +98,7 @@ export function userRegistration (body: any) {
     console.log(parsedBody);
     console.log(body.email)
 
-    const formBodyNewsletter = `userGroup=${encodeURIComponent(formStyles.userGroup)}&userId=true&email=${encodeURIComponent(parsedBody.email)}`;
+    const formBodyNewsletter = `userGroup=registered&registered=true&email=${encodeURIComponent(parsedBody.email)}`;
     fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
         method: "POST",
         body: formBodyNewsletter,
@@ -107,7 +107,7 @@ export function userRegistration (body: any) {
         },
       })
         .then((res: any) => [res.ok, res.json(), res])
-        .then(([ok, dataPromise, res]) => {
+        .then(([ok, dataPromise, res]) => { console.log(res)
         })
         .catch((error) => {
         });
