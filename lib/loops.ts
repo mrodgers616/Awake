@@ -55,6 +55,21 @@ export function petitionSigned (body: any) {
     let parsedBody = JSON.parse(body);
     console.log(parsedBody);
     console.log(body.email)
+
+    const formBodyNewsletter = `userGroup=PlaidConnected&email=${encodeURIComponent(parsedBody.email)}`;
+    fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
+        method: "POST",
+        body: formBodyNewsletter,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      })
+        .then((res: any) => [res.ok, res.json(), res])
+        .then(([ok, dataPromise, res]) => {
+        })
+        .catch((error) => {
+        });
+
     const formBody = `email=${encodeURIComponent(parsedBody.email)}&lastName=${encodeURIComponent(parsedBody.uid)}&eventName=petitionSigned`;
 
     const send = fetch(`https://${domain}/api/v1/events/send`, {
