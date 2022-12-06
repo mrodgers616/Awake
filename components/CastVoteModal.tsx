@@ -172,6 +172,14 @@ export default function CastVoteModal({
     setInvestments(pullNewInvestments);
 
 
+
+    let dataForEmail = {
+      email: profileData.email,
+      uid: uid
+    }
+
+    const response = await fetch('/api/loops_petition_signed', { method: 'POST', body: JSON.stringify(dataForEmail) });
+
     if (pullNewInvestments) {
       for (let i = 0; i < pullNewInvestments.length; i++) {
         let userInvestmentTicker = pullNewInvestments[i].ticker;
@@ -188,6 +196,8 @@ export default function CastVoteModal({
       userDoesNotOwnSharesFor();
       return false;
     }
+
+    
 
   }
 

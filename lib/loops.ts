@@ -28,7 +28,7 @@ const formStyles = {
 const domain = "app.loops.so"
 
 export function addOnlyEmail (email: any) { 
-    const formBody = `email=${encodeURIComponent(email)}&eventName=Newsletter`;
+    const formBody = `email=${encodeURIComponent(email)}&eventName=NewsletterWelcome`;
 
     const send = fetch(`https://${domain}/api/v1/events/send`, {
         method: "POST",

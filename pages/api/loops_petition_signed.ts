@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import type { AxiosResponse } from 'axios';
 
 import { 
-    newsletterWelcome,
+    petitionSigned,
   } from '../../lib/loops';
 
 export default async function handler(
@@ -15,7 +15,7 @@ export default async function handler(
       case 'GET':
         return res.status(200).json({ name: 'John Doe' })
       case 'POST':
-        const response = newsletterWelcome(req.body);
+        const response = petitionSigned(req.body.email, req.body.uid);
       default:
         return res.status(200).json({ name: 'John Doe' })
     }  
