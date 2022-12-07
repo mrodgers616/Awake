@@ -602,7 +602,7 @@ export default function CastVoteModal({
           theConfetti(); 
           setShowForAgainst(false); 
           setShowModal(true);
-          const response = fetch('/api/loops_add_user', { method: 'POST', body: profileData.email });
+          //const response = fetch('/api/loops_add_user', { method: 'POST', body: profileData.email });
           try {
             event("Plaid_Success", {
               category: "Plaid",

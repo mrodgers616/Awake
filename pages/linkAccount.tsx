@@ -331,7 +331,7 @@ const LinkAccount: NextPage = () => {
       const uid = getProfileUID().then(profileUID => {
         updateOrAddProfileData(profileUID, finalPublicToken);
       });
-      const response = fetch('/api/loops_add_user', { method: 'POST', body: email });
+      //const response = fetch('/api/loops_add_user', { method: 'POST', body: email });
       const data = getInvestmentData(value).then(dataValue => {
         storeInvestmentData(dataValue).then(() => {
           router.push(`/campaigns/81jDobBiu6t4OlCZljQh`);
