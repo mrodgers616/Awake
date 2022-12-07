@@ -244,8 +244,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
         await updateOrAddProfileData(user.uid, newUser);
 
         setState({ ...state, loggedIn: true, user: user, userid: user.uid });
+
+        let loopsData = {
+          email: user.email,
+          uid: user.uid
+        }
+
+        const response = await fetch('/api/loops_register', { method: 'POST', body: JSON.stringify(loopsData) });
       
-        console.log(user);
+        //console.log(user);
         if (window.sessionStorage) {
           toast({
             title: "Registration Successful",
@@ -412,6 +419,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
       }
 
       await updateOrAddProfileData(response.user.uid, newUser);
+      let loopsData = {
+        email: email,
+        uid: response.user.uid
+      }
+
+      const res = await fetch('/api/loops_register', { method: 'POST', body: JSON.stringify(loopsData) });
 
       if (window.sessionStorage) {
         toast({
@@ -467,6 +480,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       await updateOrAddProfileData(response.user.uid, newUser);
       setState({ ...state, loggedIn: true, user: user, userid: user.uid });
+      let loopsData = {
+        email: email,
+        uid: user.uid
+      }
+
+      const res = await fetch('/api/loops_register', { method: 'POST', body: JSON.stringify(loopsData) });
 
     } catch (error) {
       toast({

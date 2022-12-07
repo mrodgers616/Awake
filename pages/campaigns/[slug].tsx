@@ -192,6 +192,13 @@ export default function Proposal({
 
   function doesUserOwnSharesFor() { 
     let campaignTicker = campaign?.symbol;
+    let dataForEmail = {
+      email: profileData.email,
+      uid: userid
+    }
+
+    const response = fetch('/api/loops_petition_signed', { method: 'POST', body: JSON.stringify(dataForEmail) });
+    console.log(response);
 
     if (investments) {
       for (let i = 0; i < investments?.length; i++) {

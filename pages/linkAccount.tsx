@@ -223,6 +223,7 @@ const LinkAccount: NextPage = () => {
   const [theToken, setTheToken] = useState(null);
   const [isPlaidConnectedBefore, setIsPlaidConnectedBefore] = useState(String);
   const [plaidOpen, setPlaidOpen] = useState(true);
+  const [email, setEmail] = useState("");
   let plaidConnectedBefore: any;
   const [uid, setUid] = useState(String);
   const { userid } = useAuth();
@@ -241,7 +242,7 @@ const LinkAccount: NextPage = () => {
     setIsPlaidConnectedBefore(profileData.plaidPublicToken);
     setUid(uid);
     plaidConnectedBefore = profileData.plaidPublicToken;
-
+    setEmail(profileData.email)
   }
 
 
@@ -330,6 +331,7 @@ const LinkAccount: NextPage = () => {
       const uid = getProfileUID().then(profileUID => {
         updateOrAddProfileData(profileUID, finalPublicToken);
       });
+      const response = fetch('/api/loops_add_user', { method: 'POST', body: email });
       const data = getInvestmentData(value).then(dataValue => {
         storeInvestmentData(dataValue).then(() => {
           router.push(`/campaigns/81jDobBiu6t4OlCZljQh`);

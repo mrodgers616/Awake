@@ -172,6 +172,15 @@ export default function CastVoteModal({
     setInvestments(pullNewInvestments);
 
 
+
+    let dataForEmail = {
+      email: profileData.email,
+      uid: uid
+    }
+
+    const response = await fetch('/api/loops_petition_signed', { method: 'POST', body: JSON.stringify(dataForEmail) });
+    console.log(response);
+
     if (pullNewInvestments) {
       for (let i = 0; i < pullNewInvestments.length; i++) {
         let userInvestmentTicker = pullNewInvestments[i].ticker;
@@ -188,6 +197,8 @@ export default function CastVoteModal({
       userDoesNotOwnSharesFor();
       return false;
     }
+
+    
 
   }
 
@@ -591,6 +602,7 @@ export default function CastVoteModal({
           theConfetti(); 
           setShowForAgainst(false); 
           setShowModal(true);
+          const response = fetch('/api/loops_add_user', { method: 'POST', body: profileData.email });
           try {
             event("Plaid_Success", {
               category: "Plaid",

@@ -13,6 +13,7 @@ import Footer from '../components/AppModern/Footer';
 import NewTeamSec from "../components/NewTeamSec";
 import { useState, useEffect, useMemo } from "react";
 import * as FullStory from '@fullstory/browser';
+import Newsletter2 from "../components/newsletter2"
 
 
 
@@ -37,6 +38,7 @@ const Home: NextPageWithLayout = () => {
       {/* <DesignedAndBuilt /> */}
       {/* <TeamPortfolio /> */}
       <NewTeamSec/>
+      <Newsletter2/>
       <Newsletter />
       <Footer />
       {/* end of app classic landing */}
