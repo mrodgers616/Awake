@@ -28,6 +28,23 @@ const formStyles = {
 const domain = "app.loops.so"
 
 export function newsletterWelcome (email: any) { 
+
+
+    const formBodyNewsletter = `userGroup=${encodeURIComponent(formStyles.userGroup)}&email=${encodeURIComponent(email)}`;
+    fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
+        method: "POST",
+        body: formBodyNewsletter,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      })
+        .then((res: any) => [res.ok, res.json(), res])
+        .then(([ok, dataPromise, res]) => {
+        })
+        .catch((error) => {
+        });
+
+
     const formBody = `email=${encodeURIComponent(email)}&eventName=NewsletterWelcome`;
 
     const send = fetch(`https://${domain}/api/v1/events/send`, {

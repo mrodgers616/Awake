@@ -805,7 +805,7 @@ export default function CastVoteModal({
         <ModalBody mx="20px" mb="20px">
           <Center>
             <Stack>
-            <Heading as="h4" size="sm" color='black'> Your vote helps us fight for corporate accountability! Check out our <Text as='mark'><b>$2000 referral raffle</b></Text> and read what happens next:</Heading>
+            <Heading as="h4" size="sm" color='black'> Your vote helps us fight for corporate accountability! Check out our <Text as='mark'><b>$1000 referral raffle</b></Text> and read what happens next:</Heading>
             <br></br>
                 <ol>
                   <Text><b>1.</b> Awake will write to the company&apos;s corporate sectretary once we reach 5,000 signatures to push for change!</Text>
