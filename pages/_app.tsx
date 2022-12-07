@@ -89,7 +89,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     return (
       <ChakraProvider theme={theme}>
         <Head>
-            <title>Awake</title>
             <meta name="google-site-verification" content="bBjfWyYyEb_3QNlHLnP-IWhoMb4kl8VNytdbQid1Wz8" />
             <meta name="description" content="Awake" />
             <meta
