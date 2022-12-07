@@ -45,7 +45,8 @@ const Newsletter = ({
         email: state.email
       }
 
-      const response = fetch('/api/loops_add', { method: 'POST', body: state.email });
+      const response = await fetch('/api/loops_add', { method: 'POST', body: state.email });
+      console.log(response);
 
       await addNewsletterSubscriberToStore(data);
       toast({
