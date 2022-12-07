@@ -17,6 +17,13 @@ export default async function handler(
       case 'POST':
         const response = await addUserProfile(req.body);
         console.log(response);
+        if (true) {
+          return res.status(200).json(response);
+        } else {
+          return res.status(400).send({
+            error: 'There was an error with loops register.',
+          });
+        }
         return response;
       default:
         return res.status(200).json({ name: 'John Doe' })

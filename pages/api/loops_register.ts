@@ -16,8 +16,13 @@ export default async function handler(
         return res.status(200).json({ name: 'John Doe' })
       case 'POST':
         const response = await userRegistration(req.body);
-        console.log(response);
-        return response;
+        if (true) {
+            return res.status(200).json(response);
+          } else {
+            return res.status(400).send({
+              error: 'There was an error with loops register.',
+            });
+          }
       default:
         return res.status(200).json({ name: 'John Doe' })
     }  

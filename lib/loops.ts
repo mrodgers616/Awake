@@ -220,9 +220,10 @@ export async function userRegistration (body: any) {
     // .catch((error) => {
     // });
 
-    
+    console.log("here")
+    console.log(newsletteradd)
 
-    return formBodyNewsletter;
+    return newsletteradd;
 
 }
 
