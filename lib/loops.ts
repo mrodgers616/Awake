@@ -27,7 +27,7 @@ const formStyles = {
 }
 const domain = "app.loops.so"
 
-export function newsletterWelcome (email: any) { 
+export async function newsletterWelcome (email: any) { 
 
 
     const formBodyNewsletter = `userGroup=${encodeURIComponent(formStyles.userGroup)}&email=${encodeURIComponent(email)}`;
@@ -44,7 +44,7 @@ export function newsletterWelcome (email: any) {
     //     .catch((error) => {
     //     });
 
-    const newsletteradd = fetch(`https://${domain}/api/v1/contacts/create`, {
+    const newsletteradd = await fetch(`https://${domain}/api/v1/contacts/create`, {
         method: "POST",
         body: formBodyNewsletter,
         headers: {
@@ -59,7 +59,7 @@ export function newsletterWelcome (email: any) {
         .catch((error) => {
         });
 
-    const newsletterupdate = fetch(`https://${domain}/api/v1/contacts/update`, {
+    const newsletterupdate = await fetch(`https://${domain}/api/v1/contacts/update`, {
     method: "PUT",
     body: formBodyNewsletter,
     headers: {
@@ -77,7 +77,7 @@ export function newsletterWelcome (email: any) {
 
     const formBody = `email=${encodeURIComponent(email)}&eventName=NewsletterWelcome`;
 
-    const send = fetch(`https://${domain}/api/v1/events/send`, {
+    const send = await fetch(`https://${domain}/api/v1/events/send`, {
         method: "POST",
         body: formBody,
         headers: {
@@ -94,7 +94,7 @@ export function newsletterWelcome (email: any) {
 
     console.log(send)
 
-    return formBody;
+    return send;
 
 }
 
