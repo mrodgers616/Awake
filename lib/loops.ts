@@ -104,20 +104,20 @@ export async function petitionSigned (body: any) {
     console.log(parsedBody);
     console.log(body.email)
 
-    const formBodyNewsletter = `userGroup=${encodeURIComponent(formStyles.userGroup)}&email=${encodeURIComponent(parsedBody.email)}`;
-    const newsletteradd = await fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
-        method: "POST",
-        body: formBodyNewsletter,
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      })
-        .then((res: any) => [res.ok, res.json(), res])
-        .then(([ok, dataPromise, res]) => {
-            console.log(res);
-        })
-        .catch((error) => {
-        });
+    // const formBodyNewsletter = `userGroup=${encodeURIComponent(formStyles.userGroup)}&email=${encodeURIComponent(parsedBody.email)}`;
+    // const newsletteradd = await fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
+    //     method: "POST",
+    //     body: formBodyNewsletter,
+    //     headers: {
+    //       "Content-Type": "application/x-www-form-urlencoded",
+    //     },
+    //   })
+    //     .then((res: any) => [res.ok, res.json(), res])
+    //     .then(([ok, dataPromise, res]) => {
+    //         console.log(res);
+    //     })
+    //     .catch((error) => {
+    //     });
     // const newsletteradd = await fetch(`https://${domain}/api/v1/contacts/create`, {
     //     method: "POST",
     //     body: formBodyNewsletter,
