@@ -157,6 +157,7 @@ const Campaigns: NextPage = () => {
 
   useEffect(() => {
     FullStory.init({ orgId: 'o-1FCF9K-na1' });
+    checkForReferralURL()
     loadCampaign().then(() => {
       let campaigns = proposals;
       let verifiedCampaigns = [];
