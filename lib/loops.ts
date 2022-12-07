@@ -31,18 +31,48 @@ export function newsletterWelcome (email: any) {
 
 
     const formBodyNewsletter = `userGroup=${encodeURIComponent(formStyles.userGroup)}&email=${encodeURIComponent(email)}`;
-    fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
+    // const newsletteradd = fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
+    //     method: "POST",
+    //     body: formBodyNewsletter,
+    //     headers: {
+    //       "Content-Type": "application/x-www-form-urlencoded",
+    //     },
+    //   })
+    //     .then((res: any) => [res.ok, res.json(), res])
+    //     .then(([ok, dataPromise, res]) => {
+    //     })
+    //     .catch((error) => {
+    //     });
+
+    const newsletteradd = fetch(`https://${domain}/api/v1/contacts/create`, {
         method: "POST",
         body: formBodyNewsletter,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": "Bearer 94ad43b06035026114a3f95309474a23"
         },
       })
         .then((res: any) => [res.ok, res.json(), res])
         .then(([ok, dataPromise, res]) => {
+            console.log(res)
         })
         .catch((error) => {
         });
+
+    const newsletterupdate = fetch(`https://${domain}/api/v1/contacts/update`, {
+    method: "PUT",
+    body: formBodyNewsletter,
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Bearer 94ad43b06035026114a3f95309474a23"
+    },
+    })
+    .then((res: any) => [res.ok, res.json(), res])
+    .then(([ok, dataPromise, res]) => {
+        console.log(res)
+    })
+    .catch((error) => {
+    });
 
 
     const formBody = `email=${encodeURIComponent(email)}&eventName=NewsletterWelcome`;
@@ -74,18 +104,35 @@ export function petitionSigned (body: any) {
     console.log(body.email)
 
     const formBodyNewsletter = `userGroup=${encodeURIComponent(formStyles.userGroup)}&email=${encodeURIComponent(parsedBody.email)}`;
-    fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
+    const newsletteradd = fetch(`https://${domain}/api/v1/contacts/create`, {
         method: "POST",
         body: formBodyNewsletter,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": "Bearer 94ad43b06035026114a3f95309474a23"
         },
       })
         .then((res: any) => [res.ok, res.json(), res])
         .then(([ok, dataPromise, res]) => {
+            console.log(res)
         })
         .catch((error) => {
         });
+
+    const newsletterupdate = fetch(`https://${domain}/api/v1/contacts/update`, {
+    method: "PUT",
+    body: formBodyNewsletter,
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Bearer 94ad43b06035026114a3f95309474a23"
+    },
+    })
+    .then((res: any) => [res.ok, res.json(), res])
+    .then(([ok, dataPromise, res]) => {
+        console.log(res)
+    })
+    .catch((error) => {
+    });
 
     const formBody = `email=${encodeURIComponent(parsedBody.email)}&lastName=${encodeURIComponent(parsedBody.uid)}&eventName=petitionSigned`;
 
@@ -116,18 +163,35 @@ export function userRegistration (body: any) {
     console.log(body.email)
 
     const formBodyNewsletter = `userGroup=registered&registered=true&email=${encodeURIComponent(parsedBody.email)}&eventName=Registration`;
-    fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
+    const newsletteradd = fetch(`https://${domain}/api/v1/contacts/create`, {
         method: "POST",
         body: formBodyNewsletter,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": "Bearer 94ad43b06035026114a3f95309474a23"
         },
       })
         .then((res: any) => [res.ok, res.json(), res])
-        .then(([ok, dataPromise, res]) => { console.log(res)
+        .then(([ok, dataPromise, res]) => {
+            console.log(res)
         })
         .catch((error) => {
         });
+
+    const newsletterupdate = fetch(`https://${domain}/api/v1/contacts/update`, {
+    method: "PUT",
+    body: formBodyNewsletter,
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Bearer 94ad43b06035026114a3f95309474a23"
+    },
+    })
+    .then((res: any) => [res.ok, res.json(), res])
+    .then(([ok, dataPromise, res]) => {
+        console.log(res)
+    })
+    .catch((error) => {
+    });
 
     
 
@@ -138,18 +202,35 @@ export function userRegistration (body: any) {
 export function addUserProfile (email: any) { 
     const formBody = `userGroup=PlaidConnected&email=${encodeURIComponent(email)}`;
 
-    fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
+    const newsletteradd = fetch(`https://${domain}/api/v1/contacts/create`, {
         method: "POST",
         body: formBody,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": "Bearer 94ad43b06035026114a3f95309474a23"
         },
       })
         .then((res: any) => [res.ok, res.json(), res])
         .then(([ok, dataPromise, res]) => {
+            console.log(res)
         })
         .catch((error) => {
         });
+
+    const newsletterupdate = fetch(`https://${domain}/api/v1/contacts/update`, {
+    method: "PUT",
+    body: formBody,
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Bearer 94ad43b06035026114a3f95309474a23"
+    },
+    })
+    .then((res: any) => [res.ok, res.json(), res])
+    .then(([ok, dataPromise, res]) => {
+        console.log(res)
+    })
+    .catch((error) => {
+    });
 
     return formBody;
 
