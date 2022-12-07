@@ -30,6 +30,8 @@ import {
   ButtonGroup, 
   VisuallyHidden,
   InputLeftAddon,
+  Spinner,
+  Center
 } from "@chakra-ui/react";
 import Link from "../components/Link";
 import { useForm } from "react-hook-form";
@@ -38,7 +40,7 @@ import { getAuth } from "firebase/auth";
 import GoogleButton from 'react-google-button'
 import { Logo } from '../components/login/Logo'
 import { GoogleIcon } from '../components/login/ProviderIcons'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import * as FullStory from '@fullstory/browser';
 
 
@@ -50,11 +52,15 @@ const Register: NextPage = () => {
     formState: { errors },
   } = useForm();
   const toast = useToast();
+  const [spinner, setSpinner] = useState(false);
   const { register: userRegister } = useAuth();
   const { googleSignIn: googleRegister } = useAuth();
   const { facebookSignIn: facebook } = useAuth();
 
-  const onSubmit = (data: any) => userRegister(data);
+  const onSubmit = (data: any) => {
+    userRegister(data);
+    setSpinner(true);
+  };
   const providers = [
     { name: 'Google', icon: <GoogleIcon boxSize="5" /> },
   ]
@@ -251,7 +257,20 @@ const Register: NextPage = () => {
             </Button> */}
           </HStack>
           <Stack spacing="6">
-            <Button variant="primary" type="submit" border="2px" borderColor="#32006B" _hover={{ bg: '#ebedf0' }}>Create An Account</Button>
+            {!spinner && (
+            <Button variant="primary" type="submit" border="2px" borderColor="#32006B" _hover={{ bg: '#ebedf0' }} >Create An Account</Button>
+            )}
+            {spinner && (
+            <Center>
+              <Spinner
+                  thickness='6px'
+                  speed='0.65s'
+                  emptyColor='gray.200'
+                  color='#8C74E7'
+                  size='xl'
+                />
+            </Center>
+            )}
             <HStack>
               <Divider />
               <Text fontSize="sm" whiteSpace="nowrap" color="muted">
@@ -261,7 +280,7 @@ const Register: NextPage = () => {
             </HStack>
             <ButtonGroup variant="outline" spacing="4" width="full">
               {providers.map(({ name, icon }) => (
-                <Button key={name} width="full" onClick={() => { googleRegister() }}>
+                <Button key={name} width="full" onClick={() => { googleRegister(); setSpinner(true) }}>
                   <VisuallyHidden>Sign in with {name}</VisuallyHidden>
                   {icon}
                 </Button>
