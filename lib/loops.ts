@@ -98,13 +98,13 @@ export async function newsletterWelcome (email: any) {
 
 }
 
-export function petitionSigned (body: any) { 
+export async function petitionSigned (body: any) { 
     let parsedBody = JSON.parse(body);
     console.log(parsedBody);
     console.log(body.email)
 
     const formBodyNewsletter = `userGroup=${encodeURIComponent(formStyles.userGroup)}&email=${encodeURIComponent(parsedBody.email)}`;
-    const newsletteradd = fetch(`https://${domain}/api/v1/contacts/create`, {
+    const newsletteradd = await fetch(`https://${domain}/api/v1/contacts/create`, {
         method: "POST",
         body: formBodyNewsletter,
         headers: {
@@ -119,7 +119,7 @@ export function petitionSigned (body: any) {
         .catch((error) => {
         });
 
-    const newsletterupdate = fetch(`https://${domain}/api/v1/contacts/update`, {
+    const newsletterupdate = await fetch(`https://${domain}/api/v1/contacts/update`, {
     method: "PUT",
     body: formBodyNewsletter,
     headers: {
@@ -136,7 +136,7 @@ export function petitionSigned (body: any) {
 
     const formBody = `email=${encodeURIComponent(parsedBody.email)}&lastName=${encodeURIComponent(parsedBody.uid)}&eventName=petitionSigned`;
 
-    const send = fetch(`https://${domain}/api/v1/events/send`, {
+    const send = await fetch(`https://${domain}/api/v1/events/send`, {
         method: "POST",
         body: formBody,
         headers: {
@@ -153,17 +153,17 @@ export function petitionSigned (body: any) {
 
     console.log(send)
 
-    return formBody;
+    return send;
 
 }
 
-export function userRegistration (body: any) { 
+export async function userRegistration (body: any) { 
     let parsedBody = JSON.parse(body);
     console.log(parsedBody);
     console.log(body.email)
 
     const formBodyNewsletter = `userGroup=registered&registered=true&email=${encodeURIComponent(parsedBody.email)}&eventName=Registration`;
-    const newsletteradd = fetch(`https://${domain}/api/v1/contacts/create`, {
+    const newsletteradd = await fetch(`https://${domain}/api/v1/contacts/create`, {
         method: "POST",
         body: formBodyNewsletter,
         headers: {
@@ -178,7 +178,7 @@ export function userRegistration (body: any) {
         .catch((error) => {
         });
 
-    const newsletterupdate = fetch(`https://${domain}/api/v1/contacts/update`, {
+    const newsletterupdate = await fetch(`https://${domain}/api/v1/contacts/update`, {
     method: "PUT",
     body: formBodyNewsletter,
     headers: {
@@ -199,10 +199,10 @@ export function userRegistration (body: any) {
 
 }
 
-export function addUserProfile (email: any) { 
+export async function addUserProfile (email: any) { 
     const formBody = `userGroup=PlaidConnected&email=${encodeURIComponent(email)}`;
 
-    const newsletteradd = fetch(`https://${domain}/api/v1/contacts/create`, {
+    const newsletteradd = await fetch(`https://${domain}/api/v1/contacts/create`, {
         method: "POST",
         body: formBody,
         headers: {
@@ -217,7 +217,7 @@ export function addUserProfile (email: any) {
         .catch((error) => {
         });
 
-    const newsletterupdate = fetch(`https://${domain}/api/v1/contacts/update`, {
+    const newsletterupdate = await fetch(`https://${domain}/api/v1/contacts/update`, {
     method: "PUT",
     body: formBody,
     headers: {

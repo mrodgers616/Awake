@@ -15,8 +15,9 @@ export default async function handler(
       case 'GET':
         return res.status(200).json({ name: 'John Doe' })
       case 'POST':
-        const response = petitionSigned(req.body);
-       //console.log(response);
+        const response = await petitionSigned(req.body);
+       console.log(response);
+       return response;
       default:
         return res.status(200).json({ name: 'John Doe' })
     }  

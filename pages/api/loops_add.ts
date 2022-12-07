@@ -16,6 +16,7 @@ export default async function handler(
         return res.status(200).json({ name: 'John Doe' })
       case 'POST':
         const response = await newsletterWelcome(req.body);
+        console.log(response);
         return response;
       default:
         return res.status(200).json({ name: 'John Doe' })
