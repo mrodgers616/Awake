@@ -102,13 +102,13 @@ const About: NextPageWithLayout = () => {
                 <Box mr={{ base: 0, md: 5 }} pos="relative">
                   <DottedBox />
                   <Image
-                    boxShadow="lg"
+                    backgroundColor="white"
                     w="100%"
                     h="100%"
                     minW={{ base: 'auto', md: '30rem' }}
                     maxH="20rem"
                     objectFit="cover"
-                    src={`https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=334&q=80`}
+                    src={`https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fstocks.png?alt=media&token=8f0cc730-ef04-4b08-b02d-ba949d1fd4bc`}
                     rounded="md"
                     fallback={<Skeleton />}
                     alt="mission image"
@@ -116,25 +116,22 @@ const About: NextPageWithLayout = () => {
                 </Box>
                 <Stack direction="column" spacing={6} justifyContent="center">
                   <chakra.h1 fontSize="5xl" lineHeight={1} fontWeight="bold" textAlign="left">
-                    On a mission to empower Front end developers
+                    Our Mission
                   </chakra.h1>
                   <Box>
                     <Content>
-                      Building products is hard. We&apos;ve built our fair share and we&apos;ve noticed the problems
-                      you always run into.
+                    Our mission is to empower everyday investors to have their voices heard at the companies they own. 
+                    Whether you own stock through a brokerage, a pension or a 401k, you should have a say. 
+                    For too long, everyday shareholders have sat on the sidelines while the real decisions were being made behind closed doors. 
+                    
                     </Content>
                     <Content mt={4}>
-                      TemplatesKart provides the best ChakraUI templates. Now you can focus on your
-                      business, not on the boilerplate.
-                    </Content>
-                    <Content mt={4}>
-                      You want to build a product and we want to help you. Building products has changed our
-                      lives in ways we couldn&apos;t imagine and we want to help you achieve that success too.
+                    We are building a world where the actions of the most influential corporations are directed by us, the people who own them.
                     </Content>
                   </Box>
-                  <Link href="#" fontSize="sm" color="blue.400">
+                  {/* <Link href="#" fontSize="sm" color="blue.400">
                     See how people are using our components →
-                  </Link>
+                  </Link> */}
                 </Stack>
               </Stack>
             </Container>
