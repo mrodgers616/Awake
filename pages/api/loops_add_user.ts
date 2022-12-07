@@ -15,7 +15,9 @@ export default async function handler(
       case 'GET':
         return res.status(200).json({ name: 'John Doe' })
       case 'POST':
-        const response = addUserProfile(req.body);
+        const response = await addUserProfile(req.body);
+        console.log(response);
+        return response;
       default:
         return res.status(200).json({ name: 'John Doe' })
     }  
