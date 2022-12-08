@@ -177,50 +177,47 @@ const Campaigns: NextPage = () => {
     
   }, [currentPage, pageSize, offset]);
 
+
   return (
     <>
       <Head>
         <title>Awake | Home</title>
         <meta property="og:title" content="Awake: A New Platform for Shareholder Engagement" />
         <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Awake%20Logo%20dark%20(background).png?alt=media&token=bfcbe784-ab8f-48de-aa2d-519af2358099" />
-        {/* <script src='fs.js'></script> */}
       </Head>
-      <Flex
-            flexDir="column"
-            color="white"
-            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
-            p={{ base: "0px", sm: "0px", lg: "0px" }}
-            h={{ base: "fit-content", lg: "fit-content" }}
-            justifyContent={"center"}
-            bgPosition={"center"}
-            position="relative"
-            display={{base:"none", sm:"none", md:"inline-block", lg:"inline-block"}}
-          >
-            <video autoPlay loop muted width={"100%"}>
-                <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
-            </video>
-                <Center>
-                  <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-90px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "50px", lg: "0"}} >
-                    <Center>
-                      <Text fontSize="3em" mt="20%">By joining forces, we can demand change at the companies we own. Make history with us.</Text>
-                    </Center>
-                  </Container>
-                </Center>
-              <Box
-                bg="rgba(0,0,0,.7)"
-                position="absolute"
-                w="100%"
-                h="100%"
-                top="0"
-                left="0"
-                zIndex={0}
-              />
-          </Flex>
+         
+      <Flex 
+      // flexDir="column"
+      display={{base:"none", sm:"none", md:"block", lg:"block"}}
+      >
+        
+          <video autoPlay loop muted width={"100%"} >
+            <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
+          </video> 
+        
+          <Center>
+            <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} >
+              <Center>
+                <Text width={"80%"} fontFamily={"sans-serif"} textAlign="center" color="white" position={"absolute"} top={{base:"5%",md:"5%",lg:"10%"}}fontSize={{sm:"1.5em",md:"2em",lg:"2.5em"}}><b>By joining forces, we can demand change at the companies we own. Make history with us.</b></Text>
+              </Center>
+            </Container>
+          </Center>
+          <Box
+          bg="rgba(0,0,0,.7)"
+          position="absolute"
+          w="100%"
+          h={{sm:"5%",md:"15%",lg:"20%",xl:"27%"}}
+          top="0"
+          left="0"
+          zIndex={0}
+          />
+        </Flex>
+
+     
         {/* TRYING TO GET THE MOBILE VIEW FOR BANNER       */}
         <Flex
             flexDir="column"
             color="white"
-            bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
             p={{ base: "0px", sm: "0px", lg: "0px" }}
             h={{ base: "fit-content", lg: "fit-content" }}
             justifyContent={"center"}
@@ -228,13 +225,15 @@ const Campaigns: NextPage = () => {
             position="relative"
             display={{base:"inline-block", sm:"inline-block", md:"none", lg:"none"}}
           >
-            <video autoPlay loop muted width={"100%"}>
+            <video autoPlay loop muted >
                 <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/d67b3e2f-0d36-4e06-9b48-01e788b6d081.mp4?alt=media&token=d4da57fc-1d04-445a-9ddb-c55094125a20" type="video/mp4"/>
             </video>
                 <Center>
-                  <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} mt={{base: "-600px", md: "-350px", lg: "-600px"}} mb={{base: "50px", md: "250px", lg: "0"}} >
+                  <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} 
+                  mt={{base: "-400px", sm: "-400px"}} 
+                  >
                     <Center>
-                      <Text fontFamily={"Mabry-pro"} size="xl">By joining forces as shareholders we can demand change at the companies we own. Make history with us.</Text>
+                      <Text fontFamily={"sans-serif"} width={"90%"} position={"absolute"} top={{base:"30%"}} fontSize={"2.5em"}><b>By joining forces as shareholders we can demand change at the companies we own. Make history with us.</b></Text>
                     </Center>
                   </Container>
                 </Center>
@@ -247,7 +246,7 @@ const Campaigns: NextPage = () => {
                 left="0"
                 zIndex={0}
               />
-          </Flex>
+          </Flex> 
       <Newsletter></Newsletter>
 
       <Box title="page-content" position="relative" zIndex={0}>
