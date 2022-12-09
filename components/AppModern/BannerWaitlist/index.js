@@ -18,8 +18,11 @@ import BannerWrapper, {
   ButtonGroup,
   CarouselArea,
 } from './banner.style';
-
 import { bannerData } from '../../common/data/Interior';
+import * as EmailValidator from 'email-validator';
+import { useToast } from "@chakra-ui/react";
+import { addWaitlistSubscriberToStore } from "../../../lib/firebaseClient";
+
 
 const Banner = () => {
   const { discount, discountLabel, title, text, carousel } = bannerData;
@@ -45,32 +48,52 @@ const Banner = () => {
     setLoading(true);
   }, []);
 
-  const [state, setState] = useState({ email: '', valid: '' });
-  const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const [state, setState] = useState({
+    email: ""
+  });
 
-  const handleOnChange = (e) => {
-    let value = '';
-    if (e.target.value.match(emailRegex)) {
-      if (e.target.value.length > 0) {
-        value = e.target.value;
-        setState({ ...state, email: value, valid: 'valid' });
-      }
-    } else {
-      if (e.target.value.length > 0) {
-        setState({ ...state, valid: 'invalid' });
-      } else {
-        setState({ ...state, valid: '' });
-      }
-    }
-  };
+  const toast = useToast();
 
-  const handleSubscriptionForm = (e) => {
-    e.preventDefault();
-    if (state.email.match(emailRegex)) {
-      console.log(state.email);
-      setState({ email: '', valid: '' });
+  const controlref = useRef();
+
+  const handleEmailChange = (event) => {
+    setState({ email: event });
+  }
+
+  const handleOnSubmit = async () => {
+
+    if (EmailValidator.validate(state.email)) {
+      let data = {
+        email: state.email
+      }
+
+      fetch('/api/loops_add_waitlist', { method: 'POST', body: state.email }).then(response => {
+        //console.log(response);
+      });
+      
+
+      await addWaitlistSubscriberToStore(data);
+      toast({
+        title: "",
+        description:
+          "Thanks for signing up for the Waitlist! We'll reach out soon.",
+        status: "success",
+        duration: 10000,
+        isClosable: true,
+      });
     }
-  };
+    else {
+      toast({
+        title: "Error",
+        description:
+          "Check if your email address is valid",
+        status: "error",
+        duration: 6000,
+        isClosable: true,
+      });
+    }
+
+  }
 
   return (
     <BannerWrapper>
@@ -81,7 +104,7 @@ const Banner = () => {
             </HighlightedText>
             <Heading as="h1" content={title} />
             <Text content={text} />
-            <FormWrapper onSubmit={handleSubscriptionForm}>
+            <FormWrapper onSubmit={handleOnSubmit}>
               <Input
                 className={state.valid}
                 type="email"
@@ -89,7 +112,7 @@ const Banner = () => {
                 icon={<Icon icon={iosEmailOutline} />}
                 iconPosition="left"
                 required={true}
-                onChange={handleOnChange}
+                onChange={handleEmailChange}
                 aria-label="email"
               />
               <ButtonGroup>

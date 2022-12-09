@@ -99,6 +99,49 @@ export async function newsletterWelcome (email: any) {
 
 }
 
+export async function waitlistWelcome (email: any) { 
+
+
+  const formBodyNewsletter = `userGroup=Waitlist&email=${encodeURIComponent(email)}`;
+  const waitlistAdd = await fetch(`https://${domain}/api/newsletter-form/${formStyles.id}`, {
+      method: "POST",
+      body: formBodyNewsletter,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    })
+      .then((res: any) => [res.ok, res.json(), res])
+      .then(([ok, dataPromise, res]) => {
+          console.log(res);
+      })
+      .catch((error) => {
+      });
+
+
+      //////// ADD THIS BACK WHEN WE WANT TO SEND AN EMAIL
+  // const formBody = `email=${encodeURIComponent(email)}&eventName=NewsletterWelcome`;
+
+  // const send = await fetch(`https://${domain}/api/v1/events/send`, {
+  //     method: "POST",
+  //     body: formBody,
+  //     headers: {
+  //       "Content-Type": "application/x-www-form-urlencoded",
+  //       "Authorization": "Bearer 94ad43b06035026114a3f95309474a23"
+  //     },
+  //   })
+  //     .then((res: any) => [res.ok, res.json(), res])
+  //     .then(([ok, dataPromise, res]) => {
+  //         console.log(res)
+  //     })
+  //     .catch((error) => {
+  //     });
+
+  // console.log(send)
+
+  return waitlistAdd;
+
+}
+
 export async function petitionSigned (body: any) { 
     let parsedBody = JSON.parse(body);
     console.log(parsedBody);
