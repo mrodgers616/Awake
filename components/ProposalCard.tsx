@@ -212,7 +212,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
         mt="9px"
         size='sm'
         isAnimated
-        hasStripe
+        hasStripe ={isTimeUp ? false : true}
       >
         <ProgressLabel fontSize="sm" color={isTimeUp ? "#BAC7BE" : "black"} w="fit-content">
         </ProgressLabel>
