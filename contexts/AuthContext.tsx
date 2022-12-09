@@ -482,7 +482,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setState({ ...state, loggedIn: true, user: user, userid: user.uid });
       let loopsData = {
         email: email,
-        uid: user.uid
+        uid: user.uid 
       }
 
       const res = await fetch('/api/loops_register', { method: 'POST', body: JSON.stringify(loopsData) });

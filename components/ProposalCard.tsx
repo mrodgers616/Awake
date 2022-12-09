@@ -190,20 +190,31 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
       </AspectRatio>
       )}
       {/* I'VE COMMENTED OUT THE HEADING FOR INDIVIDUAL CAMPAIGNS SO THAT IT EMPHASIZES THE IMAGES OVER THE TEXT */}
-      {/* <Heading fontSize="1.2em" mb="8px">
-        {companyName ?? "Company"} | {symbol ?? "SMBL"}
-      </Heading> */}
+      <Flex
+      flexDir={"row"}
+      display="flex"
+      justifyContent={"space-between"}      
+      >
+        <Heading textAlign={"left"} color="grey" fontSize=".8em" mt="3px" mb="4px">
+          {companyName ?? "Company"}  | {symbol ?? "SMBL"} 
+        </Heading>
+        <Heading textAlign={"right"} color="grey" fontSize=".8em" mt="3px" mb="4px">
+          {timerText}
+        </Heading>
+      </Flex>
       <Progress
+        
         colorScheme={isTimeUp ? "purple" : "green"}
         value={!isTimeUp ? progress : 100}
         w="100%"
-        h="32px"
         borderRadius="8px"
-        mb="18px"
+        mb="9px"
         mt="9px"
+        size='sm'
+        isAnimated
+        hasStripe ={isTimeUp ? false : true}
       >
         <ProgressLabel fontSize="sm" color={isTimeUp ? "#BAC7BE" : "black"} w="fit-content">
-          {timerText}
         </ProgressLabel>
       </Progress>
       <Box mb="0px" flexGrow={2}>
@@ -218,7 +229,7 @@ export default function ProposalCard(props: ProposalProps): JSX.Element {
             content: description ? "'...'" : '""',
           }}
         >
-          {description?.substring(0, 100)}
+          {description?.substring(0, 90)}
         </Text>
       </Box>
       {/* <Box>
