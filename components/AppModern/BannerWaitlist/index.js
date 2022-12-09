@@ -54,7 +54,6 @@ const Banner = () => {
 
   const toast = useToast();
 
-  const controlref = useRef();
 
   const handleEmailChange = (event) => {
     setState({ email: event });
@@ -104,11 +103,10 @@ const Banner = () => {
             </HighlightedText>
             <Heading as="h1" content={title} />
             <Text content={text} />
-            <FormWrapper onSubmit={handleOnSubmit}>
+            <FormWrapper >
               <Input
-                className={state.valid}
                 type="email"
-                placeholder="Enter email address"
+                placeholder="Enter Email"
                 icon={<Icon icon={iosEmailOutline} />}
                 iconPosition="left"
                 required={true}
@@ -117,9 +115,10 @@ const Banner = () => {
               />
               <ButtonGroup>
                 <Button
-                  type="submit"
+                  //type="submit"
                   colors="secondaryWithBg"
                   title="Get Early Access"
+                  onClick={handleOnSubmit}
                 />
               </ButtonGroup>
             </FormWrapper>

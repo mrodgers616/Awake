@@ -109,6 +109,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           </Head>
           <ResetCSS />
           <GlobalStyle />
+          <ChakraProvider theme={theme}>
           <AuthProvider>
             <AppWrapper>
               <ContentWrapper>
@@ -121,6 +122,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
               </ContentWrapper>
             </AppWrapper>
           </AuthProvider>
+          </ChakraProvider>
         </>
       </ThemeProvider>
     )

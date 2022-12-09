@@ -23,11 +23,11 @@ const BannerWrapper = styled.div`
   margin-bottom: 0px;
   background-color: ${themeGet('colors.banner', '#171717')};
   @media only screen and (max-width: 1440px) {
-    margin-bottom: 60px;
+    margin-bottom: 0px;
   }
   @media only screen and (max-width: 767px) {
     padding: 135px 0 82px;
-    margin-bottom: 42px;
+    margin-bottom: 0px;
   }
 `;
 
