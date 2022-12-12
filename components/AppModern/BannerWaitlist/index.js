@@ -56,6 +56,7 @@ const Banner = () => {
     email: ""
   });
 
+  const [modalClose, setModalClose] = useState(true)
   const toast = useToast();
 
   const {
@@ -75,6 +76,9 @@ const Banner = () => {
       let data = {
         email: state.email
       }
+
+      setModalClose(false);
+      onVoteModalOpen()
 
       fetch('/api/loops_add_waitlist', { method: 'POST', body: state.email }).then(response => {
         //console.log(response);
@@ -106,6 +110,11 @@ const Banner = () => {
 
   return (
     <BannerWrapper>
+      {!modalClose && <WaitlistModal
+                        isOpen={voteModalIsOpen}
+                        onClose={ () => {onVoteModalClose; setModalClose(true);}}
+                        onOpen={() => { onVoteModalOpen(); }}
+                      />}
       <Container>
         <ContentArea>
             <HighlightedText>
@@ -128,7 +137,7 @@ const Banner = () => {
                   //type="submit"
                   colors="secondaryWithBg"
                   title="Get Early Access"
-                  onClick={handleOnSubmit}
+                  onClick={() => {handleOnSubmit(); setModalClose(false);}}
                 />
               </ButtonGroup>
             </FormWrapper>

@@ -66,32 +66,7 @@ export default function WaitlistModal({
   // };
 
   const handleOnClick = () => {
-    if(EmailValidator.validate(emailValue)) {
-      const username = emailValue.split("@")[0] + String(Math.floor(Math.random() * 10)) + String(Math.floor(Math.random() * 10)) + String(Math.floor(Math.random() * 10));
-      const pass = generate({
-        length: 10,
-	      numbers: true
-      })
-      modalRegister(nameValue, username, emailValue, pass)
-      // transporter.sendMail(mailOptions(emailValue, pass), function(error: any, info:any){
-      //   if (error) {
-      //     console.log(error);
-      //   } else {
-      //     console.log('Email sent: ' + info.response);
-      //   }
-      // });
-      //router.push('/register')
-    }
-    else {
-      toast({
-        title: "Invalid Email",
-        description:
-          "Please check and try again",
-        status: "error",
-        duration: 8000,
-        isClosable: true,
-      });
-    }
+    router.push(`/campaigns/81jDobBiu6t4OlCZljQh`)
 
   }
 
