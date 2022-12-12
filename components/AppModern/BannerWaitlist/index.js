@@ -22,6 +22,10 @@ import { bannerData } from '../../common/data/Interior';
 import * as EmailValidator from 'email-validator';
 import { useToast } from "@chakra-ui/react";
 import { addWaitlistSubscriberToStore } from "../../../lib/firebaseClient";
+import {
+  useDisclosure,
+} from "@chakra-ui/react";
+import WaitlistModal from "../../WaitlistModal";
 
 
 const Banner = () => {
@@ -53,6 +57,12 @@ const Banner = () => {
   });
 
   const toast = useToast();
+
+  const {
+    isOpen: voteModalIsOpen,
+    onOpen: onVoteModalOpen,
+    onClose: onVoteModalClose,
+  } = useDisclosure();
 
 
   const handleEmailChange = (event) => {
