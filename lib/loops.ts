@@ -143,8 +143,8 @@ export async function waitlistWelcome (email: any) {
 }
 
 export async function petitionSigned (body: any) { 
-    let parsedBody = JSON.parse(body);
-    console.log(parsedBody);
+    let parsedBody = JSON.parse(body); 
+    console.log(parsedBody); 
     console.log(body.email)
 
     // const formBodyNewsletter = `userGroup=${encodeURIComponent(formStyles.userGroup)}&email=${encodeURIComponent(parsedBody.email)}`;

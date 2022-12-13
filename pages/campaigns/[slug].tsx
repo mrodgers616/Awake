@@ -643,7 +643,7 @@ export default function Proposal({
 {/* THIS IS THE IMAGES SECTION THAT COMES AFTER THE BANNER */}
           <Flex 
           mx={{lg:"10%"}}
-          mt={{lg:"10%"}}
+          mt={{lg:"5%"}}
           justifyContent='space-between'
           alignItems={"center"}
           display="inline-block" flexDir={"row"} w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}>
@@ -1089,18 +1089,15 @@ export default function Proposal({
 
 
       {/* ///// CHANGE THIS SYMBOL ON THE NEXT LINE FROM "CHANGETHIS" TO THE NEW COMPANY TICKET      //////////// */}
-      {campaign?.symbol == "CHANGETHIS" && ( <> 
+      {campaign?.symbol == "CVX" && ( <> 
       <Head>
         <title>Proposal {campaign?.symbol} | Awake</title>
-        <meta property="og:title" content="Stop Toyota from Fueling Climate Change" />
-        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Polutta.webp?alt=media&token=e681070b-15b2-4938-918c-6a5e28bdd2d5" />
+        <meta property="og:title" content="Get Chevron to Account for GHGs" />
+        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2010%20(1).png?alt=media&token=ef588bde-be35-48cb-9638-5cbb666cbd0e" />
       </Head>
       {showConfetti && (<Confetti width={width} height={height}/>)}
       <Box
         mt="0px"
-        //bg="rgb(164,191,217)"
-        //bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
-        //bgImage="url('https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1259&q=80')"
         bgSize="cover"
         position="relative"
         zIndex={0}
@@ -1144,10 +1141,10 @@ export default function Proposal({
                       fontSize={{base: "3xl", md: "5xl", lg: "5xl"}}
                   >
                     <Highlight
-                      query='Toxic Electronic Waste'
+                      query='Chevron'
                       styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
                       >
-                      Hold Apple Accountable for Toxic Electronic Waste
+                      Get Chevron to Account for GHGs
                     </Highlight>
                   </Heading>
                           {userid ? ( <>
@@ -1269,12 +1266,12 @@ export default function Proposal({
 {/* THIS IS THE IMAGES SECTION THAT COMES AFTER THE BANNER */}
           <Flex 
           mx={{lg:"10%"}}
-          mt={{lg:"10%"}}
+          mt={{lg:"5%"}}
           justifyContent='space-between'
           alignItems={"center"}
           display="inline-block" flexDir={"row"} w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}>
             <Image
-              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste1.png?alt=media&token=b7964255-2134-49dd-b88e-19aa067d770a"
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FChevron1.png?alt=media&token=f8b1aa5b-12b1-470e-b538-f5e39fbdaade"
               height="350px"
               width="300px"
               display={{base:"none",lg:"inline-block"}}
@@ -1283,7 +1280,7 @@ export default function Proposal({
               alt="campaign image"
             />
             <Image 
-              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste2.png?alt=media&token=29d93a02-5b0c-41da-aeda-27e099ca1054"
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FChevron2.png?alt=media&token=5ecc0352-208e-430e-a217-9deaec9e8e2e"
               height="350px" 
               width="300px" 
               display={{base:"none",lg:"inline-block"}}
@@ -1291,7 +1288,7 @@ export default function Proposal({
               alt="campaign image"
               />
             <Image
-              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste3.png?alt=media&token=e9075046-c9fe-456c-b5bd-c9656f517711"
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FChevron3.png?alt=media&token=758895d1-b690-40f7-8481-3b4748a60386"
               height="350px"
               width="300px"
               display={{base:"none",lg:"inline-block"}}
@@ -1300,7 +1297,7 @@ export default function Proposal({
               alt="campaign image"
             />
             <Image 
-              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ewaste4.png?alt=media&token=89bc7ddb-d199-45ea-b859-18626f43a469"
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FChevron4.png?alt=media&token=6069b2b8-6676-4478-ae2e-7e4f6f4efd5d"
               height="350px" 
               width="300px" 
               display={{base:"none",lg:"inline-block"}} 
@@ -1323,11 +1320,11 @@ export default function Proposal({
                       WHY IT&apos;S IMPORTANT
                     </Highlight>
               </Heading>
-              {campaign?.companyName == "Apple" ? 
+              {campaign?.companyName == "Chevron" ? 
 
 
                 campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
-                  <Text as='b'>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. With your help, we can get Apple to take a stronger stance.</Text>
+                  <Text as='b'>Oil companies like Chevron are trying to skimp on their clean energy transition plans by selling heavy polluting assets to other companies that will continue to use them. This is greenwashing at its finest and it must be stopped.</Text>
                   <br/>
                   <br/>
                     <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" >
@@ -1338,7 +1335,7 @@ export default function Proposal({
                         What we want
                       </Highlight>
                     </Heading>  
-                  <Text>We want Apple to disclose total electronic waste figures* and provide additional information on their plans to mitigate waste.</Text> 
+                  <Text>We want Chevron to disclose a recalculated emissions baseline that excludes the aggregated GHG emissions from carbon intensive assets they&apos;ve sold since 2016, the year Chevron uses for its emissions baseline.</Text> 
                   <br/>
                   <br/>
                   <Container display={{ base: "block", sm: "none", lg: "none" }}>
@@ -1373,36 +1370,37 @@ export default function Proposal({
       <Heading fontSize="28px" textTransform={"uppercase"} mb="16px">
         Back Story
       </Heading>
-      <Text>In 2019, approximately ‎
-      <Text  as='b'><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
-      53.6 million ‎
-      </Link></Text>
-      metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.</Text>
-      {/* {String(campaign?.description).substring(332,1333)} */}
-      <br/>
-      <br/>      
-      <Text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world&apos;s E-waste. But how much? That&apos;s the thing, we don&apos;t know. Apple&apos;s hardware produced ‎
-      <b><Link href="https://www.zdnet.com/article/apples-colossal-e-waste-timebomb/" isExternal>1.65 billion</Link></b>
-      ‎ devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how many materials are <b>not</b> recovered.</Text>
-      <br/>
-      <br/>
-      <Text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </Text>
-      <br/>
-      <br/>
-      <Text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</Text>
-      <br/>
-      <Text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a ‎
-      
-      <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
-      ‎ Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</Text>
-      <br/>
-      <br/>
-
-      <Text> 
-      We&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
-      </Text>
-      <br/>
-      <br/>
+      <Text>The Glasgow Financial Alliance for Net Zero states that “divestment of carbon-intensive
+        assets can be ineffective and even lead to real-world increases in emissions.”
+        <Text as="b"><Link href="https://business.edf.org/files/Transferred-Emissions-How-Oil-Gas-MA-Hamper-Energy-Transition.pdf" isExternal>[1]</Link></Text>
+        <br></br>
+        <br></br>
+        As such, these divestments should not be counted as emissions reductions.
+        To accurately account for greenhouse gas (GHG) emissions reductions, the Greenhouse
+        Gas Protocol provides that companies should recalculate base year emissions in the
+        event of a “transfer of ownership or control of emissions-generating activities.”<Text as="b"><Link href="https://assets.bbhub.io/company/sites/63/2021/11/GFANZ-Progress-Report.pdf" isExternal> [2]</Link></Text>
+        <br></br>
+        <br></br>
+        Oil and gas industry association IPIECA similarly recommends “adjustments to the base year
+        emissions” to account for asset divestiture, to avoid giving the appearance of “increases
+        or decreases in emissions, when in fact. . . emissions would merely be transferred from
+        one company to another.<Text as="b"><Link href="https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf" isExternal> [3]</Link></Text>
+        <br></br>
+        <br></br>
+        Since 2016, Chevron reports a 4.7% reduction in its portfolio carbon intensity.<Text as="b"><Link href="https://www.ipieca.org/resources/good-practice/petroleum-industry-guidelines-for-reporting-greenhouse-gasemissions-2nd-edition/" isExternal> [4]</Link></Text>
+        However, between 2017 and 2021, Chevron sold more assets than any other American
+        oil and gas company, ranking third globally among sellers.<Text as="b"><Link href="https://www.chevron.com/-/media/chevron/sustainability/documents/2021-climate-change-resilience-report.pdf" isExternal> [5]</Link></Text>
+        <br></br>
+        <br></br>
+        It is unclear how Chevron accounts for these divestitures in its emissions reporting. Therefore, shareholders cannot determine whether Chevron&apos;s reported GHG reductions are the result of
+        operational improvements or of transferring emissions off its books.
+        In contrast, peer company Devon Energy recalculates its baseline when asset
+        divestitures or investments result in “a change to its emissions baseline of 5% or higher”
+        to ensure accuracy and comparability of emissions reporting.<Text as="b"><Link href="https://business.edf.org/files/Transferred-Emissions-How-Oil-Gas-MA-Hamper-Energy-Transition.pdf" isExternal> [6]</Link></Text>
+        <br></br>
+        <br></br>
+        Devon notes that this “recalculation methodology affirms our commitment to structurally drive down emissions, rather than divesting assets as a means to achieve our ambitious emissions reduction targets.”<Text as="b"><Link href="https://dvnweb.azureedge.net/assets/documents/Sustainability/DVN_2022_SustainabilityReport.pdf" isExternal> [7] </Link></Text>Investors deserve the same transparency from Chevron.</Text>
+      {/* </Container>  */}
     </Container>
     {/* END OF BACKSTORY */}
     <Flex mb="64px" flexDir={"column"} 
@@ -1895,7 +1893,7 @@ export default function Proposal({
 {/* THIS IS THE IMAGES SECTION THAT COMES AFTER THE BANNER */}
           <Flex 
           mx={{lg:"10%"}}
-          mt={{lg:"10%"}}
+          mt={{lg:"5%"}}
           justifyContent='space-between'
           alignItems={"center"}
           display="inline-block" flexDir={"row"} w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}>
