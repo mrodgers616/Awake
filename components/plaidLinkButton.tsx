@@ -34,7 +34,7 @@ import circleBorder from '../components/common/assets/image/appModern/shape.svg'
 import { useAuth } from "../contexts/AuthContext";
 
 
-import { client } from '../components/common/data/AppModern';
+import { client } from './common/data/AppModern';
 import { useRouter } from "next/router";
 
 const popStyle = {
