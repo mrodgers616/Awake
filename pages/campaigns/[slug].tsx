@@ -1089,18 +1089,15 @@ export default function Proposal({
 
 
       {/* ///// CHANGE THIS SYMBOL ON THE NEXT LINE FROM "CHANGETHIS" TO THE NEW COMPANY TICKET      //////////// */}
-      {campaign?.symbol == "CHANGETHIS" && ( <> 
+      {campaign?.symbol == "CVX" && ( <> 
       <Head>
         <title>Proposal {campaign?.symbol} | Awake</title>
-        <meta property="og:title" content="Stop Toyota from Fueling Climate Change" />
+        <meta property="og:title" content="Get Chevron to Account for GHGs" />
         <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Polutta.webp?alt=media&token=e681070b-15b2-4938-918c-6a5e28bdd2d5" />
       </Head>
       {showConfetti && (<Confetti width={width} height={height}/>)}
       <Box
         mt="0px"
-        //bg="rgb(164,191,217)"
-        //bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
-        //bgImage="url('https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1259&q=80')"
         bgSize="cover"
         position="relative"
         zIndex={0}
@@ -1144,10 +1141,10 @@ export default function Proposal({
                       fontSize={{base: "3xl", md: "5xl", lg: "5xl"}}
                   >
                     <Highlight
-                      query='Toxic Electronic Waste'
+                      query='Chevron'
                       styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
                       >
-                      Hold Apple Accountable for Toxic Electronic Waste
+                      Get Chevron to Account for GHGs
                     </Highlight>
                   </Heading>
                           {userid ? ( <>
@@ -1323,11 +1320,18 @@ export default function Proposal({
                       WHY IT&apos;S IMPORTANT
                     </Highlight>
               </Heading>
-              {campaign?.companyName == "Apple" ? 
+              {campaign?.companyName == "Chevron" ? 
 
 
                 campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
-                  <Text as='b'>Electronic waste leaches toxic-materials into the environment, and puts people at risk of developing cancers. With your help, we can get Apple to take a stronger stance.</Text>
+                  <Text as='b'>
+                  To accurately account for greenhouse gas (GHG) emissions reductions, the Greenhouse Gas Protocol provides that companies should recalculate base year emissions in the event of a “transfer of ownership or control of emissions-generating activities.”[3] Oil and gas industry association IPIECA similarly recommends “adjustments to the base year emissions” to account for asset divestiture, to avoid giving the appearance of “increases or decreases in emissions, when in fact. . . emissions would merely be transferred from one company to another.”[4]
+                  
+                  Since 2016, Chevron reports a 4.7% reduction in its portfolio carbon intensity.[5] However, between 2017 and 2021, Chevron sold more assets than any other American oil and gas company, ranking third globally among sellers.[6] It is unclear how Chevron accounts for these divestitures in its emissions reporting. Therefore, shareholders cannot determine whether Chevron&apos;s reported GHG reductions are the result of operational improvements or of transferring emissions off its books.  
+                  
+                  In contrast, peer company Devon Energy recalculates its baseline when asset divestitures or investments result in “a change to its emissions baseline of 5% or higher” to ensure accuracy and comparability of emissions reporting.[7] Devon notes that this “recalculation methodology affirms our commitment to structurally drive down emissions, rather than divesting assets as a means to achieve our ambitious emissions reduction targets.”[8] Investors deserve the same transparency from Chevron.
+                  
+                  </Text>
                   <br/>
                   <br/>
                     <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" >
@@ -1338,7 +1342,7 @@ export default function Proposal({
                         What we want
                       </Highlight>
                     </Heading>  
-                  <Text>We want Apple to disclose total electronic waste figures* and provide additional information on their plans to mitigate waste.</Text> 
+                  <Text>Shareholders request that Chevron, at reasonable cost and omitting proprietary information, disclose a recalculated emissions baseline that excludes the aggregated GHG emissions from material asset divestitures occurring since 2016, the year Chevron uses to baseline its emissions.</Text> 
                   <br/>
                   <br/>
                   <Container display={{ base: "block", sm: "none", lg: "none" }}>
@@ -1366,44 +1370,6 @@ export default function Proposal({
                 </Flex>
               </Flex>
         </Flex>
-
-{/* ATTEMPT TO ADD BACK STORY */}
-    {/* BACK STORY */}
-    <Container w={"100%"}>
-      <Heading fontSize="28px" textTransform={"uppercase"} mb="16px">
-        Back Story
-      </Heading>
-      <Text>In 2019, approximately ‎
-      <Text  as='b'><Link href="https://ewastemonitor.info/gem-2020/#:~:text=A%20record%2053.6%20million%20metric,waste%20Monitor%202020%2C%20released%20today." isExternal>
-      53.6 million ‎
-      </Link></Text>
-      metric tons (Mt) of e-waste was generated, most of which is undocumented (likely dumped or traded in a damaging way). The undocumented waste alone equates to over 4,000 Eiffel towers worth 🤯.</Text>
-      {/* {String(campaign?.description).substring(332,1333)} */}
-      <br/>
-      <br/>      
-      <Text>Inevitably, as one of the largest technology companies in the world, Apple makes and manages a LOT of the world&apos;s E-waste. But how much? That&apos;s the thing, we don&apos;t know. Apple&apos;s hardware produced ‎
-      <b><Link href="https://www.zdnet.com/article/apples-colossal-e-waste-timebomb/" isExternal>1.65 billion</Link></b>
-      ‎ devices by the end of 2020. Apple doesn&apos;t publish figures on hardware recycling, outlining how many materials are <b>not</b> recovered.</Text>
-      <br/>
-      <br/>
-      <Text>A billion of anything is huge. A billion grains of rice weigh 25 metric tons and take up about three full sized dump trucks. </Text>
-      <br/>
-      <br/>
-      <Text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</Text>
-      <br/>
-      <Text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a ‎
-      
-      <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
-      ‎ Across almost all product lines, Apple&apos;s products are irreparable or uneconomical to repair (coercing customers into just purchasing another device).</Text>
-      <br/>
-      <br/>
-
-      <Text> 
-      We&apos;d like to see Apple publish an evaluation of its TOTAL contribution to electronic waste. Getting concrete numbers on Apple&apos;s contribution is the first step towards creating total waste targets and setting an industry standard. 
-      </Text>
-      <br/>
-      <br/>
-    </Container>
     {/* END OF BACKSTORY */}
     <Flex mb="64px" flexDir={"column"} 
             w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
