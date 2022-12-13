@@ -643,7 +643,7 @@ export default function Proposal({
 {/* THIS IS THE IMAGES SECTION THAT COMES AFTER THE BANNER */}
           <Flex 
           mx={{lg:"10%"}}
-          mt={{lg:"10%"}}
+          mt={{lg:"5%"}}
           justifyContent='space-between'
           alignItems={"center"}
           display="inline-block" flexDir={"row"} w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}>
@@ -1372,34 +1372,34 @@ export default function Proposal({
       </Heading>
       <Text>The Glasgow Financial Alliance for Net Zero states that “divestment of carbon-intensive
         assets can be ineffective and even lead to real-world increases in emissions.”
-        <Text as="b"> [1]<Link href="https://business.edf.org/files/Transferred-Emissions-How-Oil-Gas-MA-Hamper-Energy-Transition.pdf"></Link></Text>
+        <Text as="b"><Link href="https://business.edf.org/files/Transferred-Emissions-How-Oil-Gas-MA-Hamper-Energy-Transition.pdf" isExternal>[1]</Link></Text>
         <br></br>
         <br></br>
         As such, these divestments should not be counted as emissions reductions.
         To accurately account for greenhouse gas (GHG) emissions reductions, the Greenhouse
         Gas Protocol provides that companies should recalculate base year emissions in the
-        event of a “transfer of ownership or control of emissions-generating activities.”<Text as="b"> [2]<Link href="https://assets.bbhub.io/company/sites/63/2021/11/GFANZ-Progress-Report.pdf"></Link></Text>
+        event of a “transfer of ownership or control of emissions-generating activities.”<Text as="b"><Link href="https://assets.bbhub.io/company/sites/63/2021/11/GFANZ-Progress-Report.pdf" isExternal> [2]</Link></Text>
         <br></br>
         <br></br>
         Oil and gas industry association IPIECA similarly recommends “adjustments to the base year
         emissions” to account for asset divestiture, to avoid giving the appearance of “increases
         or decreases in emissions, when in fact. . . emissions would merely be transferred from
-        one company to another.<Text as="b"> [3]<Link href="https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf"></Link></Text>
+        one company to another.<Text as="b"><Link href="https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf" isExternal> [3]</Link></Text>
         <br></br>
         <br></br>
-        Since 2016, Chevron reports a 4.7% reduction in its portfolio carbon intensity.<Text as="b"> [4]<Link href="https://www.ipieca.org/resources/good-practice/petroleum-industry-guidelines-for-reporting-greenhouse-gasemissions-2nd-edition/"></Link></Text>
+        Since 2016, Chevron reports a 4.7% reduction in its portfolio carbon intensity.<Text as="b"><Link href="https://www.ipieca.org/resources/good-practice/petroleum-industry-guidelines-for-reporting-greenhouse-gasemissions-2nd-edition/" isExternal> [4]</Link></Text>
         However, between 2017 and 2021, Chevron sold more assets than any other American
-        oil and gas company, ranking third globally among sellers.<Text as="b"> [5]<Link href="https://www.chevron.com/-/media/chevron/sustainability/documents/2021-climate-change-resilience-report.pdf"></Link></Text>
+        oil and gas company, ranking third globally among sellers.<Text as="b"><Link href="https://www.chevron.com/-/media/chevron/sustainability/documents/2021-climate-change-resilience-report.pdf" isExternal> [5]</Link></Text>
         <br></br>
         <br></br>
         It is unclear how Chevron accounts for these divestitures in its emissions reporting. Therefore, shareholders cannot determine whether Chevron&apos;s reported GHG reductions are the result of
         operational improvements or of transferring emissions off its books.
         In contrast, peer company Devon Energy recalculates its baseline when asset
         divestitures or investments result in “a change to its emissions baseline of 5% or higher”
-        to ensure accuracy and comparability of emissions reporting.<Text as="b"> [6]<Link href="https://business.edf.org/files/Transferred-Emissions-How-Oil-Gas-MA-Hamper-Energy-Transition.pdf"></Link></Text>
+        to ensure accuracy and comparability of emissions reporting.<Text as="b"><Link href="https://business.edf.org/files/Transferred-Emissions-How-Oil-Gas-MA-Hamper-Energy-Transition.pdf" isExternal> [6]</Link></Text>
         <br></br>
         <br></br>
-        Devon notes that this “recalculation methodology affirms our commitment to structurally drive down emissions, rather than divesting assets as a means to achieve our ambitious emissions reduction targets.”<Text as="b"> [7] <Link href="https://dvnweb.azureedge.net/assets/documents/Sustainability/DVN_2022_SustainabilityReport.pdf"></Link></Text>Investors deserve the same transparency from Chevron.</Text>
+        Devon notes that this “recalculation methodology affirms our commitment to structurally drive down emissions, rather than divesting assets as a means to achieve our ambitious emissions reduction targets.”<Text as="b"><Link href="https://dvnweb.azureedge.net/assets/documents/Sustainability/DVN_2022_SustainabilityReport.pdf" isExternal> [7] </Link></Text>Investors deserve the same transparency from Chevron.</Text>
       {/* </Container>  */}
     </Container>
     {/* END OF BACKSTORY */}
@@ -1893,7 +1893,7 @@ export default function Proposal({
 {/* THIS IS THE IMAGES SECTION THAT COMES AFTER THE BANNER */}
           <Flex 
           mx={{lg:"10%"}}
-          mt={{lg:"10%"}}
+          mt={{lg:"5%"}}
           justifyContent='space-between'
           alignItems={"center"}
           display="inline-block" flexDir={"row"} w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}>
