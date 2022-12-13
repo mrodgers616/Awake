@@ -71,11 +71,6 @@ const Newsletter = ({
       });
     }
 
-    const alertstyle = {
-      width: "10%",
-    }
-
-
   }
 
   return (

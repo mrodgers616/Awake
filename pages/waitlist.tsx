@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import type { NextPageWithLayout } from './_app'
-import Banner from '../components/AppModern/Banner';
+import Banner from '../components/AppModern/BannerWaitlist';
 import NewContent from '../components/AppModern/Achange';
 import AppSlider from '../components/AppModern/AppSlider';
 import Features from '../components/AppModern/Features';
@@ -16,8 +16,7 @@ import * as FullStory from '@fullstory/browser';
 import Newsletter2 from "../components/newsletter2"
 
 
-
-const Home: NextPageWithLayout = () => {
+const Waitlist: NextPageWithLayout = () => {
 
   useEffect(() => {
     FullStory.init({ orgId: 'o-1FCF9K-na1' });
@@ -29,24 +28,13 @@ const Home: NextPageWithLayout = () => {
   return (
     <>
       <Banner />
-      <NewContent/>
-      {/* <DashboardFeatures /> */}
-      {/* <Features /> */}
-      {/* <AppSlider /> */}
-      {/* <ProductSlide /> */}
-      {/* <Testimonial /> */}
-      {/* <DesignedAndBuilt /> */}
-      {/* <TeamPortfolio /> */}
-      <NewTeamSec/>
-      <Newsletter />
       <Footer />
-      {/* end of app classic landing */}
     </>
   );
 
 
 };
 
-Home.layout = "appWrapper";
+Waitlist.layout = "waitlist";
 
-export default Home;
+export default Waitlist;

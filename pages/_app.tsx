@@ -85,6 +85,48 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       </ThemeProvider>
     )
   }
+  else if(layout === 'waitlist') {
+    return (
+      <ThemeProvider theme={themeModernApp}>
+        <>
+
+          <Head>
+            <title>Awake</title>
+            <meta name="google-site-verification" content="bBjfWyYyEb_3QNlHLnP-IWhoMb4kl8VNytdbQid1Wz8" />
+            <meta name="description" content="Awake" />
+            <meta
+              name="keywords"
+              content="Awake, awake, AwakeInvest, awakeInvest, awakeinvest, awake invest, shareholder collective action, awake finance, shareholder proposals, petitions, climte change, democratizing shareholder acitivism, campaigns for corporate action, awake campaigns, advocate for change with stocks, awakeinvest.com "
+            />
+            <link rel="shortcut icon" href="/images/favicon.ico" />
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+            <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+            <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+            <link
+              href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700&display=swap"
+              rel="stylesheet"
+            />
+          </Head>
+          <ResetCSS />
+          <GlobalStyle />
+          <ChakraProvider theme={theme}>
+          <AuthProvider>
+            <AppWrapper>
+              <ContentWrapper>
+                <LayoutAppModern>
+                  <GoogleAnalytics measurementId="G-E829D3LL4P" />
+                  <GA gaMeasurementId="G-E829D3LL4P" trackPageViews />
+                  <Analytics />
+                  <Component {...pageProps} />
+                </LayoutAppModern>
+              </ContentWrapper>
+            </AppWrapper>
+          </AuthProvider>
+          </ChakraProvider>
+        </>
+      </ThemeProvider>
+    )
+  }
   else {
     return (
       <ChakraProvider theme={theme}>
