@@ -109,19 +109,19 @@ export const bannerData = {
     {
       id: 1,
       thumb_url: slide1,
-      title: 'Iphone1',
+      title: 'Picture 1',
       link: '#1',
     },
     {
       id: 2,
       thumb_url: slide2,
-      title: 'Iphone2',
+      title: 'Picture 2',
       link: '#1',
     },
     {
       id: 3,
       thumb_url: slide3,
-      title: 'Iphone3',
+      title: 'Picture 3',
       link: '#1',
     },
   ],
