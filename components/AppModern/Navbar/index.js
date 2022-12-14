@@ -211,11 +211,11 @@ const Navbar = () => {
           </Scrollspy>
           {userid ? (
             <div href="#trail" offset={84}>
-              <Button className="login_button" title="Profile" onClick={() => { router.push(`/user/${userid}/profile`); }} /> <span> </span>
+              <Button className="login_button" title="Profile" onClick={() => { router.push(`/user/${userid}/profile`); handleRemoveMenu()}} /> <span> </span>
             </div>
           ) : (
             <div href="#trail" offset={84}>
-              <Button className="login_button" title="Login" onClick={() => { router.push("/login"); }} />
+              <Button className="login_button" title="Login" onClick={() => { router.push("/login"); handleRemoveMenu() }} />
             </div>
           )}
         </Container>

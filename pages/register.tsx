@@ -184,7 +184,7 @@ const Register: NextPage = () => {
           </Box>
         </Container>
       </Box> */}
-      <Container maxW="lg" py={{ base: '12', md: '24' }} px={{ base: '0', sm: '8' }} mt="30px">
+      <Container maxW="lg" py={{ base: '12', md: '24' }} px={{ base: '0', sm: '8' }} mt="50px">
     <Stack spacing="8">
       <Stack spacing="6">
         <Logo />
