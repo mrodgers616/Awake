@@ -184,7 +184,7 @@ const Profile: NextPage<ProfilePageProps> = ({ profile, profileImage, background
           >Edit</Button>
           <ProfileImage />
           <ProfileInfo profile={profile} />
-            <Text position='absolute' top='32px' right='32px' as={Button} onClick={handleReferral}>Get Referral Link</Text>
+            <Text position='absolute' top={{base: '330px', md: '32px', lg: '32px'}} right={{base: '50%', md: '32px', lg: '32px'}} as={Button} onClick={handleReferral}>Get Referral Link</Text>
             <Text top='32px' right='32px' mt="20px">You have referred {referral} users!</Text>
         </Box>
         <Box

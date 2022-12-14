@@ -76,9 +76,9 @@ import logo from '../../assets/image/interior/logo.svg';
 // Projects section data
 /* ------------------------------------ */
 import project1 from '../../assets/image/interior/projects/1.png';
-import slide1 from '../../assets/image/interior/slider/slide-1.png';
-import slide2 from '../../assets/image/interior/slider/slide-2.png';
-import slide3 from '../../assets/image/interior/slider/slide-3.png';
+import slide1 from '../../assets/image/interior/slider/slide-1.jpg';
+import slide2 from '../../assets/image/interior/slider/slide-2.jpg';
+import slide3 from '../../assets/image/interior/slider/slide-3.jpg';
 import member1 from '../../assets/image/interior/team/member1.jpg';
 import member2 from '../../assets/image/interior/team/member2.jpg';
 import member3 from '../../assets/image/interior/team/member3.jpg';
@@ -109,19 +109,19 @@ export const bannerData = {
     {
       id: 1,
       thumb_url: slide1,
-      title: 'Picture 1',
+      title: '',
       link: '#1',
     },
     {
       id: 2,
       thumb_url: slide2,
-      title: 'Picture 2',
+      title: '',
       link: '#1',
     },
     {
       id: 3,
       thumb_url: slide3,
-      title: 'Picture 3',
+      title: '',
       link: '#1',
     },
   ],

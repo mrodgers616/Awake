@@ -124,8 +124,12 @@ export const HighlightedText = styled.p`
 
   .textOffer {
     font-weight: bold;
-    margin: 0 5px 0 auto;
+    margin: 0 -3px 0 auto;
     color: black;
+    @media only screen and (max-width: 767px) {
+      margin: 0 auto 0 auto;
+    }
+  
   }
 `;
 
