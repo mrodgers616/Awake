@@ -136,7 +136,7 @@ const Banner = () => {
                 <Button
                   //type="submit"
                   colors="secondaryWithBg"
-                  title="Get Early Access"
+                  title="Join Waitlist"
                   onClick={() => {handleOnSubmit(); setModalClose(false);}}
                 />
               </ButtonGroup>
