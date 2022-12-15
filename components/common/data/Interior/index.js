@@ -104,7 +104,7 @@ export const bannerData = {
   discount: '',
   discountLabel: 'EARN FREE STOCKS BY JOINING WAITLIST',
   title: 'Sustainable Finance \n\r In One App',
-  text: 'Awake is a sustainable personal finance app where you can manage all of your money in one place. From trading and investing to banking and credit, you can grow your money responsibly without the need for a bunch of separate apps.',
+  text: 'Awake is a sustainable personal finance app where you can manage all of your money in one place. From trading and investing to banking and credit, you can grow your money responsibly without the need for a bunch of separate apps. All we need now is your email and we will reach out when it is your turn to join!',
   carousel: [
     {
       id: 1,
