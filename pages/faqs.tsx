@@ -81,7 +81,7 @@ const About: NextPageWithLayout = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Container>
-        <Box title="values" my={{ base: "60px", sm: "60px", lg: "120px" }}>
+        <Box title="" my={{ base: "60px", sm: "60px", lg: "120px" }}>
           <Flex
             flexDir="column"
             mb={{base:"24px",sm:"24px", lg:"64px"}}
