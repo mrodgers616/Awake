@@ -77,7 +77,7 @@ const About: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>Awake | About us</title>
+        <title>Awake | FAQs</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Container>
