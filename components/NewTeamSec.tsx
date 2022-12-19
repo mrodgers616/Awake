@@ -50,7 +50,7 @@ const NewTeamSec = () => {
               mt="20px"
               fontSize={{base: "20px", md: "6xl", lg: "6xl"}}
             >
-                <u>The humans behind Awake</u> 
+                <u>The people behind Awake</u> 
             </Heading>
           </Flex>
             <Box textAlign="center" ml="5%" mr="5%" mt="75px"  display={{ base: "none", sm: "none", md:"block", lg: "inline-block" }}>

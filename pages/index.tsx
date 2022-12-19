@@ -249,7 +249,7 @@ const Campaigns: NextPage = () => {
           </Flex> 
       <Newsletter></Newsletter>
 
-      <Box title="page-content" position="relative" zIndex={0}>
+      <Box  position="relative" zIndex={0}>
         <Container width="100%" mt="8%"> 
 
           <Box title="">

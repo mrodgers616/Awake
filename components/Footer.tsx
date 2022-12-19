@@ -7,22 +7,22 @@ const socialMedia: Array<Record<string, any>> = [
   {
     name: "Telegram",
     icon: "telegram",
-    url: "https://t.me/climateDAO",
+    url: "https://t.me/awakeinvest",
   },
   {
     name: "Twitter",
     icon: "twitter",
-    url: "https://twitter.com/climateDAO",
+    url: "https://twitter.com/awakeinvest",
   },
   {
     name: "Medium",
     icon: "medium",
-    url: "https://medium.com/@climateDAO",
+    url: "https://medium.com/@awakeinvest",
   },
   {
     name: "Instagram",
     icon: "instagram",
-    url: "https://www.instagram.com/climateDAO/",
+    url: "https://www.instagram.com/awakeinvest/",
   },
   {
     name: "YouTube",
@@ -59,7 +59,7 @@ export default function Footer(): JSX.Element {
           </Link>
           <Link href="https://discord.gg/WwhjrS3HCm" isExternal>Discord</Link>
           <Link href="/privacypolicy">Privacy Policy</Link>
-          <Text>Inquiries@climatedao.xyz</Text>
+          <Text>info@Awakeinvest.com</Text>
         </Stack>
       </Flex>
     </chakra.footer>

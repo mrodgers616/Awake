@@ -108,7 +108,7 @@ const About: NextPageWithLayout = () => {
                     minW={{ base: 'auto', md: '30rem' }}
                     maxH="20rem"
                     objectFit="cover"
-                    src={`https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fstocks.png?alt=media&token=8f0cc730-ef04-4b08-b02d-ba949d1fd4bc`}
+                    src={`https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FFriends%20(1).png?alt=media&token=bccfb534-7455-4ea3-be92-e94f7c915611`}
                     rounded="md"
                     fallback={<Skeleton />}
                     alt="mission image"
