@@ -54,7 +54,7 @@ export default function Faq({
                     )}
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
+                <AccordionPanel pb={4} textAlign="left">
                 It costs nothing to use Awake and we will never ask for payment information. You can think of us like an online polling platform with more influence because we&apos;re real shareholders.
                 </AccordionPanel>
               </>
@@ -75,7 +75,7 @@ export default function Faq({
                     )}
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
+                <AccordionPanel pb={4} textAlign="left">
                 By linking your account, you&apos;re proving you own shares. We&apos;re proving to companies like Apple that their OWNERS care about the issues we&apos;re raising. This gives us more leverage at no cost to you. 
                 </AccordionPanel>
               </>
@@ -96,7 +96,7 @@ export default function Faq({
                     )}
                   </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
+                <AccordionPanel pb={4} textAlign="left">
                   There are lots of sites out there with petitions. What gives us our secret sauce is that people who join our campaigns are verified shareholders. You can still help by just signing the petition, but the bulk of the impact will be driven by verified shareholders. 
                 </AccordionPanel>
               </>

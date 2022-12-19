@@ -591,10 +591,10 @@ export default function Proposal({
                         base: 'none',
                         md: "2px solid #eaeaea"
                       }}>
-                        <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "42px" }} color="black">
+                        <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", md:"24px", lg: "42px" }} color="black">
                           {campaign?.verifiedVotes ? "$" + String(currencyFormatter.format((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 151)) : "0"}
                         </Heading>
-                        <Text color="black" fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
+                        <Text color="black" fontWeight={500} fontSize={{ base: "16px", md: "14px", lg: "16px" }}>
                           <Center>
                           Our Holdings &nbsp; <Tooltip label="This number tracks the collective number of shares in the company petition signers own"><QuestionOutlineIcon/></Tooltip>
                           </Center>

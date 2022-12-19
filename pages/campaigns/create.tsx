@@ -21,7 +21,10 @@ import {
   Select,
   chakra,
   Image,
+  Tooltip,
+  Center,
 } from "@chakra-ui/react";
+import { QuestionOutlineIcon } from '@chakra-ui/icons'
 import { useForm, useController } from "react-hook-form";
 import Upload from "rc-upload"
 import React, { ChangeEvent, useState } from "react";
@@ -29,6 +32,8 @@ import { addProposalToStore, addImageToStorage } from "../../lib/firebaseClient"
 import _ from "lodash";
 import axios from "axios";
 import Router from "next/router";
+import Testimonial from "../../components/AppModern/TestimonialCreate";
+
 
 const CreateCampaign: NextPage = (_props: any) => {
   const [_etherscanAddress, _setEtherscanAddress] = useState(null);
@@ -198,18 +203,19 @@ const CreateCampaign: NextPage = (_props: any) => {
       <Head>
         <title>Awake | Create Proposal</title>
       </Head>
-      <Box bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)" height="98px" width="100%"></Box>
       <Box mt="120px" bg="white" mb="50px">
         <Container>
           <Flex h="180px" justifyContent="center" alignItems="center">
+            <Center>
             <Heading
               textAlign="center"
-              fontSize="80px"
+              fontSize={{base: "40px", md: "60px", lg: "80px"}}
               backgroundClip="text"
-              bgGradient="linear(41deg, rgb(100, 43, 115) 0%, rgb(164,191,217) 100%,)"
+              color="black"
             >
               Create a Proposal
             </Heading>
+            </Center>
           </Flex>
           {/* Taking out the four paragraphs of filler content */}
           {/* <Flex flexWrap="wrap" mt="130px">
@@ -250,6 +256,11 @@ const CreateCampaign: NextPage = (_props: any) => {
           {/* Adding the cards into the page --------------------------------------------------*/}
           <Box textAlign="center" ml="5%" mr="5%" mb="75px">
             <Flex>
+              <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }}>
+                  <Testimonial ></Testimonial>
+              </Container>
+              <Container display={{ base: "none", sm: "none", md:"block", lg: "block" }}>
+              <Flex>
               <Box
                 width="25%"
                 fontSize="xl"
@@ -268,7 +279,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                   Select a company
                 </Text>
                 <Text fontSize="sm">
-                  Identify a company. Use this <Link color="#32006B"> guide</Link>.
+                  Identify a company. Use this <Link href="https://awakeinvest.gitbook.io/shares/" color="#32006B">guide</Link>
                 </Text>
               </Box>
               <Box
@@ -335,6 +346,8 @@ const CreateCampaign: NextPage = (_props: any) => {
                   We’ll collaborate with you to bring this proposal to life. <Link href="https://awakeinvest.gitbook.io/shares/" color="#32006B">Learn more</Link>.
                 </Text>
               </Box>
+              </Flex>
+              </Container>
             </Flex>
           </Box>
           {/* End of the Top section---------------------------------------------- */}
@@ -352,7 +365,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                     borderBottomColor: "white",
                   }}
                 >
-                  Proposal
+                  Proposal ‎<Tooltip label="Proposals must be verified by Awake before they are published"><QuestionOutlineIcon/></Tooltip>
                 </Tab>
                 {/* <Tab
                   w="300px"
@@ -435,7 +448,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                       </FormErrorMessage>
                     </FormControl> */}
                     <FormControl mt="16px">
-                      <FormLabel htmlFor="symbol">Company Symbol:</FormLabel>
+                      <FormLabel htmlFor="symbol">Company Stock Ticker:</FormLabel>
                       <Input
                         {...register("symbol", {
                           required: "Please add the stock symbol",
