@@ -24,7 +24,7 @@ export default function Faq({
       id="questions"
     >
       <Box
-        width={"70%"}
+        width={"80%"}
         mx={"auto"}
       >
         <Heading
@@ -40,10 +40,9 @@ export default function Faq({
           {faqs.map((faq, index) => (
             <AccordionItem
               key={index}
-              borderRadius="24px"
               p={{ base: "12px 12px 12px 12px", sm: "12px 12px 12px 12px", lg: "24px 24px 24px 12px" }}
               mb="24px"
-              bg='lightblue.500'
+              bg='lightblue.100'
               boxShadow='0px 2px 8px 0px rgba(0,0,0,0.1)'
             >
               <Flex>
@@ -60,7 +59,7 @@ export default function Faq({
                 <AccordionIcon />
               </Flex>
               <AccordionPanel pb={4}>
-                <Text fontSize={"18px"} fontWeight={400} lineHeight={"31px"}>
+                <Text fontSize={"18px"} fontWeight={400} lineHeight={"24px"}>
                   {faq.answer}
                 </Text>
               </AccordionPanel>
