@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import Link from '../../../components/Link.tsx';
+// /Users/elliotwaxman/Desktop/Projects/Awake/Developement/webapp/components/Link.tsx
 import Text from '../../common/components/Text';
 import Heading from '../../common/components/Heading';
 import Button from '../../common/components/Button';
@@ -14,7 +16,6 @@ import { testimonial } from '../../common/data/AppModern';
 
 const Testimonial = () => {
   const { slogan, title, reviews } = testimonial;
-
   const glideOptions = {
     type: 'carousel',
     gap: 0,
