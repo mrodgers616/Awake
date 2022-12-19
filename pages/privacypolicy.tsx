@@ -1,8 +1,9 @@
 import type { NextPage, GetServerSidePropsContext } from "next";
 import React from 'react';
+import Head from "next/head";
 import {
     Container,
-    Box
+    Box,
   } from "@chakra-ui/react";
 
 interface Props { }
@@ -15,8 +16,11 @@ class privacyPolicy extends React.Component<Props, State> {
   render() {
     return (
       <>
-      <Box bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)" height="98px" width="100%"></Box>
-      <Container mt="8%">
+      <Head>
+        <title>Awake Privacy Policy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <Container mt="10%" mb="5%">
         <h1>Privacy Policy for Awake</h1>
 
         <p>At awakeinvest.com, accessible from https://awakeinvest.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by awakeinvest.com and how we use it.</p>
@@ -92,12 +96,7 @@ class privacyPolicy extends React.Component<Props, State> {
         <p>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</p>
         <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
 
-        <h2>Children&apos;s Information</h2>
-
-        <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
-
-        <p>awakeinvest.com does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
-        </Container>
+       </Container>
       </>
     )
   }
