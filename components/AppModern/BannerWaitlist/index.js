@@ -154,21 +154,21 @@ const Banner = () => {
             >
               <Fragment>
                 {carousel.map((item) => (
-                  <GlideSlide key={`carousel_key${item.id}`}>
-                    <Link href={item.link}>
-                      <a className="item_wrapper">
-                        <Image src={item.thumb_url?.src} alt={item.title} />
-                        <Heading as="h4" content={item.title} />
+                  <GlideSlide key={`carousel_key${item.id}`}> 
+                    <Link href={item.link}> 
+                      <a className="item_wrapper">    
+                        <Image src={item.thumb_url?.src} alt={item.title} />    
+                        <Heading as="h4" content={item.title} />       
                       </a>
-                    </Link>
+                    </Link>         
                   </GlideSlide>
                 ))}
-              </Fragment>
-            </GlideCarousel>
+              </Fragment>        
+            </GlideCarousel>       
           ) : (
             <CircleLoader>
-              <div className="circle"></div>
-              <div className="circle"></div>
+              <div className="circle"></div>            
+              <div className="circle"></div>            
             </CircleLoader>
           )}
         </CarouselArea>

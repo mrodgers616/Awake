@@ -72,12 +72,9 @@ export default function Proposal({
   email: any;
 }): JSX.Element {
   const [modalClose, setModalClose] = useState(false);
-  const [currentState, setCurrentState] = useState<string>();
-  const [historicalStockPrice, setHistoricalStockPrice] = useState<any>();
   const [_votes, setVotes] = useState<string>();
   const [showConfetti, setShowConfetti] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
-  const [referral, setReferral] = useState<string>()
 
   const toast = useToast();
 
@@ -90,30 +87,6 @@ export default function Proposal({
   const handleScroll = () => {
       let position = window.pageYOffset;
       setScrollPosition(position);
-      if(position == 0) {
-        try {
-          event("Slug_Scroll_0%", {
-            category: "Slug_Page_Scroll",
-            label: "percentage of page scroll",
-            uid: userid ? userid : "not logged in or before entered name and email",
-          });
-        }
-        catch(e) {
-          console.log(e)
-        }
-      }
-      else {
-        try {
-          event("Slug_Scroll_" + String((position/2230) * 100).substring(0,4) +"%", {
-            category: "Slug_Page_Scroll",
-            label: "percentage of page scroll",
-            uid: userid ? userid : "not logged in or before entered name and email",
-          });
-        }
-        catch(e) {
-          console.log(e)
-        }
-      }
   };
 
   const currencyFormatter = new Intl.NumberFormat();
