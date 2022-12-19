@@ -342,8 +342,7 @@ const Campaigns: NextPage = () => {
                 <Image
                   alt='lock'
                   boxSize={{base: "50px", md: "150px", lg: "150px"}}
-                  // height="150px"
-                  // width="125px"
+                  
                   ml="auto"
                   mr="auto"
                   src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Flock.png?alt=media&token=1515b250-2374-4d95-85be-26d91fc95f43"

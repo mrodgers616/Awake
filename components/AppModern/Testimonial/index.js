@@ -31,10 +31,10 @@ const Testimonial = () => {
   return (
     <SectionWrapper id="testimonial">
       <Container>
-        {/* <SectionHeader>
+        <SectionHeader>
             <Heading as="h5" content={slogan} />
             <Heading content={title} />
-        </SectionHeader> */}
+        </SectionHeader>
 
         <CarouselWrapper>
             <GlideCarousel
