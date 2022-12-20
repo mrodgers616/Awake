@@ -171,7 +171,7 @@ export const CarouselWrapper = styled.div`
     &:hover {
       .glide__controls {
         opacity: 1;
-        visibility: visible;
+        visibility: hidden;
       }
     }
   }
