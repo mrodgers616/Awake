@@ -21,7 +21,10 @@ import {
   Select,
   chakra,
   Image,
+  Tooltip,
+  Center,
 } from "@chakra-ui/react";
+import { QuestionOutlineIcon } from '@chakra-ui/icons'
 import { useForm, useController } from "react-hook-form";
 import Upload from "rc-upload"
 import React, { ChangeEvent, useState } from "react";
@@ -29,6 +32,8 @@ import { addProposalToStore, addImageToStorage } from "../../lib/firebaseClient"
 import _ from "lodash";
 import axios from "axios";
 import Router from "next/router";
+import Testimonial from "../../components/AppModern/TestimonialCreate";
+
 
 const CreateCampaign: NextPage = (_props: any) => {
   const [_etherscanAddress, _setEtherscanAddress] = useState(null);
@@ -198,58 +203,28 @@ const CreateCampaign: NextPage = (_props: any) => {
       <Head>
         <title>Awake | Create Proposal</title>
       </Head>
-      <Box bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)" height="98px" width="100%"></Box>
       <Box mt="120px" bg="white" mb="50px">
         <Container>
           <Flex h="180px" justifyContent="center" alignItems="center">
+            <Center>
             <Heading
               textAlign="center"
-              fontSize="80px"
+              fontSize={{base: "40px", md: "60px", lg: "80px"}}
               backgroundClip="text"
-              bgGradient="linear(41deg, rgb(100, 43, 115) 0%, rgb(164,191,217) 100%,)"
+              color="black"
             >
               Create a Proposal
             </Heading>
+            </Center>
           </Flex>
-          {/* Taking out the four paragraphs of filler content */}
-          {/* <Flex flexWrap="wrap" mt="130px">
-            <Box w="calc(50% - 36px)" mx="16px" mb="60px">
-              <Heading>Sed ut perspicaitis</Heading>
-              <Text>
-                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                voluptatem sequi nesciunt. Neque porro quisquam est.
-              </Text>
-            </Box>
-            <Box w="calc(50% - 36px)" mx="16px" mb="60px">
-              <Heading>Lorem ipsum daolor</Heading>
-              <Text>
-                Amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi.
-              </Text>
-            </Box>
-            <Box w="calc(50% - 36px)" mx="16px" mb="60px">
-              <Heading>Sed ut perspicaitis</Heading>
-              <Text>
-                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                voluptatem sequi nesciunt. Neque porro quisquam est.
-              </Text>
-            </Box>
-            <Box w="calc(50% - 36px)" mx="16px" mb="60px">
-              <Heading>Lorem ipsum daolor</Heading>
-              <Text>
-                Amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi.
-              </Text>
-            </Box>
-          </Flex> */}
-
+          
           {/* Adding the cards into the page --------------------------------------------------*/}
-          <Box textAlign="center" ml="5%" mr="5%" mb="75px">
-            <Flex>
+          <Box textAlign="center" ml="5%"  mb="75px" maxW="100%">
+              <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }} maxW="90%">
+                  <Testimonial ></Testimonial>
+              </Container>
+              <Container display={{ base: "none", sm: "none", md:"block", lg: "block" }}>
+              <Flex>
               <Box
                 width="25%"
                 fontSize="xl"
@@ -268,7 +243,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                   Select a company
                 </Text>
                 <Text fontSize="sm">
-                  Identify a company. Use this <Link color="#32006B"> guide</Link>.
+                  Identify a company. Use this <Link href="https://awakeinvest.gitbook.io/shares/" color="#32006B">guide</Link>
                 </Text>
               </Box>
               <Box
@@ -335,15 +310,16 @@ const CreateCampaign: NextPage = (_props: any) => {
                   We’ll collaborate with you to bring this proposal to life. <Link href="https://awakeinvest.gitbook.io/shares/" color="#32006B">Learn more</Link>.
                 </Text>
               </Box>
-            </Flex>
+              </Flex>
+              </Container>
           </Box>
           {/* End of the Top section---------------------------------------------- */}
 
-          <Box m="0 auto" maxW="1800px" ml="5%" mr="5%">
+          <Box maxW={{base: "100%", md: "1800px", lg: "1800px"}}>
             <Tabs variant="enclosed" borderRadius="8px">
               <TabList>
                 <Tab
-                  w="300px"
+                  w="100%"
                   bg="grey"
                   _selected={{
                     bg: "white",
@@ -352,7 +328,7 @@ const CreateCampaign: NextPage = (_props: any) => {
                     borderBottomColor: "white",
                   }}
                 >
-                  Proposal
+                  Proposal ‎<Tooltip label="Proposals must be verified by Awake before they are published"><QuestionOutlineIcon/></Tooltip>
                 </Tab>
                 {/* <Tab
                   w="300px"
@@ -370,7 +346,7 @@ const CreateCampaign: NextPage = (_props: any) => {
               <TabPanels>
                 <TabPanel>
                   <chakra.form
-                    display="flex"
+                    display="block"
                     flexDirection="column"
                     onSubmit={handleSubmit(onSubmit)}
                   >
@@ -406,36 +382,8 @@ const CreateCampaign: NextPage = (_props: any) => {
 
                       </FormErrorMessage>
                     </FormControl>
-                    {/* <FormControl isInvalid={errors.type} mt="16px">
-                      <FormLabel htmlFor="type">Proposal Type:</FormLabel>
-                      <Select
-                        {...register("type", {
-                          required: "Proposal type is required",
-                        })}
-                      >
-                        <option value="buy">Buy</option>
-                        <option value="sell">Sell</option>
-                      </Select>
-                      <FormErrorMessage>
-                        {errors.type && errors.type.message}
-                      </FormErrorMessage>
-                    </FormControl> */}
-                    {/* <FormControl isInvalid={errors.quantity} mt="16px">
-                      <FormLabel htmlFor="quanity">Quantity:</FormLabel>
-                      <Input
-                        {...register("quantity", {
-                          required: "Please enter a quantity",
-                        })}
-                        placeholder="0"
-                        type="number"
-                        min="0"
-                      />
-                      <FormErrorMessage>
-                        {errors.quantity && errors.quantity.message}
-                      </FormErrorMessage>
-                    </FormControl> */}
                     <FormControl mt="16px">
-                      <FormLabel htmlFor="symbol">Company Symbol:</FormLabel>
+                      <FormLabel htmlFor="symbol">Company Stock Ticker:</FormLabel>
                       <Input
                         {...register("symbol", {
                           required: "Please add the stock symbol",
@@ -570,21 +518,6 @@ const CreateCampaign: NextPage = (_props: any) => {
                     <FormControl
                       mt="16px"
                     >
-                      <FormLabel htmlFor="smartContractAddress">
-                        Smart Contract address
-                      </FormLabel>
-                      <Input
-                        id="smartContractAddress"
-                        placeholder="Enter the target address..."
-                        {...registerGovernance("smartContractAddress", {
-                          required: "Please enter the contract address",
-                          pattern: {
-                            value: /^0x[a-fA-F0-9]{40}$/,
-                            message: "Please enter a valid address",
-                          },
-                        })}
-                        onChange={handleContractSearch}
-                      />
                       <FormErrorMessage>
 
                       </FormErrorMessage>
@@ -592,9 +525,6 @@ const CreateCampaign: NextPage = (_props: any) => {
                     <FormControl
                       mt="16px"
                     >
-                      <FormLabel htmlFor="contractFunctions">
-                        Smart Contract functions
-                      </FormLabel>
                       {/* ^0x[a-fA-F0-9]{40}$ */}
                       <Select
                         id="contractFunctions"

@@ -1,6 +1,4 @@
 import React, { Fragment } from 'react';
-import Link from '../../../components/Link.tsx';
-// /Users/elliotwaxman/Desktop/Projects/Awake/Developement/webapp/components/Link.tsx
 import Text from '../../common/components/Text';
 import Heading from '../../common/components/Heading';
 import Button from '../../common/components/Button';
@@ -12,10 +10,11 @@ import GlideSlide from '../../common/components/GlideCarousel/glideSlide';
 import { SectionHeader } from '../appModern.style';
 import SectionWrapper, { CarouselWrapper } from './testimonial.style';
 
-import { testimonial } from '../../common/data/AppModern';
+import { testimonial2 } from '../../common/data/AppModern';
 
 const Testimonial = () => {
-  const { slogan, title, reviews } = testimonial;
+  const { slogan, title, reviews } = testimonial2;
+
   const glideOptions = {
     type: 'carousel',
     gap: 0,
@@ -32,10 +31,10 @@ const Testimonial = () => {
   return (
     <SectionWrapper id="testimonial">
       <Container>
-        <SectionHeader>
+        {/* <SectionHeader>
             <Heading as="h5" content={slogan} />
             <Heading content={title} />
-        </SectionHeader>
+        </SectionHeader> */}
 
         <CarouselWrapper>
             <GlideCarousel

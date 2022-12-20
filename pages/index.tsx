@@ -18,7 +18,8 @@ import {
   Stack,
   Text,
   Center,
-  Spinner
+  Spinner,
+  AspectRatio
 } from "@chakra-ui/react";
 import {
   Pagination as Paginator,
@@ -190,10 +191,11 @@ const Campaigns: NextPage = () => {
       // flexDir="column"
       display={{base:"none", sm:"none", md:"block", lg:"block"}}
       >
-        
+        <AspectRatio maxW='100%' ratio={30 / 9}>
           <video autoPlay loop muted width={"100%"} >
             <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
           </video> 
+        </AspectRatio>
         
           <Center>
             <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} >
@@ -249,7 +251,7 @@ const Campaigns: NextPage = () => {
           </Flex> 
       <Newsletter></Newsletter>
 
-      <Box title="page-content" position="relative" zIndex={0}>
+      <Box  position="relative" zIndex={0}>
         <Container width="100%" mt="8%"> 
 
           <Box title="">
@@ -342,8 +344,7 @@ const Campaigns: NextPage = () => {
                 <Image
                   alt='lock'
                   boxSize={{base: "50px", md: "150px", lg: "150px"}}
-                  // height="150px"
-                  // width="125px"
+                  
                   ml="auto"
                   mr="auto"
                   src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Flock.png?alt=media&token=1515b250-2374-4d95-85be-26d91fc95f43"

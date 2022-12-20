@@ -423,6 +423,7 @@ export const testimonial = {
     {
       id: 1,
       title: 'Link your Broker',
+      path: '/linkAccount',
       description:
         'In order to prove you own shares, we ask that you link your broker after making an account.',
       avatar: "https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Flock.png?alt=media&token=1515b250-2374-4d95-85be-26d91fc95f43",
@@ -430,6 +431,7 @@ export const testimonial = {
     {
       id: 2,
       title: 'Sign a Petition',
+      path:'/',
       description:
         'Sign a petition for a company in your portfolio to take action on an issue you care about.',
       avatar: "https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Green%20Papers.png?alt=media&token=7c813e0b-964c-4b78-81cf-4e9a35d97e6b",
@@ -437,9 +439,45 @@ export const testimonial = {
     {
       id: 3,
       title: 'We Do the Rest',
+      path:'/',
       description:
         "We'll advocate for change at the target companies on behalf of you and other investors.",
       avatar: 'https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Megaphone.png?alt=media&token=d71c6a33-e24b-406c-b99e-487f5360932a',
+    },
+  ],
+};
+
+export const testimonial2 = {
+  slogan: 'TESTIMONIAL',
+  title: 'What Users Are Saying',
+  reviews: [
+    {
+      id: 1,
+      title: 'Select a company',
+      description:
+        'Identify a company.',
+      avatar: "https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2043.png?alt=media&token=d43f47a3-d634-410f-a223-9643d41f602d",
+    },
+    {
+      id: 2,
+      title: 'Select a cause',
+      description:
+        'Identify a specific change you want to see at a corporation.',
+      avatar: "https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2045.png?alt=media&token=efa701a7-13d1-4ed2-864f-7100cae9534f",
+    },
+    {
+      id: 3,
+      title: 'Build a case',
+      description:
+        "Make a case that this change is important for the company.",
+      avatar: 'https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2046.png?alt=media&token=e395073c-7208-4a26-a301-398abe5fb4ec',
+    },
+    {
+      id: 4,
+      title: 'Craft a proposal',
+      description:
+        "We’ll collaborate with you to bring this proposal to life.",
+      avatar: 'https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Fimage%2047.png?alt=media&token=18ac4bec-db75-4d18-b88d-070865319871',
     },
   ],
 };
