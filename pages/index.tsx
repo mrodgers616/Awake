@@ -18,7 +18,8 @@ import {
   Stack,
   Text,
   Center,
-  Spinner
+  Spinner,
+  AspectRatio
 } from "@chakra-ui/react";
 import {
   Pagination as Paginator,
@@ -190,10 +191,11 @@ const Campaigns: NextPage = () => {
       // flexDir="column"
       display={{base:"none", sm:"none", md:"block", lg:"block"}}
       >
-        
+        <AspectRatio maxW='100%' ratio={30 / 9}>
           <video autoPlay loop muted width={"100%"} >
             <source src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/campaignHub%204K.mp4?alt=media&token=fcca6944-d693-49ea-ba63-5963ec721672" type="video/mp4"/>
           </video> 
+        </AspectRatio>
         
           <Center>
             <Container zIndex={{base: "9000", md: "9000", lg: "9000"}} >

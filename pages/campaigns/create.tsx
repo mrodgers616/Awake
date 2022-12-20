@@ -217,46 +217,10 @@ const CreateCampaign: NextPage = (_props: any) => {
             </Heading>
             </Center>
           </Flex>
-          {/* Taking out the four paragraphs of filler content */}
-          {/* <Flex flexWrap="wrap" mt="130px">
-            <Box w="calc(50% - 36px)" mx="16px" mb="60px">
-              <Heading>Sed ut perspicaitis</Heading>
-              <Text>
-                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                voluptatem sequi nesciunt. Neque porro quisquam est.
-              </Text>
-            </Box>
-            <Box w="calc(50% - 36px)" mx="16px" mb="60px">
-              <Heading>Lorem ipsum daolor</Heading>
-              <Text>
-                Amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi.
-              </Text>
-            </Box>
-            <Box w="calc(50% - 36px)" mx="16px" mb="60px">
-              <Heading>Sed ut perspicaitis</Heading>
-              <Text>
-                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                voluptatem sequi nesciunt. Neque porro quisquam est.
-              </Text>
-            </Box>
-            <Box w="calc(50% - 36px)" mx="16px" mb="60px">
-              <Heading>Lorem ipsum daolor</Heading>
-              <Text>
-                Amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi.
-              </Text>
-            </Box>
-          </Flex> */}
-
+          
           {/* Adding the cards into the page --------------------------------------------------*/}
-          <Box textAlign="center" ml="5%" mr="5%" mb="75px">
-            <Flex>
-              <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }}>
+          <Box textAlign="center" ml="5%"  mb="75px" maxW="100%">
+              <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }} maxW="90%">
                   <Testimonial ></Testimonial>
               </Container>
               <Container display={{ base: "none", sm: "none", md:"block", lg: "block" }}>
@@ -348,15 +312,14 @@ const CreateCampaign: NextPage = (_props: any) => {
               </Box>
               </Flex>
               </Container>
-            </Flex>
           </Box>
           {/* End of the Top section---------------------------------------------- */}
 
-          <Box m="0 auto" maxW="1800px" ml="5%" mr="5%">
+          <Box maxW={{base: "100%", md: "1800px", lg: "1800px"}}>
             <Tabs variant="enclosed" borderRadius="8px">
               <TabList>
                 <Tab
-                  w="300px"
+                  w="100%"
                   bg="grey"
                   _selected={{
                     bg: "white",
@@ -383,7 +346,7 @@ const CreateCampaign: NextPage = (_props: any) => {
               <TabPanels>
                 <TabPanel>
                   <chakra.form
-                    display="flex"
+                    display="block"
                     flexDirection="column"
                     onSubmit={handleSubmit(onSubmit)}
                   >
@@ -419,34 +382,6 @@ const CreateCampaign: NextPage = (_props: any) => {
 
                       </FormErrorMessage>
                     </FormControl>
-                    {/* <FormControl isInvalid={errors.type} mt="16px">
-                      <FormLabel htmlFor="type">Proposal Type:</FormLabel>
-                      <Select
-                        {...register("type", {
-                          required: "Proposal type is required",
-                        })}
-                      >
-                        <option value="buy">Buy</option>
-                        <option value="sell">Sell</option>
-                      </Select>
-                      <FormErrorMessage>
-                        {errors.type && errors.type.message}
-                      </FormErrorMessage>
-                    </FormControl> */}
-                    {/* <FormControl isInvalid={errors.quantity} mt="16px">
-                      <FormLabel htmlFor="quanity">Quantity:</FormLabel>
-                      <Input
-                        {...register("quantity", {
-                          required: "Please enter a quantity",
-                        })}
-                        placeholder="0"
-                        type="number"
-                        min="0"
-                      />
-                      <FormErrorMessage>
-                        {errors.quantity && errors.quantity.message}
-                      </FormErrorMessage>
-                    </FormControl> */}
                     <FormControl mt="16px">
                       <FormLabel htmlFor="symbol">Company Stock Ticker:</FormLabel>
                       <Input
@@ -583,21 +518,6 @@ const CreateCampaign: NextPage = (_props: any) => {
                     <FormControl
                       mt="16px"
                     >
-                      <FormLabel htmlFor="smartContractAddress">
-                        Smart Contract address
-                      </FormLabel>
-                      <Input
-                        id="smartContractAddress"
-                        placeholder="Enter the target address..."
-                        {...registerGovernance("smartContractAddress", {
-                          required: "Please enter the contract address",
-                          pattern: {
-                            value: /^0x[a-fA-F0-9]{40}$/,
-                            message: "Please enter a valid address",
-                          },
-                        })}
-                        onChange={handleContractSearch}
-                      />
                       <FormErrorMessage>
 
                       </FormErrorMessage>
@@ -605,9 +525,6 @@ const CreateCampaign: NextPage = (_props: any) => {
                     <FormControl
                       mt="16px"
                     >
-                      <FormLabel htmlFor="contractFunctions">
-                        Smart Contract functions
-                      </FormLabel>
                       {/* ^0x[a-fA-F0-9]{40}$ */}
                       <Select
                         id="contractFunctions"
