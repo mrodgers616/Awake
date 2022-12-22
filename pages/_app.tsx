@@ -112,6 +112,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           <ChakraProvider theme={theme}>
           <AuthProvider>
             <AppWrapper>
+            <Sticky top={0} innerZ={9999} activeClass="sticky-active">
+                <Navbar />
+              </Sticky>
               <ContentWrapper>
                 <LayoutAppModern>
                   <GoogleAnalytics measurementId="G-E829D3LL4P" />

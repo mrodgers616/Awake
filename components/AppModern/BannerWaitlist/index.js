@@ -29,7 +29,7 @@ import WaitlistModal from "../../WaitlistModal";
 
 
 const Banner = () => {
-  const { discount, discountLabel, title, text, carousel } = bannerData;
+  const { discount, discountLabel, title, text, text2, carousel } = bannerData;
   const glideOptions = {
     type: 'carousel',
     perView: 3,
@@ -122,6 +122,8 @@ const Banner = () => {
             </HighlightedText>
             <Heading as="h1" content={title} />
             <Text content={text} />
+            <br/>
+            <Text content={text2} />
             <FormWrapper >
               <Input
                 type="email"
