@@ -592,7 +592,7 @@ export default function Proposal({
                         md: "2px solid #eaeaea"
                       }}>
                         <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", md:"24px", lg: "42px" }} color="black">
-                          {campaign?.verifiedVotes ? "$" + String(currencyFormatter.format((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 151)) : "0"}
+                          {campaign?.verifiedVotes ? "$" + String(currencyFormatter.format((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 291.23)) : "0"}
                         </Heading>
                         <Text color="black" fontWeight={500} fontSize={{ base: "16px", md: "14px", lg: "16px" }}>
                           <Center>
@@ -604,7 +604,7 @@ export default function Proposal({
                         <Heading textAlign={"center"}
                           fontSize={{ base: "24px", sm: "24px", lg: "42px" }}
                           color="black">
-                          {String(howManyUsers(250))}
+                          {String(howManyUsers(7252))}
                         </Heading>
                         <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                           Petition Signers
@@ -737,7 +737,7 @@ export default function Proposal({
       <br/>
       <br/>
       <Text>But Apple doesn&apos;t sell rice. It sells iPhones and iPads and Macs.</Text>
-      <br/>
+      <br/> 
       <Text>“Apple has a historic commitment to planned obsolescence, a policy whereby products are designed with an artificially restricted lifetime.”, sites a ‎
       
       <b><Link href="https://globuswarwick.com/2021/01/21/the-e-waste-problem-a-case-study-of-apple/">case study.</Link></b>
