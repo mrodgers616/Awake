@@ -604,7 +604,7 @@ export default function Proposal({
                         <Heading textAlign={"center"}
                           fontSize={{ base: "24px", sm: "24px", lg: "42px" }}
                           color="black">
-                          {String(howManyUsers(7252))}
+                          {String(howManyUsers(10121))}
                         </Heading>
                         <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                           Petition Signers
