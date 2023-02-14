@@ -606,7 +606,7 @@ export default function Proposal({
                           color="black">
                           {String(howManyUsers(8121))}
                         </Heading>
-                        <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
+                        <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}> 
                           Petition Signers
                         </Text>
                       </Box>
