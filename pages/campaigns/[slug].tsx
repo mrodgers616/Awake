@@ -592,7 +592,7 @@ export default function Proposal({
                         md: "2px solid #eaeaea"
                       }}>
                         <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", md:"24px", lg: "42px" }} color="black">
-                          {campaign?.verifiedVotes ? "$" + String(currencyFormatter.format((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 291.23)) : "0"}
+                          {campaign?.verifiedVotes ? "$" + String(currencyFormatter.format((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 295.23)) : "0"}
                         </Heading>
                         <Text color="black" fontWeight={500} fontSize={{ base: "16px", md: "14px", lg: "16px" }}>
                           <Center>
@@ -604,7 +604,7 @@ export default function Proposal({
                         <Heading textAlign={"center"}
                           fontSize={{ base: "24px", sm: "24px", lg: "42px" }}
                           color="black">
-                          {String(howManyUsers(10121))}
+                          {String(howManyUsers(8121))}
                         </Heading>
                         <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
                           Petition Signers
