@@ -384,7 +384,7 @@ export default function Proposal({
       return addition + campaign.users.length;
     }
     else {
-      return 0;
+      return addition;
     }
   }
 
@@ -1993,6 +1993,1732 @@ export default function Proposal({
 
       <Text> 
       We don&apos;t have time for companies like Toyota lobby for a competitive edge when our future is at stake. Sign the petition (especially if you own Toyota shares) to send a message to leadership that we won&apos;t stand for this!
+      </Text>
+      <br/>
+      <br/>
+    </Container>
+    {/* END OF BACKSTORY */}
+    <Flex mb="64px" flexDir={"column"} 
+            w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
+
+            {/* <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
+              <Flex justifyContent="space-between">
+                <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" mt="32px"> 
+                  Discussion
+                </Heading>
+              </Flex>
+              <br></br>
+              <Box mb="2%">
+                <MasterCommentThread type="deal" slug={slug} userIdForComment={userid} maxThreadDepth={3}></MasterCommentThread>
+              </Box>
+            </Box> */}
+    </Flex> 
+{/* ADDING THE HOW IT WORKS SECTION AFTER THE DISCUSSION */}
+    <Flex justifyContent="space-between" alignItems="center" width="100%" mb={'20px'}>
+          <Heading 
+            mr="10%" 
+            as="h1"
+            maxWidth={"900px"} 
+            display="inline-block" 
+            textAlign="center" 
+            size="4xl"
+            mx={"auto"}
+            fontSize={{base: "20px", md: "4xl", lg: "4xl"}}
+          >
+            <Highlight
+              query='real impact'
+              styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+            >
+              Join forces with other investors to have real impact
+            </Highlight>
+          </Heading>
+        </Flex>
+        <Box textAlign="center" ml="5%" mr="5%" mt="75px" display={{ base: "none", sm: "none", md:"block", lg: "block" }}>
+        <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    alt="campaign image"
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Flock.png?alt=media&token=1515b250-2374-4d95-85be-26d91fc95f43"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    Link your Broker
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    In order to prove you own shares, we ask that you link your broker after making an account.
+                  </Text>
+                </Box>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    alt="campaign image"
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Green%20Papers.png?alt=media&token=7c813e0b-964c-4b78-81cf-4e9a35d97e6b"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    Sign a Petition
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    Sign a petition for a company in your portfolio to take action on an issue you care about. 
+                  </Text>
+                </Box>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    alt="campaign image"
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Megaphone.png?alt=media&token=d71c6a33-e24b-406c-b99e-487f5360932a"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    We Do the Rest
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    We&#39;ll advocate for change at the target companies on behalf of you and other investors.
+                  </Text>
+                </Box>
+              </Flex>
+            </Box>
+{/* EXPERIMENTING WITH SWIPER HERE */}
+      <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }}>
+        <Testimonial ></Testimonial>
+      </Container>
+
+{/* BULK BLOCK WITH SHARE THIS CAMPAIGN AND SIGN PETITION STARTS HERE */}
+          
+        <Flex
+          w="100%"
+          my="32px"
+          bg='#08152E'
+          height={{
+            base: 'fit-content',
+            lg: "175px"
+          }}
+          borderRadius="16px"
+          justifyContent="center"
+          alignItems="center"
+          boxShadow="4px 4px 62px -9px rgba(0, 0, 0, 0.15)"
+          zIndex={500}
+          flexDir={{
+            base: "column",
+            md: "row"
+          }}
+        >
+          <Flex
+            alignItems={"center"}
+            justifyContent={"center"}
+            flexBasis="50%"
+            borderRight={{
+              base: 'none',
+              md: "1px solid #eaeaea"
+            }}
+            flexDirection={{
+              base: 'row',
+              sm: "row",
+              lg: 'row'
+            }}
+            m='16px'
+          >
+            <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
+            <Stack>
+              <Flex
+                position="relative"
+                justifyContent="center"
+                flexDirection="column"
+                alignItems="center"
+                width={{base: 284, md: 400, lg: 400}}
+                backgroundColor="FFFFFF"
+                boxShadow='2xl' p='0'
+                borderRadius="16px"
+                mt='auto'
+                mb="auto"
+                ml="auto"
+                mr='auto'
+                border="0px solid gray"
+                
+              >
+                
+                <Text fontSize="xl" fontWeight="bold" mb={0} mt={4}>
+                  {"Share this campaign"}
+                </Text>
+                <Flex justifyContent="center" alignItems="space-around" width={48}>
+                  <Box>
+                    <Flex alignItems={"center"} justifyContent={"flex-start"}>
+                      {socialMedia?.map((social: any, index: number) => {
+                        if (social?.name === "clipboard") {
+                          return (
+                            <Button
+                              key={index}
+                              name={social.name}
+                              w="48px"
+                              h="48px"
+                              onClick={() => copy(social?.link)}
+                              background="transparent"
+                              _hover={{
+                                background: "transparent",
+                              }}
+                              p="8px"
+                            >
+                              <Icon
+                                w={8}
+                                h={8}
+                                _hover={{ color: "purple" }}
+                                as={social.icon}
+                              />
+                            </Button>
+                          );
+                        } else {
+                          return (
+                            <Link
+                              key={index}
+                              href={social.link}
+                              target="_blank"
+                              background="transparent"
+                              _hover={{
+                                background: "transparent",
+                              }}
+                              w="48px"
+                              h="48px"
+                              onClick={() => {
+                                copy(social?.link, {
+                                  message: "Copied to clipboard",
+                                });
+                              }}
+                              p="8px"
+                            >
+                              <Icon
+                                w={8}
+                                h={8}
+                                _hover={{ color: "purple" }}
+                                as={social?.icon}
+                              />
+                            </Link>
+                          );
+                        }
+                      })}
+
+                      
+                    </Flex>
+                  </Box>
+                </Flex>
+              </Flex>
+            </Stack>
+            </Box>
+          </Flex>
+          <Flex
+            h="100%"
+            flexBasis={"50%"}
+            justifyContent="center"
+            alignItems="center"
+          >
+            {userid ? ( <>
+              <Button
+                {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
+                bg="rgb(100, 43, 115)"
+                color="white"
+                borderRadius="3xl"
+                fontSize="1.4em"
+                w={{ lg: "150px" }}
+                mr={{
+                  base: "0px", sm: "0", lg: "16px"
+                }}
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
+                h="64px"
+                onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
+              >
+                {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
+              </Button>
+              { !modalClose && <CastVoteModal
+                isOpen={voteModalIsOpen}
+                onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition();}}
+                onOpen={() => {reportOpenSignPetitionModal(); onVoteModalOpen;}}
+                campaign={campaign}
+                profileData={profileData}
+                uid={userid}
+                investmentsOld={investments}
+                slug={slug}
+                referralLink={(pageUri + "?ref=" + String(userid))}
+              /> } </>)
+              : 
+              (<>
+              <Button
+                bg="rgb(100, 43, 115)"
+                color="white"
+                borderRadius="3xl"
+                fontSize="1.4em"
+                w={{ lg: "350px" }}
+                mr={{
+                  base: "0px", sm: "0", lg: "16px"
+                }}
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
+                h="64px"
+                onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
+                >
+                {"Sign Petition"}
+                </Button>
+              
+                {loginModal && 
+                  <LoginModal 
+                    isOpen={voteModalIsOpen}
+                    onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition();}}
+                    onOpen={() => {onVoteModalOpen; reportOpenLoginModal();}}
+                  />
+                }
+                </>
+              )
+            }
+          </Flex>
+        </Flex>
+      </Container>
+      </>)}
+      
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 3      //////////// */}
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 3      //////////// */}
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 3      //////////// */}
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 3      //////////// */}
+
+
+
+
+      {/* ///// CHANGE THIS SYMBOL ON THE NEXT LINE FROM "CHANGETHIS" TO THE NEW COMPANY TICKER      //////////// */}
+      {campaign?.symbol == "AEE" && ( <> 
+      <Head>
+        <title>Proposal {campaign?.symbol} | Awake</title>
+        <meta property="og:title" content="Get Ameren Corporation to Report Scope 3 GHG Target Setting" />
+        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ameren%20logo.jpeg?alt=media&token=86da3b84-744a-430a-b8fb-82334b0f5c67" />
+      </Head>
+      {showConfetti && (<Confetti width={width} height={height}/>)}
+      <Box
+        mt="0px"
+        //bg="rgb(164,191,217)"
+        //bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+        //bgImage="url('https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1259&q=80')"
+        bgSize="cover"
+        position="relative"
+        zIndex={0}
+      >
+
+        <Box
+          position="absolute"
+          w="100%"
+          h="100%"
+          zIndex={0}
+          top="0"
+          left="0"
+        />
+
+        <Container p="0 25px" m="0 auto" width={"100%"}>
+          {/* <Button leftIcon={<IoArrowBackOutline />} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px" display={{ base: "none", sm: "none" }}>
+            All Campaigns
+          </Button> */}
+          <Flex
+            position="relative"
+            minH="80px"
+            alignItems="center"
+            justifyContent="center"
+            flexDir="column"
+            zIndex={250}
+          >
+          </Flex>
+        </Container>
+      </Box>
+
+        <Flex justifyContent="space-between" alignItems="center" width="100%" flexDir={{base:"column",lg:"row"}} mt={{base:"12px",lg:"20px"}}>
+          <Flex flexDir="column">
+                  <Heading 
+                      ml={{base: "3%", md: "10%", lg: "20%"}}
+                      mr={{base: "3%", md: "10%", lg: "10%"}}
+                      as="h1"
+                      maxWidth={"900px"} 
+                      display="inline-block" 
+                      textAlign="left" 
+                      size="2xl"
+                      fontSize={{base: "3xl", md: "5xl", lg: "5xl"}}
+                  >
+                    <Highlight
+                      query='Fueling Climate Change'
+                      styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                      >
+                      Get Ameren Corporation to Report Scope 3 GHG Target Setting
+                    </Highlight>
+                  </Heading>
+                          {userid ? ( <>
+                      <Button
+                        {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
+                        bg="rgb(100, 43, 115)"
+                        color="white"
+                        fontSize="1.4em"
+                        w={{ lg: "200px" }}
+                        mx={{base: "3%", md: "10%", lg: "25%"}}
+                        mb={{
+                          base: '0px',
+                          md: '0'
+                        }}
+                        mt={{
+                          base: '16px',
+                          md: '20px',
+                          lg: '40px'
+                        }}
+                        borderRadius="3xl"
+                        h="64px"
+                        onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
+                      >
+                        {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
+                      </Button>
+                      { !modalClose && <CastVoteModal
+                        isOpen={voteModalIsOpen}
+                        onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition();}}
+                        onOpen={() => {reportOpenSignPetitionModal(); onVoteModalOpen; }}
+                        campaign={campaign}
+                        profileData={profileData}
+                        uid={userid}
+                        investmentsOld={investments || undefined}
+                        slug={slug}
+                        referralLink={(pageUri + "?ref=" + String(userid))}
+                      /> } </>)
+                      : 
+                      (<>
+                      <Button
+                        bg="#32006b"
+                        color="white"
+                        fontSize="1.4em"
+                        w={{ lg: "200px" }}
+                        mx={{base: "3%", md: "10%", lg: "25%"}}
+                        mb={{
+                          base: '0px',
+                          md: '0'
+                        }}
+                        mt={{
+                          base: '16px',
+                          md: '20px',
+                          lg: '40px'
+                        }}
+                        borderRadius="3xl"
+                        h="64px"
+                        onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
+                        >
+                        {"Sign Petition"}
+                        </Button>
+                      
+                        {loginModal && 
+                          <LoginModal 
+                            isOpen={voteModalIsOpen}
+                            onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition();}}
+                            onOpen={() => {onVoteModalOpen; reportOpenLoginModal();}}
+                          />
+                        }
+                        </>
+                      )
+                    }
+                </Flex>
+                
+                <Flex
+                    w={{base:"100%",lg:"30%"}}
+                    boxShadow='2xl' p='1'
+                    mb="32px"
+                    mt="50px"
+                    mr={{lg:"15%"}}
+                    bg='#FFFFF'
+                    height={{
+                      base: 'fit-content',
+                      lg: "200px"
+                    }}
+                    // borderRadius="16px"
+                    justifyContent="center"
+                    alignItems="center"
+                    zIndex={500}
+                    flexDir={{
+                      base: "row",
+                      md: "row"
+                    }}
+                  > 
+                      <Box color="white" p={{ base: '6', lg: "16px 24px" }} borderRight={{
+                        base: 'none',
+                        md: "2px solid #eaeaea"
+                      }}>
+                        <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "42px" }} color="black">
+                          {campaign?.verifiedVotes ? "$" + String(currencyFormatter.format((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 146)) : "$" + String(currencyFormatter.format(12335.72))}
+                        </Heading>
+                        <Text color="black" fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
+                          <Center>
+                          Our Holdings &nbsp; <Tooltip label="This number tracks the collective number of shares in the company petition signers own"><QuestionOutlineIcon/></Tooltip>
+                          </Center>
+                        </Text>
+                      </Box>
+                      <Box color="black" p={{ base: '4', lg: "16px 24px" }}>
+                        <Heading textAlign={"center"}
+                          fontSize={{ base: "24px", sm: "24px", lg: "42px" }}
+                          color="black">
+                          {String(howManyUsers(243))}
+                        </Heading>
+                        <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
+                          Petition Signers
+                        </Text>
+                      </Box>
+                    </Flex>   
+          </Flex>
+
+{/* THIS IS THE IMAGES SECTION THAT COMES AFTER THE BANNER */}
+          <Flex 
+          mx={{lg:"10%"}}
+          mt={{lg:"5%"}}
+          justifyContent='space-between'
+          alignItems={"center"}
+          display="inline-block" flexDir={"row"} w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}>
+            <Image
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/Ameren%20logo.jpeg?alt=media&token=86da3b84-744a-430a-b8fb-82334b0f5c67"
+              height="350px"
+              width="600px"
+              display={{base:"none",lg:"inline-block"}}
+              mb={"-40px"}
+              alt="campaign image"
+            />
+          </Flex>   
+      
+      
+      <Container position="relative" mt="0" zIndex={1} w={{base:"95%",lg:"65%"}}>
+        <Flex mt={{base:"0px",lg:"128px"}} w="100%" justifyContent="space-between" alignItems="center">
+          <Flex mb="0px" flexDir={"column"} 
+            w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
+            <Box mb="32px">
+              <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" ml={{base:"20px"}}>
+                    <Highlight
+                      query='IMPORTANT'
+                      styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                      >
+                      WHY IT&apos;S IMPORTANT
+                    </Highlight>
+              </Heading>
+              {campaign?.companyName == "Ameren Corporation" ? 
+
+
+                campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
+                  <Text as='b'>We believe that Ameren must take immediate action to address its GHG emissions and set ambitious targets to achieve net zero emissions by 2050 for the full range of its Scope 3 value chain GHG emissions. Electricity production accounts for 25% of national greenhouse gas emissions and burning natural gas for heat in buildings accounts for approximately 11%. In addition, significant upstream emissions are created from the production of fossil fuels used in power production and heating buildings. Utilities also provide energy to some of the most greenhouse gas (GHG) intensive industries.</Text>
+                  <br/>
+                  <br/>
+                    <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" >
+                      <Highlight
+                        query='Want'
+                        styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                        >
+                        What we want
+                      </Highlight>
+                    </Heading>  
+                  <Text>We believe that Ameren must follow the lead of peer utilities like PSEG and NRG, who have committed to set a net zero target through the Science Based Targets initiative, which requires utilities to address all material Scope 3 value-chain emissions.</Text> 
+                  <br/>
+                  <br/>
+                  <Container display={{ base: "block", sm: "none", lg: "none" }}>
+                    <Faq faqs={faqs}></Faq>
+                  </Container>
+                  <br/>
+                </Text>) 
+                : 
+                campaign?.description && (<Text>
+                  {campaign?.description}
+                </Text>)}
+            </Box>
+          
+            </Flex>
+              {/* START OF THE FAQ SECTION */}
+              <Flex mb={{base:"0px",lg:"20px"}} flexDir={"column"} 
+                w={{ base: '100%', lg:"50%" }} 
+                display=   {{  base: "none", sm: "none", lg: "block" }}>
+                <Flex mb="20px" flexDir={"column"} w="25%">
+                  <Container 
+                  paddingTop="20px" w="400%" paddingLeft={{base:"0px",lg:"50px"}}
+                  >
+                    <Faq faqs={faqs}></Faq>
+                  </Container>
+                </Flex>
+              </Flex>
+        </Flex>
+
+{/* ATTEMPT TO ADD BACK STORY */}
+    {/* BACK STORY */}
+    <Container w={"100%"}>
+      <Heading fontSize="28px" textTransform={"uppercase"} mb="16px">
+        Back Story
+      </Heading>
+      <Text>The International Energy Agency&apos;s Net Zero Scenario is clear on the trajectory necessary to achieve 1.5oC, calling for net zero emissions from power generation by 2035 in advanced economies and globally by 2040, while requiring a 40% reduction of emissions from the building sector by 2030. However, Ameren has set GHG reduction targets for its Scope 1 and 2 emissions but not for its Scope 3 value-chain emissions. Research has found that the Environmental Protection Agency&apos;s emissions factors for natural gas, on which many utilities&apos; methane calculations rely, potentially underestimate supply chain methane emissions by 60%.
+      </Text>
+      <br/>
+      <br/>
+    </Container>
+    {/* END OF BACKSTORY */}
+    <Flex mb="64px" flexDir={"column"} 
+            w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
+
+            {/* <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
+              <Flex justifyContent="space-between">
+                <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" mt="32px"> 
+                  Discussion
+                </Heading>
+              </Flex>
+              <br></br>
+              <Box mb="2%">
+                <MasterCommentThread type="deal" slug={slug} userIdForComment={userid} maxThreadDepth={3}></MasterCommentThread>
+              </Box>
+            </Box> */}
+    </Flex> 
+{/* ADDING THE HOW IT WORKS SECTION AFTER THE DISCUSSION */}
+    <Flex justifyContent="space-between" alignItems="center" width="100%" mb={'20px'}>
+          <Heading 
+            mr="10%" 
+            as="h1"
+            maxWidth={"900px"} 
+            display="inline-block" 
+            textAlign="center" 
+            size="4xl"
+            mx={"auto"}
+            fontSize={{base: "20px", md: "4xl", lg: "4xl"}}
+          >
+            <Highlight
+              query='real impact'
+              styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+            >
+              Join forces with other investors to have real impact
+            </Highlight>
+          </Heading>
+        </Flex>
+        <Box textAlign="center" ml="5%" mr="5%" mt="75px" display={{ base: "none", sm: "none", md:"block", lg: "block" }}>
+        <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    alt="campaign image"
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Flock.png?alt=media&token=1515b250-2374-4d95-85be-26d91fc95f43"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    Link your Broker
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    In order to prove you own shares, we ask that you link your broker after making an account.
+                  </Text>
+                </Box>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    alt="campaign image"
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Green%20Papers.png?alt=media&token=7c813e0b-964c-4b78-81cf-4e9a35d97e6b"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    Sign a Petition
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    Sign a petition for a company in your portfolio to take action on an issue you care about. 
+                  </Text>
+                </Box>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    alt="campaign image"
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Megaphone.png?alt=media&token=d71c6a33-e24b-406c-b99e-487f5360932a"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    We Do the Rest
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    We&#39;ll advocate for change at the target companies on behalf of you and other investors.
+                  </Text>
+                </Box>
+              </Flex>
+            </Box>
+{/* EXPERIMENTING WITH SWIPER HERE */}
+      <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }}>
+        <Testimonial ></Testimonial>
+      </Container>
+
+{/* BULK BLOCK WITH SHARE THIS CAMPAIGN AND SIGN PETITION STARTS HERE */}
+          
+        <Flex
+          w="100%"
+          my="32px"
+          bg='#08152E'
+          height={{
+            base: 'fit-content',
+            lg: "175px"
+          }}
+          borderRadius="16px"
+          justifyContent="center"
+          alignItems="center"
+          boxShadow="4px 4px 62px -9px rgba(0, 0, 0, 0.15)"
+          zIndex={500}
+          flexDir={{
+            base: "column",
+            md: "row"
+          }}
+        >
+          <Flex
+            alignItems={"center"}
+            justifyContent={"center"}
+            flexBasis="50%"
+            borderRight={{
+              base: 'none',
+              md: "1px solid #eaeaea"
+            }}
+            flexDirection={{
+              base: 'row',
+              sm: "row",
+              lg: 'row'
+            }}
+            m='16px'
+          >
+            <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
+            <Stack>
+              <Flex
+                position="relative"
+                justifyContent="center"
+                flexDirection="column"
+                alignItems="center"
+                width={{base: 284, md: 400, lg: 400}}
+                backgroundColor="FFFFFF"
+                boxShadow='2xl' p='0'
+                borderRadius="16px"
+                mt='auto'
+                mb="auto"
+                ml="auto"
+                mr='auto'
+                border="0px solid gray"
+                
+              >
+                
+                <Text fontSize="xl" fontWeight="bold" mb={0} mt={4}>
+                  {"Share this campaign"}
+                </Text>
+                <Flex justifyContent="center" alignItems="space-around" width={48}>
+                  <Box>
+                    <Flex alignItems={"center"} justifyContent={"flex-start"}>
+                      {socialMedia?.map((social: any, index: number) => {
+                        if (social?.name === "clipboard") {
+                          return (
+                            <Button
+                              key={index}
+                              name={social.name}
+                              w="48px"
+                              h="48px"
+                              onClick={() => copy(social?.link)}
+                              background="transparent"
+                              _hover={{
+                                background: "transparent",
+                              }}
+                              p="8px"
+                            >
+                              <Icon
+                                w={8}
+                                h={8}
+                                _hover={{ color: "purple" }}
+                                as={social.icon}
+                              />
+                            </Button>
+                          );
+                        } else {
+                          return (
+                            <Link
+                              key={index}
+                              href={social.link}
+                              target="_blank"
+                              background="transparent"
+                              _hover={{
+                                background: "transparent",
+                              }}
+                              w="48px"
+                              h="48px"
+                              onClick={() => {
+                                copy(social?.link, {
+                                  message: "Copied to clipboard",
+                                });
+                              }}
+                              p="8px"
+                            >
+                              <Icon
+                                w={8}
+                                h={8}
+                                _hover={{ color: "purple" }}
+                                as={social?.icon}
+                              />
+                            </Link>
+                          );
+                        }
+                      })}
+
+                      
+                    </Flex>
+                  </Box>
+                </Flex>
+              </Flex>
+            </Stack>
+            </Box>
+          </Flex>
+          <Flex
+            h="100%"
+            flexBasis={"50%"}
+            justifyContent="center"
+            alignItems="center"
+          >
+            {userid ? ( <>
+              <Button
+                {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
+                bg="rgb(100, 43, 115)"
+                color="white"
+                borderRadius="3xl"
+                fontSize="1.4em"
+                w={{ lg: "150px" }}
+                mr={{
+                  base: "0px", sm: "0", lg: "16px"
+                }}
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
+                h="64px"
+                onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
+              >
+                {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
+              </Button>
+              { !modalClose && <CastVoteModal
+                isOpen={voteModalIsOpen}
+                onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition();}}
+                onOpen={() => {reportOpenSignPetitionModal(); onVoteModalOpen;}}
+                campaign={campaign}
+                profileData={profileData}
+                uid={userid}
+                investmentsOld={investments}
+                slug={slug}
+                referralLink={(pageUri + "?ref=" + String(userid))}
+              /> } </>)
+              : 
+              (<>
+              <Button
+                bg="rgb(100, 43, 115)"
+                color="white"
+                borderRadius="3xl"
+                fontSize="1.4em"
+                w={{ lg: "350px" }}
+                mr={{
+                  base: "0px", sm: "0", lg: "16px"
+                }}
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
+                h="64px"
+                onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
+                >
+                {"Sign Petition"}
+                </Button>
+              
+                {loginModal && 
+                  <LoginModal 
+                    isOpen={voteModalIsOpen}
+                    onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition();}}
+                    onOpen={() => {onVoteModalOpen; reportOpenLoginModal();}}
+                  />
+                }
+                </>
+              )
+            }
+          </Flex>
+        </Flex>
+      </Container>
+      </>)}
+
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 5      //////////// */}
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 5      //////////// */}
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 5      //////////// */}
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 5      //////////// */}
+
+
+
+
+      {/* ///// CHANGE THIS SYMBOL ON THE NEXT LINE FROM "CHANGETHIS" TO THE NEW COMPANY TICKER      //////////// */}
+      {campaign?.symbol == "XOM" && ( <> 
+      <Head>
+        <title>Proposal {campaign?.symbol} | Awake</title>
+        <meta property="og:title" content="ExxonMobil Corporation: Report Impact of Asset Transfers on Disclosed Greenhouse Gas Emissions" />
+        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/EXXON2.png?alt=media&token=a4b645e7-fc45-44aa-85a6-383dfd60fec0" />
+      </Head>
+      {showConfetti && (<Confetti width={width} height={height}/>)}
+      <Box
+        mt="0px"
+        //bg="rgb(164,191,217)"
+        //bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+        //bgImage="url('https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1259&q=80')"
+        bgSize="cover"
+        position="relative"
+        zIndex={0}
+      >
+
+        <Box
+          position="absolute"
+          w="100%"
+          h="100%"
+          zIndex={0}
+          top="0"
+          left="0"
+        />
+
+        <Container p="0 25px" m="0 auto" width={"100%"}>
+          {/* <Button leftIcon={<IoArrowBackOutline />} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px" display={{ base: "none", sm: "none" }}>
+            All Campaigns
+          </Button> */}
+          <Flex
+            position="relative"
+            minH="80px"
+            alignItems="center"
+            justifyContent="center"
+            flexDir="column"
+            zIndex={250}
+          >
+          </Flex>
+        </Container>
+      </Box>
+
+        <Flex justifyContent="space-between" alignItems="center" width="100%" flexDir={{base:"column",lg:"row"}} mt={{base:"12px",lg:"20px"}}>
+          <Flex flexDir="column">
+                  <Heading 
+                      ml={{base: "3%", md: "10%", lg: "20%"}}
+                      mr={{base: "3%", md: "10%", lg: "10%"}}
+                      as="h1"
+                      maxWidth={"900px"} 
+                      display="inline-block" 
+                      textAlign="left" 
+                      size="2xl"
+                      fontSize={{base: "3xl", md: "5xl", lg: "5xl"}}
+                  >
+                    <Highlight
+                      query='Fueling Climate Change'
+                      styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                      >
+                      ExxonMobil Corporation: Report Impact of Asset Transfers on Disclosed Greenhouse Gas Emissions
+                    </Highlight>
+                  </Heading>
+                          {userid ? ( <>
+                      <Button
+                        {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
+                        bg="rgb(100, 43, 115)"
+                        color="white"
+                        fontSize="1.4em"
+                        w={{ lg: "200px" }}
+                        mx={{base: "3%", md: "10%", lg: "25%"}}
+                        mb={{
+                          base: '0px',
+                          md: '0'
+                        }}
+                        mt={{
+                          base: '16px',
+                          md: '20px',
+                          lg: '40px'
+                        }}
+                        borderRadius="3xl"
+                        h="64px"
+                        onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
+                      >
+                        {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
+                      </Button>
+                      { !modalClose && <CastVoteModal
+                        isOpen={voteModalIsOpen}
+                        onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition();}}
+                        onOpen={() => {reportOpenSignPetitionModal(); onVoteModalOpen; }}
+                        campaign={campaign}
+                        profileData={profileData}
+                        uid={userid}
+                        investmentsOld={investments || undefined}
+                        slug={slug}
+                        referralLink={(pageUri + "?ref=" + String(userid))}
+                      /> } </>)
+                      : 
+                      (<>
+                      <Button
+                        bg="#32006b"
+                        color="white"
+                        fontSize="1.4em"
+                        w={{ lg: "200px" }}
+                        mx={{base: "3%", md: "10%", lg: "25%"}}
+                        mb={{
+                          base: '0px',
+                          md: '0'
+                        }}
+                        mt={{
+                          base: '16px',
+                          md: '20px',
+                          lg: '40px'
+                        }}
+                        borderRadius="3xl"
+                        h="64px"
+                        onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
+                        >
+                        {"Sign Petition"}
+                        </Button>
+                      
+                        {loginModal && 
+                          <LoginModal 
+                            isOpen={voteModalIsOpen}
+                            onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition();}}
+                            onOpen={() => {onVoteModalOpen; reportOpenLoginModal();}}
+                          />
+                        }
+                        </>
+                      )
+                    }
+                </Flex>
+                
+                <Flex
+                    w={{base:"100%",lg:"30%"}}
+                    boxShadow='2xl' p='1'
+                    mb="32px"
+                    mt="50px"
+                    mr={{lg:"15%"}}
+                    bg='#FFFFF'
+                    height={{
+                      base: 'fit-content',
+                      lg: "200px"
+                    }}
+                    // borderRadius="16px"
+                    justifyContent="center"
+                    alignItems="center"
+                    zIndex={500}
+                    flexDir={{
+                      base: "row",
+                      md: "row"
+                    }}
+                  > 
+                      <Box color="white" p={{ base: '6', lg: "16px 24px" }} borderRight={{
+                        base: 'none',
+                        md: "2px solid #eaeaea"
+                      }}>
+                        <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "42px" }} color="black">
+                          {campaign?.verifiedVotes ? "$" + String(currencyFormatter.format((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 146)) : "$" + String(currencyFormatter.format(112362.44))}
+                        </Heading>
+                        <Text color="black" fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
+                          <Center>
+                          Our Holdings &nbsp; <Tooltip label="This number tracks the collective number of shares in the company petition signers own"><QuestionOutlineIcon/></Tooltip>
+                          </Center>
+                        </Text>
+                      </Box>
+                      <Box color="black" p={{ base: '4', lg: "16px 24px" }}>
+                        <Heading textAlign={"center"}
+                          fontSize={{ base: "24px", sm: "24px", lg: "42px" }}
+                          color="black">
+                          {String(howManyUsers(2271))}
+                        </Heading>
+                        <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
+                          Petition Signers
+                        </Text>
+                      </Box>
+                    </Flex>   
+          </Flex>
+
+{/* THIS IS THE IMAGES SECTION THAT COMES AFTER THE BANNER */}
+          <Flex 
+          mx={{lg:"10%"}}
+          mt={{lg:"5%"}}
+          justifyContent='space-between'
+          alignItems={"center"}
+          display="inline-block" flexDir={"row"} w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}>
+            <Image
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/EXXON2.png?alt=media&token=a4b645e7-fc45-44aa-85a6-383dfd60fec0"
+              height="350px"
+              width="550px"
+              display={{base:"none",lg:"inline-block"}}
+              mb={"-40px"}
+              alt="campaign image"
+            />
+          </Flex>   
+      
+      
+      <Container position="relative" mt="0" zIndex={1} w={{base:"95%",lg:"65%"}}>
+        <Flex mt={{base:"0px",lg:"128px"}} w="100%" justifyContent="space-between" alignItems="center">
+          <Flex mb="0px" flexDir={"column"} 
+            w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
+            <Box mb="32px">
+              <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" ml={{base:"20px"}}>
+                    <Highlight
+                      query='IMPORTANT'
+                      styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                      >
+                      WHY IT&apos;S IMPORTANT
+                    </Highlight>
+              </Heading>
+              {campaign?.companyName == "ExxonMobil Corporation" ? 
+
+
+                campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
+                  <Text as='b'>The transfer of emissions from one company to another may reduce balance sheet emissions but does not mitigate company or stakeholder exposure to climate risk or contribute to the goal of limiting global temperature rise to 1.5 degrees Celsius. In the aggregate, upstream oil and gas assets are moving from operators with stronger climate commitments to operators with weaker climate targets and disclosures.</Text>
+                  <br/>
+                  <br/>
+                    <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" >
+                      <Highlight
+                        query='Want'
+                        styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                        >
+                        What we want
+                      </Highlight>
+                    </Heading>  
+                  <Text>We believe that ExxonMobil must be transparent about its emissions reporting, particularly with regard to asset divestitures. As such, we are calling on ExxonMobil to disclose a recalculated emissions baseline that excludes the aggregated GHG emissions from material asset divestitures occurring since 2016, the year ExxonMobil uses to baseline its emissions.</Text> 
+                  <br/>
+                  <br/>
+                  <Container display={{ base: "block", sm: "none", lg: "none" }}>
+                    <Faq faqs={faqs}></Faq>
+                  </Container>
+                  <br/>
+                </Text>) 
+                : 
+                campaign?.description && (<Text>
+                  {campaign?.description}
+                </Text>)}
+            </Box>
+          
+            </Flex>
+              {/* START OF THE FAQ SECTION */}
+              <Flex mb={{base:"0px",lg:"20px"}} flexDir={"column"} 
+                w={{ base: '100%', lg:"50%" }} 
+                display=   {{  base: "none", sm: "none", lg: "block" }}>
+                <Flex mb="20px" flexDir={"column"} w="25%">
+                  <Container 
+                  paddingTop="20px" w="400%" paddingLeft={{base:"0px",lg:"50px"}}
+                  >
+                    <Faq faqs={faqs}></Faq>
+                  </Container>
+                </Flex>
+              </Flex>
+        </Flex>
+
+{/* ATTEMPT TO ADD BACK STORY */}
+    {/* BACK STORY */}
+    <Container w={"100%"}>
+      <Heading fontSize="28px" textTransform={"uppercase"} mb="16px">
+        Back Story
+      </Heading>
+      <Text>ExxonMobil is reporting absolute Scope 1 and 2 emissions reductions of roughly 10% on both equity and operated bases. However, between 2017 and 2021, ExxonMobil sold more assets than any other American oil and gas company except Chevron, ranking fourth globally among sellers. It is unclear how ExxonMobil accounts for these divestitures in its emissions reporting. Therefore, shareholders cannot determine whether ExxonMobils reported GHG reductions are the result of operational improvements or of transferring emissions off its books.
+
+Devon Energy, a peer company of ExxonMobil, recalculates its baseline when asset divestitures or investments result in “a change to its emissions baseline of 5% or higher” to ensure accuracy and comparability of emissions reporting. Devon notes that this “recalculation methodology affirms our commitment to structurally drive down emissions, rather than divesting assets as a means to achieve our ambitious emissions reduction targets.”
+      </Text>
+      <br/>
+      <br/>
+    </Container>
+    {/* END OF BACKSTORY */}
+    <Flex mb="64px" flexDir={"column"} 
+            w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
+
+            {/* <Box display={{ base: "none", sm: "none", lg: "block" }} ml="3.2%">
+              <Flex justifyContent="space-between">
+                <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" mt="32px"> 
+                  Discussion
+                </Heading>
+              </Flex>
+              <br></br>
+              <Box mb="2%">
+                <MasterCommentThread type="deal" slug={slug} userIdForComment={userid} maxThreadDepth={3}></MasterCommentThread>
+              </Box>
+            </Box> */}
+    </Flex> 
+{/* ADDING THE HOW IT WORKS SECTION AFTER THE DISCUSSION */}
+    <Flex justifyContent="space-between" alignItems="center" width="100%" mb={'20px'}>
+          <Heading 
+            mr="10%" 
+            as="h1"
+            maxWidth={"900px"} 
+            display="inline-block" 
+            textAlign="center" 
+            size="4xl"
+            mx={"auto"}
+            fontSize={{base: "20px", md: "4xl", lg: "4xl"}}
+          >
+            <Highlight
+              query='real impact'
+              styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+            >
+              Join forces with other investors to have real impact
+            </Highlight>
+          </Heading>
+        </Flex>
+        <Box textAlign="center" ml="5%" mr="5%" mt="75px" display={{ base: "none", sm: "none", md:"block", lg: "block" }}>
+        <Flex justifyContent="space-around" alignItems="center" width="100%" mt={20}>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    alt="campaign image"
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2Flock.png?alt=media&token=1515b250-2374-4d95-85be-26d91fc95f43"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    Link your Broker
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    In order to prove you own shares, we ask that you link your broker after making an account.
+                  </Text>
+                </Box>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    alt="campaign image"
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Green%20Papers.png?alt=media&token=7c813e0b-964c-4b78-81cf-4e9a35d97e6b"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    Sign a Petition
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    Sign a petition for a company in your portfolio to take action on an issue you care about. 
+                  </Text>
+                </Box>
+                <Box
+                  width="32%"
+                  fontSize="xl"
+                  backgroundColor="whiteAlpha.500"
+                  m={1}
+                  padding="4px"
+                >
+                  <Image
+                    alt="campaign image"
+                    boxSize={{base: "50px", md: "150px", lg: "150px"}}
+                    ml="auto"
+                    mr="auto"
+                    src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Megaphone.png?alt=media&token=d71c6a33-e24b-406c-b99e-487f5360932a"
+                  />
+                  <Text ml="auto" mr="auto" textAlign="center" p={3} fontWeight="bold" fontSize={{base: "12px", md: "30px", lg: "24px"}}>
+                    We Do the Rest
+                  </Text>
+                  <Text fontSize={{base: "xs", md: "md", lg: "md"}}>
+                    We&#39;ll advocate for change at the target companies on behalf of you and other investors.
+                  </Text>
+                </Box>
+              </Flex>
+            </Box>
+{/* EXPERIMENTING WITH SWIPER HERE */}
+      <Container display={{ base: "block", sm: "block", md:"none", lg: "none" }}>
+        <Testimonial ></Testimonial>
+      </Container>
+
+{/* BULK BLOCK WITH SHARE THIS CAMPAIGN AND SIGN PETITION STARTS HERE */}
+          
+        <Flex
+          w="100%"
+          my="32px"
+          bg='#08152E'
+          height={{
+            base: 'fit-content',
+            lg: "175px"
+          }}
+          borderRadius="16px"
+          justifyContent="center"
+          alignItems="center"
+          boxShadow="4px 4px 62px -9px rgba(0, 0, 0, 0.15)"
+          zIndex={500}
+          flexDir={{
+            base: "column",
+            md: "row"
+          }}
+        >
+          <Flex
+            alignItems={"center"}
+            justifyContent={"center"}
+            flexBasis="50%"
+            borderRight={{
+              base: 'none',
+              md: "1px solid #eaeaea"
+            }}
+            flexDirection={{
+              base: 'row',
+              sm: "row",
+              lg: 'row'
+            }}
+            m='16px'
+          >
+            <Box color="white" p={{ base: '6', lg: "16px 24px" }}>
+            <Stack>
+              <Flex
+                position="relative"
+                justifyContent="center"
+                flexDirection="column"
+                alignItems="center"
+                width={{base: 284, md: 400, lg: 400}}
+                backgroundColor="FFFFFF"
+                boxShadow='2xl' p='0'
+                borderRadius="16px"
+                mt='auto'
+                mb="auto"
+                ml="auto"
+                mr='auto'
+                border="0px solid gray"
+                
+              >
+                
+                <Text fontSize="xl" fontWeight="bold" mb={0} mt={4}>
+                  {"Share this campaign"}
+                </Text>
+                <Flex justifyContent="center" alignItems="space-around" width={48}>
+                  <Box>
+                    <Flex alignItems={"center"} justifyContent={"flex-start"}>
+                      {socialMedia?.map((social: any, index: number) => {
+                        if (social?.name === "clipboard") {
+                          return (
+                            <Button
+                              key={index}
+                              name={social.name}
+                              w="48px"
+                              h="48px"
+                              onClick={() => copy(social?.link)}
+                              background="transparent"
+                              _hover={{
+                                background: "transparent",
+                              }}
+                              p="8px"
+                            >
+                              <Icon
+                                w={8}
+                                h={8}
+                                _hover={{ color: "purple" }}
+                                as={social.icon}
+                              />
+                            </Button>
+                          );
+                        } else {
+                          return (
+                            <Link
+                              key={index}
+                              href={social.link}
+                              target="_blank"
+                              background="transparent"
+                              _hover={{
+                                background: "transparent",
+                              }}
+                              w="48px"
+                              h="48px"
+                              onClick={() => {
+                                copy(social?.link, {
+                                  message: "Copied to clipboard",
+                                });
+                              }}
+                              p="8px"
+                            >
+                              <Icon
+                                w={8}
+                                h={8}
+                                _hover={{ color: "purple" }}
+                                as={social?.icon}
+                              />
+                            </Link>
+                          );
+                        }
+                      })}
+
+                      
+                    </Flex>
+                  </Box>
+                </Flex>
+              </Flex>
+            </Stack>
+            </Box>
+          </Flex>
+          <Flex
+            h="100%"
+            flexBasis={"50%"}
+            justifyContent="center"
+            alignItems="center"
+          >
+            {userid ? ( <>
+              <Button
+                {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
+                bg="rgb(100, 43, 115)"
+                color="white"
+                borderRadius="3xl"
+                fontSize="1.4em"
+                w={{ lg: "150px" }}
+                mr={{
+                  base: "0px", sm: "0", lg: "16px"
+                }}
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
+                h="64px"
+                onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
+              >
+                {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
+              </Button>
+              { !modalClose && <CastVoteModal
+                isOpen={voteModalIsOpen}
+                onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition();}}
+                onOpen={() => {reportOpenSignPetitionModal(); onVoteModalOpen;}}
+                campaign={campaign}
+                profileData={profileData}
+                uid={userid}
+                investmentsOld={investments}
+                slug={slug}
+                referralLink={(pageUri + "?ref=" + String(userid))}
+              /> } </>)
+              : 
+              (<>
+              <Button
+                bg="rgb(100, 43, 115)"
+                color="white"
+                borderRadius="3xl"
+                fontSize="1.4em"
+                w={{ lg: "350px" }}
+                mr={{
+                  base: "0px", sm: "0", lg: "16px"
+                }}
+                mb={{
+                  base: '32px',
+                  md: '0'
+                }}
+                h="64px"
+                onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
+                >
+                {"Sign Petition"}
+                </Button>
+              
+                {loginModal && 
+                  <LoginModal 
+                    isOpen={voteModalIsOpen}
+                    onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition();}}
+                    onOpen={() => {onVoteModalOpen; reportOpenLoginModal();}}
+                  />
+                }
+                </>
+              )
+            }
+          </Flex>
+        </Flex>
+      </Container>
+      </>)}
+
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 5      //////////// */}
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 5      //////////// */}
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 5      //////////// */}
+      {/* //////////  CHANGE BELOW FOR CAMPAIGN 5      //////////// */}
+
+
+
+
+      {/* ///// CHANGE THIS SYMBOL ON THE NEXT LINE FROM "CHANGETHIS" TO THE NEW COMPANY TICKER      //////////// */}
+      {campaign?.symbol == "CAKE" && ( <> 
+      <Head>
+        <title>Proposal {campaign?.symbol} | Awake</title>
+        <meta property="og:title" content="Cheesecake Factory Inc: Eliminate Deforestation From Company Supply Chains" />
+        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/cheesecake.png?alt=media&token=3ffef265-0541-49f9-bc17-d93967fedc85" />
+      </Head>
+      {showConfetti && (<Confetti width={width} height={height}/>)}
+      <Box
+        mt="0px"
+        //bg="rgb(164,191,217)"
+        //bgGradient="linear-gradient(41deg,rgb(100, 43, 115) 0%,rgb(164,191,217) 100%)"
+        //bgImage="url('https://images.unsplash.com/photo-1538935732373-f7a495fea3f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1259&q=80')"
+        bgSize="cover"
+        position="relative"
+        zIndex={0}
+      >
+
+        <Box
+          position="absolute"
+          w="100%"
+          h="100%"
+          zIndex={0}
+          top="0"
+          left="0"
+        />
+
+        <Container p="0 25px" m="0 auto" width={"100%"}>
+          {/* <Button leftIcon={<IoArrowBackOutline />} bgColor="white" border="1px" onClick={() => goBack()} mt="2%" ml="-12%" position="fixed" paddingLeft="20px" display={{ base: "none", sm: "none" }}>
+            All Campaigns
+          </Button> */}
+          <Flex
+            position="relative"
+            minH="80px"
+            alignItems="center"
+            justifyContent="center"
+            flexDir="column"
+            zIndex={250}
+          >
+          </Flex>
+        </Container>
+      </Box>
+
+        <Flex justifyContent="space-between" alignItems="center" width="100%" flexDir={{base:"column",lg:"row"}} mt={{base:"12px",lg:"20px"}}>
+          <Flex flexDir="column">
+                  <Heading 
+                      ml={{base: "3%", md: "10%", lg: "20%"}}
+                      mr={{base: "3%", md: "10%", lg: "10%"}}
+                      as="h1"
+                      maxWidth={"900px"} 
+                      display="inline-block" 
+                      textAlign="left" 
+                      size="2xl"
+                      fontSize={{base: "3xl", md: "5xl", lg: "5xl"}}
+                  >
+                    <Highlight
+                      query='Fueling Climate Change'
+                      styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                      >
+                      Cheesecake Factory Inc: Eliminate Deforestation From Company Supply Chains
+                    </Highlight>
+                  </Heading>
+                          {userid ? ( <>
+                      <Button
+                        {...hasUserVoted() ? { bg: "gray", disabled: true } : { bg: "rgb(164,191,217)", disabled: false }}
+                        bg="rgb(100, 43, 115)"
+                        color="white"
+                        fontSize="1.4em"
+                        w={{ lg: "200px" }}
+                        mx={{base: "3%", md: "10%", lg: "25%"}}
+                        mb={{
+                          base: '0px',
+                          md: '0'
+                        }}
+                        mt={{
+                          base: '16px',
+                          md: '20px',
+                          lg: '40px'
+                        }}
+                        borderRadius="3xl"
+                        h="64px"
+                        onClick={() => { onVoteModalOpen(); setModalClose(false); checkAndVote();}}
+                      >
+                        {hasUserVoted() ? "Already Signed!" : "Sign Petition"}
+                      </Button>
+                      { !modalClose && <CastVoteModal
+                        isOpen={voteModalIsOpen}
+                        onClose={ () => {onVoteModalClose; setModalClose(true); reportClickOutOfSignPetition();}}
+                        onOpen={() => {reportOpenSignPetitionModal(); onVoteModalOpen; }}
+                        campaign={campaign}
+                        profileData={profileData}
+                        uid={userid}
+                        investmentsOld={investments || undefined}
+                        slug={slug}
+                        referralLink={(pageUri + "?ref=" + String(userid))}
+                      /> } </>)
+                      : 
+                      (<>
+                      <Button
+                        bg="#32006b"
+                        color="white"
+                        fontSize="1.4em"
+                        w={{ lg: "200px" }}
+                        mx={{base: "3%", md: "10%", lg: "25%"}}
+                        mb={{
+                          base: '0px',
+                          md: '0'
+                        }}
+                        mt={{
+                          base: '16px',
+                          md: '20px',
+                          lg: '40px'
+                        }}
+                        borderRadius="3xl"
+                        h="64px"
+                        onClick={() => { onVoteModalOpen(); setLoginModal(true);}}
+                        >
+                        {"Sign Petition"}
+                        </Button>
+                      
+                        {loginModal && 
+                          <LoginModal 
+                            isOpen={voteModalIsOpen}
+                            onClose={ () => {onVoteModalClose; setLoginModal(false); reportClickOutOfSignPetition();}}
+                            onOpen={() => {onVoteModalOpen; reportOpenLoginModal();}}
+                          />
+                        }
+                        </>
+                      )
+                    }
+                </Flex>
+                
+                <Flex
+                    w={{base:"100%",lg:"30%"}}
+                    boxShadow='2xl' p='1'
+                    mb="32px"
+                    mt="50px"
+                    mr={{lg:"15%"}}
+                    bg='#FFFFF'
+                    height={{
+                      base: 'fit-content',
+                      lg: "200px"
+                    }}
+                    // borderRadius="16px"
+                    justifyContent="center"
+                    alignItems="center"
+                    zIndex={500}
+                    flexDir={{
+                      base: "row",
+                      md: "row"
+                    }}
+                  > 
+                      <Box color="white" p={{ base: '6', lg: "16px 24px" }} borderRight={{
+                        base: 'none',
+                        md: "2px solid #eaeaea"
+                      }}>
+                        <Heading textAlign={"center"} fontSize={{ base: "24px", sm: "24px", lg: "42px" }} color="black">
+                          {campaign?.verifiedVotes ? "$" + String(currencyFormatter.format((Math.round(Number(campaign?.verifiedVotes) * 100) /100) * 146)) : "$" + String(currencyFormatter.format(9007.17))}
+                        </Heading>
+                        <Text color="black" fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
+                          <Center>
+                          Our Holdings &nbsp; <Tooltip label="This number tracks the collective number of shares in the company petition signers own"><QuestionOutlineIcon/></Tooltip>
+                          </Center>
+                        </Text>
+                      </Box>
+                      <Box color="black" p={{ base: '4', lg: "16px 24px" }}>
+                        <Heading textAlign={"center"}
+                          fontSize={{ base: "24px", sm: "24px", lg: "42px" }}
+                          color="black">
+                          {String(howManyUsers(192))}
+                        </Heading>
+                        <Text fontWeight={500} fontSize={{ base: "16px", lg: "16px" }}>
+                          Petition Signers
+                        </Text>
+                      </Box>
+                    </Flex>   
+          </Flex>
+
+{/* THIS IS THE IMAGES SECTION THAT COMES AFTER THE BANNER */}
+          <Flex 
+          mx={{lg:"10%"}}
+          mt={{lg:"5%"}}
+          justifyContent='space-between'
+          alignItems={"center"}
+          display="inline-block" flexDir={"row"} w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}>
+            <Image
+              src="https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/cheesecake.png?alt=media&token=3ffef265-0541-49f9-bc17-d93967fedc85"
+              height="350px"
+              width="450px"
+              display={{base:"none",lg:"inline-block"}}
+              mb={"-40px"}
+              alt="campaign image"
+            />
+          </Flex>   
+      
+      
+      <Container position="relative" mt="0" zIndex={1} w={{base:"95%",lg:"65%"}}>
+        <Flex mt={{base:"0px",lg:"128px"}} w="100%" justifyContent="space-between" alignItems="center">
+          <Flex mb="0px" flexDir={"column"} 
+            w={{ base: "100%", sm: "100%", md: "60%", lg: "50%" }} mr="32px">
+            <Box mb="32px">
+              <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" ml={{base:"20px"}}>
+                    <Highlight
+                      query='IMPORTANT'
+                      styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                      >
+                      WHY IT&apos;S IMPORTANT
+                    </Highlight>
+              </Heading>
+              {campaign?.companyName == "Cheesecake Factory Inc" ? 
+
+
+                campaign?.description && (<Text align="justify"  ml={{base:"20px"}}>
+                  <Text as='b'>We are concerned about the impact of The Cheesecake Factory&apos;s use of palm oil, soy, beef, paper/pulp, coffee and cocoa in its products and packaging. These commodities are leading drivers of deforestation and native vegetation conversion globally, which are responsible for approximately 11 percent of global greenhouse gas emissions.</Text>
+                  <br/>
+                  <br/>
+                    <Heading fontSize="28px" textTransform={"uppercase"} mb="16px" >
+                      <Highlight
+                        query='Want'
+                        styles={{ px: '1', py: '.5', bg: 'yellow.200' }}
+                        >
+                        What we want
+                      </Highlight>
+                    </Heading>  
+                  <Text>We want The Cheesecake Factory to be a responsible corporate citizen and take the necessary steps to address its environmental impact. We believe that the company has an obligation to reduce its contribution to deforestation and associated greenhouse gas emissions.</Text> 
+                  <br/>
+                  <br/>
+                  <Container display={{ base: "block", sm: "none", lg: "none" }}>
+                    <Faq faqs={faqs}></Faq>
+                  </Container>
+                  <br/>
+                </Text>) 
+                : 
+                campaign?.description && (<Text>
+                  {campaign?.description}
+                </Text>)}
+            </Box>
+          
+            </Flex>
+              {/* START OF THE FAQ SECTION */}
+              <Flex mb={{base:"0px",lg:"20px"}} flexDir={"column"} 
+                w={{ base: '100%', lg:"50%" }} 
+                display=   {{  base: "none", sm: "none", lg: "block" }}>
+                <Flex mb="20px" flexDir={"column"} w="25%">
+                  <Container 
+                  paddingTop="20px" w="400%" paddingLeft={{base:"0px",lg:"50px"}}
+                  >
+                    <Faq faqs={faqs}></Faq>
+                  </Container>
+                </Flex>
+              </Flex>
+        </Flex>
+
+{/* ATTEMPT TO ADD BACK STORY */}
+    {/* BACK STORY */}
+    <Container w={"100%"}>
+      <Heading fontSize="28px" textTransform={"uppercase"} mb="16px">
+        Back Story
+      </Heading>
+      <Text>We note that while The Cheesecake Factory states that it is working towards zero deforestation from the sourcing of produce, cocoa, coffee, and tea, as well as palm oil, this aspiration not only lacks a specific, time-bound commitment, but also omits key commodities such as beef, soy, and paper/pulp, which comprise three of the top four commodity drivers of deforestation. Furthermore, in its 2021 CSR report, CAKE estimates that only 62 percent of its key produce ingredients are free from deforestation, leaving nearly 40 percent exposed to deforestation risk.
+
+We are also concerned that The Cheesecake Factory may be unable to deliver on its climate commitment if it does not eliminate supply chain deforestation by 2025, thereby exposing the company to reputational risk. While leading restaurant companies including McDonald’s and Yum! Brands have made timebound commitments to eliminate supply chain deforestation, CAKE does not disclose its forest footprint and lacks a policy to address deforestation risk from all sourced forest-risk commodities. As comprehensive no-deforestation policies and action plans become the industry standard, CAKE’s lack thereof increasingly lags peer companies positioning themselves to address these deforestation risks.
       </Text>
       <br/>
       <br/>

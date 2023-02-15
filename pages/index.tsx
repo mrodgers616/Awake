@@ -125,7 +125,7 @@ const Campaigns: NextPage = () => {
     usePaginator({
       total: totalProposals,
       initialState: {
-        pageSize: 3,
+        pageSize: 6,
         isDisabled: true,
         currentPage: 1,
       },
