@@ -3024,7 +3024,7 @@ export default function Proposal({
                       base: 'fit-content',
                       lg: "200px"
                     }}
-                    // borderRadius="16px"
+                    // borderRadius="16px" 
                     justifyContent="center"
                     alignItems="center"
                     zIndex={500}
