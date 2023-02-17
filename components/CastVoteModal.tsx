@@ -120,7 +120,7 @@ export default function CastVoteModal({
   const theConfetti: any = async () => {
     setShowConfetti(true);
     await sleep(7000);
-    setShowConfetti(false); 
+    setShowConfetti(false);
 
   }
 
@@ -140,7 +140,7 @@ export default function CastVoteModal({
         uid: uid ? uid : "not logged in",
       });
     }
-    catch(e) {
+    catch (e) {
 
     }
   }
@@ -150,14 +150,14 @@ export default function CastVoteModal({
 
     const cookies = parseCookies();
 
-    if(cookies?.referralCode) {
+    if (cookies?.referralCode) {
       let data = {
         referral: increment(inc)
       };
 
       await updateOrAddProfileData(cookies.referralCode, data);
 
-      destroyCookie(null, 'referralCode',{
+      destroyCookie(null, 'referralCode', {
         maxAge: 30 * 24 * 60 * 60,
         path: '/',
       });
@@ -198,7 +198,7 @@ export default function CastVoteModal({
       return false;
     }
 
-    
+
 
   }
 
@@ -208,14 +208,14 @@ export default function CastVoteModal({
     let forVotes = 1;
     let againstVotes = 0;
 
-    if(campaign.verifiedVote) {
+    if (campaign.verifiedVote) {
       againstVotes = campaign.verifiedVote.against
     }
     else {
       againstVotes = 0;
     }
 
-    if(campaign.verifiedVote) {
+    if (campaign.verifiedVote) {
       forVotes = Number(campaign.verifiedVote.for) + 1
     }
     else {
@@ -225,35 +225,35 @@ export default function CastVoteModal({
     if (currentVotes && users) {
       //const totalVotes = currentVotes + invest[i].quantity;
       users.push(uid);
-      if(Number.isNaN(Number(invest[i].quantity))) {
+      if (Number.isNaN(Number(invest[i].quantity))) {
         const dataToUpload = {
           verifiedVotes: campaign.verifiedVotes,
           users: arrayUnion(uid),
-          verifiedVote:{
+          verifiedVote: {
             for: forVotes,
             against: againstVotes
           }
-      }
-      updateProposalInStore(slug, dataToUpload);
+        }
+        updateProposalInStore(slug, dataToUpload);
       }
       else {
         const dataToUpload = {
           verifiedVotes: increment(Number(invest[i].quantity)),
           users: arrayUnion(uid),
-          verifiedVote:{
+          verifiedVote: {
             for: forVotes,
             against: againstVotes
           }
-      }
-      updateProposalInStore(slug, dataToUpload);
-      
+        }
+        updateProposalInStore(slug, dataToUpload);
+
       }
     }
     else {
       const dataToUpload = {
         verifiedVotes: Number(invest[i].quantity),
         users: [uid],
-        verifiedVote:{
+        verifiedVote: {
           for: 1,
           against: 0
         }
@@ -287,14 +287,14 @@ export default function CastVoteModal({
     let forVotes = 1;
     let againstVotes = 0;
 
-    if(campaign.unverifiedVote) {
+    if (campaign.unverifiedVote) {
       againstVotes = campaign.unverifiedVote.against
     }
     else {
       againstVotes = 0;
     }
 
-    if(campaign.unverifiedVote) {
+    if (campaign.unverifiedVote) {
       forVotes = Number(campaign.unverifiedVote.for) + 1
     }
     else {
@@ -307,7 +307,7 @@ export default function CastVoteModal({
       const dataToUpload = {
         unverifiedVotes: increment(1),
         unverifiedUsers: arrayUnion(uid),
-        unverifiedVote:{
+        unverifiedVote: {
           for: forVotes,
           against: againstVotes
         }
@@ -319,7 +319,7 @@ export default function CastVoteModal({
       const dataToUpload = {
         unverifiedVotes: 1,
         unverifiedUsers: [uid],
-        unverifiedVote:{
+        unverifiedVote: {
           for: 1,
           against: 0
         }
@@ -375,14 +375,14 @@ export default function CastVoteModal({
     let forVotes = 0;
     let againstVotes = 1;
 
-    if(campaign?.verifiedVote) {
+    if (campaign?.verifiedVote) {
       forVotes = Number(campaign?.verifiedVote.for) + 1
     }
     else {
       forVotes = 0;
     }
 
-    if(campaign.verifiedVote) {
+    if (campaign.verifiedVote) {
       againstVotes = Number(campaign?.verifiedVote.against) + 1
     }
     else {
@@ -395,7 +395,7 @@ export default function CastVoteModal({
       const dataToUpload = {
         verifiedVotes: increment(Number(investments[i]?.quantity)),
         users: arrayUnion(uid),
-        verifiedVote:{
+        verifiedVote: {
           for: forVotes,
           against: againstVotes
         }
@@ -407,7 +407,7 @@ export default function CastVoteModal({
       const dataToUpload = {
         verifiedVotes: Number(investments[i]?.quantity),
         users: [uid],
-        verifiedVote:{
+        verifiedVote: {
           for: 0,
           against: 1
         }
@@ -442,14 +442,14 @@ export default function CastVoteModal({
     let forVotes = 0;
     let againstVotes = 1;
 
-    if(campaign.unverifiedVote) {
+    if (campaign.unverifiedVote) {
       forVotes = Number(campaign.unverifiedVote.for) + 1
     }
     else {
       forVotes = 0;
     }
 
-    if(campaign.unverifiedVote) {
+    if (campaign.unverifiedVote) {
       againstVotes = Number(campaign.unverifiedVote.against) + 1
     }
     else {
@@ -462,7 +462,7 @@ export default function CastVoteModal({
       const dataToUpload = {
         unverifiedVotes: increment(1),
         unverifiedUsers: arrayUnion(uid),
-        unverifiedVote:{
+        unverifiedVote: {
           for: forVotes,
           against: againstVotes
         }
@@ -474,7 +474,7 @@ export default function CastVoteModal({
       const dataToUpload = {
         unverifiedVotes: 1,
         unverifiedUsers: [uid],
-        unverifiedVote:{
+        unverifiedVote: {
           for: 0,
           against: 1
         }
@@ -517,7 +517,7 @@ export default function CastVoteModal({
     setTheToken(token);
     setIsPlaidConnectedBefore(profileData.plaidPublicToken);
     plaidConnectedBefore = profileData.plaidPublicToken;
-    
+
   }
 
 
@@ -595,12 +595,12 @@ export default function CastVoteModal({
         accessToken: value
       }
       updateOrAddProfileData(uid, finalPublicToken);
-      
+
       const data = getInvestmentData(value).then(dataValue => {
         storeInvestmentData(dataValue).then(() => {
-          doesUserOwnSharesFor(100); 
-          theConfetti(); 
-          setShowForAgainst(false); 
+          doesUserOwnSharesFor(100);
+          theConfetti();
+          setShowForAgainst(false);
           setShowModal(true);
           //const response = fetch('/api/loops_add_user', { method: 'POST', body: profileData.email });
           try {
@@ -610,7 +610,7 @@ export default function CastVoteModal({
               uid: uid,
             });
           }
-          catch(e) {
+          catch (e) {
 
           }
         })
@@ -626,7 +626,7 @@ export default function CastVoteModal({
         uid: uid,
       });
     }
-    catch(e) {
+    catch (e) {
 
     }
     // log onEvent callbacks from Link
@@ -642,8 +642,8 @@ export default function CastVoteModal({
         uid: uid,
       });
     }
-    catch(e) {
-      
+    catch (e) {
+
     }
     // log onExit callbacks from Link, handle errors
     // https://plaid.com/docs/link/web/#onexit
@@ -704,7 +704,7 @@ export default function CastVoteModal({
 
   useEffect(() => {
     loadOnPageLoad();
-    
+
   }, []);
 
   return (
@@ -715,84 +715,84 @@ export default function CastVoteModal({
       motionPreset='slideInBottom'
       trapFocus={false}
     >
-      {showConfetti && (<Confetti width={width} height={height}/>)}
+      {showConfetti && (<Confetti width={width} height={height} />)}
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>
           <ModalCloseButton />
           {showForAgainst && (
             <>
-            {showDisclaimer ? 
-              (<>
-              
-              <Heading as="h2" size="lg" textAlign={"center"}>
-              Link Your Investment Account
-              </Heading>
-              <ModalBody>
-                <Text fontSize="md" textAlign={"left"}>
-                  Linking a brokerage account and proving you own shares gives us, as a community, much more leverage and increases the likelihood of this campaign succeeding
-                </Text>
-                <br/>
-                <Heading as="h2" size="lg" textAlign={"center"} textColor="#8C74E7">Facts About Your Data:</Heading>
-                <br/>
-                <Text fontSize="md" textAlign={"left"}>
-                  1. Your Data is securely stored and is only used anonymously to calculate an aggregate number of shares committed to this campaign.
-                </Text>
-                <br/>
-                <Text fontSize="md" textAlign={"left"}>
-                  2. Awake only tracks basic information like how many shares you own. This data is not visible to anyone else including Awake employees.
-                </Text>
-                <br/>
-                <Text fontSize="md" textAlign={"left"}>
-                  3. Awake will never sell your data.
-                </Text>
-              </ModalBody>
-              
-              </>)
-              :
-              (<Heading as="h2" size="lg" textAlign={"center"}>
-                Do you own shares in {`${campaign.companyName}`}?
-              </Heading>)
-            }
-          </>
+              {showDisclaimer ?
+                (<>
+
+                  <Heading as="h2" size="lg" textAlign={"center"}>
+                    Link Your Investment Account
+                  </Heading>
+                  <ModalBody>
+                    <Text fontSize="md" textAlign={"left"}>
+                      Linking a brokerage account and proving you own shares gives us, as a community, much more leverage and increases the likelihood of this campaign succeeding
+                    </Text>
+                    <br />
+                    <Heading as="h2" size="lg" textAlign={"center"} textColor="#8C74E7">Facts About Your Data:</Heading>
+                    <br />
+                    <Text fontSize="md" textAlign={"left"}>
+                      1. Your Data is securely stored and is only used anonymously to calculate an aggregate number of shares committed to this campaign.
+                    </Text>
+                    <br />
+                    <Text fontSize="md" textAlign={"left"}>
+                      2. Awake only tracks basic information like how many shares you own. This data is not visible to anyone else including Awake employees.
+                    </Text>
+                    <br />
+                    <Text fontSize="md" textAlign={"left"}>
+                      3. Awake will never sell your data.
+                    </Text>
+                  </ModalBody>
+
+                </>)
+                :
+                (<Heading as="h2" size="lg" textAlign={"center"}>
+                  Do you own shares in {`${campaign.companyName}`}?
+                </Heading>)
+              }
+            </>
           )}
           {!showForAgainst && (
-          <Heading as="h2" size="lg" textAlign={"center"} color="green" mt="20px">
-            {/*Choose Delegation Type*/}
-            You&apos;re the Absolute Best!
-          </Heading>
+            <Heading as="h2" size="lg" textAlign={"center"} color="green" mt="20px">
+              {/*Choose Delegation Type*/}
+              You&apos;re the Absolute Best!
+            </Heading>
           )}
         </ModalHeader>
-        <ModalBody 
+        <ModalBody
           as={Flex}
           justifyContent={"center"}
         >
           {showForAgainst && (
-          <>
-            {showDisclaimer ? (<>
-              <Button w='33%' mr="5%" border="0px" as={PlaidLink} bg='white' color="green"
-              onClick={handleOnClick}
-              token={theToken}
-              onSuccess={onSuccess}
-              onEvent={onEvent}
-              onExit={onExit}
-              >Continue
-              </Button>
-            </>) :
-            (<>
-            <Button w='33%' mr="5%" border="2px solid #F1F1F1" bg='white' color="green"
-                onClick={() => {handleYesClick(); plaidOpened()}}
-                >Yes
-            </Button>
-            <Button
-              w='33%'
-              bg='white'
-              color='red' border="2px solid #F1F1F1"
-              onClick={() => { doesUserOwnSharesFor(1); theConfetti(); setShowForAgainst(false); }}
-            >No
-            </Button></>
-            )}
-          </>
+            <>
+              {showDisclaimer ? (<>
+                <Button w='33%' mr="5%" border="0px" as={PlaidLink} bg='white' color="green"
+                  onClick={handleOnClick}
+                  token={theToken}
+                  onSuccess={onSuccess}
+                  onEvent={onEvent}
+                  onExit={onExit}
+                >Continue
+                </Button>
+              </>) :
+                (<>
+                  <Button w='33%' mr="5%" border="2px solid #F1F1F1" bg='white' color="green"
+                    onClick={() => { handleYesClick(); plaidOpened() }}
+                  >Yes
+                  </Button>
+                  <Button
+                    w='33%'
+                    bg='white'
+                    color='red' border="2px solid #F1F1F1"
+                    onClick={() => { doesUserOwnSharesFor(1); theConfetti(); setShowForAgainst(false); }}
+                  >No
+                  </Button></>
+                )}
+            </>
           )}
           {/*<Button
             w='33%'
@@ -802,22 +802,20 @@ export default function CastVoteModal({
   >Abstain</Button>*/}
         </ModalBody>
         {!showForAgainst && (
-        <ModalBody mx="20px" mb="20px">
-          <Center>
-            <Stack>
-            <Heading as="h4" size="sm" color='black'> Your vote helps us fight for corporate accountability! Check out our <Text as='mark'><b>$1000 referral raffle</b></Text> and read what happens next:</Heading>
-            <br></br>
+          <ModalBody mx="20px" mb="20px">
+            <Center>
+              <Stack>
+                <Heading as="h4" size="sm" color='black'> Your vote helps us fight for corporate accountability! Read what happens next:</Heading>
+                <br></br>
                 <ol>
-                  <Text><b>1.</b> Awake will write to the company&apos;s corporate sectretary once we reach 5,000 signatures to push for change!</Text>
+                  <Text><b>1.</b> Awake will write to the company&apos;s corporate sectretary once we reach 10,000 signatures to push for change!</Text>
                   <br></br>
-                  <Text><b>2. </b><Button variant='link' colorScheme='blue' onClick={handleReferral}> Here&apos;s your personal referral link.</Button> You earn 1 raffle ticket for each person you refer, 100 If they connect a brokerage account through Plaid.</Text>
-                  <br></br>
-                  
-                  <Text><b>3. </b> We&apos;ll reach out to you to share major updates on the campaign and other ways to get involved.</Text>
+
+                  <Text><b>2. </b> We&apos;ll reach out to you to share major updates on the campaign and other ways to get involved.</Text>
                 </ol>
-            </Stack>
-          </Center>
-        </ModalBody>
+              </Stack>
+            </Center>
+          </ModalBody>
         )}
       </ModalContent>
     </Modal>
