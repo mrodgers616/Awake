@@ -431,7 +431,7 @@ export const testimonial = {
     {
       id: 2,
       title: 'Sign a Petition',
-      path:'/',
+      path: '/',
       description:
         'Sign a petition for a company in your portfolio to take action on an issue you care about.',
       avatar: "https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Green%20Papers.png?alt=media&token=7c813e0b-964c-4b78-81cf-4e9a35d97e6b",
@@ -439,7 +439,7 @@ export const testimonial = {
     {
       id: 3,
       title: 'We Do the Rest',
-      path:'/',
+      path: '/',
       description:
         "We'll advocate for change at the target companies on behalf of you and other investors.",
       avatar: 'https://firebasestorage.googleapis.com/v0/b/climatedao-8fdb5.appspot.com/o/websiteAssets%2FGo%20Green%20Megaphone.png?alt=media&token=d71c6a33-e24b-406c-b99e-487f5360932a',
